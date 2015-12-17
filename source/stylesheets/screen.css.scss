@@ -21,6 +21,21 @@ License for the specific language governing permissions and limitations
 under the License.
 */
 
+.no-retry-error {
+  color: red;
+  font-weight: bold;
+}
+
+.fix-then-retry-error{
+  color: orange;
+  font-weight: bold;
+}
+
+.retry-later-error {
+  color: green;
+  font-weight: bold;
+}
+
 ////////////////////////////////////////////////////////////////////////////////
 // GENERAL STUFF
 ////////////////////////////////////////////////////////////////////////////////

@@ -28,9 +28,7 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id="api-usage">API Usage</h1>
-
-<h2 id="rate-limiting">Rate Limiting</h2>
+        <h2 id="rate-limiting">Rate Limiting</h2>
 
 <p>To ensure that system resources are not overloaded and response quality degrated, Moxi Works allows only a limited number of requests every minute. </p>
 
@@ -38,6 +36,10 @@
 In order to prevent abuse and undue stress on the Moxi Works servers, the API has a rate limiting feature that restricts users to <strong>300</strong> requests per minute per Access Token. </p>
 
 <p>If and when the limit is enforced, any requests that exceed this limit will be rejected with an <strong>429</strong> HTTP status code, along with the JSON response body shown to the right</p>
+
+<blockquote>
+<p>Over-limit Error Response</p>
+</blockquote>
 <pre class="highlight plaintext"><code>{
   "errorCode": 4000,
   "message": "Rate limit exceeded."

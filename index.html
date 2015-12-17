@@ -145,6 +145,10 @@ In order to prevent abuse and undue stress on the Moxi Works servers, the API ha
 
 <p>If and when the limit is enforced, any requests that exceed this limit will be rejected with an <strong>429</strong> HTTP status code, along with the JSON response body shown to the right</p>
 
+<blockquote>
+<p>Over-limit Error Response</p>
+</blockquote>
+
 <pre class="highlight plaintext"><code>{
   "errorCode": 4000,
   "message": "Rate limit exceeded."
@@ -155,20 +159,17 @@ In order to prevent abuse and undue stress on the Moxi Works servers, the API ha
 One way to accomplish this would be to have your integration <em>sleep</em> for 60 seconds when this error is returned from the API, then retry the request. 
 Alternatively, you might choose to use <a href="https://en.wikipedia.org/wiki/Exponential_backoff">exponential backoff</a> (an error handling strategy whereby you periodically retry a failed request with progressively longer wait times between retries, until either the request succeeds or a specified number of retry attempts is reached). </p>
 
-<h3 id="error-handling">Error Handling</h3>
+<h2 id="error-handling">Error Handling</h2>
 
 <p>The following table specifies the recommended action for each Moxi Works API error code. </p>
 
-<pre class="highlight plaintext"><code>Use this table to implement error handling logic according to the following guidelines:
-
-* If the error code indicates a permanent error condition, do not retry the request.
-* If the error code indicates a problem that can be fixed, do not retry the request until the problem has been fixed.
-* If the error code indicates a problem that could be overcome by retrying the request after a period of time, retry the request using exponential backoff.
-</code></pre>
+<blockquote>
+<p><strong>Use this table to implement error handling logic according to the following guidelines:</strong> <br><br> &bull; If the error code indicates a permanent error condition, do not retry the request. <br><br> &bull; If the error code indicates a problem that can be fixed, do not retry the request until the problem has been fixed.<br><br> &bull; If the error code indicates a problem that could be overcome by retrying the request after a period of time, retry the request using exponential backoff.</p>
+</blockquote>
 
 <table><thead>
 <tr>
-<th>Moxi Works API errorCode</th>
+<th>API Error Code</th>
 <th>HTTP Status Code</th>
 <th>Message</th>
 <th>Recommended Action</th>
@@ -178,271 +179,271 @@ Alternatively, you might choose to use <a href="https://en.wikipedia.org/wiki/Ex
 <td>1000</td>
 <td>400</td>
 <td>A required header was missing or invalid: {0}</td>
-<td>Do not retry without fixing the problem.</td>
+<td><span class="fix-then-retry-error">Fix issue, then retry.</span></td>
 </tr>
 <tr>
 <td>1010</td>
 <td>400</td>
 <td>A required object attribute is missing from your request: {0}.</td>
-<td>Do not retry without fixing the problem.</td>
+<td><span class="fix-then-retry-error">Fix issue, then retry.</span></td>
 </tr>
 <tr>
 <td>1020</td>
 <td>400</td>
 <td>Unable to parse request. The following error occurred: {0}</td>
-<td>Do not retry without fixing the problem.</td>
+<td><span class="fix-then-retry-error">Fix issue, then retry.</span></td>
 </tr>
 <tr>
 <td>1030</td>
 <td>400</td>
 <td>A required parameter is missing from your request: {0}.</td>
-<td>Do not retry without fixing the problem.</td>
+<td><span class="fix-then-retry-error">Fix issue, then retry.</span></td>
 </tr>
 <tr>
 <td>1040</td>
 <td>400</td>
 <td>The value {0} was not valid for the parameter {1}.</td>
-<td>Do not retry without fixing the problem.</td>
+<td><span class="fix-then-retry-error">Fix issue, then retry.</span></td>
 </tr>
 <tr>
 <td>1050</td>
 <td>400</td>
 <td>The HTTP request body is required for this Method.</td>
-<td>Do not retry without fixing the problem.</td>
+<td><span class="fix-then-retry-error">Fix issue, then retry.</span></td>
 </tr>
 <tr>
 <td>1060</td>
 <td>400</td>
 <td>The attribute(s) {0} are not allowed for this operation.</td>
-<td>Do not retry without fixing the problem.</td>
+<td><span class="fix-then-retry-error">Fix issue, then retry.</span></td>
 </tr>
 <tr>
 <td>1070</td>
 <td>400</td>
 <td>Assume-User header is required for your Access Token.</td>
-<td>Do not retry without fixing the problem.</td>
+<td><span class="fix-then-retry-error">Fix issue, then retry.</span></td>
 </tr>
 <tr>
 <td>1100</td>
 <td>400</td>
 <td>Invalid Content-Type: {0}</td>
-<td>Do not retry without fixing the problem.</td>
+<td><span class="fix-then-retry-error">Fix issue, then retry.</span></td>
 </tr>
 <tr>
 <td>1110</td>
 <td>400</td>
 <td>Invalid Grant. The authorization code or refresh token provided was invalid.</td>
-<td>Do not retry without fixing the problem.</td>
+<td><span class="fix-then-retry-error">Fix issue, then retry.</span></td>
 </tr>
 <tr>
 <td>1120</td>
 <td>400</td>
 <td>Invalid hash value. The hash provided did not match the expected value.</td>
-<td>Do not retry without fixing the problem.</td>
+<td><span class="fix-then-retry-error">Fix issue, then retry.</span></td>
 </tr>
 <tr>
 <td>1130</td>
 <td>400</td>
 <td>The redirect_uri did not match the expected value.</td>
-<td>Do not retry without fixing the problem.<br/><br/>Hint: Omit the <b>redirect_uri</b>  parameter</td>
+<td><span class="fix-then-retry-error">Fix issue, then retry.</span><br/><br/>Hint: Omit the <b>redirect_uri</b>  parameter</td>
 </tr>
 <tr>
 <td>1140</td>
 <td>400</td>
 <td>You are trying to upload a file of an unsupported type</td>
-<td>Do not retry without fixing the problem.</td>
+<td><span class="fix-then-retry-error">Fix issue, then retry.</span></td>
 </tr>
 <tr>
 <td>1150</td>
 <td>400</td>
 <td>The Content-Size provided did not match the file uploaded. This may be due to network issues or because the wrong Content-Size was specified.</td>
-<td>Do not retry without fixing the problem.</td>
+<td><span class="fix-then-retry-error">Fix issue, then retry.</span></td>
 </tr>
 <tr>
 <td>1160</td>
 <td>400</td>
 <td>Unable to authorize your access with auth provider.</td>
-<td>Do not retry without fixing the problem.</td>
+<td><span class="fix-then-retry-error">Fix issue, then retry.</span></td>
 </tr>
 <tr>
 <td>1170</td>
 <td>400</td>
 <td>Each part in a multipart payload must have a name</td>
-<td>Do not retry without fixing the problem.</td>
+<td><span class="fix-then-retry-error">Fix issue, then retry.</span></td>
 </tr>
 <tr>
 <td>1180</td>
 <td>400</td>
 <td>Multipart payload contained duplicate part names: {0}</td>
-<td>Do not retry without fixing the problem.</td>
+<td><span class="fix-then-retry-error">Fix issue, then retry.</span></td>
 </tr>
 <tr>
 <td>1190</td>
 <td>400</td>
 <td>Required multipart part was missing: &rsquo;{0}&rsquo;</td>
-<td>Do not retry without fixing the problem.</td>
+<td><span class="fix-then-retry-error">Fix issue, then retry.</span></td>
 </tr>
 <tr>
 <td>1200</td>
 <td>400</td>
 <td>Multipart upload size limit exceeded.</td>
-<td>Do not retry without fixing the problem.</td>
+<td><span class="fix-then-retry-error">Fix issue, then retry.</span></td>
 </tr>
 <tr>
 <td>1210</td>
 <td>400</td>
 <td>Multipart upload request was invalid. Please check your request headers and payload.</td>
-<td>Do not retry without fixing the problem.</td>
+<td><span class="fix-then-retry-error">Fix issue, then retry.</span></td>
 </tr>
 <tr>
 <td>1220</td>
 <td>400</td>
 <td>Multipart request contained an invalid part name: &rsquo;{0}&rsquo;</td>
-<td>Do not retry without fixing the problem.</td>
+<td><span class="fix-then-retry-error"><span class="fix-then-retry-error">Fix issue, then retry.</span></span></td>
 </tr>
 <tr>
 <td>1230</td>
 <td>400</td>
 <td>The resource you tried to create already exists.</td>
-<td><span class="doNotRetry">Do not retry.</span></td>
+<td><span class="no-retry-error">Do not retry.</span></td>
 </tr>
 <tr>
 <td>1240</td>
 <td>400</td>
 <td>Malformed data in request.</td>
-<td>Do not retry without fixing the problem.</td>
+<td><span class="fix-then-retry-error">Fix issue, then retry.</span></td>
 </tr>
 <tr>
 <td>1250</td>
 <td>400</td>
 <td>Unsupported operation: {0}.</td>
-<td><span class="doNotRetry">Do not retry.</span></td>
+<td><span class="no-retry-error">Do not retry.</span></td>
 </tr>
 <tr>
 <td>2000</td>
 <td>401</td>
 <td>An Access Token is required.</td>
-<td>Do not retry without fixing the problem.<br/><br/>Hint: Verify that <b>Authorization</b> header is present and set properly.</td>
+<td><span class="fix-then-retry-error">Fix issue, then retry.</span><br/><br/>Hint: Verify that <b>Authorization</b> header is present and set properly.</td>
 </tr>
 <tr>
 <td>2010</td>
 <td>401</td>
 <td>Your Access Token is invalid.</td>
-<td>Do not retry without fixing the problem.<br/><br/>Hint: Verify that the access token specified in the <b>Authorization</b> header is valid.</td>
+<td><span class="fix-then-retry-error">Fix issue, then retry.</span><br/><br/>Hint: Verify that the access token specified in the <b>Authorization</b> header is valid.</td>
 </tr>
 <tr>
 <td>2020</td>
 <td>401</td>
 <td>Your Access Token has expired.</td>
-<td>Do not retry without fixing the problem.<br/><br/>Hint: Generate a new <a href="#authentication">access token</a> or <a href="#oauth-flow">refresh</a> the token.</td>
+<td><span class="fix-then-retry-error">Fix issue, then retry.</span><br/><br/>Hint: Generate a new <a href="#authentication">access token</a> or <a href="#oauth-flow">refresh</a> the token.</td>
 </tr>
 <tr>
 <td>2030</td>
 <td>401</td>
 <td>Single Sign-On is required for this account.</td>
-<td><span class="doNotRetry">Do not retry.</span></td>
+<td><span class="no-retry-error">Do not retry.</span></td>
 </tr>
 <tr>
 <td>2040</td>
 <td>400</td>
 <td>Invalid Request. The authorization_code has expired.</td>
-<td>Do not retry without fixing the problem.<br/><br/>Hint: Repeat step 1 of the <a href="#oauth-flow">OAuth flow</a> (to retrieve a new authorization code).</td>
+<td><span class="fix-then-retry-error">Fix issue, then retry.</span><br/><br/>Hint: Repeat step 1 of the <a href="#oauth-flow">OAuth flow</a> (to retrieve a new authorization code).</td>
 </tr>
 <tr>
 <td>2050</td>
 <td>400</td>
 <td>The token provided has previously been revoked.</td>
-<td><span class="doNotRetry">Do not retry.<br/><br/>Hint: This error occurs during the <a href="#oauth-flow">OAuth flow</a> when trying to refresh a token that’s previously been revoked.  Must instead obtain a new token.</span></td>
+<td><span class="no-retry-error">Do not retry.</span><br/><br/>Hint: This error occurs during the <a href="#oauth-flow">OAuth flow</a> when trying to refresh a token that’s previously been revoked.  Must instead obtain a new token.</span></td>
 </tr>
 <tr>
 <td>2060</td>
 <td>403</td>
 <td>You are not authorized to perform this action.</td>
-<td>Do not retry without fixing the problem.<br/><br/>Hint: Verify that <b>Authorization</b> header is present and set properly, and that your account has access to the requested resource.</td>
+<td><span class="fix-then-retry-error">Fix issue, then retry.</span><br/><br/>Hint: Verify that <b>Authorization</b> header is present and set properly, and that your account has access to the requested resource.</td>
 </tr>
 <tr>
 <td>2070</td>
 <td>403</td>
 <td>The operation you are attempting to perform is not supported by your plan.</td>
-<td>Do not retry without fixing the problem.</td>
+<td><span class="fix-then-retry-error">Fix issue, then retry.</span></td>
 </tr>
 <tr>
 <td>2080</td>
 <td>403</td>
 <td>There are no licenses available on your account.</td>
-<td>Do not retry without fixing the problem.</td>
+<td><span class="fix-then-retry-error">Fix issue, then retry.</span></td>
 </tr>
 <tr>
 <td>2090</td>
 <td>403</td>
 <td>Cannot take requested action. The requested resource is associated with another account. They are not a member of your account.</td>
-<td><span class="doNotRetry">Do not retry.</span></td>
+<td><span class="no-retry-error">Do not retry.</span></td>
 </tr>
 <tr>
 <td>2100</td>
 <td>403</td>
 <td>The resource specified is read-only.</td>
-<td><span class="doNotRetry">Do not retry.</span></td>
+<td><span class="no-retry-error">Do not retry.</span></td>
 </tr>
 <tr>
 <td>3000</td>
 <td>404</td>
 <td>Resource Not Found.</td>
-<td>Do not retry without fixing the problem.<br/><br/>Hint: Verify that specified URI is correct. If the URI contains an object ID, verify that the object ID is correct and that you have access to the associated resource.</td>
+<td><span class="fix-then-retry-error">Fix issue, then retry.</span><br/><br/>Hint: Verify that specified URI is correct. If the URI contains an object ID, verify that the object ID is correct and that you have access to the associated resource.</td>
 </tr>
 <tr>
 <td>3010</td>
 <td>404</td>
 <td>Version not supported.</td>
-<td>Do not retry without fixing the problem.</td>
+<td><span class="fix-then-retry-error">Fix issue, then retry.</span></td>
 </tr>
 <tr>
 <td>3040</td>
 <td>405</td>
 <td>HTTP Method not supported.</td>
-<td>Do not retry without fixing the problem.<br/><br/>Hint: Verify that the proper verb is specified for the request (GET, PUT, POST, or DELETE).</td>
+<td><span class="fix-then-retry-error">Fix issue, then retry.</span><br/><br/>Hint: Verify that the proper verb is specified for the request (GET, PUT, POST, or DELETE).</td>
 </tr>
 <tr>
 <td>3050</td>
 <td>406</td>
 <td>Invalid Accept header. Media type not supported.</td>
-<td>Do not retry without fixing the problem.<br/><br/>Hint: Verify that <b>Accept</b> header is set to the <a href="#input-/-output-format">proper value</a> (to match the output of the invoked endpoint &ndash; typically “application/json”).</td>
+<td><span class="fix-then-retry-error">Fix issue, then retry.</span><br/><br/>Hint: Verify that <b>Accept</b> header is set to the <a href="#input-/-output-format">proper value</a> (to match the output of the invoked endpoint &ndash; typically “application/json”).</td>
 </tr>
 <tr>
 <td>3060</td>
 <td>415</td>
 <td>Invalid Content-Type header. Media type not supported.</td>
-<td>Do not retry without fixing the problem.<br/><br/>Hint: Verify that <b/>Content-Type</b> header is specified and set to the <a href="#input-/-output-format">proper value</a>.</td>
+<td><span class="fix-then-retry-error">Fix issue, then retry.</span><br/><br/>Hint: Verify that <b/>Content-Type</b> header is specified and set to the <a href="#input-/-output-format">proper value</a>.</td>
 </tr>
 <tr>
 <td>4000</td>
 <td>429</td>
 <td>Rate limit exceeded.</td>
-<td><span class="retryAgainLater">Retry using <a href="https://en.wikipedia.org/wiki/Exponential_backoff" target="_blank">exponential backoff</a>.<br/><br/>Hint: Reduce the rate at which you are sending requests.</span></td>
+<td><span class="retry-later-error">Retry using <a href="https://en.wikipedia.org/wiki/Exponential_backoff" target="_blank">exponential backoff</a></span>.<br/><br/>Hint: Reduce the rate at which you are sending requests.</span></td>
 </tr>
 <tr>
 <td>5000</td>
 <td>500</td>
 <td>An unexpected error has occurred. Please contact api@moxiworks.com for assistance.</td>
-<td><span class="doNotRetry">Do not retry.</span></td>
+<td><span class="no-retry-error">Do not retry.</span></td>
 </tr>
 <tr>
 <td>5010</td>
 <td>500</td>
 <td>An unexpected error has occurred. Please retry your request. If you encounter this error repeatedly, please contact api@moxiworks.com for assistance.</td>
-<td><span class="retryAgainLater">Retry using <a href="https://en.wikipedia.org/wiki/Exponential_backoff" target="_blank">exponential backoff</a>.</span></td>
+<td><span class="retry-later-error">Retry using <a href="https://en.wikipedia.org/wiki/Exponential_backoff" target="_blank">exponential backoff</a>.</span></td>
 </tr>
 <tr>
 <td>5020</td>
 <td>500</td>
 <td>Server timeout exceeded. Request has failed.</td>
-<td><span class="retryAgainLater">Retry using <a href="https://en.wikipedia.org/wiki/Exponential_backoff" target="_blank">exponential backoff</a>.</span></td>
+<td><span class="retry-later-error">Retry using <a href="https://en.wikipedia.org/wiki/Exponential_backoff" target="_blank">exponential backoff</a>.</span></td>
 </tr>
 <tr>
 <td>5030</td>
 <td>503</td>
 <td>api.moxiworks.com is currently offline for system maintenance. Please check back again shortly.</td>
-<td><span class="retryAgainLater">Retry using <a href="https://en.wikipedia.org/wiki/Exponential_backoff" target="_blank">exponential backoff</a>.<br/><br/>Hint: Wait time between retries should measure in minutes (not seconds).</span></td>
+<td><span class="retry-later-error">Retry using <a href="https://en.wikipedia.org/wiki/Exponential_backoff" target="_blank">exponential backoff</a>.</span><br/><br/>Hint: Wait time between retries should measure in minutes (not seconds).</td>
 </tr>
 </tbody></table>
 

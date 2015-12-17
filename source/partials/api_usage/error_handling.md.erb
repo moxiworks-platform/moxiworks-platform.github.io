@@ -1,0 +1,60 @@
+### Error Handling
+ 
+The following table specifies the recommended action for each Moxi Works API error code. 
+
+```apires
+Use this table to implement error handling logic according to the following guidelines:
+
+* If the error code indicates a permanent error condition, do not retry the request.
+* If the error code indicates a problem that can be fixed, do not retry the request until the problem has been fixed.
+* If the error code indicates a problem that could be overcome by retrying the request after a period of time, retry the request using exponential backoff.
+```
+
+
+ Moxi Works API errorCode | HTTP Status Code | Message | Recommended Action |
+-----|-----|-----|-----|
+1000 | 400 | A required header was missing or invalid: {0} | Do not retry without fixing the problem.
+1010 | 400 | A required object attribute is missing from your request: {0}. | Do not retry without fixing the problem.
+1020 | 400 | Unable to parse request. The following error occurred: {0} | Do not retry without fixing the problem.
+1030 | 400 | A required parameter is missing from your request: {0}. | Do not retry without fixing the problem.
+1040 | 400 | The value {0} was not valid for the parameter {1}. | Do not retry without fixing the problem.
+1050 | 400 | The HTTP request body is required for this Method. | Do not retry without fixing the problem.
+1060 | 400 | The attribute(s) {0} are not allowed for this operation. | Do not retry without fixing the problem.
+1070 | 400 | Assume-User header is required for your Access Token. | Do not retry without fixing the problem.
+1100 | 400 | Invalid Content-Type: {0} | Do not retry without fixing the problem.
+1110 | 400 | Invalid Grant. The authorization code or refresh token provided was invalid. | Do not retry without fixing the problem.
+1120 | 400 | Invalid hash value. The hash provided did not match the expected value. | Do not retry without fixing the problem.
+1130 | 400 | The redirect_uri did not match the expected value. | Do not retry without fixing the problem.<br/><br/>Hint: Omit the <b>redirect_uri</b>  parameter 
+1140 | 400 | You are trying to upload a file of an unsupported type | Do not retry without fixing the problem.
+1150 | 400 | The Content-Size provided did not match the file uploaded. This may be due to network issues or because the wrong Content-Size was specified. | Do not retry without fixing the problem.
+1160 | 400 | Unable to authorize your access with auth provider. | Do not retry without fixing the problem.
+1170 | 400 | Each part in a multipart payload must have a name | Do not retry without fixing the problem.
+1180 | 400 |  Multipart payload contained duplicate part names: {0} | Do not retry without fixing the problem.
+1190 | 400 | Required multipart part was missing: '{0}' | Do not retry without fixing the problem.
+1200 | 400 | Multipart upload size limit exceeded. | Do not retry without fixing the problem.
+1210 | 400 | Multipart upload request was invalid. Please check your request headers and payload. | Do not retry without fixing the problem.
+1220 | 400 | Multipart request contained an invalid part name: '{0}' | Do not retry without fixing the problem.
+1230 | 400 | The resource you tried to create already exists. | <span class="doNotRetry">Do not retry.</span>
+1240 | 400 | Malformed data in request. | Do not retry without fixing the problem.
+1250 | 400 | Unsupported operation: {0}. | <span class="doNotRetry">Do not retry.</span>
+2000 | 401 | An Access Token is required. | Do not retry without fixing the problem.<br/><br/>Hint: Verify that <b>Authorization</b> header is present and set properly.
+2010 | 401 |  Your Access Token is invalid. | Do not retry without fixing the problem.<br/><br/>Hint: Verify that the access token specified in the <b>Authorization</b> header is valid.
+2020 | 401 | Your Access Token has expired. | Do not retry without fixing the problem.<br/><br/>Hint: Generate a new <a href="#authentication">access token</a> or <a href="#oauth-flow">refresh</a> the token.
+2030 | 401 | Single Sign-On is required for this account. | <span class="doNotRetry">Do not retry.</span>
+2040 | 400 | Invalid Request. The authorization_code has expired. | Do not retry without fixing the problem.<br/><br/>Hint: Repeat step 1 of the <a href="#oauth-flow">OAuth flow</a> (to retrieve a new authorization code).
+2050 | 400 | The token provided has previously been revoked. | <span class="doNotRetry">Do not retry.<br/><br/>Hint: This error occurs during the <a href="#oauth-flow">OAuth flow</a> when trying to refresh a token that’s previously been revoked.  Must instead obtain a new token.</span>
+2060 | 403 |  You are not authorized to perform this action. | Do not retry without fixing the problem.<br/><br/>Hint: Verify that <b>Authorization</b> header is present and set properly, and that your account has access to the requested resource.
+2070 | 403 | The operation you are attempting to perform is not supported by your plan. | Do not retry without fixing the problem.
+2080 | 403 | There are no licenses available on your account. | Do not retry without fixing the problem.
+2090 | 403 | Cannot take requested action. The requested resource is associated with another account. They are not a member of your account. | <span class="doNotRetry">Do not retry.</span>
+2100 | 403 | The resource specified is read-only. | <span class="doNotRetry">Do not retry.</span>
+3000 | 404 | Resource Not Found. | Do not retry without fixing the problem.<br/><br/>Hint: Verify that specified URI is correct. If the URI contains an object ID, verify that the object ID is correct and that you have access to the associated resource.
+3010 | 404 | Version not supported. | Do not retry without fixing the problem.
+3040 | 405 | HTTP Method not supported. | Do not retry without fixing the problem.<br/><br/>Hint: Verify that the proper verb is specified for the request (GET, PUT, POST, or DELETE).
+3050 | 406 | Invalid Accept header. Media type not supported. | Do not retry without fixing the problem.<br/><br/>Hint: Verify that <b>Accept</b> header is set to the <a href="#input-/-output-format">proper value</a> (to match the output of the invoked endpoint -- typically “application/json”).
+3060 | 415 | Invalid Content-Type header. Media type not supported. | Do not retry without fixing the problem.<br/><br/>Hint: Verify that <b/>Content-Type</b> header is specified and set to the <a href="#input-/-output-format">proper value</a>.
+4000 | 429 | Rate limit exceeded. | <span class="retryAgainLater">Retry using <a href="https://en.wikipedia.org/wiki/Exponential_backoff" target="_blank">exponential backoff</a>.<br/><br/>Hint: Reduce the rate at which you are sending requests.</span>
+5000 | 500 | An unexpected error has occurred. Please contact api@moxiworks.com for assistance. | <span class="doNotRetry">Do not retry.</span>
+5010 | 500 | An unexpected error has occurred. Please retry your request. If you encounter this error repeatedly, please contact api@moxiworks.com for assistance. | <span class="retryAgainLater">Retry using <a href="https://en.wikipedia.org/wiki/Exponential_backoff" target="_blank">exponential backoff</a>.</span>
+5020 | 500 | Server timeout exceeded. Request has failed. | <span class="retryAgainLater">Retry using <a href="https://en.wikipedia.org/wiki/Exponential_backoff" target="_blank">exponential backoff</a>.</span>
+5030 | 503 | api.moxiworks.com is currently offline for system maintenance. Please check back again shortly. | <span class="retryAgainLater">Retry using <a href="https://en.wikipedia.org/wiki/Exponential_backoff" target="_blank">exponential backoff</a>.<br/><br/>Hint: Wait time between retries should measure in minutes (not seconds).</span>

@@ -57,7 +57,7 @@
 <h2 id="introduction">Introduction</h2>
 
 <blockquote>
-<p><strong>Base URL</strong>:  https://api.moxiworks.com/v1/</p>
+<p><strong>Base URL</strong>:  https://api.moxiworks.com/</p>
 </blockquote>
 
 <p>The Moxi Works API provides programmatic access to Moxi Works features and data. 
@@ -73,10 +73,12 @@ We do our best to adhere to open and accepted common standards, including REST f
 
 <p>The response payload is JSON encoded object(s) with defined structure which relfects a data model.</p>
 
-<p>URL structure follows typical resource-oriented conventions. For example, to get a list of contacts, use <code class="prettyprint">GET https://api.moxiworks.com/v1/contacts</code>. 
+<aside class="notice">Some of the data returned by the Moxi Works API is user-generated content. Ensure that the response payload content is consumed safely to avoid introducing vulnerabilities in your application.</aside>
+
+<p>URL structure follows typical resource-oriented conventions. For example, to get a list of contacts, use <code class="prettyprint">GET https://api.moxiworks.com/contacts</code>. 
 This will return a list of Contact objects, where each Contact will have an &ldquo;id&rdquo; attribute. 
-To get details on a particular contact, use <code class="prettyprint">GET https://api.moxiworks.com/v1/contacts/123456</code>, where 123456 is the &ldquo;id&rdquo; of the Contact you want. 
-Similarly, to create a Contact, <code class="prettyprint">POST</code> a Contact object to <code class="prettyprint">https://api.moxiworks.com/v1/contacts/</code>.</p>
+To get details on a particular contact, use <code class="prettyprint">GET https://api.moxiworks.com/contacts/123456</code>, where 123456 is the &ldquo;id&rdquo; of the Contact you want. 
+Similarly, to create a Contact, <code class="prettyprint">POST</code> a Contact object to <code class="prettyprint">https://api.moxiworks.com/contacts/</code>.</p>
 
 <h2 id="http-standards">HTTP Standards</h2>
 
@@ -87,33 +89,13 @@ Similarly, to create a Contact, <code class="prettyprint">POST</code> a Contact 
 
 <p>Unless otherwise specified, all API endpoints expect request body data to be in <a href="http://en.wikipedia.org/wiki/JSON">JSON</a>, and the response body data is returned as JSON.</p>
 
-<p>The following HTTP request headers may be required, depending on the operation and endpoint being invoked:</p>
-
-<table><thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead><tbody>
-<tr>
-<td><em>Content-Type</em></td>
-<td>For POST and PUT requests, must be set to the appropriate value (typically <code class="prettyprint">application/json</code>).  Ignored for GET and DELETE requests.</td>
-</tr>
-<tr>
-<td><em>Accept</em></td>
-<td>Optional; if not specified, <code class="prettyprint">*/*</code> is assumed (i.e. any response type is accepted), else it must match the output of the invoked endpoint (typically <code class="prettyprint">application/json</code>).</td>
-</tr>
-</tbody></table>
-
-<aside class="notice">Some of the data returned by the Moxi Works API is user-generated content. Ensure that the response payload content is consumed safely to avoid introducing vulnerabilities in your application.</aside>
-
 <h2 id="example-requests-amp-responses">Example Requests &amp; Responses</h2>
 
 <p>For every API operation in this documentation, we show example requests and an example (JSON) response. </p>
 
 <p>You&rsquo;ll see the examples displayed in the dark blue panel next to each operation. </p>
 
-<p>To view the sample code in a specific language, select the corresponding language tab along the top of the dark blue panel. 
+<p>To view the sample code in a specific language, select the corresponding language tab at the top of the panel to the right. 
 For more information about using the sample code in this API documentation, see <a href="#sdks-and-sample-code">SDKs and Sample Code</a>. </p>
 
 <p>As with any REST API, you can also test API requests / responses using a Chrome extension like <a href="https://chrome.google.com/webstore/detail/advanced-rest-client/hgmloofddffdnphfgcellkdfbfbjeloo/">Advanced REST Client</a> or <a href="https://chrome.google.com/webstore/detail/postman-rest-client/fdmmgilgnpjigdojojpjoooidkmcomcm">POSTMAN</a>. </p>
@@ -135,6 +117,28 @@ You should never use deprecated APIs in new development, and if you have existin
 
 
 <h1 id="api-usage">API Usage</h1>
+
+<h2 id="request-header-api-versioning">Request Header API Versioning</h2>
+
+<p>Moxi Works API uses the Accept header to denote the version of the API to be used. By default, the current version of the API will be used when it is not set.</p>
+
+<blockquote>
+<p><strong>Moxi Works V1  API Accept Header:</strong> application/vnd.moxi-platform+json;version=[VERSION NUMBER]</p>
+</blockquote>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><em>Accept</em></td>
+<td>The Moxi Works API uses the Accept header to denote the API version to be used ( <code class="prettyprint">application/vnd.moxi-platform+json;version=1</code>).</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">To ensure that your request to the Moxi Works API continue to function when breaking changes are introduced to the API, ensure that you use request header versioning  when accessing the Moxi Works API. If the API version is not denoted in the request header</aside>
 
 <h2 id="rate-limiting">Rate Limiting</h2>
 

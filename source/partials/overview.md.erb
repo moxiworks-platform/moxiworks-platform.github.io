@@ -10,7 +10,7 @@ Moxi Works api allows partner access to Moxi Works Products.
 
 ## Introduction
 
-> **Base URL**:  https://api.moxiworks.com/v1/
+> **Base URL**:  https://api.moxiworks.com/
 
 The Moxi Works API provides programmatic access to Moxi Works features and data. 
 We do our best to adhere to open and accepted common standards, including REST for access, JSON format for the data, and OAuth2 for Authentication and Authorization. 
@@ -28,10 +28,12 @@ Resources:
 
 The response payload is JSON encoded object(s) with defined structure which relfects a data model.
 
-URL structure follows typical resource-oriented conventions. For example, to get a list of contacts, use `GET https://api.moxiworks.com/v1/contacts`. 
+<aside class="notice">Some of the data returned by the Moxi Works API is user-generated content. Ensure that the response payload content is consumed safely to avoid introducing vulnerabilities in your application.</aside>
+
+URL structure follows typical resource-oriented conventions. For example, to get a list of contacts, use `GET https://api.moxiworks.com/contacts`. 
 This will return a list of Contact objects, where each Contact will have an "id" attribute. 
-To get details on a particular contact, use `GET https://api.moxiworks.com/v1/contacts/123456`, where 123456 is the "id" of the Contact you want. 
-Similarly, to create a Contact, `POST` a Contact object to `https://api.moxiworks.com/v1/contacts/`.
+To get details on a particular contact, use `GET https://api.moxiworks.com/contacts/123456`, where 123456 is the "id" of the Contact you want. 
+Similarly, to create a Contact, `POST` a Contact object to `https://api.moxiworks.com/contacts/`.
 
 
 ## HTTP Standards
@@ -43,14 +45,6 @@ All actions taken through the API are done via HTTP using [standard HTTP methods
 
 Unless otherwise specified, all API endpoints expect request body data to be in [JSON](http://en.wikipedia.org/wiki/JSON), and the response body data is returned as JSON.
 
-The following HTTP request headers may be required, depending on the operation and endpoint being invoked:
-
-     |     |
------|-----|
-*Content-Type* | For POST and PUT requests, must be set to the appropriate value (typically `application/json`).  Ignored for GET and DELETE requests.
-*Accept*       | Optional; if not specified, `*/*` is assumed (i.e. any response type is accepted), else it must match the output of the invoked endpoint (typically `application/json`).
- 
-<aside class="notice">Some of the data returned by the Moxi Works API is user-generated content. Ensure that the response payload content is consumed safely to avoid introducing vulnerabilities in your application.</aside>
 
 ## Example Requests & Responses
 
@@ -58,10 +52,11 @@ For every API operation in this documentation, we show example requests and an e
 
 You'll see the examples displayed in the dark blue panel next to each operation. 
 
-To view the sample code in a specific language, select the corresponding language tab along the top of the dark blue panel. 
+To view the sample code in a specific language, select the corresponding language tab at the top of the panel to the right. 
 For more information about using the sample code in this API documentation, see [SDKs and Sample Code](#sdks-and-sample-code). 
 
 As with any REST API, you can also test API requests / responses using a Chrome extension like [Advanced REST Client](https://chrome.google.com/webstore/detail/advanced-rest-client/hgmloofddffdnphfgcellkdfbfbjeloo/) or [POSTMAN](https://chrome.google.com/webstore/detail/postman-rest-client/fdmmgilgnpjigdojojpjoooidkmcomcm). 
+
 
 ## Versioning and Changes
 
@@ -76,3 +71,4 @@ if changes that break the current API are made, we will publish the api update w
 **Deprecations**: Moxi Works occasionally deprecates APIs to indicate that those APIs should no longer be used in active development. 
 Deprecated APIs typically remain present and usable for a reasonable period of time following the release in which they were deprecated; however, they may be removed entirely from a future version of the API as required. 
 You should never use deprecated APIs in new development, and if you have existing code that uses deprecated APIs, we recommend that you update that code as soon as possible. 
+

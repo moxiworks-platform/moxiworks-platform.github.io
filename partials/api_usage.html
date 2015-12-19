@@ -30,6 +30,28 @@
       <div class="content">
         <h1 id="api-usage">API Usage</h1>
 
+<h2 id="request-header-api-versioning">Request Header API Versioning</h2>
+
+<p>Moxi Works API uses the Accept header to denote the version of the API to be used. By default, the current version of the API will be used when it is not set.</p>
+
+<blockquote>
+<p><strong>Moxi Works V1  API Accept Header:</strong> application/vnd.moxi-platform+json;version=[VERSION NUMBER]</p>
+</blockquote>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><em>Accept</em></td>
+<td>The Moxi Works API uses the Accept header to denote the API version to be used ( <code class="prettyprint">application/vnd.moxi-platform+json;version=1</code>).</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">To ensure that your request to the Moxi Works API continue to function when breaking changes are introduced to the API, ensure that you use request header versioning  when accessing the Moxi Works API. If the API version is not denoted in the request header</aside>
+
 <h2 id="rate-limiting">Rate Limiting</h2>
 
 <p>To ensure that system resources are not overloaded and response quality degrated, Moxi Works allows only a limited number of requests every minute. </p>

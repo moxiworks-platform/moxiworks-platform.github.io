@@ -36,6 +36,48 @@ under the License.
   font-weight: bold;
 }
 
+.required-data {
+  color: red;
+  font-weight: bold;
+}
+
+.optional-data {
+  
+}
+
+.data-type {
+  font-size: 11px;
+  margin-left: 10px;
+}
+
+.data-remarks {
+    font-size: 11px;
+    margin-left: 10px;
+}
+
+.api-usage-data {
+  display: block;
+}
+
+.example-label {
+  font-weight: bold;
+}
+
+.example {
+  margin-left: 4px;
+}
+
+.data-example {
+  display: block;
+}
+
+.data-example-label {
+  display: block;
+  font-weight: bold;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
 ////////////////////////////////////////////////////////////////////////////////
 // GENERAL STUFF
 ////////////////////////////////////////////////////////////////////////////////

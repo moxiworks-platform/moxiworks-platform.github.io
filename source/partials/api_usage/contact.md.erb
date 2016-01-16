@@ -1,0 +1,62 @@
+## Contact
+
+
+### Creating
+When creating a contact using the Moxi Works platform API, format your data using the following structures.
+<aside class="warning">One of the following must be set when creating a new contact: first_name or last_name or primary_email_address or secondary_email_address or primary_phone_number or secondary_phone_number</aside>
+
+> <span class="data-example-label">Contact Creation Example</span><span class="data-example"><span class="example-label">agent_id</span><span class="example">abc123</span></span><span class="data-example"><span class="example-label">first_name</span><span class="example">Johnny</span></span><span class="data-example"><span class="example-label">middle_name</span><span class="example">Billy</span></span><span class="data-example"><span class="example-label">last_name</span><span class="example">Football</span></span><span class="data-example"><span class="example-label">suffix</span><span class="example">Jr</span></span><span class="data-example"><span class="example-label">gender</span><span class="example">male</span></span><span class="data-example"><span class="example-label">primary_email_address</span><span class="example">johnny@football.esq</span></span><span class="data-example"><span class="example-label">secondary_email_address</span><span class="example">football@johnny.esq</span></span><span class="data-example"><span class="example-label">primary_phone_number</span><span class="example">123-555-1234</span></span><span class="data-example"><span class="example-label">secondary_phone_number</span><span class="example">234-555-2345</span></span><span class="data-example"><span class="example-label">address</span><span class="example">1234 Football Ln</span></span><span class="data-example"><span class="example-label">city</span><span class="example">Cityville</span></span><span class="data-example"><span class="example-label">state</span><span class="example">UT</span></span><span class="data-example"><span class="example-label">zip</span><span class="example">12345</span></span><span class="data-example"><span class="example-label">neighborhood</span><span class="example">Nottingham</span>
+
+
+Attribute | Type| Remark | Required |
+-----|-----|-----|-----| 
+|<span class="required-data">agent_id</span>|<span class="data-type">String</span>|<span class="data-remarks">The agent's Moxi Works Platform ID</span>| <span class="required-data">**required**</span>
+|<span class="optional-data">first_name</span>|<span class="data-type">String</span>|<span class="data-remarks">The contact's first name</span>| |
+|<span class="optional-data">middle_name</span>|<span class="data-type">String</span>|<span class="data-remarks">The contact's middle name</span>| |
+|<span class="optional-data">last_name</span>|<span class="data-type">String</span>|<span class="data-remarks">The contact's last name</span>| |
+|<span class="optional-data">suffix</span>|<span class="data-type">String</span>|<span class="data-remarks">Any suffix that should be appended to the end of the name (Sr., Jr., III, etc.)</span>
+|<span class="optional-data">gender</span>|<span class="data-type">String</span>|<span class="data-remarks">The contact's gender</span>| |
+|<span class="optional-data">primary_email_address</span>|<span class="data-type">String</span>|<span class="data-remarks">The contact's email address that should be used first</span>| |
+|<span class="optional-data">secondary_email_address</span>|<span class="data-type">String</span>|<span class="data-remarks">The contact's email address that should be used as an alternate</span>| |
+|<span class="optional-data">primary_phone_number</span>|<span class="data-type">String</span>|<span class="data-remarks">The contact's phone number that should be used first</span>| |
+|<span class="optional-data">secondary_phone_number</span>|<span class="data-type">String</span>|<span class="data-remarks">The contact's phone number that should be used as an alternate</span>| |
+|<span class="optional-data">address</span>|<span class="data-type">String</span>|<span class="data-remarks">The street address of the contact's current home</span>| |
+|<span class="optional-data">city</span>|<span class="data-type">String</span>|<span class="data-remarks">The city of the contact's current home</span>| |
+|<span class="optional-data">state</span>|<span class="data-type">String</span>|<span class="data-remarks">The state or district of the contact's current home</span>| |
+|<span class="optional-data">zip</span>|<span class="data-type">String</span>|<span class="data-remarks">The zip code of the contact's current home</span>| |
+|<span class="optional-data">neighborhood</span>|<span class="data-type">String</span>|<span class="data-remarks">The neighborhood of the contact's current home</span>| |
+|<span class="optional-data">country</span>|<span class="data-type">String</span>|<span class="data-remarks">The country of the contact's current home</span>| |
+|<span class="optional-data">job_title</span>|<span class="data-type">String</span>|<span class="data-remarks">The contact's professional job title</span>| |
+|<span class="optional-data">occupation</span>|<span class="data-type">String</span>|<span class="data-remarks">The contact's professional occupation</span>| |
+|<span class="optional-data">business_website</span>|<span class="data-type">String</span>|<span class="data-remarks">URL for the contact's business website</span>| |
+
+
+### Updating
+<aside class="warning">One of the following must be set when updating a contact: first_name or last_name or primary_email_address or secondary_email_address or primary_phone_number or secondary_phone_number</aside>
+
+<aside class="notice">Moxi Works API will only update the attributes that are defined in a given request. For instance, if the first_name attribute is not passed, the current first_name will be left as it is currently stored in Moxi Works API.</aside>
+
+
+Attribute | Type| Remark | Required |
+-----|-----|-----|-----| 
+|<span class="required-data">agent_id</span>|<span class="data-type">String</span>|<span class="data-remarks">The agent's Moxi Works Platform ID</span>| <span class="required-data">**required**</span> |
+|<span class="required-data">uuid</span>|<span class="data-type">[String]</span>|<span class="data-remarks">The contact's Moxi Works Platform ID</span>|<span class="required-data">**required**</span> |
+|<span class="optional-data">first_name</span>|<span class="data-type">String</span>|<span class="data-remarks">The contact's first name</span>| |
+|<span class="optional-data">middle_name</span>|<span class="data-type">String</span>|<span class="data-remarks">The contact's middle name</span>| |
+|<span class="optional-data">last_name</span>|<span class="data-type">String</span>|<span class="data-remarks">The contact's last name</span>| |
+|<span class="optional-data">suffix</span>|<span class="data-type">String</span>|<span class="data-remarks">Any suffix that should be appended to the end of the name (Sr., Jr., III, etc.)</span>
+|<span class="optional-data">gender</span>|<span class="data-type">String</span>|<span class="data-remarks">The contact's gender</span>| |
+|<span class="optional-data">primary_email_address</span>|<span class="data-type">String</span>|<span class="data-remarks">The contact's email address that should be used first</span>| |
+|<span class="optional-data">secondary_email_address</span>|<span class="data-type">String</span>|<span class="data-remarks">The contact's email address that should be used as an alternate</span>| |
+|<span class="optional-data">primary_phone_number</span>|<span class="data-type">String</span>|<span class="data-remarks">The contact's phone number that should be used first</span>| |
+|<span class="optional-data">secondary_phone_number</span>|<span class="data-type">String</span>|<span class="data-remarks">The contact's phone number that should be used as an alternate</span>| |
+|<span class="optional-data">address</span>|<span class="data-type">String</span>|<span class="data-remarks">The street address of the contact's current home</span>| |
+|<span class="optional-data">city</span>|<span class="data-type">String</span>|<span class="data-remarks">The city of the contact's current home</span>| |
+|<span class="optional-data">state</span>|<span class="data-type">String</span>|<span class="data-remarks">The state or district of the contact's current home</span>| |
+|<span class="optional-data">zip</span>|<span class="data-type">String</span>|<span class="data-remarks">The zip code of the contact's current home</span>| |
+|<span class="optional-data">neighborhood</span>|<span class="data-type">String</span>|<span class="data-remarks">The neighborhood of the contact's current home</span>| |
+|<span class="optional-data">country</span>|<span class="data-type">String</span>|<span class="data-remarks">The country of the contact's current home</span>| |
+|<span class="optional-data">job_title</span>|<span class="data-type">String</span>|<span class="data-remarks">The contact's professional job title</span>| |
+|<span class="optional-data">occupation</span>|<span class="data-type">String</span>|<span class="data-remarks">The contact's professional occupation</span>| |
+|<span class="optional-data">business_website</span>|<span class="data-type">String</span>|<span class="data-remarks">URL for the contact's business website</span>| |
+

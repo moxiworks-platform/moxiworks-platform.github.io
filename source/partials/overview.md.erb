@@ -1,74 +1,33 @@
+# API Overview
 
-
-# Overview
 
 Moxi Works api allows partner access to Moxi Works Products.
 
 > **Examples**:  See examples here for information on accessing resources using various languages.
 
- 
-
-## Introduction
-
-> **Base URL**:  https://api.moxiworks.com/
-
-The Moxi Works API provides programmatic access to Moxi Works features and data. 
-We do our best to adhere to open and accepted common standards, including REST for access, JSON format for the data, and OAuth2 for Authentication and Authorization. 
-
-## RESTful Architecture
-
-```apires
-Resources:
-
-/contacts
-/events
-/tasks
-```
 
 
-The response payload is JSON encoded object(s) with defined structure which relfects a data model.
+<%= partial "partials/overview/introduction.md.erb" %>
 
-<aside class="notice">Some of the data returned by the Moxi Works API is user-generated content. Ensure that the response payload content is consumed safely to avoid introducing vulnerabilities in your application.</aside>
+<%= partial "partials/overview/restful_architecture.md.erb" %>
 
-URL structure follows typical resource-oriented conventions. For example, to get a list of contacts, use `GET https://api.moxiworks.com/contacts`. 
-This will return a list of Contact objects, where each Contact will have an "id" attribute. 
-To get details on a particular contact, use `GET https://api.moxiworks.com/contacts/123456`, where 123456 is the "id" of the Contact you want. 
-Similarly, to create a Contact, `POST` a Contact object to `https://api.moxiworks.com/contacts/`.
+<%= partial "partials/overview/http_standards.md.erb" %>
 
+<%= partial "partials/overview/input_output_format.md.erb" %>
 
-## HTTP Standards
+<%= partial "partials/overview/example_requests_and_responses.md.erb" %>
 
-All actions taken through the API are done via HTTP using [standard HTTP methods](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html): GET (to retrieve an object), POST (to create), PUT (to modify), and DELETE. 
-[Standard HTTP Response codes](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html) are used to indicate success and error conditions.
+<%= partial "partials/overview/versioning_and_changes.md.erb" %>
 
-## Input / Output Format
+<%= partial "partials/overview/request_header_versioning.md.erb" %>
 
-Unless otherwise specified, all API endpoints expect request body data to be in [JSON](http://en.wikipedia.org/wiki/JSON), and the response body data is returned as JSON.
+<%= partial "partials/overview/rate_limiting.md.erb" %>
 
-
-## Example Requests & Responses
-
-For every API operation in this documentation, we show example requests and an example (JSON) response. 
-
-You'll see the examples displayed in the dark blue panel next to each operation. 
-
-To view the sample code in a specific language, select the corresponding language tab at the top of the panel to the right. 
-For more information about using the sample code in this API documentation, see [SDKs and Sample Code](#sdks-and-sample-code). 
-
-As with any REST API, you can also test API requests / responses using a Chrome extension like [Advanced REST Client](https://chrome.google.com/webstore/detail/advanced-rest-client/hgmloofddffdnphfgcellkdfbfbjeloo/) or [POSTMAN](https://chrome.google.com/webstore/detail/postman-rest-client/fdmmgilgnpjigdojojpjoooidkmcomcm). 
+<%= partial "partials/overview/error_handling.md.erb" %>
 
 
-## Versioning and Changes
 
-**Non-breaking changes**: New features, functionality and bug fixes will be added to the API over time;
-you should expect to see new endpoints or new attributes in the payload for existing endpoints. 
-Non-breaking changes will not result in a new API version.  Ensure that your API consumer logic can handle new attributes gracefully. 
-Ensure your API consumer logic does not depend on the order in which records are returned, unless static order is explicitly denoted in this documentation. 
 
-**Breaking changes**: Although we intend to support and maintain the current version of the API indefinitely,
-if changes that break the current API are made, we will publish the api update with a new version number, in order to ensure that the existing API functionality remains available to API consumers relying on that version. When breaking changes are added, the current version of the API will continue to be available.
 
-**Deprecations**: Moxi Works occasionally deprecates APIs to indicate that those APIs should no longer be used in active development. 
-Deprecated APIs typically remain present and usable for a reasonable period of time following the release in which they were deprecated; however, they may be removed entirely from a future version of the API as required. 
-You should never use deprecated APIs in new development, and if you have existing code that uses deprecated APIs, we recommend that you update that code as soon as possible. 
+
 

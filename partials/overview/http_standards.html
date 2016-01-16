@@ -13,7 +13,7 @@
 
   </head>
 
-  <body class="partials partials_api_usage partials_api_usage_authentication">
+  <body class="partials partials_overview partials_overview_http_standards">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -28,15 +28,10 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h2 id="authentication">Authentication</h2>
+        <h2 id="http-standards">HTTP Standards</h2>
 
-<p>The Moxi Works API utilizes OAuth 2.0 for Authentication and Authorization. 
-An <strong>Authorization</strong> HTTP header containing an Access Token is required to authenticate requests. 
-Access Tokens can be acquired in one of two ways:
-<ul>
-<li>via the Smartsheet UI (<a href="#user-generated-access-tokens">User-generated Access Tokens</a>) </li>
-<li>via OAuth 2.0 (see <a href="#third-party-access-tokens">Third-party Access Tokens</a>)</li>
-</ul> </p>
+<p>All actions taken through the API are done via HTTP using <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html">standard HTTP methods</a>: GET (to retrieve an object), POST (to create), PUT (to modify), and DELETE. 
+<a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html">Standard HTTP Response codes</a> are used to indicate success and error conditions.</p>
 
       </div>
       <div class="dark-box">

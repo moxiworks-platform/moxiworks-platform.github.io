@@ -46,7 +46,7 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id="overview">Overview</h1>
+        <h1 id="api-overview">API Overview</h1>
 
 <p>Moxi Works api allows partner access to Moxi Works Products.</p>
 
@@ -56,6 +56,7 @@
 
 
 <h2 id="restful-architecture">RESTful Architecture</h2>
+
 <pre class="highlight plaintext"><code>Resources:
 
 /contacts
@@ -106,11 +107,7 @@ if changes that break the current API are made, we will publish the api update w
 Deprecated APIs typically remain present and usable for a reasonable period of time following the release in which they were deprecated; however, they may be removed entirely from a future version of the API as required. 
 You should never use deprecated APIs in new development, and if you have existing code that uses deprecated APIs, we recommend that you update that code as soon as possible. </p>
 
-
-
-<h1 id="api-usage">API Usage</h1>
-
-<h2 id="request-header-api-versioning">Request Header API Versioning</h2>
+<h2 id="api-versioning">API Versioning</h2>
 
 <p>Moxi Works API uses the Accept header to denote the version of the API to be used. By default, the current version of the API will be used when it is not set.</p>
 
@@ -440,6 +437,281 @@ Alternatively, you might choose to use <a href="https://en.wikipedia.org/wiki/Ex
 <td>503</td>
 <td>api.moxiworks.com is currently offline for system maintenance. Please check back again shortly.</td>
 <td><span class="retry-later-error">Retry using <a href="https://en.wikipedia.org/wiki/Exponential_backoff" target="_blank">exponential backoff</a>.</span><br/><br/>Hint: Wait time between retries should measure in minutes (not seconds).</td>
+</tr>
+</tbody></table>
+
+
+
+<h1 id="api-usage">API Usage</h1>
+
+<h2 id="contact">Contact</h2>
+
+<h3 id="creating">Creating</h3>
+
+<p>When creating a contact using the Moxi Works platform API, format your data using the following structures.
+<aside class="warning">One of the following must be set when creating a new contact: first_name or last_name or primary_email_address or secondary_email_address or primary_phone_number or secondary_phone_number</aside></p>
+
+<blockquote>
+<p><span class="data-example-label">Contact Creation Example</span><span class="data-example"><span class="example-label">agent_id</span><span class="example">abc123</span></span><span class="data-example"><span class="example-label">first_name</span><span class="example">Johnny</span></span><span class="data-example"><span class="example-label">middle_name</span><span class="example">Billy</span></span><span class="data-example"><span class="example-label">last_name</span><span class="example">Football</span></span><span class="data-example"><span class="example-label">suffix</span><span class="example">Jr</span></span><span class="data-example"><span class="example-label">gender</span><span class="example">male</span></span><span class="data-example"><span class="example-label">primary_email_address</span><span class="example">johnny@football.esq</span></span><span class="data-example"><span class="example-label">secondary_email_address</span><span class="example">football@johnny.esq</span></span><span class="data-example"><span class="example-label">primary_phone_number</span><span class="example">123-555-1234</span></span><span class="data-example"><span class="example-label">secondary_phone_number</span><span class="example">234-555-2345</span></span><span class="data-example"><span class="example-label">address</span><span class="example">1234 Football Ln</span></span><span class="data-example"><span class="example-label">city</span><span class="example">Cityville</span></span><span class="data-example"><span class="example-label">state</span><span class="example">UT</span></span><span class="data-example"><span class="example-label">zip</span><span class="example">12345</span></span><span class="data-example"><span class="example-label">neighborhood</span><span class="example">Nottingham</span></p>
+</blockquote>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Remark</th>
+<th>Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span class="required-data">agent_id</span></td>
+<td><span class="data-type">String</span></td>
+<td><span class="data-remarks">The agent&rsquo;s Moxi Works Platform ID</span></td>
+<td><span class="required-data"><strong>required</strong></span></td>
+</tr>
+<tr>
+<td><span class="optional-data">first_name</span></td>
+<td><span class="data-type">String</span></td>
+<td><span class="data-remarks">The contact&rsquo;s first name</span></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="optional-data">middle_name</span></td>
+<td><span class="data-type">String</span></td>
+<td><span class="data-remarks">The contact&rsquo;s middle name</span></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="optional-data">last_name</span></td>
+<td><span class="data-type">String</span></td>
+<td><span class="data-remarks">The contact&rsquo;s last name</span></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="optional-data">suffix</span></td>
+<td><span class="data-type">String</span></td>
+<td><span class="data-remarks">Any suffix that should be appended to the end of the name (Sr., Jr., III, etc.)</span></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="optional-data">gender</span></td>
+<td><span class="data-type">String</span></td>
+<td><span class="data-remarks">The contact&rsquo;s gender</span></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="optional-data">primary_email_address</span></td>
+<td><span class="data-type">String</span></td>
+<td><span class="data-remarks">The contact&rsquo;s email address that should be used first</span></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="optional-data">secondary_email_address</span></td>
+<td><span class="data-type">String</span></td>
+<td><span class="data-remarks">The contact&rsquo;s email address that should be used as an alternate</span></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="optional-data">primary_phone_number</span></td>
+<td><span class="data-type">String</span></td>
+<td><span class="data-remarks">The contact&rsquo;s phone number that should be used first</span></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="optional-data">secondary_phone_number</span></td>
+<td><span class="data-type">String</span></td>
+<td><span class="data-remarks">The contact&rsquo;s phone number that should be used as an alternate</span></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="optional-data">address</span></td>
+<td><span class="data-type">String</span></td>
+<td><span class="data-remarks">The street address of the contact&rsquo;s current home</span></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="optional-data">city</span></td>
+<td><span class="data-type">String</span></td>
+<td><span class="data-remarks">The city of the contact&rsquo;s current home</span></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="optional-data">state</span></td>
+<td><span class="data-type">String</span></td>
+<td><span class="data-remarks">The state or district of the contact&rsquo;s current home</span></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="optional-data">zip</span></td>
+<td><span class="data-type">String</span></td>
+<td><span class="data-remarks">The zip code of the contact&rsquo;s current home</span></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="optional-data">neighborhood</span></td>
+<td><span class="data-type">String</span></td>
+<td><span class="data-remarks">The neighborhood of the contact&rsquo;s current home</span></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="optional-data">country</span></td>
+<td><span class="data-type">String</span></td>
+<td><span class="data-remarks">The country of the contact&rsquo;s current home</span></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="optional-data">job_title</span></td>
+<td><span class="data-type">String</span></td>
+<td><span class="data-remarks">The contact&rsquo;s professional job title</span></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="optional-data">occupation</span></td>
+<td><span class="data-type">String</span></td>
+<td><span class="data-remarks">The contact&rsquo;s professional occupation</span></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="optional-data">business_website</span></td>
+<td><span class="data-type">String</span></td>
+<td><span class="data-remarks">URL for the contact&rsquo;s business website</span></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h3 id="updating">Updating</h3>
+
+<aside class="warning">One of the following must be set when updating a contact: first_name or last_name or primary_email_address or secondary_email_address or primary_phone_number or secondary_phone_number</aside>
+
+<aside class="notice">Moxi Works API will only update the attributes that are defined in a given request. For instance, if the first_name attribute is not passed, the current first_name will be left as it is currently stored in Moxi Works API.</aside>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Remark</th>
+<th>Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span class="required-data">agent_id</span></td>
+<td><span class="data-type">String</span></td>
+<td><span class="data-remarks">The agent&rsquo;s Moxi Works Platform ID</span></td>
+<td><span class="required-data"><strong>required</strong></span></td>
+</tr>
+<tr>
+<td><span class="required-data">uuid</span></td>
+<td><span class="data-type">[String]</span></td>
+<td><span class="data-remarks">The contact&rsquo;s Moxi Works Platform ID</span></td>
+<td><span class="required-data"><strong>required</strong></span></td>
+</tr>
+<tr>
+<td><span class="optional-data">first_name</span></td>
+<td><span class="data-type">String</span></td>
+<td><span class="data-remarks">The contact&rsquo;s first name</span></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="optional-data">middle_name</span></td>
+<td><span class="data-type">String</span></td>
+<td><span class="data-remarks">The contact&rsquo;s middle name</span></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="optional-data">last_name</span></td>
+<td><span class="data-type">String</span></td>
+<td><span class="data-remarks">The contact&rsquo;s last name</span></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="optional-data">suffix</span></td>
+<td><span class="data-type">String</span></td>
+<td><span class="data-remarks">Any suffix that should be appended to the end of the name (Sr., Jr., III, etc.)</span></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="optional-data">gender</span></td>
+<td><span class="data-type">String</span></td>
+<td><span class="data-remarks">The contact&rsquo;s gender</span></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="optional-data">primary_email_address</span></td>
+<td><span class="data-type">String</span></td>
+<td><span class="data-remarks">The contact&rsquo;s email address that should be used first</span></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="optional-data">secondary_email_address</span></td>
+<td><span class="data-type">String</span></td>
+<td><span class="data-remarks">The contact&rsquo;s email address that should be used as an alternate</span></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="optional-data">primary_phone_number</span></td>
+<td><span class="data-type">String</span></td>
+<td><span class="data-remarks">The contact&rsquo;s phone number that should be used first</span></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="optional-data">secondary_phone_number</span></td>
+<td><span class="data-type">String</span></td>
+<td><span class="data-remarks">The contact&rsquo;s phone number that should be used as an alternate</span></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="optional-data">address</span></td>
+<td><span class="data-type">String</span></td>
+<td><span class="data-remarks">The street address of the contact&rsquo;s current home</span></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="optional-data">city</span></td>
+<td><span class="data-type">String</span></td>
+<td><span class="data-remarks">The city of the contact&rsquo;s current home</span></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="optional-data">state</span></td>
+<td><span class="data-type">String</span></td>
+<td><span class="data-remarks">The state or district of the contact&rsquo;s current home</span></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="optional-data">zip</span></td>
+<td><span class="data-type">String</span></td>
+<td><span class="data-remarks">The zip code of the contact&rsquo;s current home</span></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="optional-data">neighborhood</span></td>
+<td><span class="data-type">String</span></td>
+<td><span class="data-remarks">The neighborhood of the contact&rsquo;s current home</span></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="optional-data">country</span></td>
+<td><span class="data-type">String</span></td>
+<td><span class="data-remarks">The country of the contact&rsquo;s current home</span></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="optional-data">job_title</span></td>
+<td><span class="data-type">String</span></td>
+<td><span class="data-remarks">The contact&rsquo;s professional job title</span></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="optional-data">occupation</span></td>
+<td><span class="data-type">String</span></td>
+<td><span class="data-remarks">The contact&rsquo;s professional occupation</span></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="optional-data">business_website</span></td>
+<td><span class="data-type">String</span></td>
+<td><span class="data-remarks">URL for the contact&rsquo;s business website</span></td>
+<td></td>
 </tr>
 </tbody></table>
 

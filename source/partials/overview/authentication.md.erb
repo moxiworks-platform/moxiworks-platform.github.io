@@ -1,9 +1,15 @@
 ## Authentication
 
-> **X-MOXI-ID**:  29025b28-d5cd-11e5-21c2-d0e1408e9918
-> **X-MOXI-SECRET**:  FavpXASx5ugrLKQdhUyPsgtt3Idj2TQor8nUV88PsCC5FAtt
+
+> **Example Authentication Headers**:  <ul><span>X-MOXI-ID: 29025b28</span><br><span>X-MOXI-SECRET:  FavpXA</span></ul>
 
 The Moxi Works API utilizes an API Identifier and Secret combination for Authentication and Authorization. 
+
 A **X-MOXI-ID** HTTP header containing your Moxi Works API Identifier is required to authenticate requests. 
+
 A **X-MOXI-SECRET** HTTP header containing your Moxi Works API Secret is required to authenticate requests.
+
 You can acquire your Moxi Works API Identifier and Secret pair by contacting Moxi Works.
+
+  <aside class="warning">Do not include your Moxi Works API Identifier or Secret  in the parameters sent to the server; they must be set in the request header. Setting the API Identifier and Secret in the request parameters will result in an authorization failure.</aside>
+

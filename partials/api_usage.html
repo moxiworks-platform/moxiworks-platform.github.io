@@ -34,11 +34,10 @@
 
 <h3 id="creating">Creating</h3>
 
-<p>When creating a contact using the Moxi Works platform API, format your data using the following structures.
-<aside class="warning">One of the following must be set when creating a new contact: first_name or last_name or primary_email_address or secondary_email_address or primary_phone_number or secondary_phone_number</aside></p>
+<p>When creating a contact using the Moxi Works platform API, format your data using the following parameters.</p>
 
 <blockquote>
-<p><span class="data-example-label">Contact Creation Example</span><span class="data-example"><span class="example-label">agent_id</span><span class="example">abc123</span></span><span class="data-example"><span class="example-label">first_name</span><span class="example">Johnny</span></span><span class="data-example"><span class="example-label">middle_name</span><span class="example">Billy</span></span><span class="data-example"><span class="example-label">last_name</span><span class="example">Football</span></span><span class="data-example"><span class="example-label">suffix</span><span class="example">Jr</span></span><span class="data-example"><span class="example-label">gender</span><span class="example">male</span></span><span class="data-example"><span class="example-label">primary_email_address</span><span class="example">johnny@football.esq</span></span><span class="data-example"><span class="example-label">secondary_email_address</span><span class="example">football@johnny.esq</span></span><span class="data-example"><span class="example-label">primary_phone_number</span><span class="example">123-555-1234</span></span><span class="data-example"><span class="example-label">secondary_phone_number</span><span class="example">234-555-2345</span></span><span class="data-example"><span class="example-label">address</span><span class="example">1234 Football Ln</span></span><span class="data-example"><span class="example-label">city</span><span class="example">Cityville</span></span><span class="data-example"><span class="example-label">state</span><span class="example">UT</span></span><span class="data-example"><span class="example-label">zip</span><span class="example">12345</span></span><span class="data-example"><span class="example-label">neighborhood</span><span class="example">Nottingham</span></p>
+<p><span class="data-example-label">Contact Creation Example</span><span class="data-example"><span class="example-label">moxi_works_agent_id</span><span class="example">abc123</span></span><span class="data-example"><span class="example-label">partner_contact_id</span><span class="example">abc982cdf345</span></span><span class="data-example"><span class="example-label">partner_agent_id</span><span class="example">zxy987</span></span><span class="data-example"><span class="example-label">contact_name</span><span class="example">Billy Football Jr.</span></span><span class="data-example"><span class="example-label">gender</span><span class="example">M</span></span><span class="data-example"><span class="example-label">primary_email_address</span><span class="example">johnny@football.esq</span></span><span class="data-example"><span class="example-label">secondary_email_address</span><span class="example">billy@football.esq</span></span><span class="data-example"><span class="example-label">primary_phone_number</span><span class="example">123-555-1234</span></span><span class="data-example"><span class="example-label">secondary_phone_number</span><span class="example">234-555-2345</span></span><span class="data-example"><span class="example-label">home_street_address</span><span class="example">1234 Football Ln</span></span><span class="data-example"><span class="example-label">home_city</span><span class="example">Cityville</span></span><span class="data-example"><span class="example-label">home_state</span><span class="example">UT</span></span><span class="data-example"><span class="example-label">home_zip</span><span class="example">12345</span></span><span class="data-example"><span class="example-label">home_neighborhood</span><span class="example">Nottingham</span><span class="data-example"><span class="example-label">home_country</span><span class="example">USA</span></span><span class="data-example"><span class="example-label">job_title</span><span class="example">Chief Bear Wrestler</span></span><span class="data-example"><span class="example-label">occupation</span><span class="example">Bear Wrestler</span></span><span class="data-example"><span class="example-label">business_website</span><span class="example">http://pro-bear-wrestlers.com</span></span><span class="data-example"><span class="example-label">property_url</span><span class="example">http://my-property-page.com?property_id=1234</span></span><span class="data-example"><span class="example-label">property_mls_id</span><span class="example">vh-ou812-5150</span></span><span class="data-example"><span class="example-label">property_street_address</span><span class="example">1234 Electric Ave</span></span><span class="data-example"><span class="example-label">property_city</span><span class="example">Beverly Hills</span></span><span class="data-example"><span class="example-label">property_state</span><span class="example">CA</span></span><span class="data-example"><span class="example-label">home_zip</span><span class="example">90210</span></span><span class="data-example"><span class="example-label">property_beds</span><span class="example">6</span></span><span class="data-example"><span class="example-label">property_baths</span><span class="example">3.5</span></span><span class="data-example"><span class="example-label">property_list_price</span><span class="example">1234523</span></span><span class="data-example"><span class="example-label">property_listing_status</span><span class="example">Active</span></span><span class="data-example"><span class="example-label">property_photo_url</span><span class="example">http://my-property-page.com?photo_id=12345</span></span><span class="data-example"><span class="example-label">search_city</span><span class="example">Los Angeles</span></span><span class="data-example"><span class="example-label">search_state</span><span class="example">CA</span></span><span class="data-example"><span class="example-label">search_zip</span><span class="example">90009</span></span><span class="data-example"><span class="example-label">search_min_beds</span><span class="example">5</span></span><span class="data-example"><span class="example-label">search_min_baths</span><span class="example">3.5</span></span><span class="data-example"><span class="example-label">search_min_price</span><span class="example">0</span></span><span class="data-example"><span class="example-label">search_max_price</span><span class="example">1234567</span></span><span class="data-example"><span class="example-label">search_min_sq_ft</span><span class="example">0</span></span><span class="data-example"><span class="example-label">search_max_sq_ft</span><span class="example">9876</span></span><span class="data-example"><span class="example-label">search_min_lot_size</span><span class="example">12345</span></span><span class="data-example"><span class="example-label">search_max_lot_size</span><span class="example">98765</span></span><span class="data-example"><span class="example-label">search_min_year_built</span><span class="example">1922</span></span><span class="data-example"><span class="example-label">search_max_year_built</span><span class="example">2016</span></span><span class="data-example"><span class="example-label">search_property_types</span><span class="example">Condo, Single-Family</span></span></p>
 </blockquote>
 
 <table><thead>
@@ -50,15 +49,33 @@
 </tr>
 </thead><tbody>
 <tr>
-<td><span class="required-data">agent_id</span></td>
+<td><span class="required-data">moxi_works_agent_id</span></td>
 <td><span class="data-type">String</span></td>
 <td><span class="data-remarks">The agent&rsquo;s Moxi Works Platform ID</span></td>
 <td><span class="required-data"><strong>required</strong></span></td>
 </tr>
 <tr>
-<td><span class="optional-data">name</span></td>
+<td><span class="required-data">partner_contact_id</span></td>
+<td><span class="data-type">String</span></td>
+<td><span class="data-remarks">The unique ID of the contact in your system</span></td>
+<td><span class="required-data"><strong>required</strong></span></td>
+</tr>
+<tr>
+<td><span class="optional-data">partner_agent_id</span></td>
+<td><span class="data-type">String</span></td>
+<td><span class="data-remarks">The unique ID of the agent in your system</span></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="optional-data">contact_name</span></td>
 <td><span class="data-type">String</span></td>
 <td><span class="data-remarks">The contact&rsquo;s full name</span></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="optional-data">gender</span></td>
+<td><span class="data-type">String</span></td>
+<td><span class="data-remarks">The contact&rsquo;s gender</span></td>
 <td></td>
 </tr>
 <tr>
@@ -86,7 +103,7 @@
 <td></td>
 </tr>
 <tr>
-<td><span class="optional-data">home_address</span></td>
+<td><span class="optional-data">home_street_address</span></td>
 <td><span class="data-type">String</span></td>
 <td><span class="data-remarks">The street address of the contact&rsquo;s current home</span></td>
 <td></td>
@@ -139,13 +156,165 @@
 <td><span class="data-remarks">URL for the contact&rsquo;s business website</span></td>
 <td></td>
 </tr>
+<tr>
+<td><span class="optional-data">property_url</span></td>
+<td><span class="data-type">String</span></td>
+<td><span class="data-remarks">URL for the given property of interest on your system</span></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="optional-data">property_mls_id</span></td>
+<td><span class="data-type">String</span></td>
+<td><span class="data-remarks">MLS Number for the property of interest</span></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="optional-data">property_street_address</span></td>
+<td><span class="data-type">String</span></td>
+<td><span class="data-remarks">Street address of the property of interest</span></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="optional-data">property_city</span></td>
+<td><span class="data-type">String</span></td>
+<td><span class="data-remarks">City / Locale the property of interest is located in</span></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="optional-data">property_state</span></td>
+<td><span class="data-type">String</span></td>
+<td><span class="data-remarks">State / Region the property of interest is located in</span></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="optional-data">property_zip</span></td>
+<td><span class="data-type">String</span></td>
+<td><span class="data-remarks">The zip / postal code the property of interest is located in</span></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="optional-data">property_beds</span></td>
+<td><span class="data-type">Integer</span></td>
+<td><span class="data-remarks">Number of bedrooms in the property of interest</span></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="optional-data">property_baths</span></td>
+<td><span class="data-type">Float</span></td>
+<td><span class="data-remarks">Number of bathrooms in the property of interest</span></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="optional-data">property_list_price</span></td>
+<td><span class="data-type">Integer</span></td>
+<td><span class="data-remarks">The list price of the property of interest</span></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="optional-data">property_listing_status</span></td>
+<td><span class="data-type">String</span></td>
+<td><span class="data-remarks">The current listing status (i.e. Active, Pending, Sold, etc.) of the property of interest</span></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="optional-data">property_photo_url</span></td>
+<td><span class="data-type">String</span></td>
+<td><span class="data-remarks">A URL reference to a photo of the property of interest.</span></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="optional-data">search_city</span></td>
+<td><span class="data-type">String</span></td>
+<td><span class="data-remarks">The city / locale used by the contact in their listing search criteria </span></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="optional-data">search_state</span></td>
+<td><span class="data-type">String</span></td>
+<td><span class="data-remarks">The state / region used by he contact in their listing search criteria l</span></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="optional-data">search_zip</span></td>
+<td><span class="data-type">String</span></td>
+<td><span class="data-remarks">The zip / postal code used by the contact in their listing search criteria</span></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="optional-data">search_min_baths</span></td>
+<td><span class="data-type">Float</span></td>
+<td><span class="data-remarks">The minimum number of bathrooms used by the contact in their listing search criteria</span></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="optional-data">search_min_beds</span></td>
+<td><span class="data-type">Integer</span></td>
+<td><span class="data-remarks">The minimum number of bedrooms used by the contact in their listing search criteria</span></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="optional-data">search_min_price</span></td>
+<td><span class="data-type">Integer</span></td>
+<td><span class="data-remarks">The minimum listing price used by the contact in their listing search criteria</span></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="optional-data">search_max_price</span></td>
+<td><span class="data-type">Integer</span></td>
+<td><span class="data-remarks">The maximum listing price used by the contact in their listing search criteria</span></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="optional-data">search_min_sq_ft</span></td>
+<td><span class="data-type">Integer</span></td>
+<td><span class="data-remarks">The minimum property square feet used by the contact in their listing search criteria</span></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="optional-data">search_max_sq_ft</span></td>
+<td><span class="data-type">Integer</span></td>
+<td><span class="data-remarks">The maximum property square feet used by the contact in their listing search criteria</span></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="optional-data">search_min_lot_size</span></td>
+<td><span class="data-type">Integer</span></td>
+<td><span class="data-remarks">The minimum property lot size used by the contact in their listing search criteria</span></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="optional-data">search_max_lot_size</span></td>
+<td><span class="data-type">Integer</span></td>
+<td><span class="data-remarks">The maximum property lot size used by the contact in their listing search criteria</span></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="optional-data">search_min_year_built</span></td>
+<td><span class="data-type">Integer</span></td>
+<td><span class="data-remarks">The minimum year built used by the contact in their listing search critieria</span></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="optional-data">search_max_year_built</span></td>
+<td><span class="data-type">Integer</span></td>
+<td><span class="data-remarks">The maximum year built used by the contact in their listing search criteria</span></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="optional-data">search_property_types</span></td>
+<td><span class="data-type">String</span></td>
+<td><span class="data-remarks">The property types (i.e. &lsquo;Condo,&rsquo; &lsquo;Single-Family,&rsquo; etc.) used by the contact in their listing search criteria</span></td>
+<td></td>
+</tr>
 </tbody></table>
 
 <h3 id="updating">Updating</h3>
 
-<aside class="warning">One of the following must be set when updating a contact: first_name or last_name or primary_email_address or secondary_email_address or primary_phone_number or secondary_phone_number</aside>
+<aside class="warning">Moxi Works API will remove data for any attribute not defined within the paramters you send. For instance, if the home_street_address attribute is not passed, the current home_street_address for the contact will be removed from the contact stored in Moxi Works.</aside>
 
-<aside class="notice">Moxi Works API will only update the attributes that are defined in a given request. For instance, if the first_name attribute is not passed, the current first_name will be left as it is currently stored in Moxi Works API.</aside>
+<blockquote>
+<p><span class="data-example-label">Contact Update Example</span><span class="data-example"><span class="example-label">moxi_works_agent_id</span><span class="example">abc123</span></span><span class="data-example"><span class="example-label">partner_contact_id</span><span class="example">abc982cdf345</span></span><span class="data-example"><span class="example-label">partner_agent_id</span><span class="example">zxy987</span></span><span class="data-example"><span class="example-label">contact_name</span><span class="example">Billy Football Jr.</span></span><span class="data-example"><span class="example-label">gender</span><span class="example">M</span></span><span class="data-example"><span class="example-label">primary_email_address</span><span class="example">johnny@football.esq</span></span><span class="data-example"><span class="example-label">secondary_email_address</span><span class="example">billy@football.esq</span></span><span class="data-example"><span class="example-label">primary_phone_number</span><span class="example">123-555-1234</span></span><span class="data-example"><span class="example-label">secondary_phone_number</span><span class="example">234-555-2345</span></span><span class="data-example"><span class="example-label">home_street_address</span><span class="example">1234 Football Ln</span></span><span class="data-example"><span class="example-label">home_city</span><span class="example">Cityville</span></span><span class="data-example"><span class="example-label">home_state</span><span class="example">UT</span></span><span class="data-example"><span class="example-label">home_zip</span><span class="example">12345</span></span><span class="data-example"><span class="example-label">home_neighborhood</span><span class="example">Nottingham</span><span class="data-example"><span class="example-label">home_country</span><span class="example">USA</span></span><span class="data-example"><span class="example-label">job_title</span><span class="example">Chief Bear Wrestler</span></span><span class="data-example"><span class="example-label">occupation</span><span class="example">Bear Wrestler</span></span><span class="data-example"><span class="example-label">business_website</span><span class="example">http://pro-bear-wrestlers.com</span></span><span class="data-example"><span class="example-label">property_url</span><span class="example">http://my-property-page.com?property_id=1234</span></span><span class="data-example"><span class="example-label">property_mls_id</span><span class="example">vh-ou812-5150</span></span><span class="data-example"><span class="example-label">property_street_address</span><span class="example">1234 Electric Ave</span></span><span class="data-example"><span class="example-label">property_city</span><span class="example">Beverly Hills</span></span><span class="data-example"><span class="example-label">property_state</span><span class="example">CA</span></span><span class="data-example"><span class="example-label">home_zip</span><span class="example">90210</span></span><span class="data-example"><span class="example-label">property_beds</span><span class="example">6</span></span><span class="data-example"><span class="example-label">property_baths</span><span class="example">3.5</span></span><span class="data-example"><span class="example-label">property_list_price</span><span class="example">1234523</span></span><span class="data-example"><span class="example-label">property_listing_status</span><span class="example">Active</span></span><span class="data-example"><span class="example-label">property_photo_url</span><span class="example">http://my-property-page.com?photo_id=12345</span></span><span class="data-example"><span class="example-label">search_city</span><span class="example">Los Angeles</span></span><span class="data-example"><span class="example-label">search_state</span><span class="example">CA</span></span><span class="data-example"><span class="example-label">search_zip</span><span class="example">90009</span></span><span class="data-example"><span class="example-label">search_min_beds</span><span class="example">5</span></span><span class="data-example"><span class="example-label">search_min_baths</span><span class="example">3.5</span></span><span class="data-example"><span class="example-label">search_min_price</span><span class="example">0</span></span><span class="data-example"><span class="example-label">search_max_price</span><span class="example">1234567</span></span><span class="data-example"><span class="example-label">search_min_sq_ft</span><span class="example">0</span></span><span class="data-example"><span class="example-label">search_max_sq_ft</span><span class="example">9876</span></span><span class="data-example"><span class="example-label">search_min_lot_size</span><span class="example">12345</span></span><span class="data-example"><span class="example-label">search_max_lot_size</span><span class="example">98765</span></span><span class="data-example"><span class="example-label">search_min_year_built</span><span class="example">1922</span></span><span class="data-example"><span class="example-label">search_max_year_built</span><span class="example">2016</span></span><span class="data-example"><span class="example-label">search_property_types</span><span class="example">Condo, Single-Family</span></span></p>
+</blockquote>
 
 <table><thead>
 <tr>
@@ -156,39 +325,27 @@
 </tr>
 </thead><tbody>
 <tr>
-<td><span class="required-data">agent_id</span></td>
+<td><span class="required-data">moxi_works_agent_id</span></td>
 <td><span class="data-type">String</span></td>
 <td><span class="data-remarks">The agent&rsquo;s Moxi Works Platform ID</span></td>
 <td><span class="required-data"><strong>required</strong></span></td>
 </tr>
 <tr>
-<td><span class="required-data">uuid</span></td>
-<td><span class="data-type">[String]</span></td>
-<td><span class="data-remarks">The contact&rsquo;s Moxi Works Platform ID</span></td>
+<td><span class="required-data">partner_contact_id</span></td>
+<td><span class="data-type">String</span></td>
+<td><span class="data-remarks">The unique ID of the contact in your system</span></td>
 <td><span class="required-data"><strong>required</strong></span></td>
 </tr>
 <tr>
-<td><span class="optional-data">first_name</span></td>
+<td><span class="optional-data">partner_agent_id</span></td>
 <td><span class="data-type">String</span></td>
-<td><span class="data-remarks">The contact&rsquo;s first name</span></td>
+<td><span class="data-remarks">The unique ID of the agent in your system</span></td>
 <td></td>
 </tr>
 <tr>
-<td><span class="optional-data">middle_name</span></td>
+<td><span class="optional-data">contact_name</span></td>
 <td><span class="data-type">String</span></td>
-<td><span class="data-remarks">The contact&rsquo;s middle name</span></td>
-<td></td>
-</tr>
-<tr>
-<td><span class="optional-data">last_name</span></td>
-<td><span class="data-type">String</span></td>
-<td><span class="data-remarks">The contact&rsquo;s last name</span></td>
-<td></td>
-</tr>
-<tr>
-<td><span class="optional-data">suffix</span></td>
-<td><span class="data-type">String</span></td>
-<td><span class="data-remarks">Any suffix that should be appended to the end of the name (Sr., Jr., III, etc.)</span></td>
+<td><span class="data-remarks">The contact&rsquo;s full name</span></td>
 <td></td>
 </tr>
 <tr>
@@ -222,37 +379,37 @@
 <td></td>
 </tr>
 <tr>
-<td><span class="optional-data">address</span></td>
+<td><span class="optional-data">home_street_address</span></td>
 <td><span class="data-type">String</span></td>
 <td><span class="data-remarks">The street address of the contact&rsquo;s current home</span></td>
 <td></td>
 </tr>
 <tr>
-<td><span class="optional-data">city</span></td>
+<td><span class="optional-data">home_city</span></td>
 <td><span class="data-type">String</span></td>
 <td><span class="data-remarks">The city of the contact&rsquo;s current home</span></td>
 <td></td>
 </tr>
 <tr>
-<td><span class="optional-data">state</span></td>
+<td><span class="optional-data">home_state</span></td>
 <td><span class="data-type">String</span></td>
 <td><span class="data-remarks">The state or district of the contact&rsquo;s current home</span></td>
 <td></td>
 </tr>
 <tr>
-<td><span class="optional-data">zip</span></td>
+<td><span class="optional-data">home_zip</span></td>
 <td><span class="data-type">String</span></td>
 <td><span class="data-remarks">The zip code of the contact&rsquo;s current home</span></td>
 <td></td>
 </tr>
 <tr>
-<td><span class="optional-data">neighborhood</span></td>
+<td><span class="optional-data">home_neighborhood</span></td>
 <td><span class="data-type">String</span></td>
 <td><span class="data-remarks">The neighborhood of the contact&rsquo;s current home</span></td>
 <td></td>
 </tr>
 <tr>
-<td><span class="optional-data">country</span></td>
+<td><span class="optional-data">home_country</span></td>
 <td><span class="data-type">String</span></td>
 <td><span class="data-remarks">The country of the contact&rsquo;s current home</span></td>
 <td></td>
@@ -273,6 +430,156 @@
 <td><span class="optional-data">business_website</span></td>
 <td><span class="data-type">String</span></td>
 <td><span class="data-remarks">URL for the contact&rsquo;s business website</span></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="optional-data">property_url</span></td>
+<td><span class="data-type">String</span></td>
+<td><span class="data-remarks">URL for the given property of interest on your system</span></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="optional-data">property_mls_id</span></td>
+<td><span class="data-type">String</span></td>
+<td><span class="data-remarks">MLS Number for the property of interest</span></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="optional-data">property_street_address</span></td>
+<td><span class="data-type">String</span></td>
+<td><span class="data-remarks">Street address of the property of interest</span></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="optional-data">property_city</span></td>
+<td><span class="data-type">String</span></td>
+<td><span class="data-remarks">City / Locale the property of interest is located in</span></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="optional-data">property_state</span></td>
+<td><span class="data-type">String</span></td>
+<td><span class="data-remarks">State / Region the property of interest is located in</span></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="optional-data">property_zip</span></td>
+<td><span class="data-type">String</span></td>
+<td><span class="data-remarks">The zip / postal code the property of interest is located in</span></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="optional-data">property_beds</span></td>
+<td><span class="data-type">Integer</span></td>
+<td><span class="data-remarks">Number of bedrooms in the property of interest</span></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="optional-data">property_baths</span></td>
+<td><span class="data-type">Float</span></td>
+<td><span class="data-remarks">Number of bathrooms in the property of interest</span></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="optional-data">property_list_price</span></td>
+<td><span class="data-type">Integer</span></td>
+<td><span class="data-remarks">The list price of the property of interest</span></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="optional-data">property_listing_status</span></td>
+<td><span class="data-type">String</span></td>
+<td><span class="data-remarks">The current listing status (i.e. Active, Pending, Sold, etc.) of the property of interest</span></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="optional-data">property_photo_url</span></td>
+<td><span class="data-type">String</span></td>
+<td><span class="data-remarks">A URL reference to a photo of the property of interest.</span></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="optional-data">search_city</span></td>
+<td><span class="data-type">String</span></td>
+<td><span class="data-remarks">The city / locale used by the contact in their listing search criteria </span></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="optional-data">search_state</span></td>
+<td><span class="data-type">String</span></td>
+<td><span class="data-remarks">The state / region used by he contact in their listing search criteria l</span></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="optional-data">search_zip</span></td>
+<td><span class="data-type">String</span></td>
+<td><span class="data-remarks">The zip / postal code used by the contact in their listing search criteria</span></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="optional-data">search_min_baths</span></td>
+<td><span class="data-type">Float</span></td>
+<td><span class="data-remarks">The minimum number of bathrooms used by the contact in their listing search criteria</span></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="optional-data">search_min_beds</span></td>
+<td><span class="data-type">Integer</span></td>
+<td><span class="data-remarks">The minimum number of bedrooms used by the contact in their listing search criteria</span></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="optional-data">search_min_price</span></td>
+<td><span class="data-type">Integer</span></td>
+<td><span class="data-remarks">The minimum listing price used by the contact in their listing search criteria</span></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="optional-data">search_max_price</span></td>
+<td><span class="data-type">Integer</span></td>
+<td><span class="data-remarks">The maximum listing price used by the contact in their listing search criteria</span></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="optional-data">search_min_sq_ft</span></td>
+<td><span class="data-type">Integer</span></td>
+<td><span class="data-remarks">The minimum property square feet used by the contact in their listing search criteria</span></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="optional-data">search_max_sq_ft</span></td>
+<td><span class="data-type">Integer</span></td>
+<td><span class="data-remarks">The maximum property square feet used by the contact in their listing search criteria</span></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="optional-data">search_min_lot_size</span></td>
+<td><span class="data-type">Integer</span></td>
+<td><span class="data-remarks">The minimum property lot size used by the contact in their listing search criteria</span></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="optional-data">search_max_lot_size</span></td>
+<td><span class="data-type">Integer</span></td>
+<td><span class="data-remarks">The maximum property lot size used by the contact in their listing search criteria</span></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="optional-data">search_min_year_built</span></td>
+<td><span class="data-type">Integer</span></td>
+<td><span class="data-remarks">The minimum year built used by the contact in their listing search critieria</span></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="optional-data">search_max_year_built</span></td>
+<td><span class="data-type">Integer</span></td>
+<td><span class="data-remarks">The maximum year built used by the contact in their listing search criteria</span></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="optional-data">search_property_types</span></td>
+<td><span class="data-type">String</span></td>
+<td><span class="data-remarks">The property types (i.e. &#39;Condo,&rsquo; &#39;Single-Family,&rsquo; etc.) used by the contact in their listing search criteria</span></td>
 <td></td>
 </tr>
 </tbody></table>

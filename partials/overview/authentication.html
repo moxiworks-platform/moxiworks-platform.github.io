@@ -30,13 +30,15 @@
       <div class="content">
         <h2 id="authentication">Authentication</h2>
 
-<p>The Moxi Works API utilizes OAuth 2.0 for Authentication and Authorization. 
-An <strong>Authorization</strong> HTTP header containing an Access Token is required to authenticate requests. 
-Access Tokens can be acquired in one of two ways:
-<ul>
-<li>via the Smartsheet UI (<a href="#user-generated-access-tokens">User-generated Access Tokens</a>) </li>
-<li>via OAuth 2.0 (see <a href="#third-party-access-tokens">Third-party Access Tokens</a>)</li>
-</ul> </p>
+<blockquote>
+<p><strong>X-MOXI-ID</strong>:  29025b28-d5cd-11e5-21c2-d0e1408e9918
+<strong>X-MOXI-SECRET</strong>:  FavpXASx5ugrLKQdhUyPsgtt3Idj2TQor8nUV88PsCC5FAtt</p>
+</blockquote>
+
+<p>The Moxi Works API utilizes an API Identifier and Secret combination for Authentication and Authorization. 
+A <strong>X-MOXI-ID</strong> HTTP header containing your Moxi Works API Identifier is required to authenticate requests. 
+A <strong>X-MOXI-SECRET</strong> HTTP header containing your Moxi Works API Secret is required to authenticate requests.
+You can acquire your Moxi Works API Identifier and Secret pair by contacting Moxi Works.</p>
 
       </div>
       <div class="dark-box">

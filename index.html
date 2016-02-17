@@ -86,6 +86,22 @@ Similarly, to create a Contact, <code class="prettyprint">POST</code> a Contact 
 <p>All actions taken through the API are done via HTTP using <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html">standard HTTP methods</a>: GET (to retrieve an object), POST (to create), PUT (to modify), and DELETE. 
 <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html">Standard HTTP Response codes</a> are used to indicate success and error conditions.</p>
 
+<h2 id="authentication">Authentication</h2>
+
+<blockquote>
+<p><strong>Example Authentication Headers</strong>:  <ul><span>X-MOXI-ID: 29025b28</span><br><span>X-MOXI-SECRET:  FavpXA</span></ul></p>
+</blockquote>
+
+<p>The Moxi Works API utilizes an API Identifier and Secret combination for Authentication and Authorization. </p>
+
+<p>A <strong>X-MOXI-ID</strong> HTTP header containing your Moxi Works API Identifier is required to authenticate requests. </p>
+
+<p>A <strong>X-MOXI-SECRET</strong> HTTP header containing your Moxi Works API Secret is required to authenticate requests.</p>
+
+<p>You can acquire your Moxi Works API Identifier and Secret pair by contacting Moxi Works.</p>
+
+<p><aside class="warning">Do not include your Moxi Works API Identifier or Secret  in the parameters sent to the server; they must be set in the request header. Setting the API Identifier and Secret in the request parameters will result in an authorization failure.</aside></p>
+
 <h2 id="input-output-format">Input / Output Format</h2>
 
 <p>Unless otherwise specified, all API endpoints expect request body data to be in <a href="http://en.wikipedia.org/wiki/JSON">JSON</a>, and the response body data is returned as JSON.</p>

@@ -470,7 +470,7 @@ Alternatively, you might choose to use <a href="https://en.wikipedia.org/wiki/Ex
 
 <h2 id="contact">Contact</h2>
 
-<h3 id="creating">Creating</h3>
+<h3 id="create">Create</h3>
 
 <p>When creating a contact using the Moxi Works platform API, format your data using the following parameters.</p>
 
@@ -746,7 +746,7 @@ Alternatively, you might choose to use <a href="https://en.wikipedia.org/wiki/Ex
 </tr>
 </tbody></table>
 
-<h3 id="updating">Updating</h3>
+<h3 id="update">Update</h3>
 
 <aside class="warning">Moxi Works API will remove data for any attribute not defined within the paramters you send. For instance, if the home_street_address attribute is not passed, the current home_street_address for the contact will be removed from the contact stored in Moxi Works.</aside>
 
@@ -1018,6 +1018,36 @@ Alternatively, you might choose to use <a href="https://en.wikipedia.org/wiki/Ex
 <td><span class="optional-data">search_property_types</span></td>
 <td><span class="data-type">String</span></td>
 <td><span class="data-remarks">The property types (i.e. &#39;Condo,&rsquo; &#39;Single-Family,&rsquo; etc.) used by the contact in their listing search criteria</span></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h3 id="show">Show</h3>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Remark</th>
+<th>Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span class="required-data">moxi_works_agent_id</span></td>
+<td><span class="data-type">String</span></td>
+<td><span class="data-remarks">The agent&rsquo;s Moxi Works Platform ID</span></td>
+<td><span class="required-data"><strong>required</strong></span></td>
+</tr>
+<tr>
+<td><span class="required-data">partner_contact_id</span></td>
+<td><span class="data-type">String</span></td>
+<td><span class="data-remarks">The unique ID of the contact in your system</span></td>
+<td><span class="required-data"><strong>partner_contact_id <b>or</b> moxi_works_contact_id is required</strong></span></td>
+</tr>
+<tr>
+<td><span class="optional-data">moxi_works_contact_id</span></td>
+<td><span class="data-type">String</span></td>
+<td><span class="data-remarks"><strong>partner_contact_id <b>or</b> moxi_works_contact_id is required</strong></span></td>
 <td></td>
 </tr>
 </tbody></table>

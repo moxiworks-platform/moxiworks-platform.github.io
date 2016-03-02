@@ -6,35 +6,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>API Documentation</title>
 
-    <link href="../../stylesheets/screen.css" rel="stylesheet" type="text/css" media="screen" />
-    <link href="../../stylesheets/print.css" rel="stylesheet" type="text/css" media="print" />
+    <link href="../../../stylesheets/screen.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="../../../stylesheets/print.css" rel="stylesheet" type="text/css" media="print" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-      <script src="../../javascripts/all_nosearch.js" type="text/javascript"></script>
+      <script src="../../../javascripts/all_nosearch.js" type="text/javascript"></script>
 
   </head>
 
-  <body class="partials partials_overview partials_overview_authentication">
+  <body class="partials partials_public_api partials_public_api_overview partials_public_api_overview_authorization">
     <a href="#" id="nav-button">
       <span>
         NAV
-        <img src="../../images/navbar.png" />
+        <img src="../../../images/navbar.png" />
       </span>
     </a>
     <div class="tocify-wrapper">
-      <img src="../../images/logo.png" />
+      <img src="../../../images/logo.png" />
       <div id="toc">
       </div>
     </div>
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h2 id="authentication">Authentication</h2>
+        <h2 id="authorization">Authorization</h2>
+
+<p><aside class="warning">To ensure that your key and secret remain secret, always use HTTPS when making requests from the Moxi Works Platform publuc API.</aside></p>
 
 <blockquote>
-<p><strong>Example Authentication Headers</strong>:  <ul><span>X-MOXI-ID: 29025b28</span><br><span>X-MOXI-SECRET:  FavpXA</span></ul></p>
+<p><strong>Example Basic Authorization Headers</strong>:  <ul><span>X-MOXI-ID: 29025b28</span><br><span>X-MOXI-SECRET:  FavpXA</span></ul></p>
 </blockquote>
 
-<p>The Moxi Works API utilizes an API Identifier and Secret combination for Authentication and Authorization. </p>
+<p>The Moxi Works API utilizes custom HTTP headers for authorization. </p>
+
+<p>To authorize your request, use the API Identifier and Secret combination you have been provided by your Moxi Works Platform representative.</p>
 
 <p>A <strong>X-MOXI-ID</strong> HTTP header containing your Moxi Works API Identifier is required to authenticate requests. </p>
 

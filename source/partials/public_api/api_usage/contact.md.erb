@@ -1,7 +1,8 @@
-## Contact
-
 
 ### Create
+
+<aside class="note">Send a <b>POST</b> request to https://api.moxiworks.com/api/contact</aside>
+
 When creating a contact using the Moxi Works platform API, format your data using the following parameters.
 
 
@@ -57,6 +58,8 @@ Attribute | Type| Remark | Required |
 
 ### Update
 
+<aside class="note">Send a <b>PUT</b> request to https://api.moxiworks.com/api/contact</aside>
+
 <aside class="warning">Moxi Works API will remove data for any attribute not defined within the paramters you send. For instance, if the home_street_address attribute is not passed, the current home_street_address for the contact will be removed from the contact stored in Moxi Works.</aside>
 
 
@@ -110,10 +113,13 @@ Attribute | Type| Remark | Required |
 
 ### Show
 
+<aside class="note">Send a <b>GET</b> request to https://api.moxiworks.com/api/contact/[partner_contact_id]</aside>
+
+
 Attribute | Type| Remark | Required |
 -----|-----|-----|-----| 
 |<span class="required-data">moxi_works_agent_id</span>|<span class="data-type">String</span>|<span class="data-remarks">The agent's Moxi Works Platform ID</span>| <span class="required-data">**required**</span>
 |<span class="required-data">partner_contact_id</span>|<span class="data-type">String</span>|<span class="data-remarks">The unique ID of the contact in your system</span>| <span class="required-data">**partner_contact_id <b>or</b> moxi_works_contact_id is required**</span>
-|<span class="required-data">moxi_works_contact_id</span>|<span class="data-type">String</span>|<span class="data-remarks">**partner_contact_id <b>or</b> moxi_works_contact_id is required**</span>| | 
+|<span class="required-data">moxi_works_contact_id</span>|<span class="data-type">String</span>| The unique ID of the contact in the Moxi Works Platform|<span class="required-data">**partner_contact_id <b>or</b> moxi_works_contact_id is required**</span> 
 
 

@@ -92,16 +92,36 @@ Similarly, to create a Contact, <code class="prettyprint">POST</code> a Contact 
 <p><aside class="warning">To ensure that your key and secret remain secret, always use HTTPS when making requests from the Moxi Works Platform publuc API.</aside></p>
 
 <blockquote>
-<p><strong>Example Basic Authorization Headers</strong>:  <ul><span>X-MOXI-ID: 29025b28</span><br><span>X-MOXI-SECRET:  FavpXA</span></ul></p>
+<p><strong>Example Basic Authorization Headers</strong>:  <ul><span><b>Authorization</b> Basic Zm9vb29vb29vb29vbzpiYWFhYWFycnJycnJy==</span></ul></p>
 </blockquote>
 
-<p>The Moxi Works API utilizes custom HTTP headers for authorization. </p>
+<p>The Moxi Works API utilizes Authorization HTTP headers for authorization. </p>
 
 <p>To authorize your request, use the API Identifier and Secret combination you have been provided by your Moxi Works Platform representative.</p>
 
-<p>A <strong>X-MOXI-ID</strong> HTTP header containing your Moxi Works API Identifier is required to authenticate requests. </p>
+<p>When composing your basic header, per <a href='https://www.ietf.org/rfc/rfc2617.txt'>RFC 2617</a> you&rsquo;ll need to base 64 encode your Moxi Works Platform Identifier and Secret.</p>
 
-<p>A <strong>X-MOXI-SECRET</strong> HTTP header containing your Moxi Works API Secret is required to authenticate requests.</p>
+<p>Remember to separate your platform identifier and secret with a colon.</p>
+
+<blockquote>
+<p>To generate your auth header, use the following examples:</p>
+</blockquote>
+
+<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s2">"base64"</span>
+
+<span class="n">moxi_works_platform_identifier</span> <span class="o">=</span> <span class="s1">'abc123'</span>
+<span class="n">moxi_works_platform_secret</span> <span class="o">=</span> <span class="s1">'secretKey'</span>
+
+<span class="no">Base64</span><span class="p">.</span><span class="nf">encode64</span><span class="p">(</span><span class="s2">"</span><span class="si">#{</span><span class="n">moxi_works_platform_identifier</span><span class="si">}</span><span class="s2">:</span><span class="si">#{</span><span class="n">moxi_works_platform_secret</span><span class="si">}</span><span class="s2">"</span><span class="p">).</span><span class="nf">gsub</span><span class="p">(</span><span class="sr">/\n/</span><span class="p">,</span> <span class="s1">''</span><span class="p">)</span>
+
+</code></pre>
+
+<pre class="highlight shell"><code><span class="nv">moxi_works_platform_identifier</span><span class="o">=</span><span class="s1">'abc123'</span>
+<span class="nv">moxi_works_platform_secret</span><span class="o">=</span><span class="s1">'secretKey'</span>
+
+curl -u <span class="k">${</span><span class="nv">moxi_works_platform_identifier</span><span class="k">}</span>:<span class="k">${</span><span class="nv">moxi_works_platform_secret</span><span class="k">}</span> https://api.moxiworks.com/api/
+
+</code></pre>
 
 <p>You can acquire your Moxi Works API Identifier and Secret pair by contacting Moxi Works.</p>
 

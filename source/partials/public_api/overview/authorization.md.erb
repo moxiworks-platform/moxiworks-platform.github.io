@@ -3,15 +3,35 @@
   <aside class="warning">To ensure that your key and secret remain secret, always use HTTPS when making requests from the Moxi Works Platform publuc API.</aside>
 
 
-> **Example Basic Authorization Headers**:  <ul><span>X-MOXI-ID: 29025b28</span><br><span>X-MOXI-SECRET:  FavpXA</span></ul>
+> **Example Basic Authorization Headers**:  <ul><span><b>Authorization</b> Basic Zm9vb29vb29vb29vbzpiYWFhYWFycnJycnJy==</span></ul>
 
-The Moxi Works API utilizes custom HTTP headers for authorization. 
+The Moxi Works API utilizes Authorization HTTP headers for authorization. 
 
 To authorize your request, use the API Identifier and Secret combination you have been provided by your Moxi Works Platform representative.
 
-A **X-MOXI-ID** HTTP header containing your Moxi Works API Identifier is required to authenticate requests. 
+When composing your basic header, per <a href='https://www.ietf.org/rfc/rfc2617.txt'>RFC 2617</a> you'll need to base 64 encode your Moxi Works Platform Identifier and Secret.
 
-A **X-MOXI-SECRET** HTTP header containing your Moxi Works API Secret is required to authenticate requests.
+Remember to separate your platform identifier and secret with a colon.
+
+> To generate your auth header, use the following examples:
+
+```ruby
+require "base64"
+
+moxi_works_platform_identifier = 'abc123'
+moxi_works_platform_secret = 'secretKey'
+
+Base64.encode64("#{moxi_works_platform_identifier}:#{moxi_works_platform_secret}").gsub(/\n/, '')
+
+```
+
+```shell
+moxi_works_platform_identifier='abc123'
+moxi_works_platform_secret='secretKey'
+
+curl -u ${moxi_works_platform_identifier}:${moxi_works_platform_secret} https://api.moxiworks.com/api/
+
+```
 
 You can acquire your Moxi Works API Identifier and Secret pair by contacting Moxi Works.
 

@@ -13,7 +13,7 @@
 
   </head>
 
-  <body class="partials partials_public_api partials_public_api_overview partials_public_api_overview_request_header_versioning">
+  <body class="partials partials_public_api partials_public_api_overview partials_public_api_overview_sending_data">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -28,25 +28,16 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h2 id="api-versioning">API Versioning</h2>
+        <h2 id="sending-data">Sending Data</h2>
 
-<p>Moxi Works API uses the Accept header to denote the version of the API to be used. By default, the current version of the API will be used when it is not set.</p>
-<pre class="highlight shell"><code> Accept: application/vnd.moxi-platform+json;version<span class="o">=</span>1
+<p>When sending data, your payload should be formatted as a standard encoded form data.</p>
+<pre class="highlight shell"><code>
+<span class="c">#Example form data payload</span>
+
+
+<span class="nv">moxi_works_agent_id</span><span class="o">=</span>abc123&amp;partner_contact_id<span class="o">=</span>abc982cdf345&amp;partner_agent_id<span class="o">=</span>xyz987&amp;contact_name<span class="o">=</span>Billy+Football&amp;
+
 </code></pre>
-
-<table><thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead><tbody>
-<tr>
-<td><em>Accept</em></td>
-<td>The Moxi Works API uses the Accept header to denote the API version to be used ( <code class="prettyprint">application/vnd.moxi-platform+json;version=[VERSION NUMBER]</code>).</td>
-</tr>
-</tbody></table>
-
-<aside class="notice">To ensure that your request to the Moxi Works API continue to function when breaking changes are introduced to the API, ensure that you use request header versioning  when accessing the Moxi Works API. If the API version is not denoted in the request header</aside>
 
       </div>
       <div class="dark-box">

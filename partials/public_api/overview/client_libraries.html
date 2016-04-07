@@ -13,7 +13,7 @@
 
   </head>
 
-  <body class="partials partials_public_api partials_public_api_overview partials_public_api_overview_request_header_versioning">
+  <body class="partials partials_public_api partials_public_api_overview partials_public_api_overview_client_libraries">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -28,25 +28,21 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h2 id="api-versioning">API Versioning</h2>
+        <h2 id="client-libraries">Client Libraries</h2>
 
-<p>Moxi Works API uses the Accept header to denote the version of the API to be used. By default, the current version of the API will be used when it is not set.</p>
-<pre class="highlight shell"><code> Accept: application/vnd.moxi-platform+json;version<span class="o">=</span>1
+<p>The following libraries are available to help your integration process with the Moxi Works Platform public API:</p>
+<pre class="highlight ruby"><code><span class="c1">#Install the moxiworks_platform Ruby library to quickly integrate with the Moxi Works Platform.</span>
+
+<span class="n">gem</span> <span class="n">install</span> <span class="n">moxiworks_platform</span>
 </code></pre>
 
-<table><thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead><tbody>
-<tr>
-<td><em>Accept</em></td>
-<td>The Moxi Works API uses the Accept header to denote the API version to be used ( <code class="prettyprint">application/vnd.moxi-platform+json;version=[VERSION NUMBER]</code>).</td>
-</tr>
-</tbody></table>
+<h3 id="ruby">Ruby</h3>
 
-<aside class="notice">To ensure that your request to the Moxi Works API continue to function when breaking changes are introduced to the API, ensure that you use request header versioning  when accessing the Moxi Works API. If the API version is not denoted in the request header</aside>
+<p>Ruby client libraries for Moxi Works Platform can be from rubygems.org installed using gem.
+<ul>
+<li><a href='http://www.rubydoc.info/github/moxiworks-platform/moxiworks-ruby'>Documentation</a></li>
+<li><a href='https://github.com/moxiworks-platform/moxiworks-ruby'>Source</a></li>
+</ul></p>
 
       </div>
       <div class="dark-box">

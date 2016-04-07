@@ -4,9 +4,9 @@ page '/*.json', layout: false
 page '/*.txt', layout: false
 
 
-configure :development do
-  activate :livereload
-end
+#configure :development do
+#  activate :livereload
+#end
 
 
 # Markdown

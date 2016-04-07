@@ -1,39 +1,48 @@
 ## Authorization
 
-  <aside class="warning">To ensure that your key and secret remain secret, always use HTTPS when making requests from the Moxi Works Platform publuc API.</aside>
+
+```shell
+#Example Authorization Header:
+#(note that the authorization header platform identifier and platform key are base64 encoded)
+
+Authorization: Basic Zm9vb29vb29vb29vbzpiYWFhYWFycnJycnJy==
+```
 
 
-> **Example Basic Authorization Headers**:  <ul><span><b>Authorization</b> Basic Zm9vb29vb29vb29vbzpiYWFhYWFycnJycnJy==</span></ul>
+```ruby
+
+require 'moxiworks_platform'
+
+platform_identifier = 'abc123' # platorm_identifier provided by Moxi Works Platform Rep
+platform_secret = 'secret' #platform_secret provided by Moxi Works Platform Rep
+
+MoxiworksPlatform::Credentials.new(platform_identifier, platform_secret)
+
+```
+
+
+  <aside class="warning">To ensure that your key and secret remain secret, always use HTTPS when making requests from the Moxi Works Platform public API.</aside>
 
 The Moxi Works API utilizes Authorization HTTP headers for authorization. 
 
 To authorize your request, use the API Identifier and Secret combination you have been provided by your Moxi Works Platform representative.
 
-When composing your basic header, per <a href='https://www.ietf.org/rfc/rfc2617.txt'>RFC 2617</a> you'll need to base 64 encode your Moxi Works Platform Identifier and Secret.
+When composing your basic header, per <a href='https://www.ietf.org/rfc/rfc2617.txt'>RFC 2617</a> you'll need to base 64 encode your Moxi Works Platform Identifier and Secret and remember to separate your platform identifier and secret with a colon.
 
-Remember to separate your platform identifier and secret with a colon.
 
-> To generate your auth header, use the following examples:
+### Help with HTTP Basic Auth on your platform
+The following links provide helpful information for various platforms on creating HTTP Basic Auth Headers
 
-```ruby
-require "base64"
 
-moxi_works_platform_identifier = 'abc123'
-moxi_works_platform_secret = 'secretKey'
+ |  |  |   |
+-----|-----|-----|-----|
+| <a href='http://stackoverflow.com/questions/24933746/getting-basic-authentication-to-work-with-coldfusion' target="_blank">ColdFusion</a> |  |  |  |
 
-Base64.encode64("#{moxi_works_platform_identifier}:#{moxi_works_platform_secret}").gsub(/\n/, '')
 
-```
+Still need more info? Email api@moxiworks.com and let us know what language you're using to connect to the Moxi Works Platform.
 
-```shell
-moxi_works_platform_identifier='abc123'
-moxi_works_platform_secret='secretKey'
 
-curl -u ${moxi_works_platform_identifier}:${moxi_works_platform_secret} https://api.moxiworks.com/api/
-
-```
-
-You can acquire your Moxi Works API Identifier and Secret pair by contacting Moxi Works.
+<aside class='note'>You can acquire your Moxi Works API Identifier and Secret pair by contacting Moxi Works.</aside>
 
   <aside class="warning">Do not include your Moxi Works API Identifier or Secret  in the parameters sent to the server; they must be set in the request header. Setting the API Identifier and Secret in the request parameters will result in an authorization failure.</aside>
 

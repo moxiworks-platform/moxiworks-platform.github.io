@@ -1,0 +1,23 @@
+## Required Headers
+
+
+```shell
+# Example Headers Required
+
+Authorization: Basic bpiYWFhYWFycnJycnJy==
+
+Accept: application/vnd.moxi-platform+json;version=1
+
+Content-Type: application/x-www-form-urlencoded
+
+```
+
+If you are using a client access library to the Moxi Works Platform, required request headers will automatically be configured for you. 
+
+If you are implementing your own Moxi Works Platform library, you'll need to ensure that you have the following headers configured in your request:
+
+     |     |    |
+-----|-----|-----|
+*Authorization*     | Used for platform authorization |`Basic [base64 encoded platform id and secret]`
+*Accept*  | Used for API version and resource routing | `application/vnd.moxi-platform+json;version=1`
+*Content-Type* | Used for handling data in request | `application/x-www-form-urlencoded`

@@ -1,11 +1,14 @@
 ## API Versioning
 Moxi Works API uses the Accept header to denote the version of the API to be used. By default, the current version of the API will be used when it is not set.
  
- > **Moxi Works V1  API Accept Header:** application/vnd.moxi-platform+json;version=[VERSION NUMBER]
+
+ ```shell
+ Accept: application/vnd.moxi-platform+json;version=1
+ ```
 
      |     |
 -----|-----|
-*Accept*       | The Moxi Works API uses the Accept header to denote the API version to be used ( `application/vnd.moxi-platform+json;version=1`).
+*Accept*       | The Moxi Works API uses the Accept header to denote the API version to be used ( `application/vnd.moxi-platform+json;version=[VERSION NUMBER]`).
 
 
 <aside class="notice">To ensure that your request to the Moxi Works API continue to function when breaking changes are introduced to the API, ensure that you use request header versioning  when accessing the Moxi Works API. If the API version is not denoted in the request header</aside>

@@ -10,12 +10,43 @@ moxi_works_agent_id=abc123&partner_contact_id=abc982cdf345&partner_agent_id=xyz9
 
 ```
 
+```ruby
+# required headers set automatically by moxiworks_platform library.
+# to view, use the following:
+
+MoxiworksPlatform::Resource.content_type_header.inspect
+```
+
+```php
+<?php
+/* required headers seat automatically by moxiworks_platform library.
+to view, use the following: 
+*/
+print_r(MoxiworksPlatform\Resource::contentTypeHeader());
+?>
+```
+
+
 >**Setting Payload Format To JSON using Content-Type header**
 
 ```http
 POST /api/[RESOURCE] HTTP/1.1
 Content-Type: application/json
 ```
+
+
+```ruby
+# required headers set automatically to x-www-form-urlencoded moxiworks_platform library.
+
+```
+
+```php
+<?php
+/* required headers seat automatically to x-www-form-urlencoded by moxiworks_platform library.*/
+?>
+```
+
+
 Your request body payload can either be formatted as JSON or as url encoded form parameters. Whichever method you choose, you'll need to configure your Content-Type header to match the payload format. 
 
 <aside class='notice'>Unless otherwise specified, all API endpoints expect request body data to be either <b>JSON or url encoded form parameters</b>. The response payload data is <b>always</b> returned as JSON.</aside>

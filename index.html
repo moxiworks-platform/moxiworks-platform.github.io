@@ -1500,7 +1500,7 @@ import moxiworks-platform
 api = kittn.authorize('myApiKey')
 ```
 
-```shell
+```http
 # With shell, you can just pass the correct header with each request
 curl "api_endpoint_here"
   -H "Authorization: myApiKey"
@@ -1535,7 +1535,7 @@ api = kittn.authorize('meowmeowmeow')
 api.kittens.get()
 ```
 
-```shell
+```http
 curl "http://example.com/api/kittens"
   -H "Authorization: meowmeowmeow"
 ```
@@ -1594,7 +1594,7 @@ api = kittn.authorize('meowmeowmeow')
 api.kittens.get(2)
 ```
 
-```shell
+```http
 curl "http://example.com/api/kittens/2"
   -H "Authorization: meowmeowmeow"
 ```

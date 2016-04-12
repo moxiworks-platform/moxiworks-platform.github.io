@@ -1,7 +1,7 @@
 ## Authorization
 
 
-```shell
+```http
 #Example Authorization Header:
 #(note that the authorization header platform identifier and platform key are base64 encoded)
 
@@ -18,6 +18,16 @@ platform_secret = 'secret' #platform_secret provided by Moxi Works Platform Rep
 
 MoxiworksPlatform::Credentials.new(platform_identifier, platform_secret)
 
+```
+
+```php
+
+<?php
+$platform_identifier = 'abc123'; // platorm_identifier provided by Moxi Works Platform Rep
+$platform_secret = 'secret'; //platform_secret provided by Moxi Works Platform Rep
+
+$credentials = new MoxiworksPlatform\Credentials($platform_identifier, $platform_secret);
+?>
 ```
 
 

@@ -1,12 +1,15 @@
 ## Sending Data
 
-When sending data, your payload should be formatted as a standard encoded form data.
+When sending data, your payload should be formatted as a standard encoded form data. 
+
+For GET and DELETE requests, parameters should be embedded in the URL.
+
+For POST, PUT request, the parameters should be included in the entity body of the request.
 
 
-```shell
+> **Example Form Data Payload**
 
-#Example form data payload
-
+```apires
 
 moxi_works_agent_id=abc123&partner_contact_id=abc982cdf345&partner_agent_id=xyz987&contact_name=Billy+Football&
 

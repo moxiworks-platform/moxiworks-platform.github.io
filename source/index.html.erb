@@ -3,7 +3,8 @@ title: Moxi Works Platform Reference
 
 language_tabs:
   - ruby: Ruby
-  - shell: HTTP
+  - php: PHP
+  - http: HTTP
 
 toc_footers:
   - <a href='http://github.com/tripit/slate'>Documentation Powered by Slate</a>
@@ -37,7 +38,7 @@ import moxiworks-platform
 api = kittn.authorize('myApiKey')
 ```
 
-```shell
+```http
 # With shell, you can just pass the correct header with each request
 curl "api_endpoint_here"
   -H "Authorization: myApiKey"
@@ -72,7 +73,7 @@ api = kittn.authorize('meowmeowmeow')
 api.kittens.get()
 ```
 
-```shell
+```http
 curl "http://example.com/api/kittens"
   -H "Authorization: meowmeowmeow"
 ```
@@ -131,7 +132,7 @@ api = kittn.authorize('meowmeowmeow')
 api.kittens.get(2)
 ```
 
-```shell
+```http
 curl "http://example.com/api/kittens/2"
   -H "Authorization: meowmeowmeow"
 ```

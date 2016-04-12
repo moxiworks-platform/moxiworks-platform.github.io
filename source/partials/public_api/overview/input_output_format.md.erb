@@ -1,4 +1,13 @@
 ## Input / Output Format
 
+>*Set MIME type To JSON using the Accept header*
+
+```apires
+Accept: application/vnd.moxi-platform+json;version=1
+```
+
 Unless otherwise specified, all API endpoints expect request body data to be in [JSON](http://en.wikipedia.org/wiki/JSON), and the response body data is returned as JSON.
 
+In order to ensure that the server handles your request as JSON, ensure that your Accept header is set so the content type is json. The recommended Accept header includes the content type as well as API version number. 
+
+<aside class="note">If your Accept header is not set, The Moxi Works Platform will automatically interpret any api calls as JSON.</aside>

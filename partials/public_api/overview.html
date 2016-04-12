@@ -285,12 +285,35 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;partner_agent
 
 </code></pre>
 
+<pre class="highlight ruby"><code><span class="c1"># required headers set automatically by moxiworks_platform library.</span>
+<span class="c1"># to view, use the following:</span>
+
+<span class="no">MoxiworksPlatform</span><span class="o">::</span><span class="no">Resource</span><span class="p">.</span><span class="nf">content_type_header</span><span class="p">.</span><span class="nf">inspect</span>
+</code></pre>
+
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+<span class="cm">/* required headers seat automatically by moxiworks_platform library.
+to view, use the following: 
+*/</span>
+<span class="nb">print_r</span><span class="p">(</span><span class="nx">MoxiworksPlatform\Resource</span><span class="o">::</span><span class="na">contentTypeHeader</span><span class="p">());</span>
+<span class="cp">?&gt;</span>
+</code></pre>
+
 <blockquote>
 <p><strong>Setting Payload Format To JSON using Content-Type header</strong></p>
 </blockquote>
 
 <pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">/api/[RESOURCE]</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+</code></pre>
+
+<pre class="highlight ruby"><code><span class="c1"># required headers set automatically to x-www-form-urlencoded moxiworks_platform library.</span>
+
+</code></pre>
+
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+<span class="cm">/* required headers seat automatically to x-www-form-urlencoded by moxiworks_platform library.*/</span>
+<span class="cp">?&gt;</span>
 </code></pre>
 
 <p>Your request body payload can either be formatted as JSON or as url encoded form parameters. Whichever method you choose, you&rsquo;ll need to configure your Content-Type header to match the payload format. </p>
@@ -329,9 +352,7 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;partner_agent
 
 <pre class="highlight php"><code> <span class="cp">&lt;?php</span>
  <span class="cm">/* to view the version of the API used with your version of moxiworks_platform PHP library */</span>
-
-<span class="k">echo</span> <span class="nx">MoxiworksPlatform\Resource</span><span class="o">::</span><span class="na">accept_header</span>
-
+<span class="k">echo</span> <span class="nx">MoxiworksPlatform\Resource</span><span class="o">::</span><span class="na">acceptHeader</span><span class="p">();</span>
 <span class="cp">?&gt;</span>
 </code></pre>
 

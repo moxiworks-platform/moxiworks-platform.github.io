@@ -32,19 +32,20 @@
 
 <p>To ensure that system resources are not overloaded and response quality degrated, Moxi Works allows only a limited number of requests every minute. </p>
 
+<blockquote>
+<p><strong>Over-limit Error Response Example</strong></p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fail"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"errorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">4000</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"'Too many requests. Please try again later."</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
 <p><strong>Handling &ldquo;Rate Limit Exceeded&rdquo; error</strong>
 In order to prevent abuse and undue stress on the Moxi Works servers, the API has a rate limiting feature that restricts users to <strong>300</strong> requests per minute per Access Token. </p>
 
 <p>If and when the limit is enforced, any requests that exceed this limit will be rejected with an <strong>429</strong> HTTP status code, along with the JSON response body shown to the right</p>
-
-<blockquote>
-<p>Over-limit Error Response</p>
-</blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"errorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">4000</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rate limit exceeded."</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
 
 <p>It is recommended that you design your integration to gracefully handle this rate limit error. 
 One way to accomplish this would be to have your integration <em>sleep</em> for 60 seconds when this error is returned from the API, then retry the request. 

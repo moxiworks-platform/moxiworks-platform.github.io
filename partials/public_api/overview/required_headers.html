@@ -29,17 +29,30 @@
       <div class="dark-box"></div>
       <div class="content">
         <h2 id="required-headers">Required Headers</h2>
-<pre class="highlight shell"><code><span class="c"># Example Headers Required</span>
 
-Authorization: Basic <span class="nv">bpiYWFhYWFycnJycnJy</span><span class="o">==</span>
+<aside class="note">If you are using a client access library to the Moxi Works Platform, required request headers will automatically be configured for you.</aside>
 
-Accept: application/vnd.moxi-platform+json;version<span class="o">=</span>1
-
-Content-Type: application/x-www-form-urlencoded
+<blockquote>
+<p><strong>Required Headers Example</strong></p>
+</blockquote>
+<pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">/api/[RESOURCE]</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Basic bpiYWFhYWFycnJycnJy==</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/x-www-form-urlencoded</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.moxi-platform+json;version=1</span>
 
 </code></pre>
+<pre class="highlight ruby"><code><span class="c1"># required headers set automatically by moxiworks_platform library.</span>
+<span class="c1"># to view, use the following:</span>
 
-<p>If you are using a client access library to the Moxi Works Platform, required request headers will automatically be configured for you. </p>
+<span class="no">MoxiworksPlatform</span><span class="o">::</span><span class="no">Resource</span><span class="p">.</span><span class="nf">headers</span><span class="p">.</span><span class="nf">inspect</span>
+</code></pre>
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+<span class="cm">/* required headers seat automatically by moxiworks_platform library.
+to view, use the following: 
+*/</span>
+<span class="nb">print_r</span><span class="p">(</span><span class="nx">MoxiworksPlatform\Resource</span><span class="o">::</span><span class="na">headers</span><span class="p">());</span>
+<span class="cp">?&gt;</span>
+</code></pre>
 
 <p>If you are implementing your own Moxi Works Platform library, you&rsquo;ll need to ensure that you have the following headers configured in your request:</p>
 

@@ -29,10 +29,12 @@
       <div class="dark-box"></div>
       <div class="content">
         <h2 id="authorization">Authorization</h2>
-<pre class="highlight shell"><code><span class="c">#Example Authorization Header:</span>
-<span class="c">#(note that the authorization header platform identifier and platform key are base64 encoded)</span>
 
-Authorization: Basic <span class="nv">Zm9vb29vb29vb29vbzpiYWFhYWFycnJycnJy</span><span class="o">==</span>
+<blockquote>
+<p><strong>Example Authorization Header:</strong> (note that the authorization header platform identifier and platform key are base64 encoded)</p>
+</blockquote>
+<pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">/api/[RESOURCE]</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Basic Zm9vb29vb29vb29vbzpiYWFhYWFycnJycnJy==</span>
 </code></pre>
 <pre class="highlight ruby"><code>
 <span class="nb">require</span> <span class="s1">'moxiworks_platform'</span>
@@ -42,6 +44,14 @@ Authorization: Basic <span class="nv">Zm9vb29vb29vb29vbzpiYWFhYWFycnJycnJy</span
 
 <span class="no">MoxiworksPlatform</span><span class="o">::</span><span class="no">Credentials</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">platform_identifier</span><span class="p">,</span> <span class="n">platform_secret</span><span class="p">)</span>
 
+</code></pre>
+<pre class="highlight php"><code>
+<span class="cp">&lt;?php</span>
+<span class="nv">$platform_identifier</span> <span class="o">=</span> <span class="s1">'abc123'</span><span class="p">;</span> <span class="c1">// platorm_identifier provided by Moxi Works Platform Rep
+</span><span class="nv">$platform_secret</span> <span class="o">=</span> <span class="s1">'secret'</span><span class="p">;</span> <span class="c1">//platform_secret provided by Moxi Works Platform Rep
+</span>
+<span class="nv">$credentials</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MoxiworksPlatform\Credentials</span><span class="p">(</span><span class="nv">$platform_identifier</span><span class="p">,</span> <span class="nv">$platform_secret</span><span class="p">);</span>
+<span class="cp">?&gt;</span>
 </code></pre>
 
 <p><aside class="warning">To ensure that your key and secret remain secret, always use HTTPS when making requests from the Moxi Works Platform public API.</aside></p>

@@ -37,7 +37,7 @@
 <p>When creating an event using the Moxi Works platform API, format your data using the following parameters.</p>
 
 <blockquote>
-<p><span class="data-example-label">Event Creation Example</span><span class="data-example"><span class="example-label">moxi_works_agent_id</span><span class="example">abc123</span></span><span class="data-example"><span class="example-label">partner_event_id</span><span class="example">abc982cdf345</span></span><span class="data-example"><span class="example-label">partner_agent_id</span><span class="example">zxy987</span></span><span class="data-example"><span class="example-label">event_subject</span><span class="example">Let&rsquo;s meet for lunch</span></span><span class="data-example"><span class="example-label">event_location</span><span class="example">1234 56th Ave</span></span><span class="data-example"><span class="example-label">send_reminder</span><span class="example">true</span></span><span class="data-example"><span class="example-label">remind_minutes_before</span><span class="example">15</span></span><span class="data-example"><span class="example-label">event_start</span><span class="example">1456955102</span></span><span class="data-example"><span class="example-label">event_end</span><span class="example">1456955602</span></span><span class="data-example"><span class="example-label">attendees</span><span class="example">abc123, xcr898</span></span><span class="data-example"><span class="example-label">recurring</span><span class="example">false</span></span><span class="data-example"><span class="example-label">note</span><span class="example">&lt;p&gt;Hi, this is an HTML formatted note to be displayed for this meeting&lt;/p&gt;</span></span></p>
+<p><span class="data-example-label">Event Creation Example</span><span class="data-example"><span class="example-label">moxi_works_agent_id</span><span class="example">abc123</span></span><span class="data-example"><span class="example-label">partner_event_id</span><span class="example">abc982cdf345</span></span><span class="data-example"><span class="example-label">event_subject</span><span class="example">Let&rsquo;s meet for lunch</span></span><span class="data-example"><span class="example-label">event_location</span><span class="example">1234 56th Ave</span></span><span class="data-example"><span class="example-label">send_reminder</span><span class="example">true</span></span><span class="data-example"><span class="example-label">remind_minutes_before</span><span class="example">15</span></span><span class="data-example"><span class="example-label">event_start</span><span class="example">1456955102</span></span><span class="data-example"><span class="example-label">event_end</span><span class="example">1456955602</span></span><span class="data-example"><span class="example-label">attendees</span><span class="example">abc123, xcr898</span></span><span class="data-example"><span class="example-label">recurring</span><span class="example">false</span></span><span class="data-example"><span class="example-label">note</span><span class="example">&lt;p&gt;Hi, this is an HTML formatted note to be displayed for this meeting&lt;/p&gt;</span></span></p>
 </blockquote>
 
 <table><thead>
@@ -59,12 +59,6 @@
 <td><span class="data-type">String</span></td>
 <td><span class="data-remarks">The unique ID of the event in your system</span></td>
 <td><span class="required-data"><strong>required</strong></span></td>
-</tr>
-<tr>
-<td><span class="optional-data">partner_agent_id</span></td>
-<td><span class="data-type">String</span></td>
-<td><span class="data-remarks">The unique ID of the agent in your system</span></td>
-<td></td>
 </tr>
 <tr>
 <td><span class="optional-data">event_subject</span></td>
@@ -129,7 +123,7 @@
 <aside class="warning">Moxi Works API will remove data for any attribute not defined within the paramters you send. For instance, if the home_street_address attribute is not passed, the current home_street_address for the contact will be removed from the contact stored in Moxi Works.</aside>
 
 <blockquote>
-<p><span class="data-example-label">Event Update Example</span><span class="data-example"><span class="example-label">moxi_works_agent_id</span><span class="example">abc123</span></span><span class="data-example"><span class="example-label">partner_event_id</span><span class="example">abc982cdf345</span></span><span class="data-example"><span class="example-label">partner_agent_id</span><span class="example">zxy987</span></span><span class="data-example"><span class="example-label">event_subject</span><span class="example">Let&rsquo;s meet for lunch</span></span><span class="data-example"><span class="example-label">event_location</span><span class="example">1234 56th Ave</span></span><span class="data-example"><span class="example-label">send_reminder</span><span class="example">true</span></span><span class="data-example"><span class="example-label">remind_minutes_before</span><span class="example">15</span></span><span class="data-example"><span class="example-label">event_start</span><span class="example">1456955102</span></span><span class="data-example"><span class="example-label">event_end</span><span class="example">1456955602</span></span><span class="data-example"><span class="example-label">attendees</span><span class="example">abc123, xcr898</span></span><span class="data-example"><span class="example-label">recurring</span><span class="example">false</span></span><span class="data-example"><span class="example-label">note</span><span class="example">&lt;p&gt;Hi, this is an HTML formatted note to be displayed for this meeting&lt;/p&gt;</span></span></p>
+<p><span class="data-example-label">Event Update Example</span><span class="data-example"><span class="example-label">moxi_works_agent_id</span><span class="example">abc123</span></span><span class="data-example"><span class="example-label">partner_event_id</span><span class="example">abc982cdf345</span></span><span class="data-example"><span class="example-label">event_subject</span><span class="example">Let&rsquo;s meet for lunch</span></span><span class="data-example"><span class="example-label">event_location</span><span class="example">1234 56th Ave</span></span><span class="data-example"><span class="example-label">send_reminder</span><span class="example">true</span></span><span class="data-example"><span class="example-label">remind_minutes_before</span><span class="example">15</span></span><span class="data-example"><span class="example-label">event_start</span><span class="example">1456955102</span></span><span class="data-example"><span class="example-label">event_end</span><span class="example">1456955602</span></span><span class="data-example"><span class="example-label">attendees</span><span class="example">abc123, xcr898</span></span><span class="data-example"><span class="example-label">recurring</span><span class="example">false</span></span><span class="data-example"><span class="example-label">note</span><span class="example">&lt;p&gt;Hi, this is an HTML formatted note to be displayed for this meeting&lt;/p&gt;</span></span></p>
 </blockquote>
 
 <table><thead>
@@ -151,12 +145,6 @@
 <td><span class="data-type">String</span></td>
 <td><span class="data-remarks">The unique ID of the event in your system</span></td>
 <td><span class="required-data"><strong>required</strong></span></td>
-</tr>
-<tr>
-<td><span class="optional-data">partner_agent_id</span></td>
-<td><span class="data-type">String</span></td>
-<td><span class="data-remarks">The unique ID of the agent in your system</span></td>
-<td></td>
 </tr>
 <tr>
 <td><span class="optional-data">event_subject</span></td>

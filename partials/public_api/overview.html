@@ -49,15 +49,9 @@ We do our best to adhere to open and accepted common standards, including REST f
 
 <p>The following libraries are available to help your integration process with the Moxi Works Platform public API:</p>
 
-<pre class="highlight ruby"><code><span class="c1">#Install the moxiworks_platform Ruby library to quickly integrate with the Moxi Works Platform.</span>
-
-<span class="n">gem</span> <span class="n">install</span> <span class="n">moxiworks_platform</span>
-</code></pre>
-
-<pre class="highlight php"><code>/* install the moxiworks_platform PHP library to quickly integrate with the Moxi Works Platform. */
-
-composer require moxiworks/moxiworks_platform
-</code></pre>
+<blockquote>
+<p><strong>Install Ruby Library:</strong> <code class="prettyprint">gem install moxiworks_platform</code></p>
+</blockquote>
 
 <h3 id="ruby">Ruby</h3>
 
@@ -66,6 +60,10 @@ composer require moxiworks/moxiworks_platform
 <li><a href='http://moxiworks-platform.github.io/moxiworks-ruby/'>Documentation</a></li>
 <li><a href='https://github.com/moxiworks-platform/moxiworks-ruby'>Source</a></li>
 </ul></p>
+
+<blockquote>
+<p><strong>Install PHP Library:</strong> <code class="prettyprint">composer require moxiworks/moxiworks_platform</code></p>
+</blockquote>
 
 <h3 id="php">PHP</h3>
 
@@ -281,7 +279,7 @@ to view, use the following:
 <pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">/api/[RESOURCE]</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/x-www-form-urlencoded</span>
 
-moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;partner_agent_id=xyz987&amp;contact_name=Billy+Football
+moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=Billy+Football
 
 </code></pre>
 
@@ -330,12 +328,6 @@ to view, use the following:
 
 <h2 id="api-versioning">API Versioning</h2>
 
-<p>Moxi Works API uses the Accept header to denote the version of the API to be used. </p>
-
-<p>If you are using a Moxi Works Platform library, this header will already be included with every request.</p>
-
-<aside class='warning'>By default, the current version of the API will be used when it is not set in the Accept header. If you are depending on a specific version of the Moxi Works Platform in your logic, make sure that the Accept header is configured to send the version of the API you need.</aside>
-
 <blockquote>
 <p><strong>API Version Embedded In Accept Header</strong></p>
 </blockquote>
@@ -344,17 +336,26 @@ to view, use the following:
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.moxi-platform+json;version=1</span>
 </code></pre>
 
-<pre class="highlight ruby"><code> <span class="c1"># to view the version of the API used with your version of  moxiworks_platform Ruby library</span>
+<pre class="highlight ruby"><code> <span class="c1"># accept header api version automatically set by moxiworks_platform in requests</span>
+ <span class="c1"># to view the version of the API used with your version of  moxiworks_platform Ruby library:</span>
 
 <span class="no">MoxiworksPlatform</span><span class="o">::</span><span class="no">Resource</span><span class="p">.</span><span class="nf">accept_header</span>
 
 </code></pre>
 
 <pre class="highlight php"><code> <span class="cp">&lt;?php</span>
- <span class="cm">/* to view the version of the API used with your version of moxiworks_platform PHP library */</span>
+ <span class="cm">/* accept header api version automatically sett by moxiworks_platform in requsts
+ to view the version of the API used with your version of moxiworks_platform PHP library:
+  */</span>
 <span class="k">echo</span> <span class="nx">MoxiworksPlatform\Resource</span><span class="o">::</span><span class="na">acceptHeader</span><span class="p">();</span>
 <span class="cp">?&gt;</span>
 </code></pre>
+
+<p>Moxi Works API uses the Accept header to denote the version of the API to be used. </p>
+
+<p>If you are using a Moxi Works Platform library, this header will already be included with every request.</p>
+
+<aside class='warning'>By default, the current version of the API will be used when it is not set in the Accept header. If you are depending on a specific version of the Moxi Works Platform in your logic, make sure that the Accept header is configured to send the version of the API you need.</aside>
 
 <table><thead>
 <tr>
@@ -429,24 +430,6 @@ to view, use the following:
 <td><span class="fix-then-retry-error">Fix issue, then retry.</span></td>
 </tr>
 <tr>
-<td>1100</td>
-<td>400</td>
-<td>Invalid Content-Type: {0}</td>
-<td><span class="fix-then-retry-error">Fix issue, then retry.</span></td>
-</tr>
-<tr>
-<td>1120</td>
-<td>400</td>
-<td>Invalid hash value. The hash provided did not match the expected value.</td>
-<td><span class="fix-then-retry-error">Fix issue, then retry.</span></td>
-</tr>
-<tr>
-<td>1130</td>
-<td>400</td>
-<td>The redirect_uri did not match the expected value.</td>
-<td><span class="fix-then-retry-error">Fix issue, then retry.</span><br/><br/>Hint: Omit the <b>redirect_uri</b>  parameter</td>
-</tr>
-<tr>
 <td>1200</td>
 <td>400</td>
 <td>Malformed data in request.</td>
@@ -483,6 +466,12 @@ to view, use the following:
 <td><span class="fix-then-retry-error">Fix issue, then retry.</span></td>
 </tr>
 <tr>
+<td>3015</td>
+<td>404</td>
+<td>Resource not found.</td>
+<td><span class="fix-then-retry-error">Fix issue, then retry.</span><br/><br/>Hint: Verify that you are using a valid resource path (i.e. /api/contacts/, /api/events/ etc.)</td>
+</tr>
+<tr>
 <td>3020</td>
 <td>405</td>
 <td>HTTP Method not supported.</td>
@@ -492,13 +481,13 @@ to view, use the following:
 <td>3030</td>
 <td>406</td>
 <td>Invalid Accept header.</td>
-<td><span class="fix-then-retry-error">Fix issue, then retry.</span><br/><br/>Hint: Verify that <b>Accept</b> header is set to the <a href="#input-/-output-format">proper value</a> (to match the output of the invoked endpoint &ndash; typically “application/json”).</td>
+<td><span class="fix-then-retry-error">Fix issue, then retry.</span><br/><br/>Hint: Verify that <b>Accept</b> header is set to the <a href="#required-headers">proper value</a> (to match the output of the invoked endpoint &ndash; typically “application/json”).</td>
 </tr>
 <tr>
 <td>3060</td>
 <td>415</td>
 <td>Invalid Content-Type header. Media type not supported.</td>
-<td><span class="fix-then-retry-error">Fix issue, then retry.</span><br/><br/>Hint: Verify that <b/>Content-Type</b> header is specified and set to the <a href="#input-/-output-format">proper value</a>.</td>
+<td><span class="fix-then-retry-error">Fix issue, then retry.</span><br/><br/>Hint: Verify that <b/>Content-Type</b> header is specified and set to the <a href="#required-headers">proper value</a>.</td>
 </tr>
 <tr>
 <td>4000</td>

@@ -30,28 +30,31 @@
       <div class="content">
         <h2 id="api-versioning">API Versioning</h2>
 
-<p>Moxi Works API uses the Accept header to denote the version of the API to be used. </p>
-
-<p>If you are using a Moxi Works Platform library, this header will already be included with every request.</p>
-
-<aside class='warning'>By default, the current version of the API will be used when it is not set in the Accept header. If you are depending on a specific version of the Moxi Works Platform in your logic, make sure that the Accept header is configured to send the version of the API you need.</aside>
-
 <blockquote>
 <p><strong>API Version Embedded In Accept Header</strong></p>
 </blockquote>
 <pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">/api/[RESOURCE]</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.moxi-platform+json;version=1</span>
 </code></pre>
-<pre class="highlight ruby"><code> <span class="c1"># to view the version of the API used with your version of  moxiworks_platform Ruby library</span>
+<pre class="highlight ruby"><code> <span class="c1"># accept header api version automatically set by moxiworks_platform in requests</span>
+ <span class="c1"># to view the version of the API used with your version of  moxiworks_platform Ruby library:</span>
 
 <span class="no">MoxiworksPlatform</span><span class="o">::</span><span class="no">Resource</span><span class="p">.</span><span class="nf">accept_header</span>
 
 </code></pre>
 <pre class="highlight php"><code> <span class="cp">&lt;?php</span>
- <span class="cm">/* to view the version of the API used with your version of moxiworks_platform PHP library */</span>
+ <span class="cm">/* accept header api version automatically sett by moxiworks_platform in requsts
+ to view the version of the API used with your version of moxiworks_platform PHP library:
+  */</span>
 <span class="k">echo</span> <span class="nx">MoxiworksPlatform\Resource</span><span class="o">::</span><span class="na">acceptHeader</span><span class="p">();</span>
 <span class="cp">?&gt;</span>
 </code></pre>
+
+<p>Moxi Works API uses the Accept header to denote the version of the API to be used. </p>
+
+<p>If you are using a Moxi Works Platform library, this header will already be included with every request.</p>
+
+<aside class='warning'>By default, the current version of the API will be used when it is not set in the Accept header. If you are depending on a specific version of the Moxi Works Platform in your logic, make sure that the Accept header is configured to send the version of the API you need.</aside>
 
 <table><thead>
 <tr>

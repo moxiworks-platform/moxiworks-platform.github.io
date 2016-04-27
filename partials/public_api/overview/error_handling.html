@@ -87,24 +87,6 @@
 <td><span class="fix-then-retry-error">Fix issue, then retry.</span></td>
 </tr>
 <tr>
-<td>1100</td>
-<td>400</td>
-<td>Invalid Content-Type: {0}</td>
-<td><span class="fix-then-retry-error">Fix issue, then retry.</span></td>
-</tr>
-<tr>
-<td>1120</td>
-<td>400</td>
-<td>Invalid hash value. The hash provided did not match the expected value.</td>
-<td><span class="fix-then-retry-error">Fix issue, then retry.</span></td>
-</tr>
-<tr>
-<td>1130</td>
-<td>400</td>
-<td>The redirect_uri did not match the expected value.</td>
-<td><span class="fix-then-retry-error">Fix issue, then retry.</span><br/><br/>Hint: Omit the <b>redirect_uri</b>  parameter</td>
-</tr>
-<tr>
 <td>1200</td>
 <td>400</td>
 <td>Malformed data in request.</td>
@@ -141,6 +123,12 @@
 <td><span class="fix-then-retry-error">Fix issue, then retry.</span></td>
 </tr>
 <tr>
+<td>3015</td>
+<td>404</td>
+<td>Resource not found.</td>
+<td><span class="fix-then-retry-error">Fix issue, then retry.</span><br/><br/>Hint: Verify that you are using a valid resource path (i.e. /api/contacts/, /api/events/ etc.)</td>
+</tr>
+<tr>
 <td>3020</td>
 <td>405</td>
 <td>HTTP Method not supported.</td>
@@ -150,13 +138,13 @@
 <td>3030</td>
 <td>406</td>
 <td>Invalid Accept header.</td>
-<td><span class="fix-then-retry-error">Fix issue, then retry.</span><br/><br/>Hint: Verify that <b>Accept</b> header is set to the <a href="#input-/-output-format">proper value</a> (to match the output of the invoked endpoint &ndash; typically “application/json”).</td>
+<td><span class="fix-then-retry-error">Fix issue, then retry.</span><br/><br/>Hint: Verify that <b>Accept</b> header is set to the <a href="#required-headers">proper value</a> (to match the output of the invoked endpoint &ndash; typically “application/json”).</td>
 </tr>
 <tr>
 <td>3060</td>
 <td>415</td>
 <td>Invalid Content-Type header. Media type not supported.</td>
-<td><span class="fix-then-retry-error">Fix issue, then retry.</span><br/><br/>Hint: Verify that <b/>Content-Type</b> header is specified and set to the <a href="#input-/-output-format">proper value</a>.</td>
+<td><span class="fix-then-retry-error">Fix issue, then retry.</span><br/><br/>Hint: Verify that <b/>Content-Type</b> header is specified and set to the <a href="#required-headers">proper value</a>.</td>
 </tr>
 <tr>
 <td>4000</td>

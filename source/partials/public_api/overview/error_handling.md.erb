@@ -14,18 +14,16 @@ API Error Code | HTTP Status Code | Message | Recommended Action |
 1040 | 400 | The value {0} was not valid for the parameter {1}. | <span class="fix-then-retry-error">Fix issue, then retry.</span>
 1050 | 400 | The HTTP request body is required for this Method. | <span class="fix-then-retry-error">Fix issue, then retry.</span>
 1060 | 400 | The attribute(s) {0} are not allowed for this operation. | <span class="fix-then-retry-error">Fix issue, then retry.</span>
-1100 | 400 | Invalid Content-Type: {0} | <span class="fix-then-retry-error">Fix issue, then retry.</span>
-1120 | 400 | Invalid hash value. The hash provided did not match the expected value. | <span class="fix-then-retry-error">Fix issue, then retry.</span>
-1130 | 400 | The redirect_uri did not match the expected value. | <span class="fix-then-retry-error">Fix issue, then retry.</span><br/><br/>Hint: Omit the <b>redirect_uri</b>  parameter 
 1200 | 400 | Malformed data in request. | <span class="fix-then-retry-error">Fix issue, then retry.</span>
 1210 | 400 | Unsupported operation: {0}. | <span class="no-retry-error">Do not retry.</span>
 2000 | 401 | Basic Authorization header required. | <span class="fix-then-retry-error">Fix issue, then retry.</span><br/><br/>Hint: Verify that <b>Authorization</b> header is present and set properly.
 2010 | 401 |  Your Authorization header is invalid. | <span class="fix-then-retry-error">Fix issue, then retry.</span><br/><br/>Hint: Verify that the Moxi Works Platform Identifier and Secret specified in the <b>Authorization</b> header are valid and properly encoded.
 2020 | 403 |  You are not authorized to perform this action. | <span class="fix-then-retry-error">Fix issue, then retry.</span><br/><br/>Hint: Verify that <b>Authorization</b> header is present and set properly, and that your account has access to the requested resource.
 3010 | 404 | Version not supported. | <span class="fix-then-retry-error">Fix issue, then retry.</span>
+3015 | 404 | Resource not found. | <span class="fix-then-retry-error">Fix issue, then retry.</span><br/><br/>Hint: Verify that you are using a valid resource path (i.e. /api/contacts/, /api/events/ etc.)
 3020 | 405 | HTTP Method not supported. | <span class="fix-then-retry-error">Fix issue, then retry.</span><br/><br/>Hint: Verify that the proper verb is specified for the request (GET, PUT, POST, or DELETE).
-3030 | 406 | Invalid Accept header.  | <span class="fix-then-retry-error">Fix issue, then retry.</span><br/><br/>Hint: Verify that <b>Accept</b> header is set to the <a href="#input-/-output-format">proper value</a> (to match the output of the invoked endpoint -- typically “application/json”).
-3060 | 415 | Invalid Content-Type header. Media type not supported. | <span class="fix-then-retry-error">Fix issue, then retry.</span><br/><br/>Hint: Verify that <b/>Content-Type</b> header is specified and set to the <a href="#input-/-output-format">proper value</a>.
+3030 | 406 | Invalid Accept header.  | <span class="fix-then-retry-error">Fix issue, then retry.</span><br/><br/>Hint: Verify that <b>Accept</b> header is set to the <a href="#required-headers">proper value</a> (to match the output of the invoked endpoint -- typically “application/json”).
+3060 | 415 | Invalid Content-Type header. Media type not supported. | <span class="fix-then-retry-error">Fix issue, then retry.</span><br/><br/>Hint: Verify that <b/>Content-Type</b> header is specified and set to the <a href="#required-headers">proper value</a>.
 4000 | 429 | Rate limit exceeded. | <span class="retry-later-error">Retry using <a href="https://en.wikipedia.org/wiki/Exponential_backoff" target="_blank">exponential backoff</a></span>.<br/><br/>Hint: Reduce the rate at which you are sending requests.</span>
 5000 | 500 | An unexpected error has occurred. Please contact api@moxiworks.com for assistance. | <span class="no-retry-error">Do not retry.</span>
 5010 | 500 | An unexpected error has occurred. Please retry your request. If you encounter this error repeatedly, please contact api@moxiworks.com for assistance. | <span class="retry-later-error">Retry using <a href="https://en.wikipedia.org/wiki/Exponential_backoff" target="_blank">exponential backoff</a>.</span>

@@ -34,7 +34,7 @@
 
 <div class='highlight php'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-php/classes/MoxiworksPlatform.Contact.html#method_update'>PHP Update Docs</a></span></blockquote></div>
 
-<aside class="note">Send a <b>PUT</b> request to https://api.moxiworks.com/api/contact</aside>
+<aside class="note">Send a <b>PUT</b> request to https://api.moxiworks.com/api/contacts</aside>
 
 <aside class="warning">Moxi Works API will remove data for any attribute not defined within the paramters you send. For instance, if the home_street_address attribute is not passed, the current home_street_address for the contact will be removed from the contact stored in Moxi Works.</aside>
 
@@ -63,7 +63,6 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 <span class="n">moxi_works_contact</span> <span class="o">=</span> <span class="no">MoxiworksPlatform</span><span class="o">::</span><span class="no">Contact</span><span class="p">.</span><span class="nf">update</span><span class="p">(</span>
         <span class="ss">moxi_works_agent_id: </span><span class="s2">"1234abcd"</span><span class="p">,</span>
         <span class="ss">partner_contact_id: </span><span class="s2">"booyuh"</span><span class="p">,</span>
-        <span class="ss">moxi_works_contact_id: </span><span class="s2">"009b9297977c"</span><span class="p">,</span>
         <span class="ss">contact_name: </span><span class="s2">"Firstname Middlenyme Larstnam"</span><span class="p">,</span>
         <span class="ss">gender: </span><span class="s2">"m"</span><span class="p">,</span>
         <span class="ss">primary_email_address: </span><span class="s2">"me@justabout.right.here"</span><span class="p">,</span>
@@ -115,7 +114,6 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 <span class="nv">$moxi_works_contact</span> <span class="o">=</span> <span class="nx">MoxiworksPlatform\Contact</span><span class="o">::</span><span class="na">update</span><span class="p">([</span>
         <span class="nv">$moxi_works_agent_id</span> <span class="o">=&gt;</span> <span class="s2">"1234abcd"</span><span class="p">,</span>
         <span class="nv">$partner_contact_id</span> <span class="o">=&gt;</span> <span class="s2">"booyuh"</span><span class="p">,</span>
-        <span class="nv">$moxi_works_contact_id</span> <span class="o">=&gt;</span> <span class="s2">"009b9297977c"</span><span class="p">,</span>
         <span class="nv">$contact_name</span> <span class="o">=&gt;</span> <span class="s2">"Firstname Middlenyme Larstnam"</span><span class="p">,</span>
         <span class="nv">$gender</span> <span class="o">=&gt;</span> <span class="s2">"m"</span><span class="p">,</span>
         <span class="nv">$primary_email_address</span> <span class="o">=&gt;</span> <span class="s2">"me@justabout.right.here"</span><span class="p">,</span>
@@ -175,7 +173,6 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 <span class="s">{</span>
 <span class="s">  "moxi_works_agent_id": "1234abcd",</span>
 <span class="s">  "partner_contact_id": "booyuh",</span>
-<span class="s">  "moxi_works_contact_id": "009b9297977c",</span>
 <span class="s">  "contact_name": "Firstname Middlenyme Larstnam",</span>
 <span class="s">  "gender": "m",</span>
 <span class="s">  "primary_email_address": "me@justabout.right.here",</span>

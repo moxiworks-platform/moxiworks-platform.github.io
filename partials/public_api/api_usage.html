@@ -34,7 +34,7 @@
 
 <div class='highlight php'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-php/classes/MoxiworksPlatform.Contact.html#method_create'>PHP Create Docs</a></span></blockquote></div>
 
-<aside class="note">Send a <b>POST</b> request to https://api.moxiworks.com/api/contact</aside>
+<aside class="note">Send a <b>POST</b> request to https://api.moxiworks.com/api/contacts</aside>
 
 <p>When creating a contact using the Moxi Works platform API, format your data using the following parameters.</p>
 
@@ -65,7 +65,6 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 <span class="n">moxi_works_contact</span> <span class="o">=</span> <span class="no">MoxiworksPlatform</span><span class="o">::</span><span class="no">Contact</span><span class="p">.</span><span class="nf">create</span><span class="p">(</span>
         <span class="ss">moxi_works_agent_id: </span><span class="s2">"1234abcd"</span><span class="p">,</span>
         <span class="ss">partner_contact_id: </span><span class="s2">"booyuh"</span><span class="p">,</span>
-        <span class="ss">moxi_works_contact_id: </span><span class="s2">"009b9297977c"</span><span class="p">,</span>
         <span class="ss">contact_name: </span><span class="s2">"Firstname Middlenyme Larstnam"</span><span class="p">,</span>
         <span class="ss">gender: </span><span class="s2">"m"</span><span class="p">,</span>
         <span class="ss">primary_email_address: </span><span class="s2">"me@justabout.right.here"</span><span class="p">,</span>
@@ -118,7 +117,6 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 <span class="nv">$moxi_works_contact</span> <span class="o">=</span> <span class="nx">MoxiworksPlatform\Contact</span><span class="o">::</span><span class="na">create</span><span class="p">([</span>
         <span class="nv">$moxi_works_agent_id</span> <span class="o">=&gt;</span> <span class="s2">"1234abcd"</span><span class="p">,</span>
         <span class="nv">$partner_contact_id</span> <span class="o">=&gt;</span> <span class="s2">"booyuh"</span><span class="p">,</span>
-        <span class="nv">$moxi_works_contact_id</span> <span class="o">=&gt;</span> <span class="s2">"009b9297977c"</span><span class="p">,</span>
         <span class="nv">$contact_name</span> <span class="o">=&gt;</span> <span class="s2">"Firstname Middlenyme Larstnam"</span><span class="p">,</span>
         <span class="nv">$gender</span> <span class="o">=&gt;</span> <span class="s2">"m"</span><span class="p">,</span>
         <span class="nv">$primary_email_address</span> <span class="o">=&gt;</span> <span class="s2">"me@justabout.right.here"</span><span class="p">,</span>
@@ -179,7 +177,6 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 <span class="p">{</span><span class="w">
   </span><span class="nt">"moxi_works_agent_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234abcd"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"partner_contact_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"booyuh"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"moxi_works_contact_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"009b9297977c"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"contact_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Firstname Middlenyme Larstnam"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"gender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"m"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"primary_email_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"me@justabout.right.here"</span><span class="p">,</span><span class="w">
@@ -515,7 +512,7 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 
 <div class='highlight php'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-php/classes/MoxiworksPlatform.Contact.html#method_update'>PHP Update Docs</a></span></blockquote></div>
 
-<aside class="note">Send a <b>PUT</b> request to https://api.moxiworks.com/api/contact</aside>
+<aside class="note">Send a <b>PUT</b> request to https://api.moxiworks.com/api/contacts</aside>
 
 <aside class="warning">Moxi Works API will remove data for any attribute not defined within the paramters you send. For instance, if the home_street_address attribute is not passed, the current home_street_address for the contact will be removed from the contact stored in Moxi Works.</aside>
 
@@ -546,7 +543,6 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 <span class="n">moxi_works_contact</span> <span class="o">=</span> <span class="no">MoxiworksPlatform</span><span class="o">::</span><span class="no">Contact</span><span class="p">.</span><span class="nf">update</span><span class="p">(</span>
         <span class="ss">moxi_works_agent_id: </span><span class="s2">"1234abcd"</span><span class="p">,</span>
         <span class="ss">partner_contact_id: </span><span class="s2">"booyuh"</span><span class="p">,</span>
-        <span class="ss">moxi_works_contact_id: </span><span class="s2">"009b9297977c"</span><span class="p">,</span>
         <span class="ss">contact_name: </span><span class="s2">"Firstname Middlenyme Larstnam"</span><span class="p">,</span>
         <span class="ss">gender: </span><span class="s2">"m"</span><span class="p">,</span>
         <span class="ss">primary_email_address: </span><span class="s2">"me@justabout.right.here"</span><span class="p">,</span>
@@ -599,7 +595,6 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 <span class="nv">$moxi_works_contact</span> <span class="o">=</span> <span class="nx">MoxiworksPlatform\Contact</span><span class="o">::</span><span class="na">update</span><span class="p">([</span>
         <span class="nv">$moxi_works_agent_id</span> <span class="o">=&gt;</span> <span class="s2">"1234abcd"</span><span class="p">,</span>
         <span class="nv">$partner_contact_id</span> <span class="o">=&gt;</span> <span class="s2">"booyuh"</span><span class="p">,</span>
-        <span class="nv">$moxi_works_contact_id</span> <span class="o">=&gt;</span> <span class="s2">"009b9297977c"</span><span class="p">,</span>
         <span class="nv">$contact_name</span> <span class="o">=&gt;</span> <span class="s2">"Firstname Middlenyme Larstnam"</span><span class="p">,</span>
         <span class="nv">$gender</span> <span class="o">=&gt;</span> <span class="s2">"m"</span><span class="p">,</span>
         <span class="nv">$primary_email_address</span> <span class="o">=&gt;</span> <span class="s2">"me@justabout.right.here"</span><span class="p">,</span>
@@ -659,7 +654,6 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 <span class="s">{</span>
 <span class="s">  "moxi_works_agent_id": "1234abcd",</span>
 <span class="s">  "partner_contact_id": "booyuh",</span>
-<span class="s">  "moxi_works_contact_id": "009b9297977c",</span>
 <span class="s">  "contact_name": "Firstname Middlenyme Larstnam",</span>
 <span class="s">  "gender": "m",</span>
 <span class="s">  "primary_email_address": "me@justabout.right.here",</span>
@@ -1050,7 +1044,6 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 <span class="p">{</span><span class="w">
   </span><span class="nt">"moxi_works_agent_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234abcd"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"partner_contact_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"booyuh"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"moxi_works_contact_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"009b9297977c"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"contact_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Firstname Middlenyme Larstnam"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"gender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"m"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"primary_email_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"me@justabout.right.here"</span><span class="p">,</span><span class="w">
@@ -1135,7 +1128,7 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 
 </span></code></pre>
 
-<aside class="note">Send a <b>GET</b> request to https://api.moxiworks.com/api/contact/[partner_contact_id]</aside>
+<aside class="note">Send a <b>GET</b> request to https://api.moxiworks.com/api/contacts/[partner_contact_id]</aside>
 
 <p>When showing a contact using the Moxi Works platform API, format your data using the following parameters.</p>
 
@@ -1157,13 +1150,237 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 <td><span class="required-data">partner_contact_id</span></td>
 <td><span class="data-type">String</span></td>
 <td><span class="data-remarks">The unique ID of the contact in your system</span></td>
-<td><span class="required-data"><strong>partner_contact_id <b>or</b> moxi_works_contact_id is required</strong></span></td>
+<td><span class="required-data"><strong>partner_contact_id is required</strong></span></td>
+</tr>
+</tbody></table>
+
+
+<h2 id="contact-index">Contact Index</h2>
+
+<div class='highlight ruby'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-ruby/MoxiworksPlatform/Contact.html#search-class_method'>Ruby Find Docs</a></span></blockquote></div>
+
+<div class='highlight php'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-php/classes/MoxiworksPlatform.Contact.html#method_search'>PHP Find Docs</a></span></blockquote></div>
+
+<blockquote>
+<p><span class="data-example-label">Contact Index Example</span></p>
+</blockquote>
+
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/contacts?moxi_works_agent_id=abc123&amp;contact_name=buckminster%20fuller</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">api.moxiworks.com</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.moxi-platform+json;version=1</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Basic XNNeXAAAUZaQlF0dA==</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/x-www-form-urlencoded</span>
+
+</code></pre>
+
+<pre class="highlight ruby"><code><span class="c1">##### set up prerequisites once</span>
+<span class="nb">require</span> <span class="s1">'moxiworks_platform'</span>
+
+<span class="n">platform_identifier</span> <span class="o">=</span> <span class="s1">'abc123'</span>
+
+<span class="n">platform_secret</span> <span class="o">=</span> <span class="s1">'secret'</span>
+
+<span class="no">MoxiworksPlatform</span><span class="o">::</span><span class="no">Credentials</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">platform_identifier</span><span class="p">,</span> <span class="n">platform_secret</span><span class="p">)</span>
+<span class="c1">##### end prerequisites</span>
+
+<span class="n">moxi_works_contact</span> <span class="o">=</span> <span class="no">MoxiworksPlatform</span><span class="o">::</span><span class="no">Contact</span><span class="p">.</span><span class="nf">search</span><span class="p">(</span>
+        <span class="ss">moxi_works_agent_id: </span><span class="s2">"1234abcd"</span><span class="p">,</span>
+        <span class="ss">contact_name: </span><span class="s2">"buckminster fuller"</span><span class="p">)</span>
+
+</code></pre>
+
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+<span class="nv">$platform_identifier</span> <span class="o">=</span> <span class="s1">'abc123'</span>
+<span class="nv">$platform_secret</span> <span class="o">=</span> <span class="s1">'secret'</span>
+
+<span class="nv">$credentials</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MoxiworksPlatform\Credentials</span><span class="p">(</span><span class="nv">$platform_identifier</span><span class="p">,</span> <span class="nv">$platform_secret</span><span class="p">)</span>
+
+<span class="nv">$moxi_works_contact</span> <span class="o">=</span> <span class="nx">MoxiworksPlatform\Contact</span><span class="o">::</span><span class="na">search</span><span class="p">([</span>
+        <span class="nv">$moxi_works_agent_id</span> <span class="o">=&gt;</span> <span class="s2">"1234abcd"</span><span class="p">,</span>
+        <span class="nv">$contact_name</span> <span class="o">=&gt;</span> <span class="s2">"buckminster fuller"</span><span class="p">])</span>
+<span class="cp">?&gt;</span>
+</code></pre>
+
+<blockquote><div class='highlight http' style="display: block">
+<span class="data-example-label">Contact Index: Success Response</span>
+(line breaks in body shown for clarity)
+</div></blockquote>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json; charset=utf-8</span>
+<span class="na">X-UA-Compatible</span><span class="p">:</span> <span class="s">IE=Edge</span>
+<span class="na">ETag</span><span class="p">:</span> <span class="s">\"39e1ce76ef58ce23a7debbe5ca145715\"</span>
+<span class="na">Cache-Control</span><span class="p">:</span> <span class="s">max-age=0, private, must-revalidate</span>
+<span class="na">X-Request-Id</span><span class="p">:</span> <span class="s">232e40496ea30b9758dddf0b7ab195f2</span>
+<span class="na">X-Runtime</span><span class="p">:</span> <span class="s">13.034641</span>
+<span class="na">Connection</span><span class="p">:</span> <span class="s">close</span>
+<span class="na">Server</span><span class="p">:</span> <span class="s">thin</span>
+
+<span class="p">[{</span><span class="w">
+  </span><span class="nt">"moxi_works_agent_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234abcd"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"partner_contact_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"booyuh"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"contact_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"buckminster fuller"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"gender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"m"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"primary_email_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"me@justabout.right.here"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"secondary_email_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"me.too@justabout.right.here"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"primary_phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9995551212"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"secondary_phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"(333) 555-1185"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"home_street_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234 Sesame St."</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"home_city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cityville"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"home_state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Stateland"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"home_zip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345-6789"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"home_neighborhood"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fort Hood"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"home_country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ottoman Empire"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"job_title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Junior Bacon Burner"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"occupation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"chef"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"business_website"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://my.website.is.here"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"property_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://my.property.website.is/here"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"property_mls_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"property_street_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2345 67th place"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"property_city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Townland"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"property_state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Statesville"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"property_zip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"98765-4321"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"property_beds"</span><span class="p">:</span><span class="w"> </span><span class="s2">"18"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"property_baths"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12.5"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"property_list_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456789"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"property_listing_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Active"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"property_photo_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://property.photo.is/here.jpg"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"search_city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Searchland"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"search_state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Searchsylvania"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"search_zip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345-6789"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"search_min_beds"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"search_min_baths"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3.25"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"search_min_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234567"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"search_max_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234569"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"search_min_sq_ft"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"search_max_sq_ft"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1235"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"search_min_lot_size"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3234"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"search_max_lot_size"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3235"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"search_min_year_built"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1388"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"search_max_year_built"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2044"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"search_property_types"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Condo, Single Family, Townhouse"</span><span class="w">
+</span><span class="p">},</span><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="nt">"moxi_works_agent_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234abcd"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"partner_contact_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fooyuh"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"contact_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"buckminster fuller"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"gender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"m"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"primary_email_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"whatever@whatevers.right.here"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"secondary_email_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"me.2009@2009.whatevers.here"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"primary_phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"202 123-4567"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"secondary_phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"(444) 555-6666"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"home_street_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234 Pecan Dr."</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"home_city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cityville"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"home_state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Stateland"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"home_zip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345-6789"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"home_neighborhood"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hood"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"home_country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Brovilee"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"job_title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Junior Cheese Head"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"occupation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"football fan"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"business_website"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://my.website.is.here"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"property_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://my.property.website.is/here"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"property_mls_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"property_street_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2345 67th place"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"property_city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Townland"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"property_state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Statesville"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"property_zip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"98765-4321"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"property_beds"</span><span class="p">:</span><span class="w"> </span><span class="s2">"18"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"property_baths"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12.5"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"property_list_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456789"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"property_listing_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Active"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"property_photo_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://property.photo.is/here.jpg"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"search_city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Searchland"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"search_state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Searchsylvania"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"search_zip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345-6789"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"search_min_beds"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"search_min_baths"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3.25"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"search_min_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234567"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"search_max_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234569"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"search_min_sq_ft"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"search_max_sq_ft"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1235"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"search_min_lot_size"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3234"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"search_max_lot_size"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3235"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"search_min_year_built"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1388"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"search_max_year_built"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2044"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"search_property_types"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Condo, Single Family, Townhouse"</span><span class="w">
+</span><span class="p">}]</span><span class="w">
+</span></code></pre>
+
+<blockquote><div class='highlight http' style="display: block">
+<span class="data-example-label">Contact Index: Not Found Response</span>
+(line breaks in body shown for clarity)
+</div></blockquote>
+<pre class="highlight http"><code><span class="err">
+</span><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json; charset=utf-8</span>
+<span class="na">X-UA-Compatible</span><span class="p">:</span> <span class="s">IE=Edge</span>
+<span class="na">ETag</span><span class="p">:</span> <span class="s">\"39e1ce76ef58ce23a7debbe5ca145715\"</span>
+<span class="na">Cache-Control</span><span class="p">:</span> <span class="s">max-age=0, private, must-revalidate</span>
+<span class="na">X-Request-Id</span><span class="p">:</span> <span class="s">232e40496ea30b9758dddf0b7ab195f2</span>
+<span class="na">X-Runtime</span><span class="p">:</span> <span class="s">13.034641</span>
+<span class="na">Connection</span><span class="p">:</span> <span class="s">close</span>
+<span class="na">Server</span><span class="p">:</span> <span class="s">thin</span>
+
+<span class="p">[]</span><span class="w">
+</span></code></pre>
+
+<blockquote><div class='highlight http' style="display: block">
+<span class="data-example-label">Contact Index: Failure Response</span>
+(line breaks in body shown for clarity)
+</div></blockquote>
+<pre class="highlight http"><code><span class="err">
+</span><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">400</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json; charset=utf-8</span>
+<span class="na">X-UA-Compatible</span><span class="p">:</span> <span class="s">IE=Edge</span>
+<span class="na">ETag</span><span class="p">:</span> <span class="s">\"39e1ce76ef58ce23a7debbe5ca145715\"</span>
+<span class="na">Cache-Control</span><span class="p">:</span> <span class="s">max-age=0, private, must-revalidate</span>
+<span class="na">X-Request-Id</span><span class="p">:</span> <span class="s">232e40496ea30b9758dddf0b7ab195f2</span>
+<span class="na">X-Runtime</span><span class="p">:</span> <span class="s">13.034641</span>
+<span class="na">Connection</span><span class="p">:</span> <span class="s">close</span>
+<span class="na">Server</span><span class="p">:</span> <span class="s">thin</span>
+
+<span class="p">{</span><span class="w">
+  </span><span class="nt">"status"</span><span class="p">:</span><span class="s2">"fail"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"errorCode"</span><span class="p">:</span><span class="w"> </span><span class="err">xxx</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"messages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"messages"</span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+
+<aside class="note">Send a <b>GET</b> request to https://api.moxiworks.com/api/contacts</aside>
+
+<p>When showing a contact using the Moxi Works platform API, format your data using the following parameters.</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Remark</th>
+<th>Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span class="required-data">moxi_works_agent_id</span></td>
+<td><span class="data-type">String</span></td>
+<td><span class="data-remarks">The agent&rsquo;s Moxi Works Platform ID</span></td>
+<td><span class="required-data"><strong>required</strong></span></td>
 </tr>
 <tr>
-<td><span class="required-data">moxi_works_contact_id</span></td>
+<td><span class="optional-data">contact_name</span></td>
 <td><span class="data-type">String</span></td>
-<td>The unique ID of the contact in the Moxi Works Platform</td>
-<td><span class="required-data"><strong>partner_contact_id <b>or</b> moxi_works_contact_id is required</strong></span></td>
+<td><span class="data-remarks">The contact&rsquo;s full name.</span></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="optional-data">email_address</span></td>
+<td><span class="data-type">String</span></td>
+<td><span class="data-remarks">An email address used by the contact &ndash; may be primary or secondary.</span></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="optional-data">phone_number</span></td>
+<td><span class="data-type">String</span></td>
+<td><span class="data-remarks">A phone numberused by the contact &ndash; may be primary or secondary.</span></td>
+<td></td>
 </tr>
 </tbody></table>
 
@@ -1364,7 +1581,7 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 <td><span class="required-data">partner_event_id</span></td>
 <td><span class="data-type">String</span></td>
 <td><span class="data-remarks">The unique ID of the contact in your system</span></td>
-<td><span class="required-data"><strong>partner_event_id <b>or</b> moxi_works_contact_id is required</strong></span></td>
+<td><span class="required-data"><strong>partner_event_id is required</strong></span></td>
 </tr>
 <tr>
 <td><span class="required-data">moxi_works_event_id</span></td>

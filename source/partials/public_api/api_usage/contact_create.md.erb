@@ -3,7 +3,7 @@
 
 <div class='highlight php'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-php/classes/MoxiworksPlatform.Contact.html#method_create'>PHP Create Docs</a></span></blockquote></div>
 
-<aside class="note">Send a <b>POST</b> request to https://api.moxiworks.com/api/contact</aside>
+<aside class="note">Send a <b>POST</b> request to https://api.moxiworks.com/api/contacts</aside>
 
 When creating a contact using the Moxi Works platform API, format your data using the following parameters.
 
@@ -34,7 +34,6 @@ MoxiworksPlatform::Credentials.new(platform_identifier, platform_secret)
 moxi_works_contact = MoxiworksPlatform::Contact.create(
         moxi_works_agent_id: "1234abcd",
         partner_contact_id: "booyuh",
-        moxi_works_contact_id: "009b9297977c",
         contact_name: "Firstname Middlenyme Larstnam",
         gender: "m",
         primary_email_address: "me@justabout.right.here",
@@ -88,7 +87,6 @@ $credentials = new MoxiworksPlatform\Credentials($platform_identifier, $platform
 $moxi_works_contact = MoxiworksPlatform\Contact::create([
         $moxi_works_agent_id => "1234abcd",
         $partner_contact_id => "booyuh",
-        $moxi_works_contact_id => "009b9297977c",
         $contact_name => "Firstname Middlenyme Larstnam",
         $gender => "m",
         $primary_email_address => "me@justabout.right.here",
@@ -150,7 +148,6 @@ Server: thin
 {
   "moxi_works_agent_id": "1234abcd",
   "partner_contact_id": "booyuh",
-  "moxi_works_contact_id": "009b9297977c",
   "contact_name": "Firstname Middlenyme Larstnam",
   "gender": "m",
   "primary_email_address": "me@justabout.right.here",

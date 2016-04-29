@@ -6,7 +6,7 @@
 
 <div class='highlight php'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-php/classes/MoxiworksPlatform.Contact.html#method_update'>PHP Update Docs</a></span></blockquote></div>
 
-<aside class="note">Send a <b>PUT</b> request to https://api.moxiworks.com/api/contact</aside>
+<aside class="note">Send a <b>PUT</b> request to https://api.moxiworks.com/api/contacts</aside>
 
 <aside class="warning">Moxi Works API will remove data for any attribute not defined within the paramters you send. For instance, if the home_street_address attribute is not passed, the current home_street_address for the contact will be removed from the contact stored in Moxi Works.</aside>
 
@@ -38,7 +38,6 @@ MoxiworksPlatform::Credentials.new(platform_identifier, platform_secret)
 moxi_works_contact = MoxiworksPlatform::Contact.update(
         moxi_works_agent_id: "1234abcd",
         partner_contact_id: "booyuh",
-        moxi_works_contact_id: "009b9297977c",
         contact_name: "Firstname Middlenyme Larstnam",
         gender: "m",
         primary_email_address: "me@justabout.right.here",
@@ -92,7 +91,6 @@ $credentials = new MoxiworksPlatform\Credentials($platform_identifier, $platform
 $moxi_works_contact = MoxiworksPlatform\Contact::update([
         $moxi_works_agent_id => "1234abcd",
         $partner_contact_id => "booyuh",
-        $moxi_works_contact_id => "009b9297977c",
         $contact_name => "Firstname Middlenyme Larstnam",
         $gender => "m",
         $primary_email_address => "me@justabout.right.here",
@@ -154,7 +152,6 @@ Server: thin
 {
   "moxi_works_agent_id": "1234abcd",
   "partner_contact_id": "booyuh",
-  "moxi_works_contact_id": "009b9297977c",
   "contact_name": "Firstname Middlenyme Larstnam",
   "gender": "m",
   "primary_email_address": "me@justabout.right.here",

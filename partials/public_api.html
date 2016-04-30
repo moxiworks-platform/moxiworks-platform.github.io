@@ -525,6 +525,161 @@ to view, use the following:
 
 <h1 id="moxi-works-v1-api-usage">Moxi Works v1 API Usage</h1>
 
+<h2 id="agent-show">Agent Show</h2>
+
+<div class='highlight ruby'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-ruby/MoxiworksPlatform/Agent.html#find-class_method'>Ruby Find Docs</a></span></blockquote></div>
+
+<div class='highlight php'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-php/classes/MoxiworksPlatform.Agent.html#method_find'>PHP Find Docs</a></span></blockquote></div>
+
+<blockquote>
+<p><span class="data-example-label">Agent Show Example</span></p>
+</blockquote>
+
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/agents/[moxi_works_agent_id]</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">api.moxiworks.com</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.moxi-platform+json;version=1</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Basic XNNeXAAAUZaQlF0dA==</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/x-www-form-urlencoded</span>
+
+</code></pre>
+
+<pre class="highlight ruby"><code><span class="c1">##### set up prerequisites once</span>
+<span class="nb">require</span> <span class="s1">'moxiworks_platform'</span>
+
+<span class="n">platform_identifier</span> <span class="o">=</span> <span class="s1">'abc123'</span>
+
+<span class="n">platform_secret</span> <span class="o">=</span> <span class="s1">'secret'</span>
+
+<span class="no">MoxiworksPlatform</span><span class="o">::</span><span class="no">Credentials</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">platform_identifier</span><span class="p">,</span> <span class="n">platform_secret</span><span class="p">)</span>
+<span class="c1">##### end prerequisites</span>
+
+<span class="n">moxi_works_agent</span> <span class="o">=</span> <span class="no">MoxiworksPlatform</span><span class="o">::</span><span class="no">Agent</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span>
+        <span class="ss">moxi_works_agent_id: </span><span class="s2">"1234abcd"</span><span class="p">)</span>
+
+</code></pre>
+
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+<span class="nv">$platform_identifier</span> <span class="o">=</span> <span class="s1">'abc123'</span>
+<span class="nv">$platform_secret</span> <span class="o">=</span> <span class="s1">'secret'</span>
+
+<span class="nv">$credentials</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MoxiworksPlatform\Credentials</span><span class="p">(</span><span class="nv">$platform_identifier</span><span class="p">,</span> <span class="nv">$platform_secret</span><span class="p">)</span>
+
+<span class="nv">$moxi_works_agent</span> <span class="o">=</span> <span class="nx">MoxiworksPlatform\Agent</span><span class="o">::</span><span class="na">find</span><span class="p">([</span>
+        <span class="nv">$moxi_works_agent_id</span> <span class="o">=&gt;</span> <span class="s2">"1234abcd"</span><span class="p">])</span>
+<span class="cp">?&gt;</span>
+</code></pre>
+
+<blockquote><div class='highlight http' style="display: block">
+<span class="data-example-label">Agent Show: Success Response</span>
+(line breaks in body shown for clarity)
+</div></blockquote>
+<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json; charset=utf-8</span>
+<span class="na">X-UA-Compatible</span><span class="p">:</span> <span class="s">IE=Edge</span>
+<span class="na">ETag</span><span class="p">:</span> <span class="s">\"39e1ce76ef58ce23a7debbe5ca145715\"</span>
+<span class="na">Cache-Control</span><span class="p">:</span> <span class="s">max-age=0, private, must-revalidate</span>
+<span class="na">X-Request-Id</span><span class="p">:</span> <span class="s">232e40496ea30b9758dddf0b7ab195f2</span>
+<span class="na">X-Runtime</span><span class="p">:</span> <span class="s">13.034641</span>
+<span class="na">Connection</span><span class="p">:</span> <span class="s">close</span>
+<span class="na">Server</span><span class="p">:</span> <span class="s">thin</span>
+
+<span class="p">{</span><span class="w">
+  </span><span class="nt">"moxi_works_agent_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"n8eq"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"mls"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">"mls numero uno"</span><span class="p">,</span><span class="w"> </span><span class="s2">"ubermls"</span><span class="p">,</span><span class="w"> </span><span class="s2">"majormls"</span><span class="p">],</span><span class="w">
+  </span><span class="nt">"accreditation"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"address_street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234 Agent St."</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"address_city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Agentville"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"address_state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AG"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"address_zip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"office_address_street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3456 Office Ln."</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"office_address_city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Officeville"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"office_address_state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AG"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"office_address_zip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Buckminster Fuller"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"license"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WA # 123456789012-12"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"mobile_phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"222 333 4567"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"home_phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"(234) 567-8910"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"fax_phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4567891011"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"main_phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"678) 9101112"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"office_phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"(234)456-7890"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"primary_email_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"the_agent@agentdomain.com"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"secondary_email_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"the_agent_alt@otherdomain.com"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"languages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"EN"</span><span class="p">],</span><span class="w">
+  </span><span class="nt">"twitter"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@agentguy"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"google_plus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://plus.google.com/1234567891011121314/posts"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"facebook"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.facebook.com/moxiworks/"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"home_page"</span><span class="p">:</span><span class="w"> </span><span class="s2">"foo.com"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"birth_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"31 Dec 1999"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"REALTOR"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"profile_image_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://picturererer.com/pics37/ImageStore.dll?id=852087C5D3A533DD&amp;w=200"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"profile_thumb_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://picturererer.com/pics37/ImageStore.dll?id=852087C5D3A533DD&amp;w=75"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote><div class='highlight http' style="display: block">
+<span class="data-example-label">Agent Show: Not Found Response</span>
+(line breaks in body shown for clarity)
+</div></blockquote>
+<pre class="highlight http"><code><span class="err">
+</span><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json; charset=utf-8</span>
+<span class="na">X-UA-Compatible</span><span class="p">:</span> <span class="s">IE=Edge</span>
+<span class="na">ETag</span><span class="p">:</span> <span class="s">\"39e1ce76ef58ce23a7debbe5ca145715\"</span>
+<span class="na">Cache-Control</span><span class="p">:</span> <span class="s">max-age=0, private, must-revalidate</span>
+<span class="na">X-Request-Id</span><span class="p">:</span> <span class="s">232e40496ea30b9758dddf0b7ab195f2</span>
+<span class="na">X-Runtime</span><span class="p">:</span> <span class="s">13.034641</span>
+<span class="na">Connection</span><span class="p">:</span> <span class="s">close</span>
+<span class="na">Server</span><span class="p">:</span> <span class="s">thin</span>
+
+<span class="p">{}</span><span class="w">
+</span></code></pre>
+
+<blockquote><div class='highlight http' style="display: block">
+<span class="data-example-label">Agent Show: Failure Response</span>
+(line breaks in body shown for clarity)
+</div></blockquote>
+<pre class="highlight http"><code><span class="err">
+</span><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">400</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json; charset=utf-8</span>
+<span class="na">X-UA-Compatible</span><span class="p">:</span> <span class="s">IE=Edge</span>
+<span class="na">ETag</span><span class="p">:</span> <span class="s">\"39e1ce76ef58ce23a7debbe5ca145715\"</span>
+<span class="na">Cache-Control</span><span class="p">:</span> <span class="s">max-age=0, private, must-revalidate</span>
+<span class="na">X-Request-Id</span><span class="p">:</span> <span class="s">232e40496ea30b9758dddf0b7ab195f2</span>
+<span class="na">X-Runtime</span><span class="p">:</span> <span class="s">13.034641</span>
+<span class="na">Connection</span><span class="p">:</span> <span class="s">close</span>
+<span class="na">Server</span><span class="p">:</span> <span class="s">thin</span>
+
+<span class="p">{</span><span class="w">
+  </span><span class="nt">"status"</span><span class="p">:</span><span class="s2">"fail"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"errorCode"</span><span class="p">:</span><span class="w"> </span><span class="err">xxx</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"messages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"messages"</span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+
+<aside class="warning">You must base 64 encode the Moxi Works Agent ID if you are using an email address as the agent ID</aside>
+
+<aside class="note">Send a <b>GET</b> request to https://api.moxiworks.com/api/agents/[moxi_works_agent_id]</aside>
+
+<p>When showing an agent using the Moxi Works platform API, format your data using the following parameters.</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Remark</th>
+<th>Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span class="required-data">moxi_works_agent_id</span></td>
+<td><span class="data-type">String</span></td>
+<td><span class="data-remarks">The agent&rsquo;s Moxi Works Platform ID</span></td>
+<td><span class="required-data"><strong>required</strong> &ndash;Base 64 encoding required when using email address as ID</span></td>
+</tr>
+</tbody></table>
+
+
 <h2 id="contact-create">Contact Create</h2>
 
 <div class='highlight ruby'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-ruby/MoxiworksPlatform/Contact.html#create-class_method'>Ruby Create Docs</a></span></blockquote></div>
@@ -1215,6 +1370,8 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 
 </code></pre>
 
+<aside class="warning">It is recommended that you base 64 encode your contact ID to ensure it is read properly</aside>
+
 <table><thead>
 <tr>
 <th>Attribute</th>
@@ -1625,6 +1782,8 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 
 </span></code></pre>
 
+<aside class="warning">It is recommended that you base 64 encode your contact ID to ensure it is read properly</aside>
+
 <aside class="note">Send a <b>GET</b> request to https://api.moxiworks.com/api/contacts/[partner_contact_id]</aside>
 
 <p>When showing a contact using the Moxi Works platform API, format your data using the following parameters.</p>
@@ -1702,6 +1861,7 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 <span class="data-example-label">Contact Index: Success Response</span>
 (line breaks in body shown for clarity)
 </div></blockquote>
+
 <pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json; charset=utf-8</span>
 <span class="na">X-UA-Compatible</span><span class="p">:</span> <span class="s">IE=Edge</span>
@@ -1806,6 +1966,7 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 <span class="data-example-label">Contact Index: Not Found Response</span>
 (line breaks in body shown for clarity)
 </div></blockquote>
+
 <pre class="highlight http"><code><span class="err">
 </span><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json; charset=utf-8</span>
@@ -1824,6 +1985,7 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 <span class="data-example-label">Contact Index: Failure Response</span>
 (line breaks in body shown for clarity)
 </div></blockquote>
+
 <pre class="highlight http"><code><span class="err">
 </span><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">400</span> <span class="ne">OK</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json; charset=utf-8</span>
@@ -1878,245 +2040,6 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 <td><span class="data-type">String</span></td>
 <td><span class="data-remarks">A phone numberused by the contact &ndash; may be primary or secondary.</span></td>
 <td></td>
-</tr>
-</tbody></table>
-
-
-<h2 id="event">Event</h2>
-
-<h3 id="create">Create</h3>
-
-<aside class="note">Send a <b>POST</b> request to https://api.moxiworks.com/api/event</aside>
-
-<p>When creating an event using the Moxi Works platform API, format your data using the following parameters.</p>
-
-<blockquote>
-<p><span class="data-example-label">Event Creation Example</span><span class="data-example"><span class="example-label">moxi_works_agent_id</span><span class="example">abc123</span></span><span class="data-example"><span class="example-label">partner_event_id</span><span class="example">abc982cdf345</span></span><span class="data-example"><span class="example-label">event_subject</span><span class="example">Let&rsquo;s meet for lunch</span></span><span class="data-example"><span class="example-label">event_location</span><span class="example">1234 56th Ave</span></span><span class="data-example"><span class="example-label">send_reminder</span><span class="example">true</span></span><span class="data-example"><span class="example-label">remind_minutes_before</span><span class="example">15</span></span><span class="data-example"><span class="example-label">event_start</span><span class="example">1456955102</span></span><span class="data-example"><span class="example-label">event_end</span><span class="example">1456955602</span></span><span class="data-example"><span class="example-label">attendees</span><span class="example">abc123, xcr898</span></span><span class="data-example"><span class="example-label">recurring</span><span class="example">false</span></span><span class="data-example"><span class="example-label">note</span><span class="example">&lt;p&gt;Hi, this is an HTML formatted note to be displayed for this meeting&lt;/p&gt;</span></span></p>
-</blockquote>
-
-<table><thead>
-<tr>
-<th>Attribute</th>
-<th>Type</th>
-<th>Remark</th>
-<th>Required</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><span class="required-data">moxi_works_agent_id</span></td>
-<td><span class="data-type">String</span></td>
-<td><span class="data-remarks">The agent&rsquo;s Moxi Works Platform ID</span></td>
-<td><span class="required-data"><strong>required</strong></span></td>
-</tr>
-<tr>
-<td><span class="required-data">partner_event_id</span></td>
-<td><span class="data-type">String</span></td>
-<td><span class="data-remarks">The unique ID of the event in your system</span></td>
-<td><span class="required-data"><strong>required</strong></span></td>
-</tr>
-<tr>
-<td><span class="optional-data">event_subject</span></td>
-<td><span class="data-type">String</span></td>
-<td><span class="data-remarks">A short description of the event</span></td>
-<td></td>
-</tr>
-<tr>
-<td><span class="optional-data">event_location</span></td>
-<td><span class="data-type">String</span></td>
-<td><span class="data-remarks">A description of the location of the event</span></td>
-<td></td>
-</tr>
-<tr>
-<td><span class="optional-data">send_reminder</span></td>
-<td><span class="data-type">Boolean</span></td>
-<td><span class="data-remarks">Whether a notification reminder should be sent before the meeting</span></td>
-<td></td>
-</tr>
-<tr>
-<td><span class="optional-data">remind_minutes_before</span></td>
-<td><span class="data-type">Integer</span></td>
-<td><span class="data-remarks">How many minutes before the event a reminder should be sent (if it is to be sent)</span></td>
-<td></td>
-</tr>
-<tr>
-<td><span class="optional-data">event_start</span></td>
-<td><span class="data-type">Integer</span></td>
-<td><span class="data-remarks">The POSIX timestamp representation of the start time &ndash; local time.</span></td>
-<td></td>
-</tr>
-<tr>
-<td><span class="optional-data">event_end</span></td>
-<td><span class="data-type">Integer</span></td>
-<td><span class="data-remarks">The POSIX timestamp representation of the end time &ndash; local time.</span></td>
-<td></td>
-</tr>
-<tr>
-<td><span class="optional-data">attendees</span></td>
-<td><span class="data-type">String</span></td>
-<td><span class="data-remarks">A comma separated list of contacts that have already been added through the Moxi Works Platform API. (use IDs from your system) who are to be included as attendees.</span></td>
-<td></td>
-</tr>
-<tr>
-<td><span class="optional-data">recurring</span></td>
-<td><span class="data-type">Boolean</span></td>
-<td><span class="data-remarks">Whether the event is recurring</span></td>
-<td></td>
-</tr>
-<tr>
-<td><span class="optional-data">note</span></td>
-<td><span class="data-type">String</span></td>
-<td><span class="data-remarks">a note to be included with additional details. This can be HTML formatted.</span></td>
-<td></td>
-</tr>
-</tbody></table>
-
-<h3 id="update">Update</h3>
-
-<aside class="note">Send a <b>PUT</b> request to https://api.moxiworks.com/api/event</aside>
-
-<aside class="warning">Moxi Works API will remove data for any attribute not defined within the paramters you send. For instance, if the home_street_address attribute is not passed, the current home_street_address for the contact will be removed from the contact stored in Moxi Works.</aside>
-
-<blockquote>
-<p><span class="data-example-label">Event Update Example</span><span class="data-example"><span class="example-label">moxi_works_agent_id</span><span class="example">abc123</span></span><span class="data-example"><span class="example-label">partner_event_id</span><span class="example">abc982cdf345</span></span><span class="data-example"><span class="example-label">event_subject</span><span class="example">Let&rsquo;s meet for lunch</span></span><span class="data-example"><span class="example-label">event_location</span><span class="example">1234 56th Ave</span></span><span class="data-example"><span class="example-label">send_reminder</span><span class="example">true</span></span><span class="data-example"><span class="example-label">remind_minutes_before</span><span class="example">15</span></span><span class="data-example"><span class="example-label">event_start</span><span class="example">1456955102</span></span><span class="data-example"><span class="example-label">event_end</span><span class="example">1456955602</span></span><span class="data-example"><span class="example-label">attendees</span><span class="example">abc123, xcr898</span></span><span class="data-example"><span class="example-label">recurring</span><span class="example">false</span></span><span class="data-example"><span class="example-label">note</span><span class="example">&lt;p&gt;Hi, this is an HTML formatted note to be displayed for this meeting&lt;/p&gt;</span></span></p>
-</blockquote>
-
-<table><thead>
-<tr>
-<th>Attribute</th>
-<th>Type</th>
-<th>Remark</th>
-<th>Required</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><span class="required-data">moxi_works_agent_id</span></td>
-<td><span class="data-type">String</span></td>
-<td><span class="data-remarks">The agent&rsquo;s Moxi Works Platform ID</span></td>
-<td><span class="required-data"><strong>required</strong></span></td>
-</tr>
-<tr>
-<td><span class="required-data">partner_event_id</span></td>
-<td><span class="data-type">String</span></td>
-<td><span class="data-remarks">The unique ID of the event in your system</span></td>
-<td><span class="required-data"><strong>required</strong></span></td>
-</tr>
-<tr>
-<td><span class="optional-data">event_subject</span></td>
-<td><span class="data-type">String</span></td>
-<td><span class="data-remarks">A short description of the event</span></td>
-<td></td>
-</tr>
-<tr>
-<td><span class="optional-data">event_location</span></td>
-<td><span class="data-type">String</span></td>
-<td><span class="data-remarks">A description of the location of the event</span></td>
-<td></td>
-</tr>
-<tr>
-<td><span class="optional-data">send_reminder</span></td>
-<td><span class="data-type">Boolean</span></td>
-<td><span class="data-remarks">Whether a notification reminder should be sent before the meeting</span></td>
-<td></td>
-</tr>
-<tr>
-<td><span class="optional-data">remind_minutes_before</span></td>
-<td><span class="data-type">Integer</span></td>
-<td><span class="data-remarks">How many minutes before the event a reminder should be sent (if it is to be sent)</span></td>
-<td></td>
-</tr>
-<tr>
-<td><span class="optional-data">event_start</span></td>
-<td><span class="data-type">Integer</span></td>
-<td><span class="data-remarks">The POSIX timestamp representation of the start time &ndash; local time.</span></td>
-<td></td>
-</tr>
-<tr>
-<td><span class="optional-data">event_end</span></td>
-<td><span class="data-type">Integer</span></td>
-<td><span class="data-remarks">The POSIX timestamp representation of the end time &ndash; local time.</span></td>
-<td></td>
-</tr>
-<tr>
-<td><span class="optional-data">attendees</span></td>
-<td><span class="data-type">String</span></td>
-<td><span class="data-remarks">A comma separated list of contacts that have already been added through the Moxi Works Platform API. (use IDs from your system) who are to be included as attendees.</span></td>
-<td></td>
-</tr>
-<tr>
-<td><span class="optional-data">recurring</span></td>
-<td><span class="data-type">Boolean</span></td>
-<td><span class="data-remarks">Whether the event is recurring</span></td>
-<td></td>
-</tr>
-<tr>
-<td><span class="optional-data">note</span></td>
-<td><span class="data-type">String</span></td>
-<td><span class="data-remarks">a note to be included with additional details. This can be HTML formatted.</span></td>
-<td></td>
-</tr>
-</tbody></table>
-
-<h3 id="show">Show</h3>
-
-<aside class="note">Send a <b>GET</b> request to https://api.moxiworks.com/api/event/[partner_event_id]</aside>
-
-<table><thead>
-<tr>
-<th>Attribute</th>
-<th>Type</th>
-<th>Remark</th>
-<th>Required</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><span class="required-data">moxi_works_agent_id</span></td>
-<td><span class="data-type">String</span></td>
-<td><span class="data-remarks">The agent&rsquo;s Moxi Works Platform ID</span></td>
-<td><span class="required-data"><strong>required</strong></span></td>
-</tr>
-<tr>
-<td><span class="required-data">partner_event_id</span></td>
-<td><span class="data-type">String</span></td>
-<td><span class="data-remarks">The unique ID of the contact in your system</span></td>
-<td><span class="required-data"><strong>partner_event_id is required</strong></span></td>
-</tr>
-<tr>
-<td><span class="required-data">moxi_works_event_id</span></td>
-<td><span class="data-type">String</span></td>
-<td>The unique ID of the event in the Moxi Works Platform</td>
-<td><span class="required-data"><strong>partner_event_id <b>or</b> moxi_works_event_id is required</strong></span></td>
-</tr>
-</tbody></table>
-
-<h3 id="delete">Delete</h3>
-
-<aside class="note">Send a <b>DELETE</b> request to https://api.moxiworks.com/api/event/[partner_event_id]</aside>
-
-<table><thead>
-<tr>
-<th>Attribute</th>
-<th>Type</th>
-<th>Remark</th>
-<th>Required</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><span class="required-data">moxi_works_agent_id</span></td>
-<td><span class="data-type">String</span></td>
-<td><span class="data-remarks">The agent&rsquo;s Moxi Works Platform ID</span></td>
-<td><span class="required-data"><strong>required</strong></span></td>
-</tr>
-<tr>
-<td><span class="required-data">partner_event_id</span></td>
-<td><span class="data-type">String</span></td>
-<td><span class="data-remarks">The unique ID of the event in your system</span></td>
-<td><span class="required-data"><strong>partner_event_id <b>or</b> moxi_works_event_id is required</strong></span></td>
-</tr>
-<tr>
-<td><span class="required-data">moxi_works_event_id</span></td>
-<td><span class="data-type">String</span></td>
-<td>The unique ID of the event in the Moxi Works Platform</td>
-<td><span class="required-data"><strong>partner_event_id <b>or</b> moxi_works_event_id is required</strong></span></td>
 </tr>
 </tbody></table>
 

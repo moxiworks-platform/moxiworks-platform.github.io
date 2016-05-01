@@ -139,8 +139,6 @@ Server: thin
 }
 
 ```
-<aside class="warning">You must base 64 encode the Moxi Works Agent ID if you are using an email address as the agent ID</aside>
-
 
 <aside class="note">Send a <b>GET</b> request to https://api.moxiworks.com/api/agents/[moxi_works_agent_id]</aside>
 
@@ -150,5 +148,5 @@ When showing an agent using the Moxi Works platform API, format your data using 
 
 Attribute | Type| Remark | Required |
 -----|-----|-----|-----|
-|<span class="required-data">moxi_works_agent_id</span>|<span class="data-type">String</span>|<span class="data-remarks">The agent's Moxi Works Platform ID</span>| <span class="required-data">**required** --Base 64 encoding required when using email address as ID</span>
+|<span class="required-data">moxi_works_agent_id</span>|<span class="data-type">String</span>|<span class="data-remarks">The agent's Moxi Works Platform ID</span>| <span class="required-data">**required**</span>
 

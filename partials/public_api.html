@@ -657,8 +657,6 @@ to view, use the following:
 
 </span></code></pre>
 
-<aside class="warning">You must base 64 encode the Moxi Works Agent ID if you are using an email address as the agent ID</aside>
-
 <aside class="note">Send a <b>GET</b> request to https://api.moxiworks.com/api/agents/[moxi_works_agent_id]</aside>
 
 <p>When showing an agent using the Moxi Works platform API, format your data using the following parameters.</p>
@@ -675,7 +673,7 @@ to view, use the following:
 <td><span class="required-data">moxi_works_agent_id</span></td>
 <td><span class="data-type">String</span></td>
 <td><span class="data-remarks">The agent&rsquo;s Moxi Works Platform ID</span></td>
-<td><span class="required-data"><strong>required</strong> &ndash;Base 64 encoding required when using email address as ID</span></td>
+<td><span class="required-data"><strong>required</strong></span></td>
 </tr>
 </tbody></table>
 
@@ -1370,8 +1368,6 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 
 </code></pre>
 
-<aside class="warning">It is recommended that you base 64 encode your contact ID to ensure it is read properly</aside>
-
 <table><thead>
 <tr>
 <th>Attribute</th>
@@ -1781,8 +1777,6 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 </span><span class="p">}</span><span class="w">
 
 </span></code></pre>
-
-<aside class="warning">It is recommended that you base 64 encode your contact ID to ensure it is read properly</aside>
 
 <aside class="note">Send a <b>GET</b> request to https://api.moxiworks.com/api/contacts/[partner_contact_id]</aside>
 

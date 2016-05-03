@@ -1,0 +1,9 @@
+## Obtaining End User Profiles
+
+An access token can be used to get information about an end user.
+
+<aside class="note">Send a <b>GET</b> request to https://sso.moxiworks.com/agent/profile</aside>
+
+The request is to a resource gated by the presence of an OAuth 2 access token.
+
+To send the access token in the request, add an `Authorization` HTTP header with a value of `Bearer <access_token>`.

@@ -1,0 +1,150 @@
+
+### Update
+
+<div class='highlight ruby'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-ruby/MoxiworksPlatform/Event.html#update-class_method'>Ruby Update Docs</a></span></blockquote></div>
+
+<div class='highlight php'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-php/classes/MoxiworksPlatform.Event.html#method_update'>PHP Update Docs</a></span></blockquote></div>
+
+<aside class="note">Send a <b>PUT</b> request to https://api.moxiworks.com/api/events/[partner_event_id]</aside>
+
+<aside class="warning">Moxi Works API will remove data for any attribute not defined within the parameters you send. For instance, if the home_street_address attribute is not passed, the current home_street_address for the contact will be removed from the contact stored in Moxi Works.</aside>
+
+> <span class="data-example-label">Event Update Example</span>
+
+```http
+PUT /api/events/[partner_event_id] HTTP/1.1
+Host: api.moxiworks.com
+Accept: application/vnd.moxi-platform+json;version=1
+Authorization: Basic XNNeXAAAUZaQlF0dA==
+Content-Type: application/x-www-form-urlencoded
+
+
+moxi_works_agent_id=abc123&partner_event_id=abc98df345&event_subject=subject&
+event_location=a%20location&
+is_meeting=true&all_day=false&event_start=1462234227&event_end=1462241468&
+required_attendees=&optional_attendees=&note=here%20is%20the%20note
+
+```
+
+```ruby
+##### set up prerequisites once
+require 'moxiworks_platform'
+
+platform_identifier = 'abc123'
+
+platform_secret = 'secret'
+
+MoxiworksPlatform::Credentials.new(platform_identifier, platform_secret)
+##### end prerequisites
+
+moxi_works_event = MoxiworksPlatform::Event.update(
+        moxi_works_agent_id: "1234abcd",
+        partner_event_id: "booyuh",
+        event_subject: "the subject",
+        event_location: "the location",
+        is_meeting: true,
+        all_day: false,
+        event_start: 1462234227,
+        event_end: 1462241468,
+        required_attendees: nil,
+        optional_attendees: ['Contact1ID', 'Contact2ID']
+        note: 'notable stuff'
+        )
+
+```
+
+```php
+<?php
+$platform_identifier = 'abc123'
+$platform_secret = 'secret'
+
+$credentials = new MoxiworksPlatform\Credentials($platform_identifier, $platform_secret)
+
+$moxi_works_event = MoxiworksPlatform\Event::update([
+        $moxi_works_agent_id => "1234abcd",
+        $partner_event_id => "booyuh",
+        $event_subject =>  "the subject",
+        $event_location =>  "the location",
+        $is_meeting =>  true,
+        $all_day =>  false,
+        $event_start =>  1462234227,
+        $event_end =>  1462241468,
+        $required_attendees =>  null,
+        $optional_attendees => null,
+        $note =>  'notable stuff'])
+?>
+```
+<blockquote><div class='highlight http' style="display: block">
+<span class="data-example-label">Event Update: Success Response</span>
+(line breaks in body shown for clarity)
+</div></blockquote>
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+X-UA-Compatible: IE=Edge
+ETag: \"39e1ce76ef58ce23a7debbe5ca145715\"
+Cache-Control: max-age=0, private, must-revalidate
+X-Request-Id: 232e40496ea30b9758dddf0b7ab195f2
+X-Runtime: 13.034641
+Connection: close
+Server: thin
+
+{
+  "moxi_works_agent_id": "1234abcd",
+  "partner_event_id": "booyuh",
+  "event_subject": "the subject",
+  "event_location": "the location",
+  "is_meeting": true,
+  "all_day": false,
+  "event_start": 1462234227,
+  "event_end": 1462241468,
+  "required_attendees": "Contact1ID, Contact2ID",
+  "optional_attendees": null,
+  "note": "notable stuff"
+}
+```
+
+<blockquote><div class='highlight http' style="display: block">
+<span class="data-example-label">Event Update: Failure Response</span>
+(line breaks in body shown for clarity)
+</div></blockquote>
+
+```http
+
+HTTP/1.1 400 OK
+Content-Type: application/json; charset=utf-8
+X-UA-Compatible: IE=Edge
+ETag: \"39e1ce76ef58ce23a7debbe5ca145715\"
+Cache-Control: max-age=0, private, must-revalidate
+X-Request-Id: 232e40496ea30b9758dddf0b7ab195f2
+X-Runtime: 13.034641
+Connection: close
+Server: thin
+
+{
+  "status":"fail",
+  "errorCode": xxx,
+  "messages": ["messages"]
+}
+
+```
+
+
+
+Attribute | Type| Remark | Length Limit |
+-----|-----|-----|-----| 
+|<span class="required-data">moxi_works_agent_id</span>|<span class="required-data"><span class="data-type">String</span></span>|<span class="required-data"><span class="data-remarks">The agent's Moxi Works Platform ID</span></span>| <span class="required-data">255</span>
+|<span class="required-data">partner_event_id</span>|<span class="required-data"><span class="data-type">String</span></span>|<span class="required-data"><span class="data-remarks">The unique ID of the event in your system</span></span>| <span class="required-data">255</span>
+|<span class="required-data">event_start</span>|<span class="required-data"><span class="data-type">Integer</span></span>|<span class="required-data"><span class="data-remarks">The Unix timestamp representation of the start time.</span></span>| <span class="required-data">255</span> |
+|<span class="required-data">event_end</span>|<span class="required-data"><span class="data-type">Integer</span></span>|<span class="required-data"><span class="data-remarks">The Unix timestamp representation of the end time.</span></span>| <span class="required-data">255</span> |
+|<span class="optional-data">event_subject</span>|<span class="data-type">String</span>|<span class="data-remarks">A short description of the event</span>| 255 |
+|<span class="optional-data">event_location</span>|<span class="data-type">String</span>|<span class="data-remarks">A description of the location of the event</span>| 255 |
+|<span class="optional-data">attendees</span>|<span class="data-type">String</span>|<span class="data-remarks">A comma separated list of contacts that have already been added through the Moxi Works Platform API whose presence at event is required. (use IDs from your system -- i.e. partner_contact_id from [Contact Create](#create) ) who are to be included as required attendees.</span>| |
+|<span class="optional-data">note</span>|<span class="data-type">String</span>|<span class="data-remarks">a note to be included with additional details. Any HTML formatting included will be stripped in response.</span>| |
+
+
+<span class="required-data">**Required Parameters Are In Red**</span>
+
+<aside class="note">Attendees must be Contacts with an associated email address. <b>Attendees added who don't have an email address associated will not be added to the event.</b></aside>
+

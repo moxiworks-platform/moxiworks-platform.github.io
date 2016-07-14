@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>API Documentation</title>
+
+    <link href="../../../stylesheets/screen.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="../../../stylesheets/print.css" rel="stylesheet" type="text/css" media="print" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+      <script src="../../../javascripts/all_nosearch.js" type="text/javascript"></script>
+
+  </head>
+
+  <body class="partials partials_public_api partials_public_api_overview partials_public_api_overview_rate_limiting">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="../../../images/navbar.png" />
+      </span>
+    </a>
+    <div class="tocify-wrapper">
+      <img src="../../../images/logo.png" />
+      <div id="toc">
+      </div>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h2 id="rate-limiting">Rate Limiting</h2>
+
+<p>To ensure that system resources are not overloaded and response quality degrated, Moxi Works allows only a limited number of requests every minute. </p>
+
+<blockquote>
+<p><strong>Over-limit Error Response Example</strong></p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fail"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"errorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">4000</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"'Too many requests. Please try again later."</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p><strong>Handling &ldquo;Rate Limit Exceeded&rdquo; error</strong>
+In order to prevent abuse and undue stress on the Moxi Works servers, the API has a rate limiting feature that restricts users to <strong>300</strong> requests per minute per Access Token. </p>
+
+<p>If and when the limit is enforced, any requests that exceed this limit will be rejected with an <strong>429</strong> HTTP status code, along with the JSON response body shown to the right</p>
+
+<p>It is recommended that you design your integration to gracefully handle this rate limit error. 
+One way to accomplish this would be to have your integration <em>sleep</em> for 60 seconds when this error is returned from the API, then retry the request. 
+Alternatively, you might choose to use <a href="https://en.wikipedia.org/wiki/Exponential_backoff">exponential backoff</a> (an error handling strategy whereby you periodically retry a failed request with progressively longer wait times between retries, until either the request succeeds or a specified number of retry attempts is reached). </p>
+
+      </div>
+      <div class="dark-box">
+      </div>
+    </div>
+  </body>
+</html>

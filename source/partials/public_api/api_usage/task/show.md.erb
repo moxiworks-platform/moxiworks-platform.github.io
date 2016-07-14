@@ -1,0 +1,112 @@
+### Show
+
+<div class='highlight ruby'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-ruby/MoxiworksPlatform/Task.html#find-class_method'>Ruby Find Docs</a></span></blockquote></div>
+
+<div class='highlight php'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-php/classes/MoxiworksPlatform.Task.html#method_find'>PHP Find Docs</a></span></blockquote></div>
+
+> <span class="data-example-label">Task Show Example</span>
+
+```http
+GET /api/tasks/my_task_id?moxi_works_agent_id=abc123 HTTP/1.1
+Host: api.moxiworks.com
+Accept: application/vnd.moxi-platform+json;version=1
+Authorization: Basic XNNeXAAAUZaQlF0dA==
+Content-Type: application/x-www-form-urlencoded
+
+```
+
+
+```ruby
+##### set up prerequisites once
+require 'moxiworks_platform'
+
+platform_identifier = 'abc123'
+
+platform_secret = 'secret'
+
+MoxiworksPlatform::Credentials.new(platform_identifier, platform_secret)
+##### end prerequisites
+
+moxi_works_task = MoxiworksPlatform::Task.find(
+        moxi_works_agent_id: "1234abcd",
+        partner_task_id: "booyuh")
+
+```
+
+```php
+<?php
+$platform_identifier = 'abc123'
+$platform_secret = 'secret'
+
+$credentials = new MoxiworksPlatform\Credentials($platform_identifier, $platform_secret)
+
+$moxi_works_task = MoxiworksPlatform\Task::find([
+        $moxi_works_agent_id => "1234abcd",
+        $partner_task_id => "booyuh"])
+?>
+```
+
+
+<blockquote><div class='highlight http' style="display: block">
+<span class="data-example-label">Task Show: Success Response</span>
+(line breaks in body shown for clarity)
+</div></blockquote>
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+X-UA-Compatible: IE=Edge
+ETag: \"39e1ce76ef58ce23a7debbe5ca145715\"
+Cache-Control: max-age=0, private, must-revalidate
+X-Request-Id: 232e40496ea30b9758dddf0b7ab195f2
+X-Runtime: 13.034641
+Connection: close
+Server: thin
+
+{
+  "moxi_works_agent_id": "1234abcd",
+  "partner_contact_id": "abc123",
+  "partner_task_id": "booyuh",
+  "name": "pick up keys for home",
+  "description": "pick up keys for 1234 Wherever Ave. from 1181 Brokerage Place",
+  "due_at": 1462241468,
+  "duration": 30,
+  "status": "active",
+  "created_at": 1462234227,
+  "completed_at": null,
+}
+```
+
+<blockquote><div class='highlight http' style="display: block">
+<span class="data-example-label">Task Show: Failure Response</span>
+(line breaks in body shown for clarity)
+</div></blockquote>
+
+```http
+
+HTTP/1.1 400 OK
+Content-Type: application/json; charset=utf-8
+X-UA-Compatible: IE=Edge
+ETag: \"39e1ce76ef58ce23a7debbe5ca145715\"
+Cache-Control: max-age=0, private, must-revalidate
+X-Request-Id: 232e40496ea30b9758dddf0b7ab195f2
+X-Runtime: 13.034641
+Connection: close
+Server: thin
+
+{
+  "status":"fail",
+  "errorCode": xxx,
+  "messages": ["messages"]
+}
+
+```
+
+<aside class="note">Send a <b>GET</b> request to https://api.moxiworks.com/api/tasks/[partner_task_id]</aside>
+
+Attribute | Type| Remark | Length Limit |
+-----|-----|-----|-----| 
+|<span class="required-data">moxi_works_agent_id</span>|<span class="required-data"><span class="data-type">String</span></span>|<span class="required-data"><span class="data-remarks">The agent's Moxi Works Platform ID</span></span>| <span class="required-data">255</span>
+|<span class="required-data">partner_task_id</span>|<span class="required-data"><span class="data-type">String</span></span>|<span class="required-data"><span class="data-remarks">The unique ID of the task in your system</span></span>| <span class="required-data">255</span>
+
+<span class="required-data">**Required Parameters Are In Red**</span>

@@ -1,0 +1,133 @@
+
+### Create
+
+<div class='highlight ruby'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-ruby/MoxiworksPlatform/Task.html#create-class_method'>Ruby Create Docs</a></span></blockquote></div>
+
+<div class='highlight php'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-php/classes/MoxiworksPlatform.Task.html#method_create'>PHP Create Docs</a></span></blockquote></div>
+
+
+<aside class="note">Send a <b>POST</b> request to https://api.moxiworks.com/api/tasks</aside>
+
+When creating an task using the Moxi Works platform API, format your data using the following parameters.
+
+
+> <span class="data-example-label">Task Creation Example</span>
+
+```http
+POST /api/tasks HTTP/1.1
+Host: api.moxiworks.com
+Accept: application/vnd.moxi-platform+json;version=1
+Authorization: Basic XNNeXAAAUZaQlF0dA==
+Content-Type: application/x-www-form-urlencoded
+
+moxi_works_agent_id=abc123&description=talk+to+private+kane,%2C+e-one-thousand%2C+about+stuff&due_at=1466208866&duration=10&name=Do+This+Please&partner_contact_id=mySystemContactId&partner_task_id=mySystemTaskId
+
+```
+
+```ruby
+##### set up prerequisites once
+require 'moxiworks_platform'
+
+platform_identifier = 'abc123'
+
+platform_secret = 'secret'
+
+MoxiworksPlatform::Credentials.new(platform_identifier, platform_secret)
+##### end prerequisites
+
+moxi_works_task = MoxiworksPlatform::Task.create(
+        moxi_works_agent_id: "1234abcd",
+        partner_task_id: "mySystemTaskId",
+        partner_contact_id: 'mySystemContactId',
+        name: "Meet And Greet",
+        description: "Set up a meeting to talk to this contact about their new home",
+        due_at: 1466208866,
+        duration: 10
+        )
+
+```
+
+```php
+<?php
+$platform_identifier = 'abc123'
+$platform_secret = 'secret'
+
+$credentials = new MoxiworksPlatform\Credentials($platform_identifier, $platform_secret)
+
+$moxi_works_task = MoxiworksPlatform\Task::create([
+        $moxi_works_agent_id => "1234abcd",
+        $partner_task_id => "mySystemTaskId",
+        $partner_contact_id => 'mySystemContactId',
+        $name => "Meet And Greet",
+        $description => "Set up a meeting to talk to this contact about their new home",
+        $due_at => 1466208866,
+        $duration => 10
+       ])
+?>
+```
+<blockquote><div class='highlight http' style="display: block">
+<span class="data-example-label">Task Create: Success Response</span>
+(line breaks in body shown for clarity)
+</div></blockquote>
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+X-UA-Compatible: IE=Edge
+ETag: \"39e1ce76ef58ce23a7debbe5ca145715\"
+Cache-Control: max-age=0, private, must-revalidate
+X-Request-Id: 232e40496ea30b9758dddf0b7ab195f2
+X-Runtime: 13.034641
+Connection: close
+Server: thin
+
+{
+  "moxi_works_agent_id":"1234abcd",
+  "partner_contact_id":"mySystemContactId",
+  "name":"Meet And Greet",
+  "description":"Set up a meeting to talk to this contact about their new home",
+  "due_at":1466208866,
+  "duration":10,
+  "status":"active",
+  "created_at":1466196521,
+  "completed_at":null
+}
+```
+
+<blockquote><div class='highlight http' style="display: block">
+<span class="data-example-label">Task Create: Failure Response</span>
+(line breaks in body shown for clarity)
+</div></blockquote>
+
+```http
+
+HTTP/1.1 400 OK
+Content-Type: application/json; charset=utf-8
+X-UA-Compatible: IE=Edge
+ETag: \"39e1ce76ef58ce23a7debbe5ca145715\"
+Cache-Control: max-age=0, private, must-revalidate
+X-Request-Id: 232e40496ea30b9758dddf0b7ab195f2
+X-Runtime: 13.034641
+Connection: close
+Server: thin
+
+{
+  "status":"fail",
+  "errorCode": xxx,
+  "messages": ["messages"]
+}
+
+```
+
+Attribute | Type| Remark | Length Limit |
+-----|-----|-----|-----| 
+|<span class="required-data">moxi_works_agent_id</span>|<span class="required-data"><span class="data-type">String</span></span>|<span class="required-data"><span class="data-remarks">The agent's Moxi Works Platform ID</span></span>| <span class="required-data">255</span>
+|<span class="required-data">partner_task_id</span>|<span class="required-data"><span class="data-type">String</span></span>|<span class="required-data"><span class="data-remarks">The unique ID of the task in your system</span></span>| <span class="required-data">255</span>
+|<span class="required-data">partner_contact_id</span>|<span class="required-data"><span class="data-type">String</span></span>|<span class="required-data"><span class="data-remarks">The ID of the Contact (your system's ID) for whom this task regards.</span></span>| <span class="required-data">255</span> |
+|<span class="required-data">name</span>|<span class="required-data"><span class="data-type">String</span></span>|<span class="required-data"><span class="data-remarks">A brief title for the task</span></span>| <span class="required-data">255</span> |
+|<span class="required-data">due_at</span>|<span class="required-data"><span class="data-type">Integer</span></span>|<span class="required-data"><span class="data-remarks">The Unix timestamp representation of the due date of the task.</span></span>| <span class="required-data">255</span> |
+|<span class="required-data">duration</span>|<span class="required-data"><span class="data-type">Integer</span></span>|<span class="required-data"><span class="data-remarks">An estimate of how many minutes the task should take.</span></span>| <span class="required-data">255</span> |
+|<span class="optional-data">description</span>|<span class="data-type">String</span>|<span class="data-remarks">A description of the task</span>| 255 |
+
+<span class="required-data">**Required Parameters Are In Red**</span>
+

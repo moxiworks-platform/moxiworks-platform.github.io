@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>API Documentation</title>
+
+    <link href="../../../stylesheets/screen.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="../../../stylesheets/print.css" rel="stylesheet" type="text/css" media="print" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+      <script src="../../../javascripts/all_nosearch.js" type="text/javascript"></script>
+
+  </head>
+
+  <body class="partials partials_public_api partials_public_api_overview partials_public_api_overview_request_formatting">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="../../../images/navbar.png" />
+      </span>
+    </a>
+    <div class="tocify-wrapper">
+      <img src="../../../images/logo.png" />
+      <div id="toc">
+      </div>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h2 id="request-formatting">Request Formatting</h2>
+
+<blockquote>
+<p><strong>Setting Payload Format To Form Data using Content-Type header</strong></p>
+</blockquote>
+<pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">/api/[RESOURCE]</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/x-www-form-urlencoded</span>
+
+moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;partner_agent_id=xyz987&amp;contact_name=Billy+Football
+
+</code></pre>
+<pre class="highlight ruby"><code><span class="c1"># required headers set automatically by moxiworks_platform library.</span>
+<span class="c1"># to view, use the following:</span>
+
+<span class="no">MoxiworksPlatform</span><span class="o">::</span><span class="no">Resource</span><span class="p">.</span><span class="nf">content_type_header</span><span class="p">.</span><span class="nf">inspect</span>
+</code></pre>
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+<span class="cm">/* required headers seat automatically by moxiworks_platform library.
+to view, use the following: 
+*/</span>
+<span class="nb">print_r</span><span class="p">(</span><span class="nx">MoxiworksPlatform\Resource</span><span class="o">::</span><span class="na">contentTypeHeader</span><span class="p">());</span>
+<span class="cp">?&gt;</span>
+</code></pre>
+
+<blockquote>
+<p><strong>Setting Payload Format To JSON using Content-Type header</strong></p>
+</blockquote>
+<pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">/api/[RESOURCE]</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+</code></pre>
+<pre class="highlight ruby"><code><span class="c1"># required headers set automatically to x-www-form-urlencoded moxiworks_platform library.</span>
+
+</code></pre>
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+<span class="cm">/* required headers seat automatically to x-www-form-urlencoded by moxiworks_platform library.*/</span>
+<span class="cp">?&gt;</span>
+</code></pre>
+
+<p>Your request body payload can either be formatted as JSON or as url encoded form parameters. Whichever method you choose, you&rsquo;ll need to configure your Content-Type header to match the payload format. </p>
+
+<aside class='notice'>Unless otherwise specified, all API endpoints expect request body data to be either <b>JSON or url encoded form parameters</b>. The response payload data is <b>always</b> returned as JSON.</aside>
+
+<h3 id="sending-data">Sending Data</h3>
+
+<p>When sending data, your payload should be formatted as a standard encoded form data or JSON.</p>
+
+<p>For GET and DELETE requests, parameters should be embedded in the URL.</p>
+
+<p>For POST, PUT request, the parameters should be included in the entity body of the request.</p>
+
+      </div>
+      <div class="dark-box">
+      </div>
+    </div>
+  </body>
+</html>

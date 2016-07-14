@@ -1,0 +1,540 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>API Documentation</title>
+
+    <link href="../../stylesheets/screen.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="../../stylesheets/print.css" rel="stylesheet" type="text/css" media="print" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+      <script src="../../javascripts/all_nosearch.js" type="text/javascript"></script>
+
+  </head>
+
+  <body class="partials partials_public_api partials_public_api_overview">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="../../images/navbar.png" />
+      </span>
+    </a>
+    <div class="tocify-wrapper">
+      <img src="../../images/logo.png" />
+      <div id="toc">
+      </div>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h2 id="api-overview">API Overview</h2>
+
+<p>Moxi Works api allows partner access to Moxi Works Products.</p>
+
+<blockquote>
+<p><strong>Examples</strong>:  See examples here for information on accessing resources using various languages.</p>
+</blockquote>
+
+<h2 id="introduction">Introduction</h2>
+
+<blockquote>
+<p><strong>Base URL</strong>:  https://api.moxiworks.com/</p>
+</blockquote>
+
+<p>The Moxi Works API provides programmatic access to Moxi Works features and data. 
+We do our best to adhere to open and accepted common standards, including REST for access, JSON format for the data, and OAuth2 for Authentication and Authorization. </p>
+
+<h2 id="client-libraries">Client Libraries</h2>
+
+<p>The following libraries are available to help your integration process with the Moxi Works Platform public API:</p>
+
+<pre class="highlight ruby"><code><span class="c1">#Install the moxiworks_platform Ruby library to quickly integrate with the Moxi Works Platform.</span>
+
+<span class="n">gem</span> <span class="n">install</span> <span class="n">moxiworks_platform</span>
+</code></pre>
+
+<pre class="highlight php"><code>/* install the moxiworks_platform PHP library to quickly integrate with the Moxi Works Platform. */
+
+composer require moxiworks/moxiworks_platform
+</code></pre>
+
+<h3 id="ruby">Ruby</h3>
+
+<p>Ruby client libraries for the Moxi Works Platform can be found on <a href='http://rubygems.org'>rubygems.org</a> and installed using gem.
+<ul>
+<li><a href='http://moxiworks-platform.github.io/moxiworks-ruby/'>Documentation</a></li>
+<li><a href='https://github.com/moxiworks-platform/moxiworks-ruby'>Source</a></li>
+</ul></p>
+
+<h3 id="php">PHP</h3>
+
+<p>PHP client libraries for the Moxi Works Platform can be found on <a href='http://packagist.org'>packagist.org</a> and installed using composer.
+<ul>
+  <li><a href='http://moxiworks-platform.github.io/moxiworks-php/'>Documentation</a></li>
+  <li><a href='https://github.com/moxiworks-platform/moxiworks-php'>Source</a></li></p>
+
+<p></ul></p>
+
+<h2 id="restful-architecture">RESTful Architecture</h2>
+
+<pre class="highlight plaintext"><code>Resources:
+
+/contacts
+/events
+/tasks
+</code></pre>
+
+<p>The response payload is JSON encoded object(s) with defined structure which relfects a data model.</p>
+
+<aside class="notice">Some of the data returned by the Moxi Works API is user-generated content. Ensure that the response payload content is consumed safely to avoid introducing vulnerabilities in your application.</aside>
+
+<p>URL structure follows typical resource-oriented conventions. For example, to get a list of contacts, use <code class="prettyprint">GET https://api.moxiworks.com/contacts</code>. 
+This will return a list of Contact objects, where each Contact will have an &ldquo;id&rdquo; attribute. 
+To get details on a particular contact, use <code class="prettyprint">GET https://api.moxiworks.com/contacts/123456</code>, where 123456 is the &ldquo;id&rdquo; of the Contact you want. 
+Similarly, to create a Contact, <code class="prettyprint">POST</code> a Contact object to <code class="prettyprint">https://api.moxiworks.com/contacts/</code>.</p>
+
+<h2 id="http-standards">HTTP Standards</h2>
+
+<p>All actions taken through the API are done via HTTP using <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html">standard HTTP methods</a>: GET (to retrieve an object), POST (to create), PUT (to modify), and DELETE. 
+<a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html">Standard HTTP Response codes</a> are used to indicate success and error conditions.</p>
+
+<h2 id="data-security">Data Security</h2>
+
+<p>The Moxi Works Platform public API requires all requests use HTTPS. Any response to the Moxi Works Platform API using HTTP will be rejected with a 403 (forbidden) error.</p>
+
+<aside class='warning'>Always use HTTPS when connecting to the Moxi Works Platform</aside>
+
+<h2 id="rate-limiting">Rate Limiting</h2>
+
+<p>To ensure that system resources are not overloaded and response quality degrated, Moxi Works allows only a limited number of requests every minute. </p>
+
+<blockquote>
+<p><strong>Over-limit Error Response Example</strong></p>
+</blockquote>
+
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fail"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"errorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">4000</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"'Too many requests. Please try again later."</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p><strong>Handling &ldquo;Rate Limit Exceeded&rdquo; error</strong>
+In order to prevent abuse and undue stress on the Moxi Works servers, the API has a rate limiting feature that restricts users to <strong>300</strong> requests per minute per Access Token. </p>
+
+<p>If and when the limit is enforced, any requests that exceed this limit will be rejected with an <strong>429</strong> HTTP status code, along with the JSON response body shown to the right</p>
+
+<p>It is recommended that you design your integration to gracefully handle this rate limit error. 
+One way to accomplish this would be to have your integration <em>sleep</em> for 60 seconds when this error is returned from the API, then retry the request. 
+Alternatively, you might choose to use <a href="https://en.wikipedia.org/wiki/Exponential_backoff">exponential backoff</a> (an error handling strategy whereby you periodically retry a failed request with progressively longer wait times between retries, until either the request succeeds or a specified number of retry attempts is reached). </p>
+
+<h2 id="example-requests-amp-responses">Example Requests &amp; Responses</h2>
+
+<p>For every API operation in this documentation, we show example requests and an example (JSON) response. </p>
+
+<p>You&rsquo;ll see the examples displayed in the grey panel to the right of each operation. </p>
+
+<p>To view the sample code in a specific language, select the corresponding language tab at the top of the panel to the right. 
+For more information about using the sample code in this API documentation, see <a href="#client-libraries">Client Libraries</a>. </p>
+
+<p>As with any REST API, you can also test API requests / responses using a Chrome extension like <a href="https://chrome.google.com/webstore/detail/advanced-rest-client/hgmloofddffdnphfgcellkdfbfbjeloo/">Advanced REST Client</a> or <a href="https://chrome.google.com/webstore/detail/postman-rest-client/fdmmgilgnpjigdojojpjoooidkmcomcm">POSTMAN</a>. </p>
+
+<h2 id="api-changes">API Changes</h2>
+
+<p><strong>Non-breaking changes</strong>: New features, functionality and bug fixes will be added to the API over time;
+you should expect to see new endpoints or new attributes in the payload for existing endpoints. 
+Non-breaking changes will not result in a new API version.  Ensure that your API consumer logic can handle new attributes gracefully. 
+Ensure your API consumer logic does not depend on the order in which records are returned, unless static order is explicitly denoted in this documentation. </p>
+
+<p><strong>Breaking changes</strong>: Although we intend to support and maintain the current version of the API indefinitely,
+if changes that break the current API are made, we will publish the api update with a new version number, in order to ensure that the existing API functionality remains available to API consumers relying on that version. When breaking changes are added, the current version of the API will continue to be available.</p>
+
+<p><strong>Deprecations</strong>: Moxi Works occasionally deprecates APIs to indicate that those APIs should no longer be used in active development. 
+Deprecated APIs typically remain present and usable for a reasonable period of time following the release in which they were deprecated; however, they may be removed entirely from a future version of the API as required. 
+You should never use deprecated APIs in new development, and if you have existing code that uses deprecated APIs, we recommend that you update that code as soon as possible. </p>
+
+<h2 id="required-headers">Required Headers</h2>
+
+<aside class="note">If you are using a client access library to the Moxi Works Platform, required request headers will automatically be configured for you.</aside>
+
+<blockquote>
+<p><strong>Required Headers Example</strong></p>
+</blockquote>
+
+<pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">/api/[RESOURCE]</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Basic bpiYWFhYWFycnJycnJy==</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/x-www-form-urlencoded</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.moxi-platform+json;version=1</span>
+
+</code></pre>
+
+<pre class="highlight ruby"><code><span class="c1"># required headers set automatically by moxiworks_platform library.</span>
+<span class="c1"># to view, use the following:</span>
+
+<span class="no">MoxiworksPlatform</span><span class="o">::</span><span class="no">Resource</span><span class="p">.</span><span class="nf">headers</span><span class="p">.</span><span class="nf">inspect</span>
+</code></pre>
+
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+<span class="cm">/* required headers seat automatically by moxiworks_platform library.
+to view, use the following: 
+*/</span>
+<span class="nb">print_r</span><span class="p">(</span><span class="nx">MoxiworksPlatform\Resource</span><span class="o">::</span><span class="na">headers</span><span class="p">());</span>
+<span class="cp">?&gt;</span>
+</code></pre>
+
+<p>If you are implementing your own Moxi Works Platform library, you&rsquo;ll need to ensure that you have the following headers configured in your request:</p>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><em>Authorization</em></td>
+<td>Used for platform authorization</td>
+<td><code class="prettyprint">Basic [base64 encoded platform id and secret]</code></td>
+</tr>
+<tr>
+<td><em>Accept</em></td>
+<td>Used for API version and resource routing</td>
+<td><code class="prettyprint">application/vnd.moxi-platform+json;version=1</code></td>
+</tr>
+<tr>
+<td><em>Content-Type</em></td>
+<td>Used for handling data in request</td>
+<td><code class="prettyprint">application/x-www-form-urlencoded</code></td>
+</tr>
+</tbody></table>
+
+<h2 id="authorization">Authorization</h2>
+
+<blockquote>
+<p><strong>Example Authorization Header:</strong> (note that the authorization header platform identifier and platform key are base64 encoded)</p>
+</blockquote>
+
+<pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">/api/[RESOURCE]</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Basic Zm9vb29vb29vb29vbzpiYWFhYWFycnJycnJy==</span>
+</code></pre>
+
+<pre class="highlight ruby"><code>
+<span class="nb">require</span> <span class="s1">'moxiworks_platform'</span>
+
+<span class="n">platform_identifier</span> <span class="o">=</span> <span class="s1">'abc123'</span> <span class="c1"># platorm_identifier provided by Moxi Works Platform Rep</span>
+<span class="n">platform_secret</span> <span class="o">=</span> <span class="s1">'secret'</span> <span class="c1">#platform_secret provided by Moxi Works Platform Rep</span>
+
+<span class="no">MoxiworksPlatform</span><span class="o">::</span><span class="no">Credentials</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">platform_identifier</span><span class="p">,</span> <span class="n">platform_secret</span><span class="p">)</span>
+
+</code></pre>
+
+<pre class="highlight php"><code>
+<span class="cp">&lt;?php</span>
+<span class="nv">$platform_identifier</span> <span class="o">=</span> <span class="s1">'abc123'</span><span class="p">;</span> <span class="c1">// platorm_identifier provided by Moxi Works Platform Rep
+</span><span class="nv">$platform_secret</span> <span class="o">=</span> <span class="s1">'secret'</span><span class="p">;</span> <span class="c1">//platform_secret provided by Moxi Works Platform Rep
+</span>
+<span class="nv">$credentials</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MoxiworksPlatform\Credentials</span><span class="p">(</span><span class="nv">$platform_identifier</span><span class="p">,</span> <span class="nv">$platform_secret</span><span class="p">);</span>
+<span class="cp">?&gt;</span>
+</code></pre>
+
+<p><aside class="warning">To ensure that your key and secret remain secret, always use HTTPS when making requests from the Moxi Works Platform public API.</aside></p>
+
+<p>The Moxi Works API utilizes Authorization HTTP headers for authorization. </p>
+
+<p>To authorize your request, use the API Identifier and Secret combination you have been provided by your Moxi Works Platform representative.</p>
+
+<p>When composing your basic header, per <a href='https://www.ietf.org/rfc/rfc2617.txt'>RFC 2617</a> you&rsquo;ll need to base 64 encode your Moxi Works Platform Identifier and Secret and remember to separate your platform identifier and secret with a colon.</p>
+
+<h3 id="help-with-http-basic-auth-on-your-platform">Help with HTTP Basic Auth on your platform</h3>
+
+<p>The following links provide helpful information for various platforms on creating HTTP Basic Auth Headers</p>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href='http://stackoverflow.com/questions/24933746/getting-basic-authentication-to-work-with-coldfusion' target="_blank">ColdFusion</a></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<p>Still need more info? Email api@moxiworks.com and let us know what language you&rsquo;re using to connect to the Moxi Works Platform.</p>
+
+<aside class='note'>You can acquire your Moxi Works API Identifier and Secret pair by contacting Moxi Works.</aside>
+
+<p><aside class="warning">Do not include your Moxi Works API Identifier or Secret  in the parameters sent to the server; they must be set in the request header. Setting the API Identifier and Secret in the request parameters will result in an authorization failure.</aside></p>
+
+<h2 id="request-formatting">Request Formatting</h2>
+
+<blockquote>
+<p><strong>Setting Payload Format To Form Data using Content-Type header</strong></p>
+</blockquote>
+
+<pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">/api/[RESOURCE]</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/x-www-form-urlencoded</span>
+
+moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;partner_agent_id=xyz987&amp;contact_name=Billy+Football
+
+</code></pre>
+
+<pre class="highlight ruby"><code><span class="c1"># required headers set automatically by moxiworks_platform library.</span>
+<span class="c1"># to view, use the following:</span>
+
+<span class="no">MoxiworksPlatform</span><span class="o">::</span><span class="no">Resource</span><span class="p">.</span><span class="nf">content_type_header</span><span class="p">.</span><span class="nf">inspect</span>
+</code></pre>
+
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+<span class="cm">/* required headers seat automatically by moxiworks_platform library.
+to view, use the following: 
+*/</span>
+<span class="nb">print_r</span><span class="p">(</span><span class="nx">MoxiworksPlatform\Resource</span><span class="o">::</span><span class="na">contentTypeHeader</span><span class="p">());</span>
+<span class="cp">?&gt;</span>
+</code></pre>
+
+<blockquote>
+<p><strong>Setting Payload Format To JSON using Content-Type header</strong></p>
+</blockquote>
+
+<pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">/api/[RESOURCE]</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+</code></pre>
+
+<pre class="highlight ruby"><code><span class="c1"># required headers set automatically to x-www-form-urlencoded moxiworks_platform library.</span>
+
+</code></pre>
+
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+<span class="cm">/* required headers seat automatically to x-www-form-urlencoded by moxiworks_platform library.*/</span>
+<span class="cp">?&gt;</span>
+</code></pre>
+
+<p>Your request body payload can either be formatted as JSON or as url encoded form parameters. Whichever method you choose, you&rsquo;ll need to configure your Content-Type header to match the payload format. </p>
+
+<aside class='notice'>Unless otherwise specified, all API endpoints expect request body data to be either <b>JSON or url encoded form parameters</b>. The response payload data is <b>always</b> returned as JSON.</aside>
+
+<h3 id="sending-data">Sending Data</h3>
+
+<p>When sending data, your payload should be formatted as a standard encoded form data or JSON.</p>
+
+<p>For GET and DELETE requests, parameters should be embedded in the URL.</p>
+
+<p>For POST, PUT request, the parameters should be included in the entity body of the request.</p>
+
+<h2 id="api-versioning">API Versioning</h2>
+
+<p>Moxi Works API uses the Accept header to denote the version of the API to be used. </p>
+
+<p>If you are using a Moxi Works Platform library, this header will already be included with every request.</p>
+
+<aside class='warning'>By default, the current version of the API will be used when it is not set in the Accept header. If you are depending on a specific version of the Moxi Works Platform in your logic, make sure that the Accept header is configured to send the version of the API you need.</aside>
+
+<blockquote>
+<p><strong>API Version Embedded In Accept Header</strong></p>
+</blockquote>
+
+<pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">/api/[RESOURCE]</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.moxi-platform+json;version=1</span>
+</code></pre>
+
+<pre class="highlight ruby"><code> <span class="c1"># to view the version of the API used with your version of  moxiworks_platform Ruby library</span>
+
+<span class="no">MoxiworksPlatform</span><span class="o">::</span><span class="no">Resource</span><span class="p">.</span><span class="nf">accept_header</span>
+
+</code></pre>
+
+<pre class="highlight php"><code> <span class="cp">&lt;?php</span>
+ <span class="cm">/* to view the version of the API used with your version of moxiworks_platform PHP library */</span>
+<span class="k">echo</span> <span class="nx">MoxiworksPlatform\Resource</span><span class="o">::</span><span class="na">acceptHeader</span><span class="p">();</span>
+<span class="cp">?&gt;</span>
+</code></pre>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><em>Accept</em></td>
+<td>The Moxi Works API uses the Accept header to denote the API version to be used ( <code class="prettyprint">application/vnd.moxi-platform+json;version=[VERSION NUMBER]</code>).</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">To ensure that your request to the Moxi Works API continue to function when breaking changes are introduced to the API, ensure that you use request header versioning  when accessing the Moxi Works API. If the API version is not denoted in the request header</aside>
+
+<h2 id="error-handling">Error Handling</h2>
+
+<p>The following table specifies the recommended action for each Moxi Works API error code. </p>
+
+<blockquote>
+<p><strong>Use this table to implement error handling logic according to the following guidelines:</strong> <br><br> &bull; If the error code indicates a permanent error condition, do not retry the request. <br><br> &bull; If the error code indicates a problem that can be fixed, do not retry the request until the problem has been fixed.<br><br> &bull; If the error code indicates a problem that could be overcome by retrying the request after a period of time, retry the request using exponential backoff.</p>
+</blockquote>
+
+<table><thead>
+<tr>
+<th>API Error Code</th>
+<th>HTTP Status Code</th>
+<th>Message</th>
+<th>Recommended Action</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1000</td>
+<td>400</td>
+<td>A required header was missing or invalid: {0}</td>
+<td><span class="fix-then-retry-error">Fix issue, then retry.</span></td>
+</tr>
+<tr>
+<td>1010</td>
+<td>400</td>
+<td>A required object attribute is missing from your request: {0}.</td>
+<td><span class="fix-then-retry-error">Fix issue, then retry.</span></td>
+</tr>
+<tr>
+<td>1020</td>
+<td>400</td>
+<td>Unable to parse request. The following error occurred: {0}</td>
+<td><span class="fix-then-retry-error">Fix issue, then retry.</span></td>
+</tr>
+<tr>
+<td>1030</td>
+<td>400</td>
+<td>A required parameter is missing from your request: {0}.</td>
+<td><span class="fix-then-retry-error">Fix issue, then retry.</span></td>
+</tr>
+<tr>
+<td>1040</td>
+<td>400</td>
+<td>The value {0} was not valid for the parameter {1}.</td>
+<td><span class="fix-then-retry-error">Fix issue, then retry.</span></td>
+</tr>
+<tr>
+<td>1050</td>
+<td>400</td>
+<td>The HTTP request body is required for this Method.</td>
+<td><span class="fix-then-retry-error">Fix issue, then retry.</span></td>
+</tr>
+<tr>
+<td>1060</td>
+<td>400</td>
+<td>The attribute(s) {0} are not allowed for this operation.</td>
+<td><span class="fix-then-retry-error">Fix issue, then retry.</span></td>
+</tr>
+<tr>
+<td>1100</td>
+<td>400</td>
+<td>Invalid Content-Type: {0}</td>
+<td><span class="fix-then-retry-error">Fix issue, then retry.</span></td>
+</tr>
+<tr>
+<td>1120</td>
+<td>400</td>
+<td>Invalid hash value. The hash provided did not match the expected value.</td>
+<td><span class="fix-then-retry-error">Fix issue, then retry.</span></td>
+</tr>
+<tr>
+<td>1130</td>
+<td>400</td>
+<td>The redirect_uri did not match the expected value.</td>
+<td><span class="fix-then-retry-error">Fix issue, then retry.</span><br/><br/>Hint: Omit the <b>redirect_uri</b>  parameter</td>
+</tr>
+<tr>
+<td>1200</td>
+<td>400</td>
+<td>Malformed data in request.</td>
+<td><span class="fix-then-retry-error">Fix issue, then retry.</span></td>
+</tr>
+<tr>
+<td>1210</td>
+<td>400</td>
+<td>Unsupported operation: {0}.</td>
+<td><span class="no-retry-error">Do not retry.</span></td>
+</tr>
+<tr>
+<td>2000</td>
+<td>401</td>
+<td>Basic Authorization header required.</td>
+<td><span class="fix-then-retry-error">Fix issue, then retry.</span><br/><br/>Hint: Verify that <b>Authorization</b> header is present and set properly.</td>
+</tr>
+<tr>
+<td>2010</td>
+<td>401</td>
+<td>Your Authorization header is invalid.</td>
+<td><span class="fix-then-retry-error">Fix issue, then retry.</span><br/><br/>Hint: Verify that the Moxi Works Platform Identifier and Secret specified in the <b>Authorization</b> header are valid and properly encoded.</td>
+</tr>
+<tr>
+<td>2020</td>
+<td>403</td>
+<td>You are not authorized to perform this action.</td>
+<td><span class="fix-then-retry-error">Fix issue, then retry.</span><br/><br/>Hint: Verify that <b>Authorization</b> header is present and set properly, and that your account has access to the requested resource.</td>
+</tr>
+<tr>
+<td>3010</td>
+<td>404</td>
+<td>Version not supported.</td>
+<td><span class="fix-then-retry-error">Fix issue, then retry.</span></td>
+</tr>
+<tr>
+<td>3020</td>
+<td>405</td>
+<td>HTTP Method not supported.</td>
+<td><span class="fix-then-retry-error">Fix issue, then retry.</span><br/><br/>Hint: Verify that the proper verb is specified for the request (GET, PUT, POST, or DELETE).</td>
+</tr>
+<tr>
+<td>3030</td>
+<td>406</td>
+<td>Invalid Accept header.</td>
+<td><span class="fix-then-retry-error">Fix issue, then retry.</span><br/><br/>Hint: Verify that <b>Accept</b> header is set to the <a href="#input-/-output-format">proper value</a> (to match the output of the invoked endpoint &ndash; typically “application/json”).</td>
+</tr>
+<tr>
+<td>3060</td>
+<td>415</td>
+<td>Invalid Content-Type header. Media type not supported.</td>
+<td><span class="fix-then-retry-error">Fix issue, then retry.</span><br/><br/>Hint: Verify that <b/>Content-Type</b> header is specified and set to the <a href="#input-/-output-format">proper value</a>.</td>
+</tr>
+<tr>
+<td>4000</td>
+<td>429</td>
+<td>Rate limit exceeded.</td>
+<td><span class="retry-later-error">Retry using <a href="https://en.wikipedia.org/wiki/Exponential_backoff" target="_blank">exponential backoff</a></span>.<br/><br/>Hint: Reduce the rate at which you are sending requests.</span></td>
+</tr>
+<tr>
+<td>5000</td>
+<td>500</td>
+<td>An unexpected error has occurred. Please contact api@moxiworks.com for assistance.</td>
+<td><span class="no-retry-error">Do not retry.</span></td>
+</tr>
+<tr>
+<td>5010</td>
+<td>500</td>
+<td>An unexpected error has occurred. Please retry your request. If you encounter this error repeatedly, please contact api@moxiworks.com for assistance.</td>
+<td><span class="retry-later-error">Retry using <a href="https://en.wikipedia.org/wiki/Exponential_backoff" target="_blank">exponential backoff</a>.</span></td>
+</tr>
+<tr>
+<td>5020</td>
+<td>500</td>
+<td>Server timeout exceeded. Request has failed.</td>
+<td><span class="retry-later-error">Retry using <a href="https://en.wikipedia.org/wiki/Exponential_backoff" target="_blank">exponential backoff</a>.</span></td>
+</tr>
+<tr>
+<td>5030</td>
+<td>503</td>
+<td>api.moxiworks.com is currently offline for system maintenance. Please check back again shortly.</td>
+<td><span class="retry-later-error">Retry using <a href="https://en.wikipedia.org/wiki/Exponential_backoff" target="_blank">exponential backoff</a>.</span><br/><br/>Hint: Wait time between retries should measure in minutes (not seconds).</td>
+</tr>
+</tbody></table>
+
+      </div>
+      <div class="dark-box">
+      </div>
+    </div>
+  </body>
+</html>

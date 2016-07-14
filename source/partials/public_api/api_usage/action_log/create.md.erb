@@ -1,0 +1,122 @@
+
+### Create
+
+<div class='highlight ruby'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-ruby/MoxiworksPlatform/ActionLog.html#create-class_method'>Ruby Create Docs</a></span></blockquote></div>
+
+<div class='highlight php'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-php/classes/MoxiworksPlatform.ActionLog.html#method_create'>PHP Create Docs</a></span></blockquote></div>
+
+
+<aside class="note">Send a <b>POST</b> request to https://api.moxiworks.com/api/action_logs</aside>
+
+When creating an action_log using the Moxi Works platform API, format your data using the following parameters.
+
+
+> <span class="data-example-label">ActionLog Creation Example</span>
+
+```http
+POST /api/action_logs HTTP/1.1
+Host: api.moxiworks.com
+Accept: application/vnd.moxi-platform+json;version=1
+Authorization: Basic XNNeXAAAUZaQlF0dA==
+Content-Type: application/x-www-form-urlencoded
+
+
+moxi_works_agent_id=abc123&partner_contact_id=mySystemsContactId&title=Contact%20Called&body=this%20contact%20called%20you
+
+```
+
+```ruby
+##### set up prerequisites once
+require 'moxiworks_platform'
+
+platform_identifier = 'abc123'
+
+platform_secret = 'secret'
+
+MoxiworksPlatform::Credentials.new(platform_identifier, platform_secret)
+##### end prerequisites
+
+moxi_works_action_log = MoxiworksPlatform::ActionLog.create(
+        moxi_works_agent_id: "1234abcd",
+        partner_contact_id: "mySystemsContactId",
+        title: "Contact Called",
+        body: "this contact called you"
+        )
+
+```
+
+```php
+<?php
+$platform_identifier = 'abc123'
+$platform_secret = 'secret'
+
+$credentials = new MoxiworksPlatform\Credentials($platform_identifier, $platform_secret)
+
+$moxi_works_action_log = MoxiworksPlatform\ActionLog::create([
+        $moxi_works_agent_id: "1234abcd",
+        $partner_contact_id: "mySystemsContactId",
+        $title: "Contact Called",
+        $body: "this contact called you"])
+?>
+```
+<blockquote><div class='highlight http' style="display: block">
+<span class="data-example-label">ActionLog Create: Success Response</span>
+(line breaks in body shown for clarity)
+</div></blockquote>
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+X-UA-Compatible: IE=Edge
+ETag: \"39e1ce76ef58ce23a7debbe5ca145715\"
+Cache-Control: max-age=0, private, must-revalidate
+X-Request-Id: 232e40496ea30b9758dddf0b7ab195f2
+X-Runtime: 13.034641
+Connection: close
+Server: thin
+
+{
+  "moxi_works_agent_id": "1234abcd",
+  "partner_contact_id": "mySystemsContactId",
+  "type": "log_entry_type",
+  "timestamp": 1462234227,
+  "title": "Contact Called",
+  "body": "this contact called you"
+}
+```
+
+<blockquote><div class='highlight http' style="display: block">
+<span class="data-example-label">ActionLog Create: Failure Response</span>
+(line breaks in body shown for clarity)
+</div></blockquote>
+
+```http
+
+HTTP/1.1 400 OK
+Content-Type: application/json; charset=utf-8
+X-UA-Compatible: IE=Edge
+ETag: \"39e1ce76ef58ce23a7debbe5ca145715\"
+Cache-Control: max-age=0, private, must-revalidate
+X-Request-Id: 232e40496ea30b9758dddf0b7ab195f2
+X-Runtime: 13.034641
+Connection: close
+Server: thin
+
+{
+  "status":"fail",
+  "errorCode": xxx,
+  "messages": ["messages"]
+}
+
+```
+
+Attribute | Type| Remark | Length Limit |
+-----|-----|-----|-----| 
+|<span class="required-data">moxi_works_agent_id</span>|<span class="required-data"><span class="data-type">String</span></span>|<span class="required-data"><span class="data-remarks">The agent's Moxi Works Platform ID</span></span>| <span class="required-data">255</span>
+|<span class="required-data">partner_contact_id</span>|<span class="required-data"><span class="data-type">String</span></span>|<span class="required-data"><span class="data-remarks">The unique ID of the Contact in your system</span></span>| <span class="required-data">255</span>
+|<span class="required-data">title</span>|<span class="required-data"><span class="data-type">String</span></span>|<span class="required-data"><span class="data-remarks">The title of the log entry to be displayed.</span></span>| <span class="required-data">85</span> |
+|<span class="required-data">body</span>|<span class="required-data"><span class="data-type">String</span></span>|<span class="required-data"><span class="data-remarks">The body of the log entry to be displayed.</span></span>| <span class="required-data">255</span> |
+
+<span class="required-data">**Required Parameters Are In Red**</span>
+
+

@@ -565,11 +565,13 @@ to view, use the following:
 </tr>
 </tbody></table>
 
-<h2 id="actionlog">ActionLog</h2>
+<h2 id="api-usage">API Usage</h2>
+
+<h3 id="actionlog">ActionLog</h3>
 
 <p>Moxi Works Action Logs record actions that Contacts take that an agent might want to see to increase their effectivity. For example, if a Contact sends an email to an Agent asking a question, Moxi Works Actions Logs will record that interaction and display it to the Agent. </p>
 
-<h3 id="create">Create</h3>
+<h4 id="create">Create</h4>
 
 <div class='highlight ruby'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-ruby/MoxiworksPlatform/ActionLog.html#create-class_method'>Ruby Create Docs</a></span></blockquote></div>
 
@@ -594,7 +596,7 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
 
 </code></pre>
 
-<pre class="highlight ruby"><code><span class="c1">##### set up prerequisites once</span>
+<pre class="highlight ruby"><code><span class="c1">###### set up prerequisites once</span>
 <span class="nb">require</span> <span class="s1">'moxiworks_platform'</span>
 
 <span class="n">platform_identifier</span> <span class="o">=</span> <span class="s1">'abc123'</span>
@@ -711,7 +713,7 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
 <p><span class="required-data"><strong>Required Parameters Are In Red</strong></span></p>
 
 
-<h3 id="index">Index</h3>
+<h4 id="index">Index</h4>
 
 <div class='highlight ruby'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-ruby/MoxiworksPlatform/ActionLog.html#search-class_method'>Ruby Search Docs</a></span></blockquote></div>
 
@@ -879,9 +881,9 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
 <p><span class="required-data"><strong>Required Parameters Are In Red</strong></span></p>
 
 
-<h2 id="agent">Agent</h2>
+<h3 id="agent">Agent</h3>
 
-<h3 id="show">Show</h3>
+<h4 id="show">Show</h4>
 
 <div class='highlight ruby'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-ruby/MoxiworksPlatform/Agent.html#find-class_method'>Ruby Find Docs</a></span></blockquote></div>
 
@@ -1034,9 +1036,9 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
 <p><span class="required-data"><strong>Required Parameters Are In Red</strong></span></p>
 
 
-<h2 id="contact">Contact</h2>
+<h3 id="contact">Contact</h3>
 
-<h3 id="create">Create</h3>
+<h4 id="create">Create</h4>
 
 <div class='highlight ruby'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-ruby/MoxiworksPlatform/Contact.html#create-class_method'>Ruby Create Docs</a></span></blockquote></div>
 
@@ -1513,7 +1515,7 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 <p><span class="required-data"><strong>Required Parameters Are In Red</strong></span></p>
 
 
-<h3 id="update">Update</h3>
+<h4 id="update">Update</h4>
 
 <div class='highlight ruby'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-ruby/MoxiworksPlatform/Contact.html#update-class_method'>Ruby Update Docs</a></span></blockquote></div>
 
@@ -1981,7 +1983,7 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 <p><span class="required-data"><strong>Required Parameters Are In Red</strong></span></p>
 
 
-<h3 id="show">Show</h3>
+<h4 id="show">Show</h4>
 
 <div class='highlight ruby'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-ruby/MoxiworksPlatform/Contact.html#find-class_method'>Ruby Find Docs</a></span></blockquote></div>
 
@@ -2155,7 +2157,7 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 <p><span class="required-data"><strong>Required Parameters Are In Red</strong></span></p>
 
 
-<h3 id="index">Index</h3>
+<h4 id="index">Index</h4>
 
 <div class='highlight ruby'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-ruby/MoxiworksPlatform/Contact.html#search-class_method'>Ruby Search Docs</a></span></blockquote></div>
 
@@ -2394,9 +2396,9 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 <p><span class="required-data"><strong>Required Parameters Are In Red</strong></span></p>
 
 
-<h2 id="event">Event</h2>
+<h3 id="event">Event</h3>
 
-<h3 id="create">Create</h3>
+<h4 id="create">Create</h4>
 
 <div class='highlight ruby'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-ruby/MoxiworksPlatform/Event.html#create-class_method'>Ruby Create Docs</a></span></blockquote></div>
 
@@ -2586,7 +2588,7 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <aside class="note">Attendees must be Contacts with an associated email address. <b>Attendees added who don&rsquo;t have an email address associated will not be added to the event.</b></aside>
 
 
-<h3 id="update">Update</h3>
+<h4 id="update">Update</h4>
 
 <div class='highlight ruby'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-ruby/MoxiworksPlatform/Event.html#update-class_method'>Ruby Update Docs</a></span></blockquote></div>
 
@@ -2776,7 +2778,7 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <aside class="note">Attendees must be Contacts with an associated email address. <b>Attendees added who don&rsquo;t have an email address associated will not be added to the event.</b></aside>
 
 
-<h3 id="show">Show</h3>
+<h4 id="show">Show</h4>
 
 <div class='highlight ruby'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-ruby/MoxiworksPlatform/Event.html#find-class_method'>Ruby Find Docs</a></span></blockquote></div>
 
@@ -2903,7 +2905,7 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <p><span class="required-data"><strong>Required Parameters Are In Red</strong></span></p>
 
 
-<h3 id="index">Index</h3>
+<h4 id="index">Index</h4>
 
 <div class='highlight ruby'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-ruby/MoxiworksPlatform/Event.html#search-class_method'>Ruby Search Docs</a></span></blockquote></div>
 
@@ -3099,9 +3101,9 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <p><span class="required-data"><strong>Required Parameters Are In Red</strong></span></p>
 
 
-<h2 id="group">Group</h2>
+<h3 id="group">Group</h3>
 
-<h3 id="show">Show</h3>
+<h4 id="show">Show</h4>
 
 <div class='highlight ruby'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-ruby/MoxiworksPlatform/Group.html#find-class_method'>Ruby Find Docs</a></span></blockquote></div>
 
@@ -3263,7 +3265,7 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <p><span class="required-data"><strong>Required Parameters Are In Red</strong></span></p>
 
 
-<h3 id="index">Index</h3>
+<h4 id="index">Index</h4>
 
 <div class='highlight ruby'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-ruby/MoxiworksPlatform/Group.html#search-class_method'>Ruby Search Docs</a></span></blockquote></div>
 
@@ -3418,9 +3420,9 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <p><span class="required-data"><strong>Required Parameters Are In Red</strong></span></p>
 
 
-<h2 id="task">Task</h2>
+<h3 id="task">Task</h3>
 
-<h3 id="create">Create</h3>
+<h4 id="create">Create</h4>
 
 <div class='highlight ruby'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-ruby/MoxiworksPlatform/Task.html#create-class_method'>Ruby Create Docs</a></span></blockquote></div>
 
@@ -3589,7 +3591,7 @@ moxi_works_agent_id=abc123&amp;description=talk+to+private+kane,%2C+e-one-thousa
 <p><span class="required-data"><strong>Required Parameters Are In Red</strong></span></p>
 
 
-<h3 id="update">Update</h3>
+<h4 id="update">Update</h4>
 
 <div class='highlight ruby'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-ruby/MoxiworksPlatform/Task.html#update-class_method'>Ruby Update Docs</a></span></blockquote></div>
 
@@ -3772,7 +3774,7 @@ moxi_works_agent_id=abc123&amp;description=talk+to+private+kane,%2C+e-one-thousa
 <p><span class="required-data"><strong>Required Parameters Are In Red</strong></span></p>
 
 
-<h3 id="show">Show</h3>
+<h4 id="show">Show</h4>
 
 <div class='highlight ruby'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-ruby/MoxiworksPlatform/Task.html#find-class_method'>Ruby Find Docs</a></span></blockquote></div>
 
@@ -3896,7 +3898,7 @@ moxi_works_agent_id=abc123&amp;description=talk+to+private+kane,%2C+e-one-thousa
 <p><span class="required-data"><strong>Required Parameters Are In Red</strong></span></p>
 
 
-<h3 id="index">Index</h3>
+<h4 id="index">Index</h4>
 
 <div class='highlight ruby'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-ruby/MoxiworksPlatform/Task.html#search-class_method'>Ruby Search Docs</a></span></blockquote></div>
 

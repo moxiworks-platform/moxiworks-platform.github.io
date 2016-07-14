@@ -28,7 +28,7 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h2 id="authorization">Authorization</h2>
+        <h3 id="authorization">Authorization</h3>
 
 <blockquote>
 <p><strong>Example Authorization Header:</strong> (note that the authorization header platform identifier and platform key are base64 encoded)</p>
@@ -62,7 +62,9 @@
 
 <p>When composing your basic header, per <a href='https://www.ietf.org/rfc/rfc2617.txt'>RFC 2617</a> you&rsquo;ll need to base 64 encode your Moxi Works Platform Identifier and Secret and remember to separate your platform identifier and secret with a colon.</p>
 
-<h3 id="help-with-http-basic-auth-on-your-platform">Help with HTTP Basic Auth on your platform</h3>
+<aside class='info'>Use your platform ID as the Authorization header username and platform secret as the password.</aside>
+
+<h4 id="help-with-http-basic-auth-on-your-platform">Help with HTTP Basic Auth on your platform</h4>
 
 <p>The following links provide helpful information for various platforms on creating HTTP Basic Auth Headers</p>
 
@@ -87,6 +89,11 @@
 <aside class='note'>You can acquire your Moxi Works API Identifier and Secret pair by contacting Moxi Works.</aside>
 
 <p><aside class="warning">Do not include your Moxi Works API Identifier or Secret  in the parameters sent to the server; they must be set in the request header. Setting the API Identifier and Secret in the request parameters will result in an authorization failure.</aside></p>
+
+<p>{
+      agent_uuid: &ldquo;394ec9e7-939d-40cb-b58b-6185f28b37e3&rdquo;,
+      contact_id: contact.id
+    }</p>
 
       </div>
       <div class="dark-box">

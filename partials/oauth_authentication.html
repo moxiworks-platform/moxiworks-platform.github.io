@@ -6,29 +6,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>API Documentation</title>
 
-    <link href="../../stylesheets/screen.css" rel="stylesheet" type="text/css" media="screen" />
-    <link href="../../stylesheets/print.css" rel="stylesheet" type="text/css" media="print" />
+    <link href="../stylesheets/screen.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="../stylesheets/print.css" rel="stylesheet" type="text/css" media="print" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-      <script src="../../javascripts/all_nosearch.js" type="text/javascript"></script>
+      <script src="../javascripts/all_nosearch.js" type="text/javascript"></script>
 
   </head>
 
-  <body class="partials partials_public_api partials_public_api_oauth_authentication">
+  <body class="partials partials_oauth_authentication">
     <a href="#" id="nav-button">
       <span>
         NAV
-        <img src="../../images/navbar.png" />
+        <img src="../images/navbar.png" />
       </span>
     </a>
     <div class="tocify-wrapper">
-      <img src="../../images/logo.png" />
+      <img src="../images/logo.png" />
       <div id="toc">
       </div>
     </div>
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h2 id="oauth-authentication">OAuth Authentication</h2>
+        <h1 id="moxi-works-authentication">Moxi Works Authentication</h1>
+
+<h3 id="oauth-authentication">OAuth Authentication</h3>
 
 <p>Moxi Works provides an authentication service to allow clients to use Moxi Works user accounts on their own properties.
 This can be useful to avoid managing end-user accounts and to provide a more seamless integration between Moxi Works sites and client sites.</p>
@@ -37,7 +39,7 @@ This can be useful to avoid managing end-user accounts and to provide a more sea
 OAuth 2 is used to get an access token for an individual user.
 That access token can then be used to look up information about the user, including a user&rsquo;s unique identifier.</p>
 
-<h2 id="oauth-credentials">OAuth Credentials</h2>
+<h3 id="oauth-credentials">OAuth Credentials</h3>
 
 <p>OAuth 2 requires that clients have a <code class="prettyprint">client_id</code> and a <code class="prettyprint">client_secret</code>.</p>
 
@@ -59,18 +61,18 @@ A single <code class="prettyprint">redirect_uri</code> is common, but more can b
 This list can be updated at any time.
 Contact your account manager for assistance.</p>
 
-<h2 id="oauth-2-protocol">OAuth 2 Protocol</h2>
+<h3 id="oauth-2-protocol">OAuth 2 Protocol</h3>
 
 <p>Moxi Works authentication uses the <a href="https://tools.ietf.org/html/rfc6749#section-4.1">Authorization Code Grant</a> Oauth 2 flow.</p>
 
 <p>This section describes the flow in detail, as used by Moxi Works authentication.
 Most of this can be automated by using an appropriate OAuth 2 client library.</p>
 
-<h3 id="client-initiation">Client Initiation</h3>
+<h4 id="client-initiation">Client Initiation</h4>
 
 <p>The authorization code grant begins with the client deciding to authorize the end user.</p>
 
-<aside class="note">Send the end user&rsquo;s user agent to https://sso.moxiworks.com/oauth/authorization</aside>
+<aside class="note">Send the end user&rsquo;s user agent to https://sso.moxiworks.com/oauth/authorize</aside>
 
 <table><thead>
 <tr>
@@ -111,7 +113,7 @@ When the user agent requests the <code class="prettyprint">redirect_uri</code>, 
 It will have a parameter named <code class="prettyprint">code</code> which contains the authorization code.
 If the original request contained a <code class="prettyprint">state</code> parameter, the redirect will also contain a <code class="prettyprint">state</code> parameter with the same value.</p>
 
-<h3 id="access-token-request">Access Token Request</h3>
+<h4 id="access-token-request">Access Token Request</h4>
 
 <p>Once the client has an authorization code, they can exchange it for an access token and a refresh token.</p>
 
@@ -193,7 +195,7 @@ If the original request contained a <code class="prettyprint">state</code> param
 </tr>
 </tbody></table>
 
-<h3 id="refresh-token-request">Refresh Token Request</h3>
+<h4 id="refresh-token-request">Refresh Token Request</h4>
 
 <p>Access tokens are short-lived.
 For most uses of authentication, this is sufficient - getting a unique identifier for the user at the time they authenticate is all that is needed.
@@ -238,15 +240,48 @@ When a client wishes to do this they can use the refresh token to get a new acce
 
 <p>This call responds with a JSON object of a form identical to the previous means of getting an access token.</p>
 
-<h2 id="obtaining-end-user-profiles">Obtaining End User Profiles</h2>
+<h3 id="obtaining-end-user-profiles">Obtaining End User Profiles</h3>
 
 <p>An access token can be used to get information about an end user.</p>
 
 <aside class="note">Send a <b>GET</b> request to https://sso.moxiworks.com/agent/profile</aside>
 
-<p>The request is to a resource gated by the presence of an OAuth 2 access token.</p>
+<p>The request is gated by the presence of an OAuth 2 access token.</p>
 
 <p>To send the access token in the request, add an <code class="prettyprint">Authorization</code> HTTP header with a value of <code class="prettyprint">Bearer &lt;access_token&gt;</code>.</p>
+
+<p>If the access token has expired or is otherwise invalid, the server responds with a <code class="prettyprint">401 Unauthorized</code> status and the <code class="prettyprint">WWW-Authenticate</code> header specifying <code class="prettyprint">error=&quot;invalid_token&quot;</code>.</p>
+
+<p>If the access token is valid, but the user isn&rsquo;t authorized to authenticate with the client, the server responds with a <code class="prettyprint">401 Unauthorized</code> status and the <code class="prettyprint">WWW-Authenticate</code> header specifying <code class="prettyprint">error=&quot;user_not_authorized&quot;</code>.</p>
+
+<p>If the access token was valid, a JSON object is returned:</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Remark</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span class="required-data">display_name</span></td>
+<td><span class="data-type">String</span></td>
+<td><span class="data-remarks">The end user&rsquo;s display name</span></td>
+</tr>
+<tr>
+<td><span class="required-data">user_id</span></td>
+<td><span class="data-type">String</span></td>
+<td><span class="data-remarks">A string that uniquely identifies the end user</span></td>
+</tr>
+<tr>
+<td><span class="required-data">email</span></td>
+<td><span class="data-type">String</span></td>
+<td><span class="data-remarks">The end user&rsquo;s email address</span></td>
+</tr>
+</tbody></table>
+
+<p>More fields may be added to this in the future.
+Consumers of this data should not fail if more fields are present in the result.</p>
 
       </div>
       <div class="dark-box">

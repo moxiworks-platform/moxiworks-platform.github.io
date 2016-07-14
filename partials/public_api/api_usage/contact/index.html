@@ -6,33 +6,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>API Documentation</title>
 
-    <link href="../../../stylesheets/screen.css" rel="stylesheet" type="text/css" media="screen" />
-    <link href="../../../stylesheets/print.css" rel="stylesheet" type="text/css" media="print" />
+    <link href="../../../../stylesheets/screen.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="../../../../stylesheets/print.css" rel="stylesheet" type="text/css" media="print" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-      <script src="../../../javascripts/all_nosearch.js" type="text/javascript"></script>
+      <script src="../../../../javascripts/all_nosearch.js" type="text/javascript"></script>
 
   </head>
 
-  <body class="partials partials_public_api partials_public_api_api_usage partials_public_api_api_usage_contact_index">
+  <body class="partials partials_public_api partials_public_api_api_usage partials_public_api_api_usage_contact partials_public_api_api_usage_contact_index">
     <a href="#" id="nav-button">
       <span>
         NAV
-        <img src="../../../images/navbar.png" />
+        <img src="../../../../images/navbar.png" />
       </span>
     </a>
     <div class="tocify-wrapper">
-      <img src="../../../images/logo.png" />
+      <img src="../../../../images/logo.png" />
       <div id="toc">
       </div>
     </div>
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h2 id="contact-index">Contact Index</h2>
+        <h3 id="index">Index</h3>
 
-<div class='highlight ruby'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-ruby/MoxiworksPlatform/Contact.html#search-class_method'>Ruby Find Docs</a></span></blockquote></div>
+<div class='highlight ruby'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-ruby/MoxiworksPlatform/Contact.html#search-class_method'>Ruby Search Docs</a></span></blockquote></div>
 
-<div class='highlight php'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-php/classes/MoxiworksPlatform.Contact.html#method_search'>PHP Find Docs</a></span></blockquote></div>
+<div class='highlight php'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-php/classes/MoxiworksPlatform.Contact.html#method_search'>PHP Search Docs</a></span></blockquote></div>
 
 <blockquote>
 <p><span class="data-example-label">Contact Index Example</span></p>
@@ -85,7 +85,9 @@
 <span class="na">Connection</span><span class="p">:</span> <span class="s">close</span>
 <span class="na">Server</span><span class="p">:</span> <span class="s">thin</span>
 
-<span class="p">[{</span><span class="w">
+<span class="s2">"page_number"</span><span class="err">:</span><span class="w"> </span><span class="mi">6</span><span class="w">
+</span><span class="s2">"total_pages"</span><span class="err">:</span><span class="w"> </span><span class="mi">6</span><span class="w">
+</span><span class="s2">"contacts"</span><span class="err">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
   </span><span class="nt">"moxi_works_agent_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234abcd"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"partner_contact_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"booyuh"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"contact_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"buckminster fuller"</span><span class="p">,</span><span class="w">
@@ -98,11 +100,9 @@
   </span><span class="nt">"home_city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cityville"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"home_state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Stateland"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"home_zip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345-6789"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"home_neighborhood"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fort Hood"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"home_country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ottoman Empire"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"job_title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Junior Bacon Burner"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"occupation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"chef"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"business_website"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://my.website.is.here"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"property_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://my.property.website.is/here"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"property_mls_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"property_street_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2345 67th place"</span><span class="p">,</span><span class="w">
@@ -142,11 +142,9 @@
   </span><span class="nt">"home_city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cityville"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"home_state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Stateland"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"home_zip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345-6789"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"home_neighborhood"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hood"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"home_country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Brovilee"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"job_title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Junior Cheese Head"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"occupation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"football fan"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"business_website"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://my.website.is.here"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"property_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://my.property.website.is/here"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"property_mls_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"property_street_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2345 67th place"</span><span class="p">,</span><span class="w">
@@ -218,41 +216,49 @@
 
 <aside class="note">Send a <b>GET</b> request to https://api.moxiworks.com/api/contacts</aside>
 
-<p>When showing a contact using the Moxi Works platform API, format your data using the following parameters.</p>
+<p>When searching for a contact using the Moxi Works platform API, format your data using the following parameters.</p>
 
 <table><thead>
 <tr>
 <th>Attribute</th>
 <th>Type</th>
 <th>Remark</th>
-<th>Required</th>
+<th>Length Limit</th>
 </tr>
 </thead><tbody>
 <tr>
 <td><span class="required-data">moxi_works_agent_id</span></td>
-<td><span class="data-type">String</span></td>
-<td><span class="data-remarks">The agent&rsquo;s Moxi Works Platform ID</span></td>
-<td><span class="required-data"><strong>required</strong></span></td>
+<td><span class="required-data"><span class="data-type">String</span></span></td>
+<td><span class="required-data"><span class="data-remarks">The agent&rsquo;s Moxi Works Platform ID</span></span></td>
+<td><span class="required-data">255</span></td>
 </tr>
 <tr>
 <td><span class="optional-data">contact_name</span></td>
 <td><span class="data-type">String</span></td>
 <td><span class="data-remarks">The contact&rsquo;s full name.</span></td>
-<td></td>
+<td>255</td>
 </tr>
 <tr>
 <td><span class="optional-data">email_address</span></td>
 <td><span class="data-type">String</span></td>
 <td><span class="data-remarks">An email address used by the contact &ndash; may be primary or secondary.</span></td>
-<td></td>
+<td>255</td>
 </tr>
 <tr>
 <td><span class="optional-data">phone_number</span></td>
 <td><span class="data-type">String</span></td>
 <td><span class="data-remarks">A phone numberused by the contact &ndash; may be primary or secondary.</span></td>
-<td></td>
+<td>255</td>
+</tr>
+<tr>
+<td><span class="optional-data">page_number</span></td>
+<td><span class="data-type">Integer</span></td>
+<td><span class="data-remarks">Page of responses. Use if <strong>total_pages</strong> indicates that there is more than one page of data available.</span></td>
+<td>255</td>
 </tr>
 </tbody></table>
+
+<p><span class="required-data"><strong>Required Parameters Are In Red</strong></span></p>
 
       </div>
       <div class="dark-box">

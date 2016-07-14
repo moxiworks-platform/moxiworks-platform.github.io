@@ -28,9 +28,22 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h2 id="error-handling">Error Handling</h2>
+        <h3 id="error-handling">Error Handling</h3>
+
+<blockquote>
+<p><strong>Error Response Example</strong></p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"status"</span><span class="p">:</span><span class="s2">"error"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"messages"</span><span class="p">:[</span><span class="s2">"Invalid moxi_works_agent_id"</span><span class="p">],</span><span class="w">
+  </span><span class="nt">"status_code"</span><span class="p">:</span><span class="mi">1040</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"request_id"</span><span class="p">:</span><span class="s2">"c1b24426-397d-4855-9389-e39b58b918da"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 
 <p>The following table specifies the recommended action for each Moxi Works API error code. </p>
+
+<aside class='notice'>When reporting issues that are not resolvable using the following table, please include the entire response (including request_id) in your report.</aside>
 
 <blockquote>
 <p><strong>Use this table to implement error handling logic according to the following guidelines:</strong> <br><br> &bull; If the error code indicates a permanent error condition, do not retry the request. <br><br> &bull; If the error code indicates a problem that can be fixed, do not retry the request until the problem has been fixed.<br><br> &bull; If the error code indicates a problem that could be overcome by retrying the request after a period of time, retry the request using exponential backoff.</p>

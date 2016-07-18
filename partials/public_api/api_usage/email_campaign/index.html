@@ -13,7 +13,7 @@
 
   </head>
 
-  <body class="partials partials_public_api partials_public_api_api_usage partials_public_api_api_usage_action_log partials_public_api_api_usage_action_log_index">
+  <body class="partials partials_public_api partials_public_api_api_usage partials_public_api_api_usage_email_campaign partials_public_api_api_usage_email_campaign_index">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -30,14 +30,14 @@
       <div class="content">
         <h4 id="index">Index</h4>
 
-<div class='highlight ruby'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-ruby/MoxiworksPlatform/ActionLog.html#search-class_method'>Ruby Search Docs</a></span></blockquote></div>
+<div class='highlight ruby'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-ruby/MoxiworksPlatform/EmailCampaign.html#search-class_method'>Ruby Search Docs</a></span></blockquote></div>
 
-<div class='highlight php'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-php/classes/MoxiworksPlatform.ActionLog.html#method_search'>PHP Search Docs</a></span></blockquote></div>
+<div class='highlight php'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-php/classes/MoxiworksPlatform.EmailCampaign.html#method_search'>PHP Search Docs</a></span></blockquote></div>
 
 <blockquote>
-<p><span class="data-example-label">ActionLog Index Example</span></p>
+<p><span class="data-example-label">EmailCampaign Index Example</span></p>
 </blockquote>
-<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/action_logs?moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/email_campaigns?moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">api.moxiworks.com</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.moxi-platform+json;version=1</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">Basic XNNeXAAAUZaQlF0dA==</span>
@@ -54,7 +54,7 @@
 <span class="no">MoxiworksPlatform</span><span class="o">::</span><span class="no">Credentials</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">platform_identifier</span><span class="p">,</span> <span class="n">platform_secret</span><span class="p">)</span>
 <span class="c1">##### end prerequisitesa</span>
 
-<span class="n">moxi_works_action_log_entries</span> <span class="o">=</span> <span class="no">MoxiworksPlatform</span><span class="o">::</span><span class="no">ActionLog</span><span class="p">.</span><span class="nf">search</span><span class="p">(</span>
+<span class="n">moxi_works_email_campaigns</span> <span class="o">=</span> <span class="no">MoxiworksPlatform</span><span class="o">::</span><span class="no">EmailCampaign</span><span class="p">.</span><span class="nf">search</span><span class="p">(</span>
         <span class="ss">moxi_works_agent_id: </span><span class="s2">"1234abcd"</span><span class="p">,</span>
         <span class="ss">partner_contact_id: </span><span class="s2">"mySystemsContactId"</span><span class="p">)</span>
 
@@ -66,7 +66,7 @@
 
 <span class="nv">$credentials</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MoxiworksPlatform\Credentials</span><span class="p">(</span><span class="nv">$platform_identifier</span><span class="p">,</span> <span class="nv">$platform_secret</span><span class="p">)</span>
 
-<span class="nv">$moxi_works_action_log_entries</span> <span class="o">=</span> <span class="nx">MoxiworksPlatform\ActionLog</span><span class="o">::</span><span class="na">search</span><span class="p">([</span>
+<span class="nv">$moxi_works_email_campaigns</span> <span class="o">=</span> <span class="nx">MoxiworksPlatform\EmailCampaign</span><span class="o">::</span><span class="na">search</span><span class="p">([</span>
         <span class="nv">$moxi_works_agent_id</span> <span class="o">=&gt;</span> <span class="s2">"1234abcd"</span><span class="p">,</span>
         <span class="nv">$partner_contact_id</span> <span class="o">=&gt;</span> <span class="s2">"mySystemsContactId"</span><span class="p">]);</span>
 
@@ -74,7 +74,7 @@
 </code></pre>
 
 <blockquote><div class='highlight http' style="display: block">
-<span class="data-example-label">ActionLog Index: Success Response</span>
+<span class="data-example-label">EmailCampaign Index: Success Response</span>
 (line breaks in body shown for clarity)
 </div></blockquote>
 <pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
@@ -87,37 +87,31 @@
 <span class="na">Connection</span><span class="p">:</span> <span class="s">close</span>
 <span class="na">Server</span><span class="p">:</span> <span class="s">thin</span>
 
-<span class="p">{</span><span class="w">
-  </span><span class="nt">"moxi_works_agent_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234abcd"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"partner_contact_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11111abe"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"actions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-  </span><span class="nt">"moxi_works_action_log_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"02b918"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"lead_update_api"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">1460064134</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"log_data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"datplace"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1465937163"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"user_info"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{"</span><span class="err">property_info</span><span class="s2">":{},"</span><span class="err">search_criteria</span><span class="s2">":{},"</span><span class="err">contact</span><span class="s2">":{"</span><span class="err">first_name</span><span class="s2">":null,"</span><span class="err">message</span><span class="s2">":"","</span><span class="err">source</span><span class="s2">":"</span><span class="err">datplace</span><span class="s2">"}}"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-  </span><span class="nt">"moxi_works_action_log_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bded1806-3271-11e6-9bb3-5254000f954a"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"lead_update_api"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">1460064924</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"log_data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"foo.what"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1465937477"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"user_info"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{"</span><span class="err">property_info</span><span class="s2">":{"</span><span class="err">PropertyURL</span><span class="s2">":"</span><span class="err">www.wat.com</span><span class="s2">","</span><span class="err">MLSNumber</span><span class="s2">":"","</span><span class="err">StreetAddress</span><span class="s2">":"","</span><span class="err">City</span><span class="s2">":"","</span><span class="err">State</span><span class="s2">":"","</span><span class="err">Zip</span><span class="s2">":"","</span><span class="err">Beds</span><span class="s2">":"","</span><span class="err">Baths</span><span class="s2">":"","</span><span class="err">ListingPrice</span><span class="s2">":"","</span><span class="err">ListingStatus</span><span class="s2">":"","</span><span class="err">PhotoURL</span><span class="s2">":""},"</span><span class="err">search_criteria</span><span class="s2">":{},"</span><span class="err">contact</span><span class="s2">":{"</span><span class="err">first_name</span><span class="s2">":null,"</span><span class="err">message</span><span class="s2">":"","</span><span class="err">source</span><span class="s2">":"</span><span class="err">foo.what</span><span class="s2">"}}"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-  </span><span class="p">]</span><span class="w">
+<span class="p">[</span><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="nt">"subscription_type"</span><span class="p">:</span><span class="s2">"EmailSubscriptionType"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"email_address"</span><span class="p">:</span><span class="s2">"subscriber@here.com"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"subscribed_at"</span><span class="p">:</span><span class="mi">1467409224</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"created_by"</span><span class="p">:</span><span class="s2">"agent"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"area"</span><span class="p">:</span><span class="s2">"98225"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"last_sent"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"next_scheduled"</span><span class="p">:</span><span class="mi">0</span><span class="w">
+</span><span class="p">},</span><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="nt">"subscription_type"</span><span class="p">:</span><span class="s2">"OtherEmailSubscriptionType"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"email_address"</span><span class="p">:</span><span class="s2">"subscriber@there.com"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"subscribed_at"</span><span class="p">:</span><span class="mi">1467409442</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"created_by"</span><span class="p">:</span><span class="s2">"agent"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"area"</span><span class="p">:</span><span class="s2">"12344"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"last_sent"</span><span class="p">:</span><span class="mi">1468878269</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"next_scheduled"</span><span class="p">:</span><span class="mi">1471470286</span><span class="w">
 </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
 
 </span></code></pre>
 
 <blockquote><div class='highlight http' style="display: block">
-<span class="data-example-label">ActionLog Index: Not Found Response</span>
+<span class="data-example-label">EmailCampaign Index: Not Found Response</span>
 (line breaks in body shown for clarity)
 </div></blockquote>
 <pre class="highlight http"><code><span class="err">
@@ -140,7 +134,7 @@
 </span></code></pre>
 
 <blockquote><div class='highlight http' style="display: block">
-<span class="data-example-label">ActionLog Index: Failure Response</span>
+<span class="data-example-label">EmailCampaign Index: Failure Response</span>
 (line breaks in body shown for clarity)
 </div></blockquote>
 <pre class="highlight http"><code><span class="err">
@@ -162,9 +156,9 @@
 
 </span></code></pre>
 
-<aside class="note">Send a <b>GET</b> request to https://api.moxiworks.com/api/action_logs</aside>
+<aside class="note">Send a <b>GET</b> request to https://api.moxiworks.com/api/email_campaigns</aside>
 
-<p>When searching for ActionLog entities using the Moxi Works platform API, format your data using the following parameters.</p>
+<p>When searching for EmailCampaign entities using the Moxi Works platform API, format your data using the following parameters.</p>
 
 <table><thead>
 <tr>

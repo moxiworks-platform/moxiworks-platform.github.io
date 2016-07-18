@@ -240,7 +240,7 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
 <span class="p">{</span><span class="w">
   </span><span class="nt">"moxi_works_agent_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234abcd"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"partner_contact_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11111abe"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"actions"</span><span class="p">:</span><span class="w">
+  </span><span class="nt">"actions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
   </span><span class="nt">"moxi_works_action_log_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"02b918"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"lead_update_api"</span><span class="p">,</span><span class="w">
@@ -261,6 +261,7 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
     </span><span class="nt">"user_info"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{"</span><span class="err">property_info</span><span class="s2">":{"</span><span class="err">PropertyURL</span><span class="s2">":"</span><span class="err">www.wat.com</span><span class="s2">","</span><span class="err">MLSNumber</span><span class="s2">":"","</span><span class="err">StreetAddress</span><span class="s2">":"","</span><span class="err">City</span><span class="s2">":"","</span><span class="err">State</span><span class="s2">":"","</span><span class="err">Zip</span><span class="s2">":"","</span><span class="err">Beds</span><span class="s2">":"","</span><span class="err">Baths</span><span class="s2">":"","</span><span class="err">ListingPrice</span><span class="s2">":"","</span><span class="err">ListingStatus</span><span class="s2">":"","</span><span class="err">PhotoURL</span><span class="s2">":""},"</span><span class="err">search_criteria</span><span class="s2">":{},"</span><span class="err">contact</span><span class="s2">":{"</span><span class="err">first_name</span><span class="s2">":null,"</span><span class="err">message</span><span class="s2">":"","</span><span class="err">source</span><span class="s2">":"</span><span class="err">foo.what</span><span class="s2">"}}"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
 </span></code></pre>
@@ -315,7 +316,7 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
 
 <aside class="note">Send a <b>GET</b> request to https://api.moxiworks.com/api/action_logs</aside>
 
-<p>When searching ActionLogs using the Moxi Works platform API, format your data using the following parameters.</p>
+<p>When searching for ActionLog entities using the Moxi Works platform API, format your data using the following parameters.</p>
 
 <table><thead>
 <tr>

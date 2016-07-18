@@ -67,7 +67,7 @@ Server: thin
 {
   "moxi_works_agent_id": "1234abcd",
   "partner_contact_id": "11111abe",
-  "actions":
+  "actions": [
   {
   "moxi_works_action_log_id": "02b918",
   "type": "lead_update_api",
@@ -88,6 +88,7 @@ Server: thin
     "user_info": "{"property_info":{"PropertyURL":"www.wat.com","MLSNumber":"","StreetAddress":"","City":"","State":"","Zip":"","Beds":"","Baths":"","ListingPrice":"","ListingStatus":"","PhotoURL":""},"search_criteria":{},"contact":{"first_name":null,"message":"","source":"foo.what"}}"
     }
   }
+  ]
 }
 
 ```
@@ -145,7 +146,7 @@ Server: thin
 <aside class="note">Send a <b>GET</b> request to https://api.moxiworks.com/api/action_logs</aside>
 
 
-When searching ActionLogs using the Moxi Works platform API, format your data using the following parameters.
+When searching for ActionLog entities using the Moxi Works platform API, format your data using the following parameters.
 
 
 Attribute | Type| Remark | Length Limit |

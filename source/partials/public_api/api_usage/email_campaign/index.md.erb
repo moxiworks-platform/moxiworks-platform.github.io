@@ -1,13 +1,13 @@
 #### Index
 
-<div class='highlight ruby'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-ruby/MoxiworksPlatform/Group.html#search-class_method'>Ruby Search Docs</a></span></blockquote></div>
+<div class='highlight ruby'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-ruby/MoxiworksPlatform/EmailCampaign.html#search-class_method'>Ruby Search Docs</a></span></blockquote></div>
 
-<div class='highlight php'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-php/classes/MoxiworksPlatform.Group.html#method_search'>PHP Search Docs</a></span></blockquote></div>
+<div class='highlight php'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-php/classes/MoxiworksPlatform.EmailCampaign.html#method_search'>PHP Search Docs</a></span></blockquote></div>
 
-> <span class="data-example-label">Group Index Example</span>
+> <span class="data-example-label">EmailCampaign Index Example</span>
 
 ```http
-GET /api/groups?moxi_works_agent_id=abc123&name=foo HTTP/1.1
+GET /api/email_campaigns?moxi_works_agent_id=abc123&partner_contact_id=mySystemsContactId HTTP/1.1
 Host: api.moxiworks.com
 Accept: application/vnd.moxi-platform+json;version=1
 Authorization: Basic XNNeXAAAUZaQlF0dA==
@@ -26,13 +26,10 @@ platform_secret = 'secret'
 MoxiworksPlatform::Credentials.new(platform_identifier, platform_secret)
 ##### end prerequisitesa
 
-moxi_works_groups = MoxiworksPlatform::Group.search(
+moxi_works_email_campaigns = MoxiworksPlatform::EmailCampaign.search(
         moxi_works_agent_id: "1234abcd",
-        name: "foo")
+        partner_contact_id: "mySystemsContactId")
 
-# or for a list of all available groups:
-moxi_works_groups = MoxiworksPlatform::Group.search(
-        moxi_works_agent_id: "1234abcd")        
 
 ```
 
@@ -43,20 +40,16 @@ $platform_secret = 'secret'
 
 $credentials = new MoxiworksPlatform\Credentials($platform_identifier, $platform_secret)
 
-$moxi_works_groups = MoxiworksPlatform\Group::search([
+$moxi_works_email_campaigns = MoxiworksPlatform\EmailCampaign::search([
         $moxi_works_agent_id => "1234abcd",
-        $name => "foo"]);
-
-# or for a list of all available groups
-$moxi_works_groups = MoxiworksPlatform\Group::search([
-        $moxi_works_agent_id => "1234abcd"]);     
+        $partner_contact_id => "mySystemsContactId"]);
 
 ?>
 ```
 
 
 <blockquote><div class='highlight http' style="display: block">
-<span class="data-example-label">Group Index: Success Response</span>
+<span class="data-example-label">EmailCampaign Index: Success Response</span>
 (line breaks in body shown for clarity)
 </div></blockquote>
 
@@ -71,21 +64,31 @@ X-Runtime: 13.034641
 Connection: close
 Server: thin
 
-[{"moxi_works_group_name":"Christmas Cards"},
-{"moxi_works_group_name":"foo"},
-{"moxi_works_group_name":"blah"},
-{"moxi_works_group_name":"one"},
-{"moxi_works_group_name":"reallylonggroupnamewithoutbreaksintheworkd"},
-{"moxi_works_group_name":"this"},
-{"moxi_works_group_name":"Test GR"},
-{"moxi_works_group_name":"TestEmailAddresses"},
-{"moxi_works_group_name":"todelete"},
-{"moxi_works_group_name":"TwoMore"},
-{"moxi_works_group_name":"that"}]
+[
+{
+  "subscription_type":"EmailSubscriptionType",
+  "email_address":"subscriber@here.com",
+  "subscribed_at":1467409224,
+  "created_by":"agent",
+  "area":"98225",
+  "last_sent":0,
+  "next_scheduled":0
+},
+{
+  "subscription_type":"OtherEmailSubscriptionType",
+  "email_address":"subscriber@there.com",
+  "subscribed_at":1467409442,
+  "created_by":"agent",
+  "area":"12344",
+  "last_sent":1468878269,
+  "next_scheduled":1471470286
+}
+]
+
 ```
 
 <blockquote><div class='highlight http' style="display: block">
-<span class="data-example-label">Group Index: Not Found Response</span>
+<span class="data-example-label">EmailCampaign Index: Not Found Response</span>
 (line breaks in body shown for clarity)
 </div></blockquote>
 
@@ -101,11 +104,16 @@ X-Runtime: 13.034641
 Connection: close
 Server: thin
 
-[]
+{
+  "moxi_works_agent_id": "1234abcd",
+  "partner_contact_id": "11111abe",
+  "actions":[]
+}
+
 ```
 
 <blockquote><div class='highlight http' style="display: block">
-<span class="data-example-label">Group Index: Failure Response</span>
+<span class="data-example-label">EmailCampaign Index: Failure Response</span>
 (line breaks in body shown for clarity)
 </div></blockquote>
 
@@ -129,16 +137,17 @@ Server: thin
 
 ```
 
-<aside class="note">Send a <b>GET</b> request to https://api.moxiworks.com/api/groups</aside>
+<aside class="note">Send a <b>GET</b> request to https://api.moxiworks.com/api/email_campaigns</aside>
 
 
-When searching for Group entities using the Moxi Works platform API, format your data using the following parameters.
+When searching for EmailCampaign entities using the Moxi Works platform API, format your data using the following parameters.
 
 
 Attribute | Type| Remark | Length Limit |
 -----|-----|-----|-----|
 |<span class="required-data">moxi_works_agent_id</span>|<span class="required-data"><span class="data-type">String</span></span>|<span class="required-data"><span class="data-remarks">The agent's Moxi Works Platform ID</span></span>| <span class="required-data">255</span>
-|<span class="optional-data">name</span>|<span class="data-type">String</span>|<span class="data-remarks">the name of a group to be searched for. <b>If no name parameter is included, all defined groups will be returned in the response.</b> </span>| |
+|<span class="required-data">partner_contact_id</span>|<span class="required-data"><span class="data-type">String</span></span>|<span class="required-data"><span class="data-remarks">The ID of the contact in your system.</span></span>| <span class="required-data">255</span>
+
 
 <span class="required-data">**Required Parameters Are In Red**</span>
 

@@ -39,7 +39,7 @@ Most of this can be automated by using an appropriate OAuth 2 client library.</p
 
 <p>The authorization code grant begins with the client deciding to authorize the end user.</p>
 
-<aside class="note">Send the end user&rsquo;s user agent to https://sso.moxiworks.com/oauth/authorize</aside>
+<aside class="note">Direct the user&rsquo;s web browser to load https://sso.moxiworks.com/oauth/authorize</aside>
 
 <table><thead>
 <tr>
@@ -71,6 +71,12 @@ Most of this can be automated by using an appropriate OAuth 2 client library.</p
 <td><span class="required-data">state</span></td>
 <td><span class="data-type">String</span></td>
 <td><span class="data-remarks">If provided, this value will be in the response to the <code class="prettyprint">redirect_uri</code>. Its purpose is to allow sending per-request data without changing the <code class="prettyprint">redirect_uri</code>.</span></td>
+<td><span class="required-data">optional</span></td>
+</tr>
+<tr>
+<td><span class="required-data">company_uuid</span></td>
+<td><span class="data-type">String</span></td>
+<td><span class="data-remarks">If provided, this value gives a hint for the authorization system about what realtor agents logging in will be from. If it&rsquo;s not provided, it will be inferred from the <code class="prettyprint">client_id</code>.</span></td>
 <td><span class="required-data">optional</span></td>
 </tr>
 </tbody></table>

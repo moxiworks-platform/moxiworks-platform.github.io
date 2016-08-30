@@ -71,8 +71,8 @@
 </code></pre>
 <pre class="highlight php"><code><span class="cp">&lt;?php</span>
 <span class="nv">$agent_moxi_works_tasks_for_contact</span> <span class="o">=</span> <span class="nx">MoxiworksPlatform\Task</span><span class="o">::</span><span class="na">search</span><span class="p">([</span>
-        <span class="nv">$moxi_works_agent_id</span> <span class="o">=&gt;</span> <span class="s2">"abc123"</span><span class="p">,</span>
-        <span class="nv">$partner_contact_id</span> <span class="o">=&gt;</span> <span class="s2">"mySystemIDForContact"</span><span class="p">]);</span>
+        <span class="s1">'moxi_works_agent_id'</span> <span class="o">=&gt;</span> <span class="s1">'abc123'</span><span class="p">,</span>
+        <span class="s1">'partner_contact_id'</span> <span class="o">=&gt;</span> <span class="s1">'mySystemIDForContact'</span><span class="p">]);</span>
 <span class="cp">?&gt;</span>
 </code></pre>
 
@@ -95,9 +95,9 @@
 <pre class="highlight php"><code><span class="cp">&lt;?php</span>
 
 <span class="nv">$agent_moxi_works_tasks_for_contact_due_between_dates</span><span class="o">=</span> <span class="nx">MoxiworksPlatform\Task</span><span class="o">::</span><span class="na">search</span><span class="p">([</span>
-        <span class="nv">$moxi_works_agent_id</span> <span class="o">=&gt;</span> <span class="s2">"abc123"</span><span class="p">,</span>
-        <span class="nv">$due_date_start</span> <span class="o">=&gt;</span> <span class="mi">1461108284</span><span class="p">,</span> 
-        <span class="nv">$due_date_end</span> <span class="o">=&gt;</span> <span class="mi">1462317907</span><span class="p">]);</span>
+        <span class="s1">'moxi_works_agent_id'</span> <span class="o">=&gt;</span> <span class="s1">'abc123'</span><span class="p">,</span>
+        <span class="s1">'due_date_start'</span> <span class="o">=&gt;</span> <span class="mi">1461108284</span><span class="p">,</span> 
+        <span class="s1">'due_date_end'</span> <span class="o">=&gt;</span> <span class="mi">1462317907</span><span class="p">]);</span>
 <span class="cp">?&gt;</span>
 </code></pre>
 
@@ -120,10 +120,10 @@
 <pre class="highlight php"><code><span class="cp">&lt;?php</span>
 
 <span class="nv">$agent_moxi_works_tasks_for_contact_due_between_dates</span><span class="o">=</span> <span class="nx">MoxiworksPlatform\Task</span><span class="o">::</span><span class="na">search</span><span class="p">([</span>
-        <span class="nv">$moxi_works_agent_id</span> <span class="o">=&gt;</span> <span class="s2">"abc123"</span><span class="p">,</span>
-        <span class="nv">$partner_contact_id</span> <span class="o">=&gt;</span> <span class="s2">"mySystemIDForContact"</span><span class="p">,</span>
-        <span class="nv">$due_date_start</span> <span class="o">=&gt;</span> <span class="mi">1461108284</span><span class="p">,</span> 
-        <span class="nv">$due_date_end</span> <span class="o">=&gt;</span> <span class="mi">1462317907</span><span class="p">]);</span>
+        <span class="s1">'moxi_works_agent_id'</span> <span class="o">=&gt;</span> <span class="s1">'abc123'</span><span class="p">,</span>
+        <span class="s1">'partner_contact_id'</span> <span class="o">=&gt;</span> <span class="s1">'mySystemIDForContact'</span><span class="p">,</span>
+        <span class="s1">'due_date_start'</span> <span class="o">=&gt;</span> <span class="mi">1461108284</span><span class="p">,</span> 
+        <span class="s1">'due_date_end'</span> <span class="o">=&gt;</span> <span class="mi">1462317907</span><span class="p">]);</span>
 
 <span class="cp">?&gt;</span>
 </code></pre>

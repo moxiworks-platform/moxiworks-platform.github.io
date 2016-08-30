@@ -78,13 +78,13 @@ moxi_works_agent_id=abc123&amp;description=talk+to+private+kane,%2C+e-one-thousa
 <span class="nv">$credentials</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MoxiworksPlatform\Credentials</span><span class="p">(</span><span class="nv">$platform_identifier</span><span class="p">,</span> <span class="nv">$platform_secret</span><span class="p">)</span>
 
 <span class="nv">$moxi_works_task</span> <span class="o">=</span> <span class="nx">MoxiworksPlatform\Task</span><span class="o">::</span><span class="na">create</span><span class="p">([</span>
-        <span class="nv">$moxi_works_agent_id</span> <span class="o">=&gt;</span> <span class="s2">"1234abcd"</span><span class="p">,</span>
-        <span class="nv">$partner_task_id</span> <span class="o">=&gt;</span> <span class="s2">"mySystemTaskId"</span><span class="p">,</span>
-        <span class="nv">$partner_contact_id</span> <span class="o">=&gt;</span> <span class="s1">'mySystemContactId'</span><span class="p">,</span>
-        <span class="nv">$name</span> <span class="o">=&gt;</span> <span class="s2">"Meet And Greet"</span><span class="p">,</span>
-        <span class="nv">$description</span> <span class="o">=&gt;</span> <span class="s2">"Set up a meeting to talk to this contact about their new home"</span><span class="p">,</span>
-        <span class="nv">$due_at</span> <span class="o">=&gt;</span> <span class="mi">1466208866</span><span class="p">,</span>
-        <span class="nv">$duration</span> <span class="o">=&gt;</span> <span class="mi">10</span>
+        <span class="s1">'moxi_works_agent_id'</span> <span class="o">=&gt;</span> <span class="s1">'1234abcd'</span><span class="p">,</span>
+        <span class="s1">'partner_task_id'</span> <span class="o">=&gt;</span> <span class="s1">'mySystemTaskId'</span><span class="p">,</span>
+        <span class="s1">'partner_contact_id'</span> <span class="o">=&gt;</span> <span class="s1">'mySystemContactId'</span><span class="p">,</span>
+        <span class="s1">'name'</span> <span class="o">=&gt;</span> <span class="s1">'Meet And Greet'</span><span class="p">,</span>
+        <span class="s1">'description'</span> <span class="o">=&gt;</span> <span class="s1">'Set up a meeting to talk to this contact about their new home'</span><span class="p">,</span>
+        <span class="s1">'due_at'</span> <span class="o">=&gt;</span> <span class="mi">1466208866</span><span class="p">,</span>
+        <span class="s1">'duration'</span> <span class="o">=&gt;</span> <span class="mi">10</span>
        <span class="p">])</span>
 <span class="cp">?&gt;</span>
 </code></pre>

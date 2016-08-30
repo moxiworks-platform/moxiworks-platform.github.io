@@ -111,47 +111,47 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 <span class="nv">$credentials</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MoxiworksPlatform\Credentials</span><span class="p">(</span><span class="nv">$platform_identifier</span><span class="p">,</span> <span class="nv">$platform_secret</span><span class="p">)</span>
 
 <span class="nv">$moxi_works_contact</span> <span class="o">=</span> <span class="nx">MoxiworksPlatform\Contact</span><span class="o">::</span><span class="na">update</span><span class="p">([</span>
-        <span class="nv">$moxi_works_agent_id</span> <span class="o">=&gt;</span> <span class="s2">"1234abcd"</span><span class="p">,</span>
-        <span class="nv">$partner_contact_id</span> <span class="o">=&gt;</span> <span class="s2">"booyuh"</span><span class="p">,</span>
-        <span class="nv">$contact_name</span> <span class="o">=&gt;</span> <span class="s2">"Firstname Middlenyme Larstnam"</span><span class="p">,</span>
-        <span class="nv">$gender</span> <span class="o">=&gt;</span> <span class="s2">"m"</span><span class="p">,</span>
-        <span class="nv">$primary_email_address</span> <span class="o">=&gt;</span> <span class="s2">"me@justabout.right.here"</span><span class="p">,</span>
-        <span class="nv">$secondary_email_address</span> <span class="o">=&gt;</span> <span class="s2">"me.too@justabout.right.here"</span><span class="p">,</span>
-        <span class="nv">$primary_phone_number</span> <span class="o">=&gt;</span> <span class="s2">"9995551212"</span><span class="p">,</span>
-        <span class="nv">$secondary_phone_number</span> <span class="o">=&gt;</span> <span class="s2">"(333) 555-1185"</span><span class="p">,</span>
-        <span class="nv">$home_street_address</span> <span class="o">=&gt;</span> <span class="s2">"1234 Sesame St."</span><span class="p">,</span>
-        <span class="nv">$home_city</span> <span class="o">=&gt;</span> <span class="s2">"Cityville"</span><span class="p">,</span>
-        <span class="nv">$home_state</span> <span class="o">=&gt;</span> <span class="s2">"Stateland"</span><span class="p">,</span>
-        <span class="nv">$home_zip</span> <span class="o">=&gt;</span> <span class="s2">"12345-6789"</span><span class="p">,</span>
-        <span class="nv">$home_country</span> <span class="o">=&gt;</span> <span class="s2">"Ottoman Empire"</span><span class="p">,</span>
-        <span class="nv">$job_title</span> <span class="o">=&gt;</span> <span class="s2">"Junior Bacon Burner"</span><span class="p">,</span>
-        <span class="nv">$occupation</span> <span class="o">=&gt;</span> <span class="s2">"chef"</span><span class="p">,</span>
-        <span class="nv">$property_url</span> <span class="o">=&gt;</span> <span class="s2">"http://my.property.website.is/here"</span><span class="p">,</span>
-        <span class="nv">$property_mls_id</span> <span class="o">=&gt;</span> <span class="s2">"abc123"</span><span class="p">,</span>
-        <span class="nv">$property_street_address</span> <span class="o">=&gt;</span> <span class="s2">"2345 67th place"</span><span class="p">,</span>
-        <span class="nv">$property_city</span> <span class="o">=&gt;</span> <span class="s2">"Townland"</span><span class="p">,</span>
-        <span class="nv">$property_state</span> <span class="o">=&gt;</span> <span class="s2">"Statesville"</span><span class="p">,</span>
-        <span class="nv">$property_zip</span> <span class="o">=&gt;</span> <span class="s2">"98765-4321"</span><span class="p">,</span>
-        <span class="nv">$property_beds</span> <span class="o">=&gt;</span> <span class="s2">"18"</span><span class="p">,</span>
-        <span class="nv">$property_baths</span> <span class="o">=&gt;</span> <span class="s2">"12.5"</span><span class="p">,</span>
-        <span class="nv">$property_list_price</span> <span class="o">=&gt;</span> <span class="s2">"123456789"</span><span class="p">,</span>
-        <span class="nv">$property_listing_status</span> <span class="o">=&gt;</span> <span class="s2">"Active"</span><span class="p">,</span>
-        <span class="nv">$property_photo_url</span> <span class="o">=&gt;</span> <span class="s2">"http://property.photo.is/here.jpg"</span><span class="p">,</span>
-        <span class="nv">$search_city</span> <span class="o">=&gt;</span> <span class="s2">"Searchland"</span><span class="p">,</span>
-        <span class="nv">$search_state</span> <span class="o">=&gt;</span> <span class="s2">"Searchsylvania"</span><span class="p">,</span>
-        <span class="nv">$search_zip</span> <span class="o">=&gt;</span> <span class="s2">"12345-6789"</span><span class="p">,</span>
-        <span class="nv">$search_min_beds</span> <span class="o">=&gt;</span> <span class="s2">"2"</span><span class="p">,</span>
-        <span class="nv">$search_min_baths</span> <span class="o">=&gt;</span> <span class="s2">"3.25"</span><span class="p">,</span>
-        <span class="nv">$search_min_price</span> <span class="o">=&gt;</span> <span class="s2">"1234567"</span><span class="p">,</span>
-        <span class="nv">$search_max_price</span> <span class="o">=&gt;</span> <span class="s2">"1234569"</span><span class="p">,</span>
-        <span class="nv">$search_min_sq_ft</span> <span class="o">=&gt;</span> <span class="s2">"1234"</span><span class="p">,</span>
-        <span class="nv">$search_max_sq_ft</span> <span class="o">=&gt;</span> <span class="s2">"1235"</span><span class="p">,</span>
-        <span class="nv">$search_min_lot_size</span> <span class="o">=&gt;</span> <span class="s2">"3234"</span><span class="p">,</span>
-        <span class="nv">$search_max_lot_size</span> <span class="o">=&gt;</span> <span class="s2">"3235"</span><span class="p">,</span>
-        <span class="nv">$search_min_year_built</span> <span class="o">=&gt;</span> <span class="s2">"1388"</span><span class="p">,</span>
-        <span class="nv">$search_max_year_built</span> <span class="o">=&gt;</span> <span class="s2">"2044"</span><span class="p">,</span>
-        <span class="nv">$search_property_types</span> <span class="o">=&gt;</span> <span class="s2">"Condo, Single Family, Townhouse"</span><span class="p">,</span>
-        <span class="nv">$note</span> <span class="o">=&gt;</span> <span class="s2">"whatevers2009"</span><span class="p">]);</span>
+        <span class="s1">'moxi_works_agent_id'</span>  <span class="o">=&gt;</span> <span class="s1">'1234abcd'</span><span class="p">,</span>
+        <span class="s1">'partner_contact_id'</span>  <span class="o">=&gt;</span> <span class="s1">'booyuh'</span><span class="p">,</span>
+        <span class="s1">'contact_name'</span>  <span class="o">=&gt;</span> <span class="s1">'Firstname Middlenyme Larstnam'</span><span class="p">,</span>
+        <span class="s1">'gender'</span>  <span class="o">=&gt;</span> <span class="s1">'m'</span><span class="p">,</span>
+        <span class="s1">'primary_email_address'</span>  <span class="o">=&gt;</span> <span class="s1">'me@justabout.right.here'</span><span class="p">,</span>
+        <span class="s1">'secondary_email_address'</span>  <span class="o">=&gt;</span> <span class="s1">'me.too@justabout.right.here'</span><span class="p">,</span>
+        <span class="s1">'primary_phone_number'</span>  <span class="o">=&gt;</span> <span class="s1">'9995551212'</span><span class="p">,</span>
+        <span class="s1">'secondary_phone_number'</span>  <span class="o">=&gt;</span> <span class="s1">'(333) 555-1185'</span><span class="p">,</span>
+        <span class="s1">'home_street_address'</span>  <span class="o">=&gt;</span> <span class="s1">'1234 Sesame St.'</span><span class="p">,</span>
+        <span class="s1">'home_city'</span>  <span class="o">=&gt;</span> <span class="s1">'Cityville'</span><span class="p">,</span>
+        <span class="s1">'home_state'</span>  <span class="o">=&gt;</span> <span class="s1">'Stateland'</span><span class="p">,</span>
+        <span class="s1">'home_zip'</span>  <span class="o">=&gt;</span> <span class="s1">'12345-6789'</span><span class="p">,</span>
+        <span class="s1">'home_country'</span>  <span class="o">=&gt;</span> <span class="s1">'Ottoman Empire'</span><span class="p">,</span>
+        <span class="s1">'job_title'</span>  <span class="o">=&gt;</span> <span class="s1">'Junior Bacon Burner'</span><span class="p">,</span>
+        <span class="s1">'occupation'</span>  <span class="o">=&gt;</span> <span class="s1">'chef'</span><span class="p">,</span>
+        <span class="s1">'property_url'</span>  <span class="o">=&gt;</span> <span class="s1">'http://my.property.website.is/here'</span><span class="p">,</span>
+        <span class="s1">'property_mls_id'</span>  <span class="o">=&gt;</span> <span class="s1">'abc123'</span><span class="p">,</span>
+        <span class="s1">'property_street_address'</span>  <span class="o">=&gt;</span> <span class="s1">'2345 67th place'</span><span class="p">,</span>
+        <span class="s1">'property_city'</span>  <span class="o">=&gt;</span> <span class="s1">'Townland'</span><span class="p">,</span>
+        <span class="s1">'property_state'</span>  <span class="o">=&gt;</span> <span class="s1">'Statesville'</span><span class="p">,</span>
+        <span class="s1">'property_zip'</span>  <span class="o">=&gt;</span> <span class="s1">'98765-4321'</span><span class="p">,</span>
+        <span class="s1">'property_beds'</span>  <span class="o">=&gt;</span> <span class="s1">'18'</span><span class="p">,</span>
+        <span class="s1">'property_baths'</span>  <span class="o">=&gt;</span> <span class="s1">'12.5'</span><span class="p">,</span>
+        <span class="s1">'property_list_price'</span>  <span class="o">=&gt;</span> <span class="s1">'123456789'</span><span class="p">,</span>
+        <span class="s1">'property_listing_status'</span>  <span class="o">=&gt;</span> <span class="s1">'Active'</span><span class="p">,</span>
+        <span class="s1">'property_photo_url'</span>  <span class="o">=&gt;</span> <span class="s1">'http://property.photo.is/here.jpg'</span><span class="p">,</span>
+        <span class="s1">'search_city'</span>  <span class="o">=&gt;</span> <span class="s1">'Searchland'</span><span class="p">,</span>
+        <span class="s1">'search_state'</span>  <span class="o">=&gt;</span> <span class="s1">'Searchsylvania'</span><span class="p">,</span>
+        <span class="s1">'search_zip'</span>  <span class="o">=&gt;</span> <span class="s1">'12345-6789'</span><span class="p">,</span>
+        <span class="s1">'search_min_beds'</span>  <span class="o">=&gt;</span> <span class="s1">'2'</span><span class="p">,</span>
+        <span class="s1">'search_min_baths'</span>  <span class="o">=&gt;</span> <span class="s1">'3.25'</span><span class="p">,</span>
+        <span class="s1">'search_min_price'</span>  <span class="o">=&gt;</span> <span class="s1">'1234567'</span><span class="p">,</span>
+        <span class="s1">'search_max_price'</span>  <span class="o">=&gt;</span> <span class="s1">'1234569'</span><span class="p">,</span>
+        <span class="s1">'search_min_sq_ft'</span>  <span class="o">=&gt;</span> <span class="s1">'1234'</span><span class="p">,</span>
+        <span class="s1">'search_max_sq_ft'</span>  <span class="o">=&gt;</span> <span class="s1">'1235'</span><span class="p">,</span>
+        <span class="s1">'search_min_lot_size'</span>  <span class="o">=&gt;</span> <span class="s1">'3234'</span><span class="p">,</span>
+        <span class="s1">'search_max_lot_size'</span>  <span class="o">=&gt;</span> <span class="s1">'3235'</span><span class="p">,</span>
+        <span class="s1">'search_min_year_built'</span>  <span class="o">=&gt;</span> <span class="s1">'1388'</span><span class="p">,</span>
+        <span class="s1">'search_max_year_built'</span>  <span class="o">=&gt;</span> <span class="s1">'2044'</span><span class="p">,</span>
+        <span class="s1">'search_property_types'</span>  <span class="o">=&gt;</span> <span class="s1">'Condo, Single Family, Townhouse'</span><span class="p">,</span>
+        <span class="s1">'note'</span>  <span class="o">=&gt;</span> <span class="s1">'whatevers2009'</span><span class="p">]);</span>
 <span class="cp">?&gt;</span>
 </code></pre>
 

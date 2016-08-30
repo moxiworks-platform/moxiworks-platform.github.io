@@ -41,8 +41,8 @@ $platform_secret = 'secret'
 $credentials = new MoxiworksPlatform\Credentials($platform_identifier, $platform_secret)
 
 $moxi_works_email_campaigns = MoxiworksPlatform\EmailCampaign::search([
-        $moxi_works_agent_id => "1234abcd",
-        $partner_contact_id => "mySystemsContactId"]);
+        'moxi_works_agent_id' => '1234abcd',
+        'partner_contact_id' => 'mySystemsContactId']);
 
 ?>
 ```

@@ -60,17 +60,17 @@ $platform_secret = 'secret'
 $credentials = new MoxiworksPlatform\Credentials($platform_identifier, $platform_secret)
 
 $moxi_works_event = MoxiworksPlatform\Event::update([
-        $moxi_works_agent_id => "1234abcd",
-        $partner_event_id => "booyuh",
-        $event_subject =>  "the subject",
-        $event_location =>  "the location",
-        $is_meeting =>  true,
-        $all_day =>  false,
-        $event_start =>  1462234227,
-        $event_end =>  1462241468,
-        $required_attendees =>  null,
-        $optional_attendees => null,
-        $note =>  'notable stuff'])
+        'moxi_works_agent_id' => '1234abcd',
+        'partner_event_id' => 'booyuh',
+        'event_subject' => 'the subject',
+        'event_location' => 'the location',
+        'is_meeting' => true,
+        'all_day' => false,
+        'event_start' => 1462234227,
+        'event_end' => 1462241468,
+        'required_attendees' => null,
+        'optional_attendees' => null,
+        'note' => 'notable stuff'])
 ?>
 ```
 <blockquote><div class='highlight http' style="display: block">

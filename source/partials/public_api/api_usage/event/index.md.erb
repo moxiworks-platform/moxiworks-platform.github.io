@@ -41,9 +41,9 @@ $platform_secret = 'secret'
 $credentials = new MoxiworksPlatform\Credentials($platform_identifier, $platform_secret)
 
 $moxi_works_event = MoxiworksPlatform\Event::search([
-        $moxi_works_agent_id => "1234abcd",
-        $date_start => 1462317907,
-        $date_end => 1461108284])
+        'moxi_works_agent_id' => '1234abcd',
+        'date_start' => 1462317907,
+        'date_end' => 1461108284])
 ?>
 ```
 

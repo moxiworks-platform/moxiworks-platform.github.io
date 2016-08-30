@@ -40,8 +40,8 @@ $platform_secret = 'secret'
 $credentials = new MoxiworksPlatform\Credentials($platform_identifier, $platform_secret)
 
 $moxi_works_contact = MoxiworksPlatform\Contact::find([
-        $moxi_works_agent_id => "1234abcd",
-        $partner_contact_id => "booyuh"])
+        'moxi_works_agent_id' => '1234abcd',
+        'partner_contact_id' => 'booyuh'])
 ?>
 ```
 

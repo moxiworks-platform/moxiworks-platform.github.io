@@ -50,8 +50,8 @@ agent_moxi_works_tasks_for_contact = MoxiworksPlatform::Task.search(
 ```php
 <?php
 $agent_moxi_works_tasks_for_contact = MoxiworksPlatform\Task::search([
-        $moxi_works_agent_id => "abc123",
-        $partner_contact_id => "mySystemIDForContact"]);
+        'moxi_works_agent_id' => 'abc123',
+        'partner_contact_id' => 'mySystemIDForContact']);
 ?>
 ```
 
@@ -79,9 +79,9 @@ agent_moxi_works_tasks_due_between_dates = MoxiworksPlatform::Task.search(
 <?php
 
 $agent_moxi_works_tasks_for_contact_due_between_dates= MoxiworksPlatform\Task::search([
-        $moxi_works_agent_id => "abc123",
-        $due_date_start => 1461108284, 
-        $due_date_end => 1462317907]);
+        'moxi_works_agent_id' => 'abc123',
+        'due_date_start' => 1461108284, 
+        'due_date_end' => 1462317907]);
 ?>
 ```
 
@@ -108,10 +108,10 @@ agent_moxi_works_tasks_for_contact_due_between_dates = MoxiworksPlatform::Task.s
 <?php
 
 $agent_moxi_works_tasks_for_contact_due_between_dates= MoxiworksPlatform\Task::search([
-        $moxi_works_agent_id => "abc123",
-        $partner_contact_id => "mySystemIDForContact",
-        $due_date_start => 1461108284, 
-        $due_date_end => 1462317907]);
+        'moxi_works_agent_id' => 'abc123',
+        'partner_contact_id' => 'mySystemIDForContact',
+        'due_date_start' => 1461108284, 
+        'due_date_end' => 1462317907]);
 
 ?>
 ```

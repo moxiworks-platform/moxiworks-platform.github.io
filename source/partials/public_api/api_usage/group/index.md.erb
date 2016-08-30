@@ -44,8 +44,8 @@ $platform_secret = 'secret'
 $credentials = new MoxiworksPlatform\Credentials($platform_identifier, $platform_secret)
 
 $moxi_works_groups = MoxiworksPlatform\Group::search([
-        $moxi_works_agent_id => "1234abcd",
-        $name => "foo"]);
+        'moxi_works_agent_id' => '1234abcd',
+        'name' => 'foo']);
 
 # or for a list of all available groups
 $moxi_works_groups = MoxiworksPlatform\Group::search([

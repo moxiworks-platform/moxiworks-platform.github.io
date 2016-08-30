@@ -55,14 +55,14 @@ $platform_secret = 'secret'
 $credentials = new MoxiworksPlatform\Credentials($platform_identifier, $platform_secret)
 
 $moxi_works_task = MoxiworksPlatform\Task::update([
-        $moxi_works_agent_id => "1234abcd",
-        $partner_task_id => "mySystemTaskId",
-        $partner_contact_id => 'mySystemContactId',
-        $name => "Meet And Greet",
-        $description => "Set up a meeting to talk to this contact about their new home",
-        $due_at => 1466208866,
-        $duration => 10,
-        $status => 'completed'
+        'moxi_works_agent_id' => '1234abcd',
+        'partner_task_id' => 'mySystemTaskId',
+        'partner_contact_id' => 'mySystemContactId',
+        'name' => 'Meet And Greet',
+        'description' => 'Set up a meeting to talk to this contact about their new home',
+        'due_at' => 1466208866,
+        'duration' => 10,
+        'status' => 'completed'
        ])
 ?>
 ```

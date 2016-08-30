@@ -41,8 +41,8 @@ $platform_secret = 'secret'
 $credentials = new MoxiworksPlatform\Credentials($platform_identifier, $platform_secret)
 
 $moxi_works_task = MoxiworksPlatform\Task::find([
-        $moxi_works_agent_id => "1234abcd",
-        $partner_task_id => "booyuh"])
+        'moxi_works_agent_id' => '1234abcd',
+        'partner_task_id' => 'booyuh'])
 ?>
 ```
 

@@ -52,10 +52,10 @@ $platform_secret = 'secret'
 $credentials = new MoxiworksPlatform\Credentials($platform_identifier, $platform_secret)
 
 $moxi_works_action_log = MoxiworksPlatform\ActionLog::create([
-        $moxi_works_agent_id: "1234abcd",
-        $partner_contact_id: "mySystemsContactId",
-        $title: "Contact Called",
-        $body: "this contact called you"])
+        'moxi_works_agent_id' => '1234abcd',
+        'partner_contact_id' => 'mySystemsContactId',
+        'title' => 'Contact Called',
+        'body' => 'this contact called you'])
 ?>
 ```
 <blockquote><div class='highlight http' style="display: block">

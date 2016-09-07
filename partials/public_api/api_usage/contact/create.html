@@ -36,6 +36,10 @@
 
 <aside class="note">Send a <b>POST</b> request to https://api.moxiworks.com/api/contacts</aside>
 
+<p>The <code class="prettyprint">moxi_works_agent_id</code> parameter will determine who the contact record is associated with. </p>
+
+<p>In other words, new Contact records are associated with the Agent whose ID is in the <code class="prettyprint">moxi_works_agent_id</code> parameter. So to create a new Contact record for the agent with ID agent@moxiworks.com, you&rsquo;d pass <code class="prettyprint">agent@moxiworks.com</code> as the moxi_works_agent_id parameter and that new Contact would be added as a Contact record to the agent’s contacts.</p>
+
 <p>When creating a contact using the Moxi Works platform API, format your data using the following parameters.</p>
 
 <blockquote>

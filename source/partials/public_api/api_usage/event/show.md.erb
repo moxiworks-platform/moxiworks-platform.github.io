@@ -1,0 +1,115 @@
+#### Show
+
+<div class='highlight ruby'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-ruby/MoxiworksPlatform/Event.html#find-class_method'>Ruby Find Docs</a></span></blockquote></div>
+
+<div class='highlight php'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-php/classes/MoxiworksPlatform.Event.html#method_find'>PHP Find Docs</a></span></blockquote></div>
+
+> <span class="data-example-label">Event Show Example</span>
+
+```http
+GET /api/events/my_event_id?moxi_works_agent_id=abc123 HTTP/1.1
+Host: api.moxiworks.com
+Accept: application/vnd.moxi-platform+json;version=1
+Authorization: Basic XNNeXAAAUZaQlF0dA==
+Content-Type: application/x-www-form-urlencoded
+
+```
+
+
+```ruby
+##### set up prerequisites once
+require 'moxiworks_platform'
+
+platform_identifier = 'abc123'
+
+platform_secret = 'secret'
+
+MoxiworksPlatform::Credentials.new(platform_identifier, platform_secret)
+##### end prerequisites
+
+moxi_works_event = MoxiworksPlatform::Event.find(
+        moxi_works_agent_id: "1234abcd",
+        partner_event_id: "booyuh")
+
+```
+
+```php
+<?php
+$platform_identifier = 'abc123'; // platorm_identifier provided by Moxi Works Platform Rep
+$platform_secret = 'secret'; //platform_secret provided by Moxi Works Platform Rep
+
+$credentials = new MoxiworksPlatform\Credentials($platform_identifier, $platform_secret);
+
+$moxi_works_event = MoxiworksPlatform\Event::find([
+        'moxi_works_agent_id' => '1234abcd',
+        'partner_event_id' => 'booyuh']);
+?>
+```
+
+
+<blockquote><div class='highlight http' style="display: block">
+<span class="data-example-label">Event Show: Success Response</span>
+(line breaks in body shown for clarity)
+</div></blockquote>
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+X-UA-Compatible: IE=Edge
+ETag: \"39e1ce76ef58ce23a7debbe5ca145715\"
+Cache-Control: max-age=0, private, must-revalidate
+X-Request-Id: 232e40496ea30b9758dddf0b7ab195f2
+X-Runtime: 13.034641
+Connection: close
+Server: thin
+
+{
+  "moxi_works_agent_id": "1234abcd",
+  "partner_event_id": "booyuh",
+  "event_subject": "the subject",
+  "event_location": "the location",
+  "send_reminder": true,
+  "is_meeting": true,
+  "all_day": false,
+  "event_start": 1462234227,
+  "event_end": 1462241468,
+  "required_attendees": nil,
+  "optional_attendees": "Contact1ID, Contact2ID",
+  "recurring": false,
+  "note": "notable stuff"
+}
+```
+
+<blockquote><div class='highlight http' style="display: block">
+<span class="data-example-label">Event Show: Failure Response</span>
+(line breaks in body shown for clarity)
+</div></blockquote>
+
+```http
+
+HTTP/1.1 400 OK
+Content-Type: application/json; charset=utf-8
+X-UA-Compatible: IE=Edge
+ETag: \"39e1ce76ef58ce23a7debbe5ca145715\"
+Cache-Control: max-age=0, private, must-revalidate
+X-Request-Id: 232e40496ea30b9758dddf0b7ab195f2
+X-Runtime: 13.034641
+Connection: close
+Server: thin
+
+{
+  "status":"fail",
+  "errorCode": xxx,
+  "messages": ["messages"]
+}
+
+```
+
+<aside class="note">Send a <b>GET</b> request to https://api.moxiworks.com/api/events/[partner_event_id]</aside>
+
+Attribute | Type| Remark | Length Limit |
+-----|-----|-----|-----| 
+|<span class="required-data">moxi_works_agent_id</span>|<span class="required-data"><span class="data-type">String</span></span>|<span class="required-data"><span class="data-remarks">The agent's Moxi Works Platform ID</span></span>| <span class="required-data">255</span>
+|<span class="required-data">partner_event_id</span>|<span class="required-data"><span class="data-type">String</span></span>|<span class="required-data"><span class="data-remarks">The unique ID of the event in your system</span></span>| <span class="required-data">255</span>
+
+<span class="required-data">**Required Parameters Are In Red**</span>

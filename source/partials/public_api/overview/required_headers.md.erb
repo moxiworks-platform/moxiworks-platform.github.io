@@ -1,0 +1,38 @@
+### Required Headers
+
+<aside class="note">If you are using a client access library to the Moxi Works Platform, required request headers will automatically be configured for you.</aside>
+
+
+> **Required Headers Example**
+
+```http
+POST /api/[RESOURCE] HTTP/1.1
+Authorization: Basic bpiYWFhYWFycnJycnJy==
+Content-Type: application/x-www-form-urlencoded
+Accept: application/vnd.moxi-platform+json;version=1
+
+```
+
+```ruby
+# required headers set automatically by moxiworks_platform library.
+# to view, use the following:
+
+MoxiworksPlatform::Resource.headers.inspect
+```
+
+```php
+<?php
+/* required headers seat automatically by moxiworks_platform library.
+to view, use the following: 
+*/
+print_r(MoxiworksPlatform\Resource::headers());
+?>
+```
+
+If you are implementing your own Moxi Works Platform library, you'll need to ensure that you have the following headers configured in your request:
+
+     |     |    |
+-----|-----|-----|
+*Authorization*     | Used for platform authorization |`Basic [base64 encoded platform id and secret]`
+*Accept*  | Used for API version and resource routing | `application/vnd.moxi-platform+json;version=1`
+*Content-Type* | Used for handling data in request | `application/x-www-form-urlencoded`

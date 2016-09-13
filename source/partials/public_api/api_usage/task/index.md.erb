@@ -1,0 +1,217 @@
+#### Index
+
+<div class='highlight ruby'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-ruby/MoxiworksPlatform/Task.html#search-class_method'>Ruby Search Docs</a></span></blockquote></div>
+
+<div class='highlight php'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-php/classes/MoxiworksPlatform.Task.html#method_search'>PHP Search Docs</a></span></blockquote></div>
+
+> <span class="data-example-label">Task Index Example</span>
+
+
+> All Tasks For Agent
+
+```http
+GET /api/tasks?moxi_works_agent_id=abc123 HTTP/1.1
+Host: api.moxiworks.com
+Accept: application/vnd.moxi-platform+json;version=1
+Authorization: Basic XNNeXAAAUZaQlF0dA==
+Content-Type: application/x-www-form-urlencoded
+
+```
+
+```ruby
+agent_moxi_works_tasks = MoxiworksPlatform::Agent.search(moxi_works_agent_id: "abc123")
+
+```
+
+```php
+<?php
+$agent_moxi_works_tasks = MoxiworksPlatform\Task::search(['moxi_works_agent_id' => "abc123"]);
+?>
+```
+
+> All Agent's Tasks For a Specific Contact
+
+```http
+GET /api/tasks?moxi_works_agent_id=abc123&partner_contact_id=mySystemIDForContact HTTP/1.1
+Host: api.moxiworks.com
+Accept: application/vnd.moxi-platform+json;version=1
+Authorization: Basic XNNeXAAAUZaQlF0dA==
+Content-Type: application/x-www-form-urlencoded
+
+```
+
+```ruby
+agent_moxi_works_tasks_for_contact = MoxiworksPlatform::Task.search(
+        moxi_works_agent_id: "abc123",
+        partner_contact_id: "mySystemIDForContact")
+
+```
+
+```php
+<?php
+$agent_moxi_works_tasks_for_contact = MoxiworksPlatform\Task::search([
+        'moxi_works_agent_id' => 'abc123',
+        'partner_contact_id' => 'mySystemIDForContact']);
+?>
+```
+
+
+> All Agent's Tasks Due Between Start Date and End Date
+
+```http
+GET /api/tasks?moxi_works_agent_id=abc123&date_due_start=1461108284&date_due_end=1462317907 HTTP/1.1
+Host: api.moxiworks.com
+Accept: application/vnd.moxi-platform+json;version=1
+Authorization: Basic XNNeXAAAUZaQlF0dA==
+Content-Type: application/x-www-form-urlencoded
+
+```
+
+```ruby
+agent_moxi_works_tasks_due_between_dates = MoxiworksPlatform::Task.search(
+        moxi_works_agent_id: "abc123",
+        due_date_start: Time.now.to_i - 86400,
+        due_date_end: Time.now.to_i)
+
+```
+
+```php
+<?php
+
+$agent_moxi_works_tasks_for_contact_due_between_dates= MoxiworksPlatform\Task::search([
+        'moxi_works_agent_id' => 'abc123',
+        'due_date_start' => 1461108284, 
+        'due_date_end' => 1462317907]);
+?>
+```
+
+> All Agent's Tasks For a Contact Between Start Date And End Date
+
+```http
+GET /api/tasks?moxi_works_agent_id=abc123&date_due_start=1461108284&date_due_end=1462317907&partner_contact_id=mySystemIDForContact HTTP/1.1
+Host: api.moxiworks.com
+Accept: application/vnd.moxi-platform+json;version=1
+Authorization: Basic XNNeXAAAUZaQlF0dA==
+Content-Type: application/x-www-form-urlencoded
+
+```
+
+```ruby
+agent_moxi_works_tasks_for_contact_due_between_dates = MoxiworksPlatform::Task.search(
+        moxi_works_agent_id: "abc123",
+        partner_contact_id: "mySystemIDForContact",
+        due_date_start: Time.now.to_i - 86400,
+        due_date_end: Time.now.to_i)
+```
+
+```php
+<?php
+
+$agent_moxi_works_tasks_for_contact_due_between_dates= MoxiworksPlatform\Task::search([
+        'moxi_works_agent_id' => 'abc123',
+        'partner_contact_id' => 'mySystemIDForContact',
+        'due_date_start' => 1461108284, 
+        'due_date_end' => 1462317907]);
+
+?>
+```
+
+
+<blockquote><div class='highlight http' style="display: block">
+<span class="data-example-label">Task Index: Success Response</span>
+(line breaks in body shown for clarity)
+</div></blockquote>
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+X-UA-Compatible: IE=Edge
+ETag: \"39e1ce76ef58ce23a7debbe5ca145715\"
+Cache-Control: max-age=0, private, must-revalidate
+X-Request-Id: 232e40496ea30b9758dddf0b7ab195f2
+X-Runtime: 13.034641
+Connection: close
+Server: thin
+
+"page_number": 6
+"total_pages": 6
+"tasks": [
+{"moxi_works_agent_id":"abc123",
+"partner_contact_id":"mySystemIDForContact",
+"name":"Reach Out to this person!",
+"description":"Call",
+"due_at":"1465858693",
+"duration":15,
+"custom":false,
+"status":"active",
+"created_at":"1465772310",
+"completed_at":null}]
+```
+
+<blockquote><div class='highlight http' style="display: block">
+<span class="data-example-label">Task Index: Not Found Response</span>
+(line breaks in body shown for clarity)
+</div></blockquote>
+
+```http
+
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+X-UA-Compatible: IE=Edge
+ETag: \"39e1ce76ef58ce23a7debbe5ca145715\"
+Cache-Control: max-age=0, private, must-revalidate
+X-Request-Id: 232e40496ea30b9758dddf0b7ab195f2
+X-Runtime: 13.034641
+Connection: close
+Server: thin
+
+"page_number": 1
+"total_pages": 0
+"tasks": []
+```
+
+<blockquote><div class='highlight http' style="display: block">
+<span class="data-example-label">Task Index: Failure Response</span>
+(line breaks in body shown for clarity)
+</div></blockquote>
+
+```http
+
+HTTP/1.1 400 OK
+Content-Type: application/json; charset=utf-8
+X-UA-Compatible: IE=Edge
+ETag: \"39e1ce76ef58ce23a7debbe5ca145715\"
+Cache-Control: max-age=0, private, must-revalidate
+X-Request-Id: 232e40496ea30b9758dddf0b7ab195f2
+X-Runtime: 13.034641
+Connection: close
+Server: thin
+
+{
+  "status":"fail",
+  "errorCode": xxx,
+  "messages": ["messages"]
+}
+
+```
+
+<aside class="note">Send a <b>GET</b> request to https://api.moxiworks.com/api/tasks</aside>
+
+
+When searching for Task entities using the Moxi Works platform API, format your data using the following parameters.
+
+
+Attribute | Type | Remark | Length Limit |
+-----|-----|-----|-----|
+|<span class="required-data">moxi_works_agent_id</span>|<span class="required-data"><span class="data-type">String</span></span>|<span class="required-data"><span class="data-remarks">The agent's Moxi Works Platform ID</span></span> | <span class="required-data">255<span> |
+|<span class="optional-data">due_date_start</span>|<span class="data-type">Integer</span>|<span class="data-remarks">the Unix timestamp representing the start time.  **When searching using a date range, both due_date_start and due_date_end must be included.**</span>| 255 |
+|<span class="optional-data">due_date_end</span>|<span class="data-type">Integer</span>|<span class="data-remarks">the Unix timestamp representing the end time.  **When searching using a date range, both due_date_start and due_date_end must be included.**</span>| 255 |
+|<span class="optional-data">partner_contact_id</span>|<span class="data-type">String</span>|<span class="data-remarks">The unique ID of the contact in your system</span>| 255 |
+|<span class="optional-data">page_number</span>|<span class="data-type">Integer</span>|<span class="data-remarks">Page of responses. Use if **total_pages** indicates that there is more than one page of data available.</span>| 255 |
+
+
+<span class="required-data">**Required Parameters Are In Red**</span>
+
+
+<aside class="note">If no parameters are included, all agent tasks will be returned.</aside>
+

@@ -1,0 +1,144 @@
+#### Index
+
+<div class='highlight ruby'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-ruby/MoxiworksPlatform/Group.html#search-class_method'>Ruby Search Docs</a></span></blockquote></div>
+
+<div class='highlight php'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-php/classes/MoxiworksPlatform.Group.html#method_search'>PHP Search Docs</a></span></blockquote></div>
+
+> <span class="data-example-label">Group Index Example</span>
+
+```http
+GET /api/groups?moxi_works_agent_id=abc123&name=foo HTTP/1.1
+Host: api.moxiworks.com
+Accept: application/vnd.moxi-platform+json;version=1
+Authorization: Basic XNNeXAAAUZaQlF0dA==
+Content-Type: application/x-www-form-urlencoded
+
+```
+
+```ruby
+##### set up prerequisites once
+require 'moxiworks_platform'
+
+platform_identifier = 'abc123'
+
+platform_secret = 'secret'
+
+MoxiworksPlatform::Credentials.new(platform_identifier, platform_secret)
+##### end prerequisitesa
+
+moxi_works_groups = MoxiworksPlatform::Group.search(
+        moxi_works_agent_id: "1234abcd",
+        name: "foo")
+
+# or for a list of all available groups:
+moxi_works_groups = MoxiworksPlatform::Group.search(
+        moxi_works_agent_id: "1234abcd")        
+
+```
+
+```php
+<?php
+$platform_identifier = 'abc123'; // platorm_identifier provided by Moxi Works Platform Rep
+$platform_secret = 'secret'; //platform_secret provided by Moxi Works Platform Rep
+
+$credentials = new MoxiworksPlatform\Credentials($platform_identifier, $platform_secret);
+
+$moxi_works_groups = MoxiworksPlatform\Group::search([
+        'moxi_works_agent_id' => '1234abcd',
+        'name' => 'foo']);
+
+# or for a list of all available groups
+$moxi_works_groups = MoxiworksPlatform\Group::search([
+        $moxi_works_agent_id => "1234abcd"]);     
+
+?>
+```
+
+
+<blockquote><div class='highlight http' style="display: block">
+<span class="data-example-label">Group Index: Success Response</span>
+(line breaks in body shown for clarity)
+</div></blockquote>
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+X-UA-Compatible: IE=Edge
+ETag: \"39e1ce76ef58ce23a7debbe5ca145715\"
+Cache-Control: max-age=0, private, must-revalidate
+X-Request-Id: 232e40496ea30b9758dddf0b7ab195f2
+X-Runtime: 13.034641
+Connection: close
+Server: thin
+
+[{"moxi_works_group_name":"Christmas Cards"},
+{"moxi_works_group_name":"foo"},
+{"moxi_works_group_name":"blah"},
+{"moxi_works_group_name":"one"},
+{"moxi_works_group_name":"reallylonggroupnamewithoutbreaksintheworkd"},
+{"moxi_works_group_name":"this"},
+{"moxi_works_group_name":"Test GR"},
+{"moxi_works_group_name":"TestEmailAddresses"},
+{"moxi_works_group_name":"todelete"},
+{"moxi_works_group_name":"TwoMore"},
+{"moxi_works_group_name":"that"}]
+```
+
+<blockquote><div class='highlight http' style="display: block">
+<span class="data-example-label">Group Index: Not Found Response</span>
+(line breaks in body shown for clarity)
+</div></blockquote>
+
+```http
+
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+X-UA-Compatible: IE=Edge
+ETag: \"39e1ce76ef58ce23a7debbe5ca145715\"
+Cache-Control: max-age=0, private, must-revalidate
+X-Request-Id: 232e40496ea30b9758dddf0b7ab195f2
+X-Runtime: 13.034641
+Connection: close
+Server: thin
+
+[]
+```
+
+<blockquote><div class='highlight http' style="display: block">
+<span class="data-example-label">Group Index: Failure Response</span>
+(line breaks in body shown for clarity)
+</div></blockquote>
+
+```http
+
+HTTP/1.1 400 OK
+Content-Type: application/json; charset=utf-8
+X-UA-Compatible: IE=Edge
+ETag: \"39e1ce76ef58ce23a7debbe5ca145715\"
+Cache-Control: max-age=0, private, must-revalidate
+X-Request-Id: 232e40496ea30b9758dddf0b7ab195f2
+X-Runtime: 13.034641
+Connection: close
+Server: thin
+
+{
+  "status":"fail",
+  "errorCode": xxx,
+  "messages": ["messages"]
+}
+
+```
+
+<aside class="note">Send a <b>GET</b> request to https://api.moxiworks.com/api/groups</aside>
+
+
+When searching for Group entities using the Moxi Works platform API, format your data using the following parameters.
+
+
+Attribute | Type| Remark | Length Limit |
+-----|-----|-----|-----|
+|<span class="required-data">moxi_works_agent_id</span>|<span class="required-data"><span class="data-type">String</span></span>|<span class="required-data"><span class="data-remarks">The agent's Moxi Works Platform ID</span></span>| <span class="required-data">255</span>
+|<span class="optional-data">name</span>|<span class="data-type">String</span>|<span class="data-remarks">the name of a group to be searched for. <b>If no name parameter is included, all defined groups will be returned in the response.</b> </span>| |
+
+<span class="required-data">**Required Parameters Are In Red**</span>
+

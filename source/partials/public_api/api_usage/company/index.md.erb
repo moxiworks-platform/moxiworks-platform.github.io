@@ -1,0 +1,109 @@
+#### Index
+
+<div class='highlight ruby'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-ruby/MoxiworksPlatform/Company.html#search-class_method'>Ruby Search Docs</a></span></blockquote></div>
+
+<div class='highlight php'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-php/classes/MoxiworksPlatform.Company.html#method_search'>PHP Search Docs</a></span></blockquote></div>
+
+> <span class="data-example-label">Company Index Example</span>
+
+
+> All Companies
+
+```http
+GET /api/companies HTTP/1.1
+Host: api.moxiworks.com
+Accept: application/vnd.moxi-platform+json;version=1
+Authorization: Basic XNNeXAAAUZaQlF0dA==
+Content-Type: application/x-www-form-urlencoded
+
+```
+
+```ruby
+companies = MoxiworksPlatform::Company.search
+
+```
+
+```php
+<?php
+$companies = MoxiworksPlatform\Company::search();
+?>
+```
+
+
+<blockquote><div class='highlight http' style="display: block">
+<span class="data-example-label">Company Index: Success Response</span>
+(line breaks in body shown for clarity)
+</div></blockquote>
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+X-UA-Compatible: IE=Edge
+ETag: \"39e1ce76ef58ce23a7debbe5ca145715\"
+Cache-Control: max-age=0, private, must-revalidate
+X-Request-Id: 232e40496ea30b9758dddf0b7ab195f2
+X-Runtime: 13.034641
+Connection: close
+Server: thin
+
+[
+{
+    "name":"Bob's Brokerage",
+    "moxi_works_company_id":"bobs_brokerage"
+},
+{
+    "name":"Real Estate Two-Bajillion",
+    "moxi_works_company_id":"real_estate_two_bajillion"
+}
+]
+```
+
+<blockquote><div class='highlight http' style="display: block">
+<span class="data-example-label">Company Index: Not Found Response</span>
+(line breaks in body shown for clarity)
+</div></blockquote>
+
+```http
+
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+X-UA-Compatible: IE=Edge
+ETag: \"39e1ce76ef58ce23a7debbe5ca145715\"
+Cache-Control: max-age=0, private, must-revalidate
+X-Request-Id: 232e40496ea30b9758dddf0b7ab195f2
+X-Runtime: 13.034641
+Connection: close
+Server: thin
+
+[]
+```
+
+<blockquote><div class='highlight http' style="display: block">
+<span class="data-example-label">Agents Index: Failure Response</span>
+(line breaks in body shown for clarity)
+</div></blockquote>
+
+```http
+
+HTTP/1.1 400 OK
+Content-Type: application/json; charset=utf-8
+X-UA-Compatible: IE=Edge
+ETag: \"39e1ce76ef58ce23a7debbe5ca145715\"
+Cache-Control: max-age=0, private, must-revalidate
+X-Request-Id: 232e40496ea30b9758dddf0b7ab195f2
+X-Runtime: 13.034641
+Connection: close
+Server: thin
+
+{
+  "status":"fail",
+  "errorCode": xxx,
+  "messages": ["messages"]
+}
+
+```
+
+<aside class="note">Send a <b>GET</b> request to https://api.moxiworks.com/api/companies</aside>
+
+
+

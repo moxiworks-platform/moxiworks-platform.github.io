@@ -1,0 +1,42 @@
+### API Versioning
+
+> **API Version Embedded In Accept Header**
+
+ ```http
+POST /api/[RESOURCE] HTTP/1.1
+Accept: application/vnd.moxi-platform+json;version=1
+ ```
+
+ ```ruby
+ # accept header api version automatically set by moxiworks_platform in requests
+ # to view the version of the API used with your version of  moxiworks_platform Ruby library:
+
+MoxiworksPlatform::Resource.accept_header
+
+ ```
+
+ ```php
+ <?php
+ /* accept header api version automatically sett by moxiworks_platform in requsts
+ to view the version of the API used with your version of moxiworks_platform PHP library:
+  */
+echo MoxiworksPlatform\Resource::acceptHeader();
+?>
+ ```
+
+Moxi Works API uses the Accept header to denote the version of the API to be used. 
+
+If you are using a Moxi Works Platform library, this header will already be included with every request.
+
+<aside class='warning'>By default, the current version of the API will be used when it is not set in the Accept header. If you are depending on a specific version of the Moxi Works Platform in your logic, make sure that the Accept header is configured to send the version of the API you need.</aside>
+
+
+
+
+     |     |
+-----|-----|
+*Accept*       | The Moxi Works API uses the Accept header to denote the API version to be used ( `application/vnd.moxi-platform+json;version=[VERSION NUMBER]`).
+
+
+<aside class="notice">To ensure that your request to the Moxi Works API continue to function when breaking changes are introduced to the API, ensure that you use request header versioning  when accessing the Moxi Works API. If the API version is not denoted in the request header</aside>
+

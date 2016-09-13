@@ -1,0 +1,24 @@
+### Obtaining End User Profiles
+
+An access token can be used to get information about an end user.
+
+<aside class="note">Send a <b>GET</b> request to https://sso.moxiworks.com/agent/profile</aside>
+
+The request is gated by the presence of an OAuth 2 access token.
+
+To send the access token in the request, add an `Authorization` HTTP header with a value of `Bearer <access_token>`.
+
+If the access token has expired or is otherwise invalid, the server responds with a `401 Unauthorized` status and the `WWW-Authenticate` header specifying `error="invalid_token"`.
+
+If the access token is valid, but the user isn't authorized to authenticate with the client, the server responds with a `401 Unauthorized` status and the `WWW-Authenticate` header specifying `error="user_not_authorized"`.
+
+If the access token was valid, a JSON object is returned:
+
+| Attribute | Type | Remark |
+|-----------|------|--------|
+| <span class="required-data">display_name</span> | <span class="data-type">String</span> | <span class="data-remarks">The end user's display name</span> |
+| <span class="required-data">user_id</span> | <span class="data-type">String</span> | <span class="data-remarks">A string that uniquely identifies the end user</span> |
+| <span class="required-data">email</span> | <span class="data-type">String</span> | <span class="data-remarks">The end user's email address</span> |
+
+More fields may be added to this in the future.
+Consumers of this data should not fail if more fields are present in the result.

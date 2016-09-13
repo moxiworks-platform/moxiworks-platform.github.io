@@ -35,15 +35,15 @@ moxi_works_event = MoxiworksPlatform::Event.search(
 
 ```php
 <?php
-$platform_identifier = 'abc123'
-$platform_secret = 'secret'
+$platform_identifier = 'abc123'; // platorm_identifier provided by Moxi Works Platform Rep
+$platform_secret = 'secret'; //platform_secret provided by Moxi Works Platform Rep
 
-$credentials = new MoxiworksPlatform\Credentials($platform_identifier, $platform_secret)
+$credentials = new MoxiworksPlatform\Credentials($platform_identifier, $platform_secret);
 
 $moxi_works_event = MoxiworksPlatform\Event::search([
         'moxi_works_agent_id' => '1234abcd',
         'date_start' => 1462317907,
-        'date_end' => 1461108284])
+        'date_end' => 1461108284]);
 ?>
 ```
 

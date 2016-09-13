@@ -35,10 +35,10 @@ moxi_works_email_campaigns = MoxiworksPlatform::EmailCampaign.search(
 
 ```php
 <?php
-$platform_identifier = 'abc123'
-$platform_secret = 'secret'
+$platform_identifier = 'abc123'; // platorm_identifier provided by Moxi Works Platform Rep
+$platform_secret = 'secret'; //platform_secret provided by Moxi Works Platform Rep
 
-$credentials = new MoxiworksPlatform\Credentials($platform_identifier, $platform_secret)
+$credentials = new MoxiworksPlatform\Credentials($platform_identifier, $platform_secret);
 
 $moxi_works_email_campaigns = MoxiworksPlatform\EmailCampaign::search([
         'moxi_works_agent_id' => '1234abcd',

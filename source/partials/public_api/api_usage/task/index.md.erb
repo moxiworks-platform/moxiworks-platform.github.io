@@ -25,7 +25,7 @@ agent_moxi_works_tasks = MoxiworksPlatform::Agent.search(moxi_works_agent_id: "a
 
 ```php
 <?php
-$agent_moxi_works_tasks = MoxiworksPlatform\Task::search([$moxi_works_agent_id => "abc123"]);
+$agent_moxi_works_tasks = MoxiworksPlatform\Task::search(['moxi_works_agent_id' => "abc123"]);
 ?>
 ```
 

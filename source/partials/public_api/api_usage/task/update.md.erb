@@ -49,10 +49,10 @@ moxi_works_task = MoxiworksPlatform::Task.update(
 
 ```php
 <?php
-$platform_identifier = 'abc123'
-$platform_secret = 'secret'
+$platform_identifier = 'abc123'; // platorm_identifier provided by Moxi Works Platform Rep
+$platform_secret = 'secret'; //platform_secret provided by Moxi Works Platform Rep
 
-$credentials = new MoxiworksPlatform\Credentials($platform_identifier, $platform_secret)
+$credentials = new MoxiworksPlatform\Credentials($platform_identifier, $platform_secret);
 
 $moxi_works_task = MoxiworksPlatform\Task::update([
         'moxi_works_agent_id' => '1234abcd',
@@ -63,7 +63,7 @@ $moxi_works_task = MoxiworksPlatform\Task::update([
         'due_at' => 1466208866,
         'duration' => 10,
         'status' => 'completed'
-       ])
+       ]);
 ?>
 ```
 <blockquote><div class='highlight http' style="display: block">

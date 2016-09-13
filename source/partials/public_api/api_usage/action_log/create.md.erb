@@ -46,16 +46,16 @@ moxi_works_action_log = MoxiworksPlatform::ActionLog.create(
 
 ```php
 <?php
-$platform_identifier = 'abc123'
-$platform_secret = 'secret'
+$platform_identifier = 'abc123'; // platorm_identifier provided by Moxi Works Platform Rep
+$platform_secret = 'secret'; //platform_secret provided by Moxi Works Platform Rep
 
-$credentials = new MoxiworksPlatform\Credentials($platform_identifier, $platform_secret)
+$credentials = new MoxiworksPlatform\Credentials($platform_identifier, $platform_secret);
 
 $moxi_works_action_log = MoxiworksPlatform\ActionLog::create([
         'moxi_works_agent_id' => '1234abcd',
         'partner_contact_id' => 'mySystemsContactId',
         'title' => 'Contact Called',
-        'body' => 'this contact called you'])
+        'body' => 'this contact called you']);
 ?>
 ```
 <blockquote><div class='highlight http' style="display: block">

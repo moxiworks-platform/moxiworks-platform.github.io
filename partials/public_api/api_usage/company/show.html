@@ -13,7 +13,7 @@
 
   </head>
 
-  <body class="partials partials_public_api partials_public_api_api_usage partials_public_api_api_usage_event partials_public_api_api_usage_event_delete">
+  <body class="partials partials_public_api partials_public_api_api_usage partials_public_api_api_usage_company partials_public_api_api_usage_company_show">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -28,16 +28,16 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h4 id="delete">Delete</h4>
+        <h4 id="show">Show</h4>
 
-<div class='highlight ruby'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-ruby/MoxiworksPlatform/Event.html#delete-class_method'>Ruby Delete Docs</a></span></blockquote></div>
+<div class='highlight ruby'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-ruby/MoxiworksPlatform/Company.html#find-class_method'>Ruby Find Docs</a></span></blockquote></div>
 
-<div class='highlight php'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-php/classes/MoxiworksPlatform.Event.html#method_delete'>PHP Delete Docs</a></span></blockquote></div>
+<div class='highlight php'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-php/classes/MoxiworksPlatform.Company.html#method_find'>PHP Find Docs</a></span></blockquote></div>
 
 <blockquote>
-<p><span class="data-example-label">Event Delete Example</span></p>
+<p><span class="data-example-label">Company Show Example</span></p>
 </blockquote>
-<pre class="highlight http"><code><span class="nf">DELETE</span> <span class="nn">/api/events/my_event_id?moxi_works_agent_id=abc123</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/companies/[moxi_works_company_id]</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">api.moxiworks.com</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.moxi-platform+json;version=1</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">Basic XNNeXAAAUZaQlF0dA==</span>
@@ -54,9 +54,7 @@
 <span class="no">MoxiworksPlatform</span><span class="o">::</span><span class="no">Credentials</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">platform_identifier</span><span class="p">,</span> <span class="n">platform_secret</span><span class="p">)</span>
 <span class="c1">##### end prerequisites</span>
 
-<span class="n">success</span> <span class="o">=</span> <span class="no">MoxiworksPlatform</span><span class="o">::</span><span class="no">Event</span><span class="p">.</span><span class="nf">delete</span><span class="p">(</span>
-        <span class="ss">moxi_works_agent_id: </span><span class="s2">"1234abcd"</span><span class="p">,</span>
-        <span class="ss">partner_event_id: </span><span class="s2">"booyuh"</span><span class="p">)</span>
+<span class="n">moxi_works_company</span> <span class="o">=</span> <span class="no">MoxiworksPlatform</span><span class="o">::</span><span class="no">Company</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="ss">moxi_works_company_id: </span><span class="s2">"1234abcd"</span><span class="p">)</span>
 
 </code></pre>
 <pre class="highlight php"><code><span class="cp">&lt;?php</span>
@@ -65,14 +63,13 @@
 </span>
 <span class="nv">$credentials</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MoxiworksPlatform\Credentials</span><span class="p">(</span><span class="nv">$platform_identifier</span><span class="p">,</span> <span class="nv">$platform_secret</span><span class="p">);</span>
 
-<span class="nv">$success</span> <span class="o">=</span> <span class="nx">MoxiworksPlatform\Event</span><span class="o">::</span><span class="na">delete</span><span class="p">([</span>
-        <span class="s1">'moxi_works_agent_id'</span> <span class="o">=&gt;</span> <span class="s1">'1234abcd'</span><span class="p">,</span>
-        <span class="s1">'partner_event_id'</span> <span class="o">=&gt;</span> <span class="s1">'booyuh'</span><span class="p">]);</span>
+<span class="nv">$moxi_works_company</span> <span class="o">=</span> <span class="nx">MoxiworksPlatform\Company</span><span class="o">::</span><span class="na">find</span><span class="p">([</span>
+        <span class="s1">'moxi_works_company_id'</span> <span class="o">=&gt;</span> <span class="s1">'1234abcd'</span><span class="p">]);</span>
 <span class="cp">?&gt;</span>
 </code></pre>
 
 <blockquote><div class='highlight http' style="display: block">
-<span class="data-example-label">Event Delete: Success Response</span>
+<span class="data-example-label">Company Show: Success Response</span>
 (line breaks in body shown for clarity)
 </div></blockquote>
 <pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
@@ -86,13 +83,13 @@
 <span class="na">Server</span><span class="p">:</span> <span class="s">thin</span>
 
 <span class="p">{</span><span class="w">
-  </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-</span><span class="p">}</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"Bob's Brokerage"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"moxi_works_company_id"</span><span class="p">:</span><span class="s2">"bobs_brokerage"</span><span class="w">
+</span><span class="p">}</span><span class="err">,</span><span class="w">
 </span></code></pre>
 
 <blockquote><div class='highlight http' style="display: block">
-<span class="data-example-label">Event Delete: Failure Response</span>
+<span class="data-example-label">Company Show: Failure Response</span>
 (line breaks in body shown for clarity)
 </div></blockquote>
 <pre class="highlight http"><code><span class="err">
@@ -114,7 +111,7 @@
 
 </span></code></pre>
 
-<aside class="note">Send a <b>DELETE</b> request to https://api.moxiworks.com/api/events/[partner_event_id]</aside>
+<aside class="note">Send a <b>GET</b> request to https://api.moxiworks.com/api/companies/[moxi_works_company_id]</aside>
 
 <table><thead>
 <tr>
@@ -125,15 +122,9 @@
 </tr>
 </thead><tbody>
 <tr>
-<td><span class="required-data">moxi_works_agent_id</span></td>
+<td><span class="required-data">moxi_works_company_id</span></td>
 <td><span class="required-data"><span class="data-type">String</span></span></td>
-<td><span class="data-remarks">The agent&rsquo;s Moxi Works Platform ID</span></td>
-<td><span class="required-data">255</span></td>
-</tr>
-<tr>
-<td><span class="required-data">partner_event_id</span></td>
-<td><span class="data-type">String</span></td>
-<td><span class="data-remarks">The unique ID of the event in your system</span></td>
+<td><span class="required-data"><span class="data-remarks">The company&rsquo;s Moxi Works Platform ID</span></span></td>
 <td><span class="required-data">255</span></td>
 </tr>
 </tbody></table>

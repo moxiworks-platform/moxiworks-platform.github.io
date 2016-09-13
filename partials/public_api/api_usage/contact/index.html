@@ -60,14 +60,14 @@
 
 </code></pre>
 <pre class="highlight php"><code><span class="cp">&lt;?php</span>
-<span class="nv">$platform_identifier</span> <span class="o">=</span> <span class="s1">'abc123'</span>
-<span class="nv">$platform_secret</span> <span class="o">=</span> <span class="s1">'secret'</span>
-
-<span class="nv">$credentials</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MoxiworksPlatform\Credentials</span><span class="p">(</span><span class="nv">$platform_identifier</span><span class="p">,</span> <span class="nv">$platform_secret</span><span class="p">)</span>
+<span class="nv">$platform_identifier</span> <span class="o">=</span> <span class="s1">'abc123'</span><span class="p">;</span> <span class="c1">// platorm_identifier provided by Moxi Works Platform Rep
+</span><span class="nv">$platform_secret</span> <span class="o">=</span> <span class="s1">'secret'</span><span class="p">;</span> <span class="c1">//platform_secret provided by Moxi Works Platform Rep
+</span>
+<span class="nv">$credentials</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MoxiworksPlatform\Credentials</span><span class="p">(</span><span class="nv">$platform_identifier</span><span class="p">,</span> <span class="nv">$platform_secret</span><span class="p">);</span>
 
 <span class="nv">$moxi_works_contact</span> <span class="o">=</span> <span class="nx">MoxiworksPlatform\Contact</span><span class="o">::</span><span class="na">search</span><span class="p">([</span>
         <span class="s1">'moxi_works_agent_id'</span> <span class="o">=&gt;</span> <span class="s1">'1234abcd'</span><span class="p">,</span>
-        <span class="s1">'contact_name'</span> <span class="o">=&gt;</span> <span class="s1">'buckminster fuller'</span><span class="p">])</span>
+        <span class="s1">'contact_name'</span> <span class="o">=&gt;</span> <span class="s1">'buckminster fuller'</span><span class="p">]);</span>
 <span class="cp">?&gt;</span>
 </code></pre>
 

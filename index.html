@@ -57,6 +57,10 @@
 
 <p>When starting your integration process with Moxi Works Authentication or Moxi Works API your Moxi Works Platform representative will issue you a dedicated set of credentials for either Moxi Works Authentication, Moxi Works API or both. For Moxi Works Authentication, you&rsquo;ll be provided a Client ID and a Client Secret that you can use along with this documentation to integrate with Moxi Works Platform Authentication service. For Moxi Works API, you&rsquo;ll be provided a Platform Identifier and Platform Secret to send in your requests. For more information about Moxi Works Authentication credentials, see <a href="#oauth-credentials">OAuth Credentials</a>. For more information about Moxi Works API Credentials, see <a href="#authorization">API Authorization</a>.</p>
 
+<h4 id="qa-credentials">QA Credentials</h4>
+
+<p>When integrating with Moxi Works API, you will be issued QA credentials and standard Moxi Works Platform credentials. Your Moxi Works QA credentials will be different than your Moxi Works Platform credentials and will not work on the Moxi Works Platform.</p>
+
 
 <h1 id="moxi-works-v1-api">Moxi Works v1 API</h1>
 
@@ -307,11 +311,6 @@ to view, use the following:
 <aside class='note'>You can acquire your Moxi Works API Identifier and Secret pair by contacting Moxi Works.</aside>
 
 <p><aside class="warning">Do not include your Moxi Works API Identifier or Secret  in the parameters sent to the server; they must be set in the request header. Setting the API Identifier and Secret in the request parameters will result in an authorization failure.</aside></p>
-
-<p>{
-      agent_uuid: &ldquo;394ec9e7-939d-40cb-b58b-6185f28b37e3&rdquo;,
-      contact_id: contact.id
-    }</p>
 
 <h3 id="request-formatting">Request Formatting</h3>
 

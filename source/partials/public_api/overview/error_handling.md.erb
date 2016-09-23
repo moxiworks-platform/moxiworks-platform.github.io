@@ -32,6 +32,7 @@ API Error Code | HTTP Status Code | Message | Recommended Action |
 1210 | 400 | Unsupported operation: {0}. | <span class="no-retry-error">Do not retry.</span>
 2000 | 401 | Basic Authorization header required. | <span class="fix-then-retry-error">Fix issue, then retry.</span><br/><br/>Hint: Verify that <b>Authorization</b> header is present and set properly.
 2010 | 401 |  Your Authorization header is invalid. | <span class="fix-then-retry-error">Fix issue, then retry.</span><br/><br/>Hint: Verify that the Moxi Works Platform Identifier and Secret specified in the <b>Authorization</b> header are valid and properly encoded.
+2015 | 401 | Unauthorized request. | <span class="no-retry-error">Do not retry.</span>
 2020 | 403 |  You are not authorized to perform this action. | <span class="fix-then-retry-error">Fix issue, then retry.</span><br/><br/>Hint: Verify that <b>Authorization</b> header is present and set properly, and that your account has access to the requested resource.
 3010 | 404 | Version not supported. | <span class="fix-then-retry-error">Fix issue, then retry.</span>
 3015 | 404 | Resource not found. | <span class="fix-then-retry-error">Fix issue, then retry.</span><br/><br/>Hint: Verify that you are using a valid resource path (i.e. /api/contacts/, /api/events/ etc.)

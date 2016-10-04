@@ -47,7 +47,7 @@
 <p>The Moxi Works API provides programmatic access to Moxi Works features and data. 
 We do our best to adhere to open and accepted common standards, including REST for access, JSON format for the data, and HTTP Basic Auth for Authorization. </p>
 
-<p>The URL for the production version of the Moxi Works API is referenced in the API Usage section of the documentation. When developing your integration into the Moxi Works Platform using QA credentials, you can replace the production URL with the QA URL. The hostname for the QA environment is https://api-qa.moxiworks.com instead of api.moxiworks.com. In any production URL referenced in the documentation, simply subsitute the QA hostname for the produciton hostname.</p>
+<p>The URL for the production version of the Moxi Works API is referenced in the API Usage section of the documentation. When developing your integration into the Moxi Works Platform using QA credentials, you can replace the production URL with the QA URL. The hostname for the QA environment is https://api-qa.moxiworks.com instead of api.moxiworks.com. In any production URL referenced in the documentation, simply subsitute the QA hostname for the production hostname.</p>
 
 <h3 id="client-libraries">Client Libraries</h3>
 
@@ -214,7 +214,7 @@ to view, use the following:
 <h3 id="authorization">Authorization</h3>
 
 <blockquote>
-<p><strong>Example Authorization Header:</strong> (note that the authorization header platform identifier and platform key are base64 encoded)</p>
+<p><strong>Example Authorization Header:</strong> (note that the authorization header platform identifier and platform secret are base64 encoded)</p>
 </blockquote>
 
 <pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">/api/[RESOURCE]</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>

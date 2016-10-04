@@ -49,7 +49,7 @@
 <p>The Moxi Works API provides programmatic access to Moxi Works features and data. 
 We do our best to adhere to open and accepted common standards, including REST for access, JSON format for the data, and HTTP Basic Auth for Authorization. </p>
 
-<p>The URL for the production version of the Moxi Works API is referenced in the API Usage section of the documentation. When developing your integration into the Moxi Works Platform using QA credentials, you can replace the production URL with the QA URL. The hostname for the QA environment is https://api-qa.moxiworks.com instead of api.moxiworks.com. In any production URL referenced in the documentation, simply subsitute the QA hostname for the produciton hostname.</p>
+<p>The URL for the production version of the Moxi Works API is referenced in the API Usage section of the documentation. When developing your integration into the Moxi Works Platform using QA credentials, you can replace the production URL with the QA URL. The hostname for the QA environment is https://api-qa.moxiworks.com instead of api.moxiworks.com. In any production URL referenced in the documentation, simply subsitute the QA hostname for the production hostname.</p>
 
 <h3 id="client-libraries">Client Libraries</h3>
 
@@ -216,7 +216,7 @@ to view, use the following:
 <h3 id="authorization">Authorization</h3>
 
 <blockquote>
-<p><strong>Example Authorization Header:</strong> (note that the authorization header platform identifier and platform key are base64 encoded)</p>
+<p><strong>Example Authorization Header:</strong> (note that the authorization header platform identifier and platform secret are base64 encoded)</p>
 </blockquote>
 
 <pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">/api/[RESOURCE]</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
@@ -1435,6 +1435,8 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
 <p>The <code class="prettyprint">moxi_works_agent_id</code> parameter will determine who the contact record is associated with. </p>
 
 <p>In other words, new Contact records are associated with the Agent whose ID is in the <code class="prettyprint">moxi_works_agent_id</code> parameter. So to create a new Contact record for the agent with ID agent@moxiworks.com, you&rsquo;d pass <code class="prettyprint">agent@moxiworks.com</code> as the moxi_works_agent_id parameter and that new Contact would be added as a Contact record to the agent’s contacts.</p>
+
+<aside class="warning">You must use a unique <i>partner_contact_id</i> value for each Contact created. Failure to use a unique value will cause a Contact update to occur and an existing Contact will be updated with new data.</aside>
 
 <p>When creating a contact using the Moxi Works platform API, format your data using the following parameters.</p>
 

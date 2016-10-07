@@ -59,7 +59,8 @@
 <span class="c1">##### end prerequisites</span>
 
 <span class="n">moxi_works_agent</span> <span class="o">=</span> <span class="no">MoxiworksPlatform</span><span class="o">::</span><span class="no">Agent</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span>
-        <span class="ss">moxi_works_agent_id: </span><span class="s2">"1234abcd"</span><span class="p">)</span>
+        <span class="ss">moxi_works_agent_id: </span><span class="s2">"1234abcd"</span><span class="p">,</span> 
+        <span class="ss">moxi_works_company_id: </span><span class="s2">"abc123"</span><span class="p">)</span>
 
 </code></pre>
 
@@ -70,7 +71,8 @@
 <span class="nv">$credentials</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MoxiworksPlatform\Credentials</span><span class="p">(</span><span class="nv">$platform_identifier</span><span class="p">,</span> <span class="nv">$platform_secret</span><span class="p">);</span>
 
 <span class="nv">$moxi_works_agent</span> <span class="o">=</span> <span class="nx">MoxiworksPlatform\Agent</span><span class="o">::</span><span class="na">find</span><span class="p">([</span>
-        <span class="s1">'moxi_works_agent_id'</span> <span class="o">=&gt;</span> <span class="s1">'1234abcd'</span><span class="p">]);</span>
+        <span class="s1">'moxi_works_agent_id'</span> <span class="o">=&gt;</span> <span class="s1">'1234abcd'</span><span class="p">,</span> 
+        <span class="s1">'moxi_works_company_id'</span> <span class="o">=&gt;</span> <span class="s1">'abc123'</span><span class="p">]);</span>
 <span class="cp">?&gt;</span>
 </code></pre>
 
@@ -169,6 +171,12 @@
 <td><span class="required-data"><span class="data-type">String</span></span></td>
 <td><span class="required-data"><span class="data-remarks">The agent&rsquo;s Moxi Works Platform ID</span></span></td>
 <td><span class="required-data">255</span></td>
+</tr>
+<tr>
+<td><span class="required-data">moxi_works_company_id</span></td>
+<td><span class="required-data"><span class="data-type">String</span></span></td>
+<td><span class="required-data"><span class="data-remarks">A valid Moxi Works Company ID. Use <a href="#company">Company Endpoint</a> to determine available moxi_works_company_id </span></span></td>
+<td><span class="required-data">255<span></td>
 </tr>
 </tbody></table>
 

@@ -27,7 +27,8 @@ MoxiworksPlatform::Credentials.new(platform_identifier, platform_secret)
 ##### end prerequisites
 
 moxi_works_agent = MoxiworksPlatform::Agent.find(
-        moxi_works_agent_id: "1234abcd")
+        moxi_works_agent_id: "1234abcd", 
+        moxi_works_company_id: "abc123")
 
 ```
 
@@ -39,7 +40,8 @@ $platform_secret = 'secret'; //platform_secret provided by Moxi Works Platform R
 $credentials = new MoxiworksPlatform\Credentials($platform_identifier, $platform_secret);
 
 $moxi_works_agent = MoxiworksPlatform\Agent::find([
-        'moxi_works_agent_id' => '1234abcd']);
+        'moxi_works_agent_id' => '1234abcd', 
+        'moxi_works_company_id' => 'abc123']);
 ?>
 ```
 
@@ -137,5 +139,6 @@ When showing an agent using the Moxi Works platform API, format your data using 
 Attribute | Type| Remark | Length Limit |
 -----|-----|-----|-----|
 |<span class="required-data">moxi_works_agent_id</span>|<span class="required-data"><span class="data-type">String</span></span>|<span class="required-data"><span class="data-remarks">The agent's Moxi Works Platform ID</span></span>| <span class="required-data">255</span>
+|<span class="required-data">moxi_works_company_id</span>|<span class="required-data"><span class="data-type">String</span></span>|<span class="required-data"><span class="data-remarks">A valid Moxi Works Company ID. Use [Company Endpoint](#company) to determine available moxi_works_company_id </span></span> | <span class="required-data">255<span> |
 
 <span class="required-data">**Required Parameters Are In Red**</span>

@@ -60,7 +60,7 @@
 <span class="c1">##### end prerequisites</span>
 
 <span class="n">one_week</span> <span class="o">=</span>  <span class="n">defined?</span><span class="p">(</span><span class="no">Rails</span><span class="p">)</span> <span class="p">?</span> <span class="mi">1</span><span class="p">.</span><span class="nf">week</span> <span class="p">:</span> <span class="mi">604800</span>
-<span class="n">company_agents</span> <span class="o">=</span> <span class="no">MoxiworksPlatform</span><span class="o">::</span><span class="no">Agent</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="ss">moxi_works_company_id: </span><span class="s2">"abc123"</span><span class="p">,</span> <span class="ss">updated_since: </span><span class="no">Time</span><span class="p">.</span><span class="nf">now</span> <span class="o">-</span> <span class="n">one_week</span><span class="p">)</span>
+<span class="n">company_agents</span> <span class="o">=</span> <span class="no">MoxiworksPlatform</span><span class="o">::</span><span class="no">Agent</span><span class="p">.</span><span class="nf">search</span><span class="p">(</span><span class="ss">moxi_works_company_id: </span><span class="s2">"abc123"</span><span class="p">,</span> <span class="ss">updated_since: </span><span class="no">Time</span><span class="p">.</span><span class="nf">now</span> <span class="o">-</span> <span class="n">one_week</span><span class="p">)</span>
 
 </code></pre>
 <pre class="highlight php"><code><span class="cp">&lt;?php</span>
@@ -70,7 +70,7 @@
 <span class="nv">$credentials</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MoxiworksPlatform\Credentials</span><span class="p">(</span><span class="nv">$platform_identifier</span><span class="p">,</span> <span class="nv">$platform_secret</span><span class="p">);</span>
 
 <span class="nv">$one_week</span> <span class="o">=</span> <span class="mi">604800</span><span class="p">;</span>
-<span class="nv">$company_agents</span> <span class="o">=</span> <span class="nx">MoxiworksPlatform\Agent</span><span class="o">::</span><span class="na">find</span><span class="p">([</span><span class="s1">'moxi_works_company_id'</span> <span class="o">=&gt;</span> <span class="s1">'abc123'</span><span class="p">,</span> <span class="s1">'updated_since'</span> <span class="o">=&gt;</span> <span class="nb">time</span><span class="p">()</span> <span class="o">-</span> <span class="nv">$one_week</span><span class="p">]);</span>
+<span class="nv">$company_agents</span> <span class="o">=</span> <span class="nx">MoxiworksPlatform\Agent</span><span class="o">::</span><span class="na">search</span><span class="p">([</span><span class="s1">'moxi_works_company_id'</span> <span class="o">=&gt;</span> <span class="s1">'abc123'</span><span class="p">,</span> <span class="s1">'updated_since'</span> <span class="o">=&gt;</span> <span class="nb">time</span><span class="p">()</span> <span class="o">-</span> <span class="nv">$one_week</span><span class="p">]);</span>
 <span class="cp">?&gt;</span>
 </code></pre>
 
@@ -85,12 +85,12 @@
 
 </code></pre>
 <pre class="highlight ruby"><code><span class="n">one_week</span> <span class="o">=</span>  <span class="n">defined?</span><span class="p">(</span><span class="no">Rails</span><span class="p">)</span> <span class="p">?</span> <span class="mi">1</span><span class="p">.</span><span class="nf">week</span> <span class="p">:</span> <span class="mi">604800</span>
-<span class="n">company_agents</span> <span class="o">=</span> <span class="no">MoxiworksPlatform</span><span class="o">::</span><span class="no">Agent</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="ss">moxi_works_company_id: </span><span class="s2">"abc123"</span><span class="p">,</span> <span class="ss">updated_since: </span><span class="no">Time</span><span class="p">.</span><span class="nf">now</span> <span class="o">-</span> <span class="n">one_week</span><span class="p">,</span> <span class="ss">page: </span><span class="mi">2</span><span class="p">)</span>
+<span class="n">company_agents</span> <span class="o">=</span> <span class="no">MoxiworksPlatform</span><span class="o">::</span><span class="no">Agent</span><span class="p">.</span><span class="nf">search</span><span class="p">(</span><span class="ss">moxi_works_company_id: </span><span class="s2">"abc123"</span><span class="p">,</span> <span class="ss">updated_since: </span><span class="no">Time</span><span class="p">.</span><span class="nf">now</span> <span class="o">-</span> <span class="n">one_week</span><span class="p">,</span> <span class="ss">page: </span><span class="mi">2</span><span class="p">)</span>
 
 </code></pre>
 <pre class="highlight php"><code><span class="cp">&lt;?php</span>
 <span class="nv">$one_week</span> <span class="o">=</span> <span class="mi">604800</span><span class="p">;</span>
-<span class="nv">$company_agents</span> <span class="o">=</span> <span class="nx">MoxiworksPlatform\Agent</span><span class="o">::</span><span class="na">find</span><span class="p">([</span><span class="s1">'moxi_works_company_id'</span> <span class="o">=&gt;</span> <span class="s1">'abc123'</span><span class="p">,</span> <span class="s1">'updated_since'</span> <span class="o">=&gt;</span> <span class="nb">time</span><span class="p">()</span> <span class="o">-</span> <span class="nv">$one_week</span><span class="p">,</span> <span class="s1">'page'</span> <span class="o">=&gt;</span> <span class="mi">2</span><span class="p">]);</span>
+<span class="nv">$company_agents</span> <span class="o">=</span> <span class="nx">MoxiworksPlatform\Agent</span><span class="o">::</span><span class="na">search</span><span class="p">([</span><span class="s1">'moxi_works_company_id'</span> <span class="o">=&gt;</span> <span class="s1">'abc123'</span><span class="p">,</span> <span class="s1">'updated_since'</span> <span class="o">=&gt;</span> <span class="nb">time</span><span class="p">()</span> <span class="o">-</span> <span class="nv">$one_week</span><span class="p">,</span> <span class="s1">'page'</span> <span class="o">=&gt;</span> <span class="mi">2</span><span class="p">]);</span>
 <span class="cp">?&gt;</span>
 </code></pre>
 

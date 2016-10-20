@@ -33,7 +33,7 @@ MoxiworksPlatform::Credentials.new(platform_identifier, platform_secret)
 ##### end prerequisites
 
 one_week =  defined?(Rails) ? 1.week : 604800
-company_agents = MoxiworksPlatform::Agent.find(moxi_works_company_id: "abc123", updated_since: Time.now - one_week)
+company_agents = MoxiworksPlatform::Agent.search(moxi_works_company_id: "abc123", updated_since: Time.now - one_week)
 
 ```
 
@@ -45,7 +45,7 @@ $platform_secret = 'secret'; //platform_secret provided by Moxi Works Platform R
 $credentials = new MoxiworksPlatform\Credentials($platform_identifier, $platform_secret);
 
 $one_week = 604800;
-$company_agents = MoxiworksPlatform\Agent::find(['moxi_works_company_id' => 'abc123', 'updated_since' => time() - $one_week]);
+$company_agents = MoxiworksPlatform\Agent::search(['moxi_works_company_id' => 'abc123', 'updated_since' => time() - $one_week]);
 ?>
 ```
 
@@ -62,14 +62,14 @@ Content-Type: application/x-www-form-urlencoded
 
 ```ruby
 one_week =  defined?(Rails) ? 1.week : 604800
-company_agents = MoxiworksPlatform::Agent.find(moxi_works_company_id: "abc123", updated_since: Time.now - one_week, page: 2)
+company_agents = MoxiworksPlatform::Agent.search(moxi_works_company_id: "abc123", updated_since: Time.now - one_week, page: 2)
 
 ```
 
 ```php
 <?php
 $one_week = 604800;
-$company_agents = MoxiworksPlatform\Agent::find(['moxi_works_company_id' => 'abc123', 'updated_since' => time() - $one_week, 'page' => 2]);
+$company_agents = MoxiworksPlatform\Agent::search(['moxi_works_company_id' => 'abc123', 'updated_since' => time() - $one_week, 'page' => 2]);
 ?>
 ```
 

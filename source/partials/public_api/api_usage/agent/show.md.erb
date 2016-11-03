@@ -27,7 +27,7 @@ MoxiworksPlatform::Credentials.new(platform_identifier, platform_secret)
 ##### end prerequisites
 
 moxi_works_agent = MoxiworksPlatform::Agent.find(
-        moxi_works_agent_id: "1234abcd", 
+        moxi_works_agent_id: "1234abcd",
         moxi_works_company_id: "abc123")
 
 ```
@@ -40,7 +40,7 @@ $platform_secret = 'secret'; //platform_secret provided by Moxi Works Platform R
 $credentials = new MoxiworksPlatform\Credentials($platform_identifier, $platform_secret);
 
 $moxi_works_agent = MoxiworksPlatform\Agent::find([
-        'moxi_works_agent_id' => '1234abcd', 
+        'moxi_works_agent_id' => '1234abcd',
         'moxi_works_company_id' => 'abc123']);
 ?>
 ```
@@ -76,13 +76,13 @@ Server: thin
   "office_phone_number": "(234)456-7890",
   "primary_email_address": "the_agent@agentdomain.com",
   "secondary_email_address": "the_agent_alt@otherdomain.com",
+  "title": "Broker"
   "twitter": "@agentguy",
   "google_plus": "https://plus.google.com/1234567891011121314/posts",
   "facebook": "https://www.facebook.com/moxiworks/",
   "home_page": "foo.com",
   "profile_image_url": "http://picturererer.com/pics37/ImageStore.dll?id=852087C5D3A533DD&w=200",
   "profile_thumb_url": "http://picturererer.com/pics37/ImageStore.dll?id=852087C5D3A533DD&w=75",
-  "title": "Broker"
 }
 ```
 

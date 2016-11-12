@@ -28,15 +28,25 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h4 id="index">Index</h4>
+        <h4 id="actionlog-index"><span class='entity-name'>ActionLog</span> <span class='action-name'>Index</span></h4>
 
-<div class='highlight ruby'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-ruby/MoxiworksPlatform/ActionLog.html#search-class_method'>Ruby Search Docs</a></span></blockquote></div>
+<div class='highlight ruby'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-ruby/MoxiworksPlatform/ActionLog.html#search-class_method'>Ruby <span class='action-name'>Search</span> Docs</a></span></blockquote></div>
 
-<div class='highlight php'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-php/classes/MoxiworksPlatform.ActionLog.html#method_search'>PHP Search Docs</a></span></blockquote></div>
+<div class='highlight php'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-php/classes/MoxiworksPlatform.ActionLog.html#method_search'>PHP <span class='action-name'>Search</span> Docs</a></span></blockquote></div>
+
+<aside class="note">Send a <b>GET</b> request to https://api.moxiworks.com/api/action_logs</aside>
+
+<p>When searching for <span class='entity-name'>ActionLog</span> entities using the Moxi Works platform API, format your request using the following parameters.</p>
 
 <blockquote>
-<p><span class="data-example-label">ActionLog Index Example</span></p>
+<p><span class="data-example-label"><span class='entity-name'>ActionLog </span><span class='action-name'>Index </span>Request Example</span></p>
 </blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"moxi_works_agent_id"</span><span class="p">:</span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"partner_contact_id"</span><span class="p">:</span><span class="s2">"mySystemsContactId"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
 <pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/action_logs?moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">api.moxiworks.com</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.moxi-platform+json;version=1</span>
@@ -73,88 +83,102 @@
 <span class="cp">?&gt;</span>
 </code></pre>
 
-<blockquote><div class='highlight http' style="display: block">
-<span class="data-example-label">ActionLog Index: Success Response</span>
-(line breaks in body shown for clarity)
-</div></blockquote>
-<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
-<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json; charset=utf-8</span>
-<span class="na">X-UA-Compatible</span><span class="p">:</span> <span class="s">IE=Edge</span>
-<span class="na">ETag</span><span class="p">:</span> <span class="s">\"39e1ce76ef58ce23a7debbe5ca145715\"</span>
-<span class="na">Cache-Control</span><span class="p">:</span> <span class="s">max-age=0, private, must-revalidate</span>
-<span class="na">X-Request-Id</span><span class="p">:</span> <span class="s">232e40496ea30b9758dddf0b7ab195f2</span>
-<span class="na">X-Runtime</span><span class="p">:</span> <span class="s">13.034641</span>
-<span class="na">Connection</span><span class="p">:</span> <span class="s">close</span>
-<span class="na">Server</span><span class="p">:</span> <span class="s">thin</span>
+<h5 id="actionlog-index-request-attributes"><span class='entity-name'>ActionLog</span> <span class='action-name'>Index</span> Request Attributes</h5>
 
-<span class="p">{</span><span class="w">
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Length Limit</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span class="required-data">moxi_works_agent_id</span></td>
+<td><span class="required-data"><span class="data-type">String</span></span></td>
+<td><span class="required-data">255</span></td>
+</tr>
+<tr>
+<td><span class="required-data">partner_contact_id</span></td>
+<td><span class="required-data"><span class="data-type">String</span></span></td>
+<td><span class="required-data">255</span></td>
+</tr>
+</tbody></table>
+
+<p><span class="required-data"><strong>Required Parameters Are In Red</strong></span></p>
+
+<p><span class="request-data-head">moxi_works_agent_id</span>
+<span class="request-data-remarks">This is the Moxi Works Platform ID of the agent which an <span class='entity-name'>ActionLog</span> entry is associated with. This will be a string that may take the form of an email address, or a unique identifcation string. This data is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>ActionLog</span> request to be accepted.</span></p>
+
+<p><span class="request-data-head">partner_contact_id</span>
+<span class="request-data-remarks">This is the unique identifer you use in your system that has been associated with the <span class='entity-name'>w</span> that you are creating an <span class='entity-name'>ActionLog</span> entry about. You should have already created the <span class='entity-name'>Contact</span> record on the Moxi Works Platform using <a href="/#contact-create">Contact Create</a> before attempting to use your system&rsquo;s contact ID to show <span class='entity-name'>ActionLog</span> entries for the <span class='entity-name'>Contact</span>. Your request will be rejected if the <span class='entity-name'>Contact</span> record does not exist.</span></p>
+
+<h5 id="actionlog-index-response-payload"><span class='entity-name'>ActionLog</span> <span class='action-name'>Index</span> Response Payload</h5>
+
+<p>The following attributes make up the payload of the <span class='entity-name'>ActionLog</span> response for a <span class='action-name'>Index</span> request.</p>
+
+<blockquote><div class='highlight json' style="display: block">
+<span class='data-example-label'><span class='entity-name'>ActionLog</span> <span class='action-name'>Index</span> Response Payload Example
+</span></div></blockquote>
+<pre class="highlight json"><code><span class="w">
+</span><span class="p">{</span><span class="w">
   </span><span class="nt">"moxi_works_agent_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234abcd"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"partner_contact_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11111abe"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"actions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
-  </span><span class="nt">"moxi_works_action_log_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"02b918"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"lead_update_api"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">1460064134</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"moxi_works_action_log_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"02b918"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"lead_update_api"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"log_data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"datplace"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1465937163"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"user_info"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{"</span><span class="err">property_info</span><span class="s2">":{},"</span><span class="err">search_criteria</span><span class="s2">":{},"</span><span class="err">contact</span><span class="s2">":{"</span><span class="err">first_name</span><span class="s2">":null,"</span><span class="err">message</span><span class="s2">":"","</span><span class="err">source</span><span class="s2">":"</span><span class="err">datplace</span><span class="s2">"}}"</span><span class="w">
+      </span><span class="nt">"source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"datplace"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1465937163"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"user_info"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"property_info"</span><span class="p">:{},</span><span class="w">
+        </span><span class="nt">"search_criteria"</span><span class="p">:{},</span><span class="w">
+        </span><span class="nt">"contact"</span><span class="p">:{</span><span class="w">
+          </span><span class="nt">"first_name"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"message"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"source"</span><span class="p">:</span><span class="s2">"datplace"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
   </span><span class="p">{</span><span class="w">
-  </span><span class="nt">"moxi_works_action_log_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bded1806-3271-11e6-9bb3-5254000f954a"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"lead_update_api"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">1460064924</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"log_data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"foo.what"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1465937477"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"user_info"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{"</span><span class="err">property_info</span><span class="s2">":{"</span><span class="err">PropertyURL</span><span class="s2">":"</span><span class="err">www.wat.com</span><span class="s2">","</span><span class="err">MLSNumber</span><span class="s2">":"","</span><span class="err">StreetAddress</span><span class="s2">":"","</span><span class="err">City</span><span class="s2">":"","</span><span class="err">State</span><span class="s2">":"","</span><span class="err">Zip</span><span class="s2">":"","</span><span class="err">Beds</span><span class="s2">":"","</span><span class="err">Baths</span><span class="s2">":"","</span><span class="err">ListingPrice</span><span class="s2">":"","</span><span class="err">ListingStatus</span><span class="s2">":"","</span><span class="err">PhotoURL</span><span class="s2">":""},"</span><span class="err">search_criteria</span><span class="s2">":{},"</span><span class="err">contact</span><span class="s2">":{"</span><span class="err">first_name</span><span class="s2">":null,"</span><span class="err">message</span><span class="s2">":"","</span><span class="err">source</span><span class="s2">":"</span><span class="err">foo.what</span><span class="s2">"}}"</span><span class="w">
+    </span><span class="nt">"moxi_works_action_log_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bded1806-3271-11e6-9bb3-5254000f954a"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"lead_update_api"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"log_data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"foo.what"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1465937477"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"user_info"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"property_info"</span><span class="p">:{</span><span class="w">
+          </span><span class="nt">"PropertyURL"</span><span class="p">:</span><span class="s2">"www.wat.com"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"MLSNumber"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"StreetAddress"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"City"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"State"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"Zip"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"Beds"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"Baths"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"ListingPrice"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"ListingStatus"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"PhotoURL"</span><span class="p">:</span><span class="s2">""</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"search_criteria"</span><span class="p">:{},</span><span class="w">
+        </span><span class="nt">"contact"</span><span class="p">:{</span><span class="w">
+          </span><span class="nt">"first_name"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"message"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"source"</span><span class="p">:</span><span class="s2">"foo.what"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-
 </span></code></pre>
 
-<blockquote><div class='highlight http' style="display: block">
-<span class="data-example-label">ActionLog Index: Not Found Response</span>
-(line breaks in body shown for clarity)
+<blockquote><div class='highlight json' style="display: block">
+<span class="data-example-label"><span class='entity-name'>ActionLog</span>  <span class='action-name'>Index</span> Failure Response</span>
 </div></blockquote>
-<pre class="highlight http"><code><span class="err">
-</span><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
-<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json; charset=utf-8</span>
-<span class="na">X-UA-Compatible</span><span class="p">:</span> <span class="s">IE=Edge</span>
-<span class="na">ETag</span><span class="p">:</span> <span class="s">\"39e1ce76ef58ce23a7debbe5ca145715\"</span>
-<span class="na">Cache-Control</span><span class="p">:</span> <span class="s">max-age=0, private, must-revalidate</span>
-<span class="na">X-Request-Id</span><span class="p">:</span> <span class="s">232e40496ea30b9758dddf0b7ab195f2</span>
-<span class="na">X-Runtime</span><span class="p">:</span> <span class="s">13.034641</span>
-<span class="na">Connection</span><span class="p">:</span> <span class="s">close</span>
-<span class="na">Server</span><span class="p">:</span> <span class="s">thin</span>
-
-<span class="p">{</span><span class="w">
-  </span><span class="nt">"moxi_works_agent_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234abcd"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"partner_contact_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11111abe"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"actions"</span><span class="p">:[]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-
-</span></code></pre>
-
-<blockquote><div class='highlight http' style="display: block">
-<span class="data-example-label">ActionLog Index: Failure Response</span>
-(line breaks in body shown for clarity)
-</div></blockquote>
-<pre class="highlight http"><code><span class="err">
-</span><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">400</span> <span class="ne">OK</span>
-<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json; charset=utf-8</span>
-<span class="na">X-UA-Compatible</span><span class="p">:</span> <span class="s">IE=Edge</span>
-<span class="na">ETag</span><span class="p">:</span> <span class="s">\"39e1ce76ef58ce23a7debbe5ca145715\"</span>
-<span class="na">Cache-Control</span><span class="p">:</span> <span class="s">max-age=0, private, must-revalidate</span>
-<span class="na">X-Request-Id</span><span class="p">:</span> <span class="s">232e40496ea30b9758dddf0b7ab195f2</span>
-<span class="na">X-Runtime</span><span class="p">:</span> <span class="s">13.034641</span>
-<span class="na">Connection</span><span class="p">:</span> <span class="s">close</span>
-<span class="na">Server</span><span class="p">:</span> <span class="s">thin</span>
-
-<span class="p">{</span><span class="w">
+<pre class="highlight json"><code><span class="w">
+</span><span class="p">{</span><span class="w">
   </span><span class="nt">"status"</span><span class="p">:</span><span class="s2">"fail"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"errorCode"</span><span class="p">:</span><span class="w"> </span><span class="err">xxx</span><span class="p">,</span><span class="w">
   </span><span class="nt">"messages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"messages"</span><span class="p">]</span><span class="w">
@@ -162,33 +186,76 @@
 
 </span></code></pre>
 
-<aside class="note">Send a <b>GET</b> request to https://api.moxiworks.com/api/action_logs</aside>
-
-<p>When searching for ActionLog entities using the Moxi Works platform API, format your data using the following parameters.</p>
+<h6 id="index-response-attributes"><span class='action-name'>Index</span> Response Attributes</h6>
 
 <table><thead>
 <tr>
 <th>Attribute</th>
 <th>Type</th>
-<th>Remark</th>
-<th>Length Limit</th>
 </tr>
 </thead><tbody>
 <tr>
-<td><span class="required-data">moxi_works_agent_id</span></td>
-<td><span class="required-data"><span class="data-type">String</span></span></td>
-<td><span class="required-data"><span class="data-remarks">The agent&rsquo;s Moxi Works Platform ID</span></span></td>
-<td><span class="required-data">255</span></td>
+<td><span class="response-data">moxi_works_agent_id</span></td>
+<td><span class="data-type">String</span></td>
 </tr>
 <tr>
-<td><span class="required-data">partner_contact_id</span></td>
-<td><span class="required-data"><span class="data-type">String</span></span></td>
-<td><span class="required-data"><span class="data-remarks">The ID of the contact in your system.</span></span></td>
-<td><span class="required-data">255</span></td>
+<td><span class="response-data">partner_contact_id</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">actions</span></td>
+<td><span class="data-type">Array</span></td>
 </tr>
 </tbody></table>
 
-<p><span class="required-data"><strong>Required Parameters Are In Red</strong></span></p>
+<p><span class="response-data-head">moxi_works_agent_id</span>
+<span class="response-data-remarks">This is the Moxi Works Platform ID of the agent which an action log entry is associated with. This will be a string that may take the form of an email address, or a unique alphanumeric identifcation string.</span></p>
+
+<p><span class="response-data-head">partner_contact_id</span>
+<span class="response-data-remarks">This is the unique identifer you use in your system that has been associated with the Contact that this <span class='entity-name'>ActionLog</span> entry is about</span></p>
+
+<p><span class="response-data-head">actions</span>
+<span class="response-data-remarks">This is an Array containing any <span class='entity-name'>ActionLog</span> entries found for the <span class='action-name'>Index</span> request.</span></p>
+
+<h6 id="actions-object"><span class='attribute-name'>actions</span> Object</h6>
+
+<p>The <span class='attribute-name'>actions</span> array contains Dictionary objects representing <span class='entity-name'>ActionLog</span> entries. The structure of each <span class='entity-name'>ActionLog</span> entry is shown below.</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span class="response-data">moxi_works_action_log_id</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">type</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">timestamp</span></td>
+<td><span class="data-type">Integer</span></td>
+</tr>
+<tr>
+<td><span class="response-data">log_data</span></td>
+<td><span class="data-type">Dictionary</span></td>
+</tr>
+</tbody></table>
+
+<p><span class="response-data-head">moxi_works_action_log_id</span>
+<span class="response-data-remarks">This is the unique identifier for the Moxi Works Platform <span class='entity-name'>ActionLog</span> entry.</span></p>
+
+<p><span class="response-data-head">type</span>
+<span class="response-data-remarks">This is a string from an enumerated set representing the  type of <span class='entity-name'>ActionLog</span> entry this is. The string should be formatted in lowercase with an underscore between each word. Individual <span class='entity-name'>ActionLog</span> types are outside the scope of this document.</span></p>
+
+<p><span class="response-data-head">timestamp</span>
+<span class="response-data-remarks">This is the Unix timestamp for the creation time of the <span class='entity-name'>ActionLog</span> entry.</span></p>
+
+<p><span class="response-data-head">log_data</span>
+<span class="response-data-remarks">This is the payload data of the <span class='entity-name'>ActionLog</span> entry. The strucuture returned is dependent on the kind of <span class='entity-name'>ActionLog</span> entry this is. Use the <span class='attribute-name'>type</span> attribute to determine what the structure of the <span class='entity-name'>ActionLog</span> entry is and how to handle it. Details of various structures contained in <span class='entity-name'>ActionLog</span> <span class='attribute-name'>log_data</span> in  is outside the scope of this documentation.</span></span></p>
 
       </div>
       <div class="dark-box">

@@ -28,15 +28,20 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h4 id="index">Index</h4>
+        <h4 id="group-index"><span class='entity-name'>Group</span> <span class='action-name'>Index</span></h4>
 
 <div class='highlight ruby'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-ruby/MoxiworksPlatform/Group.html#search-class_method'>Ruby Search Docs</a></span></blockquote></div>
 
 <div class='highlight php'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-php/classes/MoxiworksPlatform.Group.html#method_search'>PHP Search Docs</a></span></blockquote></div>
 
 <blockquote>
-<p><span class="data-example-label">Group Index Example</span></p>
+<p><span class="data-example-label"><span class='entity-name'>Group</span> <span class='action-name'>Index</span> Example</span></p>
 </blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"moxi_works_agent_id"</span><span class="p">:</span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"foo"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 <pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/groups?moxi_works_agent_id=abc123&amp;name=foo</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">api.moxiworks.com</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.moxi-platform+json;version=1</span>
@@ -60,7 +65,7 @@
 
 <span class="c1"># or for a list of all available groups:</span>
 <span class="n">moxi_works_groups</span> <span class="o">=</span> <span class="no">MoxiworksPlatform</span><span class="o">::</span><span class="no">Group</span><span class="p">.</span><span class="nf">search</span><span class="p">(</span>
-        <span class="ss">moxi_works_agent_id: </span><span class="s2">"1234abcd"</span><span class="p">)</span>        
+        <span class="ss">moxi_works_agent_id: </span><span class="s2">"1234abcd"</span><span class="p">)</span>
 
 </code></pre>
 <pre class="highlight php"><code><span class="cp">&lt;?php</span>
@@ -75,26 +80,56 @@
 
 <span class="c1"># or for a list of all available groups
 </span><span class="nv">$moxi_works_groups</span> <span class="o">=</span> <span class="nx">MoxiworksPlatform\Group</span><span class="o">::</span><span class="na">search</span><span class="p">([</span>
-        <span class="nv">$moxi_works_agent_id</span> <span class="o">=&gt;</span> <span class="s2">"1234abcd"</span><span class="p">]);</span>     
+        <span class="nv">$moxi_works_agent_id</span> <span class="o">=&gt;</span> <span class="s2">"1234abcd"</span><span class="p">]);</span>
 
 <span class="cp">?&gt;</span>
 </code></pre>
 
-<blockquote><div class='highlight http' style="display: block">
-<span class="data-example-label">Group Index: Success Response</span>
-(line breaks in body shown for clarity)
-</div></blockquote>
-<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
-<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json; charset=utf-8</span>
-<span class="na">X-UA-Compatible</span><span class="p">:</span> <span class="s">IE=Edge</span>
-<span class="na">ETag</span><span class="p">:</span> <span class="s">\"39e1ce76ef58ce23a7debbe5ca145715\"</span>
-<span class="na">Cache-Control</span><span class="p">:</span> <span class="s">max-age=0, private, must-revalidate</span>
-<span class="na">X-Request-Id</span><span class="p">:</span> <span class="s">232e40496ea30b9758dddf0b7ab195f2</span>
-<span class="na">X-Runtime</span><span class="p">:</span> <span class="s">13.034641</span>
-<span class="na">Connection</span><span class="p">:</span> <span class="s">close</span>
-<span class="na">Server</span><span class="p">:</span> <span class="s">thin</span>
+<aside class="note">Send a <b>GET</b> request to https://api.moxiworks.com/api/groups</aside>
 
-<span class="p">[{</span><span class="nt">"moxi_works_group_name"</span><span class="p">:</span><span class="s2">"Christmas Cards"</span><span class="p">},</span><span class="w">
+<p>When searching for <span class='entity-name'>Group</span> objects using the Moxi Works platform API, format your data using the following parameters.</p>
+
+<h5 id="group-index-request-attributes"><span class='entity-name'>Group</span> <span class='action-name'>Index</span> Request Attributes</h5>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Length Limit</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span class="required-data">moxi_works_agent_id</span></td>
+<td><span class="required-data"><span class="data-type">String</span></span></td>
+<td><span class="required-data">255</span></td>
+</tr>
+<tr>
+<td><span class="optional-data">name</span></td>
+<td><span class="data-type">String</span></td>
+<td>255</td>
+</tr>
+</tbody></table>
+
+<p><span class="required-data"><strong>Required Parameters Are In Red</strong></span></p>
+
+<p><span class="request-data-head">moxi_works_agent_id</span>
+<span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which you are searching for associated <span class='entity-name'>Group</span> objects. This will be a string that may take the form of an email address, or a unique identifcation string. This data is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>Group</span> <span class='action-name'>Index</span>  request to be accepted.</span></p>
+
+<p><span class="request-data-head">name</span>
+<span class="request-data-remarks">This is the name of a <span class='entity-name'>Group</span> to be searched for.</span></p>
+
+<aside class="note">If no <span class='attribute-name'>name</span> parameter is included, all defined <span class='entity-name'>Group</span> objects for the <span class='entity-name'>Agent</span> will be returned in the response.</aside>
+
+<h5 id="group-index-response-payload"><span class='entity-name'>Group</span> <span class='action-name'>Index</span> Response Payload</h5>
+
+<p>The following attributes make up the payload of the <span class='entity-name'>Group</span> response for a <span class='action-name'>Index</span> request.</p>
+
+<blockquote><div class='highlight json' style="display: block">
+<span class='data-example-label'><span class='entity-name'>Group</span> <span class='action-name'>Index</span> Response Payload Example
+</span></div></blockquote>
+<pre class="highlight json"><code><span class="w">
+</span><span class="p">[</span><span class="w">
+</span><span class="p">{</span><span class="nt">"moxi_works_group_name"</span><span class="p">:</span><span class="s2">"Christmas Cards"</span><span class="p">},</span><span class="w">
 </span><span class="p">{</span><span class="nt">"moxi_works_group_name"</span><span class="p">:</span><span class="s2">"foo"</span><span class="p">},</span><span class="w">
 </span><span class="p">{</span><span class="nt">"moxi_works_group_name"</span><span class="p">:</span><span class="s2">"blah"</span><span class="p">},</span><span class="w">
 </span><span class="p">{</span><span class="nt">"moxi_works_group_name"</span><span class="p">:</span><span class="s2">"one"</span><span class="p">},</span><span class="w">
@@ -104,43 +139,14 @@
 </span><span class="p">{</span><span class="nt">"moxi_works_group_name"</span><span class="p">:</span><span class="s2">"TestEmailAddresses"</span><span class="p">},</span><span class="w">
 </span><span class="p">{</span><span class="nt">"moxi_works_group_name"</span><span class="p">:</span><span class="s2">"todelete"</span><span class="p">},</span><span class="w">
 </span><span class="p">{</span><span class="nt">"moxi_works_group_name"</span><span class="p">:</span><span class="s2">"TwoMore"</span><span class="p">},</span><span class="w">
-</span><span class="p">{</span><span class="nt">"moxi_works_group_name"</span><span class="p">:</span><span class="s2">"that"</span><span class="p">}]</span><span class="w">
+</span><span class="p">{</span><span class="nt">"moxi_works_group_name"</span><span class="p">:</span><span class="s2">"that"</span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
 </span></code></pre>
 
-<blockquote><div class='highlight http' style="display: block">
-<span class="data-example-label">Group Index: Not Found Response</span>
-(line breaks in body shown for clarity)
+<blockquote><div class='highlight json' style="display: block">
+  <span class='data-example-label'><span class='entity-name'>Group</span> <span class='action-name'>Index</span> Failure Response
 </div></blockquote>
-<pre class="highlight http"><code><span class="err">
-</span><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
-<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json; charset=utf-8</span>
-<span class="na">X-UA-Compatible</span><span class="p">:</span> <span class="s">IE=Edge</span>
-<span class="na">ETag</span><span class="p">:</span> <span class="s">\"39e1ce76ef58ce23a7debbe5ca145715\"</span>
-<span class="na">Cache-Control</span><span class="p">:</span> <span class="s">max-age=0, private, must-revalidate</span>
-<span class="na">X-Request-Id</span><span class="p">:</span> <span class="s">232e40496ea30b9758dddf0b7ab195f2</span>
-<span class="na">X-Runtime</span><span class="p">:</span> <span class="s">13.034641</span>
-<span class="na">Connection</span><span class="p">:</span> <span class="s">close</span>
-<span class="na">Server</span><span class="p">:</span> <span class="s">thin</span>
-
-<span class="p">[]</span><span class="w">
-</span></code></pre>
-
-<blockquote><div class='highlight http' style="display: block">
-<span class="data-example-label">Group Index: Failure Response</span>
-(line breaks in body shown for clarity)
-</div></blockquote>
-<pre class="highlight http"><code><span class="err">
-</span><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">400</span> <span class="ne">OK</span>
-<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json; charset=utf-8</span>
-<span class="na">X-UA-Compatible</span><span class="p">:</span> <span class="s">IE=Edge</span>
-<span class="na">ETag</span><span class="p">:</span> <span class="s">\"39e1ce76ef58ce23a7debbe5ca145715\"</span>
-<span class="na">Cache-Control</span><span class="p">:</span> <span class="s">max-age=0, private, must-revalidate</span>
-<span class="na">X-Request-Id</span><span class="p">:</span> <span class="s">232e40496ea30b9758dddf0b7ab195f2</span>
-<span class="na">X-Runtime</span><span class="p">:</span> <span class="s">13.034641</span>
-<span class="na">Connection</span><span class="p">:</span> <span class="s">close</span>
-<span class="na">Server</span><span class="p">:</span> <span class="s">thin</span>
-
-<span class="p">{</span><span class="w">
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"status"</span><span class="p">:</span><span class="s2">"fail"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"errorCode"</span><span class="p">:</span><span class="w"> </span><span class="err">xxx</span><span class="p">,</span><span class="w">
   </span><span class="nt">"messages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"messages"</span><span class="p">]</span><span class="w">
@@ -148,33 +154,24 @@
 
 </span></code></pre>
 
-<aside class="note">Send a <b>GET</b> request to https://api.moxiworks.com/api/groups</aside>
+<h6 id="group-response-attributes"><span class='action-name'>Group</span> Response Attributes</h6>
 
-<p>When searching for Group entities using the Moxi Works platform API, format your data using the following parameters.</p>
+<p>The <span class='entity-name'>Group</span> <span class='action-name'>Index</span> response is made up of an array of <span class='entity-name'>Group</span> objects.  Each  <span class='entity-name'>Group</span> object contains the following attributes.</p>
 
 <table><thead>
 <tr>
 <th>Attribute</th>
 <th>Type</th>
-<th>Remark</th>
-<th>Length Limit</th>
 </tr>
 </thead><tbody>
 <tr>
-<td><span class="required-data">moxi_works_agent_id</span></td>
-<td><span class="required-data"><span class="data-type">String</span></span></td>
-<td><span class="required-data"><span class="data-remarks">The agent&rsquo;s Moxi Works Platform ID</span></span></td>
-<td><span class="required-data">255</span></td>
-</tr>
-<tr>
-<td><span class="optional-data">name</span></td>
-<td><span class="data-type">String</span></td>
-<td><span class="data-remarks">the name of a group to be searched for. <b>If no name parameter is included, all defined groups will be returned in the response.</b> </span></td>
-<td></td>
+<td><span class="response-data">moxi_works_group_name</span></td>
+<td><span class="response-data"><span class="data-type">String</span></span></td>
 </tr>
 </tbody></table>
 
-<p><span class="required-data"><strong>Required Parameters Are In Red</strong></span></p>
+<p><span class="response-data-head">moxi_works_group_name</span>
+<span class="response-data-remarks">This is a human readable string meaningful to the agent about what kind of <span class='entity-name'>Contact</span> objects are in this <span class='entity-name'>Group</span>.</span></p>
 
       </div>
       <div class="dark-box">

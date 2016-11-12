@@ -28,19 +28,29 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h4 id="create">Create</h4>
+        <h4 id="event-create"><span class='entity-name'>Event</span> <span class='action-name'>Create</span></h4>
 
 <div class='highlight ruby'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-ruby/MoxiworksPlatform/Event.html#create-class_method'>Ruby Create Docs</a></span></blockquote></div>
 
 <div class='highlight php'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-php/classes/MoxiworksPlatform.Event.html#method_create'>PHP Create Docs</a></span></blockquote></div>
 
-<aside class="note">Send a <b>POST</b> request to https://api.moxiworks.com/api/events</aside>
-
-<p>When creating an event using the Moxi Works platform API, format your data using the following parameters.</p>
-
 <blockquote>
-<p><span class="data-example-label">Event Creation Example</span></p>
+<p><span class="data-example-label"><span class='entity-name'>Event</span> <span class='action-name'>Create</span> Example</span></p>
 </blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"moxi_works_agent_id"</span><span class="p">:</span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"partner_event_id"</span><span class="p">:</span><span class="s2">"8675309e9"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"event_subject"</span><span class="p">:</span><span class="s2">"meeting at Joe Seller's house"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"event_location"</span><span class="p">:</span><span class="s2">"1234 Joe Seller Way Sellerville, WY 82372"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"is_meeting"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"all_day"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"event_start"</span><span class="p">:</span><span class="mi">1462234227</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"event_end"</span><span class="p">:</span><span class="mi">1462241468</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"attendees"</span><span class="p">:</span><span class="s2">"contactIDForContactIAlreadyCreated,otherContactIDForContactIAlreadyCreated"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"note"</span><span class="p">:</span><span class="s2">"noteworthy stuff that's shown to the agent"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
 <pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">/api/events</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">api.moxiworks.com</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.moxi-platform+json;version=1</span>
@@ -51,7 +61,7 @@
 moxi_works_agent_id=abc123&amp;partner_event_id=abc98df345&amp;event_subject=subject&amp;
 event_location=a%20location&amp;
 is_meeting=true&amp;all_day=false&amp;event_start=1462234227&amp;event_end=1462241468&amp;
-required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
+attendees=&amp;note=here%20is%20the%20note
 
 </code></pre>
 <pre class="highlight ruby"><code><span class="c1">##### set up prerequisites once</span>
@@ -100,21 +110,98 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <span class="cp">?&gt;</span>
 </code></pre>
 
-<blockquote><div class='highlight http' style="display: block">
-<span class="data-example-label">Event Create: Success Response</span>
-(line breaks in body shown for clarity)
-</div></blockquote>
-<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
-<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json; charset=utf-8</span>
-<span class="na">X-UA-Compatible</span><span class="p">:</span> <span class="s">IE=Edge</span>
-<span class="na">ETag</span><span class="p">:</span> <span class="s">\"39e1ce76ef58ce23a7debbe5ca145715\"</span>
-<span class="na">Cache-Control</span><span class="p">:</span> <span class="s">max-age=0, private, must-revalidate</span>
-<span class="na">X-Request-Id</span><span class="p">:</span> <span class="s">232e40496ea30b9758dddf0b7ab195f2</span>
-<span class="na">X-Runtime</span><span class="p">:</span> <span class="s">13.034641</span>
-<span class="na">Connection</span><span class="p">:</span> <span class="s">close</span>
-<span class="na">Server</span><span class="p">:</span> <span class="s">thin</span>
+<h5 id="event-create-request-attributes"><span class='entity-name'>Event</span> <span class='action-name'>Create</span> Request Attributes</h5>
 
-<span class="p">{</span><span class="w">
+<aside class="note">Send a <b>POST</b> request to https://api.moxiworks.com/api/events</aside>
+
+<p>When creating an <span class='entity-name'>Event</span> using the Moxi Works platform API, format your request using the following parameters.</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Length Limit</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span class="required-data">moxi_works_agent_id</span></td>
+<td><span class="required-data"><span class="data-type">String</span></span></td>
+<td><span class="required-data">255</span></td>
+</tr>
+<tr>
+<td><span class="required-data">partner_event_id</span></td>
+<td><span class="required-data"><span class="data-type">String</span></span></td>
+<td><span class="required-data">255</span></td>
+</tr>
+<tr>
+<td><span class="required-data">event_start</span></td>
+<td><span class="required-data"><span class="data-type">Integer</span></span></td>
+<td><span class="required-data">255</span></td>
+</tr>
+<tr>
+<td><span class="required-data">event_end</span></td>
+<td><span class="required-data"><span class="data-type">Integer</span></span></td>
+<td><span class="required-data">255</span></td>
+</tr>
+<tr>
+<td><span class="optional-data">event_subject</span></td>
+<td><span class="data-type">String</span></td>
+<td>255</td>
+</tr>
+<tr>
+<td><span class="optional-data">event_location</span></td>
+<td><span class="data-type">String</span></td>
+<td>255</td>
+</tr>
+<tr>
+<td><span class="optional-data">attendees</span></td>
+<td><span class="data-type">String</span></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="optional-data">note</span></td>
+<td><span class="data-type">String</span></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<p><span class="required-data"><strong>Required Parameters Are In Red</strong></span></p>
+
+<p><span class="request-data-head">moxi_works_agent_id</span>
+<span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>Event</span> is to be associated with. This will be a string that may take the form of an email address, or a unique identifcation string. This data is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>Event</span> <span class='action-name'>Create</span>  request to be accepted.</span></p>
+
+<p><span class="request-data-head">partner_event_id</span>
+<span class="request-data-remarks">This is the unique identifer you use in your system that has been associated with the <span class='entity-name'>Event</span> that you are creating. This data is required and must be a unique key.</span></p>
+
+<p><span class="request-data-head">event_start</span>
+<span class="request-data-remarks">This is the Unix timestamp representing the start time of the <span class='entity-name'>Event</span> that you are creating. This data is required and must be a valid Unix timestamp.</span></p>
+
+<p><span class="request-data-head">event_end</span>
+<span class="request-data-remarks">This is the Unix timestamp representing the end time of the <span class='entity-name'>Event</span> that you are creating. This data is required and must be a valid Unix timestamp.</span></p>
+
+<p><span class="request-data-head">event_subject</span>
+<span class="request-data-remarks">This is a short, descriptive, human readable phrase to be displayed to the agent which lets them know what this <span class='entity-name'>Event</span> regards.</span></p>
+
+<p><span class="request-data-head">event_location</span>
+<span class="request-data-remarks">This is a human readable locatition reference regarding where the event is located that will be meaningful to the agent.</span></p>
+
+<p><span class="request-data-head">attendees</span>
+<span class="request-data-remarks">This is a comma separated list of contacts that have already been added through the Moxi Works Platform API who will be present at the referenced event. (Use IDs from your system &ndash; i.e. partner_contact_id from <a href="#create">Contact Create</a> ).</span></p>
+
+<aside class="note">Attendees must be Contacts with an associated email address. <b>Attendees added who don&rsquo;t have an email address associated will not be added to the event.</b></aside>
+
+<p><span class="request-data-head">event_location</span>
+<span class="request-data-remarks">This is a human readable details about the event that will be meaningful to the agent or any details that are not otherwise represented in the structure of the <span class='entity-name'>Event</span> object. Any HTML formatting included will be stripped from this attribute.</span></p>
+
+<h5 id="event-create-response-payload"><span class='entity-name'>Event</span> <span class='action-name'>Create</span> Response Payload</h5>
+
+<p>The following attributes make up the payload of the <span class='entity-name'>Event</span> response for a <span class='action-name'>Create</span> request.</p>
+
+<blockquote><div class='highlight json' style="display: block">
+<span class='data-example-label'><span class='entity-name'>Event</span> <span class='action-name'>Create</span> Response Payload Example
+</span></div></blockquote>
+<pre class="highlight json"><code><span class="w">
+</span><span class="p">{</span><span class="w">
   </span><span class="nt">"moxi_works_agent_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234abcd"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"partner_event_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"booyuh"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"event_subject"</span><span class="p">:</span><span class="w"> </span><span class="s2">"the subject"</span><span class="p">,</span><span class="w">
@@ -123,28 +210,16 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
   </span><span class="nt">"all_day"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="nt">"event_start"</span><span class="p">:</span><span class="w"> </span><span class="mi">1462234227</span><span class="p">,</span><span class="w">
   </span><span class="nt">"event_end"</span><span class="p">:</span><span class="w"> </span><span class="mi">1462241468</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"required_attendees"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Contact1ID, Contact2ID"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"optional_attendeeds"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Contact3ID"</span><span class="w">
-  </span><span class="s2">"note"</span><span class="err">:</span><span class="w"> </span><span class="s2">"notable stuff"</span><span class="w">
+  </span><span class="nt">"attendees"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Contact1ID, Contact2ID"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"note"</span><span class="p">:</span><span class="w"> </span><span class="s2">"notable stuff"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<blockquote><div class='highlight http' style="display: block">
-<span class="data-example-label">Event Create: Failure Response</span>
-(line breaks in body shown for clarity)
+<blockquote><div class='highlight json' style="display: block">
+  <span class='data-example-label'><span class='entity-name'>Event</span> <span class='action-name'>Create</span> Failure Response
 </div></blockquote>
-<pre class="highlight http"><code><span class="err">
-</span><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">400</span> <span class="ne">OK</span>
-<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json; charset=utf-8</span>
-<span class="na">X-UA-Compatible</span><span class="p">:</span> <span class="s">IE=Edge</span>
-<span class="na">ETag</span><span class="p">:</span> <span class="s">\"39e1ce76ef58ce23a7debbe5ca145715\"</span>
-<span class="na">Cache-Control</span><span class="p">:</span> <span class="s">max-age=0, private, must-revalidate</span>
-<span class="na">X-Request-Id</span><span class="p">:</span> <span class="s">232e40496ea30b9758dddf0b7ab195f2</span>
-<span class="na">X-Runtime</span><span class="p">:</span> <span class="s">13.034641</span>
-<span class="na">Connection</span><span class="p">:</span> <span class="s">close</span>
-<span class="na">Server</span><span class="p">:</span> <span class="s">thin</span>
-
-<span class="p">{</span><span class="w">
+<pre class="highlight json"><code><span class="w">
+</span><span class="p">{</span><span class="w">
   </span><span class="nt">"status"</span><span class="p">:</span><span class="s2">"fail"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"errorCode"</span><span class="p">:</span><span class="w"> </span><span class="err">xxx</span><span class="p">,</span><span class="w">
   </span><span class="nt">"messages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"messages"</span><span class="p">]</span><span class="w">
@@ -152,67 +227,79 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 
 </span></code></pre>
 
+<h6 id="create-response-attributes"><span class='action-name'>Create</span> Response Attributes</h6>
+
 <table><thead>
 <tr>
 <th>Attribute</th>
 <th>Type</th>
-<th>Remark</th>
-<th>Length Limit</th>
 </tr>
 </thead><tbody>
 <tr>
-<td><span class="required-data">moxi_works_agent_id</span></td>
-<td><span class="required-data"><span class="data-type">String</span></span></td>
-<td><span class="required-data"><span class="data-remarks">The agent&rsquo;s Moxi Works Platform ID</span></span></td>
-<td><span class="required-data">255</span></td>
+<td><span class="response-data">moxi_works_agent_id</span></td>
+<td><span class="response-data"><span class="data-type">String</span></span></td>
 </tr>
 <tr>
-<td><span class="required-data">partner_event_id</span></td>
-<td><span class="required-data"><span class="data-type">String</span></span></td>
-<td><span class="required-data"><span class="data-remarks">The unique ID of the event in your system</span></span></td>
-<td><span class="required-data">255</span></td>
+<td><span class="response-data">partner_event_id</span></td>
+<td><span class="response-data"><span class="data-type">String</span></td>
 </tr>
 <tr>
-<td><span class="required-data">event_start</span></td>
-<td><span class="required-data"><span class="data-type">Integer</span></span></td>
-<td><span class="required-data"><span class="data-remarks">The Unix timestamp representation of the start time.</span></span></td>
-<td><span class="required-data">255</span></td>
-</tr>
-<tr>
-<td><span class="required-data">event_end</span></td>
-<td><span class="required-data"><span class="data-type">Integer</span></span></td>
-<td><span class="required-data"><span class="data-remarks">The Unix timestamp representation of the end time.</span></span></td>
-<td><span class="required-data">255</span></td>
-</tr>
-<tr>
-<td><span class="optional-data">event_subject</span></td>
+<td><span class="response-data">event_subject</span></td>
 <td><span class="data-type">String</span></td>
-<td><span class="data-remarks">A short description of the event</span></td>
-<td>255</td>
 </tr>
 <tr>
-<td><span class="optional-data">event_location</span></td>
+<td><span class="response-data">event_location</span></td>
 <td><span class="data-type">String</span></td>
-<td><span class="data-remarks">A description of the location of the event</span></td>
-<td>255</td>
 </tr>
 <tr>
-<td><span class="optional-data">attendees</span></td>
-<td><span class="data-type">String</span></td>
-<td><span class="data-remarks">A comma separated list of contacts that have already been added through the Moxi Works Platform API whose presence at event is required. (use IDs from your system &ndash; i.e. partner_contact_id from <a href="#create">Contact Create</a> ) who are to be included as required attendees.</span></td>
-<td></td>
+<td><span class="response-data">is_meeting</span></td>
+<td><span class="data-type">Boolean</span></td>
 </tr>
 <tr>
-<td><span class="optional-data">note</span></td>
+<td><span class="response-data">all_day</span></td>
+<td><span class="data-type">Boolean</span></td>
+</tr>
+<tr>
+<td><span class="response-data">event_start</span></td>
+<td><span class="data-type">Integer</span></td>
+</tr>
+<tr>
+<td><span class="response-data">event_end</span></td>
+<td><span class="data-type">Integer</span></td>
+</tr>
+<tr>
+<td><span class="response-data">attendees</span></td>
 <td><span class="data-type">String</span></td>
-<td><span class="data-remarks">a note to be included with additional details. Any HTML formatting included will be stripped in response.</span></td>
-<td></td>
+</tr>
+<tr>
+<td><span class="response-data">note</span></td>
+<td><span class="data-type">String</span></td>
 </tr>
 </tbody></table>
 
-<p><span class="required-data"><strong>Required Parameters Are In Red</strong></span></p>
+<p><span class="response-data-head">moxi_works_agent_id</span>
+<span class="response-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>Event</span> is associated with. This will be a string that may take the form of an email address, or a unique identifcation string.</span></p>
 
-<aside class="note">Attendees must be Contacts with an associated email address. <b>Attendees added who don&rsquo;t have an email address associated will not be added to the event.</b></aside>
+<p><span class="response-data-head">partner_event_id</span>
+<span class="response-data-remarks">This is the unique identifer you use in your system that has been associated with the <span class='entity-name'>Event</span>.</span></p>
+
+<p><span class="response-data-head">event_start</span>
+<span class="response-data-remarks">This is the Unix timestamp representing the start time of the <span class='entity-name'>Event</span>. </span></p>
+
+<p><span class="response-data-head">event_end</span>
+<span class="response-data-remarks">This is the Unix timestamp representing the end time of the <span class='entity-name'>Event</span>.</span></p>
+
+<p><span class="response-data-head">event_subject</span>
+<span class="response-data-remarks">This is a short, descriptive, human readable phrase to be displayed to the agent which lets them know what this <span class='entity-name'>Event</span> regards.</span></p>
+
+<p><span class="response-data-head">event_location</span>
+<span class="response-data-remarks">This is a human readable locatition reference regarding where the event is located that will be meaningful to the agent.</span></p>
+
+<p><span class="response-data-head">attendees</span>
+<span class="response-data-remarks">This is a comma separated list of contacts that have already been added through the Moxi Works Platform API who will be present at the referenced event. (Use IDs from your system &ndash; i.e. partner_contact_id from <a href="#contact-create">Contact Create</a> ).</span></p>
+
+<p><span class="response-data-head">event_location</span>
+<span class="response-data-remarks">This is a human readable details about the event that will be meaningful to the agent or any details that are not otherwise represented in the structure of the <span class='entity-name'>Event</span> object.</span></p>
 
       </div>
       <div class="dark-box">

@@ -28,19 +28,59 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h4 id="update">Update</h4>
+        <h4 id="contact-update"><span class='entity-name'>Contact</span> <span class='action-name'>Update</span></h4>
 
 <div class='highlight ruby'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-ruby/MoxiworksPlatform/Contact.html#update-class_method'>Ruby Update Docs</a></span></blockquote></div>
 
 <div class='highlight php'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-php/classes/MoxiworksPlatform.Contact.html#method_update'>PHP Update Docs</a></span></blockquote></div>
 
-<aside class="note">Send a <b>PUT</b> request to https://api.moxiworks.com/api/contacts/[partner_contact_id]</aside>
-
-<aside class="warning">Moxi Works API will remove data for any attribute not defined within the parameters you send. For instance, if the home_street_address attribute is not passed, the current home_street_address for the contact will be removed from the contact stored in Moxi Works.</aside>
-
 <blockquote>
-<p><span class="data-example-label">Contact Update Example</span></p>
+<p><span class="data-example-label"><span class='entity-name'>Contact</span> <span class='action-name'>Update</span> Example</span></p>
 </blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+</span><span class="nt">"moxi_works_agent_id"</span><span class="p">:</span><span class="s2">"1234abcd"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"partner_contact_id"</span><span class="p">:</span><span class="s2">"booyuh"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"contact_name"</span><span class="p">:</span><span class="s2">"Firstname Middlenyme Larstnam"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"gender"</span><span class="p">:</span><span class="s2">"m"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"primary_email_address"</span><span class="p">:</span><span class="s2">"me@justabout.right.here"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"secondary_email_address"</span><span class="p">:</span><span class="s2">"me.too@justabout.right.here"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"primary_phone_number"</span><span class="p">:</span><span class="s2">"9995551212"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"secondary_phone_number"</span><span class="p">:</span><span class="s2">"(333) 555-1185"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"home_street_address"</span><span class="p">:</span><span class="s2">"1234 Sesame St."</span><span class="p">,</span><span class="w">
+</span><span class="nt">"home_city"</span><span class="p">:</span><span class="s2">"Cityville"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"home_state"</span><span class="p">:</span><span class="s2">"Stateland"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"home_zip"</span><span class="p">:</span><span class="s2">"12345-6789"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"home_country"</span><span class="p">:</span><span class="s2">"Ottoman Empire"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"job_title"</span><span class="p">:</span><span class="s2">"Junior Bacon Burner"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"occupation"</span><span class="p">:</span><span class="s2">"chef"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"property_url"</span><span class="p">:</span><span class="s2">"http://my.property.website.is/here"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"property_mls_id"</span><span class="p">:</span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"property_street_address"</span><span class="p">:</span><span class="s2">"2345 67th place"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"property_city"</span><span class="p">:</span><span class="s2">"Townland"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"property_state"</span><span class="p">:</span><span class="s2">"Statesville"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"property_zip"</span><span class="p">:</span><span class="s2">"98765-4321"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"property_beds"</span><span class="p">:</span><span class="s2">"18"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"property_baths"</span><span class="p">:</span><span class="s2">"12.5"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"property_list_price"</span><span class="p">:</span><span class="s2">"123456789"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"property_listing_status"</span><span class="p">:</span><span class="s2">"Active"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"property_photo_url"</span><span class="p">:</span><span class="s2">"http://property.photo.is/here.jpg"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"search_city"</span><span class="p">:</span><span class="s2">"Searchland"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"search_state"</span><span class="p">:</span><span class="s2">"Searchsylvania"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"search_zip"</span><span class="p">:</span><span class="s2">"12345-6789"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"search_min_beds"</span><span class="p">:</span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"search_min_baths"</span><span class="p">:</span><span class="s2">"3.25"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"search_min_price"</span><span class="p">:</span><span class="s2">"1234567"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"search_max_price"</span><span class="p">:</span><span class="s2">"1234569"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"search_min_sq_ft"</span><span class="p">:</span><span class="s2">"1234"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"search_max_sq_ft"</span><span class="p">:</span><span class="s2">"1235"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"search_min_lot_size"</span><span class="p">:</span><span class="s2">"3234"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"search_max_lot_size"</span><span class="p">:</span><span class="s2">"3235"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"search_min_year_built"</span><span class="p">:</span><span class="s2">"1388"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"search_max_year_built"</span><span class="p">:</span><span class="s2">"2044"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"search_property_types"</span><span class="p">:</span><span class="s2">"Condo, Single Family, Townhouse"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"note"</span><span class="p">:</span><span class="s2">"whatevers2009"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 <pre class="highlight http"><code><span class="nf">PUT</span> <span class="nn">/api/contacts/[partner_contact_id]</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">api.moxiworks.com</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.moxi-platform+json;version=1</span>
@@ -155,342 +195,694 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 <span class="cp">?&gt;</span>
 </code></pre>
 
-<blockquote><div class='highlight http' style="display: block">
-<span class="data-example-label">Contact Update: Success Response</span>
-(line breaks in body shown for clarity)
-</div></blockquote>
-<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
-<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json; charset=utf-8</span>
-<span class="na">X-UA-Compatible</span><span class="p">:</span> <span class="s">IE=Edge</span>
-<span class="na">ETag</span><span class="p">:</span> <span class="s">\"39e1ce76ef58ce23a7debbe5ca145715\"</span>
-<span class="na">Cache-Control</span><span class="p">:</span> <span class="s">max-age=0, private, must-revalidate</span>
-<span class="na">X-Request-Id</span><span class="p">:</span> <span class="s">232e40496ea30b9758dddf0b7ab195f2</span>
-<span class="na">X-Runtime</span><span class="p">:</span> <span class="s">13.034641</span>
-<span class="na">Connection</span><span class="p">:</span> <span class="s">close</span>
-<span class="na">Server</span><span class="p">:</span> <span class="s">thin</span>
-<span class="s">{</span>
-<span class="s">  "moxi_works_agent_id": "1234abcd",</span>
-<span class="s">  "partner_contact_id": "booyuh",</span>
-<span class="s">  "contact_name": "Firstname Middlenyme Larstnam",</span>
-<span class="s">  "gender": "m",</span>
-<span class="s">  "primary_email_address": "me@justabout.right.here",</span>
-<span class="s">  "secondary_email_address": "me.too@justabout.right.here",</span>
-<span class="s">  "primary_phone_number": "9995551212",</span>
-<span class="s">  "secondary_phone_number": "(333) 555-1185",</span>
-<span class="s">  "home_street_address": "1234 Sesame St.",</span>
-<span class="s">  "home_city": "Cityville",</span>
-<span class="s">  "home_state": "Stateland",</span>
-<span class="s">  "home_zip": "12345-6789",</span>
-<span class="s">  "home_country": "Ottoman Empire",</span>
-<span class="s">  "job_title": "Junior Bacon Burner",</span>
-<span class="s">  "occupation": "chef",</span>
-<span class="s">  "property_url": "http://my.property.website.is/here",</span>
-<span class="s">  "property_mls_id": "abc123",</span>
-<span class="s">  "property_street_address": "2345 67th place",</span>
-<span class="s">  "property_city": "Townland",</span>
-<span class="s">  "property_state": "Statesville",</span>
-<span class="s">  "property_zip": "98765-4321",</span>
-<span class="s">  "property_beds": "18",</span>
-<span class="s">  "property_baths": "12.5",</span>
-<span class="s">  "property_list_price": "123456789",</span>
-<span class="s">  "property_listing_status": "Active",</span>
-<span class="s">  "property_photo_url": "http://property.photo.is/here.jpg",</span>
-<span class="s">  "search_city": "Searchland",</span>
-<span class="s">  "search_state": "Searchsylvania",</span>
-<span class="s">  "search_zip": "12345-6789",</span>
-<span class="s">  "search_min_beds": "2",</span>
-<span class="s">  "search_min_baths": "3.25",</span>
-<span class="s">  "search_min_price": "1234567",</span>
-<span class="s">  "search_max_price": "1234569",</span>
-<span class="s">  "search_min_sq_ft": "1234",</span>
-<span class="s">  "search_max_sq_ft": "1235",</span>
-<span class="s">  "search_min_lot_size": "3234",</span>
-<span class="s">  "search_max_lot_size": "3235",</span>
-<span class="s">  "search_min_year_built": "1388",</span>
-<span class="s">  "search_max_year_built": "2044",</span>
-<span class="s">  "search_property_types": "Condo, Single Family, Townhouse",</span>
-<span class="s">  "note": "whatevers2009"</span>
-<span class="s">}</span>
-</code></pre>
+<h5 id="contact-update-request-attributes"><span class='entity-name'>Contact</span> <span class='action-name'>Update</span> Request Attributes</h5>
 
-<blockquote><div class='highlight http' style="display: block">
-<span class="data-example-label">Contact Update: Failure Response</span>
-(line breaks in body shown for clarity)
-</div></blockquote>
-<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">400</span> <span class="ne">OK</span>
-<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json; charset=utf-8</span>
-<span class="na">X-UA-Compatible</span><span class="p">:</span> <span class="s">IE=Edge</span>
-<span class="na">ETag</span><span class="p">:</span> <span class="s">\"39e1ce76ef58ce23a7debbe5ca145715\"</span>
-<span class="na">Cache-Control</span><span class="p">:</span> <span class="s">max-age=0, private, must-revalidate</span>
-<span class="na">X-Request-Id</span><span class="p">:</span> <span class="s">232e40496ea30b9758dddf0b7ab195f2</span>
-<span class="na">X-Runtime</span><span class="p">:</span> <span class="s">13.034641</span>
-<span class="na">Connection</span><span class="p">:</span> <span class="s">close</span>
-<span class="na">Server</span><span class="p">:</span> <span class="s">thin</span>
-<span class="s">{</span>
-<span class="s">  "status":"fail",</span>
-<span class="s">  "errorCode": xxx,</span>
-<span class="s">  "messages": ["messages"]</span>
-<span class="s">}</span>
+<aside class="note">Send a <b>PUT</b> request to https://api.moxiworks.com/api/contacts/[partner_contact_id]</aside>
 
-</code></pre>
+<aside class="warning">Moxi Works API will remove data for any attribute not defined within the parameters you send. For instance, if the home_street_address attribute is not passed, the current home_street_address for the contact will be removed from the contact stored in Moxi Works.</aside>
+
+<p>When updating an <span class='entity-name'>Contact</span> using the Moxi Works platform API, format your request using the following parameters.</p>
 
 <table><thead>
 <tr>
 <th>Attribute</th>
 <th>Type</th>
-<th>Remark</th>
 <th>Length Limit</th>
 </tr>
 </thead><tbody>
 <tr>
 <td><span class="required-data">moxi_works_agent_id</span></td>
 <td><span class="required-data"><span class="data-type">String</span></span></td>
-<td><span class="required-data"><span class="data-remarks">The agent&rsquo;s Moxi Works Platform ID</span></span></td>
 <td><span class="required-data">255</span></td>
 </tr>
 <tr>
 <td><span class="required-data">partner_contact_id</span></td>
 <td><span class="required-data"><span class="data-type">String</span></span></td>
-<td><span class="required-data"><span class="data-remarks">The unique ID of the contact in your system</span></span></td>
 <td><span class="required-data">255</span></td>
 </tr>
 <tr>
 <td><span class="optional-data">contact_name</span></td>
 <td><span class="data-type">String</span></td>
-<td><span class="data-remarks">The contact&rsquo;s full name</span></td>
 <td>255</td>
 </tr>
 <tr>
 <td><span class="optional-data">gender</span></td>
 <td><span class="data-type">String</span></td>
-<td><span class="data-remarks">The contact&rsquo;s gender</span></td>
 <td>255</td>
 </tr>
 <tr>
 <td><span class="optional-data">primary_email_address</span></td>
 <td><span class="data-type">String</span></td>
-<td><span class="data-remarks">The contact&rsquo;s email address that should be used first. Address must conform to <a href="https://tools.ietf.org/html/rfc3696#section-3">RFC 3696</a>.</span></td>
 <td>255</td>
 </tr>
 <tr>
 <td><span class="optional-data">secondary_email_address</span></td>
 <td><span class="data-type">String</span></td>
-<td><span class="data-remarks">The contact&rsquo;s email address that should be used as an alternate. Address must conform to <a href="https://tools.ietf.org/html/rfc3696#section-3">RFC 3696</a>.</span></td>
 <td>255</td>
 </tr>
 <tr>
 <td><span class="optional-data">primary_phone_number</span></td>
 <td><span class="data-type">String</span></td>
-<td><span class="data-remarks">The contact&rsquo;s phone number that should be used first</span></td>
 <td>255</td>
 </tr>
 <tr>
 <td><span class="optional-data">secondary_phone_number</span></td>
 <td><span class="data-type">String</span></td>
-<td><span class="data-remarks">The contact&rsquo;s phone number that should be used as an alternate</span></td>
 <td>255</td>
 </tr>
 <tr>
 <td><span class="optional-data">home_street_address</span></td>
 <td><span class="data-type">String</span></td>
-<td><span class="data-remarks">The street address of the contact&rsquo;s current home</span></td>
 <td>255</td>
 </tr>
 <tr>
 <td><span class="optional-data">home_city</span></td>
 <td><span class="data-type">String</span></td>
-<td><span class="data-remarks">The city of the contact&rsquo;s current home</span></td>
 <td>255</td>
 </tr>
 <tr>
 <td><span class="optional-data">home_state</span></td>
 <td><span class="data-type">String</span></td>
-<td><span class="data-remarks">The state or district of the contact&rsquo;s current home</span></td>
 <td>255</td>
 </tr>
 <tr>
 <td><span class="optional-data">home_zip</span></td>
 <td><span class="data-type">String</span></td>
-<td><span class="data-remarks">The zip code of the contact&rsquo;s current home</span></td>
 <td>255</td>
 </tr>
 <tr>
 <td><span class="optional-data">home_country</span></td>
 <td><span class="data-type">String</span></td>
-<td><span class="data-remarks">The country of the contact&rsquo;s current home</span></td>
 <td>255</td>
 </tr>
 <tr>
 <td><span class="optional-data">job_title</span></td>
 <td><span class="data-type">String</span></td>
-<td><span class="data-remarks">The contact&rsquo;s professional job title</span></td>
 <td>255</td>
 </tr>
 <tr>
 <td><span class="optional-data">occupation</span></td>
 <td><span class="data-type">String</span></td>
-<td><span class="data-remarks">The contact&rsquo;s professional occupation</span></td>
 <td>255</td>
 </tr>
 <tr>
 <td><span class="optional-data">property_url</span></td>
 <td><span class="data-type">String</span></td>
-<td><span class="data-remarks">URL for the given property of interest on your system</span></td>
 <td>255</td>
 </tr>
 <tr>
 <td><span class="optional-data">property_mls_id</span></td>
 <td><span class="data-type">String</span></td>
-<td><span class="data-remarks">MLS Number for the property of interest</span></td>
 <td>255</td>
 </tr>
 <tr>
 <td><span class="optional-data">property_street_address</span></td>
 <td><span class="data-type">String</span></td>
-<td><span class="data-remarks">Street address of the property of interest</span></td>
 <td>255</td>
 </tr>
 <tr>
 <td><span class="optional-data">property_city</span></td>
 <td><span class="data-type">String</span></td>
-<td><span class="data-remarks">City / Locale the property of interest is located in</span></td>
 <td>255</td>
 </tr>
 <tr>
 <td><span class="optional-data">property_state</span></td>
 <td><span class="data-type">String</span></td>
-<td><span class="data-remarks">State / Region the property of interest is located in</span></td>
 <td>255</td>
 </tr>
 <tr>
 <td><span class="optional-data">property_zip</span></td>
 <td><span class="data-type">String</span></td>
-<td><span class="data-remarks">The zip / postal code the property of interest is located in</span></td>
 <td>255</td>
 </tr>
 <tr>
 <td><span class="optional-data">property_beds</span></td>
 <td><span class="data-type">Integer</span></td>
-<td><span class="data-remarks">Number of bedrooms in the property of interest</span></td>
 <td>255</td>
 </tr>
 <tr>
 <td><span class="optional-data">property_baths</span></td>
 <td><span class="data-type">Float</span></td>
-<td><span class="data-remarks">Number of bathrooms in the property of interest</span></td>
 <td>255</td>
 </tr>
 <tr>
 <td><span class="optional-data">property_list_price</span></td>
 <td><span class="data-type">Integer</span></td>
-<td><span class="data-remarks">The list price of the property of interest</span></td>
 <td>255</td>
 </tr>
 <tr>
 <td><span class="optional-data">property_listing_status</span></td>
 <td><span class="data-type">String</span></td>
-<td><span class="data-remarks">The current listing status (i.e. Active, Pending, Sold, etc.) of the property of interest</span></td>
 <td>255</td>
 </tr>
 <tr>
 <td><span class="optional-data">property_photo_url</span></td>
 <td><span class="data-type">String</span></td>
-<td><span class="data-remarks">A URL reference to a photo of the property of interest.</span></td>
 <td>255</td>
 </tr>
 <tr>
 <td><span class="optional-data">search_city</span></td>
 <td><span class="data-type">String</span></td>
-<td><span class="data-remarks">The city / locale used by the contact in their listing search criteria </span></td>
 <td>255</td>
 </tr>
 <tr>
 <td><span class="optional-data">search_state</span></td>
 <td><span class="data-type">String</span></td>
-<td><span class="data-remarks">The state / region used by the contact in their listing search criteria</span></td>
 <td>255</td>
 </tr>
 <tr>
 <td><span class="optional-data">search_zip</span></td>
 <td><span class="data-type">String</span></td>
-<td><span class="data-remarks">The zip / postal code used by the contact in their listing search criteria</span></td>
 <td>255</td>
 </tr>
 <tr>
 <td><span class="optional-data">search_min_baths</span></td>
 <td><span class="data-type">Float</span></td>
-<td><span class="data-remarks">The minimum number of bathrooms used by the contact in their listing search criteria</span></td>
 <td>255</td>
 </tr>
 <tr>
 <td><span class="optional-data">search_min_beds</span></td>
 <td><span class="data-type">Integer</span></td>
-<td><span class="data-remarks">The minimum number of bedrooms used by the contact in their listing search criteria</span></td>
 <td>255</td>
 </tr>
 <tr>
 <td><span class="optional-data">search_min_price</span></td>
 <td><span class="data-type">Integer</span></td>
-<td><span class="data-remarks">The minimum listing price used by the contact in their listing search criteria</span></td>
 <td>255</td>
 </tr>
 <tr>
 <td><span class="optional-data">search_max_price</span></td>
 <td><span class="data-type">Integer</span></td>
-<td><span class="data-remarks">The maximum listing price used by the contact in their listing search criteria</span></td>
 <td>255</td>
 </tr>
 <tr>
 <td><span class="optional-data">search_min_sq_ft</span></td>
 <td><span class="data-type">Integer</span></td>
-<td><span class="data-remarks">The minimum property square feet used by the contact in their listing search criteria</span></td>
 <td>255</td>
 </tr>
 <tr>
 <td><span class="optional-data">search_max_sq_ft</span></td>
 <td><span class="data-type">Integer</span></td>
-<td><span class="data-remarks">The maximum property square feet used by the contact in their listing search criteria</span></td>
 <td>255</td>
 </tr>
 <tr>
 <td><span class="optional-data">search_min_lot_size</span></td>
 <td><span class="data-type">Integer</span></td>
-<td><span class="data-remarks">The minimum property lot size used by the contact in their listing search criteria</span></td>
 <td>255</td>
 </tr>
 <tr>
 <td><span class="optional-data">search_max_lot_size</span></td>
 <td><span class="data-type">Integer</span></td>
-<td><span class="data-remarks">The maximum property lot size used by the contact in their listing search criteria</span></td>
 <td>255</td>
 </tr>
 <tr>
 <td><span class="optional-data">search_min_year_built</span></td>
 <td><span class="data-type">Integer</span></td>
-<td><span class="data-remarks">The minimum year built used by the contact in their listing search critieria</span></td>
 <td>255</td>
 </tr>
 <tr>
 <td><span class="optional-data">search_max_year_built</span></td>
 <td><span class="data-type">Integer</span></td>
-<td><span class="data-remarks">The maximum year built used by the contact in their listing search criteria</span></td>
 <td>255</td>
 </tr>
 <tr>
 <td><span class="optional-data">search_property_types</span></td>
 <td><span class="data-type">String</span></td>
-<td><span class="data-remarks">The property types (i.e. &lsquo;Condo,&rsquo; &#39;Single-Family,&rsquo; etc.) used by the contact in their listing search criteria</span></td>
 <td>255</td>
 </tr>
 <tr>
 <td><span class="optional-data">note</span></td>
 <td><span class="data-type">String</span></td>
-<td><span class="data-remarks">a note to be included with additional details. Any HTML formatting included will be stripped in response.</span></td>
 <td></td>
 </tr>
 </tbody></table>
 
 <p><span class="required-data"><strong>Required Parameters Are In Red</strong></span></p>
+
+<p><span class="request-data-head">moxi_works_agent_id</span>
+<span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>Contact</span> entry is to be associated with. This will be a string that may take the form of an email address, or a unique identifcation string. This data is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>Contact</span> <span class='action-name'>Update</span>  request to be accepted.</span></p>
+
+<p><span class="request-data-head">partner_contact_id</span>
+<span class="request-data-remarks">This is the unique identifer you use in your system that has been associated with the <span class='entity-name'>Contact</span> that you are creating.</span></p>
+
+<p><span class="request-data-head">contact_name</span>
+<span class="request-data-remarks">This is the full name of the contact you are creating a <span class='entity-name'>Contact</span> record for. You should format this information as <i>first middle last</i>.</span></p>
+
+<p><span class="request-data-head">gender</span>
+<span class="request-data-remarks">The gender of the contact. This can be <code class="prettyprint">male</code>, <code class="prettyprint">female</code>, <code class="prettyprint">m</code> or <code class="prettyprint">f</code>. No matter what is provided in the request, the response payload will return <code class="prettyprint">m</code> or <code class="prettyprint">f</code>. </span></p>
+
+<p><span class="request-data-head">primary_email_address</span>
+<span class="request-data-remarks">This is the email address that should be used first. If provided, the address must conform to <a href="https://tools.ietf.org/html/rfc3696#section-3">RFC 3696</a>.</span></p>
+
+<p><span class="request-data-head">secondary_email_address</span>
+<span class="request-data-remarks">This is the email address that should be used as an alternate. If provided, the address must conform to <a href="https://tools.ietf.org/html/rfc3696#section-3">RFC 3696</a>.</span></p>
+
+<p><span class="request-data-head">home_street_address</span>
+<span class="request-data-remarks">The contact&rsquo;s home address street, including number and any suite / apartment number information. </span></p>
+
+<p><span class="request-data-head">home_city</span>
+<span class="request-data-remarks">The city of the contact&rsquo;s home address. </span></p>
+
+<p><span class="request-data-head">home_state</span>
+<span class="request-data-remarks">The state of the contact&rsquo;s home address. </span></p>
+
+<p><span class="request-data-head">home_zip</span>
+<span class="request-data-remarks">The zip code of the contact’s home address. </span></p>
+
+<p><span class="request-data-head">home_country</span>
+<span class="request-data-remarks">The country of the contact&rsquo;s home address. </span></p>
+
+<p><span class="request-data-head">job_title</span>
+<span class="request-data-remarks">The contact&rsquo;s professional job title. </span></p>
+
+<p><span class="request-data-head">occupation</span>
+<span class="request-data-remarks">The contact&rsquo;s profession. </span></p>
+
+<p><span class="request-data-head">property_url</span>
+<span class="request-data-remarks">This should be a valid URL for a property of interest in your system that can be viewed by the agent.</span></p>
+
+<p><span class="request-data-head">property_mls_id</span>
+<span class="request-data-remarks">Use this if you have data about a property that this contact has shown interest in (property of interest); this should be the MLS ID of the property of interest. </span></p>
+
+<p><span class="request-data-head">property_street_address</span>
+<span class="request-data-remarks">Use this if you have data about a property that this contact has shown interest in (property of interest); this should be the street address of the property of interest, including number and suite/apartment number information. </span></p>
+
+<p><span class="request-data-head">property_city</span>
+<span class="request-data-remarks">Use this if you have data about a property that this contact has shown interest in (property of interest); this should be the city in which the property of interest exists. </span></p>
+
+<p><span class="request-data-head">property_state</span>
+<span class="request-data-remarks">Use this if you have data about a property that this contact has shown interest in (property of interest); this should be the state or province in which the property of interest exists. </span></p>
+
+<p><span class="request-data-head">property_zip</span>
+<span class="request-data-remarks">Use this if you have data about a property that this contact has shown interest in (property of interest); this should be the postal code in which the property of interest exists. </span></p>
+
+<p><span class="request-data-head">property_beds</span>
+<span class="request-data-remarks">Use this if you have data about a property that this contact has shown interest in (property of interest); this should be the number of bedrooms in the property of interest. </span></p>
+
+<p><span class="request-data-head">property_baths</span>
+<span class="request-data-remarks">Use this if you have data about a property that this contact has shown interest in (property of interest); this should be the number of bathrooms in the property of interest. </span></p>
+
+<p><span class="request-data-head">property_list_price</span>
+<span class="request-data-remarks">Use this if you have data about a property that this contact has shown interest in (property of interest); this should be the list price of the property of interest. </span></p>
+
+<p><span class="request-data-head">property_listing_status</span>
+<span class="request-data-remarks">Use this if you have data about a property that this contact has shown interest in (property of interest); this should be the listing status of the property of interest. This can be any arbitrary string, but for best results, this should be a state like <code class="prettyprint">Active</code>, <code class="prettyprint">Pending</code>, <code class="prettyprint">Sold</code>, <code class="prettyprint">Cancelled</code> or any other human readable state that would be useful when presented to the agent.</span></p>
+
+<p><span class="request-data-head">property_photo_url</span>
+<span class="request-data-remarks">Use this if you have data about a property that this contact has shown interest in (property of interest); this should be a valid URL to an image of the property of interest. </span></p>
+
+<p><span class="request-data-head">search_city</span>
+<span class="request-data-remarks">Use this if you have data about listing searches that this contact has performed; this should be the city / locale used in the listing search criteria. </span></p>
+
+<p><span class="request-data-head">search_state</span>
+<span class="request-data-remarks">Use this if you have data about listing searches that this contact has performed; this should be the state / region used in the listing search criteria. </span></p>
+
+<p><span class="request-data-head">search_zip</span>
+<span class="request-data-remarks">Use this if you have data about listing searches that this contact has performed; this should be the zip / postal code used in the listing search criteria. </span></p>
+
+<p><span class="request-data-head">search_min_baths</span>
+<span class="request-data-remarks">Use this if you have data about listing searches that this contact has performed; this should be the minimum bathrooms used in the listing search criteria. </span></p>
+
+<p><span class="request-data-head">search_min beds</span>
+<span class="request-data-remarks">Use this if you have data about listing searches that this contact has performed; this should be the minimum bedrooms used in the listing search criteria. </span></p>
+
+<p><span class="request-data-head">search_min_price</span>
+<span class="request-data-remarks">Use this if you have data about listing searches that this contact has performed; this should be the minimum price used in the listing search criteria. </span></p>
+
+<p><span class="request-data-head">search_max_price</span>
+<span class="request-data-remarks">Use this if you have data about listing searches that this contact has performed; this should be the maximum price used in the listing search criteria. </span></p>
+
+<p><span class="request-data-head">search_min_sq_ft</span>
+<span class="request-data-remarks">Use this if you have data about listing searches that this contact has performed; this should be the minimum square feet of the total living area used in the listing search criteria. </span></p>
+
+<p><span class="request-data-head">search_max_sq_ft</span>
+<span class="request-data-remarks">Use this if you have data about listing searches that this contact has performed; this should be the maximum square feet of the total living area used in the listing search criteria. </span></p>
+
+<p><span class="request-data-head">search_min_lot_size</span>
+<span class="request-data-remarks">Use this if you have data about listing searches that this contact has performed; this should be the minimum lot size used in the listing search criteria. </span></p>
+
+<p><span class="request-data-head">search_max_lot_size</span>
+<span class="request-data-remarks">Use this if you have data about listing searches that this contact has performed; this should be the maximum lot size used in the listing search criteria. </span></p>
+
+<p><span class="request-data-head">search_min_year_built</span>
+<span class="request-data-remarks">Use this if you have data about listing searches that this contact has performed; this should be the minimum allowable year built used in the listing search criteria. </span></p>
+
+<p><span class="request-data-head">search_property_types</span>
+<span class="request-data-remarks">Use this if you have data about listing searches that this contact has performed; this should be the property types used in the listing search criteria. This can be any arbitrary human readable string, but using recognized property types such as <code class="prettyprint">Condo</code>, <code class="prettyprint">Single-Family</code>, <code class="prettyprint">Townhouse</code>, <code class="prettyprint">Land</code>, <code class="prettyprint">Multifamily</code> will provide more value to the agent. </span></p>
+
+<p><span class="request-data-head">note</span>
+<span class="request-data-remarks">This is an arbitrary string giving the agent more details about the contact which would not otherwise fit into the <span class='entity-name'>Contact</span> record. Any HTML formatting included will be stripped from the <span class='attribute-name'>note</span> attribute&rsquo;s data. </span></p>
+
+<h5 id="contact-update-response-payload"><span class='entity-name'>Contact</span> <span class='action-name'>Update</span> Response Payload</h5>
+
+<p>The following attributes make up the payload of the <span class='entity-name'>Contact</span> response for a <span class='action-name'>Update</span> request.</p>
+
+<blockquote><div class='highlight json' style="display: block">
+<span class='data-example-label'><span class='entity-name'>Contact</span> <span class='action-name'>Update</span> Response Payload Example
+</span></div></blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"moxi_works_agent_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234abcd"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"partner_contact_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"booyuh"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"contact_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Firstname Middlenyme Larstnam"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"gender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"m"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"primary_email_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"me@justabout.right.here"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"secondary_email_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"me.too@justabout.right.here"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"primary_phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9995551212"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"secondary_phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"(333) 555-1185"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"home_street_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234 Sesame St."</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"home_city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cityville"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"home_state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Stateland"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"home_zip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345-6789"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"home_country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ottoman Empire"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"job_title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Junior Bacon Burner"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"occupation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"chef"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"property_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://my.property.website.is/here"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"property_mls_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"property_street_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2345 67th place"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"property_city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Townland"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"property_state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Statesville"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"property_zip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"98765-4321"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"property_beds"</span><span class="p">:</span><span class="w"> </span><span class="s2">"18"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"property_baths"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12.5"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"property_list_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456789"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"property_listing_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Active"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"property_photo_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://property.photo.is/here.jpg"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"search_city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Searchland"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"search_state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Searchsylvania"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"search_zip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345-6789"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"search_min_beds"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"search_min_baths"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3.25"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"search_min_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234567"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"search_max_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234569"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"search_min_sq_ft"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"search_max_sq_ft"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1235"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"search_min_lot_size"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3234"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"search_max_lot_size"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3235"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"search_min_year_built"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1388"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"search_max_year_built"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2044"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"search_property_types"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Condo, Single Family, Townhouse"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"note"</span><span class="p">:</span><span class="w"> </span><span class="s2">"whatevers2009"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote><div class='highlight json' style="display: block">
+  <span class='data-example-label'><span class='entity-name'>Contact</span> <span class='action-name'>Update</span> Failure Response Example
+</div></blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"status"</span><span class="p">:</span><span class="s2">"fail"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"errorCode"</span><span class="p">:</span><span class="w"> </span><span class="err">xxx</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"messages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"messages"</span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+
+<h6 id="update-response-attributes"><span class='action-name'>Update</span> Response Attributes</h6>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span class="response-data">moxi_works_agent_id</span></td>
+<td><span class="response-data"><span class="data-type">String</span></span></td>
+</tr>
+<tr>
+<td><span class="response-data">partner_contact_id</span></td>
+<td><span class="response-data"><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">contact_name</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">gender</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">primary_email_address</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">secondary_email_address</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">primary_phone_number</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">secondary_phone_number</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">home_street_address</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">home_city</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">home_state</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">home_zip</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">home_country</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">job_title</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">occupation</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">property_url</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">property_mls_id</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">property_street_address</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">property_city</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">property_state</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">property_zip</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">property_beds</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">property_baths</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">property_list_price</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">property_listing_status</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">property_photo_url</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">search_city</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">search_state</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">search_zip</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">search_min_baths</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">search_min_beds</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">search_min_price</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">search_max_price</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">search_min_sq_ft</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">search_max_sq_ft</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">search_min_lot_size</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">search_max_lot_size</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">search_min_year_built</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">search_max_year_built</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">search_property_types</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">note</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+</tbody></table>
+
+<p><span class="response-data-head">moxi_works_agent_id</span>
+<span class="response-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span>. This will be a string that may take the form of an email address, or a unique alphanumeric identifcation string.</span></p>
+
+<p><span class="response-data-head">partner_contact_id</span>
+<span class="response-data-remarks">This is the unique identifer you use in your system that has been associated with the <span class='entity-name'>Contact</span> that you are creating.</span></p>
+
+<p><span class="response-data-head">contact_name</span>
+<span class="response-data-remarks">This is the full name of the contact you are creating a <span class='entity-name'>Contact</span> record for. You should format this information as <i>first middle last</i>. This value will be null if no data is available for this attribute. </span></p>
+
+<p><span class="response-data-head">gender</span>
+<span class="response-data-remarks">The gender of the contact. This can be <code class="prettyprint">male</code>, <code class="prettyprint">female</code>, <code class="prettyprint">m</code> or <code class="prettyprint">f</code>. No matter what is provided in the request, the response payload will return <code class="prettyprint">m</code> or <code class="prettyprint">f</code>.  This value will be null if no data is available for this attribute. </span></p>
+
+<p><span class="response-data-head">primary_email_address</span>
+<span class="response-data-remarks">This is the email address that should be used first. If provided, the address must conform to <a href="https://tools.ietf.org/html/rfc3696#section-3">RFC 3696</a>. This value will be null if no data is available for this attribute. </span></p>
+
+<p><span class="response-data-head">secondary_email_address</span>
+<span class="response-data-remarks">This is the email address that should be used as an alternate. If provided, the address must conform to <a href="https://tools.ietf.org/html/rfc3696#section-3">RFC 3696</a>. This value will be null if no data is available for this attribute. </span></p>
+
+<p><span class="response-data-head">home_street_address</span>
+<span class="response-data-remarks">The contact&rsquo;s home address street, including number and any suite / apartment number information.  This value will be null if no data is available for this attribute. </span></p>
+
+<p><span class="response-data-head">home_city</span>
+<span class="response-data-remarks">The city of the contact&rsquo;s home address. This value will be null if no data is available for this attribute.  This value will be null if no data is available for this attribute. </span></p>
+
+<p><span class="response-data-head">home_state</span>
+<span class="response-data-remarks">The state of the contact&rsquo;s home address.  This value will be null if no data is available for this attribute. </span></p>
+
+<p><span class="response-data-head">home_zip</span>
+<span class="response-data-remarks">The zip code of the contact’s home address.  This value will be null if no data is available for this attribute. </span></p>
+
+<p><span class="response-data-head">home_country</span>
+<span class="response-data-remarks">The country of the contact&rsquo;s home address.  This value will be null if no data is available for this attribute. </span></p>
+
+<p><span class="response-data-head">job_title</span>
+<span class="response-data-remarks">The contact&rsquo;s professional job title.  This value will be null if no data is available for this attribute. </span></p>
+
+<p><span class="response-data-head">occupation</span>
+<span class="response-data-remarks">The contact&rsquo;s profession.  This value will be null if no data is available for this attribute. </span></p>
+
+<p><span class="response-data-head">property_url</span>
+<span class="response-data-remarks">This will be a valid URL for a property of interest in your system that can be viewed by the agent. This value will be null if no data is available for this attribute. </span></p>
+
+<p><span class="response-data-head">property_mls_id</span>
+<span class="response-data-remarks">This will be the MLS ID of the property of interest. This value will be null if no data is available for this attribute.  </span></p>
+
+<p><span class="response-data-head">property_street_address</span>
+<span class="response-data-remarks">This will be the street address of the property of interest, including number and suite/apartment number information.  This value will be null if no data is available for this attribute. </span></p>
+
+<p><span class="response-data-head">property_city</span>
+<span class="response-data-remarks">This will be the city in which the property of interest exists.  This value will be null if no data is available for this attribute. </span></p>
+
+<p><span class="response-data-head">property_state</span>
+<span class="response-data-remarks">This will be the state or province in which the property of interest exists.  This value will be null if no data is available for this attribute. </span></p>
+
+<p><span class="response-data-head">property_zip</span>
+<span class="response-data-remarks">This will be the postal code in which the property of interest exists.  This value will be null if no data is available for this attribute. </span></p>
+
+<p><span class="response-data-head">property_beds</span>
+<span class="response-data-remarks">This will be the number of bedrooms in the property of interest.  This value will be null if no data is available for this attribute. </span></p>
+
+<p><span class="response-data-head">property_baths</span>
+<span class="response-data-remarks">This will be the number of bathrooms in the property of interest.  This value will be null if no data is available for this attribute. </span></p>
+
+<p><span class="response-data-head">property_list_price</span>
+<span class="response-data-remarks">This will be the list price of the property of interest. This value will be null if no data is available for this attribute.  </span></p>
+
+<p><span class="response-data-head">property_listing_status</span>
+<span class="response-data-remarks">This will be the listing status of the property of interest. This can be any arbitrary string, but for best results, this should be a state like <code class="prettyprint">Active</code>, <code class="prettyprint">Pending</code>, <code class="prettyprint">Sold</code>, <code class="prettyprint">Cancelled</code> or any other human readable state that would be useful when presented to the agent. This value will be null if no data is available for this attribute. </span></p>
+
+<p><span class="response-data-head">property_photo_url</span>
+<span class="response-data-remarks">This will be a valid URL to an image of the property of interest.  This value will be null if no data is available for this attribute. </span></p>
+
+<p><span class="response-data-head">search_city</span>
+<span class="response-data-remarks">This will be the city / locale used in the listing search criteria.  This value will be null if no data is available for this attribute. </span></p>
+
+<p><span class="response-data-head">search_state</span>
+<span class="response-data-remarks">This will be the state / region used in the listing search criteria.  This value will be null if no data is available for this attribute. </span></p>
+
+<p><span class="response-data-head">search_zip</span>
+<span class="response-data-remarks">This will be the zip / postal code used in the listing search criteria.  This value will be null if no data is available for this attribute. </span></p>
+
+<p><span class="response-data-head">search_min_baths</span>
+<span class="response-data-remarks">This will be the minimum bathrooms used in the listing search criteria.  This value will be null if no data is available for this attribute. </span></p>
+
+<p><span class="response-data-head">search_min beds</span>
+<span class="response-data-remarks">This will be the minimum bedrooms used in the listing search criteria.  This value will be null if no data is available for this attribute. </span></p>
+
+<p><span class="response-data-head">search_min_price</span>
+<span class="response-data-remarks">This will be the minimum price used in the listing search criteria.  This value will be null if no data is available for this attribute. </span></p>
+
+<p><span class="response-data-head">search_max_price</span>
+<span class="response-data-remarks">This will be the maximum price used in the listing search criteria.  This value will be null if no data is available for this attribute. </span></p>
+
+<p><span class="response-data-head">search_min_sq_ft</span>
+<span class="response-data-remarks">This will be the minimum square feet of the total living area used in the listing search criteria.  This value will be null if no data is available for this attribute. </span></p>
+
+<p><span class="response-data-head">search_max_sq_ft</span>
+<span class="response-data-remarks">This will be the maximum square feet of the total living area used in the listing search criteria.  This value will be null if no data is available for this attribute. </span></p>
+
+<p><span class="response-data-head">search_min_lot_size</span>
+<span class="response-data-remarks">This will be the minimum lot size used in the listing search criteria.  This value will be null if no data is available for this attribute. </span></p>
+
+<p><span class="response-data-head">search_max_lot_size</span>
+<span class="response-data-remarks">This will be the maximum lot size used in the listing search criteria.  This value will be null if no data is available for this attribute. </span></p>
+
+<p><span class="response-data-head">search_min_year_built</span>
+<span class="response-data-remarks">This will be the minimum allowable year built used in the listing search criteria.  This value will be null if no data is available for this attribute. </span></p>
+
+<p><span class="response-data-head">search_property_types</span>
+<span class="response-data-remarks">This will be the property types used in the listing search criteria. This can be any arbitrary human readable string, but using recognized property types such as <code class="prettyprint">Condo</code>, <code class="prettyprint">Single-Family</code>, <code class="prettyprint">Townhouse</code>, <code class="prettyprint">Land</code>, <code class="prettyprint">Multifamily</code> will provide more value to the agent.  This value will be null if no data is available for this attribute. </span></p>
+
+<p><span class="response-data-head">note</span>
+<span class="response-data-remarks">This is an arbitrary string giving the agent more details about the contact which would not otherwise fit into the <span class='entity-name'>Contact</span> record. Any HTML formatting included will be stripped from the <span class='attribute-name'>note</span> attribute&rsquo;s data.  This value will be null if no data is available for this attribute. </span></p>
 
       </div>
       <div class="dark-box">

@@ -28,16 +28,18 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h4 id="index">Index</h4>
+        <h4 id="company-index"><span class='entity-name'>Company</span> <span class='action-name'>Index</span></h4>
 
 <div class='highlight ruby'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-ruby/MoxiworksPlatform/Company.html#search-class_method'>Ruby Search Docs</a></span></blockquote></div>
 
 <div class='highlight php'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-php/classes/MoxiworksPlatform.Company.html#method_search'>PHP Search Docs</a></span></blockquote></div>
 
-<blockquote>
-<p><span class="data-example-label">Company Index Example</span></p>
+<aside class="note">Send a <b>GET</b> request to https://api.moxiworks.com/api/companies</aside>
 
-<p>All Companies</p>
+<p>The <span class='entity-name'>Company</span> <span class='action-name'>Index</span> endpoint will return all <span class='entity-name'>Company</span> entities your organization is associated with. When searching for <span class='entity-name'>Company</span> entities using the Moxi Works platform API, format your request using the following parameters.</p>
+
+<blockquote>
+<p><span class="data-example-label"><span class='entity-name'>Company </span><span class='action-name'>Index </span>Request Example</span></p>
 </blockquote>
 <pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/companies</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">api.moxiworks.com</span>
@@ -46,6 +48,9 @@
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/x-www-form-urlencoded</span>
 
 </code></pre>
+<pre class="highlight json"><code><span class="p">{}</span><span class="w">
+
+</span></code></pre>
 <pre class="highlight ruby"><code><span class="n">companies</span> <span class="o">=</span> <span class="no">MoxiworksPlatform</span><span class="o">::</span><span class="no">Company</span><span class="p">.</span><span class="nf">search</span>
 
 </code></pre>
@@ -54,66 +59,43 @@
 <span class="cp">?&gt;</span>
 </code></pre>
 
-<blockquote><div class='highlight http' style="display: block">
-<span class="data-example-label">Company Index: Success Response</span>
-(line breaks in body shown for clarity)
-</div></blockquote>
-<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
-<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json; charset=utf-8</span>
-<span class="na">X-UA-Compatible</span><span class="p">:</span> <span class="s">IE=Edge</span>
-<span class="na">ETag</span><span class="p">:</span> <span class="s">\"39e1ce76ef58ce23a7debbe5ca145715\"</span>
-<span class="na">Cache-Control</span><span class="p">:</span> <span class="s">max-age=0, private, must-revalidate</span>
-<span class="na">X-Request-Id</span><span class="p">:</span> <span class="s">232e40496ea30b9758dddf0b7ab195f2</span>
-<span class="na">X-Runtime</span><span class="p">:</span> <span class="s">13.034641</span>
-<span class="na">Connection</span><span class="p">:</span> <span class="s">close</span>
-<span class="na">Server</span><span class="p">:</span> <span class="s">thin</span>
+<h5 id="company-index-request-attributes"><span class='entity-name'>Company</span> <span class='action-name'>Index</span> Request Attributes</h5>
 
-<span class="p">[</span><span class="w">
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Length Limit</th>
+</tr>
+</thead><tbody>
+</tbody></table>
+
+<h5 id="company-index-response-payload"><span class='entity-name'>Company</span> <span class='action-name'>Index</span> Response Payload</h5>
+
+<p><span class='entity-name'>Company</span> <span class='action-name'>Index</span> returns an array of objects representing  companies that your organization has access to.
+The following attributes make up the payload of each <span class='entity-name'>Company</span> object returned in an <span class='action-name'>Index</span> request.</p>
+
+<blockquote><div class='highlight json' style="display: block">
+<span class='data-example-label'><span class='entity-name'>Company</span> <span class='action-name'>Index</span> Response Payload Example
+</span></div></blockquote>
+<pre class="highlight json"><code><span class="w">
+</span><span class="p">[</span><span class="w">
 </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"Bob's Brokerage"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"moxi_works_company_id"</span><span class="p">:</span><span class="s2">"bobs_brokerage"</span><span class="w">
+  </span><span class="nt">"moxi_works_company_id"</span><span class="p">:</span><span class="s2">"bobs_brokerage"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"Bob's Brokerage"</span><span class="w">
 </span><span class="p">},</span><span class="w">
 </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"Real Estate Two-Bajillion"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"moxi_works_company_id"</span><span class="p">:</span><span class="s2">"real_estate_two_bajillion"</span><span class="w">
+  </span><span class="nt">"moxi_works_company_id"</span><span class="p">:</span><span class="s2">"real_estate_two_bajillion"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"Real Estate Two-Bajillion"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 
-<blockquote><div class='highlight http' style="display: block">
-<span class="data-example-label">Company Index: Not Found Response</span>
-(line breaks in body shown for clarity)
+<blockquote><div class='highlight json' style="display: block">
+<span class="data-example-label"><span class='entity-name'>Company</span> <span class='action-name'>Index</span> Failure Response</span>
 </div></blockquote>
-<pre class="highlight http"><code><span class="err">
-</span><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
-<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json; charset=utf-8</span>
-<span class="na">X-UA-Compatible</span><span class="p">:</span> <span class="s">IE=Edge</span>
-<span class="na">ETag</span><span class="p">:</span> <span class="s">\"39e1ce76ef58ce23a7debbe5ca145715\"</span>
-<span class="na">Cache-Control</span><span class="p">:</span> <span class="s">max-age=0, private, must-revalidate</span>
-<span class="na">X-Request-Id</span><span class="p">:</span> <span class="s">232e40496ea30b9758dddf0b7ab195f2</span>
-<span class="na">X-Runtime</span><span class="p">:</span> <span class="s">13.034641</span>
-<span class="na">Connection</span><span class="p">:</span> <span class="s">close</span>
-<span class="na">Server</span><span class="p">:</span> <span class="s">thin</span>
-
-<span class="p">[]</span><span class="w">
-</span></code></pre>
-
-<blockquote><div class='highlight http' style="display: block">
-<span class="data-example-label">Agents Index: Failure Response</span>
-(line breaks in body shown for clarity)
-</div></blockquote>
-<pre class="highlight http"><code><span class="err">
-</span><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">400</span> <span class="ne">OK</span>
-<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json; charset=utf-8</span>
-<span class="na">X-UA-Compatible</span><span class="p">:</span> <span class="s">IE=Edge</span>
-<span class="na">ETag</span><span class="p">:</span> <span class="s">\"39e1ce76ef58ce23a7debbe5ca145715\"</span>
-<span class="na">Cache-Control</span><span class="p">:</span> <span class="s">max-age=0, private, must-revalidate</span>
-<span class="na">X-Request-Id</span><span class="p">:</span> <span class="s">232e40496ea30b9758dddf0b7ab195f2</span>
-<span class="na">X-Runtime</span><span class="p">:</span> <span class="s">13.034641</span>
-<span class="na">Connection</span><span class="p">:</span> <span class="s">close</span>
-<span class="na">Server</span><span class="p">:</span> <span class="s">thin</span>
-
-<span class="p">{</span><span class="w">
+<pre class="highlight json"><code><span class="w">
+</span><span class="p">{</span><span class="w">
   </span><span class="nt">"status"</span><span class="p">:</span><span class="s2">"fail"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"errorCode"</span><span class="p">:</span><span class="w"> </span><span class="err">xxx</span><span class="p">,</span><span class="w">
   </span><span class="nt">"messages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"messages"</span><span class="p">]</span><span class="w">
@@ -121,7 +103,29 @@
 
 </span></code></pre>
 
-<aside class="note">Send a <b>GET</b> request to https://api.moxiworks.com/api/companies</aside>
+<h6 id="index-response-attributes"><span class='action-name'>Index</span> Response Attributes</h6>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span class="response-data">moxi_works_company_id</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">name</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
+</tbody></table>
+
+<p><span class="response-data-head">moxi_works_company_id</span>
+<span class="response-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Company</span>. This will be an alphanumeric identifcation string which will be similar to the company name.</span></p>
+
+<p><span class="response-data-head">name</span>
+<span class="response-data-remarks">This is a human readable name of the company which this <span class='entity-name'>Company</span> object represents.</span></p>
 
       </div>
       <div class="dark-box">

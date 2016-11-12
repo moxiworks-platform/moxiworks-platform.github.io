@@ -1,17 +1,25 @@
-#### Show
+#### <span class='entity-name'>Agent</span> <span class='action-name'>Show</span>
 
 <div class='highlight ruby'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-ruby/MoxiworksPlatform/Agent.html#find-class_method'>Ruby Find Docs</a></span></blockquote></div>
 
 <div class='highlight php'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-php/classes/MoxiworksPlatform.Agent.html#method_find'>PHP Find Docs</a></span></blockquote></div>
 
-> <span class="data-example-label">Agent Show Example</span>
+> <span class="data-example-label"><span class='entity-name'>Agent</span> <span class='action-name'>Show</span> Example</span>
 
 ```http
-GET /api/agents/[moxi_works_agent_id] HTTP/1.1
+GET /api/agents/[moxi_works_agent_id]&moxi_works_company_id=[moxi_works_company_id] HTTP/1.1
 Host: api.moxiworks.com
 Accept: application/vnd.moxi-platform+json;version=1
 Authorization: Basic XNNeXAAAUZaQlF0dA==
 Content-Type: application/x-www-form-urlencoded
+
+```
+
+```json
+{
+  "moxi_works_agent_id":"abc123",
+  "moxi_works_company_id":"the_company"
+}
 
 ```
 
@@ -45,23 +53,37 @@ $moxi_works_agent = MoxiworksPlatform\Agent::find([
 ?>
 ```
 
+##### <span class='entity-name'>Agent</span> <span class='action-name'>Show</span> Request Attributes
 
-<blockquote><div class='highlight http' style="display: block">
-<span class="data-example-label">Agent Show: Success Response</span>
-(line breaks in body shown for clarity)
-</div></blockquote>
+<aside class="note">Send a <b>GET</b> request to https://api.moxiworks.com/api/agents/[moxi_works_agent_id]</aside>
 
-```http
-HTTP/1.1 200 OK
-Content-Type: application/json; charset=utf-8
-X-UA-Compatible: IE=Edge
-ETag: \"39e1ce76ef58ce23a7debbe5ca145715\"
-Cache-Control: max-age=0, private, must-revalidate
-X-Request-Id: 232e40496ea30b9758dddf0b7ab195f2
-X-Runtime: 13.034641
-Connection: close
-Server: thin
+When finding an <span class='entity-name'>Agent</span> using the Moxi Works platform API, format your request using the following parameters.
 
+Attribute | Type | Length Limit |
+-----|-----|-----|-----|
+|<span class="required-data">moxi_works_agent_id</span>|<span class="required-data"><span class="data-type">String</span></span>| <span class="required-data">255</span>
+|<span class="required-data">moxi_works_company_id</span>|<span class="required-data"><span class="data-type">String</span></span>|<span class="required-data">255<span> |
+
+<span class="required-data">**Required Parameters Are In Red**</span>
+
+
+<span class="request-data-head">moxi_works_agent_id</span>
+<span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span>. This will be a string that may take the form of an email address, or a unique identifcation string. This data is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>Agent</span> <span class='action-name'>Show</span>  request to be accepted.</span>
+
+
+<span class="request-data-head">moxi_works_company_id</span>
+<span class="request-data-remarks">A valid Moxi Works <span class='entity-name'>Company</span> ID. Use [Company Endpoint](#company) to determine what <span class='attribute-name'>moxi_works_company_id</span> you can use.</span>
+
+<aside class="note">Use <a href='#company'>Company Endpoint</a> to determine the moxi_works_company_id to send.</aside>
+
+##### <span class='entity-name'>Agent</span> <span class='action-name'>Show</span> Response Payload
+The following attributes make up the payload of the <span class='entity-name'>Agent</span> response for a <span class='action-name'>Show</span> request.
+
+<blockquote><div class='highlight json' style="display: block">
+<span class='data-example-label'><span class='entity-name'>ActionLog</span> <span class='action-name'>Index</span> Response Payload Example
+</span></div></blockquote>
+
+```json
 {
   "moxi_works_agent_id": "abc123",
   "office_address_street": "3456 Office Ln.",
@@ -76,52 +98,21 @@ Server: thin
   "office_phone_number": "(234)456-7890",
   "primary_email_address": "the_agent@agentdomain.com",
   "secondary_email_address": "the_agent_alt@otherdomain.com",
-  "title": "Broker"
+  "title": "Broker",
   "twitter": "@agentguy",
   "google_plus": "https://plus.google.com/1234567891011121314/posts",
   "facebook": "https://www.facebook.com/moxiworks/",
   "home_page": "foo.com",
   "profile_image_url": "http://picturererer.com/pics37/ImageStore.dll?id=852087C5D3A533DD&w=200",
-  "profile_thumb_url": "http://picturererer.com/pics37/ImageStore.dll?id=852087C5D3A533DD&w=75",
+  "profile_thumb_url": "http://picturererer.com/pics37/ImageStore.dll?id=852087C5D3A533DD&w=75"
 }
 ```
 
-<blockquote><div class='highlight http' style="display: block">
-<span class="data-example-label">Agent Show: Not Found Response</span>
-(line breaks in body shown for clarity)
+<blockquote><div class='highlight json' style="display: block">
+<span class="data-example-label"><span class='entity-name'>Agent</span> <span class='action-name'>Show</span>: Failure Response</span>
 </div></blockquote>
 
-```http
-
-HTTP/1.1 200 OK
-Content-Type: application/json; charset=utf-8
-X-UA-Compatible: IE=Edge
-ETag: \"39e1ce76ef58ce23a7debbe5ca145715\"
-Cache-Control: max-age=0, private, must-revalidate
-X-Request-Id: 232e40496ea30b9758dddf0b7ab195f2
-X-Runtime: 13.034641
-Connection: close
-Server: thin
-
-{}
-```
-
-<blockquote><div class='highlight http' style="display: block">
-<span class="data-example-label">Agent Show: Failure Response</span>
-(line breaks in body shown for clarity)
-</div></blockquote>
-
-```http
-
-HTTP/1.1 400 OK
-Content-Type: application/json; charset=utf-8
-X-UA-Compatible: IE=Edge
-ETag: \"39e1ce76ef58ce23a7debbe5ca145715\"
-Cache-Control: max-age=0, private, must-revalidate
-X-Request-Id: 232e40496ea30b9758dddf0b7ab195f2
-X-Runtime: 13.034641
-Connection: close
-Server: thin
+```json
 
 {
   "status":"fail",
@@ -130,16 +121,96 @@ Server: thin
 }
 
 ```
+###### <span class='action-name'>Show</span> Response Attributes
 
-<aside class="note">Send a <b>GET</b> request to https://api.moxiworks.com/api/agents/[moxi_works_agent_id]</aside>
-
-
-When showing an agent using the Moxi Works platform API, format your data using the following parameters.
-
-
-Attribute | Type| Remark | Length Limit |
+Attribute | Type |
 -----|-----|-----|-----|
-|<span class="required-data">moxi_works_agent_id</span>|<span class="required-data"><span class="data-type">String</span></span>|<span class="required-data"><span class="data-remarks">The agent's Moxi Works Platform ID</span></span>| <span class="required-data">255</span>
-|<span class="required-data">moxi_works_company_id</span>|<span class="required-data"><span class="data-type">String</span></span>|<span class="required-data"><span class="data-remarks">A valid Moxi Works Company ID. Use [Company Endpoint](#company) to determine available moxi_works_company_id </span></span> | <span class="required-data">255<span> |
+|<span class="response-data">moxi_works_agent_id</span>|<span class="data-type">String</span>|
+|<span class="response-data">office_address_street</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">office_address_city</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">office_address_state</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">office_address_zip</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">name</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">mobile_phone_number</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">alt_phone_number</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">fax_phone_number</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">main_phone_number</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">office_phone_number</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">primary_email_address</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">secondary_email_address</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">title</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">twitter</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">google_plus</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">facebook</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">home_page</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">profile_image_url</span>|<span class="data-type">String</span>|
+|<span class="response-data">profile_thumb_url</span>|<span class="data-type">String</span>|
 
-<span class="required-data">**Required Parameters Are In Red**</span>
+<span class="response-data-head">moxi_works_agent_id</span>
+<span class="response-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span>. This will be a string that may take the form of an email address, or a unique alphanumeric identifcation string.</span>
+
+<span class="response-data-head">office_address_street</span>
+<span class="response-data-remarks">The street address of the agent's office. This can be null if there is no data for this attribute.</span>
+
+<span class="response-data-head">office_address_city</span>
+<span class="response-data-remarks">The city the agent's office is in. This can be null if there is no data for this attribute.</span>
+
+<span class="response-data-head">office_address_state</span>
+<span class="response-data-remarks">The state or provice the agent's office is in. This can be null if there is no data for this attribute.</span>
+
+<span class="response-data-head">office_address_zip</span>
+<span class="response-data-remarks">The postal code the agent's office is in. This can be null if there is no data for this attribute.</span>
+
+<span class="response-data-head">name</span>
+<span class="response-data-remarks">The full name of the agent. This can be null if there is no data for this attribute.</span>
+
+<span class="response-data-head">mobile_phone_number</span>
+<span class="response-data-remarks">Mobile phone number of the agent. <span class='attribute-name'>main_phone_number</span> should be considered higher priority, if not the same. This can be null if there is no data for this attribute.</span>
+
+<span class="response-data-head">alt_phone_number</span>
+<span class="response-data-remarks">Alternate phone number for the agent. This should be considered second in priority to <span class='attribute-name'>main_phone_number</span>.  This can be null if there is no data for this attribute.</span>
+
+<span class="response-data-head">fax_phone_number</span>
+<span class="response-data-remarks">This is the agent's fax phone number.  This can be null if there is no data for this attribute.</span>
+
+<span class="response-data-head">main_phone_number</span>
+<span class="response-data-remarks">This is the agent's main phone number.  This number should be considered the number the agent would like to be contacted by. This can be null if there is no data for this attribute.</span>
+
+<span class="response-data-head">fax_phone_number</span>
+<span class="response-data-remarks">This is the agent's fax phone number.  This can be null if there is no data for this attribute.</span>
+
+<span class="response-data-head">office_phone_number</span>
+<span class="response-data-remarks">This is the agent's office phone number.  This can be null if there is no data for this attribute.</span>
+
+<span class="response-data-head">primary_email_address</span>
+<span class="response-data-remarks">This is the agent's main email address. This email address should be considered the email address the agent would prefer to be contacted by.  This can be null if there is no data for this attribute.</span>
+
+
+<span class="response-data-head">secondary_email_address</span>
+<span class="response-data-remarks">This is the agent's alternate email address. This email address should be considered the email address the agent would want to be contacted by only if the address in <span class='attribute-name'>primary_email_address</span> is not functional.  This can be null if there is no data for this attribute.</span>
+
+
+<span class="response-data-head">title</span>
+<span class="response-data-remarks">This is the business title of the agent.  This can be null if there is no data for this attribute.</span>
+
+<span class="response-data-head">twitter</span>
+<span class="response-data-remarks">Agent's twitter account name. This can be null if there is no data available for this attribute.</span>
+
+
+<span class="response-data-head">google_plus</span>
+<span class="response-data-remarks">Agent's Google Plus account name.  This can be null if there is no data for this attribute.</span>
+
+
+<span class="response-data-head">facebook</span>
+<span class="response-data-remarks">Agent's Facebook page url.  This can be null if there is no data for this attribute.</span>
+
+
+<span class="response-data-head">home_page</span>
+<span class="response-data-remarks">Agent's website domain. This will be returned without the HTTP(S) prefix. You'll need to prefix the domain with protocol if using this attribute for an href.  This can be null if there is no data for this attribute.</span>
+
+
+<span class="response-data-head">profile_image_url</span>
+<span class="response-data-remarks">This is a valid URL for a larger size image for the agent. Modify the w parameter found in the response data of this attribute if you need a different size. If no agent image has been uploaded for this agent a default image url will be provided.</span>
+
+<span class="response-data-head">profile_thumb_url</span>
+<span class="response-data-remarks">This is a valid URL for a thumbnail size image for the agent. Modify the w parameter found in the response data of this attribute if you need a different size. If no agent image has been uploaded for this agent a default image url will be provided.</span>

@@ -88,6 +88,7 @@ The following attributes make up the payload of the <span class='entity-name'>Ag
   "moxi_works_agent_id": "abc123",
   "moxi_works_office_id":"8c3f446c-aab9-11e6-9a0f-d0e1408e8026",
   "office_address_street": "3456 Office Ln.",
+  "office_address_street2":"Suite 1234",
   "office_address_city": "Officeville",
   "office_address_state": "AG",
   "office_address_zip": "12345",
@@ -129,6 +130,7 @@ Attribute | Type |
 |<span class="response-data">moxi_works_agent_id</span>|<span class="data-type">String</span>|
 |<span class="response-data">moxi_works_office_id</span>|<span class="data-type">String</span>|
 |<span class="response-data">office_address_street</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">office_address_street2</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">office_address_city</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">office_address_state</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">office_address_zip</span>|<span class="data-type">String or null</span>|
@@ -156,6 +158,10 @@ Attribute | Type |
 
 <span class="response-data-head">office_address_street</span>
 <span class="response-data-remarks">The street address of the agent's office. This can be null if there is no data for this attribute.</span>
+
+
+<span class="response-data-head">office_address_street2</span>
+<span class="response-data-remarks">The suite or office number of the agent's office. This can be null if there is no data for this attribute.</span>
 
 <span class="response-data-head">office_address_city</span>
 <span class="response-data-remarks">The city the agent's office is in. This can be null if there is no data for this attribute.</span>

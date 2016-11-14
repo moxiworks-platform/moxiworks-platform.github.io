@@ -129,6 +129,7 @@
 </span></div></blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"moxi_works_agent_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"moxi_works_office_id"</span><span class="p">:</span><span class="s2">"8c3f446c-aab9-11e6-9a0f-d0e1408e8026"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"office_address_street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3456 Office Ln."</span><span class="p">,</span><span class="w">
   </span><span class="nt">"office_address_city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Officeville"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"office_address_state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AG"</span><span class="p">,</span><span class="w">
@@ -173,6 +174,10 @@
 </thead><tbody>
 <tr>
 <td><span class="response-data">moxi_works_agent_id</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">moxi_works_office_id</span></td>
 <td><span class="data-type">String</span></td>
 </tr>
 <tr>
@@ -255,6 +260,9 @@
 
 <p><span class="response-data-head">moxi_works_agent_id</span>
 <span class="response-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span>. This will be a string that may take the form of an email address, or a unique alphanumeric identifcation string.</span></p>
+
+<p><span class="response-data-head">moxi_works_office_id</span>
+<span class="response-data-remarks">This is the Moxi Works Platform ID of the office for this <span class='entity-name'>Agent</span>. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID.</span></p>
 
 <p><span class="response-data-head">office_address_street</span>
 <span class="response-data-remarks">The street address of the agent&rsquo;s office. This can be null if there is no data for this attribute.</span></p>
@@ -458,6 +466,7 @@
 </span><span class="nt">"agents"</span><span class="p">:[</span><span class="w">
 </span><span class="p">{</span><span class="w">
   </span><span class="nt">"moxi_works_agent_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"moxi_works_office_id"</span><span class="p">:</span><span class="s2">"8c3f446c-aab9-11e6-9a0f-d0e1408e8026"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"office_address_street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3456 Office Ln."</span><span class="p">,</span><span class="w">
   </span><span class="nt">"office_address_city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Officeville"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"office_address_state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AG"</span><span class="p">,</span><span class="w">
@@ -546,6 +555,10 @@
 <td><span class="data-type">String</span></td>
 </tr>
 <tr>
+<td><span class="response-data">moxi_works_office_id</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
+<tr>
 <td><span class="response-data">office_address_street</span></td>
 <td><span class="data-type">String or null</span></td>
 </tr>
@@ -625,6 +638,9 @@
 
 <p><span class="response-data-head">moxi_works_agent_id</span>
 <span class="response-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span>. This will be a string that may take the form of an email address, or a unique alphanumeric identifcation string.</span></p>
+
+<p><span class="response-data-head">moxi_works_office_id</span>
+<span class="response-data-remarks">This is the Moxi Works Platform ID of the office for this <span class='entity-name'>Agent</span>. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID.</span></p>
 
 <p><span class="response-data-head">office_address_street</span>
 <span class="response-data-remarks">The street address of the agent&rsquo;s office. This can be null if there is no data for this attribute.</span></p>

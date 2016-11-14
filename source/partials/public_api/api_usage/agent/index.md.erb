@@ -133,6 +133,7 @@ Attribute | Type  | Length Limit |
 "agents":[
 {
   "moxi_works_agent_id": "abc123",
+  "moxi_works_office_id":"8c3f446c-aab9-11e6-9a0f-d0e1408e8026",
   "office_address_street": "3456 Office Ln.",
   "office_address_city": "Officeville",
   "office_address_state": "AG",
@@ -202,6 +203,7 @@ The <span class='attribute-name'>agents</span> array contains Dictionary objects
 Attribute | Type |
 -----|-----|-----|-----|
 |<span class="response-data">moxi_works_agent_id</span>|<span class="data-type">String</span>|
+|<span class="response-data">moxi_works_office_id</span>|<span class="data-type">String</span>|
 |<span class="response-data">office_address_street</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">office_address_city</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">office_address_state</span>|<span class="data-type">String or null</span>|
@@ -224,6 +226,10 @@ Attribute | Type |
 
 <span class="response-data-head">moxi_works_agent_id</span>
 <span class="response-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span>. This will be a string that may take the form of an email address, or a unique alphanumeric identifcation string.</span>
+
+<span class="response-data-head">moxi_works_office_id</span>
+<span class="response-data-remarks">This is the Moxi Works Platform ID of the office for this <span class='entity-name'>Agent</span>. This will be an [RFC 4122](https://tools.ietf.org/html/rfc4122) compliant UUID.</span>
+
 
 <span class="response-data-head">office_address_street</span>
 <span class="response-data-remarks">The street address of the agent's office. This can be null if there is no data for this attribute.</span>

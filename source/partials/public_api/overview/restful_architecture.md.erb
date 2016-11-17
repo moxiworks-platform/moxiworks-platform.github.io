@@ -1,18 +1,10 @@
 ### RESTful Architecture
 
-```apires
-Resources:
-
-/contacts
-/events
-/tasks
-```
-
 The response payload is JSON encoded object(s) with defined structure which reflects a data model.
 
 <aside class="notice">Some of the data returned by the Moxi Works API is user-generated content. Ensure that the response payload content is consumed safely to avoid introducing vulnerabilities in your application.</aside>
 
-URL structure follows typical resource-oriented conventions. For example, to get a list of contacts, use `GET https://api.moxiworks.com/contacts`. 
-This will return a list of Contact objects, where each Contact will have an "id" attribute. 
-To get details on a particular contact, use `GET https://api.moxiworks.com/contacts/123456`, where 123456 is the "id" of the Contact you want. 
+URL structure follows typical resource-oriented conventions. For example, to get a list of contacts, use `GET https://api.moxiworks.com/contacts`.
+This will return a list of Contact objects, where each Contact will have an "id" attribute.
+To get details on a particular contact, use `GET https://api.moxiworks.com/contacts/123456`, where 123456 is the "id" of the Contact you want.
 Similarly, to create a Contact, `POST` a Contact object to `https://api.moxiworks.com/contacts/`.

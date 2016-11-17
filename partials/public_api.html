@@ -6813,6 +6813,99 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <p><span class="response-data-head">CreatedDate</span>
 <span class="response-data-remarks">This is a string representing a date on which the <span class='entity-name'>Listing</span> object was created. The string format is <code class="prettyprint">MM/DD/YYYY</code>.</span></p>
 
+<p><span class="response-data-head">ElementarySchool</span>
+<span class="response-data-remarks">The elementary school for the property.</span></p>
+
+<p><span class="response-data-head">GarageSpaces</span>
+<span class="response-data-remarks">The number of garage spaces that are available at the property.</span></p>
+
+<p><span class="response-data-head">WaterfrontYN</span>
+<span class="response-data-remarks">Whether the property is waterfront.</span></p>
+
+<p><span class="response-data-head">HighSchool</span>
+<span class="response-data-remarks">The high school for the property.</span></p>
+
+<p><span class="response-data-head">AssociationFee</span>
+<span class="response-data-remarks">The home owner&rsquo;s association fee for the property.</span></p>
+
+<p><span class="response-data-head">ListOfficeName</span>
+<span class="response-data-remarks">The name of the listing office.</span></p>
+
+<p><span class="response-data-head">ListPrice</span>
+<span class="response-data-remarks">The listed price for the listing.</span></p>
+
+<p><span class="response-data-head">ListingID</span>
+<span class="response-data-remarks">The MLS number for the listing.</span></p>
+
+<p><span class="response-data-head">ListAgentFullName</span>
+<span class="response-data-remarks">The name of the listing agent.</span></p>
+
+<p><span class="response-data-head">ListAgentUUID</span>
+<span class="response-data-remarks">A unique identifier for the listing agent. This will correspond to the uuid field of an <span class='entity-name'>Agent</span>.</span></p>
+
+<p><span class="response-data-head">Address</span>
+<span class="response-data-remarks">The street address of the property.</span></p>
+
+<p><span class="response-data-head">Address2</span>
+<span class="response-data-remarks">Additional street address information, for example, suite number.</span></p>
+
+<p><span class="response-data-head">City</span>
+<span class="response-data-remarks">City or township the property is located in.</span></p>
+
+<p><span class="response-data-head">State</span>
+<span class="response-data-remarks">State or province the property is located in.</span></p>
+
+<p><span class="response-data-head">PostalCode</span>
+<span class="response-data-remarks">The zip code or postal code the property is located in.</span></p>
+
+<p><span class="response-data-head">LotSizeSquareFeet</span>
+<span class="response-data-remarks">Total area of the lot.</span></p>
+
+<p><span class="response-data-head">InternetEntireListingDisplayYN</span>
+<span class="response-data-remarks">Whether to display information about this listing publicly. If this is false, then the information about this listing should not be visible to the Internet. </span></p>
+
+<p><span class="response-data-head">MiddleOrJuniorSchool</span>
+<span class="response-data-remarks">The middle school for the property.</span></p>
+
+<p><span class="response-data-head">ListOfficeAOR</span>
+<span class="response-data-remarks">The name of the MLS which this listing is listed with.</span></p>
+
+<p><span class="response-data-head">PoolYN</span>
+<span class="response-data-remarks">Whether the property has a pool.</span></p>
+
+<p><span class="response-data-head">PropertyType</span>
+<span class="response-data-remarks">The type of property being listed. This can be one of <code class="prettyprint">Residential</code>, <code class="prettyprint">Condo-Coop</code>, <code class="prettyprint">Townhouse</code>, <code class="prettyprint">Land</code>, <code class="prettyprint">Multifamily</code> </span></p>
+
+<p><span class="response-data-head">TaxAnnualAmount</span>
+<span class="response-data-remarks">The total annual property tax.</span></p>
+
+<p><span class="response-data-head">TaxYear</span>
+<span class="response-data-remarks">The tax year that the property tax in <span class='attribute-name'>TaxAnnualAmount</span> was assessed.</span></p>
+
+<p><span class="response-data-head">SingleStory</span>
+<span class="response-data-remarks">Whether the building has one story or is multi-story.</span></p>
+
+<p><span class="response-data-head">LivingArea</span>
+<span class="response-data-remarks">Total square footage of the building(s) on the property.</span></p>
+
+<p><span class="response-data-head">Title</span>
+<span class="response-data-remarks">A short description of the property.</span></p>
+
+<p><span class="response-data-head">ViewYN</span>
+<span class="response-data-remarks">Whether the property has a view.</span></p>
+
+<p><span class="response-data-head">YearBuilt</span>
+<span class="response-data-remarks">The year the living building(s) on the property were built.</span></p>
+
+<p><span class="response-data-head">OnMarket</span>
+<span class="response-data-remarks">Whether the listing is currently on-market.</span></p>
+
+<p><span class="response-data-head">MoxiWorksListingID</span>
+<span class="response-data-remarks">The unique Identifier for the listing in The Moxi Works Platform.</span></p>
+
+<p><span class="response-data-head">ListingImages</span>
+<span class="response-data-remarks">Any images of the property.</span></p>
+
 <h6 id="listingimages-objects"><span class='attribute-name'>ListingImages</span> Objects</h6>
 
 <p>Each object in the <span class='attribute-name'>ListingImages</span> array will have the following structure.</p>
@@ -7276,7 +7369,7 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <td><span class="response-data"><span class="data-type">Integer or Null</span></td>
 </tr>
 <tr>
-<td><span class="response-data">InternetEntireListingdisplayYN</span></td>
+<td><span class="response-data">InternetEntireListingDisplayYN</span></td>
 <td><span class="response-data"><span class="data-type">Boolean</span></td>
 </tr>
 <tr>
@@ -7377,6 +7470,96 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 
 <p><span class="response-data-head">CreatedDate</span>
 <span class="response-data-remarks">This is a string representing a date on which the <span class='entity-name'>Listing</span> object was created. The string format is <code class="prettyprint">MM/DD/YYYY</code>.</span></p>
+
+<p><span class="response-data-head">ElementarySchool</span>
+<span class="response-data-remarks">The elementary school for the property.</span></p>
+
+<p><span class="response-data-head">GarageSpaces</span>
+<span class="response-data-remarks">The number of garage spaces that are available at the property.</span></p>
+
+<p><span class="response-data-head">WaterfrontYN</span>
+<span class="response-data-remarks">Whether the property is waterfront.</span></p>
+
+<p><span class="response-data-head">HighSchool</span>
+<span class="response-data-remarks">The high school for the property.</span></p>
+
+<p><span class="response-data-head">AssociationFee</span>
+<span class="response-data-remarks">The home owner&rsquo;s association fee for the property.</span></p>
+
+<p><span class="response-data-head">ListOfficeName</span>
+<span class="response-data-remarks">The name of the listing office.</span></p>
+
+<p><span class="response-data-head">ListPrice</span>
+<span class="response-data-remarks">The listed price for the listing.</span></p>
+
+<p><span class="response-data-head">ListingID</span>
+<span class="response-data-remarks">The MLS number for the listing.</span></p>
+
+<p><span class="response-data-head">ListAgentFullName</span>
+<span class="response-data-remarks">The name of the listing agent.</span></p>
+
+<p><span class="response-data-head">Address</span>
+<span class="response-data-remarks">The street address of the property.</span></p>
+
+<p><span class="response-data-head">Address2</span>
+<span class="response-data-remarks">Additional street address information, for example, suite number.</span></p>
+
+<p><span class="response-data-head">City</span>
+<span class="response-data-remarks">City or township the property is located in.</span></p>
+
+<p><span class="response-data-head">State</span>
+<span class="response-data-remarks">State or province the property is located in.</span></p>
+
+<p><span class="response-data-head">PostalCode</span>
+<span class="response-data-remarks">The zip code or postal code the property is located in.</span></p>
+
+<p><span class="response-data-head">LotSizeSquareFeet</span>
+<span class="response-data-remarks">Total area of the lot.</span></p>
+
+<p><span class="response-data-head">InternetEntireListingDisplayYN</span>
+<span class="response-data-remarks">Whether to display information about this listing publicly. If this is false, then the information about this listing should not be visible to the Internet. </span></p>
+
+<p><span class="response-data-head">MiddleOrJuniorSchool</span>
+<span class="response-data-remarks">The middle school for the property.</span></p>
+
+<p><span class="response-data-head">ListOfficeAOR</span>
+<span class="response-data-remarks">The name of the MLS which this listing is listed with.</span></p>
+
+<p><span class="response-data-head">PoolYN</span>
+<span class="response-data-remarks">Whether the property has a pool.</span></p>
+
+<p><span class="response-data-head">PropertyType</span>
+<span class="response-data-remarks">The type of property being listed. This can be one of <code class="prettyprint">Residential</code>, <code class="prettyprint">Condo-Coop</code>, <code class="prettyprint">Townhouse</code>, <code class="prettyprint">Land</code>, <code class="prettyprint">Multifamily</code> </span></p>
+
+<p><span class="response-data-head">TaxAnnualAmount</span>
+<span class="response-data-remarks">The total annual property tax.</span></p>
+
+<p><span class="response-data-head">TaxYear</span>
+<span class="response-data-remarks">The tax year that the property tax in <span class='attribute-name'>TaxAnnualAmount</span> was assessed.</span></p>
+
+<p><span class="response-data-head">SingleStory</span>
+<span class="response-data-remarks">Whether the building has one story or is multi-story.</span></p>
+
+<p><span class="response-data-head">LivingArea</span>
+<span class="response-data-remarks">Total square footage of the building(s) on the property.</span></p>
+
+<p><span class="response-data-head">Title</span>
+<span class="response-data-remarks">A short description of the property.</span></p>
+
+<p><span class="response-data-head">ViewYN</span>
+<span class="response-data-remarks">Whether the property has a view.</span></p>
+
+<p><span class="response-data-head">YearBuilt</span>
+<span class="response-data-remarks">The year the living building(s) on the property were built.</span></p>
+
+<p><span class="response-data-head">OnMarket</span>
+<span class="response-data-remarks">Whether the listing is currently on-market.</span></p>
+
+<p><span class="response-data-head">MoxiWorksListingID</span>
+<span class="response-data-remarks">The unique Identifier for the listing in The Moxi Works Platform.</span></p>
+
+<p><span class="response-data-head">ListingImages</span>
+<span class="response-data-remarks">Any images of the property.</span></p>
 
 <h6 id="listingimages-objects"><span class='attribute-name'>ListingImages</span> Objects</h6>
 

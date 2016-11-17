@@ -192,6 +192,7 @@ Attribute | Type | Length Limit |
   "ListPrice":599000,
   "ListingID":"12323",
   "ListAgentFullName":"Bob Agentson",
+  "ListAgentUUID":"8675309e9-1234-dead-beef-deadbeefdead",
   "Address":"97 Hilltop Road",
   "Address2":null,
   "City":"Montecarlo",
@@ -288,6 +289,7 @@ Attribute | Type |
 |<span class="response-data">ListPrice</span>|<span class="response-data"><span class="data-type">Integer or null</span>
 |<span class="response-data">ListingID</span>|<span class="response-data"><span class="data-type">String</span>
 |<span class="response-data">ListAgentFullName</span>|<span class="response-data"><span class="data-type">String</span>
+|<span class="response-data">ListAgentUUID</span>|<span class="response-data"><span class="data-type">String</span>
 |<span class="response-data">Address</span>|<span class="response-data"><span class="data-type">String or null</span>
 |<span class="response-data">Address2</span>|<span class="response-data"><span class="data-type">String or null</span>
 |<span class="response-data">City</span>|<span class="response-data"><span class="data-type">String or null</span>
@@ -297,7 +299,7 @@ Attribute | Type |
 |<span class="response-data">StateOrProvince</span>|<span class="response-data"><span class="data-type">String or null</span>
 |<span class="response-data">PostalCode</span>|<span class="response-data"><span class="data-type">String or null</span>
 |<span class="response-data">LotSizeSquareFeet</span>|<span class="response-data"><span class="data-type">Integer or Null</span>
-|<span class="response-data">InternetEntireListingDisplayYN</span>|<span class="response-data"><span class="data-type">Boolean</span>
+|<span class="response-data">InternetEntireListingdisplayYN</span>|<span class="response-data"><span class="data-type">Boolean</span>
 |<span class="response-data">MiddleOrJuniorSchool</span>|<span class="response-data"><span class="data-type">String or null</span>
 |<span class="response-data">ListOfficeAOR</span>|<span class="response-data"><span class="data-type">String or null</span>
 |<span class="response-data">PoolYN</span>|<span class="response-data"><span class="data-type">Boolean or null</span>
@@ -400,6 +402,9 @@ Attribute | Type |
 <span class="response-data-head">ListAgentFullName</span>
 <span class="response-data-remarks">The name of the listing agent.</span>
 
+
+<span class="response-data-head">ListAgentUUID</span>
+<span class="response-data-remarks">A unique identifier for the listing agent. This will correspond to the uuid field of an <span class='entity-name'>Agent</span>.</span>
 
 
 <span class="response-data-head">Address</span>

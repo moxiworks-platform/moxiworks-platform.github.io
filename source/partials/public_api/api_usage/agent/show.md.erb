@@ -101,6 +101,7 @@ The following attributes make up the payload of the <span class='entity-name'>Ag
   "primary_email_address": "the_agent@agentdomain.com",
   "secondary_email_address": "the_agent_alt@otherdomain.com",
   "title": "Broker",
+  "uuid":"8675309e9-1234-dead-beef-deadbeefdead",
   "twitter": "@agentguy",
   "google_plus": "https://plus.google.com/1234567891011121314/posts",
   "facebook": "https://www.facebook.com/moxiworks/",
@@ -143,6 +144,7 @@ Attribute | Type |
 |<span class="response-data">primary_email_address</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">secondary_email_address</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">title</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">uuid</span>|<span class="data-type">String</span>|
 |<span class="response-data">twitter</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">google_plus</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">facebook</span>|<span class="data-type">String or null</span>|
@@ -203,6 +205,10 @@ Attribute | Type |
 
 <span class="response-data-head">title</span>
 <span class="response-data-remarks">This is the business title of the agent.  This can be null if there is no data for this attribute.</span>
+
+<span class="response-data-head">uuid</span>
+<span class="response-data-remarks">This is  an [RFC 4122](https://tools.ietf.org/html/rfc4122) compliant UUID associated with the agent. This UUID can be used as a unique identifier in determining associations between  <span class='entity-name'>Agent</span> objects and  <span class='entity-name'>Listing</span> objects.</span>
+
 
 <span class="response-data-head">twitter</span>
 <span class="response-data-remarks">Agent's twitter account name. This can be null if there is no data available for this attribute.</span>

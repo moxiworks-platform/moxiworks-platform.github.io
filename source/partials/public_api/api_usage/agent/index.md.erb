@@ -161,18 +161,6 @@ Attribute | Type  | Length Limit |
 ```
 
 <blockquote><div class='highlight json' style="display: block">
-<span class="data-example-label">Agent Index: Not Found Response</span>
-</div></blockquote>
-
-```json
-{
-"page_number":1,
-"total_pages":0,
-"agents": []
-}
-```
-
-<blockquote><div class='highlight json' style="display: block">
 <span class="data-example-label">Agent Index: Failure Response</span>
 </div> See <a href='#error-handling'>Error Handling</a> for details about individual error codes.</blockquote>
 
@@ -185,12 +173,7 @@ Attribute | Type  | Length Limit |
 
 ```
 
-<span class='entity-name'>Agent</span>  <span class='action-name'>Index</span> responses are divided into pages of up to 100  <span class='entity-name'>Agent</span> objects. Use response payload attributes <span class='attribute-name'>total_pages</span> and <span class='attribute-name'>page_number</span> to determine how many pages of  <span class='entity-name'>Agent</span> objects there are and whether additional pages need to be requested.
-
-<div class='highlight ruby'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-ruby/MoxiworksPlatform/Agent.html#search-class_method'>Ruby Search Docs</a></span></blockquote></div>
-
-<div class='highlight php'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-php/classes/MoxiworksPlatform.Agent.html#method_search'>PHP Search Docs</a></span></blockquote></div>
-
+<span class='entity-name'>Agent</span>  <span class='action-name'>Index</span> responses are divided into pages of  <span class='entity-name'>Agent</span> objects. Use response payload attributes <span class='attribute-name'>total_pages</span> and <span class='attribute-name'>page_number</span> to determine how many pages of  <span class='entity-name'>Agent</span> objects there are and whether additional pages need to be requested.
 
 Attribute | Type |
 -----|-----|-----|-----|

@@ -81,7 +81,9 @@ $moxi_works_task = MoxiworksPlatform\Task::update([
 <aside class="note">Send a <b>PUT</b> request to https://api.moxiworks.com/api/tasks/[partner_task_id]</aside>
 
 
-<aside class="warning">Moxi Works API will remove data for any attribute not defined within the parameters you send. For instance, if the home_street_address attribute is not passed, the current home_street_address for the contact will be removed from the contact stored in Moxi Works.</aside>
+<aside class="warning">Moxi Works API will remove data for any attribute not defined within the parameters you send. For instance, if the <span class='entity-name'>name</span> attribute is not passed, the current <span class='attribute-name'>name</span> value for the <span class='entity-name'>Task</span> will be removed from the <span class='entity-name'>Task</span> stored in Moxi Works.</aside>
+
+
 
 
 When updating an task using the Moxi Works platform API, format your data using the following parameters.

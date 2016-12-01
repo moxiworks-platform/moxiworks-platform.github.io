@@ -1,0 +1,26 @@
+### <span class='entity-name'>SellerTransaction</span>
+
+Moxi Works Platform <span class='entity-name'>SellerTransaction</span> entities represent seller-side transactions that agents are working on.
+
+###### <span class='entity-name'>SellerTransaction</span> Stages
+
+Each <span class='entity-name'>SellerTransaction</span> passes through five stages. Each stage represents a different stage in the transaction lifecycle. Every <span class='entity-name'>SellerTransaction</span> response will include the current stage of the <span class='entity-name'>SellerTransaction</span> both in its numeric form as well as a human readable string representation.  As the transaction progresses through its lifecycle, you can promote it to the next stage.    See <a href='#promoting-sellertransaction-stage'>Promoting <span class='entity-name'>SellerTransaction</span> Stage</a> for information about promoting a <span class='entity-name'>SellerTransaction</span> object to the next stage. Use the table below to determine the mapping between the integer represended in <span class='attribute-name'>stage</span> and its human readable counterpart.</span>
+
+
+stage | stage_name | description |
+-----|-----|-----|-----|
+1 | initialized | This is an empty <span class='entity-name'>SellerTransaction</span> already associated with a <span class='entity-name'>Contact</span> and is ready to be configured  |
+2 | configured | This is an inactive <span class='entity-name'>SellerTransaction</span> that has been configured. This <span class='entity-name'>SellerTransaction</span> is not actively being worked on. |
+3 | active | This is a configured and active <span class='entity-name'>SellerTransaction</span>. The agent is actively working on this transaction.
+4 | pending | This is an active <span class='entity-name'>SellerTransaction</span> that is in a `pending` state. |
+5 | complete | This is a <span class='entity-name'>SellerTransaction</span> which has been completed. |
+
+
+
+<%= partial "partials/public_api/api_usage/seller_transaction/create.md.erb" %>
+
+<%= partial "partials/public_api/api_usage/seller_transaction/update.md.erb" %>
+
+<%= partial "partials/public_api/api_usage/seller_transaction/show.md.erb" %>
+
+<%= partial "partials/public_api/api_usage/seller_transaction/index.md.erb" %>

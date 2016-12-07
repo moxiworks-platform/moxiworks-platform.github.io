@@ -136,14 +136,15 @@
   </span><span class="nt">"office_address_state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AG"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"office_address_zip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Buckminster Fuller"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"main_phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"555) 9101112"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"mobile_phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"555 333 4567"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"alt_phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"(555) 567-8910"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"fax_phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5557891011"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"main_phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"555) 9101112"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"office_phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"(234)456-7890"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"primary_email_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"the_agent@agentdomain.com"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"secondary_email_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"the_agent_alt@otherdomain.com"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Broker"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"uuid"</span><span class="p">:</span><span class="s2">"8675309e9-1234-dead-beef-deadbeefdead"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"twitter"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@agentguy"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"google_plus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://plus.google.com/1234567891011121314/posts"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"facebook"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.facebook.com/moxiworks/"</span><span class="p">,</span><span class="w">
@@ -155,7 +156,7 @@
 
 <blockquote><div class='highlight json' style="display: block">
 <span class="data-example-label"><span class='entity-name'>Agent</span> <span class='action-name'>Show</span>: Failure Response</span>
-</div></blockquote>
+</div> See <a href='#error-handling'>Error Handling</a> for details about individual error codes.</blockquote>
 <pre class="highlight json"><code><span class="w">
 </span><span class="p">{</span><span class="w">
   </span><span class="nt">"status"</span><span class="p">:</span><span class="s2">"fail"</span><span class="p">,</span><span class="w">
@@ -206,6 +207,10 @@
 <td><span class="data-type">String or null</span></td>
 </tr>
 <tr>
+<td><span class="response-data">main_phone_number</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
 <td><span class="response-data">mobile_phone_number</span></td>
 <td><span class="data-type">String or null</span></td>
 </tr>
@@ -215,10 +220,6 @@
 </tr>
 <tr>
 <td><span class="response-data">fax_phone_number</span></td>
-<td><span class="data-type">String or null</span></td>
-</tr>
-<tr>
-<td><span class="response-data">main_phone_number</span></td>
 <td><span class="data-type">String or null</span></td>
 </tr>
 <tr>
@@ -236,6 +237,10 @@
 <tr>
 <td><span class="response-data">title</span></td>
 <td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">uuid</span></td>
+<td><span class="data-type">String</span></td>
 </tr>
 <tr>
 <td><span class="response-data">twitter</span></td>
@@ -314,8 +319,11 @@
 <p><span class="response-data-head">title</span>
 <span class="response-data-remarks">This is the business title of the agent.  This can be null if there is no data for this attribute.</span></p>
 
+<p><span class="response-data-head">uuid</span>
+<span class="response-data-remarks">This is  an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID associated with the agent. This UUID can be used as a unique identifier in determining associations between  <span class='entity-name'>Agent</span> objects and  <span class='entity-name'>Listing</span> objects.</span></p>
+
 <p><span class="response-data-head">twitter</span>
-<span class="response-data-remarks">Agent&rsquo;s twitter account name. This can be null if there is no data available for this attribute.</span></p>
+<span class="response-data-remarks">Agent&rsquo;s Twitter account name. This can be null if there is no data available for this attribute.</span></p>
 
 <p><span class="response-data-head">google_plus</span>
 <span class="response-data-remarks">Agent&rsquo;s Google Plus account name.  This can be null if there is no data for this attribute.</span></p>
@@ -327,10 +335,10 @@
 <span class="response-data-remarks">Agent&rsquo;s website domain. This will be returned without the HTTP(S) prefix. You&rsquo;ll need to prefix the domain with protocol if using this attribute for an href.  This can be null if there is no data for this attribute.</span></p>
 
 <p><span class="response-data-head">profile_image_url</span>
-<span class="response-data-remarks">This is a valid URL for a larger size image for the agent. Modify the w parameter found in the response data of this attribute if you need a different size. If no agent image has been uploaded for this agent a default image url will be provided.</span></p>
+<span class="response-data-remarks">This is a valid URL for a larger size image for the agent.  If no agent image has been uploaded for this agent a default image url will be provided.</span></p>
 
 <p><span class="response-data-head">profile_thumb_url</span>
-<span class="response-data-remarks">This is a valid URL for a thumbnail size image for the agent. Modify the w parameter found in the response data of this attribute if you need a different size. If no agent image has been uploaded for this agent a default image url will be provided.</span></p>
+<span class="response-data-remarks">This is a valid URL for a thumbnail size image for the agent.  If no agent image has been uploaded for this agent a default image url will be provided.</span></p>
 
 
 <h4 id="agent-index"><span class='entity-name'>Agent</span> <span class='action-name'>Index</span></h4>
@@ -481,14 +489,15 @@
   </span><span class="nt">"office_address_state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AG"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"office_address_zip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Buckminster Fuller"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"main_phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"555) 9101112"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"mobile_phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"555 333 4567"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"alt_phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"(555) 567-8910"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"fax_phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5557891011"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"main_phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"555) 9101112"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"office_phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"(234)456-7890"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"primary_email_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"the_agent@agentdomain.com"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"secondary_email_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"the_agent_alt@otherdomain.com"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Broker"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"uuid"</span><span class="p">:</span><span class="s2">"8675309e9-1234-dead-beef-deadbeefdead"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"twitter"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@agentguy"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"google_plus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://plus.google.com/1234567891011121314/posts"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"facebook"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.facebook.com/moxiworks/"</span><span class="p">,</span><span class="w">
@@ -501,19 +510,8 @@
 </span></code></pre>
 
 <blockquote><div class='highlight json' style="display: block">
-<span class="data-example-label">Agent Index: Not Found Response</span>
-</div></blockquote>
-
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-</span><span class="nt">"page_number"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-</span><span class="nt">"total_pages"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
-</span><span class="nt">"agents"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-
-<blockquote><div class='highlight json' style="display: block">
 <span class="data-example-label">Agent Index: Failure Response</span>
-</div></blockquote>
+</div> See <a href='#error-handling'>Error Handling</a> for details about individual error codes.</blockquote>
 
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"status"</span><span class="p">:</span><span class="s2">"fail"</span><span class="p">,</span><span class="w">
@@ -523,11 +521,7 @@
 
 </span></code></pre>
 
-<p><span class='entity-name'>Agent</span>  <span class='action-name'>Index</span> responses are divided into pages of up to 100  <span class='entity-name'>Agent</span> objects. Use response payload attributes <span class='attribute-name'>total_pages</span> and <span class='attribute-name'>page_number</span> to determine how many pages of  <span class='entity-name'>Agent</span> objects there are and whether additional pages need to be requested.</p>
-
-<div class='highlight ruby'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-ruby/MoxiworksPlatform/Agent.html#search-class_method'>Ruby Search Docs</a></span></blockquote></div>
-
-<div class='highlight php'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-php/classes/MoxiworksPlatform.Agent.html#method_search'>PHP Search Docs</a></span></blockquote></div>
+<p><span class='entity-name'>Agent</span>  <span class='action-name'>Index</span> responses are divided into pages of  <span class='entity-name'>Agent</span> objects. Use response payload attributes <span class='attribute-name'>total_pages</span> and <span class='attribute-name'>page_number</span> to determine how many pages of  <span class='entity-name'>Agent</span> objects there are and whether additional pages need to be requested.</p>
 
 <table><thead>
 <tr>
@@ -592,6 +586,10 @@
 <td><span class="data-type">String or null</span></td>
 </tr>
 <tr>
+<td><span class="response-data">main_phone_number</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
 <td><span class="response-data">mobile_phone_number</span></td>
 <td><span class="data-type">String or null</span></td>
 </tr>
@@ -601,10 +599,6 @@
 </tr>
 <tr>
 <td><span class="response-data">fax_phone_number</span></td>
-<td><span class="data-type">String or null</span></td>
-</tr>
-<tr>
-<td><span class="response-data">main_phone_number</span></td>
 <td><span class="data-type">String or null</span></td>
 </tr>
 <tr>
@@ -622,6 +616,10 @@
 <tr>
 <td><span class="response-data">title</span></td>
 <td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">uuid</span></td>
+<td><span class="data-type">String</span></td>
 </tr>
 <tr>
 <td><span class="response-data">twitter</span></td>
@@ -700,8 +698,11 @@
 <p><span class="response-data-head">title</span>
 <span class="response-data-remarks">This is the business title of the agent.  This can be null if there is no data for this attribute.</span></p>
 
+<p><span class="response-data-head">uuid</span>
+<span class="response-data-remarks">This is  an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID associated with the agent. This UUID can be used as a unique identifier in determining associations between  <span class='entity-name'>Agent</span> objects and  <span class='entity-name'>Listing</span> objects.</span></p>
+
 <p><span class="response-data-head">twitter</span>
-<span class="response-data-remarks">Agent&rsquo;s twitter account name. This can be null if there is no data available for this attribute.</span></p>
+<span class="response-data-remarks">Agent&rsquo;s Twitter account name. This can be null if there is no data available for this attribute.</span></p>
 
 <p><span class="response-data-head">google_plus</span>
 <span class="response-data-remarks">Agent&rsquo;s Google Plus account name.  This can be null if there is no data for this attribute.</span></p>
@@ -713,10 +714,10 @@
 <span class="response-data-remarks">Agent&rsquo;s website domain. This will be returned without the HTTP(S) prefix. You&rsquo;ll need to prefix the domain with protocol if using this attribute for an href.  This can be null if there is no data for this attribute.</span></p>
 
 <p><span class="response-data-head">profile_image_url</span>
-<span class="response-data-remarks">This is a valid URL for a larger size image for the agent. Modify the w parameter found in the response data of this attribute if you need a different size. If no agent image has been uploaded for this agent a default image url will be provided.</span></p>
+<span class="response-data-remarks">This is a valid URL for a larger size image for the agent.  If no agent image has been uploaded for this agent a default image url will be provided.</span></p>
 
 <p><span class="response-data-head">profile_thumb_url</span>
-<span class="response-data-remarks">This is a valid URL for a thumbnail size image for the agent. Modify the w parameter found in the response data of this attribute if you need a different size. If no agent image has been uploaded for this agent a default image url will be provided.</span></p>
+<span class="response-data-remarks">This is a valid URL for a thumbnail size image for the agent. If no agent image has been uploaded for this agent a default image url will be provided.</span></p>
 
       </div>
       <div class="dark-box">

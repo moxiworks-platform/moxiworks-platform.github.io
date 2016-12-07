@@ -195,7 +195,7 @@ moxi_works_agent_id=abc123&amp;description=talk+to+private+kane,%2C+e-one-thousa
 
 <blockquote><div class='highlight json' style="display: block">
   <span class='data-example-label'><span class='entity-name'>Task</span> <span class='action-name'>Create</span> Failure Response Example
-</div></blockquote>
+</div> See <a href='#error-handling'>Error Handling</a> for details about individual error codes.</blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"status"</span><span class="p">:</span><span class="s2">"fail"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"errorCode"</span><span class="p">:</span><span class="w"> </span><span class="err">xxx</span><span class="p">,</span><span class="w">
@@ -355,7 +355,7 @@ moxi_works_agent_id=abc123&amp;description=talk+to+private+kane,%2C+e-one-thousa
 
 <aside class="note">Send a <b>PUT</b> request to https://api.moxiworks.com/api/tasks/[partner_task_id]</aside>
 
-<aside class="warning">Moxi Works API will remove data for any attribute not defined within the parameters you send. For instance, if the home_street_address attribute is not passed, the current home_street_address for the contact will be removed from the contact stored in Moxi Works.</aside>
+<aside class="warning">Moxi Works API will remove data for any attribute not defined within the parameters you send. For instance, if the <span class='entity-name'>name</span> attribute is not passed, the current <span class='attribute-name'>name</span> value for the <span class='entity-name'>Task</span> will be removed from the <span class='entity-name'>Task</span> stored in Moxi Works.</aside>
 
 <p>When updating an task using the Moxi Works platform API, format your data using the following parameters.</p>
 
@@ -447,7 +447,7 @@ moxi_works_agent_id=abc123&amp;description=talk+to+private+kane,%2C+e-one-thousa
 
 <blockquote><div class='highlight json' style="display: block">
   <span class='data-example-label'><span class='entity-name'>Task</span> <span class='action-name'>Create</span> Failure Response Example
-</div></blockquote>
+</div> See <a href='#error-handling'>Error Handling</a> for details about individual error codes.</blockquote>
 <pre class="highlight json"><code><span class="w">
 </span><span class="p">{</span><span class="w">
   </span><span class="nt">"status"</span><span class="p">:</span><span class="s2">"fail"</span><span class="p">,</span><span class="w">
@@ -636,7 +636,7 @@ moxi_works_agent_id=abc123&amp;description=talk+to+private+kane,%2C+e-one-thousa
 
 <blockquote><div class='highlight json' style="display: block">
   <span class='data-example-label'><span class='entity-name'>Task</span> <span class='action-name'>Show</span> Failure Response Example
-</div></blockquote>
+</div> See <a href='#error-handling'>Error Handling</a> for details about individual error codes.</blockquote>
 <pre class="highlight json"><code><span class="w">
 </span><span class="p">{</span><span class="w">
   </span><span class="nt">"status"</span><span class="p">:</span><span class="s2">"fail"</span><span class="p">,</span><span class="w">
@@ -950,7 +950,7 @@ moxi_works_agent_id=abc123&amp;description=talk+to+private+kane,%2C+e-one-thousa
 
 <blockquote><div class='highlight json' style="display: block">
   <span class='data-example-label'><span class='entity-name'>Task</span> <span class='action-name'>Index</span> Failure Response Example
-</div></blockquote>
+</div> See <a href='#error-handling'>Error Handling</a> for details about individual error codes.</blockquote>
 
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"status"</span><span class="p">:</span><span class="s2">"fail"</span><span class="p">,</span><span class="w">

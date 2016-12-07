@@ -112,7 +112,7 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 
 <aside class="note">Send a <b>PUT</b> request to https://api.moxiworks.com/api/events/[partner_event_id]</aside>
 
-<aside class="warning">Moxi Works API will remove data for any attribute not defined within the parameters you send. For instance, if the home_street_address attribute is not passed, the current home_street_address for the contact will be removed from the contact stored in Moxi Works.</aside>
+<aside class="warning">Moxi Works API will remove data for any attribute not defined within the parameters you send. For instance, if the <span class='entity-name'>note</span> attribute is not passed, the current <span class='attribute-name'>note</span> value for the <span class='entity-name'>Event</span> will be removed from the <span class='entity-name'>Event</span> stored in Moxi Works.</aside>
 
 <p>When creating an <span class='entity-name'>Event</span> using the Moxi Works platform API, format your request using the following parameters.</p>
 
@@ -219,7 +219,7 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 
 <blockquote><div class='highlight json' style="display: block">
   <span class='data-example-label'><span class='entity-name'>Event</span> <span class='action-name'>Update</span> Failure Response
-</div></blockquote>
+</div> See <a href='#error-handling'>Error Handling</a> for details about individual error codes.</blockquote>
 <pre class="highlight json"><code><span class="w">
 </span><span class="p">{</span><span class="w">
   </span><span class="nt">"status"</span><span class="p">:</span><span class="s2">"fail"</span><span class="p">,</span><span class="w">

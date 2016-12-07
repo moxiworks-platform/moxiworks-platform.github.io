@@ -144,6 +144,7 @@
 </span><span class="nt">"contacts"</span><span class="p">:[{</span><span class="w">
   </span><span class="nt">"moxi_works_agent_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234abcd"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"partner_contact_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"booyuh"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"moxi_works_contact_id"</span><span class="p">:</span><span class="s2">"deadbeef-feed-face-2bad4daddead"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"contact_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"buckminster fuller"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"gender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"m"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"primary_email_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"me@justabout.right.here"</span><span class="p">,</span><span class="w">
@@ -186,6 +187,7 @@
 </span><span class="p">{</span><span class="w">
   </span><span class="nt">"moxi_works_agent_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234abcd"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"partner_contact_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fooyuh"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"moxi_works_contact_id"</span><span class="p">:</span><span class="s2">"deadbeef-feed-face-2baddadbdead"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"contact_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"buckminster fuller"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"gender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"m"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"primary_email_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"whatever@whatevers.right.here"</span><span class="p">,</span><span class="w">
@@ -230,7 +232,7 @@
 
 <blockquote><div class='highlight json' style="display: block">
 <span class="data-example-label">Contact Index: Failure Response</span>
-</div></blockquote>
+</div> See <a href='#error-handling'>Error Handling</a> for details about individual error codes.</blockquote>
 <pre class="highlight json"><code><span class="w">
 </span><span class="p">{</span><span class="w">
   </span><span class="nt">"status"</span><span class="p">:</span><span class="s2">"fail"</span><span class="p">,</span><span class="w">
@@ -271,9 +273,9 @@
 <span class="request-data-remarks">If there is more than one page of <span class='entity-name'>Contact</span> objects to return, <span class='attribute-name'>total_pages</span> will denote how many pages of <span class='entity-name'>Contact</span> objects there are to be returned fo the current query. Subsequent pages can be returned by including the <span class='attribute-name'>page_number</span> parameter in your API request.</span></p>
 
 <p><span class="request-data-head">contacts</span>
-<span class="request-data-remarks">This array contains the payload from the request query. Any found Contacts matching the query will be returned as <span class='entity-name'>Contact</span> objects in the response. </span></p>
+<span class="request-data-remarks">This array contains the payload from the request query. Any found <span class='entity-name'>Contact</span> objects matching the query will be returned as <span class='entity-name'>Contact</span> objects in the response. </span></p>
 
-<h6 id="contacts-object"><span class='attribute-name'>contacts</span> Object</h6>
+<h6 id="contacts-contact-objects"><span class='attribute-name'>contacts</span> <span class='entity-name'>Contact</span>  Objects</h6>
 
 <table><thead>
 <tr>
@@ -288,6 +290,10 @@
 <tr>
 <td><span class="response-data">partner_contact_id</span></td>
 <td><span class="response-data"><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">moxi_works_contact_id</span></td>
+<td><span class="data-type">String</span></td>
 </tr>
 <tr>
 <td><span class="response-data">contact_name</span></td>
@@ -452,6 +458,9 @@
 
 <p><span class="response-data-head">partner_contact_id</span>
 <span class="response-data-remarks">This is the unique identifer you use in your system that has been associated with the <span class='entity-name'>Contact</span> that you are creating.</span></p>
+
+<p><span class="response-data-head">moxi_works_contact_id</span>
+<span class="response-data-remarks">This is the Moxi Works Platform ID of this <span class='entity-name'>Contact</span>. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID.</span></p>
 
 <p><span class="response-data-head">contact_name</span>
 <span class="response-data-remarks">This is the full name of the contact you are creating a <span class='entity-name'>Contact</span> record for. You should format this information as <i>first middle last</i>. This value will be null if no data is available for this attribute. </span></p>

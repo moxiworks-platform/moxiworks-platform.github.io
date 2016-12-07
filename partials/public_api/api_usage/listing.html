@@ -149,6 +149,7 @@
   </span><span class="nt">"ListPrice"</span><span class="p">:</span><span class="mi">599000</span><span class="p">,</span><span class="w">
   </span><span class="nt">"ListingID"</span><span class="p">:</span><span class="s2">"12323"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"ListAgentFullName"</span><span class="p">:</span><span class="s2">"Bob Agentson"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ListAgentUUID"</span><span class="p">:</span><span class="s2">"8675309e9-1234-dead-beef-deadbeefdead"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"Address"</span><span class="p">:</span><span class="s2">"97 Hilltop Road"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"Address2"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"City"</span><span class="p">:</span><span class="s2">"Montecarlo"</span><span class="p">,</span><span class="w">
@@ -185,7 +186,7 @@
 
 <blockquote><div class='highlight json' style="display: block">
   <span class='data-example-label'><span class='entity-name'>Listing</span> <span class='action-name'>Show</span> Failure Response Example
-</div></blockquote>
+</div> See <a href='#error-handling'>Error Handling</a> for details about individual error codes.</blockquote>
 <pre class="highlight json"><code><span class="w">
 
 </span><span class="p">{</span><span class="w">
@@ -303,6 +304,10 @@
 <td><span class="response-data"><span class="data-type">String</span></td>
 </tr>
 <tr>
+<td><span class="response-data">ListAgentUUID</span></td>
+<td><span class="response-data"><span class="data-type">String</span></td>
+</tr>
+<tr>
 <td><span class="response-data">Address</span></td>
 <td><span class="response-data"><span class="data-type">String or null</span></td>
 </tr>
@@ -339,7 +344,7 @@
 <td><span class="response-data"><span class="data-type">Integer or Null</span></td>
 </tr>
 <tr>
-<td><span class="response-data">InternetEntireListingdisplayYN</span></td>
+<td><span class="response-data">InternetEntireListingDisplayYN</span></td>
 <td><span class="response-data"><span class="data-type">Boolean</span></td>
 </tr>
 <tr>
@@ -391,7 +396,7 @@
 <td><span class="response-data"><span class="data-type">String or null</span></td>
 </tr>
 <tr>
-<td><span class="response-data">LisingImages</span></td>
+<td><span class="response-data">ListingImages</span></td>
 <td><span class="response-data"><span class="data-type">Array</span></td>
 </tr>
 </tbody></table>
@@ -467,6 +472,9 @@
 
 <p><span class="response-data-head">ListAgentFullName</span>
 <span class="response-data-remarks">The name of the listing agent.</span></p>
+
+<p><span class="response-data-head">ListAgentUUID</span>
+<span class="response-data-remarks">A unique identifier for the listing agent. This will correspond to the uuid field of an <span class='entity-name'>Agent</span>.</span></p>
 
 <p><span class="response-data-head">Address</span>
 <span class="response-data-remarks">The street address of the property.</span></p>
@@ -776,6 +784,7 @@
   </span><span class="nt">"ListPrice"</span><span class="p">:</span><span class="mi">599000</span><span class="p">,</span><span class="w">
   </span><span class="nt">"ListingID"</span><span class="p">:</span><span class="s2">"12323"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"ListAgentFullName"</span><span class="p">:</span><span class="s2">"Bob Agentson"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ListAgentUUID"</span><span class="p">:</span><span class="s2">"8675309e9-1234-dead-beef-deadbeefdead"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"Address"</span><span class="p">:</span><span class="s2">"97 Hilltop Road"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"Address2"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"City"</span><span class="p">:</span><span class="s2">"Montecarlo"</span><span class="p">,</span><span class="w">
@@ -814,7 +823,7 @@
 
 <blockquote><div class='highlight json' style="display: block">
   <span class='data-example-label'><span class='entity-name'>Listing</span> <span class='action-name'>Index</span> Failure Response Example
-</div></blockquote>
+</div> See <a href='#error-handling'>Error Handling</a> for details about individual error codes.</blockquote>
 
 <pre class="highlight json"><code><span class="w">
 </span><span class="p">{</span><span class="w">
@@ -955,6 +964,10 @@
 </tr>
 <tr>
 <td><span class="response-data">ListAgentFullName</span></td>
+<td><span class="response-data"><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">ListAgentUUID</span></td>
 <td><span class="response-data"><span class="data-type">String</span></td>
 </tr>
 <tr>
@@ -1122,6 +1135,9 @@
 
 <p><span class="response-data-head">ListAgentFullName</span>
 <span class="response-data-remarks">The name of the listing agent.</span></p>
+
+<p><span class="response-data-head">ListAgentUUID</span>
+<span class="response-data-remarks">A unique identifier for the listing agent. This will correspond to the uuid field of an <span class='entity-name'>Agent</span>.</span></p>
 
 <p><span class="response-data-head">Address</span>
 <span class="response-data-remarks">The street address of the property.</span></p>

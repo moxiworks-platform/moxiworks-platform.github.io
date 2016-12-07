@@ -328,9 +328,8 @@ Attribute | Type | Length Limit |
 
 <aside class="note"><span class='attribute-name'>mls_number</span> should be populated only if <span class='attribute-name'>is_mls_transaction</span> is true.</aside>
 
-
 <span class="request-data-head">start_timestamp</span>
-<span class="request-data-remarks">This indicates the date that the property search is to begin.</span>
+<span class="request-data-remarks">For non-MLS transactions, this is the Unix timestamp representing the date that the agent initiated transaction discussions with the client. This should be `null` if the <span class='entity-name'>BuyerTransaction</span> is an MLS sale.</span>
 
 <aside class="note"><span class='attribute-name'>start_timestamp</span> should be populated only if <span class='attribute-name'>is_mls_transaction</span> is <span class='attribute-value'>false</span>.</aside>
 
@@ -522,8 +521,7 @@ Attribute | Type |
 <span class="response-data-remarks">If this is an MLS transaction, then this is the MLS number for the <span class='entity-name'>BuyerTransaction</span>.</span>
 
 <span class="response-data-head">start_timestamp</span>
-<span class="response-data-remarks">For non-MLS transactions, this is the Unix timestamp representing the date that the property search began. This should be `null` if the <span class='entity-name'>BuyerTransaction</span> is an MLS sale.</span>
-
+<span class="response-data-remarks">For non-MLS transactions, this is the Unix timestamp representing the date that the agent initiated transaction discussions with the client. This should be `null` if the <span class='entity-name'>BuyerTransaction</span> is an MLS sale.</span>
 
 <span class="response-data-head">commission_percentage</span>
 <span class="response-data-remarks">If the agent is to receive commission based on percentage of purchase price for the transaction associated with this <span class='entity-name'>BuyerTransaction</span>, then this will represent the commission that the agent is to receive.This should be `null` if the <span class='entity-name'>BuyerTransaction</span> uses <span class='attribute-name'>commission_flat_fee</span>.</span>

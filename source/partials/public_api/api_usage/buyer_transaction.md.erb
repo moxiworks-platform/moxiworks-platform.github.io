@@ -15,7 +15,7 @@ stage | stage_name | description |
 4 | pending | This is an active <span class='entity-name'>BuyerTransaction</span> that is in a `pending` state. |
 5 | complete | This is a <span class='entity-name'>BuyerTransaction</span> which has been completed. |
 
-
+<aside class="note"><span class='attribute-name'>stage</span> `1` (`initialized`)  Transaction records may be promoted to either <span class='entity-name'>BuyerTransaction</span> records or <span class='entity-name'>SellerTransaction</span> records once they are promoted to <span class='attribute-name'>stage</span> `2` (`configured`) . </aside>
 
 <%= partial "partials/public_api/api_usage/buyer_transaction/create.md.erb" %>
 

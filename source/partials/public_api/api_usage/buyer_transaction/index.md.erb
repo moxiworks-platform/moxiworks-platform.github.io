@@ -146,6 +146,9 @@ Attribute | Type | Length Limit |
 <span class="request-data-remarks">This is the unique identifer you use in your system that has been associated with the <span class='entity-name'>Contact</span> you want to find <span class='entity-name'>BuyerTransaction</span> objects for. You can use either <span class='attribute-name'>moxi_works_contact_id</span> or <span class='action-name'>partner_contact_id</span> when searching for <span class='entity-name'>BuyerTransaction</span> objects associated with a specific <span class='entity-name'>Contact</span>.</span>
 
 
+<span class="request-data-head">include_unconfigured</span>
+<span class="request-data-remarks">Whether to include Transactions that are not configured.  </span>
+
 <span class="request-data-head">page_number</span>
 <span class="request-data-remarks">Page of <span class='entity-name'>BuyerTransaction</span> records to return. Use if `total_pages` indicates that there is more than one page of data available.</span>
 
@@ -336,8 +339,7 @@ Attribute | Type |
 <span class="response-data-remarks">If this is an MLS transaction, then this is the MLS number for the <span class='entity-name'>BuyerTransaction</span>.</span>
 
 <span class="response-data-head">start_timestamp</span>
-<span class="response-data-remarks">For non-MLS transactions, this is the Unix timestamp representing the date that the property search began. This should be `null` if the <span class='entity-name'>BuyerTransaction</span> is an MLS sale.</span>
-
+<span class="response-data-remarks">For non-MLS transactions, this is the Unix timestamp representing the date that the agent initiated transaction discussions with the client. This should be `null` if the <span class='entity-name'>BuyerTransaction</span> is an MLS sale.</span>
 
 <span class="response-data-head">commission_percentage</span>
 <span class="response-data-remarks">If the agent is to receive commission based on percentage of purchase price for the transaction associated with this <span class='entity-name'>BuyerTransaction</span>, then this will represent the commission that the agent is to receive.This should be `null` if the <span class='entity-name'>BuyerTransaction</span> uses <span class='attribute-name'>commission_flat_fee</span>.</span>

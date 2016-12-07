@@ -326,8 +326,8 @@ Attribute | Type | Length Limit |
 <aside class="note"><span class='attribute-name'>mls_number</span> should be populated only if <span class='attribute-name'>is_mls_transaction</span> is true.</aside>
 
 
-<span class="request-data-head">start_timestamp</span>
-<span class="request-data-remarks">This indicates the date that the property search is to begin.</span>
+<span class="response-data-head">start_timestamp</span>
+<span class="response-data-remarks">For non-MLS transactions, this is the Unix timestamp representing the date that the agent initiated transaction discussions with the client. This should be `null` if the <span class='entity-name'>BuyerTransaction</span> is an MLS sale.</span>
 
 <aside class="note"><span class='attribute-name'>start_timestamp</span> should be populated only if <span class='attribute-name'>is_mls_transaction</span> is <span class='attribute-value'>false</span>.</aside>
 

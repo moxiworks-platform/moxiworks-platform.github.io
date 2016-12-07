@@ -192,7 +192,7 @@ $moxi_works_transaction = MoxiworksPlatform\SellerTransaction::create([
       "sqft" => 2345,
       "beds" => 12,
       "baths" => 34.5,
-      "is_mls_transaction" => true,
+      "is_mls_transaction" => false,
       "start_timestamp" => 1480536319,
       "commission_flat_fee" => 12345,
       "min_price" => 292929,
@@ -259,16 +259,18 @@ Attribute | Type | Length Limit |
 <span class="request-data-remarks">Brief, human readable content that will be shown to the agent as notes about the <span class='entity-name'>SellerTransaction</span> that you are creating.</span>
 
 <span class="request-data-head">address</span>
-<span class="request-data-remarks">The street address for the property being sold.</span>
+<span class="request-data-remarks">The street address for the property being sold.  This should be populated only if the <span class='entity-name'>SellerTransaction</span> is not an MLS sale.</span>
 
 <span class="request-data-head">city</span>
-<span class="request-data-remarks">The city or township of the property being sold.</span>
+<span class="request-data-remarks">The city or township of the property being sold. This should be populated only if the <span class='entity-name'>SellerTransaction</span> is not an MLS sale.</span>
 
 <span class="request-data-head">state</span>
-<span class="request-data-remarks">The state or province of the property being sold.</span>
+<span class="request-data-remarks">The state or province of the property being sold. This should be populated only if the <span class='entity-name'>SellerTransaction</span> is not an MLS sale.</span>
 
 <span class="request-data-head">zip_code</span>
-<span class="request-data-remarks">The postal code of the property being sold.</span>
+<span class="request-data-remarks">The postal code of the property being sold. This should be populated only if the <span class='entity-name'>SellerTransaction</span> is not an MLS sale.</span>
+
+<aside class="note">Address attributes <span class='attribute-name'>address</span>, <span class='attribute-name'>city</span>, <span class='attribute-name'>state</span> or <span class='attribute-name'>zip_code</span> should be populated only if <span class='attribute-name'>is_mls_transaction</span> is not <tt>true</tt>.</aside>
 
 <span class="request-data-head">sqft</span>
 <span class="request-data-remarks">The living area of the property being sold.</span>
@@ -289,7 +291,7 @@ Attribute | Type | Length Limit |
 
 
 <span class="request-data-head">start_timestamp</span>
-<span class="request-data-remarks">This indicates the date that the property is to be put on sale.</span>
+<span class="request-data-remarks">For non-MLS transactions, this is the Unix timestamp representing the date that the agent initiated transaction discussions with the client. This should be `null` if the <span class='entity-name'>SellerTransaction</span> is an MLS sale.</span>
 
 <aside class="note"><span class='attribute-name'>start_timestamp</span> should be populated only if <span class='attribute-name'>is_mls_transaction</span> is <span class='attribute-value'>false</span>.</aside>
 
@@ -426,16 +428,18 @@ Attribute | Type |
 
 
 <span class="response-data-head">address</span>
-<span class="response-data-remarks">The street address for the property being sold.</span>
+<span class="response-data-remarks">The street address for the property being sold. This should be `null` if the <span class='entity-name'>SellerTransaction</span> is an MLS sale.</span>
 
 <span class="response-data-head">city</span>
-<span class="response-data-remarks">The city or township of the property being sold.</span>
+<span class="response-data-remarks">The city or township of the property being sold. This should be `null` if the <span class='entity-name'>SellerTransaction</span> is an MLS sale.</span>
 
 <span class="response-data-head">state</span>
-<span class="response-data-remarks">The state or province of the property being sold.</span>
+<span class="response-data-remarks">The state or province of the property being sold. This should be `null` if the <span class='entity-name'>SellerTransaction</span> is an MLS sale.</span>
 
 <span class="response-data-head">zip_code</span>
-<span class="response-data-remarks">The postal code of the property being sold.</span>
+<span class="response-data-remarks">The postal code of the property being sold. This should be `null` if the <span class='entity-name'>SellerTransaction</span> is an MLS sale.</span>
+
+<aside class="note">Address attributes <span class='attribute-name'>address</span>, <span class='attribute-name'>city</span>, <span class='attribute-name'>state</span> or <span class='attribute-name'>zip_code</span> should be populated only if <span class='attribute-name'>is_mls_transaction</span> is not <tt>true</tt>.</aside>
 
 <span class="response-data-head">sqft</span>
 <span class="response-data-remarks">The living area of the property being sold.</span>
@@ -453,7 +457,7 @@ Attribute | Type |
 <span class="response-data-remarks">If this is an MLS sale, then this is the MLS number for the <span class='entity-name'>SellerTransaction</span>.</span>
 
 <span class="response-data-head">start_timestamp</span>
-<span class="response-data-remarks">For non-MLS transactions, this is the Unix timestamp representing the date the property associated with the<span class='entity-name'>SellerTransaction</span> was put up for sale. This should be `null` if the <span class='entity-name'>SellerTransaction</span> is an MLS sale.</span>
+<span class="response-data-remarks">For non-MLS transactions, this is the Unix timestamp representing the date that the agent initiated transaction discussions with the client. This should be `null` if the <span class='entity-name'>SellerTransaction</span> is an MLS sale.</span>
 
 
 <span class="response-data-head">commission_percentage</span>

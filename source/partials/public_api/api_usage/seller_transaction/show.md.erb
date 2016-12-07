@@ -245,16 +245,18 @@ Attribute | Type |
 
 
 <span class="response-data-head">address</span>
-<span class="response-data-remarks">The street address for the property being sold.</span>
+<span class="response-data-remarks">The street address for the property being sold.  This should be `null` if the <span class='entity-name'>SellerTransaction</span> is an MLS sale.</span>
 
 <span class="response-data-head">city</span>
-<span class="response-data-remarks">The city or township of the property being sold.</span>
+<span class="response-data-remarks">The city or township of the property being sold.  This should be `null` if the <span class='entity-name'>SellerTransaction</span> is an MLS sale.</span>
 
 <span class="response-data-head">state</span>
-<span class="response-data-remarks">The state or province of the property being sold.</span>
+<span class="response-data-remarks">The state or province of the property being sold.  This should be `null` if the <span class='entity-name'>SellerTransaction</span> is an MLS sale.</span>
 
 <span class="response-data-head">zip_code</span>
-<span class="response-data-remarks">The postal code of the property being sold.</span>
+<span class="response-data-remarks">The postal code of the property being sold.  This should be `null` if the <span class='entity-name'>SellerTransaction</span> is an MLS sale.</span>
+
+<aside class="note">Address attributes <span class='attribute-name'>address</span>, <span class='attribute-name'>city</span>, <span class='attribute-name'>state</span> or <span class='attribute-name'>zip_code</span> should be populated only if <span class='attribute-name'>is_mls_transaction</span> is <tt>false</tt>.</aside>
 
 <span class="response-data-head">sqft</span>
 <span class="response-data-remarks">The living area of the property being sold.</span>
@@ -272,8 +274,7 @@ Attribute | Type |
 <span class="response-data-remarks">If this is an MLS sale, then this is the MLS number for the <span class='entity-name'>SellerTransaction</span>.</span>
 
 <span class="response-data-head">start_timestamp</span>
-<span class="response-data-remarks">For non-MLS transactions, this is the Unix timestamp representing the date the property associated with the<span class='entity-name'>SellerTransaction</span> was put up for sale. This should be `null` if the <span class='entity-name'>SellerTransaction</span> is an MLS sale.</span>
-
+<span class="response-data-remarks">For non-MLS transactions, this is the Unix timestamp representing the date that the agent initiated transaction discussions with the client. This should be `null` if the <span class='entity-name'>SellerTransaction</span> is an MLS sale.</span>
 
 <span class="response-data-head">commission_percentage</span>
 <span class="response-data-remarks">If the agent is to receive commission based on percentage of sale price for the property associated with this <span class='entity-name'>SellerTransaction</span>, then this will represent the commission that the agent is to receive.This should be `null` if the <span class='entity-name'>SellerTransaction</span> uses <span class='attribute-name'>commission_flat_fee</span>.</span>

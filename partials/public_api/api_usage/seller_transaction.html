@@ -1652,7 +1652,7 @@ moxi_works_agent_id=abc123
 <p><span class="response-data-head">zip_code</span>
 <span class="response-data-remarks">The postal code of the property being sold.  This should be <code class="prettyprint">null</code> if the <span class='entity-name'>SellerTransaction</span> is an MLS sale.</span></p>
 
-<aside class="note">Address attributes <span class='attribute-name'>address</span>, <span class='attribute-name'>city</span>, <span class='attribute-name'>state</span> or <span class='attribute-name'>zip_code</span> should be populated only if <span class='attribute-name'>is_mls_transaction</span> is <tt>false</tt>.</aside>
+<aside class="note">Address attributes <span class='attribute-name'>address</span>, <span class='attribute-name'>city</span>, <span class='attribute-name'>state</span> or <span class='attribute-name'>zip_code</span> should be populated only if <span class='attribute-name'>is_mls_transaction</span> is not <tt>true</tt>.</aside>
 
 <p><span class="response-data-head">sqft</span>
 <span class="response-data-remarks">The living area of the property being sold.</span></p>

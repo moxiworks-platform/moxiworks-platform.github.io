@@ -140,6 +140,8 @@ Attribute | Type  | Length Limit |
   "office_address_state": "AG",
   "office_address_zip": "12345",
   "name": "Buckminster Fuller",
+  "first_name":"Buckminster",
+  "last_name":"Fuller",
   "main_phone_number": "555) 9101112",
   "mobile_phone_number": "555 333 4567",
   "alt_phone_number": "(555) 567-8910",
@@ -195,6 +197,8 @@ Attribute | Type |
 |<span class="response-data">office_address_state</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">office_address_zip</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">name</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">first_name</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">last_name</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">main_phone_number</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">mobile_phone_number</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">alt_phone_number</span>|<span class="data-type">String or null</span>|
@@ -235,6 +239,12 @@ Attribute | Type |
 
 <span class="response-data-head">name</span>
 <span class="response-data-remarks">The full name of the agent. This can be null if there is no data for this attribute.</span>
+
+<span class="response-data-head">first_name</span>
+<span class="response-data-remarks">The first name of the agent. This can be null if there is no data for this attribute.</span>
+
+<span class="response-data-head">last_name</span>
+<span class="response-data-remarks">The last name of the agent. This can be null if there is no data for this attribute.</span>
 
 <span class="response-data-head">mobile_phone_number</span>
 <span class="response-data-remarks">Mobile phone number of the agent. <span class='attribute-name'>main_phone_number</span> should be considered higher priority, if not the same. This can be null if there is no data for this attribute.</span>

@@ -230,7 +230,7 @@ $moxi_works_transaction = MoxiworksPlatform\BuyerTransaction::update([
 ?>
 ```
 
-<aside class="note">Send a <b>PUT</b> request to https://api.moxiworks.com/api/buyer_transactions</aside>
+<aside class="note">Send a <b>PUT</b> request to https://api.moxiworks.com/api/buyer_transactions/[moxi_works_transaction_id]</aside>
 
 <aside class="warning">Moxi Works API will remove data for any attribute not defined within the parameters you send. For instance, if the <span class='entity-name'>city</span> attribute is not passed, the current <span class='attribute-name'>city</span> value for the <span class='entity-name'>BuyerTransaction</span> will be removed from the <span class='entity-name'>BuyerTransaction</span> stored in Moxi Works.</aside>
 

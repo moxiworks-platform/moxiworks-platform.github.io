@@ -67,6 +67,7 @@ Attribute | Type | Length Limit |
 -----|-----|-----|-----|
 |<span class="required-data">moxi_works_agent_id</span>|<span class="required-data"><span class="data-type">String</span></span>|<span class="required-data">255</span>
 |<span class="required-data">partner_task_id</span>|<span class="required-data"><span class="data-type">String</span></span>| <span class="required-data">255</span>
+|<span class="required-data">partner_contact_id</span>|<span class="required-data"><span class="data-type">String</span></span>| <span class="required-data">255</span>
 
 <span class="required-data">**Required Parameters Are In Red**</span>
 
@@ -78,6 +79,10 @@ Attribute | Type | Length Limit |
 
 <span class="request-data-head">partner_task_id</span>
 <span class="request-data-remarks">This is the unique identifer you use in your system that has been associated with the <span class='entity-name'>Task</span>.</span>
+
+
+<span class="request-data-head">partner_contact_id</span>
+<span class="request-data-remarks">This is the unique identifer you use in your system that has been associated with the <span class='entity-name'>Contact</span> that this <span class='entity-name'>Task</span> is for.</span>
 
 
 <blockquote><div class='highlight json' style="display: block">
@@ -133,7 +138,7 @@ Attribute | Type |
 <span class="response-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span>. This will be a string that may take the form of an email address, or a unique alphanumeric identification string.</span>
 
 <span class="response-data-head">partner_contact_id</span>
-<span class="response-data-remarks">This is the unique identifer you use in your system that has been associated with the <span class='entity-name'>Contact</span> that you are creating this <span class='entity-name'>Task</span> for.</span>
+<span class="request-data-remarks">This is the unique identifer you use in your system that has been associated with the <span class='entity-name'>Contact</span> that this <span class='entity-name'>Task</span> is for.</span>
 
 
 <span class="response-data-head">partner_task_id</span>

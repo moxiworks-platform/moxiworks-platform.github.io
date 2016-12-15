@@ -85,7 +85,7 @@
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"moxi_works_agent_id"</span><span class="p">:</span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"moxi_works_contact_id"</span><span class="p">:</span><span class="s2">"babebead-feed-face-dead-beefbad4babe"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"Bob And Linda Tonkanaka"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"transaction_name"</span><span class="p">:</span><span class="s2">"Bob And Linda Tonkanaka"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"notes"</span><span class="p">:</span><span class="s2">"take care to write notes that are descriptive and helpful"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"address"</span><span class="p">:</span><span class="s2">"1234 memory lane"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"city"</span><span class="p">:</span><span class="s2">"hereville"</span><span class="p">,</span><span class="w">
@@ -116,7 +116,7 @@
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">Basic XNNeXAAAUZaQlF0dA==</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/x-www-form-urlencoded</span>
 
-moxi_works_agent_id=abc123&amp;moxi_works_contact_id=babebead-feed-face-dead-beefbad4babe&amp;min_beds=12&amp;max_beds=34&amp;min_baths=1.75&amp;max_baths=34.5&amp;area_of_interest=Port%20Interesting&amp;notes=take%20care%20to%20write%20notes%20that%20are%20descriptive%20and%20helpful&amp;name=Bob%20And%20Linda%20Tonkanaka&amp;address=1234%20memory%20lane&amp;city=hereville&amp;state=provinceland&amp;zip_code=18292&amp;sqft=2345&amp;is_mls_transaction=true&amp;commission_flat_fee=12345&amp;target_price=&amp;max_price=2323223&amp;min_price=232323&amp;mls_number=abc123
+moxi_works_agent_id=abc123&amp;moxi_works_contact_id=babebead-feed-face-dead-beefbad4babe&amp;min_beds=12&amp;max_beds=34&amp;min_baths=1.75&amp;max_baths=34.5&amp;area_of_interest=Port%20Interesting&amp;notes=take%20care%20to%20write%20notes%20that%20are%20descriptive%20and%20helpful&amp;transaction_name=Bob%20And%20Linda%20Tonkanaka&amp;address=1234%20memory%20lane&amp;city=hereville&amp;state=provinceland&amp;zip_code=18292&amp;sqft=2345&amp;is_mls_transaction=true&amp;commission_flat_fee=12345&amp;target_price=&amp;max_price=2323223&amp;min_price=232323&amp;mls_number=abc123
 
 </code></pre>
 
@@ -133,7 +133,7 @@ moxi_works_agent_id=abc123&amp;moxi_works_contact_id=babebead-feed-face-dead-bee
 <span class="n">moxi_works_transaction</span> <span class="o">=</span> <span class="no">MoxiworksPlatform</span><span class="o">::</span><span class="no">BuyerTransaction</span><span class="p">.</span><span class="nf">create</span><span class="p">(</span>
       <span class="n">moxi_works_agent_id</span><span class="ss">:"abc123"</span><span class="p">,</span>
       <span class="n">moxi_works_contact_id</span><span class="ss">:"babebead-feed-face-dead-beefbad4babe"</span><span class="p">,</span>
-      <span class="nb">name</span><span class="ss">:"Bob And Linda Tonkanaka"</span><span class="p">,</span>
+      <span class="n">transaction_name</span><span class="ss">:"Bob And Linda Tonkanaka"</span><span class="p">,</span>
       <span class="n">notes</span><span class="ss">:"take care to write notes that are descriptive and helpful"</span><span class="p">,</span>
       <span class="n">address</span><span class="ss">:"1234 memory lane"</span><span class="p">,</span>
       <span class="n">city</span><span class="ss">:"hereville"</span><span class="p">,</span>
@@ -164,7 +164,7 @@ moxi_works_agent_id=abc123&amp;moxi_works_contact_id=babebead-feed-face-dead-bee
 <span class="nv">$moxi_works_transaction</span> <span class="o">=</span> <span class="nx">MoxiworksPlatform\BuyerTransaction</span><span class="o">::</span><span class="na">create</span><span class="p">([</span>
       <span class="s2">"moxi_works_agent_id"</span> <span class="o">=&gt;</span> <span class="s2">"abc123"</span><span class="p">,</span>
       <span class="s2">"moxi_works_contact_id"</span> <span class="o">=&gt;</span> <span class="s2">"babebead-feed-face-dead-beefbad4babe"</span><span class="p">,</span>
-      <span class="s2">"name"</span> <span class="o">=&gt;</span> <span class="s2">"Bob And Linda Tonkanaka"</span><span class="p">,</span>
+      <span class="s2">"transaction_name"</span> <span class="o">=&gt;</span> <span class="s2">"Bob And Linda Tonkanaka"</span><span class="p">,</span>
       <span class="s2">"notes"</span> <span class="o">=&gt;</span> <span class="s2">"take care to write notes that are descriptive and helpful"</span><span class="p">,</span>
       <span class="s2">"address"</span> <span class="o">=&gt;</span> <span class="s2">"1234 memory lane"</span><span class="p">,</span>
       <span class="s2">"city"</span> <span class="o">=&gt;</span> <span class="s2">"hereville"</span><span class="p">,</span>
@@ -193,7 +193,7 @@ moxi_works_agent_id=abc123&amp;moxi_works_contact_id=babebead-feed-face-dead-bee
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"moxi_works_agent_id"</span><span class="p">:</span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"moxi_works_contact_id"</span><span class="p">:</span><span class="s2">"babebead-feed-face-dead-beefbad4babe"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"Bob And Linda Tonkanaka"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"transaction_name"</span><span class="p">:</span><span class="s2">"Bob And Linda Tonkanaka"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"notes"</span><span class="p">:</span><span class="s2">"take care to write notes that are descriptive and helpful"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"address"</span><span class="p">:</span><span class="s2">"1234 memory lane"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"city"</span><span class="p">:</span><span class="s2">"hereville"</span><span class="p">,</span><span class="w">
@@ -224,7 +224,7 @@ moxi_works_agent_id=abc123&amp;moxi_works_contact_id=babebead-feed-face-dead-bee
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">Basic XNNeXAAAUZaQlF0dA==</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/x-www-form-urlencoded</span>
 
-moxi_works_agent_id=abc123&amp;moxi_works_contact_id=babebead-feed-face-dead-beefbad4babe&amp;min_beds=12&amp;max_beds=34&amp;min_baths=1.75&amp;max_baths=34.5&amp;area_of_interest=Port%20Interesting&amp;notes=take%20care%20to%20write%20notes%20that%20are%20descriptive%20and%20helpful&amp;name=Bob%20And%20Linda%20Tonkanaka&amp;address=1234%20memory%20lane&amp;city=hereville&amp;state=provinceland&amp;zip_code=18292&amp;sqft=2345&amp;is_mls_transaction=false&amp;commission_flat_fee=12345&amp;target_price=&amp;max_price=2323223&amp;min_price=232323
+moxi_works_agent_id=abc123&amp;moxi_works_contact_id=babebead-feed-face-dead-beefbad4babe&amp;min_beds=12&amp;max_beds=34&amp;min_baths=1.75&amp;max_baths=34.5&amp;area_of_interest=Port%20Interesting&amp;notes=take%20care%20to%20write%20notes%20that%20are%20descriptive%20and%20helpful&amp;transaction_name=Bob%20And%20Linda%20Tonkanaka&amp;address=1234%20memory%20lane&amp;city=hereville&amp;state=provinceland&amp;zip_code=18292&amp;sqft=2345&amp;is_mls_transaction=false&amp;commission_flat_fee=12345&amp;target_price=&amp;max_price=2323223&amp;min_price=232323
 
 </code></pre>
 
@@ -241,7 +241,7 @@ moxi_works_agent_id=abc123&amp;moxi_works_contact_id=babebead-feed-face-dead-bee
 <span class="n">moxi_works_transaction</span> <span class="o">=</span> <span class="no">MoxiworksPlatform</span><span class="o">::</span><span class="no">BuyerTransaction</span><span class="p">.</span><span class="nf">create</span><span class="p">(</span>
       <span class="n">moxi_works_agent_id</span><span class="ss">:"abc123"</span><span class="p">,</span>
       <span class="n">moxi_works_contact_id</span><span class="ss">:"babebead-feed-face-dead-beefbad4babe"</span><span class="p">,</span>
-      <span class="nb">name</span><span class="ss">:"Bob And Linda Tonkanaka"</span><span class="p">,</span>
+      <span class="n">transaction_name</span><span class="ss">:"Bob And Linda Tonkanaka"</span><span class="p">,</span>
       <span class="n">notes</span><span class="ss">:"take care to write notes that are descriptive and helpful"</span><span class="p">,</span>
       <span class="n">address</span><span class="ss">:"1234 memory lane"</span><span class="p">,</span>
       <span class="n">city</span><span class="ss">:"hereville"</span><span class="p">,</span>
@@ -271,7 +271,7 @@ moxi_works_agent_id=abc123&amp;moxi_works_contact_id=babebead-feed-face-dead-bee
 <span class="nv">$moxi_works_transaction</span> <span class="o">=</span> <span class="nx">MoxiworksPlatform\BuyerTransaction</span><span class="o">::</span><span class="na">create</span><span class="p">([</span>
       <span class="s2">"moxi_works_agent_id"</span> <span class="o">=&gt;</span> <span class="s2">"abc123"</span><span class="p">,</span>
       <span class="s2">"moxi_works_contact_id"</span> <span class="o">=&gt;</span> <span class="s2">"babebead-feed-face-dead-beefbad4babe"</span><span class="p">,</span>
-      <span class="s2">"name"</span> <span class="o">=&gt;</span> <span class="s2">"Bob And Linda Tonkanaka"</span><span class="p">,</span>
+      <span class="s2">"transaction_name"</span> <span class="o">=&gt;</span> <span class="s2">"Bob And Linda Tonkanaka"</span><span class="p">,</span>
       <span class="s2">"notes"</span> <span class="o">=&gt;</span> <span class="s2">"take care to write notes that are descriptive and helpful"</span><span class="p">,</span>
       <span class="s2">"address"</span> <span class="o">=&gt;</span> <span class="s2">"1234 memory lane"</span><span class="p">,</span>
       <span class="s2">"city"</span> <span class="o">=&gt;</span> <span class="s2">"hereville"</span><span class="p">,</span>
@@ -321,7 +321,7 @@ moxi_works_agent_id=abc123&amp;moxi_works_contact_id=babebead-feed-face-dead-bee
 <td><span class="required-data">255</span></td>
 </tr>
 <tr>
-<td><span class="optional-data">name</span></td>
+<td><span class="optional-data">transaction_name</span></td>
 <td><span class="optional-data"><span class="data-type">String</span></span></td>
 <td><span class="optional-data">255</span></td>
 </tr>
@@ -440,7 +440,7 @@ moxi_works_agent_id=abc123&amp;moxi_works_contact_id=babebead-feed-face-dead-bee
 
 <aside class="note">Either <span class='attribute-name'>moxi_works_contact_id</span> or <span class='attribute-name'>partner_contact_id</span> must be populated; however, you should only populate one of these attributes.</aside>
 
-<p><span class="request-data-head">name</span>
+<p><span class="request-data-head">transaction_name</span>
 <span class="request-data-remarks">A brief, human readable title that will be shown to the agent as the subject of the <span class='entity-name'>BuyerTransaction</span> that you are creating.</span></p>
 
 <p><span class="request-data-head">notes</span>
@@ -519,7 +519,7 @@ moxi_works_agent_id=abc123&amp;moxi_works_contact_id=babebead-feed-face-dead-bee
   </span><span class="nt">"moxi_works_transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"facefeed-beef-daff-dead-cad4edd1e4d"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"moxi_works_contact_id"</span><span class="p">:</span><span class="s2">"babebead-feed-face-dead-beefbad4babe"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"partner_contact_id"</span><span class="p">:</span><span class="s2">"MySystemsContactIDForTheContactAssociatedWithThisBuyerTransaction"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"Bob And Linda Tonkanaka"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"transaction_name"</span><span class="p">:</span><span class="s2">"Bob And Linda Tonkanaka"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"notes"</span><span class="p">:</span><span class="s2">"take care to write notes that are descriptive and helpful"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"stage"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
   </span><span class="nt">"stage_name"</span><span class="p">:</span><span class="s2">"initialized"</span><span class="p">,</span><span class="w">
@@ -585,7 +585,7 @@ moxi_works_agent_id=abc123&amp;moxi_works_contact_id=babebead-feed-face-dead-bee
 <td><span class="response-data"><span class="data-type">String</span></td>
 </tr>
 <tr>
-<td><span class="response-data">name</span></td>
+<td><span class="response-data">transaction_name</span></td>
 <td><span class="data-type">String or null</span></td>
 </tr>
 <tr>
@@ -698,7 +698,7 @@ moxi_works_agent_id=abc123&amp;moxi_works_contact_id=babebead-feed-face-dead-bee
 <p><span class="response-data-head">partner_contact_id</span>
 <span class="response-data-remarks">If this <span class='entity-name'>Contact</span> was created by your sytem in the Moxi Works Platform, then this is the unique identifer you use in your system that has been associated with the <span class='entity-name'>Contact</span> that you are creating this <span class='entity-name'>BuyerTransaction</span> for. If the <span class='entity-name'>Contact</span> was not created by you, then <span class='attribute-name'>partner_contact_id</span> will be empty.</span></p>
 
-<p><span class="response-data-head">name</span>
+<p><span class="response-data-head">transaction_name</span>
 <span class="response-data-remarks">A brief, human readable title that is shown to the agent as the subject of the <span class='entity-name'>BuyerTransaction</span>.</span></p>
 
 <p><span class="response-data-head">notes</span>
@@ -787,7 +787,7 @@ moxi_works_agent_id=abc123&amp;moxi_works_contact_id=babebead-feed-face-dead-bee
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"moxi_works_agent_id"</span><span class="p">:</span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"moxi_works_transaction_id"</span><span class="p">:</span><span class="s2">"babebead-feed-face-dead-beefbad4babe"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"Bob And Linda Tonkanaka"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"transaction_name"</span><span class="p">:</span><span class="s2">"Bob And Linda Tonkanaka"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"notes"</span><span class="p">:</span><span class="s2">"take care to write notes that are descriptive and helpful"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"address"</span><span class="p">:</span><span class="s2">"1234 memory lane"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"city"</span><span class="p">:</span><span class="s2">"hereville"</span><span class="p">,</span><span class="w">
@@ -819,7 +819,7 @@ moxi_works_agent_id=abc123&amp;moxi_works_contact_id=babebead-feed-face-dead-bee
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">Basic XNNeXAAAUZaQlF0dA==</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/x-www-form-urlencoded</span>
 
-moxi_works_agent_id=abc123&amp;moxi_works_contact_id=babebead-feed-face-dead-beefbad4babe&amp;min_beds=12&amp;max_beds=34&amp;min_baths=1.75&amp;max_baths=34.5&amp;area_of_interest=Port%20Interesting&amp;notes=take%20care%20to%20write%20notes%20that%20are%20descriptive%20and%20helpful&amp;name=Bob%20And%20Linda%20Tonkanaka&amp;address=1234%20memory%20lane&amp;city=hereville&amp;state=provinceland&amp;zip_code=18292&amp;sqft=2345&amp;is_mls_transaction=true&amp;commission_flat_fee=12345&amp;target_price=&amp;max_price=2323223&amp;min_price=232323&amp;mls_number=abc123
+moxi_works_agent_id=abc123&amp;moxi_works_contact_id=babebead-feed-face-dead-beefbad4babe&amp;min_beds=12&amp;max_beds=34&amp;min_baths=1.75&amp;max_baths=34.5&amp;area_of_interest=Port%20Interesting&amp;notes=take%20care%20to%20write%20notes%20that%20are%20descriptive%20and%20helpful&amp;transaction_name=Bob%20And%20Linda%20Tonkanaka&amp;address=1234%20memory%20lane&amp;city=hereville&amp;state=provinceland&amp;zip_code=18292&amp;sqft=2345&amp;is_mls_transaction=true&amp;commission_flat_fee=12345&amp;target_price=&amp;max_price=2323223&amp;min_price=232323&amp;mls_number=abc123
 
 </code></pre>
 
@@ -836,7 +836,7 @@ moxi_works_agent_id=abc123&amp;moxi_works_contact_id=babebead-feed-face-dead-bee
 <span class="n">moxi_works_transaction</span> <span class="o">=</span> <span class="no">MoxiworksPlatform</span><span class="o">::</span><span class="no">BuyerTransaction</span><span class="p">.</span><span class="nf">update</span><span class="p">(</span>
       <span class="n">moxi_works_agent_id</span><span class="ss">:"abc123"</span><span class="p">,</span>
       <span class="n">moxi_works_transaction_id</span><span class="ss">:"babebead-feed-face-dead-beefbad4babe"</span><span class="p">,</span>
-      <span class="nb">name</span><span class="ss">:"Bob And Linda Tonkanaka"</span><span class="p">,</span>
+      <span class="n">transaction_name</span><span class="ss">:"Bob And Linda Tonkanaka"</span><span class="p">,</span>
       <span class="n">notes</span><span class="ss">:"take care to write notes that are descriptive and helpful"</span><span class="p">,</span>
       <span class="n">address</span><span class="ss">:"1234 memory lane"</span><span class="p">,</span>
       <span class="n">city</span><span class="ss">:"hereville"</span><span class="p">,</span>
@@ -868,7 +868,7 @@ moxi_works_agent_id=abc123&amp;moxi_works_contact_id=babebead-feed-face-dead-bee
 <span class="nv">$moxi_works_transaction</span> <span class="o">=</span> <span class="nx">MoxiworksPlatform\BuyerTransaction</span><span class="o">::</span><span class="na">update</span><span class="p">([</span>
       <span class="s2">"moxi_works_agent_id"</span> <span class="o">=&gt;</span> <span class="s2">"abc123"</span><span class="p">,</span>
       <span class="s2">"moxi_works_transaction_id"</span> <span class="o">=&gt;</span> <span class="s2">"babebead-feed-face-dead-beefbad4babe"</span><span class="p">,</span>
-      <span class="s2">"name"</span> <span class="o">=&gt;</span> <span class="s2">"Bob And Linda Tonkanaka"</span><span class="p">,</span>
+      <span class="s2">"transaction_name"</span> <span class="o">=&gt;</span> <span class="s2">"Bob And Linda Tonkanaka"</span><span class="p">,</span>
       <span class="s2">"notes"</span> <span class="o">=&gt;</span> <span class="s2">"take care to write notes that are descriptive and helpful"</span><span class="p">,</span>
       <span class="s2">"address"</span> <span class="o">=&gt;</span> <span class="s2">"1234 memory lane"</span><span class="p">,</span>
       <span class="s2">"city"</span> <span class="o">=&gt;</span> <span class="s2">"hereville"</span><span class="p">,</span>
@@ -898,7 +898,7 @@ moxi_works_agent_id=abc123&amp;moxi_works_contact_id=babebead-feed-face-dead-bee
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"moxi_works_agent_id"</span><span class="p">:</span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"moxi_works_transaction_id"</span><span class="p">:</span><span class="s2">"babebead-feed-face-dead-beefbad4babe"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"Bob And Linda Tonkanaka"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"transaction_name"</span><span class="p">:</span><span class="s2">"Bob And Linda Tonkanaka"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"notes"</span><span class="p">:</span><span class="s2">"take care to write notes that are descriptive and helpful"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"address"</span><span class="p">:</span><span class="s2">"1234 memory lane"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"city"</span><span class="p">:</span><span class="s2">"hereville"</span><span class="p">,</span><span class="w">
@@ -929,7 +929,7 @@ moxi_works_agent_id=abc123&amp;moxi_works_contact_id=babebead-feed-face-dead-bee
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">Basic XNNeXAAAUZaQlF0dA==</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/x-www-form-urlencoded</span>
 
-moxi_works_agent_id=abc123&amp;moxi_works_contact_id=babebead-feed-face-dead-beefbad4babe&amp;min_beds=12&amp;max_beds=34&amp;min_baths=1.75&amp;max_baths=34.5&amp;area_of_interest=Port%20Interesting&amp;notes=take%20care%20to%20write%20notes%20that%20are%20descriptive%20and%20helpful&amp;name=Bob%20And%20Linda%20Tonkanaka&amp;address=1234%20memory%20lane&amp;city=hereville&amp;state=provinceland&amp;zip_code=18292&amp;sqft=2345&amp;is_mls_transaction=true&amp;commission_flat_fee=12345&amp;target_price=&amp;max_price=2323223&amp;min_price=232323&amp;mls_number=abc123
+moxi_works_agent_id=abc123&amp;moxi_works_contact_id=babebead-feed-face-dead-beefbad4babe&amp;min_beds=12&amp;max_beds=34&amp;min_baths=1.75&amp;max_baths=34.5&amp;area_of_interest=Port%20Interesting&amp;notes=take%20care%20to%20write%20notes%20that%20are%20descriptive%20and%20helpful&amp;transaction_name=Bob%20And%20Linda%20Tonkanaka&amp;address=1234%20memory%20lane&amp;city=hereville&amp;state=provinceland&amp;zip_code=18292&amp;sqft=2345&amp;is_mls_transaction=true&amp;commission_flat_fee=12345&amp;target_price=&amp;max_price=2323223&amp;min_price=232323&amp;mls_number=abc123
 
 
 </code></pre>
@@ -947,7 +947,7 @@ moxi_works_agent_id=abc123&amp;moxi_works_contact_id=babebead-feed-face-dead-bee
 <span class="n">moxi_works_transaction</span> <span class="o">=</span> <span class="no">MoxiworksPlatform</span><span class="o">::</span><span class="no">BuyerTransaction</span><span class="p">.</span><span class="nf">update</span><span class="p">(</span>
       <span class="n">moxi_works_agent_id</span><span class="ss">:"abc123"</span><span class="p">,</span>
       <span class="n">moxi_works_transaction_id</span><span class="ss">:"babebead-feed-face-dead-beefbad4babe"</span><span class="p">,</span>
-      <span class="nb">name</span><span class="ss">:"Bob And Linda Tonkanaka"</span><span class="p">,</span>
+      <span class="n">transaction_name</span><span class="ss">:"Bob And Linda Tonkanaka"</span><span class="p">,</span>
       <span class="n">notes</span><span class="ss">:"take care to write notes that are descriptive and helpful"</span><span class="p">,</span>
       <span class="n">address</span><span class="ss">:"1234 memory lane"</span><span class="p">,</span>
       <span class="n">city</span><span class="ss">:"hereville"</span><span class="p">,</span>
@@ -978,7 +978,7 @@ moxi_works_agent_id=abc123&amp;moxi_works_contact_id=babebead-feed-face-dead-bee
 <span class="nv">$moxi_works_transaction</span> <span class="o">=</span> <span class="nx">MoxiworksPlatform\BuyerTransaction</span><span class="o">::</span><span class="na">update</span><span class="p">([</span>
       <span class="s2">"moxi_works_agent_id"</span> <span class="o">=&gt;</span> <span class="s2">"abc123"</span><span class="p">,</span>
       <span class="s2">"moxi_works_transaction_id"</span> <span class="o">=&gt;</span> <span class="s2">"babebead-feed-face-dead-beefbad4babe"</span><span class="p">,</span>
-      <span class="s2">"name"</span> <span class="o">=&gt;</span> <span class="s2">"Bob And Linda Tonkanaka"</span><span class="p">,</span>
+      <span class="s2">"transaction_name"</span> <span class="o">=&gt;</span> <span class="s2">"Bob And Linda Tonkanaka"</span><span class="p">,</span>
       <span class="s2">"notes"</span> <span class="o">=&gt;</span> <span class="s2">"take care to write notes that are descriptive and helpful"</span><span class="p">,</span>
       <span class="s2">"address"</span> <span class="o">=&gt;</span> <span class="s2">"1234 memory lane"</span><span class="p">,</span>
       <span class="s2">"city"</span> <span class="o">=&gt;</span> <span class="s2">"hereville"</span><span class="p">,</span>
@@ -1031,7 +1031,7 @@ moxi_works_agent_id=abc123&amp;moxi_works_contact_id=babebead-feed-face-dead-bee
 <td><span class="required-data">255</span></td>
 </tr>
 <tr>
-<td><span class="optional-data">name</span></td>
+<td><span class="optional-data">transaction_name</span></td>
 <td><span class="optional-data"><span class="data-type">String</span></span></td>
 <td><span class="optional-data">255</span></td>
 </tr>
@@ -1150,7 +1150,7 @@ moxi_works_agent_id=abc123&amp;moxi_works_contact_id=babebead-feed-face-dead-bee
 <p><span class="request-data-head">moxi_works_transaction_id</span>
 <span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>BuyerTransaction</span> object that you are updating. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID. This data is required and must reference a valid Moxi Works <span class='entity-name'>BuyerTransaction</span> ID for your <span class='entity-name'>BuyerTransaction</span> <span class='action-name'>Update</span>  request to be accepted. You can determine UUIDs of existing <span class='entity-name'>BuyerTransaction</span> objects by using the <a href='#buyertransaction-index'><span class='entity-name'>BuyerTransaction</span><span class='action-name'>Index</span></a> request.</span></p>
 
-<p><span class="request-data-head">name</span>
+<p><span class="request-data-head">transaction_name</span>
 <span class="request-data-remarks">A brief, human readable title that will be shown to the agent as the subject of the <span class='entity-name'>BuyerTransaction</span> that you are updating.</span></p>
 
 <p><span class="request-data-head">notes</span>
@@ -1236,7 +1236,7 @@ moxi_works_agent_id=abc123&amp;moxi_works_contact_id=babebead-feed-face-dead-bee
   </span><span class="nt">"moxi_works_transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"facefeed-beef-daff-dead-cad4edd1e4d"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"moxi_works_contact_id"</span><span class="p">:</span><span class="s2">"babebead-feed-face-dead-beefbad4babe"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"partner_contact_id"</span><span class="p">:</span><span class="s2">"MySystemsContactIDForTheContactAssociatedWithThisBuyerTransaction"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"Bob And Linda Tonkanaka"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"transaction_name"</span><span class="p">:</span><span class="s2">"Bob And Linda Tonkanaka"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"notes"</span><span class="p">:</span><span class="s2">"take care to write notes that are descriptive and helpful"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"stage"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
   </span><span class="nt">"stage_name"</span><span class="p">:</span><span class="s2">"initialized"</span><span class="p">,</span><span class="w">
@@ -1302,7 +1302,7 @@ moxi_works_agent_id=abc123&amp;moxi_works_contact_id=babebead-feed-face-dead-bee
 <td><span class="response-data"><span class="data-type">String</span></td>
 </tr>
 <tr>
-<td><span class="response-data">name</span></td>
+<td><span class="response-data">transaction_name</span></td>
 <td><span class="data-type">String or null</span></td>
 </tr>
 <tr>
@@ -1415,7 +1415,7 @@ moxi_works_agent_id=abc123&amp;moxi_works_contact_id=babebead-feed-face-dead-bee
 <p><span class="response-data-head">partner_contact_id</span>
 <span class="response-data-remarks">If the <span class='entity-name'>Contact</span> was created by your sytem in the Moxi Works Platform, then this is the unique identifer you use in your system that has been associated with the <span class='entity-name'>Contact</span> that you are updating this <span class='entity-name'>BuyerTransaction</span> for. If the <span class='entity-name'>Contact</span> was not created by you, then <span class='attribute-name'>partner_contact_id</span> will be empty.</span></p>
 
-<p><span class="response-data-head">name</span>
+<p><span class="response-data-head">transaction_name</span>
 <span class="response-data-remarks">A brief, human readable title that is shown to the agent as the subject of the <span class='entity-name'>BuyerTransaction</span>.</span></p>
 
 <p><span class="response-data-head">notes</span>
@@ -1634,7 +1634,7 @@ moxi_works_agent_id=abc123
   </span><span class="nt">"moxi_works_transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"facefeed-beef-daff-dead-cad4edd1e4d"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"moxi_works_contact_id"</span><span class="p">:</span><span class="s2">"babebead-feed-face-dead-beefbad4babe"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"partner_contact_id"</span><span class="p">:</span><span class="s2">"MySystemsContactIDForTheContactAssociatedWithThisBuyerTransaction"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"Bob And Linda Tonkanaka"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"transaction_name"</span><span class="p">:</span><span class="s2">"Bob And Linda Tonkanaka"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"notes"</span><span class="p">:</span><span class="s2">"take care to write notes that are descriptive and helpful"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"stage"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
   </span><span class="nt">"stage_name"</span><span class="p">:</span><span class="s2">"initialized"</span><span class="p">,</span><span class="w">
@@ -1700,7 +1700,7 @@ moxi_works_agent_id=abc123
 <td><span class="response-data"><span class="data-type">String</span></td>
 </tr>
 <tr>
-<td><span class="response-data">name</span></td>
+<td><span class="response-data">transaction_name</span></td>
 <td><span class="data-type">String or null</span></td>
 </tr>
 <tr>
@@ -1813,7 +1813,7 @@ moxi_works_agent_id=abc123
 <p><span class="response-data-head">partner_contact_id</span>
 <span class="response-data-remarks">If this <span class='entity-name'>Contact</span> was created by your sytem in the Moxi Works Platform, then this is the unique identifer you use in your system that has been associated with the <span class='entity-name'>Contact</span> that you are creating this <span class='entity-name'>BuyerTransaction</span> for. If the <span class='entity-name'>Contact</span> was not created by you, then <span class='attribute-name'>partner_contact_id</span> will be empty.</span></p>
 
-<p><span class="response-data-head">name</span>
+<p><span class="response-data-head">transaction_name</span>
 <span class="response-data-remarks">A brief, human readable title that is shown to the agent as the subject of the <span class='entity-name'>BuyerTransaction</span>.</span></p>
 
 <p><span class="response-data-head">notes</span>
@@ -2069,7 +2069,7 @@ moxi_works_agent_id=abc123
       </span><span class="nt">"moxi_works_transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"facefeed-beef-daff-dead-cad4edd1e4d"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"moxi_works_contact_id"</span><span class="p">:</span><span class="s2">"babebead-feed-face-dead-beefbad4babe"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"partner_contact_id"</span><span class="p">:</span><span class="s2">"MySystemsContactIDForTheContactAssociatedWithThisBuyerTransaction"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"Bob And Linda Tonkanaka"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"transaction_name"</span><span class="p">:</span><span class="s2">"Bob And Linda Tonkanaka"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"notes"</span><span class="p">:</span><span class="s2">"take care to write notes that are descriptive and helpful"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"stage"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
       </span><span class="nt">"stage_name"</span><span class="p">:</span><span class="s2">"initialized"</span><span class="p">,</span><span class="w">
@@ -2169,7 +2169,7 @@ moxi_works_agent_id=abc123
 <td><span class="response-data"><span class="data-type">String</span></td>
 </tr>
 <tr>
-<td><span class="response-data">name</span></td>
+<td><span class="response-data">transaction_name</span></td>
 <td><span class="data-type">String or null</span></td>
 </tr>
 <tr>
@@ -2282,7 +2282,7 @@ moxi_works_agent_id=abc123
 <p><span class="response-data-head">partner_contact_id</span>
 <span class="response-data-remarks">If this <span class='entity-name'>Contact</span> was created by your sytem in the Moxi Works Platform, then this is the unique identifer you use in your system that has been associated with the <span class='entity-name'>Contact</span> that you are creating this <span class='entity-name'>BuyerTransaction</span> for. If the <span class='entity-name'>Contact</span> was not created by you, then <span class='attribute-name'>partner_contact_id</span> will be empty.</span></p>
 
-<p><span class="response-data-head">name</span>
+<p><span class="response-data-head">transaction_name</span>
 <span class="response-data-remarks">A brief, human readable title that is shown to the agent as the subject of the <span class='entity-name'>BuyerTransaction</span>.</span></p>
 
 <p><span class="response-data-head">notes</span>

@@ -199,7 +199,7 @@ moxi_works_agent_id=abc123
       </span><span class="nt">"moxi_works_transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"facefeed-beef-daff-dead-cad4edd1e4d"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"moxi_works_contact_id"</span><span class="p">:</span><span class="s2">"babebead-feed-face-dead-beefbad4babe"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"partner_contact_id"</span><span class="p">:</span><span class="s2">"MySystemsContactIDForTheContactAssociatedWithThisBuyerTransaction"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"Bob And Linda Tonkanaka"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"transaction_name"</span><span class="p">:</span><span class="s2">"Bob And Linda Tonkanaka"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"notes"</span><span class="p">:</span><span class="s2">"take care to write notes that are descriptive and helpful"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"stage"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
       </span><span class="nt">"stage_name"</span><span class="p">:</span><span class="s2">"initialized"</span><span class="p">,</span><span class="w">
@@ -298,7 +298,7 @@ moxi_works_agent_id=abc123
 <td><span class="response-data"><span class="data-type">String</span></td>
 </tr>
 <tr>
-<td><span class="response-data">name</span></td>
+<td><span class="response-data">transaction_name</span></td>
 <td><span class="data-type">String or null</span></td>
 </tr>
 <tr>
@@ -411,7 +411,7 @@ moxi_works_agent_id=abc123
 <p><span class="response-data-head">partner_contact_id</span>
 <span class="response-data-remarks">If this <span class='entity-name'>Contact</span> was created by your sytem in the Moxi Works Platform, then this is the unique identifer you use in your system that has been associated with the <span class='entity-name'>Contact</span> that you are creating this <span class='entity-name'>BuyerTransaction</span> for. If the <span class='entity-name'>Contact</span> was not created by you, then <span class='attribute-name'>partner_contact_id</span> will be empty.</span></p>
 
-<p><span class="response-data-head">name</span>
+<p><span class="response-data-head">transaction_name</span>
 <span class="response-data-remarks">A brief, human readable title that is shown to the agent as the subject of the <span class='entity-name'>BuyerTransaction</span>.</span></p>
 
 <p><span class="response-data-head">notes</span>

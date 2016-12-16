@@ -10,6 +10,7 @@
 
 {
   "partner_task_id":"mySystemsTaskID",
+  "partner_contact_id": "abc123",
   "moxi_works_agent_id":"abc123"
 }
 
@@ -38,6 +39,7 @@ MoxiworksPlatform::Credentials.new(platform_identifier, platform_secret)
 
 moxi_works_task = MoxiworksPlatform::Task.find(
         moxi_works_agent_id: "1234abcd",
+        partner_contact_id: "abc123",
         partner_task_id: "booyuh")
 
 ```
@@ -51,6 +53,7 @@ $credentials = new MoxiworksPlatform\Credentials($platform_identifier, $platform
 
 $moxi_works_task = MoxiworksPlatform\Task::find([
         'moxi_works_agent_id' => '1234abcd',
+        'partner_contact_id' => 'abc123',
         'partner_task_id' => 'booyuh']);
 ?>
 ```

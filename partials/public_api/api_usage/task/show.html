@@ -40,6 +40,7 @@
 <pre class="highlight json"><code><span class="w">
 </span><span class="p">{</span><span class="w">
   </span><span class="nt">"partner_task_id"</span><span class="p">:</span><span class="s2">"mySystemsTaskID"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"partner_contact_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"moxi_works_agent_id"</span><span class="p">:</span><span class="s2">"abc123"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
@@ -63,6 +64,7 @@
 
 <span class="n">moxi_works_task</span> <span class="o">=</span> <span class="no">MoxiworksPlatform</span><span class="o">::</span><span class="no">Task</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span>
         <span class="ss">moxi_works_agent_id: </span><span class="s2">"1234abcd"</span><span class="p">,</span>
+        <span class="ss">partner_contact_id: </span><span class="s2">"abc123"</span><span class="p">,</span>
         <span class="ss">partner_task_id: </span><span class="s2">"booyuh"</span><span class="p">)</span>
 
 </code></pre>
@@ -74,6 +76,7 @@
 
 <span class="nv">$moxi_works_task</span> <span class="o">=</span> <span class="nx">MoxiworksPlatform\Task</span><span class="o">::</span><span class="na">find</span><span class="p">([</span>
         <span class="s1">'moxi_works_agent_id'</span> <span class="o">=&gt;</span> <span class="s1">'1234abcd'</span><span class="p">,</span>
+        <span class="s1">'partner_contact_id'</span> <span class="o">=&gt;</span> <span class="s1">'abc123'</span><span class="p">,</span>
         <span class="s1">'partner_task_id'</span> <span class="o">=&gt;</span> <span class="s1">'booyuh'</span><span class="p">]);</span>
 <span class="cp">?&gt;</span>
 </code></pre>

@@ -1,10 +1,24 @@
-#### Index
+#### <span class='entity-name'>ActionLog</span> <span class='action-name'>Index</span>
 
-<div class='highlight ruby'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-ruby/MoxiworksPlatform/ActionLog.html#search-class_method'>Ruby Search Docs</a></span></blockquote></div>
+<div class='highlight ruby'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-ruby/MoxiworksPlatform/ActionLog.html#search-class_method'>Ruby <span class='action-name'>Search</span> Docs</a></span></blockquote></div>
 
-<div class='highlight php'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-php/classes/MoxiworksPlatform.ActionLog.html#method_search'>PHP Search Docs</a></span></blockquote></div>
+<div class='highlight php'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-php/classes/MoxiworksPlatform.ActionLog.html#method_search'>PHP <span class='action-name'>Search</span> Docs</a></span></blockquote></div>
 
-> <span class="data-example-label">ActionLog Index Example</span>
+<aside class="note">Send a <b>GET</b> request to https://api.moxiworks.com/api/action_logs</aside>
+
+
+When searching for <span class='entity-name'>ActionLog</span> entities using the Moxi Works platform API, format your request using the following parameters.
+
+
+> <span class="data-example-label"><span class='entity-name'>ActionLog </span><span class='action-name'>Index </span>Request Example</span>
+
+```json
+{
+  "moxi_works_agent_id":"abc123",
+  "partner_contact_id":"mySystemsContactId"
+}
+
+```
 
 ```http
 GET /api/action_logs?moxi_works_agent_id=abc123&partner_contact_id=mySystemsContactId HTTP/1.1
@@ -47,93 +61,92 @@ $moxi_works_action_log_entries = MoxiworksPlatform\ActionLog::search([
 ?>
 ```
 
+##### <span class='entity-name'>ActionLog</span> <span class='action-name'>Index</span> Request Attributes
 
-<blockquote><div class='highlight http' style="display: block">
-<span class="data-example-label">ActionLog Index: Success Response</span>
-(line breaks in body shown for clarity)
-</div></blockquote>
+Attribute | Type | Length Limit |
+-----|-----|-----|-----|
+|<span class="required-data">moxi_works_agent_id</span>|<span class="required-data"><span class="data-type">String</span></span> | <span class="required-data">255</span>
+|<span class="required-data">partner_contact_id</span>|<span class="required-data"><span class="data-type">String</span></span>| <span class="required-data">255</span>
 
-```http
-HTTP/1.1 200 OK
-Content-Type: application/json; charset=utf-8
-X-UA-Compatible: IE=Edge
-ETag: \"39e1ce76ef58ce23a7debbe5ca145715\"
-Cache-Control: max-age=0, private, must-revalidate
-X-Request-Id: 232e40496ea30b9758dddf0b7ab195f2
-X-Runtime: 13.034641
-Connection: close
-Server: thin
+<span class="required-data">**Required Parameters Are In Red**</span>
+
+<span class="request-data-head">moxi_works_agent_id</span>
+<span class="request-data-remarks">This is the Moxi Works Platform ID of the agent which an <span class='entity-name'>ActionLog</span> entry is associated with. This will be a string that may take the form of an email address, or a unique identification string. This data is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>ActionLog</span> request to be accepted.</span>
+
+<span class="request-data-head">partner_contact_id</span>
+<span class="request-data-remarks">This is the unique identifer you use in your system that has been associated with the <span class='entity-name'>w</span> that you are creating an <span class='entity-name'>ActionLog</span> entry about. You should have already created the <span class='entity-name'>Contact</span> record on the Moxi Works Platform using [Contact Create](/#contact-create) before attempting to use your system's contact ID to show <span class='entity-name'>ActionLog</span> entries for the <span class='entity-name'>Contact</span>. Your request will be rejected if the <span class='entity-name'>Contact</span> record does not exist.</span>
+
+
+
+##### <span class='entity-name'>ActionLog</span> <span class='action-name'>Index</span> Response Payload
+The following attributes make up the payload of the <span class='entity-name'>ActionLog</span> response for a <span class='action-name'>Index</span> request.
+
+<blockquote><div class='highlight json' style="display: block">
+<span class='data-example-label'><span class='entity-name'>ActionLog</span> <span class='action-name'>Index</span> Response Payload Example
+</span></div></blockquote>
+
+```json
 
 {
   "moxi_works_agent_id": "1234abcd",
   "partner_contact_id": "11111abe",
   "actions": [
   {
-  "moxi_works_action_log_id": "02b918",
-  "type": "lead_update_api",
-  "timestamp": 1460064134,
+    "moxi_works_action_log_id": "02b918",
+    "type": "lead_update_api",
     "log_data": {
-    "source": "datplace",
-    "timestamp": "1465937163",
-    "user_info": "{"property_info":{},"search_criteria":{},"contact":{"first_name":null,"message":"","source":"datplace"}}"
+      "source": "datplace",
+      "timestamp": "1465937163",
+      "user_info": {
+        "property_info":{},
+        "search_criteria":{},
+        "contact":{
+          "first_name":null,
+          "message":"",
+          "source":"datplace"
+        }
+      }
     }
   }
   {
-  "moxi_works_action_log_id": "bded1806-3271-11e6-9bb3-5254000f954a",
-  "type": "lead_update_api",
-  "timestamp": 1460064924,
-  "log_data": {
-    "source": "foo.what",
-    "timestamp": "1465937477",
-    "user_info": "{"property_info":{"PropertyURL":"www.wat.com","MLSNumber":"","StreetAddress":"","City":"","State":"","Zip":"","Beds":"","Baths":"","ListingPrice":"","ListingStatus":"","PhotoURL":""},"search_criteria":{},"contact":{"first_name":null,"message":"","source":"foo.what"}}"
+    "moxi_works_action_log_id": "bded1806-3271-11e6-9bb3-5254000f954a",
+    "type": "lead_update_api",
+    "log_data": {
+      "source": "foo.what",
+      "timestamp": "1465937477",
+      "user_info": {
+        "property_info":{
+          "PropertyURL":"www.wat.com",
+          "MLSNumber":"",
+          "StreetAddress":"",
+          "City":"",
+          "State":"",
+          "Zip":"",
+          "Beds":"",
+          "Baths":"",
+          "ListingPrice":"",
+          "ListingStatus":"",
+          "PhotoURL":""
+        },
+        "search_criteria":{},
+        "contact":{
+          "first_name":null,
+          "message":"",
+          "source":"foo.what"
+        }
+      }
     }
   }
   ]
 }
-
 ```
 
-<blockquote><div class='highlight http' style="display: block">
-<span class="data-example-label">ActionLog Index: Not Found Response</span>
-(line breaks in body shown for clarity)
-</div></blockquote>
 
-```http
+<blockquote><div class='highlight json' style="display: block">
+<span class="data-example-label"><span class='entity-name'>ActionLog</span>  <span class='action-name'>Index</span> Failure Response</span>
+</div> See <a href='#error-handling'>Error Handling</a> for details about individual error codes.</blockquote>
 
-HTTP/1.1 200 OK
-Content-Type: application/json; charset=utf-8
-X-UA-Compatible: IE=Edge
-ETag: \"39e1ce76ef58ce23a7debbe5ca145715\"
-Cache-Control: max-age=0, private, must-revalidate
-X-Request-Id: 232e40496ea30b9758dddf0b7ab195f2
-X-Runtime: 13.034641
-Connection: close
-Server: thin
-
-{
-  "moxi_works_agent_id": "1234abcd",
-  "partner_contact_id": "11111abe",
-  "actions":[]
-}
-
-```
-
-<blockquote><div class='highlight http' style="display: block">
-<span class="data-example-label">ActionLog Index: Failure Response</span>
-(line breaks in body shown for clarity)
-</div></blockquote>
-
-```http
-
-HTTP/1.1 400 OK
-Content-Type: application/json; charset=utf-8
-X-UA-Compatible: IE=Edge
-ETag: \"39e1ce76ef58ce23a7debbe5ca145715\"
-Cache-Control: max-age=0, private, must-revalidate
-X-Request-Id: 232e40496ea30b9758dddf0b7ab195f2
-X-Runtime: 13.034641
-Connection: close
-Server: thin
+```json
 
 {
   "status":"fail",
@@ -143,17 +156,45 @@ Server: thin
 
 ```
 
-<aside class="note">Send a <b>GET</b> request to https://api.moxiworks.com/api/action_logs</aside>
+###### <span class='action-name'>Index</span> Response Attributes
 
-
-When searching for ActionLog entities using the Moxi Works platform API, format your data using the following parameters.
-
-
-Attribute | Type| Remark | Length Limit |
+Attribute | Type |
 -----|-----|-----|-----|
-|<span class="required-data">moxi_works_agent_id</span>|<span class="required-data"><span class="data-type">String</span></span>|<span class="required-data"><span class="data-remarks">The agent's Moxi Works Platform ID</span></span>| <span class="required-data">255</span>
-|<span class="required-data">partner_contact_id</span>|<span class="required-data"><span class="data-type">String</span></span>|<span class="required-data"><span class="data-remarks">The ID of the contact in your system.</span></span>| <span class="required-data">255</span>
+|<span class="response-data">moxi_works_agent_id</span>|<span class="data-type">String</span>|
+|<span class="response-data">partner_contact_id</span>|<span class="data-type">String</span>|
+|<span class="response-data">actions</span>|<span class="data-type">Array</span>|
+
+<span class="response-data-head">moxi_works_agent_id</span>
+<span class="response-data-remarks">This is the Moxi Works Platform ID of the agent which an action log entry is associated with. This will be a string that may take the form of an email address, or a unique alphanumeric identification string.</span>
+
+<span class="response-data-head">partner_contact_id</span>
+<span class="response-data-remarks">This is the unique identifer you use in your system that has been associated with the Contact that this <span class='entity-name'>ActionLog</span> entry is about</span>
+
+<span class="response-data-head">actions</span>
+<span class="response-data-remarks">This is an Array containing any <span class='entity-name'>ActionLog</span> entries found for the <span class='action-name'>Index</span> request.</span>
 
 
-<span class="required-data">**Required Parameters Are In Red**</span>
 
+###### <span class='attribute-name'>actions</span> Object
+
+The <span class='attribute-name'>actions</span> array contains Dictionary objects representing <span class='entity-name'>ActionLog</span> entries. The structure of each <span class='entity-name'>ActionLog</span> entry is shown below.
+
+Attribute | Type |
+-----|-----|-----|-----|
+|<span class="response-data">moxi_works_action_log_id</span>|<span class="data-type">String</span>|
+|<span class="response-data">type</span>|<span class="data-type">String</span>|
+|<span class="response-data">timestamp</span>|<span class="data-type">Integer</span>|
+|<span class="response-data">log_data</span>|<span class="data-type">Dictionary</span>|
+
+
+<span class="response-data-head">moxi_works_action_log_id</span>
+<span class="response-data-remarks">This is the unique identifier for the Moxi Works Platform <span class='entity-name'>ActionLog</span> entry.</span>
+
+<span class="response-data-head">type</span>
+<span class="response-data-remarks">This is a string from an enumerated set representing the  type of <span class='entity-name'>ActionLog</span> entry this is. The string should be formatted in lowercase with an underscore between each word. Individual <span class='entity-name'>ActionLog</span> types are outside the scope of this document.</span>
+
+<span class="response-data-head">timestamp</span>
+<span class="response-data-remarks">This is the Unix timestamp for the creation time of the <span class='entity-name'>ActionLog</span> entry.</span>
+
+<span class="response-data-head">log_data</span>
+<span class="response-data-remarks">This is the payload data of the <span class='entity-name'>ActionLog</span> entry. The strucuture returned is dependent on the kind of <span class='entity-name'>ActionLog</span> entry this is. Use the <span class='attribute-name'>type</span> attribute to determine what the structure of the <span class='entity-name'>ActionLog</span> entry is and how to handle it. Details of various structures contained in <span class='entity-name'>ActionLog</span> <span class='attribute-name'>log_data</span> in  is outside the scope of this documentation.</span></span>

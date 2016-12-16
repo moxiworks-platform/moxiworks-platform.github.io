@@ -1,10 +1,17 @@
-#### Show
+#### <span class='entity-name'>Group</span> <span class='action-name'>Show</span>
 
 <div class='highlight ruby'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-ruby/MoxiworksPlatform/Group.html#find-class_method'>Ruby Find Docs</a></span></blockquote></div>
 
 <div class='highlight php'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-php/classes/MoxiworksPlatform.Group.html#method_find'>PHP Find Docs</a></span></blockquote></div>
 
-> <span class="data-example-label">Group Show Example</span>
+> <span class="data-example-label"><span class='entity-name'>Group</span> <span class='action-name'>Show</span> Example</span>
+
+```json
+{
+  "moxi_works_group_name":"abc123",
+  "moxi_works_agent_id":"abc1234"
+}
+```
 
 ```http
 GET /api/groups/[moxi_works_group_name]?moxi_works_agent_id=abc123 HTTP/1.1
@@ -47,86 +54,76 @@ $moxi_works_group = MoxiworksPlatform\Group::find([
 ```
 
 
-<blockquote><div class='highlight http' style="display: block">
-<span class="data-example-label">Group Show: Success Response</span>
-(line breaks in body shown for clarity)
-</div></blockquote>
+<aside class="note">Send a <b>GET</b> request to https://api.moxiworks.com/api/groups/[moxi_works_group_name]</aside>
 
-```http
-HTTP/1.1 200 OK
-Content-Type: application/json; charset=utf-8
-X-UA-Compatible: IE=Edge
-ETag: \"39e1ce76ef58ce23a7debbe5ca145715\"
-Cache-Control: max-age=0, private, must-revalidate
-X-Request-Id: 232e40496ea30b9758dddf0b7ab195f2
-X-Runtime: 13.034641
-Connection: close
-Server: thin
+##### <span class='entity-name'>Group</span> <span class='action-name'>Show</span> Request Attributes
 
+
+Attribute | Type | Length Limit |
+-----|-----|-----|-----|
+|<span class="required-data">moxi_works_agent_id</span>|<span class="required-data"><span class="data-type">String</span></span>|<span class="required-data">255</span>
+|<span class="required-data">moxi_works_group_name</span>|<span class="required-data"><span class="data-type">String</span></span>|<span class="required-data">255</span>
+|<span class="optional-data">page_number</span>|<span class="data-type">Integer</span>| 255 |
+
+
+
+<span class="required-data">**Required Parameters Are In Red**</span>
+
+
+<span class="request-data-head">moxi_works_agent_id</span>
+<span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which you are searching for associated <span class='entity-name'>Group</span> objects. This will be a string that may take the form of an email address, or a unique identification string. This data is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>Group</span> <span class='action-name'>Index</span>  request to be accepted.</span>
+
+<span class="request-data-head">moxi_works_group_name</span>
+<span class="request-data-remarks">This is the name of a <span class='entity-name'>Group</span> to be shown</span>
+
+<aside class="note">The name of the group in the Moxi Works Platform must be an exact match for the name you send in your request.</aside>
+
+
+<span class="request-data-head">page_number</span>
+<span class="request-data-remarks">Page of contacts objects to return. Use if `total_pages` indicates that there is more than one page of data available.</span>
+
+
+
+<blockquote><div class='highlight json' style="display: block">
+<span class='data-example-label'><span class='entity-name'>Group</span> <span class='action-name'>Show</span> Response Payload Example
+</span></div></blockquote>
+
+
+```json
 {
     "moxi_works_agent_id":"1234abcd",
     "moxi_works_group_name":"foo",
-    "page_number": 1
-    "total_pages": 1
+    "page_number":1,
+    "total_pages":1,
     "contacts":[
       {
-      "contact_name": "Firstname Middlenyme Larstnam"
-      "gender": "M"
-      "primary_email_address": "me@justabout.right.here"
-      "secondary_email_address": "me.too@justabout.right.here"
-      "primary_phone_number": "9995551212"
-      "secondary_phone_number": "(333) 555-1185"
-      "home_street_address": "1234 Sesame St."
-      "home_city": "Cityville"
-      "home_state": "Stateland"
-      "home_zip": "12345-6789"
-      "home_country": "Ottoman Empire"
-      "job_title": "Junior Bacon Burner"
-      "note": null
-      "occupation": "chef"
+      "contact_name":"Firstname Middlenyme Larstnam",
+      "gender":"M",
+      "primary_email_address":"me@justabout.right.here",
+      "secondary_email_address":"me.too@justabout.right.here",
+      "primary_phone_number":"9995551212",
+      "secondary_phone_number":"(333) 555-1185",
+      "home_street_address":"1234 Sesame St.",
+      "home_city":"Cityville",
+      "home_state":"Stateland",
+      "home_zip":"12345-6789",
+      "home_country":"Ottoman Empire",
+      "job_title":"Junior Bacon Burner",
+      "note": "notable stuff about Mr. Larstnam",
+      "occupation":"chef"
     }
   ]
 }
 ```
 
-<blockquote><div class='highlight http' style="display: block">
-<span class="data-example-label">Group Show: Not Found Response</span>
-(line breaks in body shown for clarity)
-</div></blockquote>
 
-```http
 
-HTTP/1.1 200 OK
-Content-Type: application/json; charset=utf-8
-X-UA-Compatible: IE=Edge
-ETag: \"39e1ce76ef58ce23a7debbe5ca145715\"
-Cache-Control: max-age=0, private, must-revalidate
-X-Request-Id: 232e40496ea30b9758dddf0b7ab195f2
-X-Runtime: 13.034641
-Connection: close
-Server: thin
+<blockquote><div class='highlight json' style="display: block">
+  <span class='data-example-label'><span class='entity-name'>Group</span> <span class='action-name'>Show</span> Failure Response
+</div> See <a href='#error-handling'>Error Handling</a> for details about individual error codes.</blockquote>
 
-"page_number": 1
-"total_pages": 0
-"contacts": []
-```
 
-<blockquote><div class='highlight http' style="display: block">
-<span class="data-example-label">Group Show: Error Response</span>
-(line breaks in body shown for clarity)
-</div></blockquote>
-
-```http
-
-HTTP/1.1 400 OK
-Content-Type: application/json; charset=utf-8
-X-UA-Compatible: IE=Edge
-ETag: \"39e1ce76ef58ce23a7debbe5ca145715\"
-Cache-Control: max-age=0, private, must-revalidate
-X-Request-Id: 232e40496ea30b9758dddf0b7ab195f2
-X-Runtime: 13.034641
-Connection: close
-Server: thin
+```json
 
 {
   "status":"fail",
@@ -136,14 +133,78 @@ Server: thin
 
 ```
 
-<aside class="note">Send a <b>GET</b> request to https://api.moxiworks.com/api/groups/[moxi_works_group_name]</aside>
 
-Attribute | Type| Remark | Length Limit |
------|-----|-----|-----| 
-|<span class="required-data">moxi_works_agent_id</span>|<span class="required-data"><span class="data-type">String</span></span>|<span class="required-data"><span class="data-remarks">The agent's Moxi Works Platform ID</span></span>| <span class="required-data">255</span>
-|<span class="required-data">moxi_works_group_name</span>|<span class="required-data"><span class="data-type">String</span></span>|<span class="required-data"><span class="data-remarks">The name of the group in the Moxi Works Platform (must be exact match)</span></span>| <span class="required-data">255</span>
-|<span class="optional-data">page_number</span>|<span class="data-type">Integer</span>|<span class="data-remarks">Page of responses. Use if **total_pages** indicates that there is more than one page of data available.</span>| 255 |
+##### <span class='entity-name'>Group</span> <span class='action-name'>Show</span> Response Payload
+The following attributes make up the payload of the <span class='entity-name'>Group</span> response for a <span class='action-name'>Show</span> request.
 
 
-<span class="required-data">**Required Parameters Are In Red**</span>
 
+Attribute | Type |
+-----|-----|-----|-----|
+|<span class="response-data">moxi_works_agent_id</span>|<span class="response-data"><span class="data-type">String</span></span>|
+|<span class="response-data">moxi_works_group_name</span>|<span class="response-data"><span class="data-type">String</span></span>|
+|<span class="response-data">page_number</span>|<span class="response-data"><span class="data-type">Integer</span></span>|
+|<span class="response-data">total_pages</span>|<span class="response-data"><span class="data-type">Integer</span></span>|
+|<span class="response-data">contacts</span>|<span class="response-data"><span class="data-type">Array</span></span>|
+
+###### <span class='attribute-name'>contacts</span> Response Attributes
+
+Each contact represented in the <span class='attribute-name'>events</span> array will have the following structure.
+
+Attribute | Type |
+-----|-----|-----|-----|
+|<span class="response-data">contact_name</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">gender</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">primary_email_address</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">secondary_email_address</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">primary_phone_number</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">secondary_phone_number</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">home_street_address</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">home_city</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">home_state</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">home_zip</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">home_country</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">job_title</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">note</span>|<span class="data-type">String or null</span>|  |
+|<span class="response-data">occupation</span>|<span class="data-type">String or null</span>|
+
+
+<span class="response-data-head">contact_name</span>
+<span class="response-data-remarks">This is the full name of the contact you are finding a <span class='entity-name'>Contact</span> record for. You should format this information as <i>first middle last</i>. This value will be null if no data is available for this attribute. </span>
+
+<span class="response-data-head">gender</span>
+<span class="response-data-remarks">The gender of the contact. This can be `male`, `female`, `m` or `f`. No matter what is provided in the request, the response payload will return `m` or `f`.  This value will be null if no data is available for this attribute. </span>
+
+
+<span class="response-data-head">primary_email_address</span>
+<span class="response-data-remarks">This is the email address that should be used first. If provided, the address must conform to [RFC 3696](https://tools.ietf.org/html/rfc3696#section-3). This value will be null if no data is available for this attribute. </span>
+
+
+<span class="response-data-head">secondary_email_address</span>
+<span class="response-data-remarks">This is the email address that should be used as an alternate. If provided, the address must conform to [RFC 3696](https://tools.ietf.org/html/rfc3696#section-3). This value will be null if no data is available for this attribute. </span>
+
+
+<span class="response-data-head">home_street_address</span>
+<span class="response-data-remarks">The contact's home address street, including number and any suite / apartment number information.  This value will be null if no data is available for this attribute. </span>
+
+<span class="response-data-head">home_city</span>
+<span class="response-data-remarks">The city of the contact's home address. This value will be null if no data is available for this attribute.  This value will be null if no data is available for this attribute. </span>
+
+<span class="response-data-head">home_state</span>
+<span class="response-data-remarks">The state of the contact's home address.  This value will be null if no data is available for this attribute. </span>
+
+<span class="response-data-head">home_zip</span>
+<span class="response-data-remarks">The zip code of the contact’s home address.  This value will be null if no data is available for this attribute. </span>
+
+<span class="response-data-head">home_country</span>
+<span class="response-data-remarks">The country of the contact's home address.  This value will be null if no data is available for this attribute. </span>
+
+<span class="response-data-head">job_title</span>
+<span class="response-data-remarks">The contact's professional job title.  This value will be null if no data is available for this attribute. </span>
+
+
+<span class="response-data-head">occupation</span>
+<span class="response-data-remarks">The contact's profession.  This value will be null if no data is available for this attribute. </span>
+
+<span class="response-data-head">note</span>
+<span class="response-data-remarks">This is an arbitrary string giving the agent more details about the contact which would not otherwise fit into the <span class='entity-name'>Contact</span> record.  This value will be null if no data is available for this attribute. </span>

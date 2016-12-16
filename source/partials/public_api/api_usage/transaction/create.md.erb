@@ -1,0 +1,376 @@
+#### <span class='entity-name'>Transaction</span> <span class='action-name'>Create</span>
+
+<div class='highlight ruby'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-ruby/MoxiworksPlatform/Transaction.html#create-class_method'>Ruby Create Docs</a></span></blockquote></div>
+
+<div class='highlight php'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-php/classes/MoxiworksPlatform.Transaction.html#method_create'>PHP Create Docs</a></span></blockquote></div>
+
+
+> <span class="data-example-label"><span class='entity-name'>Transaction</span> <span class='action-name'>Create</span> Buyer Transaction Example</span>
+
+```json
+{
+"moxi_works_agent_id":"abc123",
+"moxi_works_contact_id":"babebead-feed-face-dead-beefbad4babe",
+"name":"Bob And Linda Tonkanaka",
+"notes":"take care to write notes that are descriptive and helpful",
+"address":"1234 memory lane",
+"city":"hereville",
+"state":"provinceland",
+"zip_code":"18292",
+"sqft":2345,
+"max_sqft":5678,
+"beds":12,
+"max_beds":23,
+"baths":34.5,
+"max_baths":45,
+"area_of_interest":"howdyville",
+"is_mls_transaction":true,
+"commission_flat_fee":12345,
+"target_price":292929,
+"max_price":2323223,
+"mls_number":"abc123",
+"transaction_category":"buyer"
+}
+
+```
+
+```http
+POST /api/transactions HTTP/1.1
+Host: api.moxiworks.com
+Accept: application/vnd.moxi-platform+json;version=1
+Authorization: Basic XNNeXAAAUZaQlF0dA==
+Content-Type: application/x-www-form-urlencoded
+
+moxi_works_agent_id=abc123&moxi_works_contact_id=babebead-feed-face-dead-beefbad4babe&beds=12&baths=34.5&notes=take%20care%20to%20write%20notes%20that%20are%20descriptive%20and%20helpful&name=Bob%20And%20Linda%20Tonkanaka&address=1234%20memory%20lane&city=hereville&state=provinceland&zip_code=18292&sqft=2345&max_sqft=5678&area_of_interest=howdyville&is_mls_transaction=true&commission_flat_fee=12345&target_price=292929&max_price=2323223&mls_number=abc123&transaction_category=buyer&max_beds=23&max_baths=45
+
+```
+
+```ruby
+##### set up prerequisites once
+require 'moxiworks_platform'
+
+platform_identifier = 'abc123'
+
+platform_secret = 'secret'
+
+MoxiworksPlatform::Credentials.new(platform_identifier, platform_secret)
+##### end prerequisites
+
+moxi_works_transaction = MoxiworksPlatform::Transaction.create(
+      moxi_works_agent_id:"abc123",
+      moxi_works_contact_id:"babebead-feed-face-dead-beefbad4babe",
+      name:"Bob And Linda Tonkanaka",
+      notes:"take care to write notes that are descriptive and helpful",
+      address:"1234 memory lane",
+      city:"hereville",
+      state:"provinceland",
+      zip_code:"18292",
+      sqft:2345,
+      max_sqft:5678,
+      beds:12,
+      max_beds:23,
+      baths:34.5,
+      max_baths:45,
+      area_of_interest:"howdyville",
+      is_mls_transaction:true,
+      commission_flat_fee:12345,
+      target_price:292929,
+      max_price:2323223,
+      mls_number:"abc123",
+      transaction_category:"buyer"
+      )
+
+```
+
+```php
+<?php
+$platform_identifier = 'abc123'; // platorm_identifier provided by Moxi Works Platform Rep
+$platform_secret = 'secret'; //platform_secret provided by Moxi Works Platform Rep
+
+$credentials = new MoxiworksPlatform\Credentials($platform_identifier, $platform_secret);
+
+$moxi_works_transaction = MoxiworksPlatform\Transaction::create([
+      "moxi_works_agent_id" => "abc123",
+      "moxi_works_contact_id" => "babebead-feed-face-dead-beefbad4babe",
+      "name" => "Bob And Linda Tonkanaka",
+      "notes" => "take care to write notes that are descriptive and helpful",
+      "address" => "1234 memory lane",
+      "city" => "hereville",
+      "state" => "provinceland",
+      "zip_code" => "18292",
+      "sqft" => 2345,
+      "max_sqft" => 5678,
+      "beds" => 12,
+      "max_beds" => 23,
+      "baths" => 34.5,
+      "max_baths" => 45,
+      "area_of_interest" => "howdyville",
+      "is_mls_transaction" => true,
+      "commission_flat_fee" => 12345,
+      "target_price" => 292929,
+      "max_price" => 2323223,
+      "mls_number" => "abc123",
+      "transaction_category" => "buyer"
+       ]);
+?>
+```
+
+
+> <span class="data-example-label"><span class='entity-name'>Transaction</span> <span class='action-name'>Create</span> Seller Transaction Example</span>
+
+```json
+{
+"moxi_works_agent_id":"abc123",
+"moxi_works_contact_id":"babebead-feed-face-dead-beefbad4babe",
+"name":"Bob And Linda Tonkanaka",
+"notes":"take care to write notes that are descriptive and helpful",
+"address":"1234 memory lane",
+"city":"hereville",
+"state":"provinceland",
+"zip_code":"18292",
+"sqft":2345,
+"beds":12,
+"baths":34.5,
+"is_mls_transaction":true,
+"commission_flat_fee":12345,
+"target_price":292929,
+"max_price":2323223,
+"mls_number":"abc123",
+"transaction_category":"buyer",
+"transaction_state":"prospects"
+}
+
+```
+
+```http
+POST /api/transactions HTTP/1.1
+Host: api.moxiworks.com
+Accept: application/vnd.moxi-platform+json;version=1
+Authorization: Basic XNNeXAAAUZaQlF0dA==
+Content-Type: application/x-www-form-urlencoded
+
+moxi_works_agent_id=abc123&moxi_works_contact_id=babebead-feed-face-dead-beefbad4babe&beds=12&baths=34.5&notes=take%20care%20to%20write%20notes%20that%20are%20descriptive%20and%20helpful&name=Bob%20And%20Linda%20Tonkanaka&address=1234%20memory%20lane&city=hereville&state=provinceland&zip_code=18292&sqft=2345&max_sqft=5678&area_of_interest=howdyville&is_mls_transaction=true&commission_flat_fee=12345&target_price=292929&max_price=2323223&mls_number=abc123&transaction_category=buyer&transaction_state=prospects&max_beds=23&max_baths=45
+
+```
+
+```ruby
+##### set up prerequisites once
+require 'moxiworks_platform'
+
+platform_identifier = 'abc123'
+
+platform_secret = 'secret'
+
+MoxiworksPlatform::Credentials.new(platform_identifier, platform_secret)
+##### end prerequisites
+
+moxi_works_transaction = MoxiworksPlatform::Transaction.create(
+      moxi_works_agent_id:"abc123",
+      moxi_works_contact_id:"babebead-feed-face-dead-beefbad4babe",
+      name:"Bob And Linda Tonkanaka",
+      notes:"take care to write notes that are descriptive and helpful",
+      address:"1234 memory lane",
+      city:"hereville",
+      state:"provinceland",
+      zip_code:"18292",
+      sqft:2345,
+      max_sqft:5678,
+      beds:12,
+      max_beds:23,
+      baths:34.5,
+      max_baths:45,
+      area_of_interest:"howdyville",
+      is_mls_transaction:true,
+      commission_flat_fee:12345,
+      target_price:292929,
+      max_price:2323223,
+      mls_number:"abc123",
+      transaction_category:"buyer",
+      transaction_state:"prospects"
+      )
+
+```
+
+```php
+<?php
+$platform_identifier = 'abc123'; // platorm_identifier provided by Moxi Works Platform Rep
+$platform_secret = 'secret'; //platform_secret provided by Moxi Works Platform Rep
+
+$credentials = new MoxiworksPlatform\Credentials($platform_identifier, $platform_secret);
+
+$moxi_works_transaction = MoxiworksPlatform\Transaction::create([
+      "moxi_works_agent_id" => "abc123",
+      "moxi_works_contact_id" => "babebead-feed-face-dead-beefbad4babe",
+      "name" => "Bob And Linda Tonkanaka",
+      "notes" => "take care to write notes that are descriptive and helpful",
+      "address" => "1234 memory lane",
+      "city" => "hereville",
+      "state" => "provinceland",
+      "zip_code" => "18292",
+      "sqft" => 2345,
+      "max_sqft" => 5678,
+      "beds" => 12,
+      "max_beds" => 23,
+      "baths" => 34.5,
+      "max_baths" => 45,
+      "area_of_interest" => "howdyville",
+      "is_mls_transaction" => true,
+      "commission_flat_fee" => 12345,
+      "target_price" => 292929,
+      "max_price" => 2323223,
+      "mls_number" => "abc123",
+      "transaction_category" => "buyer",
+      "transaction_state" => "prospects"
+       ]);
+?>
+```
+
+
+
+<aside class="note">Send a <b>POST</b> request to https://api.moxiworks.com/api/transactions</aside>
+
+When creating an transaction using the Moxi Works platform API, format your data using the following parameters.
+
+##### <span class='entity-name'>Transaction</span> <span class='action-name'>Create</span> Request Attributes
+
+
+Attribute | Type | Length Limit |
+-----|-----|-----|-----|
+|<span class="required-data">moxi_works_agent_id</span>|<span class="required-data"><span class="data-type">String</span></span>|<span class="required-data">255</span>
+|<span class="required-data">moxi_works_contact_id</span>|<span class="required-data"><span class="data-type">String</span></span>|<span class="required-data">255</span>
+|<span class="optional-data">name</span>|<span class="optional-data"><span class="data-type">String</span></span>| <span class="optional-data">255</span> |
+|<span class="optional-data">notes</span>|<span class="optional-data"><span class="data-type">String</span></span>|  |
+|<span class="optional-data">address</span>|<span class="optional-data"><span class="data-type">String</span></span>| <span class="optional-data">255</span> |
+|<span class="optional-data">city</span>|<span class="optional-data"><span class="data-type">String</span></span>| <span class="optional-data">255</span> |
+|<span class="optional-data">state</span>|<span class="optional-data"><span class="data-type">String</span></span>| <span class="optional-data">255</span> |
+|<span class="optional-data">zip_code</span>|<span class="optional-data"><span class="data-type">String</span></span>| <span class="optional-data">255</span> |
+|<span class="optional-data">sqft</span>|<span class="optional-data"><span class="data-type">Integer</span></span>| <span class="optional-data">255</span> |
+|<span class="optional-data">max_sqft</span>|<span class="optional-data"><span class="data-type">Integer</span></span>| <span class="optional-data">255</span> |
+|<span class="optional-data">beds</span>|<span class="optional-data"><span class="data-type">Integer</span></span>| <span class="optional-data">255</span> |
+|<span class="optional-data">max_beds</span>|<span class="optional-data"><span class="data-type">Integer</span></span>| <span class="optional-data">255</span> |
+|<span class="optional-data">baths</span>|<span class="optional-data"><span class="data-type">Float</span></span>| <span class="optional-data">255</span> |
+|<span class="optional-data">max_baths</span>|<span class="optional-data"><span class="data-type">Float</span></span>| <span class="optional-data">255</span> |
+|<span class="optional-data">area_of_interest</span>|<span class="optional-data"><span class="data-type">String</span></span>| <span class="optional-data">255</span> |
+|<span class="optional-data">is_mls_transaction</span>|<span class="optional-data"><span class="data-type">Boolean</span></span>| <span class="optional-data">255</span> |
+|<span class="optional-data">commission_percentage</span>|<span class="optional-data"><span class="data-type">Float</span></span>| <span class="optional-data">255</span> |
+|<span class="optional-data">commission_flat_fee</span>|<span class="optional-data"><span class="data-type">Integer</span></span>| <span class="optional-data">255</span> |
+|<span class="optional-data">target_price</span>|<span class="optional-data"><span class="data-type">Integer</span></span>| <span class="optional-data">255</span> |
+|<span class="optional-data">max_price</span>|<span class="optional-data"><span class="data-type">Integer</span></span>| <span class="optional-data">255</span> |
+|<span class="optional-data">mls_number</span>|<span class="optional-data"><span class="data-type">String</span></span>| <span class="optional-data">255</span> |
+|<span class="optional-data">transaction_category</span>|<span class="optional-data"><span class="data-type">String, enumerated</span></span>| <span class="optional-data">255</span> |
+|<span class="optional-data">transaction_state</span>|<span class="optional-data"><span class="data-type">String, enumerated</span></span>| <span class="optional-data">255</span> |
+|<span class="optional-data">price</span>|<span class="optional-data"><span class="data-type">Integer</span></span>| <span class="optional-data">255</span> |
+|<span class="optional-data">closing_price</span>|<span class="optional-data"><span class="data-type">Integer</span></span>| <span class="optional-data">255</span> |
+|<span class="optional-data">closing_timestamp</span>|<span class="optional-data"><span class="data-type">Integer</span></span>| <span class="optional-data">255</span> |
+|<span class="optional-data">start_timestamp</span>|<span class="optional-data"><span class="data-type">Integer</span></span>| <span class="optional-data">255</span> |
+
+
+<span class="required-data">**Required Parameters Are In Red**</span>
+
+
+<span class="request-data-head">moxi_works_agent_id</span>
+<span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>Transaction</span> object is to be associated with. This will be a string that may take the form of an email address, or a unique identification string. This data is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>Transaction</span> <span class='action-name'>Create</span>  request to be accepted.</span>
+
+<span class="request-data-head">moxi_works_contact_id</span>
+<span class="request-data-remarks">This is the unique identifer for the <span class='entity-name'>Contact</span> that this <span class='entity-name'>Transaction</span> regards. This will match the <span class='entity-name'>Contact</span><span class='attribute-name'>uuid</span> attribute.</span>
+
+
+<span class="request-data-head">name</span>
+<span class="request-data-remarks">A brief, human readable title that will be shown to the agent as the subject of the <span class='entity-name'>Transaction</span> that you are creating.</span>
+
+
+<span class="request-data-head">notes</span>
+<span class="request-data-remarks">Brief, human readable content that will be shown to the agent as notes about the <span class='entity-name'>Transaction</span> that you are creating.</span>
+
+<span class="request-data-head">address</span>
+<span class="request-data-remarks">Brief, human readable content that will be shown to the agent as notes about the <span class='entity-name'>Transaction</span> that you are creating.</span>
+
+<span class="request-data-head">due_at</span>
+<span class="request-data-remarks">A Unix timestamp representing the point in time when the transaction associated with this <span class='entity-name'>Transaction</span> object should be completed by.</span>
+
+<span class="request-data-head">duration</span>
+<span class="request-data-remarks">The timespan (in minutes) that the transaction for this <span class='entity-name'>Transaction</span> object is expected to take.</span>
+
+<aside class="note">Use either <span class='attribute-name'>commission_percentage</span> or <span class='attribute-name'>commission_percentage</span>.</aside>
+
+
+
+
+<blockquote><div class='highlight json' style="display: block">
+<span class='data-example-label'><span class='entity-name'>Transaction</span> <span class='action-name'>Create</span> Response Payload Example
+</span></div></blockquote>
+
+```json
+{
+  "moxi_works_agent_id":"1234abcd",
+  "partner_contact_id":"mySystemContactId",
+  "name":"Meet And Greet",
+  "description":"Set up a meeting to talk to this contact about their new home",
+  "due_at":1466208866,
+  "duration":10,
+  "status":"active",
+  "created_at":1466196521,
+  "completed_at":null
+}
+```
+
+<blockquote><div class='highlight json' style="display: block">
+  <span class='data-example-label'><span class='entity-name'>Transaction</span> <span class='action-name'>Create</span> Failure Response Example
+</div> See <a href='#error-handling'>Error Handling</a> for details about individual error codes.</blockquote>
+
+```json
+{
+  "status":"fail",
+  "errorCode": xxx,
+  "messages": ["messages"]
+}
+
+```
+
+
+
+##### <span class='entity-name'>Transaction</span> <span class='action-name'>Create</span> Response Payload
+The following attributes make up the payload of the <span class='entity-name'>Transaction</span> response for a <span class='action-name'>Create</span> request.
+
+
+
+Attribute | Type |
+-----|-----|-----|-----|
+|<span class="response-data">moxi_works_agent_id</span>|<span class="response-data"><span class="data-type">String</span></span>|
+|<span class="response-data">partner_contact_id</span>|<span class="response-data"><span class="data-type">String</span>
+|<span class="response-data">name</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">description</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">due_at</span>|<span class="data-type">Integer</span>|
+|<span class="response-data">duration</span>|<span class="data-type">Integer or null</span>|
+|<span class="response-data">status</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">created_at</span>|<span class="data-type">Integer</span>|
+|<span class="response-data">completed_at</span>|<span class="data-type">Integer or null</span>|
+
+<span class="response-data-head">moxi_works_agent_id</span>
+<span class="response-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span>. This will be a string that may take the form of an email address, or a unique alphanumeric identification string.</span>
+
+<span class="response-data-head">partner_contact_id</span>
+<span class="response-data-remarks">This is the unique identifer you use in your system that has been associated with the <span class='entity-name'>Contact</span> that you are creating this <span class='entity-name'>Transaction</span> for.</span>
+
+<span class="response-data-head">name</span>
+<span class="response-data-remarks">A brief, human readable title that will be shown to the agent as the subject of the <span class='entity-name'>Transaction</span>.</span>
+
+
+<span class="response-data-head">description</span>
+<span class="response-data-remarks">Brief, human readable content that will be shown to the agent as the body of the <span class='entity-name'>Transaction</span>.</span>
+
+
+<span class="response-data-head">due_at</span>
+<span class="response-data-remarks">A Unix timestamp representing the point in time when the transaction for this <span class='entity-name'>Transaction</span> object should be completed by.</span>
+
+
+<span class="response-data-head">duration</span>
+<span class="response-data-remarks">The timespan (in minutes) that the transaction for this <span class='entity-name'>Transaction</span> object is expected to take.</span>
+
+
+<span class="response-data-head">created_at</span>
+<span class="response-data-remarks">A Unix timestamp representing the point in time when the  <span class='entity-name'>Transaction</span> object was created.</span>
+
+
+<span class="response-data-head">completed_at</span>
+<span class="response-data-remarks">A Unix timestamp representing the point in time when the transaction for this <span class='entity-name'>Transaction</span> object was completed. This should be `null` if the transaction has not yet been completed.</span>

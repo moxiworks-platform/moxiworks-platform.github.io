@@ -1,10 +1,20 @@
-#### Show
+#### <span class='entity-name'>Task</span> <span class='action-name'>Show</span>
 
 <div class='highlight ruby'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-ruby/MoxiworksPlatform/Task.html#find-class_method'>Ruby Find Docs</a></span></blockquote></div>
 
 <div class='highlight php'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-php/classes/MoxiworksPlatform.Task.html#method_find'>PHP Find Docs</a></span></blockquote></div>
 
-> <span class="data-example-label">Task Show Example</span>
+> <span class="data-example-label"><span class='entity-name'>Task</span> <span class='action-name'>Show</span> Example</span>
+
+```json
+
+{
+  "partner_task_id":"mySystemsTaskID",
+  "partner_contact_id": "abc123",
+  "moxi_works_agent_id":"abc123"
+}
+
+```
 
 ```http
 GET /api/tasks/my_task_id?moxi_works_agent_id=abc123 HTTP/1.1
@@ -29,6 +39,7 @@ MoxiworksPlatform::Credentials.new(platform_identifier, platform_secret)
 
 moxi_works_task = MoxiworksPlatform::Task.find(
         moxi_works_agent_id: "1234abcd",
+        partner_contact_id: "abc123",
         partner_task_id: "booyuh")
 
 ```
@@ -42,27 +53,46 @@ $credentials = new MoxiworksPlatform\Credentials($platform_identifier, $platform
 
 $moxi_works_task = MoxiworksPlatform\Task::find([
         'moxi_works_agent_id' => '1234abcd',
+        'partner_contact_id' => 'abc123',
         'partner_task_id' => 'booyuh']);
 ?>
 ```
 
 
-<blockquote><div class='highlight http' style="display: block">
-<span class="data-example-label">Task Show: Success Response</span>
-(line breaks in body shown for clarity)
-</div></blockquote>
+<aside class="note">Send a <b>GET</b> request to https://api.moxiworks.com/api/tasks/[partner_task_id]</aside>
 
-```http
-HTTP/1.1 200 OK
-Content-Type: application/json; charset=utf-8
-X-UA-Compatible: IE=Edge
-ETag: \"39e1ce76ef58ce23a7debbe5ca145715\"
-Cache-Control: max-age=0, private, must-revalidate
-X-Request-Id: 232e40496ea30b9758dddf0b7ab195f2
-X-Runtime: 13.034641
-Connection: close
-Server: thin
+When finding a <span class='entity-name'>Task</span> object using the Moxi Works platform API, format your data using the following parameters.
 
+##### <span class='entity-name'>Task</span> <span class='action-name'>Show</span> Request Attributes
+
+
+Attribute | Type | Length Limit |
+-----|-----|-----|-----|
+|<span class="required-data">moxi_works_agent_id</span>|<span class="required-data"><span class="data-type">String</span></span>|<span class="required-data">255</span>
+|<span class="required-data">partner_task_id</span>|<span class="required-data"><span class="data-type">String</span></span>| <span class="required-data">255</span>
+|<span class="required-data">partner_contact_id</span>|<span class="required-data"><span class="data-type">String</span></span>| <span class="required-data">255</span>
+
+<span class="required-data">**Required Parameters Are In Red**</span>
+
+
+
+<span class="request-data-head">moxi_works_agent_id</span>
+<span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which the <span class='entity-name'>Task</span> objects are associated with. This will be a string that may take the form of an email address, or a unique identification string. This data is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>Task</span> <span class='action-name'>Show</span>  request to be accepted.</span>
+
+
+<span class="request-data-head">partner_task_id</span>
+<span class="request-data-remarks">This is the unique identifer you use in your system that has been associated with the <span class='entity-name'>Task</span>.</span>
+
+
+<span class="request-data-head">partner_contact_id</span>
+<span class="request-data-remarks">This is the unique identifer you use in your system that has been associated with the <span class='entity-name'>Contact</span> that this <span class='entity-name'>Task</span> is for.</span>
+
+
+<blockquote><div class='highlight json' style="display: block">
+<span class='data-example-label'><span class='entity-name'>Task</span> <span class='action-name'>Show</span> Response Payload Example
+</span></div></blockquote>
+
+```json
 {
   "moxi_works_agent_id": "1234abcd",
   "partner_contact_id": "abc123",
@@ -73,26 +103,15 @@ Server: thin
   "duration": 30,
   "status": "active",
   "created_at": 1462234227,
-  "completed_at": null,
+  "completed_at": null
 }
 ```
 
-<blockquote><div class='highlight http' style="display: block">
-<span class="data-example-label">Task Show: Failure Response</span>
-(line breaks in body shown for clarity)
-</div></blockquote>
+<blockquote><div class='highlight json' style="display: block">
+  <span class='data-example-label'><span class='entity-name'>Task</span> <span class='action-name'>Show</span> Failure Response Example
+</div> See <a href='#error-handling'>Error Handling</a> for details about individual error codes.</blockquote>
 
-```http
-
-HTTP/1.1 400 OK
-Content-Type: application/json; charset=utf-8
-X-UA-Compatible: IE=Edge
-ETag: \"39e1ce76ef58ce23a7debbe5ca145715\"
-Cache-Control: max-age=0, private, must-revalidate
-X-Request-Id: 232e40496ea30b9758dddf0b7ab195f2
-X-Runtime: 13.034641
-Connection: close
-Server: thin
+```json
 
 {
   "status":"fail",
@@ -102,11 +121,52 @@ Server: thin
 
 ```
 
-<aside class="note">Send a <b>GET</b> request to https://api.moxiworks.com/api/tasks/[partner_task_id]</aside>
+##### <span class='entity-name'>Task</span> <span class='action-name'>Show</span> Response Payload
+The following attributes make up the payload of the <span class='entity-name'>Task</span> response for a <span class='action-name'>Show</span> request.
 
-Attribute | Type| Remark | Length Limit |
------|-----|-----|-----| 
-|<span class="required-data">moxi_works_agent_id</span>|<span class="required-data"><span class="data-type">String</span></span>|<span class="required-data"><span class="data-remarks">The agent's Moxi Works Platform ID</span></span>| <span class="required-data">255</span>
-|<span class="required-data">partner_task_id</span>|<span class="required-data"><span class="data-type">String</span></span>|<span class="required-data"><span class="data-remarks">The unique ID of the task in your system</span></span>| <span class="required-data">255</span>
+Attribute | Type |
+-----|-----|-----|-----|
+|<span class="response-data">moxi_works_agent_id</span>|<span class="response-data"><span class="data-type">String</span></span>|
+|<span class="response-data">partner_contact_id</span>|<span class="response-data"><span class="data-type">String</span>
+|<span class="response-data">partner_task_id</span>|<span class="response-data"><span class="data-type">String</span>
+|<span class="response-data">name</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">description</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">due_at</span>|<span class="data-type">Integer</span>|
+|<span class="response-data">duration</span>|<span class="data-type">Integer or null</span>|
+|<span class="response-data">status</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">created_at</span>|<span class="data-type">Integer</span>|
+|<span class="response-data">completed_at</span>|<span class="data-type">Integer or null</span>|
 
-<span class="required-data">**Required Parameters Are In Red**</span>
+<span class="response-data-head">moxi_works_agent_id</span>
+<span class="response-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span>. This will be a string that may take the form of an email address, or a unique alphanumeric identification string.</span>
+
+<span class="response-data-head">partner_contact_id</span>
+<span class="request-data-remarks">This is the unique identifer you use in your system that has been associated with the <span class='entity-name'>Contact</span> that this <span class='entity-name'>Task</span> is for.</span>
+
+
+<span class="response-data-head">partner_task_id</span>
+<span class="response-data-remarks">This is the unique identifer you use in your system that has been associated with the <span class='entity-name'>Task</span>.</span>
+
+
+<span class="response-data-head">name</span>
+<span class="response-data-remarks">A brief, human readable title that will be shown to the agent as the subject of the <span class='entity-name'>Task</span>.</span>
+
+
+<span class="response-data-head">description</span>
+<span class="response-data-remarks">Brief, human readable content that will be shown to the agent as the body of the <span class='entity-name'>Task</span>.</span>
+
+
+<span class="response-data-head">due_at</span>
+<span class="response-data-remarks">A Unix timestamp representing the point in time when the task for this <span class='entity-name'>Task</span> object should be completed by.</span>
+
+
+<span class="response-data-head">duration</span>
+<span class="response-data-remarks">The timespan (in minutes) that the task for this <span class='entity-name'>Task</span> object is expected to take.</span>
+
+
+<span class="response-data-head">created_at</span>
+<span class="response-data-remarks">A Unix timestamp representing the point in time when the  <span class='entity-name'>Task</span> object was created.</span>
+
+
+<span class="response-data-head">completed_at</span>
+<span class="response-data-remarks">A Unix timestamp representing the point in time when the task for this <span class='entity-name'>Task</span> object was completed. This should be `null` if the task has not yet been completed.</span>

@@ -1,10 +1,17 @@
-#### Index
+#### <span class='entity-name'>Group</span> <span class='action-name'>Index</span>
 
 <div class='highlight ruby'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-ruby/MoxiworksPlatform/Group.html#search-class_method'>Ruby Search Docs</a></span></blockquote></div>
 
 <div class='highlight php'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-php/classes/MoxiworksPlatform.Group.html#method_search'>PHP Search Docs</a></span></blockquote></div>
 
-> <span class="data-example-label">Group Index Example</span>
+> <span class="data-example-label"><span class='entity-name'>Group</span> <span class='action-name'>Index</span> Example</span>
+
+```json
+{
+  "moxi_works_agent_id":"abc123",
+  "name":"foo"
+}
+```
 
 ```http
 GET /api/groups?moxi_works_agent_id=abc123&name=foo HTTP/1.1
@@ -32,7 +39,7 @@ moxi_works_groups = MoxiworksPlatform::Group.search(
 
 # or for a list of all available groups:
 moxi_works_groups = MoxiworksPlatform::Group.search(
-        moxi_works_agent_id: "1234abcd")        
+        moxi_works_agent_id: "1234abcd")
 
 ```
 
@@ -49,29 +56,50 @@ $moxi_works_groups = MoxiworksPlatform\Group::search([
 
 # or for a list of all available groups
 $moxi_works_groups = MoxiworksPlatform\Group::search([
-        $moxi_works_agent_id => "1234abcd"]);     
+        $moxi_works_agent_id => "1234abcd"]);
 
 ?>
 ```
 
 
-<blockquote><div class='highlight http' style="display: block">
-<span class="data-example-label">Group Index: Success Response</span>
-(line breaks in body shown for clarity)
-</div></blockquote>
+<aside class="note">Send a <b>GET</b> request to https://api.moxiworks.com/api/groups</aside>
 
-```http
-HTTP/1.1 200 OK
-Content-Type: application/json; charset=utf-8
-X-UA-Compatible: IE=Edge
-ETag: \"39e1ce76ef58ce23a7debbe5ca145715\"
-Cache-Control: max-age=0, private, must-revalidate
-X-Request-Id: 232e40496ea30b9758dddf0b7ab195f2
-X-Runtime: 13.034641
-Connection: close
-Server: thin
 
-[{"moxi_works_group_name":"Christmas Cards"},
+When searching for <span class='entity-name'>Group</span> objects using the Moxi Works platform API, format your data using the following parameters.
+
+##### <span class='entity-name'>Group</span> <span class='action-name'>Index</span> Request Attributes
+
+
+Attribute | Type | Length Limit |
+-----|-----|-----|-----|
+|<span class="required-data">moxi_works_agent_id</span>|<span class="required-data"><span class="data-type">String</span></span>|<span class="required-data">255</span>
+|<span class="optional-data">name</span>|<span class="data-type">String</span>| 255 |
+
+<span class="required-data">**Required Parameters Are In Red**</span>
+
+<span class="request-data-head">moxi_works_agent_id</span>
+<span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which you are searching for associated <span class='entity-name'>Group</span> objects. This will be a string that may take the form of an email address, or a unique identification string. This data is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>Group</span> <span class='action-name'>Index</span>  request to be accepted.</span>
+
+<span class="request-data-head">name</span>
+<span class="request-data-remarks">This is the name of a <span class='entity-name'>Group</span> to be searched for.</span>
+
+<aside class="note">If no <span class='attribute-name'>name</span> parameter is included, all defined <span class='entity-name'>Group</span> objects for the <span class='entity-name'>Agent</span> will be returned in the response.</aside>
+
+
+##### <span class='entity-name'>Group</span> <span class='action-name'>Index</span> Response Payload
+
+The following attributes make up the payload of the <span class='entity-name'>Group</span> response for a <span class='action-name'>Index</span> request.
+
+
+
+<blockquote><div class='highlight json' style="display: block">
+<span class='data-example-label'><span class='entity-name'>Group</span> <span class='action-name'>Index</span> Response Payload Example
+</span></div></blockquote>
+
+```json
+
+[
+{"moxi_works_group_name":"Christmas Cards"},
 {"moxi_works_group_name":"foo"},
 {"moxi_works_group_name":"blah"},
 {"moxi_works_group_name":"one"},
@@ -81,46 +109,15 @@ Server: thin
 {"moxi_works_group_name":"TestEmailAddresses"},
 {"moxi_works_group_name":"todelete"},
 {"moxi_works_group_name":"TwoMore"},
-{"moxi_works_group_name":"that"}]
+{"moxi_works_group_name":"that"}
+]
 ```
 
-<blockquote><div class='highlight http' style="display: block">
-<span class="data-example-label">Group Index: Not Found Response</span>
-(line breaks in body shown for clarity)
-</div></blockquote>
+<blockquote><div class='highlight json' style="display: block">
+  <span class='data-example-label'><span class='entity-name'>Group</span> <span class='action-name'>Index</span> Failure Response
+</div> See <a href='#error-handling'>Error Handling</a> for details about individual error codes.</blockquote>
 
-```http
-
-HTTP/1.1 200 OK
-Content-Type: application/json; charset=utf-8
-X-UA-Compatible: IE=Edge
-ETag: \"39e1ce76ef58ce23a7debbe5ca145715\"
-Cache-Control: max-age=0, private, must-revalidate
-X-Request-Id: 232e40496ea30b9758dddf0b7ab195f2
-X-Runtime: 13.034641
-Connection: close
-Server: thin
-
-[]
-```
-
-<blockquote><div class='highlight http' style="display: block">
-<span class="data-example-label">Group Index: Failure Response</span>
-(line breaks in body shown for clarity)
-</div></blockquote>
-
-```http
-
-HTTP/1.1 400 OK
-Content-Type: application/json; charset=utf-8
-X-UA-Compatible: IE=Edge
-ETag: \"39e1ce76ef58ce23a7debbe5ca145715\"
-Cache-Control: max-age=0, private, must-revalidate
-X-Request-Id: 232e40496ea30b9758dddf0b7ab195f2
-X-Runtime: 13.034641
-Connection: close
-Server: thin
-
+```json
 {
   "status":"fail",
   "errorCode": xxx,
@@ -129,16 +126,14 @@ Server: thin
 
 ```
 
-<aside class="note">Send a <b>GET</b> request to https://api.moxiworks.com/api/groups</aside>
+###### <span class='action-name'>Group</span> Response Attributes
 
+The <span class='entity-name'>Group</span> <span class='action-name'>Index</span> response is made up of an array of <span class='entity-name'>Group</span> objects.  Each  <span class='entity-name'>Group</span> object contains the following attributes.
 
-When searching for Group entities using the Moxi Works platform API, format your data using the following parameters.
-
-
-Attribute | Type| Remark | Length Limit |
+Attribute | Type |
 -----|-----|-----|-----|
-|<span class="required-data">moxi_works_agent_id</span>|<span class="required-data"><span class="data-type">String</span></span>|<span class="required-data"><span class="data-remarks">The agent's Moxi Works Platform ID</span></span>| <span class="required-data">255</span>
-|<span class="optional-data">name</span>|<span class="data-type">String</span>|<span class="data-remarks">the name of a group to be searched for. <b>If no name parameter is included, all defined groups will be returned in the response.</b> </span>| |
+|<span class="response-data">moxi_works_group_name</span>|<span class="response-data"><span class="data-type">String</span></span>|
 
-<span class="required-data">**Required Parameters Are In Red**</span>
 
+<span class="response-data-head">moxi_works_group_name</span>
+<span class="response-data-remarks">This is a human readable string meaningful to the agent about what kind of <span class='entity-name'>Contact</span> objects are in this <span class='entity-name'>Group</span>.</span>

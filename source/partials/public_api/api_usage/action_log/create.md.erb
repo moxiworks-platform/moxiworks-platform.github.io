@@ -1,16 +1,21 @@
-#### Create
+#### <span class='entity-name'>ActionLog</span> <span class='action-name'>Create</span>
 
-<div class='highlight ruby'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-ruby/MoxiworksPlatform/ActionLog.html#create-class_method'>Ruby Create Docs</a></span></blockquote></div>
+<div class='highlight ruby'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-ruby/MoxiworksPlatform/ActionLog.html#create-class_method'>Ruby <span class='action-name'>Create</span> Docs</a></span></blockquote></div>
 
-<div class='highlight php'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-php/classes/MoxiworksPlatform.ActionLog.html#method_create'>PHP Create Docs</a></span></blockquote></div>
-
-
-<aside class="note">Send a <b>POST</b> request to https://api.moxiworks.com/api/action_logs</aside>
-
-When creating an action_log using the Moxi Works platform API, format your data using the following parameters.
+<div class='highlight php'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-php/classes/MoxiworksPlatform.ActionLog.html#method_create'>PHP <span class='action-name'>Create</span> Docs</a></span></blockquote></div>
 
 
-> <span class="data-example-label">ActionLog Creation Example</span>
+> <span class="data-example-label"><span class='entity-name'>ActionLog </span><span class='action-name'>Create </span>Request Example</span>
+
+```json
+{
+  "moxi_works_agent_id":"abc123",
+  "partner_contact_id":"mySystemsContactId",
+  "title":"Contact Called",
+  "body":"this contact called you"
+}
+
+```
 
 ```http
 POST /api/action_logs HTTP/1.1
@@ -57,24 +62,48 @@ $moxi_works_action_log = MoxiworksPlatform\ActionLog::create([
         'title' => 'Contact Called',
         'body' => 'this contact called you']);
 ?>
+
 ```
-<blockquote><div class='highlight http' style="display: block">
-<span class="data-example-label">ActionLog Create: Success Response</span>
-(line breaks in body shown for clarity)
-</div></blockquote>
 
-```http
-HTTP/1.1 200 OK
-Content-Type: application/json; charset=utf-8
-X-UA-Compatible: IE=Edge
-ETag: \"39e1ce76ef58ce23a7debbe5ca145715\"
-Cache-Control: max-age=0, private, must-revalidate
-X-Request-Id: 232e40496ea30b9758dddf0b7ab195f2
-X-Runtime: 13.034641
-Connection: close
-Server: thin
 
-{
+<aside class="note">Send a <b>POST</b> request to https://api.moxiworks.com/api/action_logs</aside>
+
+When creating an <span class='entity-name'>ActionLog</span> using the Moxi Works platform API, format your request using the following parameters.
+
+
+##### <span class='entity-name'>ActionLog</span> <span class='action-name'>Create</span> Request Attributes
+
+Attribute | Type | Length Limit |
+-----|-----|-----|-----|
+|<span class="required-data">body</span>|<span class="required-data"><span class="data-type">String</span></span>|<span class="required-data">255</span> |
+|<span class="required-data">moxi_works_agent_id</span>|<span class="required-data"><span class="data-type">String</span></span>| <span class="required-data">255</span>
+|<span class="required-data">partner_contact_id</span>|<span class="required-data"><span class="data-type">String</span></span>| <span class="required-data">255</span>
+|<span class="required-data">title</span>|<span class="required-data"><span class="data-type">String</span></span>| <span class="required-data">85</span> |
+
+<span class="required-data">**Required Parameters Are In Red**</span>
+
+<span class="request-data-head">body</span>
+<span class="request-data-remarks">This is a human readable string which would be presented to the Agent as the content of the <span class='entity-name'>ActionLog</span> entry. This can be any arbitrary plain-text string which would be practical for the agent to see in the history of events associated with a <span class='entity-name'>Contact</span>. It must be greater than 0 and must be less than 255 characters.</span>
+
+<span class="request-data-head">moxi_works_agent_id</span>
+<span class="request-data-remarks">This is the Moxi Works Platform ID of the agent which an  <span class='entity-name'>ActionLog</span> entry is associated with. This will be a string that may take the form of an email address, or a unique identification string. This data is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>ActionLog</span> request to be accepted.</span>
+
+<span class="request-data-head">partner_contact_id</span>
+<span class="request-data-remarks">This is the unique identifer you use in your system that has been associated with the <span class='entity-name'>Contact</span> that you are creating an <span class='entity-name'>ActionLog</span> entry about. You should have already created the <span class='entity-name'>Contact</span> record on the Moxi Works Platform using [Contact Create](/#contact-create) before attempting to use the contact ID to create an <span class='entity-name'>ActionLog</span> entry about the <span class='entity-name'>Contact</span>. Your request will be rejected if the <span class='entity-name'>Contact</span> record does not exist.</span>
+<span class="request-data-head">title</span>
+<span class="response-data-remarks">This is the human readable plain-text string which will be presented to the Agent as the heading of the <span class='entity-name'>ActionLog</span> entry. This can be any short, descriptive sentence which would be practical for the agent to see in the history of events associated with a <span class='entity-name'>Contact</span>.</span>
+
+
+##### <span class='entity-name'>ActionLog</span> <span class='action-name'>Create</span> Response Payload
+The following attributes make up the payload of the <span class='entity-name'>ActionLog</span> response for a <span class='action-name'>Create</span> request.
+
+<blockquote><div class='highlight json' style="display: block">
+<span class='data-example-label'><span class='entity-name'>ActionLog</span> <span class='action-name'>Create</span> Response Payload Example
+</span></div></blockquote>
+
+```json
+
+  {
   "moxi_works_agent_id": "1234abcd",
   "partner_contact_id": "mySystemsContactId",
   "type": "log_entry_type",
@@ -84,23 +113,11 @@ Server: thin
 }
 ```
 
-<blockquote><div class='highlight http' style="display: block">
-<span class="data-example-label">ActionLog Create: Failure Response</span>
-(line breaks in body shown for clarity)
-</div></blockquote>
+<blockquote><div class='highlight json' style="display: block">
+<span class="data-example-label"><span class='entity-name'>ActionLog</span> <span class='action-name'>Create</span> Failure Response</span>
+</div> See <a href='#error-handling'>Error Handling</a> for details about individual error codes.</blockquote>
 
-```http
-
-HTTP/1.1 400 OK
-Content-Type: application/json; charset=utf-8
-X-UA-Compatible: IE=Edge
-ETag: \"39e1ce76ef58ce23a7debbe5ca145715\"
-Cache-Control: max-age=0, private, must-revalidate
-X-Request-Id: 232e40496ea30b9758dddf0b7ab195f2
-X-Runtime: 13.034641
-Connection: close
-Server: thin
-
+```json
 {
   "status":"fail",
   "errorCode": xxx,
@@ -109,13 +126,28 @@ Server: thin
 
 ```
 
-Attribute | Type| Remark | Length Limit |
------|-----|-----|-----| 
-|<span class="required-data">moxi_works_agent_id</span>|<span class="required-data"><span class="data-type">String</span></span>|<span class="required-data"><span class="data-remarks">The agent's Moxi Works Platform ID</span></span>| <span class="required-data">255</span>
-|<span class="required-data">partner_contact_id</span>|<span class="required-data"><span class="data-type">String</span></span>|<span class="required-data"><span class="data-remarks">The unique ID of the Contact in your system</span></span>| <span class="required-data">255</span>
-|<span class="required-data">title</span>|<span class="required-data"><span class="data-type">String</span></span>|<span class="required-data"><span class="data-remarks">The title of the log entry to be displayed.</span></span>| <span class="required-data">85</span> |
-|<span class="required-data">body</span>|<span class="required-data"><span class="data-type">String</span></span>|<span class="required-data"><span class="data-remarks">The body of the log entry to be displayed.</span></span>| <span class="required-data">255</span> |
+###### <span class='action-name'>Create</span> Response Attributes
 
-<span class="required-data">**Required Parameters Are In Red**</span>
+Attribute | Type|
+-----|-----|-----|-----|
+|<span class="response-data">body</span>|<span class="data-type">String</span>| |
+|<span class="response-data">moxi_works_agent_id</span>|<span class="data-type">String</span>| |
+|<span class="response-data">partner_contact_id</span>|<span class="data-type">String</span>| |
+|<span class="response-data">timestamp</span>|<span class="data-type">Integer</span>| |
+|<span class="response-data">title</span>|<span class="data-type">String</span>| |
 
 
+<span class="response-data-head">body</span>
+<span class="response-data-remarks">This is a human readable string which would be presented to the Agent as the content of the <span class='entity-name'>ActionLog</span> entry. This can be any arbitrary plain-text string which would be practical for the agent to see in the history of events associated with a <span class='entity-name'>Contact</span>. This should be the same as the data sent in the <span class='attribute-name'>body</span> parameter of the <span class='entity-name'>ActionLog</span> <span class='action-name'>Create</span> request.</span>
+
+<span class="response-data-head">moxi_works_agent_id</span>
+<span class="response-data-remarks">This is the Moxi Works Platform ID of the agent which an <span class='entity-name'>ActionLog</span> entry is associated with. This will be a string that may take the form of an email address, or a unique identification string.</span>
+
+<span class="response-data-head">partner_contact_id</span>
+<span class="response-data-remarks">This is the unique identifer you use in your system that has been associated with the <span class='entity-name'>Contact</span> that you are creating an <span class='entity-name'>ActionLog</span> entry about. You should have already created the <span class='entity-name'>Contact</span> record on the Moxi Works Platform using [Contact Create](/#contact-create)</span>
+
+<span class="response-data-head">timestamp</span>
+<span class="response-data-remarks">This is the Unix timestamp for the creation time of the <span class='entity-name'>ActionLog</span> entry.</span>
+
+<span class="response-data-head">title</span>
+<span class="response-data-remarks">This is the human readable plain-text string which will be presented to the Agent as the heading of the <span class='entity-name'>ActionLog</span> entry. This may be any short, descriptive sentence which would be practical for the agent to see in the history of events associated with a <span class='entity-name'>Contact</span>. This should be the same as the data sent in the <span class='attribute-name'>title</span> parameter of the <span class='entity-name'>ActionLog</span> <span class='action-name'>Create</span> request.</span></span>

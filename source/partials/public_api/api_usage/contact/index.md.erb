@@ -1,10 +1,19 @@
-#### Index
+#### <span class='entity-name'>Contact</span> <span class='action-name'>Index</span>
 
 <div class='highlight ruby'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-ruby/MoxiworksPlatform/Contact.html#search-class_method'>Ruby Search Docs</a></span></blockquote></div>
 
 <div class='highlight php'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-php/classes/MoxiworksPlatform.Contact.html#method_search'>PHP Search Docs</a></span></blockquote></div>
 
-> <span class="data-example-label">Contact Index Example</span>
+> <span class="data-example-label"><span class='entity-name'>Contact</span> <span class='action-name'>Index</span> Example</span>
+
+
+```json
+{
+  "moxi_works_agent_id":"abc123",
+  "contact_name":"buckminster fuller"
+}
+
+```
 
 ```http
 GET /api/contacts?moxi_works_agent_id=abc123&contact_name=buckminster%20fuller HTTP/1.1
@@ -46,27 +55,56 @@ $moxi_works_contact = MoxiworksPlatform\Contact::search([
 ```
 
 
-<blockquote><div class='highlight http' style="display: block">
+<aside class="note">Send a <b>GET</b> request to https://api.moxiworks.com/api/contacts</aside>
+
+
+When searching for Contact entities using the Moxi Works platform API, format your data using the following parameters.
+
+##### <span class='entity-name'>Contact</span> <span class='action-name'>Index</span> Request Attributes
+
+
+Attribute | Type | Length Limit |
+-----|-----|-----|-----|
+|<span class="required-data">moxi_works_agent_id</span>|<span class="required-data"><span class="data-type">String</span></span>|<span class="required-data">255</span>
+|<span class="optional-data">contact_name</span>|<span class="data-type">String</span>| 255 |
+|<span class="optional-data">email_address</span>|<span class="data-type">String</span>| 255 |
+|<span class="optional-data">phone_number</span>|<span class="data-type">String</span>| 255 |
+|<span class="optional-data">page_number</span>|<span class="data-type">Integer</span>| 255 |
+
+<span class="required-data">**Required Parameters Are In Red**</span>
+
+<span class="request-data-head">moxi_works_agent_id</span>
+<span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>Contact</span> entry is associated with. This will be a string that may take the form of an email address, or a unique identification string. This data is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>Contact</span> <span class='action-name'>Index</span>  request to be accepted.</span>
+
+<span class="request-data-head">contact_name</span>
+<span class="request-data-remarks">The full name of the contact which you are trying to find the <span class='entity-name'>Contact</span> record for.</span>
+
+
+<span class="request-data-head">email_address</span>
+<span class="request-data-remarks">An email address associated with the  <span class='entity-name'>Contact</span> record. May be primary or secondary.</span>
+
+
+<span class="request-data-head">phone_number</span>
+<span class="request-data-remarks">A phone number associated with the  <span class='entity-name'>Contact</span> record. May be primary or secondary.</span>
+
+
+<span class="request-data-head">page_number</span>
+<span class="request-data-remarks">Page of <span class='entity-name'>Contact</span> records to return. Use if `total_pages` indicates that there is more than one page of data available.</span>
+
+
+<blockquote><div class='highlight json' style="display: block">
 <span class="data-example-label">Contact Index: Success Response</span>
-(line breaks in body shown for clarity)
 </div></blockquote>
 
-```http
-HTTP/1.1 200 OK
-Content-Type: application/json; charset=utf-8
-X-UA-Compatible: IE=Edge
-ETag: \"39e1ce76ef58ce23a7debbe5ca145715\"
-Cache-Control: max-age=0, private, must-revalidate
-X-Request-Id: 232e40496ea30b9758dddf0b7ab195f2
-X-Runtime: 13.034641
-Connection: close
-Server: thin
+```json
 
-"page_number": 6
-"total_pages": 6
-"contacts": [{
+{
+"page_number":6,
+"total_pages":6,
+"contacts":[{
   "moxi_works_agent_id": "1234abcd",
   "partner_contact_id": "booyuh",
+  "moxi_works_contact_id":"deadbeef-feed-face-2bad4daddead",
   "contact_name": "buckminster fuller",
   "gender": "m",
   "primary_email_address": "me@justabout.right.here",
@@ -109,6 +147,7 @@ Server: thin
 {
   "moxi_works_agent_id": "1234abcd",
   "partner_contact_id": "fooyuh",
+  "moxi_works_contact_id":"deadbeef-feed-face-2baddadbdead",
   "contact_name": "buckminster fuller",
   "gender": "m",
   "primary_email_address": "whatever@whatevers.right.here",
@@ -148,44 +187,15 @@ Server: thin
   "search_max_year_built": "2044",
   "search_property_types": "Condo, Single Family, Townhouse"
 }]
+}
 ```
 
-<blockquote><div class='highlight http' style="display: block">
-<span class="data-example-label">Contact Index: Not Found Response</span>
-(line breaks in body shown for clarity)
-</div></blockquote>
 
-```http
-
-HTTP/1.1 200 OK
-Content-Type: application/json; charset=utf-8
-X-UA-Compatible: IE=Edge
-ETag: \"39e1ce76ef58ce23a7debbe5ca145715\"
-Cache-Control: max-age=0, private, must-revalidate
-X-Request-Id: 232e40496ea30b9758dddf0b7ab195f2
-X-Runtime: 13.034641
-Connection: close
-Server: thin
-
-[]
-```
-
-<blockquote><div class='highlight http' style="display: block">
+<blockquote><div class='highlight json' style="display: block">
 <span class="data-example-label">Contact Index: Failure Response</span>
-(line breaks in body shown for clarity)
-</div></blockquote>
+</div> See <a href='#error-handling'>Error Handling</a> for details about individual error codes.</blockquote>
 
-```http
-
-HTTP/1.1 400 OK
-Content-Type: application/json; charset=utf-8
-X-UA-Compatible: IE=Edge
-ETag: \"39e1ce76ef58ce23a7debbe5ca145715\"
-Cache-Control: max-age=0, private, must-revalidate
-X-Request-Id: 232e40496ea30b9758dddf0b7ab195f2
-X-Runtime: 13.034641
-Connection: close
-Server: thin
+```json
 
 {
   "status":"fail",
@@ -195,18 +205,193 @@ Server: thin
 
 ```
 
-<aside class="note">Send a <b>GET</b> request to https://api.moxiworks.com/api/contacts</aside>
+##### <span class='entity-name'>Contact</span> <span class='action-name'>Index</span> Response Payload
+The following attributes make up the payload of the <span class='entity-name'>Contact</span> response for a <span class='action-name'>Index</span> request.
 
-
-When searching for Contact entities using the Moxi Works platform API, format your data using the following parameters.
-
-
-Attribute | Type| Remark | Length Limit |
+Attribute | Type |
 -----|-----|-----|-----|
-|<span class="required-data">moxi_works_agent_id</span>|<span class="required-data"><span class="data-type">String</span></span>|<span class="required-data"><span class="data-remarks">The agent's Moxi Works Platform ID</span></span>| <span class="required-data">255</span>
-|<span class="optional-data">contact_name</span>|<span class="data-type">String</span>|<span class="data-remarks">The contact's full name.</span>| 255 |
-|<span class="optional-data">email_address</span>|<span class="data-type">String</span>|<span class="data-remarks">An email address used by the contact -- may be primary or secondary.</span>| 255 |
-|<span class="optional-data">phone_number</span>|<span class="data-type">String</span>|<span class="data-remarks">A phone numberused by the contact -- may be primary or secondary.</span>| 255 |
-|<span class="optional-data">page_number</span>|<span class="data-type">Integer</span>|<span class="data-remarks">Page of responses. Use if **total_pages** indicates that there is more than one page of data available.</span>| 255 |
+|<span class="response-data">page_number</span>|<span class="response-data"><span class="data-type">Integer</span></span>|
+|<span class="response-data">total_pages</span>|<span class="response-data"><span class="data-type">Integer</span></span>|
+|<span class="response-data">contacts</span>|<span class="response-data"><span class="data-type">Array</span></span>|
 
-<span class="required-data">**Required Parameters Are In Red**</span>
+
+<span class="request-data-head">page_number</span>
+<span class="request-data-remarks">If there is more than one page of <span class='entity-name'>Contact</span> objects to return, <span class='attribute-name'>page_number</span> will denote which page of responses has been returned. If this is less than the value of <span class='attribute-name'>total_pages</span>, there are more pages that can be returned by including the <span class='attribute-name'>page_number</span> parameter in your API request.</span>
+
+<span class="request-data-head">total_pages</span>
+<span class="request-data-remarks">If there is more than one page of <span class='entity-name'>Contact</span> objects to return, <span class='attribute-name'>total_pages</span> will denote how many pages of <span class='entity-name'>Contact</span> objects there are to be returned fo the current query. Subsequent pages can be returned by including the <span class='attribute-name'>page_number</span> parameter in your API request.</span>
+
+
+<span class="request-data-head">contacts</span>
+<span class="request-data-remarks">This array contains the payload from the request query. Any found <span class='entity-name'>Contact</span> objects matching the query will be returned as <span class='entity-name'>Contact</span> objects in the response. </span>
+
+###### <span class='attribute-name'>contacts</span> <span class='entity-name'>Contact</span>  Objects
+
+Attribute | Type |
+-----|-----|-----|-----|
+|<span class="response-data">moxi_works_agent_id</span>|<span class="response-data"><span class="data-type">String</span></span>|
+|<span class="response-data">partner_contact_id</span>|<span class="response-data"><span class="data-type">String</span>
+|<span class="response-data">moxi_works_contact_id</span>|<span class="data-type">String</span>|
+|<span class="response-data">contact_name</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">gender</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">primary_email_address</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">secondary_email_address</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">primary_phone_number</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">secondary_phone_number</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">home_street_address</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">home_city</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">home_state</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">home_zip</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">home_country</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">job_title</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">occupation</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">property_url</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">property_mls_id</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">property_street_address</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">property_city</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">property_state</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">property_zip</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">property_beds</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">property_baths</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">property_list_price</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">property_listing_status</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">property_photo_url</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">search_city</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">search_state</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">search_zip</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">search_min_baths</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">search_min_beds</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">search_min_price</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">search_max_price</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">search_min_sq_ft</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">search_max_sq_ft</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">search_min_lot_size</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">search_max_lot_size</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">search_min_year_built</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">search_max_year_built</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">search_property_types</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">note</span>|<span class="data-type">String or null</span>|  |
+
+<span class="response-data-head">moxi_works_agent_id</span>
+<span class="response-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span>. This will be a string that may take the form of an email address, or a unique alphanumeric identification string.</span>
+
+<span class="response-data-head">partner_contact_id</span>
+<span class="response-data-remarks">This is the unique identifer you use in your system that has been associated with the <span class='entity-name'>Contact</span> that you are creating.</span>
+
+<span class="response-data-head">moxi_works_contact_id</span>
+<span class="response-data-remarks">This is the Moxi Works Platform ID of this <span class='entity-name'>Contact</span>. This will be an [RFC 4122](https://tools.ietf.org/html/rfc4122) compliant UUID.</span>
+
+
+<span class="response-data-head">contact_name</span>
+<span class="response-data-remarks">This is the full name of the contact you are creating a <span class='entity-name'>Contact</span> record for. You should format this information as <i>first middle last</i>. This value will be null if no data is available for this attribute. </span>
+
+<span class="response-data-head">gender</span>
+<span class="response-data-remarks">The gender of the contact. This can be `male`, `female`, `m` or `f`. No matter what is provided in the request, the response payload will return `m` or `f`.  This value will be null if no data is available for this attribute. </span>
+
+
+<span class="response-data-head">primary_email_address</span>
+<span class="response-data-remarks">This is the email address that should be used first. If provided, the address must conform to [RFC 3696](https://tools.ietf.org/html/rfc3696#section-3). This value will be null if no data is available for this attribute. </span>
+
+
+<span class="response-data-head">secondary_email_address</span>
+<span class="response-data-remarks">This is the email address that should be used as an alternate. If provided, the address must conform to [RFC 3696](https://tools.ietf.org/html/rfc3696#section-3). This value will be null if no data is available for this attribute. </span>
+
+
+<span class="response-data-head">home_street_address</span>
+<span class="response-data-remarks">The contact's home address street, including number and any suite / apartment number information.  This value will be null if no data is available for this attribute. </span>
+
+<span class="response-data-head">home_city</span>
+<span class="response-data-remarks">The city of the contact's home address. This value will be null if no data is available for this attribute.  This value will be null if no data is available for this attribute. </span>
+
+<span class="response-data-head">home_state</span>
+<span class="response-data-remarks">The state of the contact's home address.  This value will be null if no data is available for this attribute. </span>
+
+<span class="response-data-head">home_zip</span>
+<span class="response-data-remarks">The zip code of the contact’s home address.  This value will be null if no data is available for this attribute. </span>
+
+<span class="response-data-head">home_country</span>
+<span class="response-data-remarks">The country of the contact's home address.  This value will be null if no data is available for this attribute. </span>
+
+<span class="response-data-head">job_title</span>
+<span class="response-data-remarks">The contact's professional job title.  This value will be null if no data is available for this attribute. </span>
+
+
+<span class="response-data-head">occupation</span>
+<span class="response-data-remarks">The contact's profession.  This value will be null if no data is available for this attribute. </span>
+
+
+<span class="response-data-head">property_url</span>
+<span class="response-data-remarks">This will be a valid URL for a property of interest in your system that can be viewed by the agent. This value will be null if no data is available for this attribute. </span>
+
+
+<span class="response-data-head">property_mls_id</span>
+<span class="response-data-remarks">This will be the MLS ID of the property of interest. This value will be null if no data is available for this attribute.  </span>
+
+<span class="response-data-head">property_street_address</span>
+<span class="response-data-remarks">This will be the street address of the property of interest, including number and suite/apartment number information.  This value will be null if no data is available for this attribute. </span>
+
+<span class="response-data-head">property_city</span>
+<span class="response-data-remarks">This will be the city in which the property of interest exists.  This value will be null if no data is available for this attribute. </span>
+
+<span class="response-data-head">property_state</span>
+<span class="response-data-remarks">This will be the state or province in which the property of interest exists.  This value will be null if no data is available for this attribute. </span>
+
+<span class="response-data-head">property_zip</span>
+<span class="response-data-remarks">This will be the postal code in which the property of interest exists.  This value will be null if no data is available for this attribute. </span>
+
+<span class="response-data-head">property_beds</span>
+<span class="response-data-remarks">This will be the number of bedrooms in the property of interest.  This value will be null if no data is available for this attribute. </span>
+
+<span class="response-data-head">property_baths</span>
+<span class="response-data-remarks">This will be the number of bathrooms in the property of interest.  This value will be null if no data is available for this attribute. </span>
+
+<span class="response-data-head">property_list_price</span>
+<span class="response-data-remarks">This will be the list price of the property of interest. This value will be null if no data is available for this attribute.  </span>
+
+<span class="response-data-head">property_listing_status</span>
+<span class="response-data-remarks">This will be the listing status of the property of interest. This can be any arbitrary string, but for best results, this should be a state like `Active`, `Pending`, `Sold`, `Cancelled` or any other human readable state that would be useful when presented to the agent. This value will be null if no data is available for this attribute. </span>
+
+<span class="response-data-head">property_photo_url</span>
+<span class="response-data-remarks">This will be a valid URL to an image of the property of interest.  This value will be null if no data is available for this attribute. </span>
+
+<span class="response-data-head">search_city</span>
+<span class="response-data-remarks">This will be the city / locale used in the listing search criteria.  This value will be null if no data is available for this attribute. </span>
+
+<span class="response-data-head">search_state</span>
+<span class="response-data-remarks">This will be the state / region used in the listing search criteria.  This value will be null if no data is available for this attribute. </span>
+
+<span class="response-data-head">search_zip</span>
+<span class="response-data-remarks">This will be the zip / postal code used in the listing search criteria.  This value will be null if no data is available for this attribute. </span>
+
+<span class="response-data-head">search_min_baths</span>
+<span class="response-data-remarks">This will be the minimum bathrooms used in the listing search criteria.  This value will be null if no data is available for this attribute. </span>
+
+<span class="response-data-head">search_min beds</span>
+<span class="response-data-remarks">This will be the minimum bedrooms used in the listing search criteria.  This value will be null if no data is available for this attribute. </span>
+
+<span class="response-data-head">search_min_price</span>
+<span class="response-data-remarks">This will be the minimum price used in the listing search criteria.  This value will be null if no data is available for this attribute. </span>
+
+<span class="response-data-head">search_max_price</span>
+<span class="response-data-remarks">This will be the maximum price used in the listing search criteria.  This value will be null if no data is available for this attribute. </span>
+
+<span class="response-data-head">search_min_sq_ft</span>
+<span class="response-data-remarks">This will be the minimum square feet of the total living area used in the listing search criteria.  This value will be null if no data is available for this attribute. </span>
+
+<span class="response-data-head">search_max_sq_ft</span>
+<span class="response-data-remarks">This will be the maximum square feet of the total living area used in the listing search criteria.  This value will be null if no data is available for this attribute. </span>
+
+<span class="response-data-head">search_min_lot_size</span>
+<span class="response-data-remarks">This will be the minimum lot size used in the listing search criteria.  This value will be null if no data is available for this attribute. </span>
+
+<span class="response-data-head">search_max_lot_size</span>
+<span class="response-data-remarks">This will be the maximum lot size used in the listing search criteria.  This value will be null if no data is available for this attribute. </span>
+
+<span class="response-data-head">search_min_year_built</span>
+<span class="response-data-remarks">This will be the minimum allowable year built used in the listing search criteria.  This value will be null if no data is available for this attribute. </span>
+
+<span class="response-data-head">search_property_types</span>
+<span class="response-data-remarks">This will be the property types used in the listing search criteria. This can be any arbitrary human readable string, but using recognized property types such as `Condo`, `Single-Family`, `Townhouse`, `Land`, `Multifamily` will provide more value to the agent.  This value will be null if no data is available for this attribute. </span>
+
+<span class="response-data-head">note</span>
+<span class="response-data-remarks">This is an arbitrary string giving the agent more details about the contact which would not otherwise fit into the <span class='entity-name'>Contact</span> record. Any HTML formatting included will be stripped from the <span class='attribute-name'>note</span> attribute's data.  This value will be null if no data is available for this attribute. </span>

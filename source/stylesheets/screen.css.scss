@@ -41,8 +41,54 @@ under the License.
   font-weight: bold;
 }
 
+.response-data-head {
+  margin-top: 25px;
+  font-weight: bold;
+  font-size: 18px;
+  margin-left: 12px;
+}
+
+.response-data-remarks {
+  margin-left: 22px;
+    display: block;
+    margin-top: 10px;
+
+}
+
+.request-data-head {
+  margin-top: 25px;
+  font-weight: bold;
+  font-size: 18px;
+  margin-left: 12px;
+}
+
+.request-data-remarks {
+  margin-left: 22px;
+    display: block;
+    margin-top: 10px;
+
+}
+
+.entity-name {
+  font-weight: bold;
+  color: #123432;
+  font-style: italic;
+}
+
+.action-name {
+  font-weight: bold;
+  color: #234567;
+  font-style: italic;
+}
+
+.attribute-name {
+    color: #345678;
+  font-style: italic;
+}
+
+
 .optional-data {
-  
+
 }
 
 .data-type {
@@ -266,7 +312,7 @@ html, body {
         }
       }
     }
-      
+
     // for embossed look:
     @include embossed-bg;
     &>li:last-child {
@@ -434,7 +480,7 @@ html, body {
 
   h1 {
     @extend %header-font;
-    font-size: 30px;
+    font-size: 51px;
     padding-top: 0.5em;
     padding-bottom: 0.5em;
     border-bottom: 1px solid #ccc;
@@ -451,12 +497,12 @@ html, body {
 
   h2 {
     @extend %header-font;
-    font-size: 20px;
-    margin-top: 4em;
+    font-size: 44px;
+    margin-top: 50px;
     margin-bottom: 0;
     border-top: 1px solid #ccc;
-    padding-top: 1.2em;
-    padding-bottom: 1.2em;
+    padding-top: 30px;
+    padding-bottom: 30px;
     background-image: linear-gradient(to bottom, rgba(#fff, 0.4), rgba(#fff, 0));
   }
 
@@ -474,13 +520,26 @@ html, body {
     margin-bottom: 0.8em;
   }
 
-  h4 {
-    font-size: 13px;
+  h3 {
+    margin-top: 40px;
+    font-size: 37px;
   }
 
-  h5, h6 {
-    font-size: 10px;
+  h4 {
+    margin-top: 22px;
+    font-size: 30px;
   }
+
+  h5 {
+    font-size: 23px;
+    font-weight: bold;
+  }
+
+  h6 {
+    font-size: 16px;
+  }
+
+
 
   hr {
     margin: 2em 0;
@@ -700,4 +759,3 @@ html, body {
     margin-top: $main-padding;
   }
 }
-

@@ -1,10 +1,10 @@
-#### Show
+#### <span class='entity-name'>Company</span> <span class='action-name'>Show</span>
 
 <div class='highlight ruby'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-ruby/MoxiworksPlatform/Company.html#find-class_method'>Ruby Find Docs</a></span></blockquote></div>
 
 <div class='highlight php'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-php/classes/MoxiworksPlatform.Company.html#method_find'>PHP Find Docs</a></span></blockquote></div>
 
-> <span class="data-example-label">Company Show Example</span>
+> <span class="data-example-label"><span class='entity-name'>Company</span> <span class='action-name'>Show</span> Example</span>
 
 ```http
 GET /api/companies/[moxi_works_company_id] HTTP/1.1
@@ -12,6 +12,13 @@ Host: api.moxiworks.com
 Accept: application/vnd.moxi-platform+json;version=1
 Authorization: Basic XNNeXAAAUZaQlF0dA==
 Content-Type: application/x-www-form-urlencoded
+
+```
+
+```json
+{
+  "moxi_works_company_id":"abc123"
+}
 
 ```
 
@@ -43,45 +50,44 @@ $moxi_works_company = MoxiworksPlatform\Company::find([
 ?>
 ```
 
+##### <span class='entity-name'>Company</span> <span class='action-name'>Show</span> Request Attributes
 
-<blockquote><div class='highlight http' style="display: block">
-<span class="data-example-label">Company Show: Success Response</span>
-(line breaks in body shown for clarity)
-</div></blockquote>
 
-```http
-HTTP/1.1 200 OK
-Content-Type: application/json; charset=utf-8
-X-UA-Compatible: IE=Edge
-ETag: \"39e1ce76ef58ce23a7debbe5ca145715\"
-Cache-Control: max-age=0, private, must-revalidate
-X-Request-Id: 232e40496ea30b9758dddf0b7ab195f2
-X-Runtime: 13.034641
-Connection: close
-Server: thin
+<aside class="note">Send a <b>GET</b> request to https://api.moxiworks.com/api/companies/[moxi_works_company_id]</aside>
+
+When finding an <span class='entity-name'>Company</span> using the Moxi Works platform API, format your request using the following parameters.
+
+
+Attribute | Type | Length Limit |
+-----|-----|-----|-----|
+|<span class="required-data">moxi_works_company_id</span>|<span class="required-data"><span class="data-type">String</span></span> | <span class="required-data">255</span>
+
+<span class="required-data">**Required Parameters Are In Red**</span>
+
+
+<span class="request-data-head">moxi_works_company_id</span>
+<span class="request-data-remarks">A valid Moxi Works <span class='entity-name'>Company</span> ID. Use [Company Endpoint](#company) to determine what <span class='attribute-name'>moxi_works_company_id</span> you can use.</span>
+
+
+<aside class="note">Use <a href='#company'>Company Endpoint</a> to determine the moxi_works_company_id to send.</aside>
+
+<blockquote><div class='highlight json' style="display: block">
+<span class='data-example-label'><span class='entity-name'>Company</span> <span class='action-name'>Show</span> Response Payload Example
+</span></div></blockquote>
+
+```json
 
 {
-    "name":"Bob's Brokerage",
-    "moxi_works_company_id":"bobs_brokerage"
-},
+    "moxi_works_company_id":"bobs_brokerage",
+    "name":"Bob's Brokerage"
+}
 ```
 
-<blockquote><div class='highlight http' style="display: block">
-<span class="data-example-label">Company Show: Failure Response</span>
-(line breaks in body shown for clarity)
-</div></blockquote>
+<blockquote><div class='highlight json' style="display: block">
+  <span class='data-example-label'><span class='entity-name'>Company</span> <span class='action-name'>Show</span> Failure Response
+</div> See <a href='#error-handling'>Error Handling</a> for details about individual error codes.</blockquote>
 
-```http
-
-HTTP/1.1 400 OK
-Content-Type: application/json; charset=utf-8
-X-UA-Compatible: IE=Edge
-ETag: \"39e1ce76ef58ce23a7debbe5ca145715\"
-Cache-Control: max-age=0, private, must-revalidate
-X-Request-Id: 232e40496ea30b9758dddf0b7ab195f2
-X-Runtime: 13.034641
-Connection: close
-Server: thin
+```json
 
 {
   "status":"fail",
@@ -91,10 +97,20 @@ Server: thin
 
 ```
 
-<aside class="note">Send a <b>GET</b> request to https://api.moxiworks.com/api/companies/[moxi_works_company_id]</aside>
+##### <span class='entity-name'>Company</span> <span class='action-name'>Show</span> Response Payload
 
-Attribute | Type| Remark | Length Limit |
------|-----|-----|-----| 
-|<span class="required-data">moxi_works_company_id</span>|<span class="required-data"><span class="data-type">String</span></span>|<span class="required-data"><span class="data-remarks">The company's Moxi Works Platform ID</span></span>| <span class="required-data">255</span>
+The following attributes make up the payload of the <span class='entity-name'>Company</span> response for a <span class='action-name'>Show</span> request.
 
-<span class="required-data">**Required Parameters Are In Red**</span>
+
+###### <span class='action-name'>Show</span> Response Attributes
+
+Attribute | Type |
+-----|-----|-----|-----|
+|<span class="response-data">moxi_works_company_id</span>|<span class="data-type">String</span>|
+|<span class="response-data">name</span>|<span class="data-type">String</span>|
+
+<span class="response-data-head">moxi_works_company_id</span>
+<span class="response-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Company</span>. This will be an alphanumeric identification string which will be similar to the company name.</span>
+
+<span class="response-data-head">name</span>
+<span class="response-data-remarks">This is a human readable name of the company which this <span class='entity-name'>Company</span> object represents.</span>

@@ -1,0 +1,541 @@
+#### <span class='entity-name'>BuyerTransaction</span> <span class='action-name'>Create</span>
+
+<div class='highlight ruby'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-ruby/MoxiworksPlatform/BuyerTransaction.html#create-class_method'>Ruby Create Docs</a></span></blockquote></div>
+
+<div class='highlight php'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-php/classes/MoxiworksPlatform.BuyerTransaction.html#method_create'>PHP Create Docs</a></span></blockquote></div>
+
+> <span class="data-example-label"><span class='entity-name'>BuyerTransaction</span> <span class='action-name'>Create</span> Example</span>
+
+```json
+{
+  "moxi_works_agent_id":"abc123",
+  "moxi_works_contact_id":"babebead-feed-face-dead-beefbad4babe",
+  "transaction_name":"Bob And Linda Tonkanaka",
+  "notes":"take care to write notes that are descriptive and helpful",
+  "address":"1234 memory lane",
+  "city":"hereville",
+  "state":"provinceland",
+  "zip_code":"18292",
+  "min_sqft":1234,
+  "max_sqft":2345,
+  "min_beds":3,
+  "max_beds":12,
+  "min_baths":1.75,
+  "max_baths":34.5,
+  "area_of_interest":"Port Interesting",
+  "is_mls_transaction":true,
+  "mls_number":"abc123",
+  "commission_percentage":null,
+  "commission_flat_fee":12345,
+  "target_price":null,
+  "min_price":292929,
+  "max_price":2323223
+}
+
+
+```
+
+```http
+POST /api/buyer_transactions HTTP/1.1
+Host: api.moxiworks.com
+Accept: application/vnd.moxi-platform+json;version=1
+Authorization: Basic XNNeXAAAUZaQlF0dA==
+Content-Type: application/x-www-form-urlencoded
+
+moxi_works_agent_id=abc123&moxi_works_contact_id=babebead-feed-face-dead-beefbad4babe&min_beds=12&max_beds=34&min_baths=1.75&max_baths=34.5&area_of_interest=Port%20Interesting&notes=take%20care%20to%20write%20notes%20that%20are%20descriptive%20and%20helpful&transaction_name=Bob%20And%20Linda%20Tonkanaka&address=1234%20memory%20lane&city=hereville&state=provinceland&zip_code=18292&sqft=2345&is_mls_transaction=true&commission_flat_fee=12345&target_price=&max_price=2323223&min_price=232323&mls_number=abc123
+
+```
+
+```ruby
+##### set up prerequisites once
+require 'moxiworks_platform'
+
+platform_identifier = 'abc123'
+
+platform_secret = 'secret'
+
+MoxiworksPlatform::Credentials.new(platform_identifier, platform_secret)
+##### end prerequisites
+
+moxi_works_transaction = MoxiworksPlatform::BuyerTransaction.create(
+      moxi_works_agent_id:"abc123",
+      moxi_works_contact_id:"babebead-feed-face-dead-beefbad4babe",
+      transaction_name:"Bob And Linda Tonkanaka",
+      notes:"take care to write notes that are descriptive and helpful",
+      address:"1234 memory lane",
+      city:"hereville",
+      state:"provinceland",
+      zip_code:"18292",
+      min_sqft:1234,
+      max_sqft:2345,
+      min_beds:3,
+      max_beds:12,
+      min_baths:1.75,
+      max_baths:34.5,
+      area_of_interest:"Port Interesting",
+      is_mls_transaction:true,
+      mls_number:"abc123",
+      commission_flat_fee:12345,
+      min_price:292929,
+      max_price:2323223
+      )
+
+```
+
+```php
+<?php
+$platform_identifier = 'abc123'; // platorm_identifier provided by Moxi Works Platform Rep
+$platform_secret = 'secret'; //platform_secret provided by Moxi Works Platform Rep
+
+$credentials = new MoxiworksPlatform\Credentials($platform_identifier, $platform_secret);
+
+$moxi_works_transaction = MoxiworksPlatform\BuyerTransaction::create([
+      "moxi_works_agent_id" => "abc123",
+      "moxi_works_contact_id" => "babebead-feed-face-dead-beefbad4babe",
+      "transaction_name" => "Bob And Linda Tonkanaka",
+      "notes" => "take care to write notes that are descriptive and helpful",
+      "address" => "1234 memory lane",
+      "city" => "hereville",
+      "state" => "provinceland",
+      "zip_code" => "18292",
+      "min_sqft" => 1234,
+      "max_sqft" => 2345,
+      "min_beds" => 3,
+      "max_beds" => 12,
+      "min_baths" => 1.75,
+      "max_baths" => 34.5,
+      "area_of_interest":"Port Interesting",
+      "is_mls_transaction" => true,
+      "mls_number" => "abc123",
+      "commission_flat_fee" => 12345,
+      "min_price" => 292929,
+      "max_price" => 2323223
+       ]);
+?>
+```
+
+> <span class="data-example-label">Non MLS <span class='entity-name'>BuyerTransaction</span> <span class='action-name'>Create</span> Example</span>
+
+
+```json
+{
+  "moxi_works_agent_id":"abc123",
+  "moxi_works_contact_id":"babebead-feed-face-dead-beefbad4babe",
+  "transaction_name":"Bob And Linda Tonkanaka",
+  "notes":"take care to write notes that are descriptive and helpful",
+  "address":"1234 memory lane",
+  "city":"hereville",
+  "state":"provinceland",
+  "zip_code":"18292",
+  "min_sqft":1234,
+  "max_sqft":2345,
+  "min_beds":3,
+  "max_beds":12,
+  "min_baths":1.75,
+  "max_baths":34.5,
+  "area_of_interest":"Port Interesting",
+  "is_mls_transaction":false,
+  "start_timestamp":1480536319,
+  "commission_percentage":null,
+  "commission_flat_fee":12345,
+  "target_price":null,
+  "min_price":292929,
+  "max_price":2323223
+}
+
+
+```
+
+```http
+POST /api/buyer_transactions HTTP/1.1
+Host: api.moxiworks.com
+Accept: application/vnd.moxi-platform+json;version=1
+Authorization: Basic XNNeXAAAUZaQlF0dA==
+Content-Type: application/x-www-form-urlencoded
+
+moxi_works_agent_id=abc123&moxi_works_contact_id=babebead-feed-face-dead-beefbad4babe&min_beds=12&max_beds=34&min_baths=1.75&max_baths=34.5&area_of_interest=Port%20Interesting&notes=take%20care%20to%20write%20notes%20that%20are%20descriptive%20and%20helpful&transaction_name=Bob%20And%20Linda%20Tonkanaka&address=1234%20memory%20lane&city=hereville&state=provinceland&zip_code=18292&sqft=2345&is_mls_transaction=false&commission_flat_fee=12345&target_price=&max_price=2323223&min_price=232323
+
+```
+
+```ruby
+##### set up prerequisites once
+require 'moxiworks_platform'
+
+platform_identifier = 'abc123'
+
+platform_secret = 'secret'
+
+MoxiworksPlatform::Credentials.new(platform_identifier, platform_secret)
+##### end prerequisites
+
+moxi_works_transaction = MoxiworksPlatform::BuyerTransaction.create(
+      moxi_works_agent_id:"abc123",
+      moxi_works_contact_id:"babebead-feed-face-dead-beefbad4babe",
+      transaction_name:"Bob And Linda Tonkanaka",
+      notes:"take care to write notes that are descriptive and helpful",
+      address:"1234 memory lane",
+      city:"hereville",
+      state:"provinceland",
+      zip_code:"18292",
+      min_sqft:1234,
+      max_sqft:2345,
+      min_beds:3,
+      max_beds:12,
+      min_baths:1.75,
+      max_baths:34.5,
+      is_mls_transaction:false,
+      start_timestamp:1480536319,
+      commission_flat_fee:12345,
+      min_price:292929,
+      max_price:2323223
+      )
+
+```
+
+```php
+<?php
+$platform_identifier = 'abc123'; // platorm_identifier provided by Moxi Works Platform Rep
+$platform_secret = 'secret'; //platform_secret provided by Moxi Works Platform Rep
+
+$credentials = new MoxiworksPlatform\Credentials($platform_identifier, $platform_secret);
+
+$moxi_works_transaction = MoxiworksPlatform\BuyerTransaction::create([
+      "moxi_works_agent_id" => "abc123",
+      "moxi_works_contact_id" => "babebead-feed-face-dead-beefbad4babe",
+      "transaction_name" => "Bob And Linda Tonkanaka",
+      "notes" => "take care to write notes that are descriptive and helpful",
+      "address" => "1234 memory lane",
+      "city" => "hereville",
+      "state" => "provinceland",
+      "zip_code" => "18292",
+      "min_sqft" => 1234,
+      "max_sqft" => 2345,
+      "min_beds" => 3,
+      "max_beds" => 12,
+      "min_baths" => 1.75,
+      "max_baths" => 34.5,
+      "is_mls_transaction" => true,
+      "start_timestamp" => 1480536319,
+      "commission_flat_fee" => 12345,
+      "min_price" => 292929,
+      "max_price" => 2323223
+       ]);
+?>
+```
+
+
+
+<aside class="note">Send a <b>POST</b> request to https://api.moxiworks.com/api/buyer_transactions</aside>
+
+When creating an transaction using the Moxi Works platform API, format your data using the following parameters.
+
+##### <span class='entity-name'>BuyerTransaction</span> <span class='action-name'>Create</span> Request Attributes
+
+
+Attribute | Type | Length Limit |
+-----|-----|-----|-----|
+|<span class="required-data">moxi_works_agent_id</span>|<span class="required-data"><span class="data-type">String</span></span>|<span class="required-data">255</span>
+|<span class="required-data">moxi_works_contact_id</span>|<span class="required-data"><span class="data-type">String</span></span>|<span class="required-data">255</span>
+|<span class="required-data">partner_contact_id</span>|<span class="required-data"><span class="data-type">String</span></span>|<span class="required-data">255</span>
+|<span class="optional-data">transaction_name</span>|<span class="optional-data"><span class="data-type">String</span></span>| <span class="optional-data">255</span> |
+|<span class="optional-data">notes</span>|<span class="optional-data"><span class="data-type">String</span></span>|  |
+|<span class="optional-data">address</span>|<span class="optional-data"><span class="data-type">String</span></span>| <span class="optional-data">255</span> |
+|<span class="optional-data">city</span>|<span class="optional-data"><span class="data-type">String</span></span>| <span class="optional-data">255</span> |
+|<span class="optional-data">state</span>|<span class="optional-data"><span class="data-type">String</span></span>| <span class="optional-data">255</span> |
+|<span class="optional-data">zip_code</span>|<span class="optional-data"><span class="data-type">String</span></span>| <span class="optional-data">255</span> |
+|<span class="optional-data">min_sqft</span>|<span class="optional-data"><span class="data-type">Integer</span></span>| <span class="optional-data">255</span> |
+|<span class="optional-data">max_sqft</span>|<span class="optional-data"><span class="data-type">Integer</span></span>| <span class="optional-data">255</span> |
+|<span class="optional-data">min_beds</span>|<span class="optional-data"><span class="data-type">Integer</span></span>| <span class="optional-data">255</span> |
+|<span class="optional-data">max_beds</span>|<span class="optional-data"><span class="data-type">Integer</span></span>| <span class="optional-data">255</span> |
+|<span class="optional-data">min_baths</span>|<span class="optional-data"><span class="data-type">Float</span></span>| <span class="optional-data">255</span> |
+|<span class="optional-data">max_baths</span>|<span class="optional-data"><span class="data-type">Float</span></span>| <span class="optional-data">255</span> |
+|<span class="optional-data">area_of_interest</span>|<span class="optional-data"><span class="data-type">Integer</span></span>| <span class="optional-data">255</span> |
+|<span class="optional-data">is_mls_transaction</span>|<span class="optional-data"><span class="data-type">Boolean</span></span>| <span class="optional-data">255</span> |
+|<span class="optional-data">mls_number</span>|<span class="optional-data"><span class="data-type">String</span></span>| <span class="optional-data">255</span> |
+|<span class="optional-data">start_timestamp</span>|<span class="optional-data"><span class="data-type">Integer</span></span>| <span class="optional-data">255</span> |
+|<span class="optional-data">commission_percentage</span>|<span class="optional-data"><span class="data-type">Float</span></span>| <span class="optional-data">255</span> |
+|<span class="optional-data">commission_flat_fee</span>|<span class="optional-data"><span class="data-type">Integer</span></span>| <span class="optional-data">255</span> |
+|<span class="optional-data">target_price</span>|<span class="optional-data"><span class="data-type">Integer</span></span>| <span class="optional-data">255</span> |
+|<span class="optional-data">min_price</span>|<span class="optional-data"><span class="data-type">Integer</span></span>| <span class="optional-data">255</span> |
+|<span class="optional-data">max_price</span>|<span class="optional-data"><span class="data-type">Integer</span></span>| <span class="optional-data">255</span> |
+
+
+<span class="required-data">**Required Parameters Are In Red**</span>
+
+
+<span class="request-data-head">moxi_works_agent_id</span>
+<span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>BuyerTransaction</span> object is to be associated with. This will be a string that may take the form of an email address, or a unique identification string. This data is required and must reference a valid Moxi Works <span class='entity-name'>Agent</span> ID for your <span class='entity-name'>BuyerTransaction</span> <span class='action-name'>Create</span>  request to be accepted.</span>
+
+
+<span class="request-data-head">moxi_works_contact_id</span>
+<span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Contact</span> which this <span class='entity-name'>BuyerTransaction</span> object is to be associated with. This will be an [RFC 4122](https://tools.ietf.org/html/rfc4122) compliant UUID. This data is required and must reference a valid Moxi Works <span class='entity-name'>Contact</span> ID for your <span class='entity-name'>BuyerTransaction</span> <span class='action-name'>Create</span>  request to be accepted. This is the same as the <span class='attribute-name'>moxi_works_contact_id</span> attribute of the  <span class='entity-name'>Contact</span> response.</span>
+
+
+<span class="request-data-head">partner_contact_id</span>
+<span class="request-data-remarks">This is the unique identifer you use in your system that has been associated with the <span class='entity-name'>Contact</span> that this <span class='entity-name'>BuyerTransaction</span> regards. If the referenced contact was not created by you, then this should not be used, instead use <span class='attribute-name'>moxi_works_contact_id</span>.</span>
+
+<aside class="note">Either <span class='attribute-name'>moxi_works_contact_id</span> or <span class='attribute-name'>partner_contact_id</span> must be populated; however, you should only populate one of these attributes.</aside>
+
+
+<span class="request-data-head">transaction_name</span>
+<span class="request-data-remarks">A brief, human readable title that will be shown to the agent as the subject of the <span class='entity-name'>BuyerTransaction</span> that you are creating.</span>
+
+
+<span class="request-data-head">notes</span>
+<span class="request-data-remarks">Brief, human readable content that will be shown to the agent as notes about the <span class='entity-name'>BuyerTransaction</span> that you are creating.</span>
+
+<span class="request-data-head">address</span>
+<span class="request-data-remarks">The street address of the property being purchased. This should be populated if this <span class='entity-name'>BuyerTransaction</span> <span class='attribute-name'>is_mls_transaction</span> is `false`.</span>
+
+<span class="request-data-head">city</span>
+<span class="request-data-remarks">The city or township of the property being purchased. This should be populated if this <span class='entity-name'>BuyerTransaction</span> <span class='attribute-name'>is_mls_transaction</span> is `false`.</span>
+
+<span class="request-data-head">state</span>
+<span class="request-data-remarks">The state or province of the property being purchased. This should be populated if this <span class='entity-name'>BuyerTransaction</span> <span class='attribute-name'>is_mls_transaction</span> is `false`.</span>
+
+<span class="request-data-head">zip_code</span>
+<span class="request-data-remarks">The postal code of the property being purchased. This should be populated if this <span class='entity-name'>BuyerTransaction</span> <span class='attribute-name'>is_mls_transaction</span> is `false`.</span>
+
+<span class="request-data-head">min_sqft</span>
+<span class="request-data-remarks">The minimum desired living area for prospective properties.</span>
+
+<span class="request-data-head">max_sqft</span>
+<span class="request-data-remarks">The maximum desired living area for prospective properties.</span>
+
+<span class="request-data-head">min_beds</span>
+<span class="request-data-remarks">The minimum number of bedrooms for prospective properties.</span>
+
+<span class="request-data-head">max_beds</span>
+<span class="request-data-remarks">The maximum number of bedrooms for prospective properties.</span>
+
+<span class="request-data-head">min_baths</span>
+<span class="request-data-remarks">The minimum number of bathrooms for prospective properties.</span>
+
+<span class="request-data-head">max_baths</span>
+<span class="request-data-remarks">The maximum number of bathrooms for prospective properties.</span>
+
+<span class="request-data-head">area_of_interest</span>
+<span class="request-data-remarks">The name of a locality representing an area of interest for prospective properties.</span>
+
+<span class="request-data-head">is_mls_transaction</span>
+<span class="request-data-remarks">Whether the property being purchased is being listed on an MLS. This should be `false` for paperwork-only, for sale by owner, off-market, or pocket listing type transactions or any transactions that will not be tracked through an MLS. If <span class='attribute-name'>is_mls_transaction</span> is `false`, then <span class='attribute-name'>start_timestamp</span> should be populated.</span>
+
+<span class="request-data-head">mls_number</span>
+<span class="request-data-remarks">The MLS number of the the property being purchased.</span>
+
+<aside class="note"><span class='attribute-name'>mls_number</span> should be populated only if <span class='attribute-name'>is_mls_transaction</span> is true.</aside>
+
+
+<span class="response-data-head">start_timestamp</span>
+<span class="response-data-remarks">For non-MLS transactions, this is the Unix timestamp representing the date that the agent initiated transaction discussions with the client. This should be `null` if the <span class='entity-name'>BuyerTransaction</span> is an MLS sale.</span>
+
+<aside class="note"><span class='attribute-name'>start_timestamp</span> should be populated only if <span class='attribute-name'>is_mls_transaction</span> is <span class='attribute-value'>false</span>.</aside>
+
+
+<span class="request-data-head">commission_percentage</span>
+<span class="request-data-remarks">Commission for the transaction. If the commission for the transaction is based on a percentage of the purchase amount, use this attribute.</span>
+
+<span class="request-data-head">commission_flat_fee</span>
+<span class="request-data-remarks">Commission for the transaction. If the commission for the transaction is based on a flat dollar amount, use this attribute.</span>
+
+<aside class="note">A <span class='entity-name'>BuyerTransaction</span> can only have either <span class='attribute-name'>commission_percentage</span> <b>or</b> <span class='attribute-name'>commission_flat_fee</span> populated. Both can not be populated.</aside>
+
+<span class="request-data-head">target_price</span>
+<span class="request-data-remarks">The desired purchase price for a property if using target rather than range.</span>
+
+<span class="request-data-head">min_price</span>
+<span class="request-data-remarks">The minimum price range for a property if using a price range rather than target price.</span>
+
+<span class="request-data-head">max_price</span>
+<span class="request-data-remarks">The maximum price range for a property if using a price range rather than target price.</span>
+
+<aside class="note">When setting a <span class='entity-name'>BuyerTransaction</span> price, you can set <b>either</b> a target price or a price range, but not both. If using <span class='attribute-name'>target_price</span> then <span class='attribute-name'>min_price</span> and <span class='attribute-name'>max_price</span> should not be populated. If using either <span class='attribute-name'>min_price</span> or <span class='attribute-name'>max_price</span>, then <span class='attribute-name'>target_price</span> should not be populated.</aside>
+
+
+<blockquote><div class='highlight json' style="display: block">
+<span class='data-example-label'><span class='entity-name'>BuyerTransaction</span> <span class='action-name'>Create</span> Response Payload Example
+</span></div></blockquote>
+
+```json
+{
+  "moxi_works_agent_id":"abc123",
+  "moxi_works_transaction_id": "facefeed-beef-daff-dead-cad4edd1e4d",
+  "moxi_works_contact_id":"babebead-feed-face-dead-beefbad4babe",
+  "partner_contact_id":"MySystemsContactIDForTheContactAssociatedWithThisBuyerTransaction",
+  "transaction_name":"Bob And Linda Tonkanaka",
+  "notes":"take care to write notes that are descriptive and helpful",
+  "stage": 2,
+  "stage_name":"initialized",
+  "address":"1234 memory lane",
+  "city":"hereville",
+  "state":"provinceland",
+  "zip_code":"18292",
+  "min_sqft":1234,
+  "max_sqft":2345,
+  "min_beds":3,
+  "max_beds":12,
+  "min_baths":1.75,
+  "max_baths":34.5,
+  "area_of_interest":"Port Interesting",
+  "is_mls_transaction":true,
+  "mls_number":"abc123",
+  "commission_percentage":null,
+  "commission_flat_fee":12345,
+  "target_price":null,
+  "min_price":292929,
+  "max_price":2323223,
+  "closing_price":null,
+  "closing_timestamp":null,
+  "start_timestamp":null
+}
+```
+
+<blockquote><div class='highlight json' style="display: block">
+  <span class='data-example-label'><span class='entity-name'>BuyerTransaction</span> <span class='action-name'>Create</span> Failure Response Example
+</div> See <a href='#error-handling'>Error Handling</a> for details about individual error codes.</blockquote>
+
+```json
+{
+  "status":"fail",
+  "errorCode": xxx,
+  "messages": ["messages"]
+}
+
+```
+
+
+
+##### <span class='entity-name'>BuyerTransaction</span> <span class='action-name'>Create</span> Response Payload
+The following attributes make up the payload of the <span class='entity-name'>BuyerTransaction</span> response for a <span class='action-name'>Create</span> request.
+
+
+
+Attribute | Type |
+-----|-----|-----|-----|
+|<span class="response-data">moxi_works_agent_id</span>|<span class="response-data"><span class="data-type">String</span></span>|
+|<span class="response-data">moxi_works_transaction_id</span>|<span class="response-data"><span class="data-type">String</span></span>|
+|<span class="response-data">moxi_works_contact_id</span>|<span class="response-data"><span class="data-type">String</span></span>|
+|<span class="response-data">partner_contact_id</span>|<span class="response-data"><span class="data-type">String</span>
+|<span class="response-data">transaction_name</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">notes</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">stage</span>|<span class="data-type">Integer</span>|
+|<span class="response-data">stage_name</span>|<span class="data-type">String</span>|
+|<span class="response-data">address</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">city</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">state</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">zip_code</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">min_sqft</span>|<span class="data-type">Integer or null</span>|
+|<span class="response-data">max_sqft</span>|<span class="data-type">Integer or null</span>|
+|<span class="response-data">min_beds</span>|<span class="data-type">Integer or null</span>|
+|<span class="response-data">max_beds</span>|<span class="data-type">Integer or null</span>|
+|<span class="response-data">min_baths</span>|<span class="data-type">Float or null</span>|
+|<span class="response-data">max_baths</span>|<span class="data-type">Float or null</span>|
+|<span class="response-data">area_of_interest</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">is_mls_transaction</span>|<span class="data-type">Boolean</span>|
+|<span class="response-data">mls_number</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">start_timestamp</span>|<span class="data-type">Integer or null</span>|
+|<span class="response-data">commission_percentage</span>|<span class="data-type">Float or null</span>|
+|<span class="response-data">commission_flat_fee</span>|<span class="data-type">Integer or null</span>|
+|<span class="response-data">target_price</span>|<span class="data-type">Integer or null</span>|
+|<span class="response-data">min_price</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">max_price</span>|<span class="data-type">Integer or null</span>|
+|<span class="response-data">closing_price</span>|<span class="data-type">Integer or null</span>|
+|<span class="response-data">closing_timestamp</span>|<span class="data-type">Integer or null</span>|
+
+<span class="response-data-head">moxi_works_agent_id</span>
+<span class="response-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>BuyerTransaction</span> is associated with. This will be a string that may take the form of an email address, or a unique alphanumeric identification string.</span>
+
+<span class="response-data-head">moxi_works_transaction_id</span>
+<span class="response-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>BuyerTransaction</span> which you have created. This will be an [RFC 4122](https://tools.ietf.org/html/rfc4122) compliant UUID. This ID should be recorded on response as it is the key ID for updating the <span class='entity-name'>BuyerTransaction</span>.</span>
+
+<span class="response-data-head">moxi_works_contact_id</span>
+<span class="response-data-remarks">This is the Moxi Works Platform ID of the  <span class='entity-name'>Contact</span> which this <span class='entity-name'>BuyerTransaction</span> has been associated with. This will be an [RFC 4122](https://tools.ietf.org/html/rfc4122) compliant UUID.</span>
+
+<span class="response-data-head">partner_contact_id</span>
+<span class="response-data-remarks">If this <span class='entity-name'>Contact</span> was created by your sytem in the Moxi Works Platform, then this is the unique identifer you use in your system that has been associated with the <span class='entity-name'>Contact</span> that you are creating this <span class='entity-name'>BuyerTransaction</span> for. If the <span class='entity-name'>Contact</span> was not created by you, then <span class='attribute-name'>partner_contact_id</span> will be empty.</span>
+
+
+
+<span class="response-data-head">transaction_name</span>
+<span class="response-data-remarks">A brief, human readable title that is shown to the agent as the subject of the <span class='entity-name'>BuyerTransaction</span>.</span>
+
+
+<span class="response-data-head">notes</span>
+<span class="response-data-remarks">Brief, human readable content that is shown to the agent as notes about the <span class='entity-name'>BuyerTransaction</span>. Use this attribute to store and display data to the agent that is not otherwise explicitly available via attributes for the entity.</span>
+
+
+<span class="response-data-head">stage</span>
+<span class="response-data-remarks">Each <span class='entity-name'>BuyerTransaction</span> has five stages (1-5). <span class='attribute-name'>stage</span> displays the stage number that the <span class='entity-name'>BuyerTransaction</span> is currently in. For more information about <span class='entity-name'>BuyerTransaction</span> stages, see <a href='#buyertransaction-stages'>BuyerTransaction Stages</a>.</span>
+
+<span class="response-data-head">stage_name</span>
+<span class="response-data-remarks">This attribute displays a human readable stage name that is associated with the current <span class='attribute-name'>stage</span> attribute. When created through the Moxi Works Platform <span class='entity-name'>BuyerTransaction</span> objects will automatically be configured as <span class='attribute-value'>active</span> transactions. For more information about <span class='entity-name'>BuyerTransaction</span> stages, see <a href='#buyertransaction-stages'>BuyerTransaction Stages</a>.</span>
+
+
+<span class="response-data-head">address</span>
+<span class="response-data-remarks">The street address for the property being purchased.</span>
+
+<span class="response-data-head">city</span>
+<span class="response-data-remarks">The city or township of the property being purchased.</span>
+
+<span class="response-data-head">state</span>
+<span class="response-data-remarks">The state or province of the property being purchased.</span>
+
+<span class="response-data-head">zip_code</span>
+<span class="response-data-remarks">The postal code of the property being purchased.</span>
+
+
+<span class="response-data-head">min_sqft</span>
+<span class="response-data-remarks">The minimum desired living area for prospective properties.</span>
+
+<span class="response-data-head">max_sqft</span>
+<span class="response-data-remarks">The maximum desired living area for prospective properties.</span>
+
+<span class="response-data-head">min_beds</span>
+<span class="response-data-remarks">The minimum number of bedrooms for prospective properties.</span>
+
+<span class="response-data-head">max_beds</span>
+<span class="response-data-remarks">The maximum number of bedrooms for prospective properties.</span>
+
+<span class="response-data-head">min_baths</span>
+<span class="response-data-remarks">The minimum number of bathrooms for prospective properties.</span>
+
+<span class="response-data-head">max_baths</span>
+<span class="response-data-remarks">The maximum number of bathrooms for prospective properties.</span>
+
+<span class="response-data-head">area_of_interest</span>
+<span class="response-data-remarks">A the name of a locality representing an area of interest for prospective properties.</span>
+
+
+<span class="response-data-head">is_mls_transaction</span>
+<span class="response-data-remarks">Whether the property being purchased is being listed on an MLS.</span>
+
+<span class="response-data-head">mls_number</span>
+<span class="response-data-remarks">If this is an MLS transaction, then this is the MLS number for the <span class='entity-name'>BuyerTransaction</span>.</span>
+
+<span class="response-data-head">start_timestamp</span>
+<span class="response-data-remarks">For non-MLS transactions, this is the Unix timestamp representing the date that the property search began. This should be `null` if the <span class='entity-name'>BuyerTransaction</span> is an MLS sale.</span>
+
+
+<span class="response-data-head">commission_percentage</span>
+<span class="response-data-remarks">If the agent is to receive commission based on percentage of purchase price for the transaction associated with this <span class='entity-name'>BuyerTransaction</span>, then this will represent the commission that the agent is to receive.This should be `null` if the <span class='entity-name'>BuyerTransaction</span> uses <span class='attribute-name'>commission_flat_fee</span>.</span>
+
+
+<span class="response-data-head">commission_flat_fee</span>
+<span class="response-data-remarks">If the agent is to receive a flat-rate commission for the transaction associated with this <span class='entity-name'>BuyerTransaction</span>, then this will represent the commission that the agent is to receive. This should be `null` if the <span class='entity-name'>BuyerTransaction</span> uses <span class='attribute-name'>commission_percentage</span>.</span>
+
+
+<span class="response-data-head">target_price</span>
+<span class="response-data-remarks">The desired purchase price for a property if using target rather than range.</span>
+
+<span class="response-data-head">min_price</span>
+<span class="response-data-remarks">The minimum price range for a property if using a price range rather than target price.</span>
+
+<span class="response-data-head">max_price</span>
+<span class="response-data-remarks">The maximum price range for a property if using a price range rather than target price.</span>
+
+<span class="response-data-head">closing_price</span>
+<span class="response-data-remarks">This is the closing price for the transaction . This should be `null` if the <span class='entity-name'>BuyerTransaction</span> is not yet in `complete` state.</span>
+
+
+<span class="response-data-head">closing_timestamp</span>
+<span class="response-data-remarks">A Unix timestamp representing the point in time when the transaction for this <span class='entity-name'>BuyerTransaction</span> object was completed. This should be `null` if the <span class='entity-name'>BuyerTransaction</span> is not yet in `complete` state.</span>

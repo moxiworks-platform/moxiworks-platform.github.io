@@ -1,13 +1,17 @@
-#### Index
+#### <span class='entity-name'>Task</span> <span class='action-name'>Index</span>
 
 <div class='highlight ruby'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-ruby/MoxiworksPlatform/Task.html#search-class_method'>Ruby Search Docs</a></span></blockquote></div>
 
 <div class='highlight php'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-php/classes/MoxiworksPlatform.Task.html#method_search'>PHP Search Docs</a></span></blockquote></div>
 
-> <span class="data-example-label">Task Index Example</span>
+> <span class="data-example-label"><span class='entity-name'>Task</span> <span class='action-name'>Index</span> Example: All <span class='entity-name'>Task</span> Objects</span>
 
+```json
+{
+  "moxi_works_agent_id":"abc123"
+}
 
-> All Tasks For Agent
+```
 
 ```http
 GET /api/tasks?moxi_works_agent_id=abc123 HTTP/1.1
@@ -29,7 +33,14 @@ $agent_moxi_works_tasks = MoxiworksPlatform\Task::search(['moxi_works_agent_id' 
 ?>
 ```
 
-> All Agent's Tasks For a Specific Contact
+> <span class="data-example-label"><span class='entity-name'>Task</span> <span class='action-name'>Index</span> Example: All <span class='entity-name'>Task</span> Objects For A Specified <span class='entity-name'>Contact</span></span>
+
+```json
+{
+  "moxi_works_agent_id":"abc123",
+  "partner_contact_id":"mySystemIDForContact"
+}
+```
 
 ```http
 GET /api/tasks?moxi_works_agent_id=abc123&partner_contact_id=mySystemIDForContact HTTP/1.1
@@ -56,7 +67,15 @@ $agent_moxi_works_tasks_for_contact = MoxiworksPlatform\Task::search([
 ```
 
 
-> All Agent's Tasks Due Between Start Date and End Date
+> <span class="data-example-label"><span class='entity-name'>Task</span> <span class='action-name'>Index</span> Example: All <span class='entity-name'>Task</span> Objects Due Between Specified Time Range</span>
+
+```json
+{
+  "moxi_works_agent_id":"abc123",
+  "date_due_start":1461108284,
+  "date_due_end":1462317907
+}
+```
 
 ```http
 GET /api/tasks?moxi_works_agent_id=abc123&date_due_start=1461108284&date_due_end=1462317907 HTTP/1.1
@@ -80,12 +99,21 @@ agent_moxi_works_tasks_due_between_dates = MoxiworksPlatform::Task.search(
 
 $agent_moxi_works_tasks_for_contact_due_between_dates= MoxiworksPlatform\Task::search([
         'moxi_works_agent_id' => 'abc123',
-        'due_date_start' => 1461108284, 
+        'due_date_start' => 1461108284,
         'due_date_end' => 1462317907]);
 ?>
 ```
 
-> All Agent's Tasks For a Contact Between Start Date And End Date
+> <span class="data-example-label"><span class='entity-name'>Task</span> <span class='action-name'>Index</span> Example: All <span class='entity-name'>Agent</span> <span class='entity-name'>Task</span> Objects For a Specified <span class='entity-name'>Contact</span> Due Between Specified Time Range</span>
+
+```json
+{
+  "moxi_works_agent_id":"abc123",
+  "date_due_start":1461108284,
+  "date_due_end":1462317907,
+  "partner_contact_id":"mySystemIDForContact"
+}
+```
 
 ```http
 GET /api/tasks?moxi_works_agent_id=abc123&date_due_start=1461108284&date_due_end=1462317907&partner_contact_id=mySystemIDForContact HTTP/1.1
@@ -110,83 +138,91 @@ agent_moxi_works_tasks_for_contact_due_between_dates = MoxiworksPlatform::Task.s
 $agent_moxi_works_tasks_for_contact_due_between_dates= MoxiworksPlatform\Task::search([
         'moxi_works_agent_id' => 'abc123',
         'partner_contact_id' => 'mySystemIDForContact',
-        'due_date_start' => 1461108284, 
+        'due_date_start' => 1461108284,
         'due_date_end' => 1462317907]);
 
 ?>
 ```
 
 
-<blockquote><div class='highlight http' style="display: block">
-<span class="data-example-label">Task Index: Success Response</span>
-(line breaks in body shown for clarity)
-</div></blockquote>
+<aside class="note">Send a <b>GET</b> request to https://api.moxiworks.com/api/tasks</aside>
 
-```http
-HTTP/1.1 200 OK
-Content-Type: application/json; charset=utf-8
-X-UA-Compatible: IE=Edge
-ETag: \"39e1ce76ef58ce23a7debbe5ca145715\"
-Cache-Control: max-age=0, private, must-revalidate
-X-Request-Id: 232e40496ea30b9758dddf0b7ab195f2
-X-Runtime: 13.034641
-Connection: close
-Server: thin
 
-"page_number": 6
-"total_pages": 6
-"tasks": [
-{"moxi_works_agent_id":"abc123",
-"partner_contact_id":"mySystemIDForContact",
-"name":"Reach Out to this person!",
-"description":"Call",
-"due_at":"1465858693",
-"duration":15,
-"custom":false,
-"status":"active",
-"created_at":"1465772310",
-"completed_at":null}]
+When searching for <span class='entity-name'>Task</span> objects using the Moxi Works platform API, format your data using the following parameters.
+
+##### <span class='entity-name'>Task</span> <span class='action-name'>Index</span> Request Attributes
+
+
+Attribute | Type | Length Limit |
+-----|-----|-----|-----|
+|<span class="required-data">moxi_works_agent_id</span>|<span class="required-data"><span class="data-type">String</span></span>|<span class="required-data">255</span>
+|<span class="optional-data">due_date_start</span>|<span class="data-type">Integer</span>| 255 |
+|<span class="optional-data">due_date_end</span>|<span class="data-type">Integer</span>| 255 |
+|<span class="optional-data">partner_contact_id</span>|<span class="data-type">String</span>| 255 |
+|<span class="optional-data">page_number</span>|<span class="data-type">Integer</span>| 255 |
+
+
+<span class="required-data">**Required Parameters Are In Red**</span>
+
+
+<aside class="note">If no query parameters are included, all <span class='entity-name'>Task</span> objects associated with the requested <span class='entity-name'>Task</span> will be returned.</aside>
+
+
+<span class="request-data-head">moxi_works_agent_id</span>
+<span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which the <span class='entity-name'>Task</span> objects are associated with. This will be a string that may take the form of an email address, or a unique identification string. This data is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>Task</span> <span class='action-name'>Index</span>  request to be accepted.</span>
+
+
+<span class="request-data-head">due_date_start</span>
+<span class="request-data-remarks">A Unix timestamp representing the start of a range that you are searching for <span class='entity-name'>Task</span> <span class='attribute-name'>due_date</span> dates to fall in.</span>
+
+
+<span class="request-data-head">due_date_end</span>
+<span class="request-data-remarks">A Unix timestamp representing the end of a range that you are searching for <span class='entity-name'>Task</span> <span class='attribute-name'>due_date</span> dates to fall in.</span>
+
+
+<aside class="note">When searching using a date range, both <span class='attribute-name'>due_date_start</span> and <span class='attribute-name'>due_date_end</span> must be included in your request parameters.</aside>
+
+<span class="request-data-head">partner_contact_id</span>
+<span class="request-data-remarks">This is the unique identifer you use in your system that has been associated with the <span class='entity-name'>Contact</span> that this <span class='entity-name'>Task</span> regards.</span>
+
+
+<span class="request-data-head">page_number</span>
+<span class="request-data-remarks">Page of <span class='entity-name'>Task</span> objects to return. Use if `total_pages` indicates that there is more than one page of data available.</span>
+
+
+
+
+<blockquote><div class='highlight json' style="display: block">
+<span class='data-example-label'><span class='entity-name'>Task</span> <span class='action-name'>Index</span> Response Payload Example
+</span></div></blockquote>
+
+```json
+{
+  "page_number":6,
+  "total_pages":6,
+  "tasks": [
+    {
+      "moxi_works_agent_id":"abc123",
+      "partner_contact_id":"mySystemIDForContact",
+      "name":"Reach Out to this person!",
+      "description":"Call",
+      "due_at":"1465858693",
+      "duration":15,
+      "custom":false,
+      "status":"active",
+      "created_at":"1465772310",
+      "completed_at":null
+    }
+  ]
+}
 ```
 
-<blockquote><div class='highlight http' style="display: block">
-<span class="data-example-label">Task Index: Not Found Response</span>
-(line breaks in body shown for clarity)
-</div></blockquote>
 
-```http
+<blockquote><div class='highlight json' style="display: block">
+  <span class='data-example-label'><span class='entity-name'>Task</span> <span class='action-name'>Index</span> Failure Response Example
+</div> See <a href='#error-handling'>Error Handling</a> for details about individual error codes.</blockquote>
 
-HTTP/1.1 200 OK
-Content-Type: application/json; charset=utf-8
-X-UA-Compatible: IE=Edge
-ETag: \"39e1ce76ef58ce23a7debbe5ca145715\"
-Cache-Control: max-age=0, private, must-revalidate
-X-Request-Id: 232e40496ea30b9758dddf0b7ab195f2
-X-Runtime: 13.034641
-Connection: close
-Server: thin
-
-"page_number": 1
-"total_pages": 0
-"tasks": []
-```
-
-<blockquote><div class='highlight http' style="display: block">
-<span class="data-example-label">Task Index: Failure Response</span>
-(line breaks in body shown for clarity)
-</div></blockquote>
-
-```http
-
-HTTP/1.1 400 OK
-Content-Type: application/json; charset=utf-8
-X-UA-Compatible: IE=Edge
-ETag: \"39e1ce76ef58ce23a7debbe5ca145715\"
-Cache-Control: max-age=0, private, must-revalidate
-X-Request-Id: 232e40496ea30b9758dddf0b7ab195f2
-X-Runtime: 13.034641
-Connection: close
-Server: thin
-
+```json
 {
   "status":"fail",
   "errorCode": xxx,
@@ -195,23 +231,58 @@ Server: thin
 
 ```
 
-<aside class="note">Send a <b>GET</b> request to https://api.moxiworks.com/api/tasks</aside>
+
+##### <span class='entity-name'>Task</span> <span class='action-name'>Index</span> Response Payload
+The following attributes make up the payload of the <span class='entity-name'>Task</span> response for a <span class='action-name'>Index</span> request.
 
 
-When searching for Task entities using the Moxi Works platform API, format your data using the following parameters.
-
-
-Attribute | Type | Remark | Length Limit |
+Attribute | Type |
 -----|-----|-----|-----|
-|<span class="required-data">moxi_works_agent_id</span>|<span class="required-data"><span class="data-type">String</span></span>|<span class="required-data"><span class="data-remarks">The agent's Moxi Works Platform ID</span></span> | <span class="required-data">255<span> |
-|<span class="optional-data">due_date_start</span>|<span class="data-type">Integer</span>|<span class="data-remarks">the Unix timestamp representing the start time.  **When searching using a date range, both due_date_start and due_date_end must be included.**</span>| 255 |
-|<span class="optional-data">due_date_end</span>|<span class="data-type">Integer</span>|<span class="data-remarks">the Unix timestamp representing the end time.  **When searching using a date range, both due_date_start and due_date_end must be included.**</span>| 255 |
-|<span class="optional-data">partner_contact_id</span>|<span class="data-type">String</span>|<span class="data-remarks">The unique ID of the contact in your system</span>| 255 |
-|<span class="optional-data">page_number</span>|<span class="data-type">Integer</span>|<span class="data-remarks">Page of responses. Use if **total_pages** indicates that there is more than one page of data available.</span>| 255 |
+|<span class="response-data">page_number</span>|<span class="response-data"><span class="data-type">Integer</span></span>|
+|<span class="response-data">total_pages</span>|<span class="response-data"><span class="data-type">Integer</span></span>|
+|<span class="response-data">tasks</span>|<span class="response-data"><span class="data-type">Array</span></span>|
+
+###### <span class='attribute-name'>tasks</span> Objects
+
+Each object in the <span class='attribute-name'>tasks</span> array will have the following structure.
+
+Attribute | Type |
+-----|-----|-----|-----|
+|<span class="response-data">moxi_works_agent_id</span>|<span class="response-data"><span class="data-type">String</span></span>|
+|<span class="response-data">partner_contact_id</span>|<span class="response-data"><span class="data-type">String</span>
+|<span class="response-data">name</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">description</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">due_at</span>|<span class="data-type">Integer</span>|
+|<span class="response-data">duration</span>|<span class="data-type">Integer or null</span>|
+|<span class="response-data">status</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">created_at</span>|<span class="data-type">Integer</span>|
+|<span class="response-data">completed_at</span>|<span class="data-type">Integer or null</span>|
+
+<span class="response-data-head">moxi_works_agent_id</span>
+<span class="response-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span>. This will be a string that may take the form of an email address, or a unique alphanumeric identification string.</span>
+
+<span class="response-data-head">partner_contact_id</span>
+<span class="response-data-remarks">This is the unique identifer you use in your system that has been associated with the <span class='entity-name'>Contact</span> that you are creating this <span class='entity-name'>Task</span> for.</span>
+
+<span class="response-data-head">name</span>
+<span class="response-data-remarks">A brief, human readable title that will be shown to the agent as the subject of the <span class='entity-name'>Task</span>.</span>
 
 
-<span class="required-data">**Required Parameters Are In Red**</span>
+<span class="response-data-head">description</span>
+<span class="response-data-remarks">Brief, human readable content that will be shown to the agent as the body of the <span class='entity-name'>Task</span>.</span>
 
 
-<aside class="note">If no parameters are included, all agent tasks will be returned.</aside>
+<span class="response-data-head">due_at</span>
+<span class="response-data-remarks">A Unix timestamp representing the point in time when the task for this <span class='entity-name'>Task</span> object should be completed by.</span>
 
+
+<span class="response-data-head">duration</span>
+<span class="response-data-remarks">The timespan (in minutes) that the task for this <span class='entity-name'>Task</span> object is expected to take.</span>
+
+
+<span class="response-data-head">created_at</span>
+<span class="response-data-remarks">A Unix timestamp representing the point in time when the  <span class='entity-name'>Task</span> object was created.</span>
+
+
+<span class="response-data-head">completed_at</span>
+<span class="response-data-remarks">A Unix timestamp representing the point in time when the task for this <span class='entity-name'>Task</span> object was completed. This should be `null` if the task has not yet been completed.</span>

@@ -1,11 +1,20 @@
-#### Delete
+#### <span class='entity-name'>Event</span> <span class='action-name'>Delete</span>
 
 
 <div class='highlight ruby'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-ruby/MoxiworksPlatform/Event.html#delete-class_method'>Ruby Delete Docs</a></span></blockquote></div>
 
 <div class='highlight php'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-php/classes/MoxiworksPlatform.Event.html#method_delete'>PHP Delete Docs</a></span></blockquote></div>
 
-> <span class="data-example-label">Event Delete Example</span>
+> <span class="data-example-label"><span class='entity-name'>Event</span> <span class='action-name'>Delete</span> Example</span>
+
+```json
+{
+  "moxi_works_agent_id":"abc123",
+  "partner_event_id":"MySystemsUniqueEventID"
+}
+
+```
+
 
 ```http
 DELETE /api/events/my_event_id?moxi_works_agent_id=abc123 HTTP/1.1
@@ -48,44 +57,43 @@ $success = MoxiworksPlatform\Event::delete([
 ```
 
 
-<blockquote><div class='highlight http' style="display: block">
-<span class="data-example-label">Event Delete: Success Response</span>
-(line breaks in body shown for clarity)
+
+<aside class="note">Send a <b>DELETE</b> request to https://api.moxiworks.com/api/events/[partner_event_id]</aside>
+
+When deleting an <span class='entity-name'>Event</span> object using the Moxi Works platform API, format your data using the following parameters.
+
+
+Attribute | Type | Length Limit |
+-----|-----|-----|-----|
+|<span class="required-data">moxi_works_agent_id</span>|<span class="required-data"><span class="data-type">String</span></span>|<span class="required-data">255</span>
+|<span class="required-data">partner_event_id</span>|<span class="required-data">String</span>|<span class="required-data">255</span>
+
+<span class="required-data">**Required Parameters Are In Red**</span>
+
+<span class="request-data-head">moxi_works_agent_id</span>
+<span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which you are searching for associated <span class='entity-name'>Event</span> objects. This will be a string that may take the form of an email address, or a unique identification string. This data is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>Event</span> <span class='action-name'>Delete</span>  request to be accepted.</span>
+
+
+<span class="request-data-head">partner_event_id</span>
+<span class="request-data-remarks">This is the unique identifer you use in your system that has been associated with the <span class='entity-name'>Event</span>. This data is required and must reference a previously created <span class='entity-name'>Event</span> you have created on The Moxi Works Platform.</span>
+
+
+<blockquote><div class='highlight json' style="display: block">
+ <span class="data-example-label"><span class='entity-name'>Event</span> <span class='action-name'>Delete</span> Response</span>
 </div></blockquote>
 
-```http
-HTTP/1.1 200 OK
-Content-Type: application/json; charset=utf-8
-X-UA-Compatible: IE=Edge
-ETag: \"39e1ce76ef58ce23a7debbe5ca145715\"
-Cache-Control: max-age=0, private, must-revalidate
-X-Request-Id: 232e40496ea30b9758dddf0b7ab195f2
-X-Runtime: 13.034641
-Connection: close
-Server: thin
-
+```json
 {
   "status": "success",
   "deleted": true
 }
 ```
 
-<blockquote><div class='highlight http' style="display: block">
-<span class="data-example-label">Event Delete: Failure Response</span>
-(line breaks in body shown for clarity)
-</div></blockquote>
+<blockquote><div class='highlight json' style="display: block">
+ <span class="data-example-label"><span class='entity-name'>Event</span> <span class='action-name'>Delete</span> Failure Response</span>
+</div> See <a href='#error-handling'>Error Handling</a> for details about individual error codes.</blockquote>
 
-```http
-
-HTTP/1.1 400 OK
-Content-Type: application/json; charset=utf-8
-X-UA-Compatible: IE=Edge
-ETag: \"39e1ce76ef58ce23a7debbe5ca145715\"
-Cache-Control: max-age=0, private, must-revalidate
-X-Request-Id: 232e40496ea30b9758dddf0b7ab195f2
-X-Runtime: 13.034641
-Connection: close
-Server: thin
+```json
 
 {
   "status":"fail",
@@ -95,12 +103,20 @@ Server: thin
 
 ```
 
-<aside class="note">Send a <b>DELETE</b> request to https://api.moxiworks.com/api/events/[partner_event_id]</aside>
 
-Attribute | Type| Remark | Length Limit |
------|-----|-----|-----| 
-|<span class="required-data">moxi_works_agent_id</span>|<span class="required-data"><span class="data-type">String</span></span>|<span class="data-remarks">The agent's Moxi Works Platform ID</span>| <span class="required-data">255</span>
-|<span class="required-data">partner_event_id</span>|<span class="data-type">String</span>|<span class="data-remarks">The unique ID of the event in your system</span>| <span class="required-data">255</span>
 
-<span class="required-data">**Required Parameters Are In Red**</span>
+##### <span class='entity-name'>Event</span> <span class='action-name'>Delete</span> Response Payload
+The following attributes make up the payload of the <span class='entity-name'>Event</span> response for a <span class='action-name'>Delete</span> request.
 
+
+Attribute | Type |
+-----|-----|-----|-----|
+|<span class="response-data">status</span>|<span class="response-data"><span class="data-type">String</span></span>|
+|<span class="response-data">deleted</span>|<span class="response-data"><span class="data-type">Boolean</span>
+
+
+<span class="response-data-head">status</span>
+<span class="response-data-remarks">This indicates whether the request was successfully processed.</span>
+
+<span class="response-data-head">deleted</span>
+<span class="response-data-remarks">This is the result of the action -- whether the <span class='entity-name'>Event</span>object was actually deleted.</span>

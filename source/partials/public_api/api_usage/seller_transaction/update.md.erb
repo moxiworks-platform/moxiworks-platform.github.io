@@ -237,6 +237,8 @@ Attribute | Type | Length Limit |
 |<span class="optional-data">target_price</span>|<span class="optional-data"><span class="data-type">Integer</span></span>| <span class="optional-data">255</span> |
 |<span class="optional-data">min_price</span>|<span class="optional-data"><span class="data-type">Integer</span></span>| <span class="optional-data">255</span> |
 |<span class="optional-data">max_price</span>|<span class="optional-data"><span class="data-type">Integer</span></span>| <span class="optional-data">255</span> |
+|<span class="optional-data">closing_price</span>|<span class="optional-data"><span class="data-type">Integer</span></span>| <span class="optional-data">255</span> |
+|<span class="optional-data">closing_timestamp</span>|<span class="optional-data"><span class="data-type">Integer</span></span>| <span class="optional-data">255</span> |
 |<span class="optional-data">promote_transaction</span>|<span class="optional-data"><span class="data-type">Boolean</span></span>| <span class="optional-data">255</span> |
 
 
@@ -319,6 +321,7 @@ Attribute | Type | Length Limit |
 
 <span class="request-data-head">closing_timestamp</span>
 <span class="request-data-remarks">A Unix timestamp representing the point in time when the transaction for this <span class='entity-name'>SellerTransaction</span> object was completed. This should be `null` if the <span class='entity-name'>SellerTransaction</span> is not yet in `complete` state or you are not promoting the <span class='entity-name'>SellerTransaction</span> to `complete`.</span>
+
 
 
 <span class="request-data-head">promote_transaction</span>

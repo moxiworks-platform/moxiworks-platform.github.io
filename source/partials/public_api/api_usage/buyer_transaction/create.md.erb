@@ -10,7 +10,7 @@
 {
   "moxi_works_agent_id":"abc123",
   "moxi_works_contact_id":"babebead-feed-face-dead-beefbad4babe",
-  "name":"Bob And Linda Tonkanaka",
+  "transaction_name":"Bob And Linda Tonkanaka",
   "notes":"take care to write notes that are descriptive and helpful",
   "address":"1234 memory lane",
   "city":"hereville",
@@ -42,7 +42,7 @@ Accept: application/vnd.moxi-platform+json;version=1
 Authorization: Basic XNNeXAAAUZaQlF0dA==
 Content-Type: application/x-www-form-urlencoded
 
-moxi_works_agent_id=abc123&moxi_works_contact_id=babebead-feed-face-dead-beefbad4babe&min_beds=12&max_beds=34&min_baths=1.75&max_baths=34.5&area_of_interest=Port%20Interesting&notes=take%20care%20to%20write%20notes%20that%20are%20descriptive%20and%20helpful&name=Bob%20And%20Linda%20Tonkanaka&address=1234%20memory%20lane&city=hereville&state=provinceland&zip_code=18292&sqft=2345&is_mls_transaction=true&commission_flat_fee=12345&target_price=&max_price=2323223&min_price=232323&mls_number=abc123
+moxi_works_agent_id=abc123&moxi_works_contact_id=babebead-feed-face-dead-beefbad4babe&min_beds=12&max_beds=34&min_baths=1.75&max_baths=34.5&area_of_interest=Port%20Interesting&notes=take%20care%20to%20write%20notes%20that%20are%20descriptive%20and%20helpful&transaction_name=Bob%20And%20Linda%20Tonkanaka&address=1234%20memory%20lane&city=hereville&state=provinceland&zip_code=18292&sqft=2345&is_mls_transaction=true&commission_flat_fee=12345&target_price=&max_price=2323223&min_price=232323&mls_number=abc123
 
 ```
 
@@ -60,7 +60,7 @@ MoxiworksPlatform::Credentials.new(platform_identifier, platform_secret)
 moxi_works_transaction = MoxiworksPlatform::BuyerTransaction.create(
       moxi_works_agent_id:"abc123",
       moxi_works_contact_id:"babebead-feed-face-dead-beefbad4babe",
-      name:"Bob And Linda Tonkanaka",
+      transaction_name:"Bob And Linda Tonkanaka",
       notes:"take care to write notes that are descriptive and helpful",
       address:"1234 memory lane",
       city:"hereville",
@@ -92,7 +92,7 @@ $credentials = new MoxiworksPlatform\Credentials($platform_identifier, $platform
 $moxi_works_transaction = MoxiworksPlatform\BuyerTransaction::create([
       "moxi_works_agent_id" => "abc123",
       "moxi_works_contact_id" => "babebead-feed-face-dead-beefbad4babe",
-      "name" => "Bob And Linda Tonkanaka",
+      "transaction_name" => "Bob And Linda Tonkanaka",
       "notes" => "take care to write notes that are descriptive and helpful",
       "address" => "1234 memory lane",
       "city" => "hereville",
@@ -121,7 +121,7 @@ $moxi_works_transaction = MoxiworksPlatform\BuyerTransaction::create([
 {
   "moxi_works_agent_id":"abc123",
   "moxi_works_contact_id":"babebead-feed-face-dead-beefbad4babe",
-  "name":"Bob And Linda Tonkanaka",
+  "transaction_name":"Bob And Linda Tonkanaka",
   "notes":"take care to write notes that are descriptive and helpful",
   "address":"1234 memory lane",
   "city":"hereville",
@@ -153,7 +153,7 @@ Accept: application/vnd.moxi-platform+json;version=1
 Authorization: Basic XNNeXAAAUZaQlF0dA==
 Content-Type: application/x-www-form-urlencoded
 
-moxi_works_agent_id=abc123&moxi_works_contact_id=babebead-feed-face-dead-beefbad4babe&min_beds=12&max_beds=34&min_baths=1.75&max_baths=34.5&area_of_interest=Port%20Interesting&notes=take%20care%20to%20write%20notes%20that%20are%20descriptive%20and%20helpful&name=Bob%20And%20Linda%20Tonkanaka&address=1234%20memory%20lane&city=hereville&state=provinceland&zip_code=18292&sqft=2345&is_mls_transaction=false&commission_flat_fee=12345&target_price=&max_price=2323223&min_price=232323
+moxi_works_agent_id=abc123&moxi_works_contact_id=babebead-feed-face-dead-beefbad4babe&min_beds=12&max_beds=34&min_baths=1.75&max_baths=34.5&area_of_interest=Port%20Interesting&notes=take%20care%20to%20write%20notes%20that%20are%20descriptive%20and%20helpful&transaction_name=Bob%20And%20Linda%20Tonkanaka&address=1234%20memory%20lane&city=hereville&state=provinceland&zip_code=18292&sqft=2345&is_mls_transaction=false&commission_flat_fee=12345&target_price=&max_price=2323223&min_price=232323
 
 ```
 
@@ -171,7 +171,7 @@ MoxiworksPlatform::Credentials.new(platform_identifier, platform_secret)
 moxi_works_transaction = MoxiworksPlatform::BuyerTransaction.create(
       moxi_works_agent_id:"abc123",
       moxi_works_contact_id:"babebead-feed-face-dead-beefbad4babe",
-      name:"Bob And Linda Tonkanaka",
+      transaction_name:"Bob And Linda Tonkanaka",
       notes:"take care to write notes that are descriptive and helpful",
       address:"1234 memory lane",
       city:"hereville",
@@ -202,7 +202,7 @@ $credentials = new MoxiworksPlatform\Credentials($platform_identifier, $platform
 $moxi_works_transaction = MoxiworksPlatform\BuyerTransaction::create([
       "moxi_works_agent_id" => "abc123",
       "moxi_works_contact_id" => "babebead-feed-face-dead-beefbad4babe",
-      "name" => "Bob And Linda Tonkanaka",
+      "transaction_name" => "Bob And Linda Tonkanaka",
       "notes" => "take care to write notes that are descriptive and helpful",
       "address" => "1234 memory lane",
       "city" => "hereville",
@@ -237,7 +237,7 @@ Attribute | Type | Length Limit |
 |<span class="required-data">moxi_works_agent_id</span>|<span class="required-data"><span class="data-type">String</span></span>|<span class="required-data">255</span>
 |<span class="required-data">moxi_works_contact_id</span>|<span class="required-data"><span class="data-type">String</span></span>|<span class="required-data">255</span>
 |<span class="required-data">partner_contact_id</span>|<span class="required-data"><span class="data-type">String</span></span>|<span class="required-data">255</span>
-|<span class="optional-data">name</span>|<span class="optional-data"><span class="data-type">String</span></span>| <span class="optional-data">255</span> |
+|<span class="required-data">transaction_name</span>|<span class="required-data"><span class="data-type">String</span></span>| <span class="required-data">255</span> |
 |<span class="optional-data">notes</span>|<span class="optional-data"><span class="data-type">String</span></span>|  |
 |<span class="optional-data">address</span>|<span class="optional-data"><span class="data-type">String</span></span>| <span class="optional-data">255</span> |
 |<span class="optional-data">city</span>|<span class="optional-data"><span class="data-type">String</span></span>| <span class="optional-data">255</span> |
@@ -277,7 +277,7 @@ Attribute | Type | Length Limit |
 <aside class="note">Either <span class='attribute-name'>moxi_works_contact_id</span> or <span class='attribute-name'>partner_contact_id</span> must be populated; however, you should only populate one of these attributes.</aside>
 
 
-<span class="request-data-head">name</span>
+<span class="request-data-head">transaction_name</span>
 <span class="request-data-remarks">A brief, human readable title that will be shown to the agent as the subject of the <span class='entity-name'>BuyerTransaction</span> that you are creating.</span>
 
 
@@ -362,7 +362,7 @@ Attribute | Type | Length Limit |
   "moxi_works_transaction_id": "facefeed-beef-daff-dead-cad4edd1e4d",
   "moxi_works_contact_id":"babebead-feed-face-dead-beefbad4babe",
   "partner_contact_id":"MySystemsContactIDForTheContactAssociatedWithThisBuyerTransaction",
-  "name":"Bob And Linda Tonkanaka",
+  "transaction_name":"Bob And Linda Tonkanaka",
   "notes":"take care to write notes that are descriptive and helpful",
   "stage": 2,
   "stage_name":"initialized",
@@ -416,7 +416,7 @@ Attribute | Type |
 |<span class="response-data">moxi_works_transaction_id</span>|<span class="response-data"><span class="data-type">String</span></span>|
 |<span class="response-data">moxi_works_contact_id</span>|<span class="response-data"><span class="data-type">String</span></span>|
 |<span class="response-data">partner_contact_id</span>|<span class="response-data"><span class="data-type">String</span>
-|<span class="response-data">name</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">transaction_name</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">notes</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">stage</span>|<span class="data-type">Integer</span>|
 |<span class="response-data">stage_name</span>|<span class="data-type">String</span>|
@@ -456,7 +456,7 @@ Attribute | Type |
 
 
 
-<span class="response-data-head">name</span>
+<span class="response-data-head">transaction_name</span>
 <span class="response-data-remarks">A brief, human readable title that is shown to the agent as the subject of the <span class='entity-name'>BuyerTransaction</span>.</span>
 
 

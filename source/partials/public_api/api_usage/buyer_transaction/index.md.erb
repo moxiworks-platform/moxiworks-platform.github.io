@@ -143,11 +143,11 @@ Attribute | Type | Length Limit |
 
 
 <span class="request-data-head">partner_contact_id</span>
-<span class="request-data-remarks">This is the unique identifer you use in your system that has been associated with the <span class='entity-name'>Contact</span> you want to find <span class='entity-name'>BuyerTransaction</span> objects for. You can use either <span class='attribute-name'>moxi_works_contact_id</span> or <span class='action-name'>partner_contact_id</span> when searching for <span class='entity-name'>BuyerTransaction</span> objects associated with a specific <span class='entity-name'>Contact</span>.</span>
+<span class="request-data-remarks">This is the unique identifer you use in your system that has been associated with the <span class='entity-name'>Contact</span> you want to find <span class='entity-name'>BuyerTransaction</span> objects for. You can use either <span class='attribute-name'>moxi_works_contact_id</span> or <span class='attribute-name'>partner_contact_id</span> when searching for <span class='entity-name'>BuyerTransaction</span> objects associated with a specific <span class='entity-name'>Contact</span>.</span>
 
 
 <span class="request-data-head">include_unconfigured</span>
-<span class="request-data-remarks">Whether to include Transactions that are not configured.  </span>
+<span class="request-data-remarks">Whether to include <span class='entity-name'>BuyerTransaction</span> objects that are not configured. By default only <tt>configured</tt>, <tt>active</tt>, <tt>pending</tt> and <tt>completed</tt> <span class='entity-name'>BuyerTransaction</span> objects are returned. To include <tt>initialized</tt> <span class='entity-name'>BuyerTransaction</span> objects, pass <span class='attribute-name'>include_unconfigured</span> in your request parameters set to <tt>true</tt></span>
 
 <span class="request-data-head">page_number</span>
 <span class="request-data-remarks">Page of <span class='entity-name'>BuyerTransaction</span> records to return. Use if `total_pages` indicates that there is more than one page of data available.</span>
@@ -166,7 +166,7 @@ Attribute | Type | Length Limit |
       "moxi_works_transaction_id": "facefeed-beef-daff-dead-cad4edd1e4d",
       "moxi_works_contact_id":"babebead-feed-face-dead-beefbad4babe",
       "partner_contact_id":"MySystemsContactIDForTheContactAssociatedWithThisBuyerTransaction",
-      "name":"Bob And Linda Tonkanaka",
+      "transaction_name":"Bob And Linda Tonkanaka",
       "notes":"take care to write notes that are descriptive and helpful",
       "stage": 2,
       "stage_name":"initialized",
@@ -242,7 +242,7 @@ Attribute | Type |
 |<span class="response-data">moxi_works_transaction_id</span>|<span class="response-data"><span class="data-type">String</span></span>|
 |<span class="response-data">moxi_works_contact_id</span>|<span class="response-data"><span class="data-type">String</span></span>|
 |<span class="response-data">partner_contact_id</span>|<span class="response-data"><span class="data-type">String</span>
-|<span class="response-data">name</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">transaction_name</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">notes</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">stage</span>|<span class="data-type">Integer</span>|
 |<span class="response-data">stage_name</span>|<span class="data-type">String</span>|
@@ -282,7 +282,7 @@ Attribute | Type |
 
 
 
-<span class="response-data-head">name</span>
+<span class="response-data-head">transaction_name</span>
 <span class="response-data-remarks">A brief, human readable title that is shown to the agent as the subject of the <span class='entity-name'>BuyerTransaction</span>.</span>
 
 

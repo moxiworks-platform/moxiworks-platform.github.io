@@ -88,6 +88,39 @@ $company_agents = MoxiworksPlatform\Agent::search(['moxi_works_company_id' => 'a
 ?>
 ```
 
+> First page of All <span class='entity-name'>Agent</span> objects for a specified <span class='entity-name'>Office</span> updated since a given timestamp
+
+```http
+GET /api/agents?moxi_works_office_id=8c3f446c-aab9-11e6-9a0f-d0e1408e8026&moxi_works_company_id=abc123&updated_since=1461108284 HTTP/1.1
+Host: api.moxiworks.com
+Accept: application/vnd.moxi-platform+json;version=1
+Authorization: Basic XNNeXAAAUZaQlF0dA==
+Content-Type: application/x-www-form-urlencoded
+
+```
+
+```json
+{
+  "moxi_works_company_id":"the_company",
+  "moxi_works_office_id":"8c3f446c-aab9-11e6-9a0f-d0e1408e8026",
+  "updated_since":1461108284
+}
+
+```
+
+```ruby
+one_week =  defined?(Rails) ? 1.week : 604800
+company_agents = MoxiworksPlatform::Agent.search(moxi_works_company_id: "abc123", updated_since: Time.now - one_week, moxi_works_office_id: "8c3f446c-aab9-11e6-9a0f-d0e1408e8026")
+
+```
+
+```php
+<?php
+$one_week = 604800;
+$company_agents = MoxiworksPlatform\Agent::search(['moxi_works_company_id' => 'abc123', 'updated_since' => time() - $one_week, 'moxi_works_office_id' => '8c3f446c-aab9-11e6-9a0f-d0e1408e8026']);
+?>
+```
+
 ##### <span class='entity-name'>Agent</span> <span class='action-name'>Index</span> Request Attributes
 
 <aside class="note">Send a <b>GET</b> request to https://api.moxiworks.com/api/agents</aside>

@@ -1706,7 +1706,11 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
 
 <h6 id="buyertransaction-stages"><span class='entity-name'>BuyerTransaction</span> Stages</h6>
 
-<p>Each <span class='entity-name'>BuyerTransaction</span> passes through five stages. Each stage represents a different stage in the transaction lifecycle. Every <span class='entity-name'>BuyerTransaction</span> response will include the current stage of the <span class='entity-name'>BuyerTransaction</span> both in its numeric form as well as a human readable string representation.  As the transaction progresses through its lifecycle, you can promote it to the next stage.    See <a href='#promoting-sellertransaction-stage'>Promoting <span class='entity-name'>BuyerTransaction</span> Stage</a> for information about promoting a <span class='entity-name'>BuyerTransaction</span> object to the next stage. Use the table below to determine the mapping between the integer represended in <span class='attribute-name'>stage</span> and its human readable counterpart.</span></p>
+<p>Each <span class='entity-name'>BuyerTransaction</span> passes through five stages. Each stage represents a different stage in the transaction lifecycle. Every <span class='entity-name'>BuyerTransaction</span> response will include the current stage of the <span class='entity-name'>BuyerTransaction</span> both in its numeric form as well as a human readable string representation.  As the transaction progresses through its lifecycle, you can promote it to the next stage.    See <a href='#promoting-sellertransaction-stage'>Promoting <span class='entity-name'>BuyerTransaction</span> Stage</a> for information about promoting a <span class='entity-name'>BuyerTransaction</span> object to the next stage.</p>
+
+<p>Each <span class='entity-name'>BuyerTransaction</span> created through the Moxi Works Platform will be created as a stage 3 (<code class="prettyprint">active</code>) <span class='entity-name'>BuyerTransaction</span>.</p>
+
+<p>Use the table below to determine the mapping between the integer represended in <span class='attribute-name'>stage</span> and its human readable counterpart.</span></p>
 
 <table><thead>
 <tr>
@@ -10588,7 +10592,11 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 
 <h6 id="sellertransaction-stages"><span class='entity-name'>SellerTransaction</span> Stages</h6>
 
-<p>Each <span class='entity-name'>SellerTransaction</span> passes through five stages. Each stage represents a different stage in the transaction lifecycle. Every <span class='entity-name'>SellerTransaction</span> response will include the current stage of the <span class='entity-name'>SellerTransaction</span> both in its numeric form as well as a human readable string representation.  As the transaction progresses through its lifecycle, you can promote it to the next stage.    See <a href='#promoting-sellertransaction-stage'>Promoting <span class='entity-name'>SellerTransaction</span> Stage</a> for information about promoting a <span class='entity-name'>SellerTransaction</span> object to the next stage. Use the table below to determine the mapping between the integer represended in <span class='attribute-name'>stage</span> and its human readable counterpart.</span></p>
+<p>Each <span class='entity-name'>SellerTransaction</span> passes through five stages. Each stage represents a different stage in the transaction lifecycle. Every <span class='entity-name'>SellerTransaction</span> response will include the current stage of the <span class='entity-name'>SellerTransaction</span> both in its numeric form as well as a human readable string representation.  As the transaction progresses through its lifecycle, you can promote it to the next stage.    See <a href='#promoting-sellertransaction-stage'>Promoting <span class='entity-name'>SellerTransaction</span> Stage</a> for information about promoting a <span class='entity-name'>SellerTransaction</span> object to the next stage.</p>
+
+<p>Each <span class='entity-name'>SellerTransaction</span> created through the Moxi Works Platform will be created as a stage 3 (<code class="prettyprint">active</code>) <span class='entity-name'>SellerTransaction</span>.</p>
+
+<p>Use the table below to determine the mapping between the integer represended in <span class='attribute-name'>stage</span> and its human readable counterpart.</span></p>
 
 <table><thead>
 <tr>

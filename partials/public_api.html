@@ -11575,7 +11575,7 @@ moxi_works_agent_id=abc123&amp;beds=12&amp;baths=34.5&amp;notes=take%20care%20to
 <span class="request-data-remarks">The number of bathrooms in the property being sold.</span></p>
 
 <p><span class="request-data-head">is_mls_transaction</span>
-<span class="request-data-remarks">Whether the property being sold is being listed on an MLS. This should be <code class="prettyprint">false</code> for paperwork-only, for sale by owner, off-market, or pocket listing type transactions or any transactions that will not be tracked through an MLS. If <span class='attribute-name'>is_mls_transaction</span> is <code class="prettyprint">false</code>, then <span class='attribute-name'>start_timestamp</span> should be populated.</span></p>
+<span class="request-data-remarks">Whether the property being sold is being listed on an MLS. This should be <code class="prettyprint">false</code> for paperwork-only, for sale by owner, off-market, or pocket listing type transactions or any transactions that will not be tracked through an MLS.</span></p>
 
 <p><span class="request-data-head">mls_number</span>
 <span class="request-data-remarks">The MLS number of the the property being sold.</span></p>
@@ -11583,9 +11583,7 @@ moxi_works_agent_id=abc123&amp;beds=12&amp;baths=34.5&amp;notes=take%20care%20to
 <aside class="note"><span class='attribute-name'>mls_number</span> should be populated only if <span class='attribute-name'>is_mls_transaction</span> is true.</aside>
 
 <p><span class="request-data-head">start_timestamp</span>
-<span class="request-data-remarks">For non-MLS transactions, this is the Unix timestamp representing the date that the agent initiated transaction discussions with the client. This should be <code class="prettyprint">null</code> if the <span class='entity-name'>SellerTransaction</span> is an MLS sale.</span></p>
-
-<aside class="note"><span class='attribute-name'>start_timestamp</span> should be populated only if <span class='attribute-name'>is_mls_transaction</span> is <span class='attribute-value'>false</span>.</aside>
+<span class="request-data-remarks">For non-MLS transactions, this is the Unix timestamp representing the date that the agent initiated transaction discussions with the client.</span></p>
 
 <p><span class="request-data-head">commission_percentage</span>
 <span class="request-data-remarks">Commission for the transaction. If the commission for the transaction is based on a percentage of the sale amount, use this attribute.</span></p>

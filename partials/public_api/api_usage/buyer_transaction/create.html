@@ -428,7 +428,7 @@ moxi_works_agent_id=abc123&amp;moxi_works_contact_id=babebead-feed-face-dead-bee
 <span class="request-data-remarks">The name of a locality representing an area of interest for prospective properties.</span></p>
 
 <p><span class="request-data-head">is_mls_transaction</span>
-<span class="request-data-remarks">Whether the property being purchased is being listed on an MLS. This should be <code class="prettyprint">false</code> for paperwork-only, for sale by owner, off-market, or pocket listing type transactions or any transactions that will not be tracked through an MLS. If <span class='attribute-name'>is_mls_transaction</span> is <code class="prettyprint">false</code>, then <span class='attribute-name'>start_timestamp</span> should be populated.</span></p>
+<span class="request-data-remarks">Whether the property being purchased is being listed on an MLS. This should be <code class="prettyprint">false</code> for paperwork-only, for sale by owner, off-market, or pocket listing type transactions or any transactions that will not be tracked through an MLS.</span></p>
 
 <p><span class="request-data-head">mls_number</span>
 <span class="request-data-remarks">The MLS number of the the property being purchased.</span></p>
@@ -436,9 +436,7 @@ moxi_works_agent_id=abc123&amp;moxi_works_contact_id=babebead-feed-face-dead-bee
 <aside class="note"><span class='attribute-name'>mls_number</span> should be populated only if <span class='attribute-name'>is_mls_transaction</span> is true.</aside>
 
 <p><span class="response-data-head">start_timestamp</span>
-<span class="response-data-remarks">For non-MLS transactions, this is the Unix timestamp representing the date that the agent initiated transaction discussions with the client. This should be <code class="prettyprint">null</code> if the <span class='entity-name'>BuyerTransaction</span> is an MLS sale.</span></p>
-
-<aside class="note"><span class='attribute-name'>start_timestamp</span> should be populated only if <span class='attribute-name'>is_mls_transaction</span> is <span class='attribute-value'>false</span>.</aside>
+<span class="response-data-remarks">This is the Unix timestamp representing the date that the agent initiated transaction discussions with the client. </span></p>
 
 <p><span class="request-data-head">commission_percentage</span>
 <span class="request-data-remarks">Commission for the transaction. If the commission for the transaction is based on a percentage of the purchase amount, use this attribute.</span></p>

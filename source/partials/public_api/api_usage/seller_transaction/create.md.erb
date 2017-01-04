@@ -282,19 +282,15 @@ Attribute | Type | Length Limit |
 <span class="request-data-remarks">The number of bathrooms in the property being sold.</span>
 
 <span class="request-data-head">is_mls_transaction</span>
-<span class="request-data-remarks">Whether the property being sold is being listed on an MLS. This should be `false` for paperwork-only, for sale by owner, off-market, or pocket listing type transactions or any transactions that will not be tracked through an MLS. If <span class='attribute-name'>is_mls_transaction</span> is `false`, then <span class='attribute-name'>start_timestamp</span> should be populated.</span>
+<span class="request-data-remarks">Whether the property being sold is being listed on an MLS. This should be `false` for paperwork-only, for sale by owner, off-market, or pocket listing type transactions or any transactions that will not be tracked through an MLS.</span>
 
 <span class="request-data-head">mls_number</span>
 <span class="request-data-remarks">The MLS number of the the property being sold.</span>
 
 <aside class="note"><span class='attribute-name'>mls_number</span> should be populated only if <span class='attribute-name'>is_mls_transaction</span> is true.</aside>
 
-
 <span class="request-data-head">start_timestamp</span>
-<span class="request-data-remarks">For non-MLS transactions, this is the Unix timestamp representing the date that the agent initiated transaction discussions with the client. This should be `null` if the <span class='entity-name'>SellerTransaction</span> is an MLS sale.</span>
-
-<aside class="note"><span class='attribute-name'>start_timestamp</span> should be populated only if <span class='attribute-name'>is_mls_transaction</span> is <span class='attribute-value'>false</span>.</aside>
-
+<span class="request-data-remarks">For non-MLS transactions, this is the Unix timestamp representing the date that the agent initiated transaction discussions with the client.</span>
 
 <span class="request-data-head">commission_percentage</span>
 <span class="request-data-remarks">Commission for the transaction. If the commission for the transaction is based on a percentage of the sale amount, use this attribute.</span>

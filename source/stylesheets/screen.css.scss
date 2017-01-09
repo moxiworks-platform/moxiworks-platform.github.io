@@ -616,11 +616,14 @@ html, body {
     margin-top: 1.5em;
     margin-bottom: 1.5em;
     background: $aside-notice-bg;
+    color: #000066;
     line-height: 1.6;
 
     &.warning {
       background-color: $aside-warning-bg;
       @include text-shadow(0 1px 0 lighten($aside-warning-bg, 15%));
+      color: #111111;
+
     }
 
     &.success {

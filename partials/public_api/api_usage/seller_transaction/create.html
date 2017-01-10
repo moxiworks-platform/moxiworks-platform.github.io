@@ -387,7 +387,7 @@ moxi_works_agent_id=abc123&amp;moxi_works_contact_id=babebead-feed-face-dead-bee
 <span class="request-data-remarks">For non-MLS transactions, this is the Unix timestamp representing the date that the agent initiated transaction discussions with the client.</span></p>
 
 <p><span class="request-data-head">commission_percentage</span>
-<span class="request-data-remarks">Commission for the transaction. If the commission for the transaction is based on a percentage of the sale amount, use this attribute.</span></p>
+<span class="request-data-remarks">Commission for the transaction. If the commission for the transaction is based on a percentage of the purchase amount, use this attribute. If no commission (either <span class='attribute-name'>commission_percentage</span> or <span class='attribute-name'>commission_flat_fee</span>) is supplied during creation, <span class='attribute-name'>commission_percentage</span> is set to the default <span class='attribute-name'>commission_percentage</span> for the associated <span class='entity-name'>Agent</span>.</span></p>
 
 <p><span class="request-data-head">commission_flat_fee</span>
 <span class="request-data-remarks">Commission for the transaction. If the commission for the transaction is based on a flat dollar amount, use this attribute.</span></p>

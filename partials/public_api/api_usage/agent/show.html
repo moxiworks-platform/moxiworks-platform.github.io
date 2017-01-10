@@ -128,6 +128,8 @@
   </span><span class="nt">"office_address_state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AG"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"office_address_zip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Buckminster Fuller"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Buckminster"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fuller"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"main_phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"555) 9101112"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"mobile_phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"555 333 4567"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"alt_phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"(555) 567-8910"</span><span class="p">,</span><span class="w">
@@ -196,6 +198,14 @@
 </tr>
 <tr>
 <td><span class="response-data">name</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">first_name</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">last_name</span></td>
 <td><span class="data-type">String or null</span></td>
 </tr>
 <tr>
@@ -283,6 +293,12 @@
 
 <p><span class="response-data-head">name</span>
 <span class="response-data-remarks">The full name of the agent. This can be null if there is no data for this attribute.</span></p>
+
+<p><span class="response-data-head">first_name</span>
+<span class="response-data-remarks">The first name of the agent. This can be null if there is no data for this attribute.</span></p>
+
+<p><span class="response-data-head">last_name</span>
+<span class="response-data-remarks">The last name of the agent. This can be null if there is no data for this attribute.</span></p>
 
 <p><span class="response-data-head">mobile_phone_number</span>
 <span class="response-data-remarks">Mobile phone number of the agent. <span class='attribute-name'>main_phone_number</span> should be considered higher priority, if not the same. This can be null if there is no data for this attribute.</span></p>

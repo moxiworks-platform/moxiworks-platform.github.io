@@ -28,17 +28,30 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h3 id="emailcampaign">EmailCampaign</h3>
+        <h3 id="emailcampaign"><span class='entity-name'>EmailCampaign</span></h3>
 
-<h4 id="index">Index</h4>
+<p>Moxi Works Platform <span class='entity-name'>EmailCampign</span> entities represent email campaigns established between agents and contacts via Moxi Works.</p>
+
+<h4 id="emailcampaign-index"><span class='entity-name'>EmailCampaign</span> <span class='action-name'>Index</span></h4>
 
 <div class='highlight ruby'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-ruby/MoxiworksPlatform/EmailCampaign.html#search-class_method'>Ruby Search Docs</a></span></blockquote></div>
 
 <div class='highlight php'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-php/classes/MoxiworksPlatform.EmailCampaign.html#method_search'>PHP Search Docs</a></span></blockquote></div>
 
+<aside class="note">Send a <b>GET</b> request to https://api.moxiworks.com/api/email_campaigns</aside>
+
+<p>When searching for EmailCampaign entities using the Moxi Works platform API, format your data using the following parameters.</p>
+
 <blockquote>
-<p><span class="data-example-label">EmailCampaign Index Example</span></p>
+<p><span class="data-example-label"><span class='entity-name'>EmailCampaign </span><span class='action-name'>Index </span>Request Example</span></p>
 </blockquote>
+
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"moxi_works_agent_id"</span><span class="p">:</span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"partner_contact_id"</span><span class="p">:</span><span class="s2">"mySystemsContactId"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
 
 <pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/email_campaigns?moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">api.moxiworks.com</span>
@@ -66,34 +79,56 @@
 </code></pre>
 
 <pre class="highlight php"><code><span class="cp">&lt;?php</span>
-<span class="nv">$platform_identifier</span> <span class="o">=</span> <span class="s1">'abc123'</span>
-<span class="nv">$platform_secret</span> <span class="o">=</span> <span class="s1">'secret'</span>
-
-<span class="nv">$credentials</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MoxiworksPlatform\Credentials</span><span class="p">(</span><span class="nv">$platform_identifier</span><span class="p">,</span> <span class="nv">$platform_secret</span><span class="p">)</span>
+<span class="nv">$platform_identifier</span> <span class="o">=</span> <span class="s1">'abc123'</span><span class="p">;</span> <span class="c1">// platorm_identifier provided by Moxi Works Platform Rep
+</span><span class="nv">$platform_secret</span> <span class="o">=</span> <span class="s1">'secret'</span><span class="p">;</span> <span class="c1">//platform_secret provided by Moxi Works Platform Rep
+</span>
+<span class="nv">$credentials</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MoxiworksPlatform\Credentials</span><span class="p">(</span><span class="nv">$platform_identifier</span><span class="p">,</span> <span class="nv">$platform_secret</span><span class="p">);</span>
 
 <span class="nv">$moxi_works_email_campaigns</span> <span class="o">=</span> <span class="nx">MoxiworksPlatform\EmailCampaign</span><span class="o">::</span><span class="na">search</span><span class="p">([</span>
-        <span class="nv">$moxi_works_agent_id</span> <span class="o">=&gt;</span> <span class="s2">"1234abcd"</span><span class="p">,</span>
-        <span class="nv">$partner_contact_id</span> <span class="o">=&gt;</span> <span class="s2">"mySystemsContactId"</span><span class="p">]);</span>
+        <span class="s1">'moxi_works_agent_id'</span> <span class="o">=&gt;</span> <span class="s1">'1234abcd'</span><span class="p">,</span>
+        <span class="s1">'partner_contact_id'</span> <span class="o">=&gt;</span> <span class="s1">'mySystemsContactId'</span><span class="p">]);</span>
 
 <span class="cp">?&gt;</span>
 </code></pre>
 
-<blockquote><div class='highlight http' style="display: block">
-<span class="data-example-label">EmailCampaign Index: Success Response</span>
-(line breaks in body shown for clarity)
+<h5 id="emailcampaign-index-request-attributes"><span class='entity-name'>EmailCampaign</span> <span class='action-name'>Index</span> Request Attributes</h5>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Length Limit</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span class="required-data">moxi_works_agent_id</span></td>
+<td><span class="required-data"><span class="data-type">String</span></span></td>
+<td><span class="required-data">255</span></td>
+</tr>
+<tr>
+<td><span class="required-data">partner_contact_id</span></td>
+<td><span class="required-data"><span class="data-type">String</span></span></td>
+<td><span class="required-data">255</span></td>
+</tr>
+</tbody></table>
+
+<p><span class="required-data"><strong>Required Parameters Are In Red</strong></span></p>
+
+<p><span class="request-data-head">moxi_works_agent_id</span>
+<span class="request-data-remarks">This is the Moxi Works Platform ID of the agent which an <span class='entity-name'>EmailCampaign</span> entry is associated with. This will be a string that may take the form of an email address, or a unique identification string. This data is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>EmailCampaign</span> request to be accepted.</span></p>
+
+<p><span class="request-data-head">partner_contact_id</span>
+<span class="request-data-remarks">This is the unique identifer you use in your system that has been associated with the <span class='entity-name'>w</span> that you are creating an <span class='entity-name'>EmailCampaign</span> entry about. You should have already created the <span class='entity-name'>Contact</span> record on the Moxi Works Platform using <a href="/#contact-create">Contact Create</a> before attempting to use your system&rsquo;s contact ID to show <span class='entity-name'>EmailCampaign</span> entries for the <span class='entity-name'>Contact</span>. Your request will be rejected if the <span class='entity-name'>Contact</span> record does not exist.</span></p>
+
+<h5 id="emailcampaign-index-response-payload"><span class='entity-name'>EmailCampaign</span> <span class='action-name'>Index</span> Response Payload</h5>
+
+<p>The following attributes make up the payload of the <span class='entity-name'>EmailCampaign</span> response for a <span class='action-name'>Index</span> request.</p>
+
+<blockquote><div class='highlight json' style="display: block">
+  <span class='data-example-label'><span class='entity-name'>EmailCampaign</span> <span class='action-name'>Index</span> Response Payload Example
 </div></blockquote>
 
-<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
-<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json; charset=utf-8</span>
-<span class="na">X-UA-Compatible</span><span class="p">:</span> <span class="s">IE=Edge</span>
-<span class="na">ETag</span><span class="p">:</span> <span class="s">\"39e1ce76ef58ce23a7debbe5ca145715\"</span>
-<span class="na">Cache-Control</span><span class="p">:</span> <span class="s">max-age=0, private, must-revalidate</span>
-<span class="na">X-Request-Id</span><span class="p">:</span> <span class="s">232e40496ea30b9758dddf0b7ab195f2</span>
-<span class="na">X-Runtime</span><span class="p">:</span> <span class="s">13.034641</span>
-<span class="na">Connection</span><span class="p">:</span> <span class="s">close</span>
-<span class="na">Server</span><span class="p">:</span> <span class="s">thin</span>
-
-<span class="p">[</span><span class="w">
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
 </span><span class="p">{</span><span class="w">
   </span><span class="nt">"subscription_type"</span><span class="p">:</span><span class="s2">"EmailSubscriptionType"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"email_address"</span><span class="p">:</span><span class="s2">"subscriber@here.com"</span><span class="p">,</span><span class="w">
@@ -116,47 +151,12 @@
 
 </span></code></pre>
 
-<blockquote><div class='highlight http' style="display: block">
-<span class="data-example-label">EmailCampaign Index: Not Found Response</span>
-(line breaks in body shown for clarity)
-</div></blockquote>
+<blockquote><div class='highlight json' style="display: block">
+  <span class="data-example-label"><span class='entity-name'>EmailCampaign</span>  <span class='action-name'>Index</span> Failure Response</span>
+</div> See <a href='#error-handling'>Error Handling</a> for details about individual error codes.</blockquote>
 
-<pre class="highlight http"><code><span class="err">
-</span><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
-<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json; charset=utf-8</span>
-<span class="na">X-UA-Compatible</span><span class="p">:</span> <span class="s">IE=Edge</span>
-<span class="na">ETag</span><span class="p">:</span> <span class="s">\"39e1ce76ef58ce23a7debbe5ca145715\"</span>
-<span class="na">Cache-Control</span><span class="p">:</span> <span class="s">max-age=0, private, must-revalidate</span>
-<span class="na">X-Request-Id</span><span class="p">:</span> <span class="s">232e40496ea30b9758dddf0b7ab195f2</span>
-<span class="na">X-Runtime</span><span class="p">:</span> <span class="s">13.034641</span>
-<span class="na">Connection</span><span class="p">:</span> <span class="s">close</span>
-<span class="na">Server</span><span class="p">:</span> <span class="s">thin</span>
-
-<span class="p">{</span><span class="w">
-  </span><span class="nt">"moxi_works_agent_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234abcd"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"partner_contact_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11111abe"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"actions"</span><span class="p">:[]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-
-</span></code></pre>
-
-<blockquote><div class='highlight http' style="display: block">
-<span class="data-example-label">EmailCampaign Index: Failure Response</span>
-(line breaks in body shown for clarity)
-</div></blockquote>
-
-<pre class="highlight http"><code><span class="err">
-</span><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">400</span> <span class="ne">OK</span>
-<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json; charset=utf-8</span>
-<span class="na">X-UA-Compatible</span><span class="p">:</span> <span class="s">IE=Edge</span>
-<span class="na">ETag</span><span class="p">:</span> <span class="s">\"39e1ce76ef58ce23a7debbe5ca145715\"</span>
-<span class="na">Cache-Control</span><span class="p">:</span> <span class="s">max-age=0, private, must-revalidate</span>
-<span class="na">X-Request-Id</span><span class="p">:</span> <span class="s">232e40496ea30b9758dddf0b7ab195f2</span>
-<span class="na">X-Runtime</span><span class="p">:</span> <span class="s">13.034641</span>
-<span class="na">Connection</span><span class="p">:</span> <span class="s">close</span>
-<span class="na">Server</span><span class="p">:</span> <span class="s">thin</span>
-
-<span class="p">{</span><span class="w">
+<pre class="highlight json"><code><span class="w">
+</span><span class="p">{</span><span class="w">
   </span><span class="nt">"status"</span><span class="p">:</span><span class="s2">"fail"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"errorCode"</span><span class="p">:</span><span class="w"> </span><span class="err">xxx</span><span class="p">,</span><span class="w">
   </span><span class="nt">"messages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"messages"</span><span class="p">]</span><span class="w">
@@ -164,33 +164,62 @@
 
 </span></code></pre>
 
-<aside class="note">Send a <b>GET</b> request to https://api.moxiworks.com/api/email_campaigns</aside>
-
-<p>When searching for EmailCampaign entities using the Moxi Works platform API, format your data using the following parameters.</p>
-
 <table><thead>
 <tr>
 <th>Attribute</th>
 <th>Type</th>
-<th>Remark</th>
-<th>Length Limit</th>
 </tr>
 </thead><tbody>
 <tr>
-<td><span class="required-data">moxi_works_agent_id</span></td>
-<td><span class="required-data"><span class="data-type">String</span></span></td>
-<td><span class="required-data"><span class="data-remarks">The agent&rsquo;s Moxi Works Platform ID</span></span></td>
-<td><span class="required-data">255</span></td>
+<td><span class="response-data">subscription_type</span></td>
+<td><span class="data-type">String</span></td>
 </tr>
 <tr>
-<td><span class="required-data">partner_contact_id</span></td>
-<td><span class="required-data"><span class="data-type">String</span></span></td>
-<td><span class="required-data"><span class="data-remarks">The ID of the contact in your system.</span></span></td>
-<td><span class="required-data">255</span></td>
+<td><span class="response-data">email_address</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">subscribed_at</span></td>
+<td><span class="data-type">Integer</span></td>
+</tr>
+<tr>
+<td><span class="response-data">created_by</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">area</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">last_sent</span></td>
+<td><span class="data-type">Integer</span></td>
+</tr>
+<tr>
+<td><span class="response-data">next_scheduled</span></td>
+<td><span class="data-type">Integer</span></td>
 </tr>
 </tbody></table>
 
-<p><span class="required-data"><strong>Required Parameters Are In Red</strong></span></p>
+<p><span class="request-data-head">subscription_type</span>
+<span class="request-data-remarks">A string representing the type of <span class='entity-name'>EmailSubscription</span> is associated with the <span class='entity-name'>Contact</span> for the  supplied <span class='attribute-name'>partner_contact_id</span>. This is a unique, internally defined string per <span class='entity-name'>EmailSubscription</span> type.  Documentation of available <span class='attribute-name'>subscription_type</span> responses is outside the scope of this documentation. If you need help determining available types, contact your Moxi Works Platform representative.</span></p>
+
+<p><span class="request-data-head">email_address</span>
+<span class="request-data-remarks">The email address for the <span class='entity-name'>EmailSubscription</span>.</span></p>
+
+<p><span class="request-data-head">subscribed_at</span>
+<span class="request-data-remarks">Unix timestamp representing when the <span class='entity-name'>EmailSubscription</span> that is associated with the <span class='entity-name'>Contact</span> for the  supplied <span class='attribute-name'>partner_contact_id</span>  was initiated.</span></p>
+
+<p><span class="request-data-head">created_by</span>
+<span class="request-data-remarks">This is a string representing the actor responsible for the subscription initiation.</span></p>
+
+<p><span class="request-data-head">area</span>
+<span class="request-data-remarks">A string representing a geographic area that the <span class='entity-name'>EmailSubscription</span> regards.  </span></p>
+
+<p><span class="request-data-head">last_sent</span>
+<span class="request-data-remarks">This is a Unix timestamp representing the point in time that the last <span class='entity-name'>EmailSubscription</span> message was sent.</span></p>
+
+<p><span class="request-data-head">next_scheduled</span>
+<span class="request-data-remarks">This is a Unix timestamp representing the point in time that the next <span class='entity-name'>EmailSubscription</span> message will be sent.</span></p>
 
       </div>
       <div class="dark-box">

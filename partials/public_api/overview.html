@@ -47,7 +47,7 @@
 <p>The Moxi Works API provides programmatic access to Moxi Works features and data. 
 We do our best to adhere to open and accepted common standards, including REST for access, JSON format for the data, and HTTP Basic Auth for Authorization. </p>
 
-<p>The URL for the production version of the Moxi Works API is referenced in the API Usage section of the documentation. When developing your integration into the Moxi Works Platform using QA credentials, you can replace the production URL with the QA URL. The hostname for the QA environment is https://api-qa.moxiworks.com instead of api.moxiworks.com. In any production URL referenced in the documentation, simply subsitute the QA hostname for the produciton hostname.</p>
+<p>The URL for the production version of the Moxi Works API is referenced in the API Usage section of the documentation. When developing your integration into the Moxi Works Platform using QA credentials, you can replace the production URL with the QA URL. The hostname for the QA environment is https://api-qa.moxiworks.com instead of api.moxiworks.com. In any production URL referenced in the documentation, simply subsitute the QA hostname for the production hostname.</p>
 
 <h3 id="client-libraries">Client Libraries</h3>
 
@@ -80,20 +80,13 @@ We do our best to adhere to open and accepted common standards, including REST f
 
 <h3 id="restful-architecture">RESTful Architecture</h3>
 
-<pre class="highlight plaintext"><code>Resources:
-
-/contacts
-/events
-/tasks
-</code></pre>
-
-<p>The response payload is JSON encoded object(s) with defined structure which relfects a data model.</p>
+<p>The response payload is JSON encoded object(s) with defined structure which reflects a data model.</p>
 
 <aside class="notice">Some of the data returned by the Moxi Works API is user-generated content. Ensure that the response payload content is consumed safely to avoid introducing vulnerabilities in your application.</aside>
 
-<p>URL structure follows typical resource-oriented conventions. For example, to get a list of contacts, use <code class="prettyprint">GET https://api.moxiworks.com/contacts</code>. 
-This will return a list of Contact objects, where each Contact will have an &ldquo;id&rdquo; attribute. 
-To get details on a particular contact, use <code class="prettyprint">GET https://api.moxiworks.com/contacts/123456</code>, where 123456 is the &ldquo;id&rdquo; of the Contact you want. 
+<p>URL structure follows typical resource-oriented conventions. For example, to get a list of contacts, use <code class="prettyprint">GET https://api.moxiworks.com/contacts</code>.
+This will return a list of Contact objects, where each Contact will have an &ldquo;id&rdquo; attribute.
+To get details on a particular contact, use <code class="prettyprint">GET https://api.moxiworks.com/contacts/123456</code>, where 123456 is the &ldquo;id&rdquo; of the Contact you want.
 Similarly, to create a Contact, <code class="prettyprint">POST</code> a Contact object to <code class="prettyprint">https://api.moxiworks.com/contacts/</code>.</p>
 
 <h3 id="http-standards">HTTP Standards</h3>
@@ -133,14 +126,14 @@ Alternatively, you might choose to use <a href="https://en.wikipedia.org/wiki/Ex
 
 <h3 id="example-requests-amp-responses">Example Requests &amp; Responses</h3>
 
-<p>For every API operation in this documentation, we show example requests and an example (JSON) response. </p>
+<p>For every API operation in this documentation, we show example requests and an example (JSON) response.</p>
 
-<p>You&rsquo;ll see the examples displayed in the grey panel to the right of each operation. </p>
+<p>You&rsquo;ll see the examples displayed in the grey panel to the right of each operation.</p>
 
-<p>To view the sample code in a specific language, select the corresponding language tab at the top of the panel to the right. 
-For more information about using the sample code in this API documentation, see <a href="#client-libraries">Client Libraries</a>. </p>
+<p>To view the sample code in a specific language, select the corresponding language tab at the top of the panel to the right.
+For more information about using the sample code in this API documentation, see <a href="#client-libraries">Client Libraries</a>.</p>
 
-<p>As with any REST API, you can also test API requests / responses using a Chrome extension like <a href='https://chrome.google.com/webstore/detail/advanced-rest-client/hgmloofddffdnphfgcellkdfbfbjeloo/' target=_blank>Advanced REST Client</a> or <a href='https://chrome.google.com/webstore/detail/postman-rest-client/fdmmgilgnpjigdojojpjoooidkmcomcm' target=_blank>POSTMAN</a>. </p>
+<p>As with any REST API, you can also test API requests / responses using a Chrome extension like <a href='https://chrome.google.com/webstore/detail/advanced-rest-client/hgmloofddffdnphfgcellkdfbfbjeloo/' target=_blank>Advanced REST Client (Chrome App)</a> or <a href='https://www.getpostman.com/' target=_blank>Postman</a>.</p>
 
 <h3 id="api-changes">API Changes</h3>
 
@@ -214,7 +207,7 @@ to view, use the following:
 <h3 id="authorization">Authorization</h3>
 
 <blockquote>
-<p><strong>Example Authorization Header:</strong> (note that the authorization header platform identifier and platform key are base64 encoded)</p>
+<p><strong>Example Authorization Header:</strong> (note that the authorization header platform identifier and platform secret are base64 encoded)</p>
 </blockquote>
 
 <pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">/api/[RESOURCE]</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
@@ -275,11 +268,6 @@ to view, use the following:
 <aside class='note'>You can acquire your Moxi Works API Identifier and Secret pair by contacting Moxi Works.</aside>
 
 <p><aside class="warning">Do not include your Moxi Works API Identifier or Secret  in the parameters sent to the server; they must be set in the request header. Setting the API Identifier and Secret in the request parameters will result in an authorization failure.</aside></p>
-
-<p>{
-      agent_uuid: &ldquo;394ec9e7-939d-40cb-b58b-6185f28b37e3&rdquo;,
-      contact_id: contact.id
-    }</p>
 
 <h3 id="request-formatting">Request Formatting</h3>
 
@@ -477,6 +465,12 @@ to view, use the following:
 <td>401</td>
 <td>Your Authorization header is invalid.</td>
 <td><span class="fix-then-retry-error">Fix issue, then retry.</span><br/><br/>Hint: Verify that the Moxi Works Platform Identifier and Secret specified in the <b>Authorization</b> header are valid and properly encoded.</td>
+</tr>
+<tr>
+<td>2015</td>
+<td>401</td>
+<td>Unauthorized request.</td>
+<td><span class="no-retry-error">Do not retry.</span></td>
 </tr>
 <tr>
 <td>2020</td>

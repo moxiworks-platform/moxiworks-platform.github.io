@@ -28,15 +28,22 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h4 id="index">Index</h4>
+        <h4 id="event-index"><span class='entity-name'>Event</span> <span class='action-name'>Index</span></h4>
 
 <div class='highlight ruby'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-ruby/MoxiworksPlatform/Event.html#search-class_method'>Ruby Search Docs</a></span></blockquote></div>
 
 <div class='highlight php'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-php/classes/MoxiworksPlatform.Event.html#method_search'>PHP Search Docs</a></span></blockquote></div>
 
 <blockquote>
-<p><span class="data-example-label">Event Index Example</span></p>
+<p><span class="data-example-label"><span class='entity-name'>Event</span> <span class='action-name'>Index</span> Example</span></p>
 </blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"moxi_works_agent_id"</span><span class="p">:</span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"date_start"</span><span class="p">:</span><span class="mi">1461108284</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"date_end"</span><span class="p">:</span><span class="mi">1462317907</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
 <pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/events?moxi_works_agent_id=abc123&amp;date_start=1461108284&amp;date_end=1462317907%20fuller</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">api.moxiworks.com</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.moxi-platform+json;version=1</span>
@@ -61,33 +68,64 @@
 
 </code></pre>
 <pre class="highlight php"><code><span class="cp">&lt;?php</span>
-<span class="nv">$platform_identifier</span> <span class="o">=</span> <span class="s1">'abc123'</span>
-<span class="nv">$platform_secret</span> <span class="o">=</span> <span class="s1">'secret'</span>
-
-<span class="nv">$credentials</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MoxiworksPlatform\Credentials</span><span class="p">(</span><span class="nv">$platform_identifier</span><span class="p">,</span> <span class="nv">$platform_secret</span><span class="p">)</span>
+<span class="nv">$platform_identifier</span> <span class="o">=</span> <span class="s1">'abc123'</span><span class="p">;</span> <span class="c1">// platorm_identifier provided by Moxi Works Platform Rep
+</span><span class="nv">$platform_secret</span> <span class="o">=</span> <span class="s1">'secret'</span><span class="p">;</span> <span class="c1">//platform_secret provided by Moxi Works Platform Rep
+</span>
+<span class="nv">$credentials</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MoxiworksPlatform\Credentials</span><span class="p">(</span><span class="nv">$platform_identifier</span><span class="p">,</span> <span class="nv">$platform_secret</span><span class="p">);</span>
 
 <span class="nv">$moxi_works_event</span> <span class="o">=</span> <span class="nx">MoxiworksPlatform\Event</span><span class="o">::</span><span class="na">search</span><span class="p">([</span>
-        <span class="nv">$moxi_works_agent_id</span> <span class="o">=&gt;</span> <span class="s2">"1234abcd"</span><span class="p">,</span>
-        <span class="nv">$date_start</span> <span class="o">=&gt;</span> <span class="mi">1462317907</span><span class="p">,</span>
-        <span class="nv">$date_end</span> <span class="o">=&gt;</span> <span class="mi">1461108284</span><span class="p">])</span>
+        <span class="s1">'moxi_works_agent_id'</span> <span class="o">=&gt;</span> <span class="s1">'1234abcd'</span><span class="p">,</span>
+        <span class="s1">'date_start'</span> <span class="o">=&gt;</span> <span class="mi">1462317907</span><span class="p">,</span>
+        <span class="s1">'date_end'</span> <span class="o">=&gt;</span> <span class="mi">1461108284</span><span class="p">]);</span>
 <span class="cp">?&gt;</span>
 </code></pre>
 
-<blockquote><div class='highlight http' style="display: block">
-<span class="data-example-label">Event Index: Success Response</span>
-(line breaks in body shown for clarity)
-</div></blockquote>
-<pre class="highlight http"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
-<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json; charset=utf-8</span>
-<span class="na">X-UA-Compatible</span><span class="p">:</span> <span class="s">IE=Edge</span>
-<span class="na">ETag</span><span class="p">:</span> <span class="s">\"39e1ce76ef58ce23a7debbe5ca145715\"</span>
-<span class="na">Cache-Control</span><span class="p">:</span> <span class="s">max-age=0, private, must-revalidate</span>
-<span class="na">X-Request-Id</span><span class="p">:</span> <span class="s">232e40496ea30b9758dddf0b7ab195f2</span>
-<span class="na">X-Runtime</span><span class="p">:</span> <span class="s">13.034641</span>
-<span class="na">Connection</span><span class="p">:</span> <span class="s">close</span>
-<span class="na">Server</span><span class="p">:</span> <span class="s">thin</span>
+<aside class="note">Send a <b>GET</b> request to https://api.moxiworks.com/api/events</aside>
 
-<span class="p">[{</span><span class="nt">"date"</span><span class="p">:</span><span class="s2">"04/19/2016"</span><span class="p">,</span><span class="w">
+<p>When searching for <span class='entity-name'>Event</span> objects using the Moxi Works platform API, format your data using the following parameters.</p>
+
+<h5 id="event-index-request-attributes"><span class='entity-name'>Event</span> <span class='action-name'>Index</span> Request Attributes</h5>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Length Limit</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span class="required-data">moxi_works_agent_id</span></td>
+<td><span class="required-data"><span class="data-type">String</span></span></td>
+<td><span class="required-data">255</span></td>
+</tr>
+<tr>
+<td><span class="required-data"><span class="required-data">date_start</span></span></td>
+<td><span class="required-data"><span class="data-type">Integer</span></span></td>
+<td><span class="required-data">255</span></td>
+</tr>
+<tr>
+<td><span class="required-data">date_end</span></td>
+<td><span class="required-data"><span class="data-type">Integer</span></span></td>
+<td><span class="required-data">255</span></td>
+</tr>
+</tbody></table>
+
+<p><span class="required-data"><strong>Required Parameters Are In Red</strong></span></p>
+
+<p><span class="request-data-head">moxi_works_agent_id</span>
+<span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which you are searching for associated <span class='entity-name'>Event</span> objects. This will be a string that may take the form of an email address, or a unique identification string. This data is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>Event</span> <span class='action-name'>Index</span>  request to be accepted.</span></p>
+
+<p><span class="request-data-head">date_start</span>
+<span class="request-data-remarks">This is the earliest time that you are searching for an <span class='entity-name'>Event</span> to be in. This data is required and must be a Unix timestamp before <span class='attribute-name'>date_end</span>.</span></p>
+
+<p><span class="request-data-head">date_end</span>
+<span class="request-data-remarks">This is the latest time that you are searching for an <span class='entity-name'>Event</span> to be in. This data is required and must be a Unix timestamp after <span class='attribute-name'>date_start</span>.</span></p>
+
+<blockquote><div class='highlight json' style="display: block">
+<span class='data-example-label'><span class='entity-name'>Event</span> <span class='action-name'>Index</span> Response Payload Example
+</span></div></blockquote>
+<pre class="highlight json"><code><span class="w">
+</span><span class="p">[{</span><span class="nt">"date"</span><span class="p">:</span><span class="s2">"04/19/2016"</span><span class="p">,</span><span class="w">
 </span><span class="nt">"events"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
 </span><span class="p">{</span><span class="w">
   </span><span class="nt">"moxi_works_agent_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234abcd"</span><span class="p">,</span><span class="w">
@@ -142,40 +180,11 @@
 </span><span class="p">}]</span><span class="w">
 </span></code></pre>
 
-<blockquote><div class='highlight http' style="display: block">
-<span class="data-example-label">Event Index: Not Found Response</span>
-(line breaks in body shown for clarity)
-</div></blockquote>
-<pre class="highlight http"><code><span class="err">
-</span><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
-<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json; charset=utf-8</span>
-<span class="na">X-UA-Compatible</span><span class="p">:</span> <span class="s">IE=Edge</span>
-<span class="na">ETag</span><span class="p">:</span> <span class="s">\"39e1ce76ef58ce23a7debbe5ca145715\"</span>
-<span class="na">Cache-Control</span><span class="p">:</span> <span class="s">max-age=0, private, must-revalidate</span>
-<span class="na">X-Request-Id</span><span class="p">:</span> <span class="s">232e40496ea30b9758dddf0b7ab195f2</span>
-<span class="na">X-Runtime</span><span class="p">:</span> <span class="s">13.034641</span>
-<span class="na">Connection</span><span class="p">:</span> <span class="s">close</span>
-<span class="na">Server</span><span class="p">:</span> <span class="s">thin</span>
-
-<span class="p">[]</span><span class="w">
-</span></code></pre>
-
-<blockquote><div class='highlight http' style="display: block">
-<span class="data-example-label">Event Index: Failure Response</span>
-(line breaks in body shown for clarity)
-</div></blockquote>
-<pre class="highlight http"><code><span class="err">
-</span><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">400</span> <span class="ne">OK</span>
-<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json; charset=utf-8</span>
-<span class="na">X-UA-Compatible</span><span class="p">:</span> <span class="s">IE=Edge</span>
-<span class="na">ETag</span><span class="p">:</span> <span class="s">\"39e1ce76ef58ce23a7debbe5ca145715\"</span>
-<span class="na">Cache-Control</span><span class="p">:</span> <span class="s">max-age=0, private, must-revalidate</span>
-<span class="na">X-Request-Id</span><span class="p">:</span> <span class="s">232e40496ea30b9758dddf0b7ab195f2</span>
-<span class="na">X-Runtime</span><span class="p">:</span> <span class="s">13.034641</span>
-<span class="na">Connection</span><span class="p">:</span> <span class="s">close</span>
-<span class="na">Server</span><span class="p">:</span> <span class="s">thin</span>
-
-<span class="p">{</span><span class="w">
+<blockquote><div class='highlight json' style="display: block">
+  <span class='data-example-label'><span class='entity-name'>Event</span> <span class='action-name'>Index</span> Failure Response
+</div> See <a href='#error-handling'>Error Handling</a> for details about individual error codes.</blockquote>
+<pre class="highlight json"><code><span class="w">
+</span><span class="p">{</span><span class="w">
   </span><span class="nt">"status"</span><span class="p">:</span><span class="s2">"fail"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"errorCode"</span><span class="p">:</span><span class="w"> </span><span class="err">xxx</span><span class="p">,</span><span class="w">
   </span><span class="nt">"messages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"messages"</span><span class="p">]</span><span class="w">
@@ -183,39 +192,107 @@
 
 </span></code></pre>
 
-<aside class="note">Send a <b>GET</b> request to https://api.moxiworks.com/api/events</aside>
+<p>The <span class='entity-name'>Event</span> <span class='action-name'>Index</span> response is made up of an array of objects representing dates that span the range requested. Each object contains the following attributes.</p>
 
-<p>When searching for Event entities using the Moxi Works platform API, format your data using the following parameters.</p>
+<h5 id="event-index-response-payload"><span class='entity-name'>Event</span> <span class='action-name'>Index</span> Response Payload</h5>
 
 <table><thead>
 <tr>
 <th>Attribute</th>
 <th>Type</th>
-<th>Remark</th>
-<th>Length Limit</th>
 </tr>
 </thead><tbody>
 <tr>
-<td><span class="required-data">moxi_works_agent_id</span></td>
-<td><span class="required-data"><span class="data-type">String</span></span></td>
-<td><span class="required-data"><span class="data-remarks">The agent&rsquo;s Moxi Works Platform ID</span></span></td>
-<td><span class="required-data">255</span></td>
+<td><span class="response-data">date</span></td>
+<td><span class="response-data"><span class="data-type">String</span></span></td>
 </tr>
 <tr>
-<td><span class="required-data"><span class="required-data">date_start</span></span></td>
-<td><span class="required-data"><span class="data-type">Integer</span></span></td>
-<td><span class="required-data"><span class="data-remarks">Unix timestamp representing the start date.</span></span></td>
-<td><span class="required-data">255</span></td>
-</tr>
-<tr>
-<td><span class="required-data">date_end</span></td>
-<td><span class="required-data"><span class="data-type">Integer</span></span></td>
-<td><span class="required-data"><span class="data-remarks">Unix timestamp representing the end date.</span></span></td>
-<td><span class="required-data">255</span></td>
+<td><span class="response-data">events</span></td>
+<td><span class="response-data"><span class="data-type">Array</span></span></td>
 </tr>
 </tbody></table>
 
-<p><span class="required-data"><strong>Required Parameters Are In Red</strong></span></p>
+<p><span class="response-data-head">date</span>
+<span class="response-data-remarks">This is a string representing a date in <code class="prettyprint">MM/DD/YYYY</code> format. Any event <span class='entity-name'>Event</span> whose duration spans or falls within this day will be included in the results for this day.</span></p>
+
+<p><span class="response-data-head">events</span>
+<span class="response-data-remarks">This is the payload of <span class='entity-name'>Event</span> objects that fall on this day. If no <span class='entity-name'>Event</span> objects span this duration, then the <span class='attribute-name'>events</span> array will be emtpy.</span></p>
+
+<h6 id="events-response-attributes"><span class='attribute-name'>events</span> Response Attributes</h6>
+
+<p>Each <span class='entity-name'>Event</span> in the <span class='attribute-name'>events</span> array will have the following structure.</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span class="response-data">moxi_works_agent_id</span></td>
+<td><span class="response-data"><span class="data-type">String</span></span></td>
+</tr>
+<tr>
+<td><span class="response-data">partner_event_id</span></td>
+<td><span class="response-data"><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">event_subject</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">event_location</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">is_meeting</span></td>
+<td><span class="data-type">Boolean</span></td>
+</tr>
+<tr>
+<td><span class="response-data">all_day</span></td>
+<td><span class="data-type">Boolean</span></td>
+</tr>
+<tr>
+<td><span class="response-data">event_start</span></td>
+<td><span class="data-type">Integer</span></td>
+</tr>
+<tr>
+<td><span class="response-data">event_end</span></td>
+<td><span class="data-type">Integer</span></td>
+</tr>
+<tr>
+<td><span class="response-data">attendees</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">note</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
+</tbody></table>
+
+<p><span class="response-data-head">moxi_works_agent_id</span>
+<span class="response-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>Event</span> is associated with. This will be a string that may take the form of an email address, or a unique identification string.</span></p>
+
+<p><span class="response-data-head">partner_event_id</span>
+<span class="response-data-remarks">This is the unique identifer you use in your system that has been associated with the <span class='entity-name'>Event</span>.</span></p>
+
+<p><span class="response-data-head">event_start</span>
+<span class="response-data-remarks">This is the Unix timestamp representing the start time of the <span class='entity-name'>Event</span>. </span></p>
+
+<p><span class="response-data-head">event_end</span>
+<span class="response-data-remarks">This is the Unix timestamp representing the end time of the <span class='entity-name'>Event</span>.</span></p>
+
+<p><span class="response-data-head">event_subject</span>
+<span class="response-data-remarks">This is a short, descriptive, human readable phrase to be displayed to the agent which lets them know what this <span class='entity-name'>Event</span> regards.</span></p>
+
+<p><span class="response-data-head">event_location</span>
+<span class="response-data-remarks">This is a human readable locatition reference regarding where the event is located that will be meaningful to the agent.</span></p>
+
+<p><span class="response-data-head">attendees</span>
+<span class="response-data-remarks">This is a comma separated list of contacts that have already been added through the Moxi Works Platform API who will be present at the referenced event. (Use IDs from your system &ndash; i.e. partner_contact_id from <a href="#contact-create">Contact Create</a>).</span></p>
+
+<p><span class="response-data-head">event_location</span>
+<span class="response-data-remarks">This is a human readable details about the event that will be meaningful to the agent or any details that are not otherwise represented in the structure of the <span class='entity-name'>Event</span> object.</span></p>
 
       </div>
       <div class="dark-box">

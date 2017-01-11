@@ -31,7 +31,7 @@
         <h3 id="authorization">Authorization</h3>
 
 <blockquote>
-<p><strong>Example Authorization Header:</strong> (note that the authorization header platform identifier and platform key are base64 encoded)</p>
+<p><strong>Example Authorization Header:</strong> (note that the authorization header platform identifier and platform secret are base64 encoded)</p>
 </blockquote>
 <pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">/api/[RESOURCE]</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">Basic Zm9vb29vb29vb29vbzpiYWFhYWFycnJycnJy==</span>
@@ -89,11 +89,6 @@
 <aside class='note'>You can acquire your Moxi Works API Identifier and Secret pair by contacting Moxi Works.</aside>
 
 <p><aside class="warning">Do not include your Moxi Works API Identifier or Secret  in the parameters sent to the server; they must be set in the request header. Setting the API Identifier and Secret in the request parameters will result in an authorization failure.</aside></p>
-
-<p>{
-      agent_uuid: &ldquo;394ec9e7-939d-40cb-b58b-6185f28b37e3&rdquo;,
-      contact_id: contact.id
-    }</p>
 
       </div>
       <div class="dark-box">

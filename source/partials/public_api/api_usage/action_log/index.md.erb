@@ -10,7 +10,58 @@
 When searching for <span class='entity-name'>ActionLog</span> entities using the Moxi Works platform API, format your request using the following parameters.
 
 
-> <span class="data-example-label"><span class='entity-name'>ActionLog </span><span class='action-name'>Index </span>Request Example</span>
+> <span class="data-example-label"><span class='entity-name'>ActionLog </span><span class='action-name'>Index </span> (using <span class='attribute-name'>agent_uuid</span> Request Example</span>
+
+```json
+{
+  "agent_uuid":"12345678-1234-1234-1234-1234567890ab",
+  "partner_contact_id":"mySystemsContactId"
+}
+
+```
+
+```http
+GET /api/action_logs?agent_uuid=12345678-1234-1234-1234-1234567890ab&partner_contact_id=mySystemsContactId HTTP/1.1
+Host: api.moxiworks.com
+Accept: application/vnd.moxi-platform+json;version=1
+Authorization: Basic XNNeXAAAUZaQlF0dA==
+Content-Type: application/x-www-form-urlencoded
+
+```
+
+```ruby
+##### set up prerequisites once
+require 'moxiworks_platform'
+
+platform_identifier = 'abc123'
+
+platform_secret = 'secret'
+
+MoxiworksPlatform::Credentials.new(platform_identifier, platform_secret)
+##### end prerequisitesa
+
+moxi_works_action_log_entries = MoxiworksPlatform::ActionLog.search(
+        agent_uuid: "12345678-1234-1234-1234-1234567890ab",
+        partner_contact_id: "mySystemsContactId")
+
+
+```
+
+```php
+<?php
+$platform_identifier = 'abc123'; // platorm_identifier provided by Moxi Works Platform Rep
+$platform_secret = 'secret'; //platform_secret provided by Moxi Works Platform Rep
+
+$credentials = new MoxiworksPlatform\Credentials($platform_identifier, $platform_secret);
+
+$moxi_works_action_log_entries = MoxiworksPlatform\ActionLog::search([
+        'agent_uuid' => '12345678-1234-1234-1234-1234567890ab',
+        'partner_contact_id' => 'mySystemsContactId']);
+
+?>
+```
+
+> <span class="data-example-label"><span class='entity-name'>ActionLog </span><span class='action-name'>Index </span> (using <span class='attribute-name'>moxi_works_agent_id</span> Request Example</span>
 
 ```json
 {
@@ -61,20 +112,29 @@ $moxi_works_action_log_entries = MoxiworksPlatform\ActionLog::search([
 ?>
 ```
 
+
 ##### <span class='entity-name'>ActionLog</span> <span class='action-name'>Index</span> Request Attributes
 
 Attribute | Type | Length Limit |
 -----|-----|-----|-----|
-|<span class="required-data">moxi_works_agent_id</span>|<span class="required-data"><span class="data-type">String</span></span> | <span class="required-data">255</span>
+|<span class="multi-option-required-data">agent_uuid*</span>|<span class="multi-option-required-data"><span class="data-type">String</span></span>| <span class="multi-option-required-data">255</span>
+|<span class="multi-option-required-data">moxi_works_agent_id*</span>|<span class="multi-option-required-data"><span class="data-type">String</span></span>| <span class="multi-option-required-data">255</span>
 |<span class="required-data">partner_contact_id</span>|<span class="required-data"><span class="data-type">String</span></span>| <span class="required-data">255</span>
+
+<span class="multi-option-required-data">* **Either <span class='attribute-name'>moxi_works_agent_id</span> or <span class='attribute-name'>agent_uuid</span> must be supplied. For guidance on which Agent identifier better fits your use-case, see [Agent Identifiers](#agent-identifiers)**</span>
+
 
 <span class="required-data">**Required Parameters Are In Red**</span>
 
 <span class="request-data-head">moxi_works_agent_id</span>
-<span class="request-data-remarks">This is the Moxi Works Platform ID of the agent which an <span class='entity-name'>ActionLog</span> entry is associated with. This will be a string that may take the form of an email address, or a unique identification string. This data is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>ActionLog</span> request to be accepted.</span>
+<span class="request-data-remarks">This is the Moxi Works Platform ID of the agent which an <span class='entity-name'>ActionLog</span> entry is associated with. This will be a string that may take the form of an email address, or a unique identification string. <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>ActionLog</span> request to be accepted.</span>
+
+<span class="request-data-head">agent_uuid</span>
+<span class="request-data-remarks">This is the Moxi Works Platform ID of the agent which an  <span class='entity-name'>ActionLog</span> entry is associated with. This will be an [RFC 4122](https://tools.ietf.org/html/rfc4122) compliant UUID. <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>ActionLog</span> request to be accepted.</span>
+
 
 <span class="request-data-head">partner_contact_id</span>
-<span class="request-data-remarks">This is the unique identifer you use in your system that has been associated with the <span class='entity-name'>w</span> that you are creating an <span class='entity-name'>ActionLog</span> entry about. You should have already created the <span class='entity-name'>Contact</span> record on the Moxi Works Platform using [Contact Create](/#contact-create) before attempting to use your system's contact ID to show <span class='entity-name'>ActionLog</span> entries for the <span class='entity-name'>Contact</span>. Your request will be rejected if the <span class='entity-name'>Contact</span> record does not exist.</span>
+<span class="request-data-remarks">This is the unique identifer you use in your system that has been associated with the <span class='entity-name'>Contact</span> that you are creating an <span class='entity-name'>ActionLog</span> entry about. You should have already created the <span class='entity-name'>Contact</span> record on the Moxi Works Platform using [Contact Create](/#contact-create) before attempting to use your system's contact ID to show <span class='entity-name'>ActionLog</span> entries for the <span class='entity-name'>Contact</span>. Your request will be rejected if the <span class='entity-name'>Contact</span> record does not exist.</span>
 
 
 
@@ -82,7 +142,67 @@ Attribute | Type | Length Limit |
 The following attributes make up the payload of the <span class='entity-name'>ActionLog</span> response for a <span class='action-name'>Index</span> request.
 
 <blockquote><div class='highlight json' style="display: block">
-<span class='data-example-label'><span class='entity-name'>ActionLog</span> <span class='action-name'>Index</span> Response Payload Example
+<span class='data-example-label'><span class='entity-name'>ActionLog</span> <span class='action-name'>Index</span> (using <span class='attribute-name'>agent_uuid</span>)  Response Payload Example
+</span></div></blockquote>
+
+```json
+
+{
+  "agent_uuid": "1234abcd",
+  "partner_contact_id": "11111abe",
+  "actions": [
+  {
+    "moxi_works_action_log_id": "02b918",
+    "type": "lead_update_api",
+    "log_data": {
+      "source": "datplace",
+      "timestamp": "1465937163",
+      "user_info": {
+        "property_info":{},
+        "search_criteria":{},
+        "contact":{
+          "first_name":null,
+          "message":"",
+          "source":"datplace"
+        }
+      }
+    }
+  }
+  {
+    "moxi_works_action_log_id": "bded1806-3271-11e6-9bb3-5254000f954a",
+    "type": "lead_update_api",
+    "log_data": {
+      "source": "foo.what",
+      "timestamp": "1465937477",
+      "user_info": {
+        "property_info":{
+          "PropertyURL":"www.wat.com",
+          "MLSNumber":"",
+          "StreetAddress":"",
+          "City":"",
+          "State":"",
+          "Zip":"",
+          "Beds":"",
+          "Baths":"",
+          "ListingPrice":"",
+          "ListingStatus":"",
+          "PhotoURL":""
+        },
+        "search_criteria":{},
+        "contact":{
+          "first_name":null,
+          "message":"",
+          "source":"foo.what"
+        }
+      }
+    }
+  }
+  ]
+}
+```
+
+<blockquote><div class='highlight json' style="display: block">
+<span class='data-example-label'><span class='entity-name'>ActionLog</span> <span class='action-name'>Index</span> Response Payload Example  (using <span class='attribute-name'>moxi_works_agent_id</span>)
 </span></div></blockquote>
 
 ```json
@@ -142,6 +262,7 @@ The following attributes make up the payload of the <span class='entity-name'>Ac
 ```
 
 
+
 <blockquote><div class='highlight json' style="display: block">
 <span class="data-example-label"><span class='entity-name'>ActionLog</span>  <span class='action-name'>Index</span> Failure Response</span>
 </div> See <a href='#error-handling'>Error Handling</a> for details about individual error codes.</blockquote>
@@ -160,9 +281,16 @@ The following attributes make up the payload of the <span class='entity-name'>Ac
 
 Attribute | Type |
 -----|-----|-----|-----|
-|<span class="response-data">moxi_works_agent_id</span>|<span class="data-type">String</span>|
+|<span class="multi-option-response-data">agent_uuid*</span>|<span class="data-type">String</span>| |
+|<span class="multi-option-response-data">moxi_works_agent_id*</span>|<span class="data-type">String</span>| |
 |<span class="response-data">partner_contact_id</span>|<span class="data-type">String</span>|
 |<span class="response-data">actions</span>|<span class="data-type">Array</span>|
+
+<span class='multi-option-response-data'>* Either <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> will be returned depending on whether it is used in the request. The response payload object's agent identifier key will match the passed parameter.</span>
+
+
+<span class="response-data-head">agent_uuid</span>
+<span class="response-data-remarks">This is the Moxi Works Platform ID of the agent which an <span class='entity-name'>ActionLog</span> entry is associated with. This will be an [RFC 4122](https://tools.ietf.org/html/rfc4122) compliant UUID.</span>
 
 <span class="response-data-head">moxi_works_agent_id</span>
 <span class="response-data-remarks">This is the Moxi Works Platform ID of the agent which an action log entry is associated with. This will be a string that may take the form of an email address, or a unique alphanumeric identification string.</span>

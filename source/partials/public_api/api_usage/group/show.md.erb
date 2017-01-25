@@ -97,7 +97,12 @@ Attribute | Type | Length Limit |
     "total_pages":1,
     "contacts":[
       {
+      "moxi_works_contact_id":"74284ec4-51aa-39b5-a47c-bd4a11f8ee9a",
       "contact_name":"Firstname Middlenyme Larstnam",
+      "first_name":"Firstname",
+      "middle_name":"Middlenyme",
+      "last_name":"Larstnam",
+      "suffix":null,
       "gender":"M",
       "primary_email_address":"me@justabout.right.here",
       "secondary_email_address":"me.too@justabout.right.here",
@@ -153,8 +158,13 @@ Each contact represented in the <span class='attribute-name'>events</span> array
 
 Attribute | Type |
 -----|-----|-----|-----|
+|<span class="response-data">moxi_works_contact_id</span>|<span class="response-data"><span class="data-type">String</span></span>|
 |<span class="response-data">contact_name</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">gender</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">first_name</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">middle_name</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">last_name</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">suffix</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">primary_email_address</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">secondary_email_address</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">primary_phone_number</span>|<span class="data-type">String or null</span>|
@@ -169,8 +179,22 @@ Attribute | Type |
 |<span class="response-data">occupation</span>|<span class="data-type">String or null</span>|
 
 
+<span class="response-data-head">moxi_works_contact_id</span>
+<span class="response-data-remarks">This is the Moxi Works Platform ID of this <span class='entity-name'>Contact</span>. This will be an [RFC 4122](https://tools.ietf.org/html/rfc4122) compliant UUID.</span>
+
 <span class="response-data-head">contact_name</span>
-<span class="response-data-remarks">This is the full name of the contact you are finding a <span class='entity-name'>Contact</span> record for. You should format this information as <i>first middle last</i>. This value will be null if no data is available for this attribute. </span>
+<span class="response-data-remarks">This is the full name of the contact associated with this <span class='entity-name'>Contact</span> record. You should format this information as <i>first middle last</i>. This value will be null if no data is available for this attribute. </span>
+
+
+<span class="response-data-head">first_name</span>
+<span class="response-data-remarks">This is the first name of the contact associated with this <span class='entity-name'>Contact</span> record. This value will be null if no data is available for this attribute. </span>
+
+<span class="response-data-head">middle_name</span>
+<span class="response-data-remarks">This is the middle name of the contact associated with this <span class='entity-name'>Contact</span> record. This value will be null if no data is available for this attribute. </span>
+
+
+<span class="response-data-head">last_name</span>
+<span class="response-data-remarks">This is the last name of the contact associated with this <span class='entity-name'>Contact</span> record. This value will be null if no data is available for this attribute. </span>
 
 <span class="response-data-head">gender</span>
 <span class="response-data-remarks">The gender of the contact. This can be `male`, `female`, `m` or `f`. No matter what is provided in the request, the response payload will return `m` or `f`.  This value will be null if no data is available for this attribute. </span>

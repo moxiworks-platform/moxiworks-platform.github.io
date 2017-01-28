@@ -4,7 +4,60 @@
 
 <div class='highlight php'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-php/classes/MoxiworksPlatform.Event.html#method_search'>PHP Search Docs</a></span></blockquote></div>
 
-> <span class="data-example-label"><span class='entity-name'>Event</span> <span class='action-name'>Index</span> Example</span>
+> <span class="data-example-label"><span class='entity-name'>Event</span> <span class='action-name'>Index</span> (using <span class='attribute-name'>agent_uuid</span>) Example</span>
+
+```json
+{
+  "agent_uuid":"12345678-1234-1234-1234-1234567890ab",
+  "date_start":1461108284,
+  "date_end":1462317907
+}
+
+```
+
+```http
+GET /api/events?agent_uuid=12345678-1234-1234-1234-1234567890ab&date_start=1461108284&date_end=1462317907%20fuller HTTP/1.1
+Host: api.moxiworks.com
+Accept: application/vnd.moxi-platform+json;version=1
+Authorization: Basic XNNeXAAAUZaQlF0dA==
+Content-Type: application/x-www-form-urlencoded
+
+```
+
+```ruby
+##### set up prerequisites once
+require 'moxiworks_platform'
+
+platform_identifier = 'abc123'
+
+platform_secret = 'secret'
+
+MoxiworksPlatform::Credentials.new(platform_identifier, platform_secret)
+##### end prerequisites
+
+moxi_works_event = MoxiworksPlatform::Event.search(
+        agent_uuid: "12345678-1234-1234-1234-1234567890ab",
+        date_start: 1462317907,
+        date_end: 1461108284)
+
+```
+
+```php
+<?php
+$platform_identifier = 'abc123'; // platorm_identifier provided by Moxi Works Platform Rep
+$platform_secret = 'secret'; //platform_secret provided by Moxi Works Platform Rep
+
+$credentials = new MoxiworksPlatform\Credentials($platform_identifier, $platform_secret);
+
+$moxi_works_event = MoxiworksPlatform\Event::search([
+        'agent_uuid' => '12345678-1234-1234-1234-1234567890ab',
+        'date_start' => 1462317907,
+        'date_end' => 1461108284]);
+?>
+```
+
+
+> <span class="data-example-label"><span class='entity-name'>Event</span> <span class='action-name'>Index</span> (using <span class='attribute-name'>agent_uuid</span>) Example</span>
 
 ```json
 {
@@ -67,11 +120,20 @@ When searching for <span class='entity-name'>Event</span> objects using the Moxi
 
 Attribute | Type | Length Limit |
 -----|-----|-----|-----|
-|<span class="required-data">moxi_works_agent_id</span>|<span class="required-data"><span class="data-type">String</span></span>| <span class="required-data">255</span>
+|<span class="multi-option-required-data">agent_uuid*</span>|<span class="multi-option-required-data"><span class="data-type">String</span></span>| <span class="multi-option-required-data">255</span>
+|<span class="multi-option-required-data">moxi_works_agent_id*</span>|<span class="multi-option-required-data"><span class="data-type">String</span></span>| <span class="multi-option-required-data">255</span>
 |<span class="required-data"><span class="required-data">date_start</span></span>|<span class="required-data"><span class="data-type">Integer</span></span>| <span class="required-data">255</span>|
 |<span class="required-data">date_end</span>|<span class="required-data"><span class="data-type">Integer</span></span>|<span class="required-data">255</span>|
 
+<span class="multi-option-required-data">* **Either <span class='attribute-name'>moxi_works_agent_id</span> or <span class='attribute-name'>agent_uuid</span> must be supplied. For guidance on which Agent identifier better fits your use-case, see [Agent Identifiers](#agent-identifiers)**</span>
+
+
 <span class="required-data">**Required Parameters Are In Red**</span>
+
+
+<span class="request-data-head">agent_uuid</span>
+<span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which an  <span class='entity-name'>Event</span> entry is associated with. This will be an [RFC 4122](https://tools.ietf.org/html/rfc4122) compliant UUID. <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>Event</span> <span class='action-name'>Index</span> request to be accepted.</span>
+
 
 <span class="request-data-head">moxi_works_agent_id</span>
 <span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which you are searching for associated <span class='entity-name'>Event</span> objects. This will be a string that may take the form of an email address, or a unique identification string. This data is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>Event</span> <span class='action-name'>Index</span>  request to be accepted.</span>
@@ -88,7 +150,71 @@ Attribute | Type | Length Limit |
 
 
 <blockquote><div class='highlight json' style="display: block">
-<span class='data-example-label'><span class='entity-name'>Event</span> <span class='action-name'>Index</span> Response Payload Example
+<span class='data-example-label'><span class='entity-name'>Event</span> <span class='action-name'>Index</span> (using <span class='attribute-name'>agent_uuid</span>) Response Payload Example
+</span></div></blockquote>
+
+
+```json
+
+[{"date":"04/19/2016",
+"events": [
+{
+  "agent_uuid": "12345678-1234-1234-1234-1234567890ab",
+  "partner_event_id": "waat",
+  "event_subject": "dis subject",
+  "event_location": "the location",
+  "send_reminder": true,
+  "is_meeting": false,
+  "all_day": true,
+  "event_start": null,
+  "event_end": null,
+  "required_attendees": null,
+  "optional_attendees": "Contact1ID, Contact2ID, Contact3ID",
+  "recurring": false,
+  "note": "more notable stuff"
+},
+{
+  "agent_uuid": "12345678-1234-1234-1234-1234567890ab",
+  "partner_event_id": "abcd",
+  "event_subject": "mah subject",
+  "event_location": "_the_ location",
+  "send_reminder": true,
+  "is_meeting": true,
+  "all_day": false,
+  "event_start": 1462234327,
+  "event_end": 1462241468,
+  "required_attendees": null,
+  "optional_attendees": null,
+  "recurring": false,
+  "note": "more notable stuff"
+}
+]},
+{"date":"04/20/2016",
+"events":[{
+  "agent_uuid": "12345678-1234-1234-1234-1234567890ab",
+  "partner_event_id": "booyuh",
+  "event_subject": "dat subject",
+  "event_location": "the other location",
+  "send_reminder": false,
+  "is_meeting": true,
+  "all_day": false,
+  "event_start": 1462234227,
+  "event_end": 1462241468,
+  "required_attendees": null,
+  "optional_attendees": null,
+  "recurring": false,
+  "note": "even more notable stuff"
+}]
+},
+{"date":"04/21/2016",
+"events":[]
+}]
+```
+
+
+
+<blockquote><div class='highlight json' style="display: block">
+<span class='data-example-label'><span class='entity-name'>Event</span> <span class='action-name'>Index</span> (using <span class='attribute-name'>moxi_works_agent_id</span>) Response Payload Example
 </span></div></blockquote>
 
 
@@ -188,7 +314,8 @@ Each <span class='entity-name'>Event</span> in the <span class='attribute-name'>
 
 Attribute | Type |
 -----|-----|-----|-----|
-|<span class="response-data">moxi_works_agent_id</span>|<span class="response-data"><span class="data-type">String</span></span>|
+|<span class="multi-option-response-data">agent_uuid*</span>|<span class="data-type">String</span>| |
+|<span class="multi-option-response-data">moxi_works_agent_id*</span>|<span class="data-type">String</span>| |
 |<span class="response-data">partner_event_id</span>|<span class="response-data"><span class="data-type">String</span>
 |<span class="response-data">event_subject</span>|<span class="data-type">String</span>|
 |<span class="response-data">event_location</span>|<span class="data-type">String</span>|
@@ -198,6 +325,12 @@ Attribute | Type |
 |<span class="response-data">event_end</span>|<span class="data-type">Integer</span>|
 |<span class="response-data">attendees</span>|<span class="data-type">String</span>|
 |<span class="response-data">note</span>|<span class="data-type">String</span>|
+
+<span class='multi-option-response-data'>* Either <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> will be returned depending on whether it is used in the request. The response payload object's agent identifier key will match the passed parameter.</span>
+
+<span class="response-data-head">agent_uuid</span>
+<span class="response-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>Event</span>  is associated with. This will be an [RFC 4122](https://tools.ietf.org/html/rfc4122) compliant UUID.</span>
+
 
 <span class="response-data-head">moxi_works_agent_id</span>
 <span class="response-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>Event</span> is associated with. This will be a string that may take the form of an email address, or a unique identification string.</span>

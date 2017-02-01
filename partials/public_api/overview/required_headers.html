@@ -39,7 +39,7 @@
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">Basic bpiYWFhYWFycnJycnJy==</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/x-www-form-urlencoded</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.moxi-platform+json;version=1</span>
-
+<span class="na">Cookie</span><span class="p">:</span> <span class="s">_wms_svc_public_session=QlpZQXFoOSs5TGFXZT...</span>
 </code></pre>
 <pre class="highlight ruby"><code><span class="c1"># required headers set automatically by moxiworks_platform library.</span>
 <span class="c1"># to view, use the following:</span>
@@ -48,7 +48,7 @@
 </code></pre>
 <pre class="highlight php"><code><span class="cp">&lt;?php</span>
 <span class="cm">/* required headers seat automatically by moxiworks_platform library.
-to view, use the following: 
+to view, use the following:
 */</span>
 <span class="nb">print_r</span><span class="p">(</span><span class="nx">MoxiworksPlatform\Resource</span><span class="o">::</span><span class="na">headers</span><span class="p">());</span>
 <span class="cp">?&gt;</span>
@@ -78,7 +78,14 @@ to view, use the following:
 <td>Used for handling data in request</td>
 <td><code class="prettyprint">application/x-www-form-urlencoded</code></td>
 </tr>
+<tr>
+<td><em>Cookie</em></td>
+<td>Used for connection setup and rate limiting</td>
+<td><code class="prettyprint">_wms_svc_public_session</code></td>
+</tr>
 </tbody></table>
+
+<p>For more information on the <code class="prettyprint">Cookie</code> header, see <a href="#session-handling">Session Handling</a></p>
 
       </div>
       <div class="dark-box">

@@ -124,6 +124,28 @@ In order to prevent abuse and undue stress on the Moxi Works servers, the API ha
 One way to accomplish this would be to have your integration <em>sleep</em> for 60 seconds when this error is returned from the API, then retry the request. 
 Alternatively, you might choose to use <a href="https://en.wikipedia.org/wiki/Exponential_backoff">exponential backoff</a> (an error handling strategy whereby you periodically retry a failed request with progressively longer wait times between retries, until either the request succeeds or a specified number of retry attempts is reached). </p>
 
+<h3 id="session-handling">Session Handling</h3>
+
+<blockquote><div class='highlight http' style="display: block">
+  <span class='data-example-label'>Cookie header example</span></blockquote>
+<pre class="highlight http"><code><span class="nf">PUT</span> <span class="nn">/api/tasks/[partner_task_id]</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">api.moxiworks.com</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.moxi-platform+json;version=1</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Basic XNNeXAAAUZaQlF0dA==</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/x-www-form-urlencoded</span>
+<span class="na">Cookie</span><span class="p">:</span> <span class="s">_wms_svc_public_session=QlpZQXFoOSs5TGFXZTZ5OVJvQXZIOUhSYSsrYnhXU1Q3cTJHdEd2enJabVdTbjZiWWtnaVFVbURLVmVOV0hEVURLbjZ0NGIzTnE1Mkg2ZEUwMlBLZDZBYWNBSm5xWUk4MWJLUGFFNEREK05Bd0JxZFZWbVp4SFFLVUVyRTdiTXJQb3doMGxkcjZVa3pCNENHZ3RZVWExQncvYkVnPS0tYy9oelpsbWtFd3lxR3VjWkt2ai9rdz09--b46be7a70083e0f70fea4370554b1f0250b3264c; path=/; HttpOnly</span>
+
+
+
+</code></pre>
+
+<p>The Moxi Works Platform utilizes Cookie headers in order to propagate session data between requests. Each request is atomic and the session data is used atomically within the request. The session data itself is used to ensure that connection setup is as efficient as possible and to provide higher throughput to authorized users.</p>
+
+<p>If you fail to include session data in your request, you will notice a far lower number of allowed connections to the Moxi Works Platform than is advertised in <a href="#rate_limiting">Rate Limiting</a>.</p>
+
+<p>When you successfully connect to the Moxi Works Platform, you will recieve a <code class="prettyprint">Set-Cookie</code> header. The name of the cookie will be <code class="prettyprint">_wms_svc_public_session</code>. You&rsquo;ll need to send this cookie name - value pair back to The Moxi Works Platform in a <code class="prettyprint">Cookie</code> request header.</p>
+
+
 <h3 id="example-requests-amp-responses">Example Requests &amp; Responses</h3>
 
 <p>For every API operation in this documentation, we show example requests and an example (JSON) response.</p>
@@ -134,6 +156,7 @@ Alternatively, you might choose to use <a href="https://en.wikipedia.org/wiki/Ex
 For more information about using the sample code in this API documentation, see <a href="#client-libraries">Client Libraries</a>.</p>
 
 <p>As with any REST API, you can also test API requests / responses using a Chrome extension like <a href='https://chrome.google.com/webstore/detail/advanced-rest-client/hgmloofddffdnphfgcellkdfbfbjeloo/' target=_blank>Advanced REST Client (Chrome App)</a> or <a href='https://www.getpostman.com/' target=_blank>Postman</a>.</p>
+
 
 <h3 id="api-changes">API Changes</h3>
 
@@ -149,6 +172,7 @@ if changes that break the current API are made, we will publish the api update w
 Deprecated APIs typically remain present and usable for a reasonable period of time following the release in which they were deprecated; however, they may be removed entirely from a future version of the API as required. 
 You should never use deprecated APIs in new development, and if you have existing code that uses deprecated APIs, we recommend that you update that code as soon as possible. </p>
 
+
 <h3 id="required-headers">Required Headers</h3>
 
 <aside class="note">If you are using a client access library to the Moxi Works Platform, required request headers will automatically be configured for you.</aside>
@@ -161,7 +185,7 @@ You should never use deprecated APIs in new development, and if you have existin
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">Basic bpiYWFhYWFycnJycnJy==</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/x-www-form-urlencoded</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.moxi-platform+json;version=1</span>
-
+<span class="na">Cookie</span><span class="p">:</span> <span class="s">_wms_svc_public_session=QlpZQXFoOSs5TGFXZT...</span>
 </code></pre>
 
 <pre class="highlight ruby"><code><span class="c1"># required headers set automatically by moxiworks_platform library.</span>
@@ -172,7 +196,7 @@ You should never use deprecated APIs in new development, and if you have existin
 
 <pre class="highlight php"><code><span class="cp">&lt;?php</span>
 <span class="cm">/* required headers seat automatically by moxiworks_platform library.
-to view, use the following: 
+to view, use the following:
 */</span>
 <span class="nb">print_r</span><span class="p">(</span><span class="nx">MoxiworksPlatform\Resource</span><span class="o">::</span><span class="na">headers</span><span class="p">());</span>
 <span class="cp">?&gt;</span>
@@ -202,7 +226,14 @@ to view, use the following:
 <td>Used for handling data in request</td>
 <td><code class="prettyprint">application/x-www-form-urlencoded</code></td>
 </tr>
+<tr>
+<td><em>Cookie</em></td>
+<td>Used for connection setup and rate limiting</td>
+<td><code class="prettyprint">_wms_svc_public_session</code></td>
+</tr>
 </tbody></table>
+
+<p>For more information on the <code class="prettyprint">Cookie</code> header, see <a href="#session-handling">Session Handling</a></p>
 
 <h3 id="authorization">Authorization</h3>
 

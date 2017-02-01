@@ -10,7 +10,7 @@ POST /api/[RESOURCE] HTTP/1.1
 Authorization: Basic bpiYWFhYWFycnJycnJy==
 Content-Type: application/x-www-form-urlencoded
 Accept: application/vnd.moxi-platform+json;version=1
-
+Cookie: _wms_svc_public_session=QlpZQXFoOSs5TGFXZT...
 ```
 
 ```ruby
@@ -23,7 +23,7 @@ MoxiworksPlatform::Resource.headers.inspect
 ```php
 <?php
 /* required headers seat automatically by moxiworks_platform library.
-to view, use the following: 
+to view, use the following:
 */
 print_r(MoxiworksPlatform\Resource::headers());
 ?>
@@ -36,3 +36,6 @@ If you are implementing your own Moxi Works Platform library, you'll need to ens
 *Authorization*     | Used for platform authorization |`Basic [base64 encoded platform id and secret]`
 *Accept*  | Used for API version and resource routing | `application/vnd.moxi-platform+json;version=1`
 *Content-Type* | Used for handling data in request | `application/x-www-form-urlencoded`
+*Cookie* | Used for connection setup and rate limiting | `_wms_svc_public_session`
+
+For more information on the `Cookie` header, see [Session Handling](#session-handling)

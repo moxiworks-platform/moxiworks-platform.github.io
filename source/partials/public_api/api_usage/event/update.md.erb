@@ -13,7 +13,6 @@
   "partner_event_id":"8675309e9",
   "event_subject":"meeting at Joe Seller's house",
   "event_location":"1234 Joe Seller Way Sellerville, WY 82372",
-  "is_meeting":true,
   "all_day":false,
   "event_start":1462234227,
   "event_end":1462241468,
@@ -32,7 +31,7 @@ Content-Type: application/x-www-form-urlencoded
 
 
 agent_uuid=12345678-1234-1234-1234-1234567890ab&partner_event_id=abc98df345&
-event_subject=subject&event_location=a%20location&is_meeting=true&all_day=false&
+event_subject=subject&event_location=a%20location&all_day=false&
 event_start=1462234227&event_end=1462241468&required_attendees=&optional_attendees=&
 note=here%20is%20the%20note
 
@@ -54,7 +53,6 @@ moxi_works_event = MoxiworksPlatform::Event.update(
         partner_event_id: "booyuh",
         event_subject: "the subject",
         event_location: "the location",
-        is_meeting: true,
         all_day: false,
         event_start: 1462234227,
         event_end: 1462241468,
@@ -77,7 +75,6 @@ $moxi_works_event = MoxiworksPlatform\Event::update([
         'partner_event_id' => 'booyuh',
         'event_subject' => 'the subject',
         'event_location' => 'the location',
-        'is_meeting' => true,
         'all_day' => false,
         'event_start' => 1462234227,
         'event_end' => 1462241468,
@@ -96,7 +93,6 @@ $moxi_works_event = MoxiworksPlatform\Event::update([
   "partner_event_id":"8675309e9",
   "event_subject":"meeting at Joe Seller's house",
   "event_location":"1234 Joe Seller Way Sellerville, WY 82372",
-  "is_meeting":true,
   "all_day":false,
   "event_start":1462234227,
   "event_end":1462241468,
@@ -116,7 +112,7 @@ Content-Type: application/x-www-form-urlencoded
 
 moxi_works_agent_id=abc123&partner_event_id=abc98df345&event_subject=subject&
 event_location=a%20location&
-is_meeting=true&all_day=false&event_start=1462234227&event_end=1462241468&
+all_day=false&event_start=1462234227&event_end=1462241468&
 required_attendees=&optional_attendees=&note=here%20is%20the%20note
 
 ```
@@ -137,7 +133,6 @@ moxi_works_event = MoxiworksPlatform::Event.update(
         partner_event_id: "booyuh",
         event_subject: "the subject",
         event_location: "the location",
-        is_meeting: true,
         all_day: false,
         event_start: 1462234227,
         event_end: 1462241468,
@@ -160,7 +155,6 @@ $moxi_works_event = MoxiworksPlatform\Event::update([
         'partner_event_id' => 'booyuh',
         'event_subject' => 'the subject',
         'event_location' => 'the location',
-        'is_meeting' => true,
         'all_day' => false,
         'event_start' => 1462234227,
         'event_end' => 1462241468,
@@ -250,7 +244,6 @@ The following attributes make up the payload of the <span class='entity-name'>Ev
   "partner_event_id": "booyuh",
   "event_subject": "the subject",
   "event_location": "the location",
-  "is_meeting": true,
   "all_day": false,
   "event_start": 1462234227,
   "event_end": 1462241468,
@@ -273,7 +266,6 @@ The following attributes make up the payload of the <span class='entity-name'>Ev
   "partner_event_id": "booyuh",
   "event_subject": "the subject",
   "event_location": "the location",
-  "is_meeting": true,
   "all_day": false,
   "event_start": 1462234227,
   "event_end": 1462241468,
@@ -306,7 +298,6 @@ Attribute | Type |
 |<span class="response-data">partner_event_id</span>|<span class="response-data"><span class="data-type">String</span>
 |<span class="response-data">event_subject</span>|<span class="data-type">String</span>|
 |<span class="response-data">event_location</span>|<span class="data-type">String</span>|
-|<span class="response-data">is_meeting</span>|<span class="data-type">Boolean</span>|
 |<span class="response-data">all_day</span>|<span class="data-type">Boolean</span>|
 |<span class="response-data">event_start</span>|<span class="data-type">Integer</span>|
 |<span class="response-data">event_end</span>|<span class="data-type">Integer</span>|

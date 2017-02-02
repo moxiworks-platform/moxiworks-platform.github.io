@@ -141,7 +141,7 @@ Alternatively, you might choose to use <a href="https://en.wikipedia.org/wiki/Ex
 
 <p>The Moxi Works Platform utilizes Cookie headers in order to propagate session data between requests. Each request is atomic and the session data is used atomically within the request. The session data itself is used to ensure that connection setup is as efficient as possible and to provide higher throughput to authorized users.</p>
 
-<p>If you fail to include session data in your request, you will notice a far lower number of allowed connections to the Moxi Works Platform than is advertised in <a href="#rate_limiting">Rate Limiting</a>.</p>
+<p>If you fail to include session data in your request, you will notice a far lower number of allowed connections to the Moxi Works Platform than is advertised in <a href="#rate-limiting">Rate Limiting</a>.</p>
 
 <p>When you successfully connect to the Moxi Works Platform, you will recieve a <code class="prettyprint">Set-Cookie</code> header. The name of the cookie will be <code class="prettyprint">_wms_svc_public_session</code>. You&rsquo;ll need to send this cookie name - value pair back to The Moxi Works Platform in a <code class="prettyprint">Cookie</code> request header.</p>
 

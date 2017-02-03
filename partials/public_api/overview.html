@@ -104,10 +104,9 @@ Similarly, to create a Contact, <code class="prettyprint">POST</code> a Contact 
 
 <p>To ensure that system resources are not overloaded and response quality degrated, Moxi Works allows only a limited number of requests every minute. </p>
 
-<blockquote>
-<p><strong>Over-limit Error Response Example</strong></p>
-</blockquote>
-
+<blockquote><div class='highlight json' style="display: block">
+<span class='data-example-label'>Over-limit Error Response Example</span>
+</div></blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fail"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"errorCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">4000</span><span class="p">,</span><span class="w">
@@ -123,6 +122,7 @@ In order to prevent abuse and undue stress on the Moxi Works servers, the API ha
 <p>It is recommended that you design your integration to gracefully handle this rate limit error. 
 One way to accomplish this would be to have your integration <em>sleep</em> for 60 seconds when this error is returned from the API, then retry the request. 
 Alternatively, you might choose to use <a href="https://en.wikipedia.org/wiki/Exponential_backoff">exponential backoff</a> (an error handling strategy whereby you periodically retry a failed request with progressively longer wait times between retries, until either the request succeeds or a specified number of retry attempts is reached). </p>
+
 
 <h3 id="session-handling">Session Handling</h3>
 

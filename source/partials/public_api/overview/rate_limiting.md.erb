@@ -24,11 +24,11 @@ It is recommended that you design your integration to gracefully handle this rat
 One way to accomplish this would be to have your integration *sleep* for 60 seconds when this error is returned from the API, then retry the request.
 Alternatively, you might choose to use [exponential backoff](https://en.wikipedia.org/wiki/Exponential_backoff) (an error handling strategy whereby you periodically retry a failed request with progressively longer wait times between retries, until either the request succeeds or a specified number of retry attempts is reached).
 
-The Moxi Works Platform includes rate limiting information. The following headers are included in every response:
+The Moxi Works Platform includes rate limiting information in the response headers. The following headers are included in every response:
 
 Response Header | Type | Description |
 -----|-----|-----|-----|
-| X-RateLimit-Limit | Integer | number of request available in each period |
-| X-RateLimit-Remaining | Integer | requests remaining in current period |
-| X-RateLimit-Period | Integer | rate limit period length (in seconds) |
-| X-RateLimit-Reset | Unix Timestamp | timestamp at which the next period begins |
+| X-RateLimit-Limit | Integer | Number of request available in each period |
+| X-RateLimit-Remaining | Integer | Requests remaining in current period |
+| X-RateLimit-Period | Integer | Rate limit period length (in seconds) |
+| X-RateLimit-Reset | Unix Timestamp | Timestamp at which the next period begins |

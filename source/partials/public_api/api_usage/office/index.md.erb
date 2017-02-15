@@ -120,6 +120,7 @@ Attribute | Type  | Length Limit |
   "offices":[
     {
     "moxi_works_office_id":"feedface-dead-beef-aadf-baddeedc645",
+    "id":"1234",
     "image_url":"http://the.office.image/image.png",
     "name":"Bob's Better Brokerage",
     "address":"101 South Southerly Street",
@@ -169,6 +170,7 @@ The <span class='attribute-name'>offices</span> array contains Dictionary object
 Attribute | Type |
 -----|-----|-----|-----|
 |<span class="response-data">moxi_works_office_id</span>|<span class="data-type">String</span>|
+|<span class="response-data">id</span>|<span class="data-type">String</span>|
 |<span class="response-data">name</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">image_url</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">address</span>|<span class="data-type">String or null</span>|
@@ -189,6 +191,11 @@ Attribute | Type |
 
 <span class="response-data-head">moxi_works_office_id</span>
 <span class="response-data-remarks">This is the Moxi Works Platform ID of the office for this <span class='entity-name'>Office</span>. This will be an [RFC 4122](https://tools.ietf.org/html/rfc4122) compliant UUID.</span>
+
+
+<span class="response-data-head">id</span>
+<span class="response-data-remarks">An alternate integer ID of the office. If you are integrating with Moxi Works Authentication services, you should use this ID.</span>
+
 
 <span class="response-data-head">image_url</span>
 <span class="response-data-remarks">URL to an image of the office. This can be null if there is no data for this attribute.</span>

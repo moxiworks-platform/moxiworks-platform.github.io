@@ -167,17 +167,24 @@ The following attributes make up the payload of the <span class='entity-name'>Gr
 ```json
 
 [
-{"moxi_works_group_name":"Christmas Cards"},
-{"moxi_works_group_name":"foo"},
-{"moxi_works_group_name":"blah"},
-{"moxi_works_group_name":"one"},
-{"moxi_works_group_name":"reallylonggroupnamewithoutbreaksintheworkd"},
-{"moxi_works_group_name":"this"},
-{"moxi_works_group_name":"Test GR"},
-{"moxi_works_group_name":"TestEmailAddresses"},
-{"moxi_works_group_name":"todelete"},
-{"moxi_works_group_name":"TwoMore"},
-{"moxi_works_group_name":"that"}
+ {
+"moxi_works_group_name": "Christmas Cards",
+"guid": "Christmas Cards",
+"usage_count": 220,
+"transient": true
+},
+ {
+"moxi_works_group_name": "foo",
+"guid": "foo",
+"usage_count": 0,
+"transient": true
+},
+ {
+"moxi_works_group_name": "Friends",
+"guid": "Friends",
+"usage_count": 0,
+"transient": true
+},
 ]
 ```
 
@@ -201,7 +208,22 @@ The <span class='entity-name'>Group</span> <span class='action-name'>Index</span
 Attribute | Type |
 -----|-----|-----|-----|
 |<span class="response-data">moxi_works_group_name</span>|<span class="response-data"><span class="data-type">String</span></span>|
+|<span class="response-data">guid</span>|<span class="response-data"><span class="data-type">String</span></span>|
+|<span class="response-data">usage_count</span>|<span class="response-data"><span class="data-type">Integer</span></span>|
+|<span class="response-data">transient</span>|<span class="response-data"><span class="data-type">Boolean</span></span>|
 
 
 <span class="response-data-head">moxi_works_group_name</span>
 <span class="response-data-remarks">This is a human readable string meaningful to the agent about what kind of <span class='entity-name'>Contact</span> objects are in this <span class='entity-name'>Group</span>.</span>
+
+<span class="response-data-head">guid</span>
+<span class="response-data-remarks">This is the unique identifier for this <span class='entity-name'>Group</span>.</span>
+
+
+<span class="response-data-head">usage_count</span>
+<span class="response-data-remarks">The number of <span class='entity-name'>Contact</span> objects in the <span class='entity-name'>Group</span>.</span>
+
+<span class="response-data-head">transient</span>
+<span class="response-data-remarks">Whether the group ID exists beyond name change.</span>
+
+<aside class="warning">Some providers (namely versions of Exchange) provide no permanent unique identifier for groups. <span class='entity-name'>Group</span> IDs for these providers are inherently transient. Moxi Works has no way to guarantee that any <span class='entity-name'>Group</span> marked <span class='attribute-name'>transient</span> will persist since the name can be changed outside of The Moxi Works platform and Exchange provides no persistent IDs for their Group entities.</aside>

@@ -8,13 +8,13 @@
 
 ```json
 {
-  "moxi_works_group_name":"abc123",
+  "moxi_works_group_id":"abc123",
   "agent_uuid":"12345678-1234-1234-1234-1234567890ab"
 }
 ```
 
 ```http
-GET /api/groups/[moxi_works_group_name]?agent_uuid=12345678-1234-1234-1234-1234567890ab HTTP/1.1
+GET /api/groups/[moxi_works_group_id]?agent_uuid=12345678-1234-1234-1234-1234567890ab HTTP/1.1
 Host: api.moxiworks.com
 Accept: application/vnd.moxi-platform+json;version=1
 Authorization: Basic XNNeXAAAUZaQlF0dA==
@@ -36,7 +36,7 @@ MoxiworksPlatform::Credentials.new(platform_identifier, platform_secret)
 
 moxi_works_group = MoxiworksPlatform::Group.find(
         agent_uuid: "12345678-1234-1234-1234-1234567890ab",
-        moxi_works_group_name: "foo")
+        moxi_works_group_id: "foo")
 
 ```
 
@@ -49,7 +49,7 @@ $credentials = new MoxiworksPlatform\Credentials($platform_identifier, $platform
 
 $moxi_works_group = MoxiworksPlatform\Group::find([
         'agent_uuid' => '12345678-1234-1234-1234-1234567890ab',
-        'moxi_works_group_name' => 'foo']);
+        'moxi_works_group_id' => 'foo']);
 ?>
 ```
 
@@ -58,13 +58,13 @@ $moxi_works_group = MoxiworksPlatform\Group::find([
 
 ```json
 {
-  "moxi_works_group_name":"abc123",
+  "moxi_works_group_id":"abc123",
   "moxi_works_agent_id":"abc1234"
 }
 ```
 
 ```http
-GET /api/groups/[moxi_works_group_name]?moxi_works_agent_id=abc123 HTTP/1.1
+GET /api/groups/[moxi_works_group_id]?moxi_works_agent_id=abc123 HTTP/1.1
 Host: api.moxiworks.com
 Accept: application/vnd.moxi-platform+json;version=1
 Authorization: Basic XNNeXAAAUZaQlF0dA==
@@ -86,7 +86,7 @@ MoxiworksPlatform::Credentials.new(platform_identifier, platform_secret)
 
 moxi_works_group = MoxiworksPlatform::Group.find(
         moxi_works_agent_id: "1234abcd",
-        moxi_works_group_name: "foo")
+        moxi_works_group_id: "foo")
 
 ```
 
@@ -99,12 +99,12 @@ $credentials = new MoxiworksPlatform\Credentials($platform_identifier, $platform
 
 $moxi_works_group = MoxiworksPlatform\Group::find([
         'moxi_works_agent_id' => '1234abcd',
-        'moxi_works_group_name' => 'foo']);
+        'moxi_works_group_id' => 'foo']);
 ?>
 ```
 
 
-<aside class="note">Send a <b>GET</b> request to https://api.moxiworks.com/api/groups/[moxi_works_group_name]</aside>
+<aside class="note">Send a <b>GET</b> request to https://api.moxiworks.com/api/groups/[moxi_works_group_id]</aside>
 
 ##### <span class='entity-name'>Group</span> <span class='action-name'>Show</span> Request Attributes
 
@@ -113,7 +113,7 @@ Attribute | Type | Length Limit |
 -----|-----|-----|-----|
 |<span class="multi-option-required-data">agent_uuid*</span>|<span class="multi-option-required-data"><span class="data-type">String</span></span>| <span class="multi-option-required-data">255</span>
 |<span class="multi-option-required-data">moxi_works_agent_id*</span>|<span class="multi-option-required-data"><span class="data-type">String</span></span>| <span class="multi-option-required-data">255</span>
-|<span class="required-data">moxi_works_group_name</span>|<span class="required-data"><span class="data-type">String</span></span>|<span class="required-data">255</span>
+|<span class="required-data">moxi_works_group_id</span>|<span class="required-data"><span class="data-type">String</span></span>|<span class="required-data">255</span>
 |<span class="optional-data">page_number</span>|<span class="data-type">Integer</span>| 255 |
 
 
@@ -133,7 +133,7 @@ Attribute | Type | Length Limit |
 <span class="request-data-head">moxi_works_agent_id</span>
 <span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which you are searching for associated <span class='entity-name'>Group</span> objects. This will be a string that may take the form of an email address, or a unique identification string. This data is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>Group</span> <span class='action-name'>Index</span>  request to be accepted.</span>
 
-<span class="request-data-head">moxi_works_group_name</span>
+<span class="request-data-head">moxi_works_group_id</span>
 <span class="request-data-remarks">This is the name of a <span class='entity-name'>Group</span> to be shown</span>
 
 <aside class="note">The name of the group in the Moxi Works Platform must be an exact match for the name you send in your request.</aside>
@@ -153,6 +153,9 @@ Attribute | Type | Length Limit |
 {
     "agent_uuid":"12345678-1234-1234-1234-1234567890ab",
     "moxi_works_group_name":"foo",
+    "guid": "{4B86F74F-B8B9-4E84-AFA8-1B2BBEEF41D6}",
+    "usage_count": 1,
+    "transient": true,
     "page_number":1,
     "total_pages":1,
     "contacts":[
@@ -192,6 +195,9 @@ Attribute | Type | Length Limit |
 {
     "moxi_works_agent_id":"1234abcd",
     "moxi_works_group_name":"foo",
+    "guid": "{4B86F74F-B8B9-4E84-AFA8-1B2BBEEF41D6}",
+    "usage_count": 1,
+    "transient": true,
     "page_number":1,
     "total_pages":1,
     "contacts":[
@@ -248,6 +254,7 @@ Attribute | Type |
 |<span class="multi-option-response-data">agent_uuid*</span>|<span class="data-type">String</span>| |
 |<span class="multi-option-response-data">moxi_works_agent_id*</span>|<span class="data-type">String</span>| |
 |<span class="response-data">moxi_works_group_name</span>|<span class="response-data"><span class="data-type">String</span></span>|
+|<span class="response-data">guid</span>|<span class="response-data"><span class="data-type">String</span></span>|
 |<span class="response-data">page_number</span>|<span class="response-data"><span class="data-type">Integer</span></span>|
 |<span class="response-data">total_pages</span>|<span class="response-data"><span class="data-type">Integer</span></span>|
 |<span class="response-data">contacts</span>|<span class="response-data"><span class="data-type">Array</span></span>|
@@ -265,6 +272,11 @@ Attribute | Type |
 
 <span class="response-data-head">moxi_works_group_name</span>
 <span class="response-data-remarks">This is a human readable string meaningful to the agent about what kind of <span class='entity-name'>Contact</span> objects are in this <span class='entity-name'>Group</span>.</span>
+
+
+<span class="response-data-head">guid</span>
+<span class="response-data-remarks">This is the unique identifier for this <span class='entity-name'>Group</span>.</span>
+
 
 
 <span class="response-data-head">page_number</span>

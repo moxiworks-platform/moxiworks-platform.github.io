@@ -4,7 +4,37 @@
 
 <div class='highlight php'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-php/classes/MoxiworksPlatform.Task.html#method_search'>PHP Search Docs</a></span></blockquote></div>
 
-> <span class="data-example-label"><span class='entity-name'>Task</span> <span class='action-name'>Index</span> Example: All <span class='entity-name'>Task</span> Objects</span>
+> <span class="data-example-label"><span class='entity-name'>Task</span> <span class='action-name'>Index</span> (using <span class='attribute-name'>agent_uuid</span>) Example</span>
+
+```json
+{
+  "agent_uuid":"12345678-1234-1234-1234-1234567890ab"
+}
+
+```
+
+```http
+GET /api/tasks?agent_uuid=12345678-1234-1234-1234-1234567890ab HTTP/1.1
+Host: api.moxiworks.com
+Accept: application/vnd.moxi-platform+json;version=1
+Authorization: Basic XNNeXAAAUZaQlF0dA==
+Content-Type: application/x-www-form-urlencoded
+
+```
+
+```ruby
+agent_moxi_works_tasks = MoxiworksPlatform::Agent.search(agent_uuid: "12345678-1234-1234-1234-1234567890ab")
+
+```
+
+```php
+<?php
+$agent_moxi_works_tasks = MoxiworksPlatform\Task::search(['agent_uuid' => "12345678-1234-1234-1234-1234567890ab"]);
+?>
+```
+
+
+> <span class="data-example-label"><span class='entity-name'>Task</span> <span class='action-name'>Index</span> (using <span class='attribute-name'>moxi_works_agent_id</span>) Example</span>
 
 ```json
 {
@@ -32,6 +62,7 @@ agent_moxi_works_tasks = MoxiworksPlatform::Agent.search(moxi_works_agent_id: "a
 $agent_moxi_works_tasks = MoxiworksPlatform\Task::search(['moxi_works_agent_id' => "abc123"]);
 ?>
 ```
+
 
 > <span class="data-example-label"><span class='entity-name'>Task</span> <span class='action-name'>Index</span> Example: All <span class='entity-name'>Task</span> Objects For A Specified <span class='entity-name'>Contact</span></span>
 
@@ -155,17 +186,27 @@ When searching for <span class='entity-name'>Task</span> objects using the Moxi 
 
 Attribute | Type | Length Limit |
 -----|-----|-----|-----|
-|<span class="required-data">moxi_works_agent_id</span>|<span class="required-data"><span class="data-type">String</span></span>|<span class="required-data">255</span>
+|<span class="multi-option-required-data">agent_uuid*</span>|<span class="multi-option-required-data"><span class="data-type">String</span></span>| <span class="multi-option-required-data">255</span>
+|<span class="multi-option-required-data">moxi_works_agent_id*</span>|<span class="multi-option-required-data"><span class="data-type">String</span></span>| <span class="multi-option-required-data">255</span>
 |<span class="optional-data">due_date_start</span>|<span class="data-type">Integer</span>| 255 |
 |<span class="optional-data">due_date_end</span>|<span class="data-type">Integer</span>| 255 |
 |<span class="optional-data">partner_contact_id</span>|<span class="data-type">String</span>| 255 |
 |<span class="optional-data">page_number</span>|<span class="data-type">Integer</span>| 255 |
 
 
+
+<span class="multi-option-required-data">* **Either <span class='attribute-name'>moxi_works_agent_id</span> or <span class='attribute-name'>agent_uuid</span> must be supplied. For guidance on which Agent identifier better fits your use-case, see [Agent Identifiers](#agent-identifiers)**</span>
+
+
 <span class="required-data">**Required Parameters Are In Red**</span>
 
 
 <aside class="note">If no query parameters are included, all <span class='entity-name'>Task</span> objects associated with the requested <span class='entity-name'>Task</span> will be returned.</aside>
+
+
+
+<span class="request-data-head">agent_uuid</span>
+<span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which a  <span class='entity-name'>Task</span> entry is associated with. This will be an [RFC 4122](https://tools.ietf.org/html/rfc4122) compliant UUID. <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>Task</span> <span class='action-name'>Index</span> request to be accepted.</span>
 
 
 <span class="request-data-head">moxi_works_agent_id</span>
@@ -193,7 +234,35 @@ Attribute | Type | Length Limit |
 
 
 <blockquote><div class='highlight json' style="display: block">
-<span class='data-example-label'><span class='entity-name'>Task</span> <span class='action-name'>Index</span> Response Payload Example
+<span class='data-example-label'><span class='entity-name'>Task</span> <span class='action-name'>Index</span> (using <span class='attribute-name'>agent_uuid</span>) Response Payload Example
+</span></div></blockquote>
+
+```json
+{
+  "page_number":6,
+  "total_pages":6,
+  "tasks": [
+    {
+      "agent_uuid":"12345678-1234-1234-1234-1234567890ab",
+      "partner_contact_id":"mySystemIDForContact",
+      "name":"Reach Out to this person!",
+      "description":"Call",
+      "due_at":"1465858693",
+      "duration":15,
+      "custom":false,
+      "status":"active",
+      "created_at":"1465772310",
+      "completed_at":null
+    }
+  ]
+}
+```
+
+
+
+
+<blockquote><div class='highlight json' style="display: block">
+<span class='data-example-label'><span class='entity-name'>Task</span> <span class='action-name'>Index</span> (using <span class='attribute-name'>moxi_works_agent_id</span>) Response Payload Example
 </span></div></blockquote>
 
 ```json
@@ -248,7 +317,8 @@ Each object in the <span class='attribute-name'>tasks</span> array will have the
 
 Attribute | Type |
 -----|-----|-----|-----|
-|<span class="response-data">moxi_works_agent_id</span>|<span class="response-data"><span class="data-type">String</span></span>|
+|<span class="multi-option-response-data">agent_uuid*</span>|<span class="data-type">String</span>| |
+|<span class="multi-option-response-data">moxi_works_agent_id*</span>|<span class="data-type">String</span>| |
 |<span class="response-data">partner_contact_id</span>|<span class="response-data"><span class="data-type">String</span>
 |<span class="response-data">name</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">description</span>|<span class="data-type">String or null</span>|
@@ -257,6 +327,12 @@ Attribute | Type |
 |<span class="response-data">status</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">created_at</span>|<span class="data-type">Integer</span>|
 |<span class="response-data">completed_at</span>|<span class="data-type">Integer or null</span>|
+
+
+<span class='multi-option-response-data'>* Either <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> will be returned depending on whether it is used in the request. The response payload object's agent identifier key will match the passed parameter.</span>
+
+<span class="response-data-head">agent_uuid</span>
+<span class="response-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>Task</span>  is associated with. This will be an [RFC 4122](https://tools.ietf.org/html/rfc4122) compliant UUID.</span>
 
 <span class="response-data-head">moxi_works_agent_id</span>
 <span class="response-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span>. This will be a string that may take the form of an email address, or a unique alphanumeric identification string.</span>

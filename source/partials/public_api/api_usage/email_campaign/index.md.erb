@@ -12,7 +12,59 @@ When searching for EmailCampaign entities using the Moxi Works platform API, for
 
 
 
-> <span class="data-example-label"><span class='entity-name'>EmailCampaign </span><span class='action-name'>Index </span>Request Example</span>
+> <span class="data-example-label"><span class='entity-name'>EmailCampaign </span><span class='action-name'>Index</span> (using <span class='attribute-name'>agent_uuid</span>) Request Example</span>
+
+```json
+{
+  "agent_uuid":"12345678-1234-1234-1234-1234567890ab",
+  "partner_contact_id":"mySystemsContactId"
+}
+
+```
+
+```http
+GET /api/email_campaigns?moxi_works_agent_id=abc123&partner_contact_id=mySystemsContactId HTTP/1.1
+Host: api.moxiworks.com
+Accept: application/vnd.moxi-platform+json;version=1
+Authorization: Basic XNNeXAAAUZaQlF0dA==
+Content-Type: application/x-www-form-urlencoded
+
+```
+
+```ruby
+##### set up prerequisites once
+require 'moxiworks_platform'
+
+platform_identifier = 'abc123'
+
+platform_secret = 'secret'
+
+MoxiworksPlatform::Credentials.new(platform_identifier, platform_secret)
+##### end prerequisitesa
+
+moxi_works_email_campaigns = MoxiworksPlatform::EmailCampaign.search(
+        agent_uuid: "12345678-1234-1234-1234-1234567890ab",
+        partner_contact_id: "mySystemsContactId")
+
+
+```
+
+```php
+<?php
+$platform_identifier = 'abc123'; // platorm_identifier provided by Moxi Works Platform Rep
+$platform_secret = 'secret'; //platform_secret provided by Moxi Works Platform Rep
+
+$credentials = new MoxiworksPlatform\Credentials($platform_identifier, $platform_secret);
+
+$moxi_works_email_campaigns = MoxiworksPlatform\EmailCampaign::search([
+        'agent_uuid' => '12345678-1234-1234-1234-1234567890ab',
+        'partner_contact_id' => 'mySystemsContactId']);
+
+?>
+```
+
+
+> <span class="data-example-label"><span class='entity-name'>EmailCampaign </span><span class='action-name'>Index</span> (using <span class='attribute-name'>moxi_works_agent_id</span>) Request Example</span>
 
 ```json
 {
@@ -68,11 +120,18 @@ $moxi_works_email_campaigns = MoxiworksPlatform\EmailCampaign::search([
 
 Attribute | Type | Length Limit |
 -----|-----|-----|-----|
-|<span class="required-data">moxi_works_agent_id</span>|<span class="required-data"><span class="data-type">String</span></span>|<span class="required-data">255</span>
+|<span class="multi-option-required-data">agent_uuid*</span>|<span class="multi-option-required-data"><span class="data-type">String</span></span>| <span class="multi-option-required-data">255</span>
+|<span class="multi-option-required-data">moxi_works_agent_id*</span>|<span class="multi-option-required-data"><span class="data-type">String</span></span>| <span class="multi-option-required-data">255</span>
 |<span class="required-data">partner_contact_id</span>|<span class="required-data"><span class="data-type">String</span></span>| <span class="required-data">255</span>
+
+<span class="multi-option-required-data">* **Either <span class='attribute-name'>moxi_works_agent_id</span> or <span class='attribute-name'>agent_uuid</span> must be supplied. For guidance on which Agent identifier better fits your use-case, see [Agent Identifiers](#agent-identifiers)**</span>
 
 
 <span class="required-data">**Required Parameters Are In Red**</span>
+
+
+<span class="request-data-head">agent_uuid</span>
+<span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which an  <span class='entity-name'>EmailCampaign</span> entry is associated with. This will be an [RFC 4122](https://tools.ietf.org/html/rfc4122) compliant UUID. <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>EmailCampaign</span> <span class='action-name'>Index</span> request to be accepted.</span>
 
 <span class="request-data-head">moxi_works_agent_id</span>
 <span class="request-data-remarks">This is the Moxi Works Platform ID of the agent which an <span class='entity-name'>EmailCampaign</span> entry is associated with. This will be a string that may take the form of an email address, or a unique identification string. This data is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>EmailCampaign</span> request to be accepted.</span>
@@ -87,28 +146,69 @@ The following attributes make up the payload of the <span class='entity-name'>Em
 
 
 <blockquote><div class='highlight json' style="display: block">
-  <span class='data-example-label'><span class='entity-name'>EmailCampaign</span> <span class='action-name'>Index</span> Response Payload Example
+  <span class='data-example-label'><span class='entity-name'>EmailCampaign</span> <span class='action-name'>Index</span> (using <span class='attribute-name'>agent_uuid</span>) Response Payload Example
 </div></blockquote>
 
 ```json
 [
 {
+  "agent_uuid":"12345678-1234-1234-1234-1234567890ab",
   "subscription_type":"EmailSubscriptionType",
   "email_address":"subscriber@here.com",
   "subscribed_at":1467409224,
   "created_by":"agent",
   "area":"98225",
   "last_sent":0,
-  "next_scheduled":0
+  "next_scheduled":0,
+  "partner_contact_id":"my_contact_id",
+  "moxi_works_contact_id":"babebead-feed-face-dead-beefbad4babe"
 },
 {
+  "agent_uuid":"12345678-1234-1234-1234-1234567890ab",
   "subscription_type":"OtherEmailSubscriptionType",
   "email_address":"subscriber@there.com",
   "subscribed_at":1467409442,
   "created_by":"agent",
   "area":"12344",
   "last_sent":1468878269,
-  "next_scheduled":1471470286
+  "next_scheduled":1471470286,
+  "partner_contact_id":"my_contact_id",
+  "moxi_works_contact_id":"babebead-feed-face-dead-beefbad4babe"
+
+}
+]
+
+```
+
+<blockquote><div class='highlight json' style="display: block">
+  <span class='data-example-label'><span class='entity-name'>EmailCampaign</span> <span class='action-name'>Index</span> (using <span class='attribute-name'>moxi_works_agent_id</span>) Response Payload Example
+</div></blockquote>
+
+```json
+[
+{
+  "moxi_works_agent_id":"abc123",
+  "subscription_type":"EmailSubscriptionType",
+  "email_address":"subscriber@here.com",
+  "subscribed_at":1467409224,
+  "created_by":"agent",
+  "area":"98225",
+  "last_sent":0,
+  "next_scheduled":0,
+  "partner_contact_id":"my_contact_id",
+  "moxi_works_contact_id":"babebead-feed-face-dead-beefbad4babe"
+},
+{
+  "moxi_works_agent_id":"abc123",
+  "subscription_type":"OtherEmailSubscriptionType",
+  "email_address":"subscriber@there.com",
+  "subscribed_at":1467409442,
+  "created_by":"agent",
+  "area":"12344",
+  "last_sent":1468878269,
+  "next_scheduled":1471470286,
+  "partner_contact_id":"my_contact_id",
+  "moxi_works_contact_id":"babebead-feed-face-dead-beefbad4babe"
 }
 ]
 
@@ -129,6 +229,8 @@ The following attributes make up the payload of the <span class='entity-name'>Em
 ```
 Attribute | Type |
 -----|-----|-----|-----|
+|<span class="multi-option-response-data">agent_uuid*</span>|<span class="data-type">String</span>| |
+|<span class="multi-option-response-data">moxi_works_agent_id*</span>|<span class="data-type">String</span>| |
 |<span class="response-data">subscription_type</span>|<span class="data-type">String</span>|
 |<span class="response-data">email_address</span>|<span class="data-type">String</span>|
 |<span class="response-data">subscribed_at</span>|<span class="data-type">Integer</span>|
@@ -136,6 +238,15 @@ Attribute | Type |
 |<span class="response-data">area</span>|<span class="data-type">String</span>|
 |<span class="response-data">last_sent</span>|<span class="data-type">Integer</span>|
 |<span class="response-data">next_scheduled</span>|<span class="data-type">Integer</span>|
+
+<span class='multi-option-response-data'>* Either <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> will be returned depending on whether it is used in the request. The response payload object's agent identifier key will match the passed parameter.</span>
+
+<span class="response-data-head">agent_uuid</span>
+<span class="response-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>EmailCampaign</span>  is associated with. This will be an [RFC 4122](https://tools.ietf.org/html/rfc4122) compliant UUID.</span>
+
+
+<span class="response-data-head">moxi_works_agent_id</span>
+<span class="response-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>BuyerTransaction</span> is associated with. This will be a string that may take the form of an email address, or a unique alphanumeric identification string.</span>
 
 
 <span class="request-data-head">subscription_type</span>

@@ -4,7 +4,65 @@
 
 <div class='highlight php'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-php/classes/MoxiworksPlatform.Group.html#method_search'>PHP Search Docs</a></span></blockquote></div>
 
-> <span class="data-example-label"><span class='entity-name'>Group</span> <span class='action-name'>Index</span> Example</span>
+> <span class="data-example-label"><span class='entity-name'>Group</span> <span class='action-name'>Index</span> (using <span class='attribute-name'>agent_uuid</span>) Example</span>
+
+```json
+{
+  "agent_uuid":"12345678-1234-1234-1234-1234567890ab",
+  "name":"foo"
+}
+```
+
+```http
+GET /api/groups?agent_uuid=12345678-1234-1234-1234-1234567890ab&name=foo HTTP/1.1
+Host: api.moxiworks.com
+Accept: application/vnd.moxi-platform+json;version=1
+Authorization: Basic XNNeXAAAUZaQlF0dA==
+Content-Type: application/x-www-form-urlencoded
+
+```
+
+```ruby
+##### set up prerequisites once
+require 'moxiworks_platform'
+
+platform_identifier = 'abc123'
+
+platform_secret = 'secret'
+
+MoxiworksPlatform::Credentials.new(platform_identifier, platform_secret)
+##### end prerequisites
+
+moxi_works_groups = MoxiworksPlatform::Group.search(
+        agent_uuid: "12345678-1234-1234-1234-1234567890ab",
+        name: "foo")
+
+# or for a list of all available groups:
+moxi_works_groups = MoxiworksPlatform::Group.search(
+        agent_uuid: "12345678-1234-1234-1234-1234567890ab")
+
+```
+
+```php
+<?php
+$platform_identifier = 'abc123'; // platorm_identifier provided by Moxi Works Platform Rep
+$platform_secret = 'secret'; //platform_secret provided by Moxi Works Platform Rep
+
+$credentials = new MoxiworksPlatform\Credentials($platform_identifier, $platform_secret);
+
+$moxi_works_groups = MoxiworksPlatform\Group::search([
+        'agent_uuid' => '12345678-1234-1234-1234-1234567890ab',
+        'name' => 'foo']);
+
+# or for a list of all available groups
+$moxi_works_groups = MoxiworksPlatform\Group::search([
+        $agent_uuid => "12345678-1234-1234-1234-1234567890ab"]);
+
+?>
+```
+
+
+> <span class="data-example-label"><span class='entity-name'>Group</span> <span class='action-name'>Index</span> (using <span class='attribute-name'>moxi_works_agent_id</span>) Example</span>
 
 ```json
 {
@@ -72,10 +130,20 @@ When searching for <span class='entity-name'>Group</span> objects using the Moxi
 
 Attribute | Type | Length Limit |
 -----|-----|-----|-----|
-|<span class="required-data">moxi_works_agent_id</span>|<span class="required-data"><span class="data-type">String</span></span>|<span class="required-data">255</span>
+|<span class="multi-option-required-data">agent_uuid*</span>|<span class="multi-option-required-data"><span class="data-type">String</span></span>| <span class="multi-option-required-data">255</span>
+|<span class="multi-option-required-data">moxi_works_agent_id*</span>|<span class="multi-option-required-data"><span class="data-type">String</span></span>| <span class="multi-option-required-data">255</span>
 |<span class="optional-data">name</span>|<span class="data-type">String</span>| 255 |
 
+
+<span class="multi-option-required-data">* **Either <span class='attribute-name'>moxi_works_agent_id</span> or <span class='attribute-name'>agent_uuid</span> must be supplied. For guidance on which Agent identifier better fits your use-case, see [Agent Identifiers](#agent-identifiers)**</span>
+
+
 <span class="required-data">**Required Parameters Are In Red**</span>
+
+
+<span class="request-data-head">agent_uuid</span>
+<span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which an  <span class='entity-name'>group</span> entry is associated with. This will be an [RFC 4122](https://tools.ietf.org/html/rfc4122) compliant UUID. <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>Group</span> <span class='action-name'>Index</span> request to be accepted.</span>
+
 
 <span class="request-data-head">moxi_works_agent_id</span>
 <span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which you are searching for associated <span class='entity-name'>Group</span> objects. This will be a string that may take the form of an email address, or a unique identification string. This data is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>Group</span> <span class='action-name'>Index</span>  request to be accepted.</span>
@@ -99,17 +167,24 @@ The following attributes make up the payload of the <span class='entity-name'>Gr
 ```json
 
 [
-{"moxi_works_group_name":"Christmas Cards"},
-{"moxi_works_group_name":"foo"},
-{"moxi_works_group_name":"blah"},
-{"moxi_works_group_name":"one"},
-{"moxi_works_group_name":"reallylonggroupnamewithoutbreaksintheworkd"},
-{"moxi_works_group_name":"this"},
-{"moxi_works_group_name":"Test GR"},
-{"moxi_works_group_name":"TestEmailAddresses"},
-{"moxi_works_group_name":"todelete"},
-{"moxi_works_group_name":"TwoMore"},
-{"moxi_works_group_name":"that"}
+ {
+"moxi_works_group_name": "Christmas Cards",
+"moxi_works_group_id": "Christmas Cards",
+"usage_count": 220,
+"transient": true
+},
+ {
+"moxi_works_group_name": "foo",
+"moxi_works_group_id": "foo",
+"usage_count": 0,
+"transient": true
+},
+ {
+"moxi_works_group_name": "Friends",
+"moxi_works_group_id": "Friends",
+"usage_count": 0,
+"transient": true
+},
 ]
 ```
 
@@ -133,7 +208,22 @@ The <span class='entity-name'>Group</span> <span class='action-name'>Index</span
 Attribute | Type |
 -----|-----|-----|-----|
 |<span class="response-data">moxi_works_group_name</span>|<span class="response-data"><span class="data-type">String</span></span>|
+|<span class="response-data">moxi_works_group_id</span>|<span class="response-data"><span class="data-type">String</span></span>|
+|<span class="response-data">usage_count</span>|<span class="response-data"><span class="data-type">Integer</span></span>|
+|<span class="response-data">transient</span>|<span class="response-data"><span class="data-type">Boolean</span></span>|
 
 
 <span class="response-data-head">moxi_works_group_name</span>
 <span class="response-data-remarks">This is a human readable string meaningful to the agent about what kind of <span class='entity-name'>Contact</span> objects are in this <span class='entity-name'>Group</span>.</span>
+
+<span class="response-data-head">moxi_works_group_id</span>
+<span class="response-data-remarks">This is the unique identifier for this <span class='entity-name'>Group</span>.</span>
+
+
+<span class="response-data-head">usage_count</span>
+<span class="response-data-remarks">The number of <span class='entity-name'>Contact</span> objects in the <span class='entity-name'>Group</span>.</span>
+
+<span class="response-data-head">transient</span>
+<span class="response-data-remarks">Whether the group ID exists beyond name change.</span>
+
+<aside class="warning">Some providers (namely versions of Exchange) provide no permanent unique identifier for groups. <span class='entity-name'>Group</span> IDs for these providers are inherently transient. Moxi Works has no way to guarantee that any <span class='entity-name'>Group</span> marked <span class='attribute-name'>transient</span> will persist since the name can be changed outside of The Moxi Works platform and Exchange provides no persistent IDs for their Group entities.</aside>

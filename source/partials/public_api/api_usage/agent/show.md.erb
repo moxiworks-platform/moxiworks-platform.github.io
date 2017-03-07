@@ -4,7 +4,57 @@
 
 <div class='highlight php'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-php/classes/MoxiworksPlatform.Agent.html#method_find'>PHP Find Docs</a></span></blockquote></div>
 
-> <span class="data-example-label"><span class='entity-name'>Agent</span> <span class='action-name'>Show</span> Example</span>
+> <span class="data-example-label"><span class='entity-name'>Agent</span> <span class='action-name'>Show</span> (using <span class='attribute-name'>agent_uuid</span>) Example</span>
+
+```http
+GET /api/agents/[agent_uuid]&moxi_works_company_id=[moxi_works_company_id] HTTP/1.1
+Host: api.moxiworks.com
+Accept: application/vnd.moxi-platform+json;version=1
+Authorization: Basic XNNeXAAAUZaQlF0dA==
+Content-Type: application/x-www-form-urlencoded
+
+```
+
+```json
+{
+  "agent_uuid":"12345678-1234-1234-1234-1234567890ab",
+  "moxi_works_company_id":"the_company"
+}
+
+```
+
+```ruby
+##### set up prerequisites once
+require 'moxiworks_platform'
+
+platform_identifier = 'abc123'
+
+platform_secret = 'secret'
+
+MoxiworksPlatform::Credentials.new(platform_identifier, platform_secret)
+##### end prerequisites
+
+moxi_works_agent = MoxiworksPlatform::Agent.find(
+        agent_uuid: "12345678-1234-1234-1234-1234567890ab",
+        moxi_works_company_id: "abc123")
+
+```
+
+```php
+<?php
+$platform_identifier = 'abc123'; // platorm_identifier provided by Moxi Works Platform Rep
+$platform_secret = 'secret'; //platform_secret provided by Moxi Works Platform Rep
+
+$credentials = new MoxiworksPlatform\Credentials($platform_identifier, $platform_secret);
+
+$moxi_works_agent = MoxiworksPlatform\Agent::find([
+        'agent_uuid' => '12345678-1234-1234-1234-1234567890ab',
+        'moxi_works_company_id' => 'abc123']);
+?>
+```
+
+
+> <span class="data-example-label"><span class='entity-name'>Agent</span> <span class='action-name'>Show</span> (using <span class='attribute-name'>moxi_works_agent_id</span>) Example</span>
 
 ```http
 GET /api/agents/[moxi_works_agent_id]&moxi_works_company_id=[moxi_works_company_id] HTTP/1.1
@@ -53,22 +103,31 @@ $moxi_works_agent = MoxiworksPlatform\Agent::find([
 ?>
 ```
 
+
 ##### <span class='entity-name'>Agent</span> <span class='action-name'>Show</span> Request Attributes
 
-<aside class="note">Send a <b>GET</b> request to https://api.moxiworks.com/api/agents/[moxi_works_agent_id]</aside>
+<aside class="note">Send a <b>GET</b> request to https://api.moxiworks.com/api/agents/[agent identifier]</aside>
 
 When finding an <span class='entity-name'>Agent</span> using the Moxi Works platform API, format your request using the following parameters.
 
 Attribute | Type | Length Limit |
 -----|-----|-----|-----|
-|<span class="required-data">moxi_works_agent_id</span>|<span class="required-data"><span class="data-type">String</span></span>| <span class="required-data">255</span>
+|<span class="multi-option-required-data">agent_uuid*</span>|<span class="multi-option-required-data"><span class="data-type">String</span></span>| <span class="multi-option-required-data">255</span>
+|<span class="multi-option-required-data">moxi_works_agent_id*</span>|<span class="multi-option-required-data"><span class="data-type">String</span></span>| <span class="multi-option-required-data">255</span>
 |<span class="required-data">moxi_works_company_id</span>|<span class="required-data"><span class="data-type">String</span></span>|<span class="required-data">255<span> |
+
+  <span class="multi-option-required-data">* **Either <span class='attribute-name'>moxi_works_agent_id</span> or <span class='attribute-name'>agent_uuid</span> must be supplied. For guidance on which Agent identifier better fits your use-case, see [Agent Identifiers](#agent-identifiers)**</span>
+
 
 <span class="required-data">**Required Parameters Are In Red**</span>
 
 
+<span class="request-data-head">agent_uuid</span>
+<span class="request-data-remarks">This is the Moxi Works Platform ID of the agent which an  <span class='entity-name'>ActionLog</span> entry is associated with. This will be an [RFC 4122](https://tools.ietf.org/html/rfc4122) compliant UUID. <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>Agent</span> request to be accepted.</span>
+
+
 <span class="request-data-head">moxi_works_agent_id</span>
-<span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span>. This will be a string that may take the form of an email address, or a unique identification string. This data is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>Agent</span> <span class='action-name'>Show</span>  request to be accepted.</span>
+<span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span>. This will be a string that may take the form of an email address, or a unique identification string. <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>Agent</span> request to be accepted.</span>
 
 
 <span class="request-data-head">moxi_works_company_id</span>

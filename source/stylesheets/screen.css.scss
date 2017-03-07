@@ -41,6 +41,16 @@ under the License.
   font-weight: bold;
 }
 
+.multi-option-required-data {
+  color: red;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.multi-option-response-data {
+  text-decoration: underline;
+}
+
 .response-data-head {
   margin-top: 25px;
   font-weight: bold;

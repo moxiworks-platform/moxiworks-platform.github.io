@@ -4,17 +4,67 @@
 
 <div class='highlight php'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-php/classes/MoxiworksPlatform.Group.html#method_find'>PHP Find Docs</a></span></blockquote></div>
 
-> <span class="data-example-label"><span class='entity-name'>Group</span> <span class='action-name'>Show</span> Example</span>
+> <span class="data-example-label"><span class='entity-name'>Group</span> <span class='action-name'>Show</span> (using <span class='attribute-name'>agent_uuid</span>) Example</span>
 
 ```json
 {
-  "moxi_works_group_name":"abc123",
+  "moxi_works_group_id":"abc123",
+  "agent_uuid":"12345678-1234-1234-1234-1234567890ab"
+}
+```
+
+```http
+GET /api/groups/[moxi_works_group_id]?agent_uuid=12345678-1234-1234-1234-1234567890ab HTTP/1.1
+Host: api.moxiworks.com
+Accept: application/vnd.moxi-platform+json;version=1
+Authorization: Basic XNNeXAAAUZaQlF0dA==
+Content-Type: application/x-www-form-urlencoded
+
+```
+
+
+```ruby
+##### set up prerequisites once
+require 'moxiworks_platform'
+
+platform_identifier = 'abc123'
+
+platform_secret = 'secret'
+
+MoxiworksPlatform::Credentials.new(platform_identifier, platform_secret)
+##### end prerequisites
+
+moxi_works_group = MoxiworksPlatform::Group.find(
+        agent_uuid: "12345678-1234-1234-1234-1234567890ab",
+        moxi_works_group_id: "foo")
+
+```
+
+```php
+<?php
+$platform_identifier = 'abc123'; // platorm_identifier provided by Moxi Works Platform Rep
+$platform_secret = 'secret'; //platform_secret provided by Moxi Works Platform Rep
+
+$credentials = new MoxiworksPlatform\Credentials($platform_identifier, $platform_secret);
+
+$moxi_works_group = MoxiworksPlatform\Group::find([
+        'agent_uuid' => '12345678-1234-1234-1234-1234567890ab',
+        'moxi_works_group_id' => 'foo']);
+?>
+```
+
+
+> <span class="data-example-label"><span class='entity-name'>Group</span> <span class='action-name'>Show</span> (using <span class='attribute-name'>moxi_works_agent_id</span>) Example</span>
+
+```json
+{
+  "moxi_works_group_id":"abc123",
   "moxi_works_agent_id":"abc1234"
 }
 ```
 
 ```http
-GET /api/groups/[moxi_works_group_name]?moxi_works_agent_id=abc123 HTTP/1.1
+GET /api/groups/[moxi_works_group_id]?moxi_works_agent_id=abc123 HTTP/1.1
 Host: api.moxiworks.com
 Accept: application/vnd.moxi-platform+json;version=1
 Authorization: Basic XNNeXAAAUZaQlF0dA==
@@ -36,7 +86,7 @@ MoxiworksPlatform::Credentials.new(platform_identifier, platform_secret)
 
 moxi_works_group = MoxiworksPlatform::Group.find(
         moxi_works_agent_id: "1234abcd",
-        moxi_works_group_name: "foo")
+        moxi_works_group_id: "foo")
 
 ```
 
@@ -49,31 +99,41 @@ $credentials = new MoxiworksPlatform\Credentials($platform_identifier, $platform
 
 $moxi_works_group = MoxiworksPlatform\Group::find([
         'moxi_works_agent_id' => '1234abcd',
-        'moxi_works_group_name' => 'foo']);
+        'moxi_works_group_id' => 'foo']);
 ?>
 ```
 
 
-<aside class="note">Send a <b>GET</b> request to https://api.moxiworks.com/api/groups/[moxi_works_group_name]</aside>
+<aside class="note">Send a <b>GET</b> request to https://api.moxiworks.com/api/groups/[moxi_works_group_id]</aside>
 
 ##### <span class='entity-name'>Group</span> <span class='action-name'>Show</span> Request Attributes
 
 
 Attribute | Type | Length Limit |
 -----|-----|-----|-----|
-|<span class="required-data">moxi_works_agent_id</span>|<span class="required-data"><span class="data-type">String</span></span>|<span class="required-data">255</span>
-|<span class="required-data">moxi_works_group_name</span>|<span class="required-data"><span class="data-type">String</span></span>|<span class="required-data">255</span>
+|<span class="multi-option-required-data">agent_uuid*</span>|<span class="multi-option-required-data"><span class="data-type">String</span></span>| <span class="multi-option-required-data">255</span>
+|<span class="multi-option-required-data">moxi_works_agent_id*</span>|<span class="multi-option-required-data"><span class="data-type">String</span></span>| <span class="multi-option-required-data">255</span>
+|<span class="required-data">moxi_works_group_id</span>|<span class="required-data"><span class="data-type">String</span></span>|<span class="required-data">255</span>
 |<span class="optional-data">page_number</span>|<span class="data-type">Integer</span>| 255 |
 
+
+
+
+<span class="multi-option-required-data">* **Either <span class='attribute-name'>moxi_works_agent_id</span> or <span class='attribute-name'>agent_uuid</span> must be supplied. For guidance on which Agent identifier better fits your use-case, see [Agent Identifiers](#agent-identifiers)**</span>
 
 
 <span class="required-data">**Required Parameters Are In Red**</span>
 
 
+<span class="request-data-head">agent_uuid</span>
+<span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which an  <span class='entity-name'>Group</span> entry is associated with. This will be an [RFC 4122](https://tools.ietf.org/html/rfc4122) compliant UUID. <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>Group</span> <span class='action-name'>Show</span> request to be accepted.</span>
+
+
+
 <span class="request-data-head">moxi_works_agent_id</span>
 <span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which you are searching for associated <span class='entity-name'>Group</span> objects. This will be a string that may take the form of an email address, or a unique identification string. This data is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>Group</span> <span class='action-name'>Index</span>  request to be accepted.</span>
 
-<span class="request-data-head">moxi_works_group_name</span>
+<span class="request-data-head">moxi_works_group_id</span>
 <span class="request-data-remarks">This is the name of a <span class='entity-name'>Group</span> to be shown</span>
 
 <aside class="note">The name of the group in the Moxi Works Platform must be an exact match for the name you send in your request.</aside>
@@ -85,7 +145,49 @@ Attribute | Type | Length Limit |
 
 
 <blockquote><div class='highlight json' style="display: block">
-<span class='data-example-label'><span class='entity-name'>Group</span> <span class='action-name'>Show</span> Response Payload Example
+<span class='data-example-label'><span class='entity-name'>Group</span> <span class='action-name'>Show</span> (using <span class='attribute-name'>agent_uuid</span>) Response Payload Example
+</span></div></blockquote>
+
+
+```json
+{
+    "agent_uuid":"12345678-1234-1234-1234-1234567890ab",
+    "moxi_works_group_name":"foo",
+    "moxi_works_group_id": "{4B86F74F-B8B9-4E84-AFA8-1B2BBEEF41D6}",
+    "usage_count": 1,
+    "transient": true,
+    "page_number":1,
+    "total_pages":1,
+    "contacts":[
+      {
+      "moxi_works_contact_id":"74284ec4-51aa-39b5-a47c-bd4a11f8ee9a",
+      "contact_name":"Firstname Middlenyme Larstnam",
+      "first_name":"Firstname",
+      "middle_name":"Middlenyme",
+      "last_name":"Larstnam",
+      "suffix":null,
+      "gender":"M",
+      "primary_email_address":"me@justabout.right.here",
+      "secondary_email_address":"me.too@justabout.right.here",
+      "primary_phone_number":"9995551212",
+      "secondary_phone_number":"(333) 555-1185",
+      "home_street_address":"1234 Sesame St.",
+      "home_city":"Cityville",
+      "home_state":"Stateland",
+      "home_zip":"12345-6789",
+      "home_country":"Ottoman Empire",
+      "job_title":"Junior Bacon Burner",
+      "note": "notable stuff about Mr. Larstnam",
+      "occupation":"chef"
+    }
+  ]
+}
+```
+
+
+
+<blockquote><div class='highlight json' style="display: block">
+<span class='data-example-label'><span class='entity-name'>Group</span> <span class='action-name'>Show</span> (using <span class='attribute-name'>moxi_works_agent_id</span>) Response Payload Example
 </span></div></blockquote>
 
 
@@ -93,11 +195,19 @@ Attribute | Type | Length Limit |
 {
     "moxi_works_agent_id":"1234abcd",
     "moxi_works_group_name":"foo",
+    "moxi_works_group_id": "{4B86F74F-B8B9-4E84-AFA8-1B2BBEEF41D6}",
+    "usage_count": 1,
+    "transient": true,
     "page_number":1,
     "total_pages":1,
     "contacts":[
       {
+      "moxi_works_contact_id":"74284ec4-51aa-39b5-a47c-bd4a11f8ee9a",
       "contact_name":"Firstname Middlenyme Larstnam",
+      "first_name":"Firstname",
+      "middle_name":"Middlenyme",
+      "last_name":"Larstnam",
+      "suffix":null,
       "gender":"M",
       "primary_email_address":"me@justabout.right.here",
       "secondary_email_address":"me.too@justabout.right.here",
@@ -141,11 +251,44 @@ The following attributes make up the payload of the <span class='entity-name'>Gr
 
 Attribute | Type |
 -----|-----|-----|-----|
-|<span class="response-data">moxi_works_agent_id</span>|<span class="response-data"><span class="data-type">String</span></span>|
+|<span class="multi-option-response-data">agent_uuid*</span>|<span class="data-type">String</span>| |
+|<span class="multi-option-response-data">moxi_works_agent_id*</span>|<span class="data-type">String</span>| |
 |<span class="response-data">moxi_works_group_name</span>|<span class="response-data"><span class="data-type">String</span></span>|
+|<span class="response-data">moxi_works_group_id</span>|<span class="response-data"><span class="data-type">String</span></span>|
 |<span class="response-data">page_number</span>|<span class="response-data"><span class="data-type">Integer</span></span>|
 |<span class="response-data">total_pages</span>|<span class="response-data"><span class="data-type">Integer</span></span>|
 |<span class="response-data">contacts</span>|<span class="response-data"><span class="data-type">Array</span></span>|
+
+
+<span class='multi-option-response-data'>* Either <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> will be returned depending on whether it is used in the request. The response payload object's agent identifier key will match the passed parameter.</span>
+
+<span class="response-data-head">agent_uuid</span>
+<span class="response-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>Group</span>  is associated with. This will be an [RFC 4122](https://tools.ietf.org/html/rfc4122) compliant UUID.</span>
+
+
+<span class="response-data-head">moxi_works_agent_id</span>
+<span class="response-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>Group</span> is associated with. This will be a string that may take the form of an email address, or a unique alphanumeric identification string.</span>
+
+
+<span class="response-data-head">moxi_works_group_name</span>
+<span class="response-data-remarks">This is a human readable string meaningful to the agent about what kind of <span class='entity-name'>Contact</span> objects are in this <span class='entity-name'>Group</span>.</span>
+
+
+<span class="response-data-head">moxi_works_group_id</span>
+<span class="response-data-remarks">This is the unique identifier for this <span class='entity-name'>Group</span>.</span>
+
+
+
+<span class="response-data-head">page_number</span>
+<span class="response-data-remarks">The page number of this response set.</span>
+
+<span class="response-data-head">total_pages</span>
+<span class="response-data-remarks">The total number of pages in this response set.</span>
+
+<span class="response-data-head">contacts</span>
+<span class="response-data-remarks">The <span class='entity-name'>Contact</span> objects in this page.</span>
+
+
 
 ###### <span class='attribute-name'>contacts</span> Response Attributes
 
@@ -153,8 +296,13 @@ Each contact represented in the <span class='attribute-name'>events</span> array
 
 Attribute | Type |
 -----|-----|-----|-----|
+|<span class="response-data">moxi_works_contact_id</span>|<span class="response-data"><span class="data-type">String</span></span>|
 |<span class="response-data">contact_name</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">gender</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">first_name</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">middle_name</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">last_name</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">suffix</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">primary_email_address</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">secondary_email_address</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">primary_phone_number</span>|<span class="data-type">String or null</span>|
@@ -169,8 +317,22 @@ Attribute | Type |
 |<span class="response-data">occupation</span>|<span class="data-type">String or null</span>|
 
 
+<span class="response-data-head">moxi_works_contact_id</span>
+<span class="response-data-remarks">This is the Moxi Works Platform ID of this <span class='entity-name'>Contact</span>. This will be an [RFC 4122](https://tools.ietf.org/html/rfc4122) compliant UUID.</span>
+
 <span class="response-data-head">contact_name</span>
-<span class="response-data-remarks">This is the full name of the contact you are finding a <span class='entity-name'>Contact</span> record for. You should format this information as <i>first middle last</i>. This value will be null if no data is available for this attribute. </span>
+<span class="response-data-remarks">This is the full name of the contact associated with this <span class='entity-name'>Contact</span> record. You should format this information as <i>first middle last</i>. This value will be null if no data is available for this attribute. </span>
+
+
+<span class="response-data-head">first_name</span>
+<span class="response-data-remarks">This is the first name of the contact associated with this <span class='entity-name'>Contact</span> record. This value will be null if no data is available for this attribute. </span>
+
+<span class="response-data-head">middle_name</span>
+<span class="response-data-remarks">This is the middle name of the contact associated with this <span class='entity-name'>Contact</span> record. This value will be null if no data is available for this attribute. </span>
+
+
+<span class="response-data-head">last_name</span>
+<span class="response-data-remarks">This is the last name of the contact associated with this <span class='entity-name'>Contact</span> record. This value will be null if no data is available for this attribute. </span>
 
 <span class="response-data-head">gender</span>
 <span class="response-data-remarks">The gender of the contact. This can be `male`, `female`, `m` or `f`. No matter what is provided in the request, the response payload will return `m` or `f`.  This value will be null if no data is available for this attribute. </span>

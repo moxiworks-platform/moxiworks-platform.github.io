@@ -4,7 +4,62 @@
 
 <div class='highlight php'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-php/classes/MoxiworksPlatform.Task.html#method_find'>PHP Find Docs</a></span></blockquote></div>
 
-> <span class="data-example-label"><span class='entity-name'>Task</span> <span class='action-name'>Show</span> Example</span>
+> <span class="data-example-label"><span class='entity-name'>Task</span> <span class='action-name'>Show</span> (using <span class='attribute-name'>agent_uuid</span>) Example</span>
+
+```json
+
+{
+  "partner_task_id":"mySystemsTaskID",
+  "partner_contact_id": "abc123",
+  "agent_uuid":"12345678-1234-1234-1234-1234567890ab"
+}
+
+```
+
+```http
+GET /api/tasks/my_task_id?agent_uuid=12345678-1234-1234-1234-1234567890ab HTTP/1.1
+Host: api.moxiworks.com
+Accept: application/vnd.moxi-platform+json;version=1
+Authorization: Basic XNNeXAAAUZaQlF0dA==
+Content-Type: application/x-www-form-urlencoded
+
+```
+
+
+```ruby
+##### set up prerequisites once
+require 'moxiworks_platform'
+
+platform_identifier = 'abc123'
+
+platform_secret = 'secret'
+
+MoxiworksPlatform::Credentials.new(platform_identifier, platform_secret)
+##### end prerequisites
+
+moxi_works_task = MoxiworksPlatform::Task.find(
+        agent_uuid: "12345678-1234-1234-1234-1234567890ab",
+        partner_contact_id: "abc123",
+        partner_task_id: "booyuh")
+
+```
+
+```php
+<?php
+$platform_identifier = 'abc123'; // platorm_identifier provided by Moxi Works Platform Rep
+$platform_secret = 'secret'; //platform_secret provided by Moxi Works Platform Rep
+
+$credentials = new MoxiworksPlatform\Credentials($platform_identifier, $platform_secret);
+
+$moxi_works_task = MoxiworksPlatform\Task::find([
+        'agent_uuid' => '12345678-1234-1234-1234-1234567890ab',
+        'partner_contact_id' => 'abc123',
+        'partner_task_id' => 'booyuh']);
+?>
+```
+
+
+> <span class="data-example-label"><span class='entity-name'>Task</span> <span class='action-name'>Show</span> (using <span class='attribute-name'>moxi_works_agent_id</span>) Example</span>
 
 ```json
 
@@ -59,6 +114,7 @@ $moxi_works_task = MoxiworksPlatform\Task::find([
 ```
 
 
+
 <aside class="note">Send a <b>GET</b> request to https://api.moxiworks.com/api/tasks/[partner_task_id]</aside>
 
 When finding a <span class='entity-name'>Task</span> object using the Moxi Works platform API, format your data using the following parameters.
@@ -68,11 +124,22 @@ When finding a <span class='entity-name'>Task</span> object using the Moxi Works
 
 Attribute | Type | Length Limit |
 -----|-----|-----|-----|
-|<span class="required-data">moxi_works_agent_id</span>|<span class="required-data"><span class="data-type">String</span></span>|<span class="required-data">255</span>
+|<span class="multi-option-required-data">agent_uuid*</span>|<span class="multi-option-required-data"><span class="data-type">String</span></span>| <span class="multi-option-required-data">255</span>
+|<span class="multi-option-required-data">moxi_works_agent_id*</span>|<span class="multi-option-required-data"><span class="data-type">String</span></span>| <span class="multi-option-required-data">255</span>
 |<span class="required-data">partner_task_id</span>|<span class="required-data"><span class="data-type">String</span></span>| <span class="required-data">255</span>
 |<span class="required-data">partner_contact_id</span>|<span class="required-data"><span class="data-type">String</span></span>| <span class="required-data">255</span>
 
+
+
+<span class="multi-option-required-data">* **Either <span class='attribute-name'>moxi_works_agent_id</span> or <span class='attribute-name'>agent_uuid</span> must be supplied. For guidance on which Agent identifier better fits your use-case, see [Agent Identifiers](#agent-identifiers)**</span>
+
+
 <span class="required-data">**Required Parameters Are In Red**</span>
+
+
+<span class="request-data-head">agent_uuid</span>
+<span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which a  <span class='entity-name'>Task</span> entry is associated with. This will be an [RFC 4122](https://tools.ietf.org/html/rfc4122) compliant UUID. <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>Task</span> <span class='action-name'>Show</span> request to be accepted.</span>
+
 
 
 
@@ -89,7 +156,27 @@ Attribute | Type | Length Limit |
 
 
 <blockquote><div class='highlight json' style="display: block">
-<span class='data-example-label'><span class='entity-name'>Task</span> <span class='action-name'>Show</span> Response Payload Example
+<span class='data-example-label'><span class='entity-name'>Task</span> <span class='action-name'>Show</span> (using span class='attribute-name'>agent_uuid</span>) Response Payload Example
+</span></div></blockquote>
+
+```json
+{
+  "agent_uuid": "12345678-1234-1234-1234-1234567890ab",
+  "partner_contact_id": "abc123",
+  "partner_task_id": "booyuh",
+  "name": "pick up keys for home",
+  "description": "pick up keys for 1234 Wherever Ave. from 1181 Brokerage Place",
+  "due_at": 1462241468,
+  "duration": 30,
+  "status": "active",
+  "created_at": 1462234227,
+  "completed_at": null
+}
+```
+
+
+<blockquote><div class='highlight json' style="display: block">
+<span class='data-example-label'><span class='entity-name'>Task</span> <span class='action-name'>Show</span> (using span class='attribute-name'>moxi_works_agent_id</span>) Response Payload Example
 </span></div></blockquote>
 
 ```json
@@ -126,7 +213,8 @@ The following attributes make up the payload of the <span class='entity-name'>Ta
 
 Attribute | Type |
 -----|-----|-----|-----|
-|<span class="response-data">moxi_works_agent_id</span>|<span class="response-data"><span class="data-type">String</span></span>|
+|<span class="multi-option-response-data">agent_uuid*</span>|<span class="data-type">String</span>| |
+|<span class="multi-option-response-data">moxi_works_agent_id*</span>|<span class="data-type">String</span>| |
 |<span class="response-data">partner_contact_id</span>|<span class="response-data"><span class="data-type">String</span>
 |<span class="response-data">partner_task_id</span>|<span class="response-data"><span class="data-type">String</span>
 |<span class="response-data">name</span>|<span class="data-type">String or null</span>|
@@ -136,6 +224,13 @@ Attribute | Type |
 |<span class="response-data">status</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">created_at</span>|<span class="data-type">Integer</span>|
 |<span class="response-data">completed_at</span>|<span class="data-type">Integer or null</span>|
+
+
+<span class='multi-option-response-data'>* Either <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> will be returned depending on whether it is used in the request. The response payload object's agent identifier key will match the passed parameter.</span>
+
+<span class="response-data-head">agent_uuid</span>
+<span class="response-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>Task</span>  is associated with. This will be an [RFC 4122](https://tools.ietf.org/html/rfc4122) compliant UUID.</span>
+
 
 <span class="response-data-head">moxi_works_agent_id</span>
 <span class="response-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span>. This will be a string that may take the form of an email address, or a unique alphanumeric identification string.</span>

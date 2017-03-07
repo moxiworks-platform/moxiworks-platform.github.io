@@ -43,7 +43,56 @@
 <p>When searching for EmailCampaign entities using the Moxi Works platform API, format your data using the following parameters.</p>
 
 <blockquote>
-<p><span class="data-example-label"><span class='entity-name'>EmailCampaign </span><span class='action-name'>Index </span>Request Example</span></p>
+<p><span class="data-example-label"><span class='entity-name'>EmailCampaign </span><span class='action-name'>Index</span> (using <span class='attribute-name'>agent_uuid</span>) Request Example</span></p>
+</blockquote>
+
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"agent_uuid"</span><span class="p">:</span><span class="s2">"12345678-1234-1234-1234-1234567890ab"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"partner_contact_id"</span><span class="p">:</span><span class="s2">"mySystemsContactId"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/email_campaigns?moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">api.moxiworks.com</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.moxi-platform+json;version=1</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Basic XNNeXAAAUZaQlF0dA==</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/x-www-form-urlencoded</span>
+
+</code></pre>
+
+<pre class="highlight ruby"><code><span class="c1">##### set up prerequisites once</span>
+<span class="nb">require</span> <span class="s1">'moxiworks_platform'</span>
+
+<span class="n">platform_identifier</span> <span class="o">=</span> <span class="s1">'abc123'</span>
+
+<span class="n">platform_secret</span> <span class="o">=</span> <span class="s1">'secret'</span>
+
+<span class="no">MoxiworksPlatform</span><span class="o">::</span><span class="no">Credentials</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">platform_identifier</span><span class="p">,</span> <span class="n">platform_secret</span><span class="p">)</span>
+<span class="c1">##### end prerequisitesa</span>
+
+<span class="n">moxi_works_email_campaigns</span> <span class="o">=</span> <span class="no">MoxiworksPlatform</span><span class="o">::</span><span class="no">EmailCampaign</span><span class="p">.</span><span class="nf">search</span><span class="p">(</span>
+        <span class="ss">agent_uuid: </span><span class="s2">"12345678-1234-1234-1234-1234567890ab"</span><span class="p">,</span>
+        <span class="ss">partner_contact_id: </span><span class="s2">"mySystemsContactId"</span><span class="p">)</span>
+
+
+</code></pre>
+
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+<span class="nv">$platform_identifier</span> <span class="o">=</span> <span class="s1">'abc123'</span><span class="p">;</span> <span class="c1">// platorm_identifier provided by Moxi Works Platform Rep
+</span><span class="nv">$platform_secret</span> <span class="o">=</span> <span class="s1">'secret'</span><span class="p">;</span> <span class="c1">//platform_secret provided by Moxi Works Platform Rep
+</span>
+<span class="nv">$credentials</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MoxiworksPlatform\Credentials</span><span class="p">(</span><span class="nv">$platform_identifier</span><span class="p">,</span> <span class="nv">$platform_secret</span><span class="p">);</span>
+
+<span class="nv">$moxi_works_email_campaigns</span> <span class="o">=</span> <span class="nx">MoxiworksPlatform\EmailCampaign</span><span class="o">::</span><span class="na">search</span><span class="p">([</span>
+        <span class="s1">'agent_uuid'</span> <span class="o">=&gt;</span> <span class="s1">'12345678-1234-1234-1234-1234567890ab'</span><span class="p">,</span>
+        <span class="s1">'partner_contact_id'</span> <span class="o">=&gt;</span> <span class="s1">'mySystemsContactId'</span><span class="p">]);</span>
+
+<span class="cp">?&gt;</span>
+</code></pre>
+
+<blockquote>
+<p><span class="data-example-label"><span class='entity-name'>EmailCampaign </span><span class='action-name'>Index</span> (using <span class='attribute-name'>moxi_works_agent_id</span>) Request Example</span></p>
 </blockquote>
 
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
@@ -101,9 +150,14 @@
 </tr>
 </thead><tbody>
 <tr>
-<td><span class="required-data">moxi_works_agent_id</span></td>
-<td><span class="required-data"><span class="data-type">String</span></span></td>
-<td><span class="required-data">255</span></td>
+<td><span class="multi-option-required-data">agent_uuid*</span></td>
+<td><span class="multi-option-required-data"><span class="data-type">String</span></span></td>
+<td><span class="multi-option-required-data">255</span></td>
+</tr>
+<tr>
+<td><span class="multi-option-required-data">moxi_works_agent_id*</span></td>
+<td><span class="multi-option-required-data"><span class="data-type">String</span></span></td>
+<td><span class="multi-option-required-data">255</span></td>
 </tr>
 <tr>
 <td><span class="required-data">partner_contact_id</span></td>
@@ -112,7 +166,12 @@
 </tr>
 </tbody></table>
 
+<p><span class="multi-option-required-data">* <strong>Either <span class='attribute-name'>moxi_works_agent_id</span> or <span class='attribute-name'>agent_uuid</span> must be supplied. For guidance on which Agent identifier better fits your use-case, see <a href="#agent-identifiers">Agent Identifiers</a></strong></span></p>
+
 <p><span class="required-data"><strong>Required Parameters Are In Red</strong></span></p>
+
+<p><span class="request-data-head">agent_uuid</span>
+<span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which an  <span class='entity-name'>EmailCampaign</span> entry is associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID. <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>EmailCampaign</span> <span class='action-name'>Index</span> request to be accepted.</span></p>
 
 <p><span class="request-data-head">moxi_works_agent_id</span>
 <span class="request-data-remarks">This is the Moxi Works Platform ID of the agent which an <span class='entity-name'>EmailCampaign</span> entry is associated with. This will be a string that may take the form of an email address, or a unique identification string. This data is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>EmailCampaign</span> request to be accepted.</span></p>
@@ -125,27 +184,67 @@
 <p>The following attributes make up the payload of the <span class='entity-name'>EmailCampaign</span> response for a <span class='action-name'>Index</span> request.</p>
 
 <blockquote><div class='highlight json' style="display: block">
-  <span class='data-example-label'><span class='entity-name'>EmailCampaign</span> <span class='action-name'>Index</span> Response Payload Example
+  <span class='data-example-label'><span class='entity-name'>EmailCampaign</span> <span class='action-name'>Index</span> (using <span class='attribute-name'>agent_uuid</span>) Response Payload Example
 </div></blockquote>
 
 <pre class="highlight json"><code><span class="p">[</span><span class="w">
 </span><span class="p">{</span><span class="w">
+  </span><span class="nt">"agent_uuid"</span><span class="p">:</span><span class="s2">"12345678-1234-1234-1234-1234567890ab"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"subscription_type"</span><span class="p">:</span><span class="s2">"EmailSubscriptionType"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"email_address"</span><span class="p">:</span><span class="s2">"subscriber@here.com"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"subscribed_at"</span><span class="p">:</span><span class="mi">1467409224</span><span class="p">,</span><span class="w">
   </span><span class="nt">"created_by"</span><span class="p">:</span><span class="s2">"agent"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"area"</span><span class="p">:</span><span class="s2">"98225"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"last_sent"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"next_scheduled"</span><span class="p">:</span><span class="mi">0</span><span class="w">
+  </span><span class="nt">"next_scheduled"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"partner_contact_id"</span><span class="p">:</span><span class="s2">"my_contact_id"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"moxi_works_contact_id"</span><span class="p">:</span><span class="s2">"babebead-feed-face-dead-beefbad4babe"</span><span class="w">
 </span><span class="p">},</span><span class="w">
 </span><span class="p">{</span><span class="w">
+  </span><span class="nt">"agent_uuid"</span><span class="p">:</span><span class="s2">"12345678-1234-1234-1234-1234567890ab"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"subscription_type"</span><span class="p">:</span><span class="s2">"OtherEmailSubscriptionType"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"email_address"</span><span class="p">:</span><span class="s2">"subscriber@there.com"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"subscribed_at"</span><span class="p">:</span><span class="mi">1467409442</span><span class="p">,</span><span class="w">
   </span><span class="nt">"created_by"</span><span class="p">:</span><span class="s2">"agent"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"area"</span><span class="p">:</span><span class="s2">"12344"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"last_sent"</span><span class="p">:</span><span class="mi">1468878269</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"next_scheduled"</span><span class="p">:</span><span class="mi">1471470286</span><span class="w">
+  </span><span class="nt">"next_scheduled"</span><span class="p">:</span><span class="mi">1471470286</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"partner_contact_id"</span><span class="p">:</span><span class="s2">"my_contact_id"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"moxi_works_contact_id"</span><span class="p">:</span><span class="s2">"babebead-feed-face-dead-beefbad4babe"</span><span class="w">
+
+</span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+
+</span></code></pre>
+
+<blockquote><div class='highlight json' style="display: block">
+  <span class='data-example-label'><span class='entity-name'>EmailCampaign</span> <span class='action-name'>Index</span> (using <span class='attribute-name'>moxi_works_agent_id</span>) Response Payload Example
+</div></blockquote>
+
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="nt">"moxi_works_agent_id"</span><span class="p">:</span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"subscription_type"</span><span class="p">:</span><span class="s2">"EmailSubscriptionType"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"email_address"</span><span class="p">:</span><span class="s2">"subscriber@here.com"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"subscribed_at"</span><span class="p">:</span><span class="mi">1467409224</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"created_by"</span><span class="p">:</span><span class="s2">"agent"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"area"</span><span class="p">:</span><span class="s2">"98225"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"last_sent"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"next_scheduled"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"partner_contact_id"</span><span class="p">:</span><span class="s2">"my_contact_id"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"moxi_works_contact_id"</span><span class="p">:</span><span class="s2">"babebead-feed-face-dead-beefbad4babe"</span><span class="w">
+</span><span class="p">},</span><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="nt">"moxi_works_agent_id"</span><span class="p">:</span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"subscription_type"</span><span class="p">:</span><span class="s2">"OtherEmailSubscriptionType"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"email_address"</span><span class="p">:</span><span class="s2">"subscriber@there.com"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"subscribed_at"</span><span class="p">:</span><span class="mi">1467409442</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"created_by"</span><span class="p">:</span><span class="s2">"agent"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"area"</span><span class="p">:</span><span class="s2">"12344"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"last_sent"</span><span class="p">:</span><span class="mi">1468878269</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"next_scheduled"</span><span class="p">:</span><span class="mi">1471470286</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"partner_contact_id"</span><span class="p">:</span><span class="s2">"my_contact_id"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"moxi_works_contact_id"</span><span class="p">:</span><span class="s2">"babebead-feed-face-dead-beefbad4babe"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 
@@ -170,6 +269,14 @@
 <th>Type</th>
 </tr>
 </thead><tbody>
+<tr>
+<td><span class="multi-option-response-data">agent_uuid*</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="multi-option-response-data">moxi_works_agent_id*</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
 <tr>
 <td><span class="response-data">subscription_type</span></td>
 <td><span class="data-type">String</span></td>
@@ -199,6 +306,14 @@
 <td><span class="data-type">Integer</span></td>
 </tr>
 </tbody></table>
+
+<p><span class='multi-option-response-data'>* Either <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> will be returned depending on whether it is used in the request. The response payload object&rsquo;s agent identifier key will match the passed parameter.</span></p>
+
+<p><span class="response-data-head">agent_uuid</span>
+<span class="response-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>EmailCampaign</span>  is associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID.</span></p>
+
+<p><span class="response-data-head">moxi_works_agent_id</span>
+<span class="response-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>BuyerTransaction</span> is associated with. This will be a string that may take the form of an email address, or a unique alphanumeric identification string.</span></p>
 
 <p><span class="request-data-head">subscription_type</span>
 <span class="request-data-remarks">A string representing the type of <span class='entity-name'>EmailSubscription</span> is associated with the <span class='entity-name'>Contact</span> for the  supplied <span class='attribute-name'>partner_contact_id</span>. This is a unique, internally defined string per <span class='entity-name'>EmailSubscription</span> type.  Documentation of available <span class='attribute-name'>subscription_type</span> responses is outside the scope of this documentation. If you need help determining available types, contact your Moxi Works Platform representative.</span></p>

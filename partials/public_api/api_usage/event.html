@@ -39,7 +39,81 @@
 <div class='highlight php'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-php/classes/MoxiworksPlatform.Event.html#method_create'>PHP Create Docs</a></span></blockquote></div>
 
 <blockquote>
-<p><span class="data-example-label"><span class='entity-name'>Event</span> <span class='action-name'>Create</span> Example</span></p>
+<p><span class="data-example-label"><span class='entity-name'>Event</span> <span class='action-name'>Create</span> (using <span class='attribute-name'>agent_uuid</span>) Example</span></p>
+</blockquote>
+
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"agent_uuid"</span><span class="p">:</span><span class="s2">"12345678-1234-1234-1234-1234567890ab"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"partner_event_id"</span><span class="p">:</span><span class="s2">"8675309e9"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"event_subject"</span><span class="p">:</span><span class="s2">"meeting at Joe Seller's house"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"event_location"</span><span class="p">:</span><span class="s2">"1234 Joe Seller Way Sellerville, WY 82372"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"all_day"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"event_start"</span><span class="p">:</span><span class="mi">1462234227</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"event_end"</span><span class="p">:</span><span class="mi">1462241468</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"attendees"</span><span class="p">:</span><span class="s2">"contactIDForContactIAlreadyCreated,otherContactIDForContactIAlreadyCreated"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"note"</span><span class="p">:</span><span class="s2">"noteworthy stuff that's shown to the agent"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+
+<pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">/api/events</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">api.moxiworks.com</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.moxi-platform+json;version=1</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Basic XNNeXAAAUZaQlF0dA==</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/x-www-form-urlencoded</span>
+
+
+agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;partner_event_id=abc98df345&amp;event_subject=subject&amp;event_location=a%20location&amp;all_day=false&amp;event_start=1462234227&amp;event_end=1462241468&amp;attendees=&amp;note=here%20is%20the%20note
+
+</code></pre>
+
+<pre class="highlight ruby"><code><span class="c1">##### set up prerequisites once</span>
+<span class="nb">require</span> <span class="s1">'moxiworks_platform'</span>
+
+<span class="n">platform_identifier</span> <span class="o">=</span> <span class="s1">'abc123'</span>
+
+<span class="n">platform_secret</span> <span class="o">=</span> <span class="s1">'secret'</span>
+
+<span class="no">MoxiworksPlatform</span><span class="o">::</span><span class="no">Credentials</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">platform_identifier</span><span class="p">,</span> <span class="n">platform_secret</span><span class="p">)</span>
+<span class="c1">##### end prerequisites</span>
+
+<span class="n">moxi_works_event</span> <span class="o">=</span> <span class="no">MoxiworksPlatform</span><span class="o">::</span><span class="no">Event</span><span class="p">.</span><span class="nf">create</span><span class="p">(</span>
+        <span class="ss">agent_uuid: </span><span class="s2">"12345678-1234-1234-1234-1234567890ab"</span><span class="p">,</span>
+        <span class="ss">partner_event_id: </span><span class="s2">"booyuh"</span><span class="p">,</span>
+        <span class="ss">event_subject: </span><span class="s2">"the subject"</span><span class="p">,</span>
+        <span class="ss">event_location: </span><span class="s2">"the location"</span><span class="p">,</span>
+        <span class="ss">all_day: </span><span class="kp">false</span><span class="p">,</span>
+        <span class="ss">event_start: </span><span class="mi">1462234227</span><span class="p">,</span>
+        <span class="ss">event_end: </span><span class="mi">1462241468</span><span class="p">,</span>
+        <span class="ss">required_attendees: </span><span class="p">[</span><span class="n">contact1ID</span><span class="p">,</span> <span class="n">contact2ID</span><span class="p">],</span>
+        <span class="ss">optional_attendees: </span><span class="p">[</span><span class="n">contact3ID</span><span class="p">],</span>
+        <span class="ss">note: </span><span class="s1">'notable stuff'</span>
+        <span class="p">)</span>
+
+</code></pre>
+
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+<span class="nv">$platform_identifier</span> <span class="o">=</span> <span class="s1">'abc123'</span><span class="p">;</span> <span class="c1">// platorm_identifier provided by Moxi Works Platform Rep
+</span><span class="nv">$platform_secret</span> <span class="o">=</span> <span class="s1">'secret'</span><span class="p">;</span> <span class="c1">//platform_secret provided by Moxi Works Platform Rep
+</span>
+<span class="nv">$credentials</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MoxiworksPlatform\Credentials</span><span class="p">(</span><span class="nv">$platform_identifier</span><span class="p">,</span> <span class="nv">$platform_secret</span><span class="p">);</span>
+
+<span class="nv">$moxi_works_event</span> <span class="o">=</span> <span class="nx">MoxiworksPlatform\Event</span><span class="o">::</span><span class="na">create</span><span class="p">([</span>
+        <span class="s1">'agent_uuid'</span>  <span class="o">=&gt;</span> <span class="s1">'12345678-1234-1234-1234-1234567890ab'</span><span class="p">,</span>
+        <span class="s1">'partner_event_id'</span>  <span class="o">=&gt;</span> <span class="s1">'booyuh'</span><span class="p">,</span>
+        <span class="s1">'event_subject'</span>  <span class="o">=&gt;</span> <span class="s1">'the subject'</span><span class="p">,</span>
+        <span class="s1">'event_location'</span>  <span class="o">=&gt;</span> <span class="s1">'the location'</span><span class="p">,</span>
+        <span class="s1">'all_day'</span>  <span class="o">=&gt;</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="s1">'event_start'</span>  <span class="o">=&gt;</span> <span class="mi">1462234227</span><span class="p">,</span>
+        <span class="s1">'event_end'</span>  <span class="o">=&gt;</span> <span class="mi">1462241468</span><span class="p">,</span>
+        <span class="s1">'required_attendees'</span>  <span class="o">=&gt;</span> <span class="kc">null</span><span class="p">,</span>
+        <span class="s1">'optional_attendees'</span> <span class="o">=&gt;</span> <span class="kc">null</span><span class="p">,</span>
+        <span class="s1">'note'</span>  <span class="o">=&gt;</span> <span class="s1">'notable stuff'</span><span class="p">]);</span>
+<span class="cp">?&gt;</span>
+</code></pre>
+
+<blockquote>
+<p><span class="data-example-label"><span class='entity-name'>Event</span> <span class='action-name'>Create</span> (using <span class='attribute-name'>moxi_works_agent_id</span>) Example</span></p>
 </blockquote>
 
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
@@ -47,7 +121,6 @@
   </span><span class="nt">"partner_event_id"</span><span class="p">:</span><span class="s2">"8675309e9"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"event_subject"</span><span class="p">:</span><span class="s2">"meeting at Joe Seller's house"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"event_location"</span><span class="p">:</span><span class="s2">"1234 Joe Seller Way Sellerville, WY 82372"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"is_meeting"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
   </span><span class="nt">"all_day"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="nt">"event_start"</span><span class="p">:</span><span class="mi">1462234227</span><span class="p">,</span><span class="w">
   </span><span class="nt">"event_end"</span><span class="p">:</span><span class="mi">1462241468</span><span class="p">,</span><span class="w">
@@ -66,7 +139,7 @@
 
 moxi_works_agent_id=abc123&amp;partner_event_id=abc98df345&amp;event_subject=subject&amp;
 event_location=a%20location&amp;
-is_meeting=true&amp;all_day=false&amp;event_start=1462234227&amp;event_end=1462241468&amp;
+all_day=false&amp;event_start=1462234227&amp;event_end=1462241468&amp;
 attendees=&amp;note=here%20is%20the%20note
 
 </code></pre>
@@ -86,7 +159,6 @@ attendees=&amp;note=here%20is%20the%20note
         <span class="ss">partner_event_id: </span><span class="s2">"booyuh"</span><span class="p">,</span>
         <span class="ss">event_subject: </span><span class="s2">"the subject"</span><span class="p">,</span>
         <span class="ss">event_location: </span><span class="s2">"the location"</span><span class="p">,</span>
-        <span class="ss">is_meeting: </span><span class="kp">true</span><span class="p">,</span>
         <span class="ss">all_day: </span><span class="kp">false</span><span class="p">,</span>
         <span class="ss">event_start: </span><span class="mi">1462234227</span><span class="p">,</span>
         <span class="ss">event_end: </span><span class="mi">1462241468</span><span class="p">,</span>
@@ -108,7 +180,6 @@ attendees=&amp;note=here%20is%20the%20note
         <span class="s1">'partner_event_id'</span>  <span class="o">=&gt;</span> <span class="s1">'booyuh'</span><span class="p">,</span>
         <span class="s1">'event_subject'</span>  <span class="o">=&gt;</span> <span class="s1">'the subject'</span><span class="p">,</span>
         <span class="s1">'event_location'</span>  <span class="o">=&gt;</span> <span class="s1">'the location'</span><span class="p">,</span>
-        <span class="s1">'is_meeting'</span>  <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
         <span class="s1">'all_day'</span>  <span class="o">=&gt;</span> <span class="kc">false</span><span class="p">,</span>
         <span class="s1">'event_start'</span>  <span class="o">=&gt;</span> <span class="mi">1462234227</span><span class="p">,</span>
         <span class="s1">'event_end'</span>  <span class="o">=&gt;</span> <span class="mi">1462241468</span><span class="p">,</span>
@@ -132,9 +203,14 @@ attendees=&amp;note=here%20is%20the%20note
 </tr>
 </thead><tbody>
 <tr>
-<td><span class="required-data">moxi_works_agent_id</span></td>
-<td><span class="required-data"><span class="data-type">String</span></span></td>
-<td><span class="required-data">255</span></td>
+<td><span class="multi-option-required-data">agent_uuid*</span></td>
+<td><span class="multi-option-required-data"><span class="data-type">String</span></span></td>
+<td><span class="multi-option-required-data">255</span></td>
+</tr>
+<tr>
+<td><span class="multi-option-required-data">moxi_works_agent_id*</span></td>
+<td><span class="multi-option-required-data"><span class="data-type">String</span></span></td>
+<td><span class="multi-option-required-data">255</span></td>
 </tr>
 <tr>
 <td><span class="required-data">partner_event_id</span></td>
@@ -173,7 +249,12 @@ attendees=&amp;note=here%20is%20the%20note
 </tr>
 </tbody></table>
 
+<p><span class="multi-option-required-data">* <strong>Either <span class='attribute-name'>moxi_works_agent_id</span> or <span class='attribute-name'>agent_uuid</span> must be supplied. For guidance on which Agent identifier better fits your use-case, see <a href="#agent-identifiers">Agent Identifiers</a></strong></span></p>
+
 <p><span class="required-data"><strong>Required Parameters Are In Red</strong></span></p>
+
+<p><span class="request-data-head">agent_uuid</span>
+<span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which an  <span class='entity-name'>Event</span> entry is associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID. <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>Event</span> <span class='action-name'>Create</span> request to be accepted.</span></p>
 
 <p><span class="request-data-head">moxi_works_agent_id</span>
 <span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>Event</span> is to be associated with. This will be a string that may take the form of an email address, or a unique identification string. This data is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>Event</span> <span class='action-name'>Create</span>  request to be accepted.</span></p>
@@ -206,7 +287,24 @@ attendees=&amp;note=here%20is%20the%20note
 <p>The following attributes make up the payload of the <span class='entity-name'>Event</span> response for a <span class='action-name'>Create</span> request.</p>
 
 <blockquote><div class='highlight json' style="display: block">
-<span class='data-example-label'><span class='entity-name'>Event</span> <span class='action-name'>Create</span> Response Payload Example
+<span class='data-example-label'><span class='entity-name'>Event</span> <span class='action-name'>Create</span> (using <span class='attribute-name'>agent_uuid</span>) Response Payload Example
+</span></div></blockquote>
+<pre class="highlight json"><code><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="nt">"agent_uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345678-1234-1234-1234-1234567890ab"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"partner_event_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"booyuh"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"event_subject"</span><span class="p">:</span><span class="w"> </span><span class="s2">"the subject"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"event_location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"the location"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"all_day"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"event_start"</span><span class="p">:</span><span class="w"> </span><span class="mi">1462234227</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"event_end"</span><span class="p">:</span><span class="w"> </span><span class="mi">1462241468</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"attendees"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Contact1ID, Contact2ID"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"note"</span><span class="p">:</span><span class="w"> </span><span class="s2">"notable stuff"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote><div class='highlight json' style="display: block">
+<span class='data-example-label'><span class='entity-name'>Event</span> <span class='action-name'>Create</span> (using <span class='attribute-name'>moxi_works_agent_id</span>) Response Payload Example
 </span></div></blockquote>
 <pre class="highlight json"><code><span class="w">
 </span><span class="p">{</span><span class="w">
@@ -214,7 +312,6 @@ attendees=&amp;note=here%20is%20the%20note
   </span><span class="nt">"partner_event_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"booyuh"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"event_subject"</span><span class="p">:</span><span class="w"> </span><span class="s2">"the subject"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"event_location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"the location"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"is_meeting"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
   </span><span class="nt">"all_day"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="nt">"event_start"</span><span class="p">:</span><span class="w"> </span><span class="mi">1462234227</span><span class="p">,</span><span class="w">
   </span><span class="nt">"event_end"</span><span class="p">:</span><span class="w"> </span><span class="mi">1462241468</span><span class="p">,</span><span class="w">
@@ -244,8 +341,12 @@ attendees=&amp;note=here%20is%20the%20note
 </tr>
 </thead><tbody>
 <tr>
-<td><span class="response-data">moxi_works_agent_id</span></td>
-<td><span class="response-data"><span class="data-type">String</span></span></td>
+<td><span class="multi-option-response-data">agent_uuid*</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="multi-option-response-data">moxi_works_agent_id*</span></td>
+<td><span class="data-type">String</span></td>
 </tr>
 <tr>
 <td><span class="response-data">partner_event_id</span></td>
@@ -258,10 +359,6 @@ attendees=&amp;note=here%20is%20the%20note
 <tr>
 <td><span class="response-data">event_location</span></td>
 <td><span class="data-type">String</span></td>
-</tr>
-<tr>
-<td><span class="response-data">is_meeting</span></td>
-<td><span class="data-type">Boolean</span></td>
 </tr>
 <tr>
 <td><span class="response-data">all_day</span></td>
@@ -284,6 +381,11 @@ attendees=&amp;note=here%20is%20the%20note
 <td><span class="data-type">String</span></td>
 </tr>
 </tbody></table>
+
+<p><span class='multi-option-response-data'>* Either <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> will be returned depending on whether it is used in the request. The response payload object&rsquo;s agent identifier key will match the passed parameter.</span></p>
+
+<p><span class="response-data-head">agent_uuid</span>
+<span class="response-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>Event</span>  is associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID.</span></p>
 
 <p><span class="response-data-head">moxi_works_agent_id</span>
 <span class="response-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>Event</span> is associated with. This will be a string that may take the form of an email address, or a unique identification string.</span></p>
@@ -317,7 +419,84 @@ attendees=&amp;note=here%20is%20the%20note
 <div class='highlight php'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-php/classes/MoxiworksPlatform.Event.html#method_update'>PHP Update Docs</a></span></blockquote></div>
 
 <blockquote>
-<p><span class="data-example-label"><span class='entity-name'>Event</span> <span class='action-name'>Update</span> Example</span></p>
+<p><span class="data-example-label"><span class='entity-name'>Event</span> <span class='action-name'>Update</span> (using <span class='attribute-name'>agent_uuid</span>) Example</span></p>
+</blockquote>
+
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"agent_uuid"</span><span class="p">:</span><span class="s2">"12345678-1234-1234-1234-1234567890ab"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"partner_event_id"</span><span class="p">:</span><span class="s2">"8675309e9"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"event_subject"</span><span class="p">:</span><span class="s2">"meeting at Joe Seller's house"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"event_location"</span><span class="p">:</span><span class="s2">"1234 Joe Seller Way Sellerville, WY 82372"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"all_day"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"event_start"</span><span class="p">:</span><span class="mi">1462234227</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"event_end"</span><span class="p">:</span><span class="mi">1462241468</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"attendees"</span><span class="p">:</span><span class="s2">"contactIDForContactIAlreadyCreated,otherContactIDForContactIAlreadyCreated"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"note"</span><span class="p">:</span><span class="s2">"noteworthy stuff that's shown to the agent"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+
+<pre class="highlight http"><code><span class="nf">PUT</span> <span class="nn">/api/events/[partner_event_id]</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">api.moxiworks.com</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.moxi-platform+json;version=1</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Basic XNNeXAAAUZaQlF0dA==</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/x-www-form-urlencoded</span>
+
+
+agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;partner_event_id=abc98df345&amp;
+event_subject=subject&amp;event_location=a%20location&amp;all_day=false&amp;
+event_start=1462234227&amp;event_end=1462241468&amp;required_attendees=&amp;optional_attendees=&amp;
+note=here%20is%20the%20note
+
+</code></pre>
+
+<pre class="highlight ruby"><code><span class="c1">##### set up prerequisites once</span>
+<span class="nb">require</span> <span class="s1">'moxiworks_platform'</span>
+
+<span class="n">platform_identifier</span> <span class="o">=</span> <span class="s1">'abc123'</span>
+
+<span class="n">platform_secret</span> <span class="o">=</span> <span class="s1">'secret'</span>
+
+<span class="no">MoxiworksPlatform</span><span class="o">::</span><span class="no">Credentials</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">platform_identifier</span><span class="p">,</span> <span class="n">platform_secret</span><span class="p">)</span>
+<span class="c1">##### end prerequisites</span>
+
+<span class="n">moxi_works_event</span> <span class="o">=</span> <span class="no">MoxiworksPlatform</span><span class="o">::</span><span class="no">Event</span><span class="p">.</span><span class="nf">update</span><span class="p">(</span>
+        <span class="ss">agent_uuid: </span><span class="s2">"12345678-1234-1234-1234-1234567890ab"</span><span class="p">,</span>
+        <span class="ss">partner_event_id: </span><span class="s2">"booyuh"</span><span class="p">,</span>
+        <span class="ss">event_subject: </span><span class="s2">"the subject"</span><span class="p">,</span>
+        <span class="ss">event_location: </span><span class="s2">"the location"</span><span class="p">,</span>
+        <span class="ss">all_day: </span><span class="kp">false</span><span class="p">,</span>
+        <span class="ss">event_start: </span><span class="mi">1462234227</span><span class="p">,</span>
+        <span class="ss">event_end: </span><span class="mi">1462241468</span><span class="p">,</span>
+        <span class="ss">required_attendees: </span><span class="kp">nil</span><span class="p">,</span>
+        <span class="ss">optional_attendees: </span><span class="p">[</span><span class="s1">'Contact1ID'</span><span class="p">,</span> <span class="s1">'Contact2ID'</span><span class="p">]</span>
+        <span class="ss">note: </span><span class="s1">'notable stuff'</span>
+        <span class="p">)</span>
+
+</code></pre>
+
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+<span class="nv">$platform_identifier</span> <span class="o">=</span> <span class="s1">'abc123'</span><span class="p">;</span> <span class="c1">// platorm_identifier provided by Moxi Works Platform Rep
+</span><span class="nv">$platform_secret</span> <span class="o">=</span> <span class="s1">'secret'</span><span class="p">;</span> <span class="c1">//platform_secret provided by Moxi Works Platform Rep
+</span>
+<span class="nv">$credentials</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MoxiworksPlatform\Credentials</span><span class="p">(</span><span class="nv">$platform_identifier</span><span class="p">,</span> <span class="nv">$platform_secret</span><span class="p">);</span>
+
+<span class="nv">$moxi_works_event</span> <span class="o">=</span> <span class="nx">MoxiworksPlatform\Event</span><span class="o">::</span><span class="na">update</span><span class="p">([</span>
+        <span class="s1">'agent_uuid'</span> <span class="o">=&gt;</span> <span class="s1">'12345678-1234-1234-1234-1234567890ab'</span><span class="p">,</span>
+        <span class="s1">'partner_event_id'</span> <span class="o">=&gt;</span> <span class="s1">'booyuh'</span><span class="p">,</span>
+        <span class="s1">'event_subject'</span> <span class="o">=&gt;</span> <span class="s1">'the subject'</span><span class="p">,</span>
+        <span class="s1">'event_location'</span> <span class="o">=&gt;</span> <span class="s1">'the location'</span><span class="p">,</span>
+        <span class="s1">'all_day'</span> <span class="o">=&gt;</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="s1">'event_start'</span> <span class="o">=&gt;</span> <span class="mi">1462234227</span><span class="p">,</span>
+        <span class="s1">'event_end'</span> <span class="o">=&gt;</span> <span class="mi">1462241468</span><span class="p">,</span>
+        <span class="s1">'required_attendees'</span> <span class="o">=&gt;</span> <span class="kc">null</span><span class="p">,</span>
+        <span class="s1">'optional_attendees'</span> <span class="o">=&gt;</span> <span class="kc">null</span><span class="p">,</span>
+        <span class="s1">'note'</span> <span class="o">=&gt;</span> <span class="s1">'notable stuff'</span><span class="p">]);</span>
+<span class="cp">?&gt;</span>
+</code></pre>
+
+<blockquote>
+<p><span class="data-example-label"><span class='entity-name'>Event</span> <span class='action-name'>Update</span> (using <span class='attribute-name'>moxi_works_agent_id</span>) Example</span></p>
 </blockquote>
 
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
@@ -325,7 +504,6 @@ attendees=&amp;note=here%20is%20the%20note
   </span><span class="nt">"partner_event_id"</span><span class="p">:</span><span class="s2">"8675309e9"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"event_subject"</span><span class="p">:</span><span class="s2">"meeting at Joe Seller's house"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"event_location"</span><span class="p">:</span><span class="s2">"1234 Joe Seller Way Sellerville, WY 82372"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"is_meeting"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
   </span><span class="nt">"all_day"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="nt">"event_start"</span><span class="p">:</span><span class="mi">1462234227</span><span class="p">,</span><span class="w">
   </span><span class="nt">"event_end"</span><span class="p">:</span><span class="mi">1462241468</span><span class="p">,</span><span class="w">
@@ -344,7 +522,7 @@ attendees=&amp;note=here%20is%20the%20note
 
 moxi_works_agent_id=abc123&amp;partner_event_id=abc98df345&amp;event_subject=subject&amp;
 event_location=a%20location&amp;
-is_meeting=true&amp;all_day=false&amp;event_start=1462234227&amp;event_end=1462241468&amp;
+all_day=false&amp;event_start=1462234227&amp;event_end=1462241468&amp;
 required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 
 </code></pre>
@@ -364,7 +542,6 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
         <span class="ss">partner_event_id: </span><span class="s2">"booyuh"</span><span class="p">,</span>
         <span class="ss">event_subject: </span><span class="s2">"the subject"</span><span class="p">,</span>
         <span class="ss">event_location: </span><span class="s2">"the location"</span><span class="p">,</span>
-        <span class="ss">is_meeting: </span><span class="kp">true</span><span class="p">,</span>
         <span class="ss">all_day: </span><span class="kp">false</span><span class="p">,</span>
         <span class="ss">event_start: </span><span class="mi">1462234227</span><span class="p">,</span>
         <span class="ss">event_end: </span><span class="mi">1462241468</span><span class="p">,</span>
@@ -386,7 +563,6 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
         <span class="s1">'partner_event_id'</span> <span class="o">=&gt;</span> <span class="s1">'booyuh'</span><span class="p">,</span>
         <span class="s1">'event_subject'</span> <span class="o">=&gt;</span> <span class="s1">'the subject'</span><span class="p">,</span>
         <span class="s1">'event_location'</span> <span class="o">=&gt;</span> <span class="s1">'the location'</span><span class="p">,</span>
-        <span class="s1">'is_meeting'</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
         <span class="s1">'all_day'</span> <span class="o">=&gt;</span> <span class="kc">false</span><span class="p">,</span>
         <span class="s1">'event_start'</span> <span class="o">=&gt;</span> <span class="mi">1462234227</span><span class="p">,</span>
         <span class="s1">'event_end'</span> <span class="o">=&gt;</span> <span class="mi">1462241468</span><span class="p">,</span>
@@ -412,9 +588,14 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 </tr>
 </thead><tbody>
 <tr>
-<td><span class="required-data">moxi_works_agent_id</span></td>
-<td><span class="required-data"><span class="data-type">String</span></span></td>
-<td><span class="required-data">255</span></td>
+<td><span class="multi-option-required-data">agent_uuid*</span></td>
+<td><span class="multi-option-required-data"><span class="data-type">String</span></span></td>
+<td><span class="multi-option-required-data">255</span></td>
+</tr>
+<tr>
+<td><span class="multi-option-required-data">moxi_works_agent_id*</span></td>
+<td><span class="multi-option-required-data"><span class="data-type">String</span></span></td>
+<td><span class="multi-option-required-data">255</span></td>
 </tr>
 <tr>
 <td><span class="required-data">partner_event_id</span></td>
@@ -453,7 +634,12 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 </tr>
 </tbody></table>
 
+<p><span class="multi-option-required-data">* <strong>Either <span class='attribute-name'>moxi_works_agent_id</span> or <span class='attribute-name'>agent_uuid</span> must be supplied. For guidance on which Agent identifier better fits your use-case, see <a href="#agent-identifiers">Agent Identifiers</a></strong></span></p>
+
 <p><span class="required-data"><strong>Required Parameters Are In Red</strong></span></p>
+
+<p><span class="request-data-head">agent_uuid</span>
+<span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which an  <span class='entity-name'>Event</span> entry is associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID. <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>Event</span> <span class='action-name'>Update</span> request to be accepted.</span></p>
 
 <p><span class="request-data-head">moxi_works_agent_id</span>
 <span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>Event</span> is to be associated with. This will be a string that may take the form of an email address, or a unique identification string. This data is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>Event</span> <span class='action-name'>Update</span>  request to be accepted.</span></p>
@@ -486,7 +672,24 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <p>The following attributes make up the payload of the <span class='entity-name'>Event</span> response for a <span class='action-name'>Update</span> request.</p>
 
 <blockquote><div class='highlight json' style="display: block">
-<span class='data-example-label'><span class='entity-name'>Event</span> <span class='action-name'>Update</span> Response Payload Example
+<span class='data-example-label'><span class='entity-name'>Event</span> <span class='action-name'>Update</span> (using <span class='attribute-name'>agent_uuid</span>) Response Payload Example
+</span></div></blockquote>
+<pre class="highlight json"><code><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="nt">"agent_uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345678-1234-1234-1234-1234567890ab"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"partner_event_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"booyuh"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"event_subject"</span><span class="p">:</span><span class="w"> </span><span class="s2">"the subject"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"event_location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"the location"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"all_day"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"event_start"</span><span class="p">:</span><span class="w"> </span><span class="mi">1462234227</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"event_end"</span><span class="p">:</span><span class="w"> </span><span class="mi">1462241468</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"attendees"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Contact1ID, Contact2ID"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"note"</span><span class="p">:</span><span class="w"> </span><span class="s2">"notable stuff"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote><div class='highlight json' style="display: block">
+<span class='data-example-label'><span class='entity-name'>Event</span> <span class='action-name'>Update</span> (using <span class='attribute-name'>moxi_works_agent_id</span>) Response Payload Example
 </span></div></blockquote>
 <pre class="highlight json"><code><span class="w">
 </span><span class="p">{</span><span class="w">
@@ -494,7 +697,6 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
   </span><span class="nt">"partner_event_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"booyuh"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"event_subject"</span><span class="p">:</span><span class="w"> </span><span class="s2">"the subject"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"event_location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"the location"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"is_meeting"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
   </span><span class="nt">"all_day"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="nt">"event_start"</span><span class="p">:</span><span class="w"> </span><span class="mi">1462234227</span><span class="p">,</span><span class="w">
   </span><span class="nt">"event_end"</span><span class="p">:</span><span class="w"> </span><span class="mi">1462241468</span><span class="p">,</span><span class="w">
@@ -524,8 +726,12 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 </tr>
 </thead><tbody>
 <tr>
-<td><span class="response-data">moxi_works_agent_id</span></td>
-<td><span class="response-data"><span class="data-type">String</span></span></td>
+<td><span class="multi-option-response-data">agent_uuid*</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="multi-option-response-data">moxi_works_agent_id*</span></td>
+<td><span class="data-type">String</span></td>
 </tr>
 <tr>
 <td><span class="response-data">partner_event_id</span></td>
@@ -538,10 +744,6 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <tr>
 <td><span class="response-data">event_location</span></td>
 <td><span class="data-type">String</span></td>
-</tr>
-<tr>
-<td><span class="response-data">is_meeting</span></td>
-<td><span class="data-type">Boolean</span></td>
 </tr>
 <tr>
 <td><span class="response-data">all_day</span></td>
@@ -564,6 +766,11 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <td><span class="data-type">String</span></td>
 </tr>
 </tbody></table>
+
+<p><span class='multi-option-response-data'>* Either <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> will be returned depending on whether it is used in the request. The response payload object&rsquo;s agent identifier key will match the passed parameter.</span></p>
+
+<p><span class="response-data-head">agent_uuid</span>
+<span class="response-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>Event</span>  is associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID.</span></p>
 
 <p><span class="response-data-head">moxi_works_agent_id</span>
 <span class="response-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>Event</span> is associated with. This will be a string that may take the form of an email address, or a unique identification string.</span></p>
@@ -597,7 +804,54 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <div class='highlight php'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-php/classes/MoxiworksPlatform.Event.html#method_find'>PHP Find Docs</a></span></blockquote></div>
 
 <blockquote>
-<p><span class="data-example-label"><span class='entity-name'>Event</span> <span class='action-name'>Show</span> Example</span></p>
+<p><span class="data-example-label"><span class='entity-name'>Event</span> <span class='action-name'>Show</span> (using <span class='attribute-name'>agent_uuid</span>) Example</span></p>
+</blockquote>
+
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"agent_uuid"</span><span class="p">:</span><span class="s2">"12345678-1234-1234-1234-1234567890ab"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"partner_event_id"</span><span class="p">:</span><span class="s2">"8675309e9"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/events/[partner_event_id]?agent_uuid=12345678-1234-1234-1234-1234567890ab</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">api.moxiworks.com</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.moxi-platform+json;version=1</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Basic XNNeXAAAUZaQlF0dA==</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/x-www-form-urlencoded</span>
+
+</code></pre>
+
+<pre class="highlight ruby"><code><span class="c1">##### set up prerequisites once</span>
+<span class="nb">require</span> <span class="s1">'moxiworks_platform'</span>
+
+<span class="n">platform_identifier</span> <span class="o">=</span> <span class="s1">'abc123'</span>
+
+<span class="n">platform_secret</span> <span class="o">=</span> <span class="s1">'secret'</span>
+
+<span class="no">MoxiworksPlatform</span><span class="o">::</span><span class="no">Credentials</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">platform_identifier</span><span class="p">,</span> <span class="n">platform_secret</span><span class="p">)</span>
+<span class="c1">##### end prerequisites</span>
+
+<span class="n">moxi_works_event</span> <span class="o">=</span> <span class="no">MoxiworksPlatform</span><span class="o">::</span><span class="no">Event</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span>
+        <span class="ss">agent_uuid: </span><span class="s2">"12345678-1234-1234-1234-1234567890ab"</span><span class="p">,</span>
+        <span class="ss">partner_event_id: </span><span class="s2">"booyuh"</span><span class="p">)</span>
+
+</code></pre>
+
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+<span class="nv">$platform_identifier</span> <span class="o">=</span> <span class="s1">'abc123'</span><span class="p">;</span> <span class="c1">// platorm_identifier provided by Moxi Works Platform Rep
+</span><span class="nv">$platform_secret</span> <span class="o">=</span> <span class="s1">'secret'</span><span class="p">;</span> <span class="c1">//platform_secret provided by Moxi Works Platform Rep
+</span>
+<span class="nv">$credentials</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MoxiworksPlatform\Credentials</span><span class="p">(</span><span class="nv">$platform_identifier</span><span class="p">,</span> <span class="nv">$platform_secret</span><span class="p">);</span>
+
+<span class="nv">$moxi_works_event</span> <span class="o">=</span> <span class="nx">MoxiworksPlatform\Event</span><span class="o">::</span><span class="na">find</span><span class="p">([</span>
+        <span class="s1">'agent_uuid'</span> <span class="o">=&gt;</span> <span class="s1">'12345678-1234-1234-1234-1234567890ab'</span><span class="p">,</span>
+        <span class="s1">'partner_event_id'</span> <span class="o">=&gt;</span> <span class="s1">'booyuh'</span><span class="p">]);</span>
+<span class="cp">?&gt;</span>
+</code></pre>
+
+<blockquote>
+<p><span class="data-example-label"><span class='entity-name'>Event</span> <span class='action-name'>Show</span> (using <span class='attribute-name'>agent_uuid</span>) Example</span></p>
 </blockquote>
 
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
@@ -655,9 +909,14 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 </tr>
 </thead><tbody>
 <tr>
-<td><span class="required-data">moxi_works_agent_id</span></td>
-<td><span class="required-data"><span class="data-type">String</span></span></td>
-<td><span class="required-data">255</span></td>
+<td><span class="multi-option-required-data">agent_uuid*</span></td>
+<td><span class="multi-option-required-data"><span class="data-type">String</span></span></td>
+<td><span class="multi-option-required-data">255</span></td>
+</tr>
+<tr>
+<td><span class="multi-option-required-data">moxi_works_agent_id*</span></td>
+<td><span class="multi-option-required-data"><span class="data-type">String</span></span></td>
+<td><span class="multi-option-required-data">255</span></td>
 </tr>
 <tr>
 <td><span class="required-data">partner_event_id</span></td>
@@ -666,7 +925,12 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 </tr>
 </tbody></table>
 
+<p><span class="multi-option-required-data">* <strong>Either <span class='attribute-name'>moxi_works_agent_id</span> or <span class='attribute-name'>agent_uuid</span> must be supplied. For guidance on which Agent identifier better fits your use-case, see <a href="#agent-identifiers">Agent Identifiers</a></strong></span></p>
+
 <p><span class="required-data"><strong>Required Parameters Are In Red</strong></span></p>
+
+<p><span class="request-data-head">agent_uuid</span>
+<span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which an  <span class='entity-name'>Event</span> entry is associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID. <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>Event</span> <span class='action-name'>Show</span> request to be accepted.</span></p>
 
 <p><span class="request-data-head">moxi_works_agent_id</span>
 <span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which the <span class='entity-name'>Event</span> is associated with. This will be a string that may take the form of an email address, or a unique identification string. This data is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>Event</span> <span class='action-name'>Show</span>  request to be accepted.</span></p>
@@ -679,7 +943,24 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <p>The following attributes make up the payload of the <span class='entity-name'>Event</span> response for a <span class='action-name'>Show</span> request.</p>
 
 <blockquote><div class='highlight json' style="display: block">
-<span class='data-example-label'><span class='entity-name'>Event</span> <span class='action-name'>Show</span> Response Payload Example
+<span class='data-example-label'><span class='entity-name'>Event</span> <span class='action-name'>Show</span> (using <span class='attribute-name'>agent_uuid</span>)  Response Payload Example
+</span></div></blockquote>
+<pre class="highlight json"><code><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="nt">"agent_uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345678-1234-1234-1234-1234567890ab"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"partner_event_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"booyuh"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"event_subject"</span><span class="p">:</span><span class="w"> </span><span class="s2">"the subject"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"event_location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"the location"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"all_day"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"event_start"</span><span class="p">:</span><span class="w"> </span><span class="mi">1462234227</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"event_end"</span><span class="p">:</span><span class="w"> </span><span class="mi">1462241468</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"attendees"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Contact1ID, Contact2ID"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"note"</span><span class="p">:</span><span class="w"> </span><span class="s2">"notable stuff"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote><div class='highlight json' style="display: block">
+<span class='data-example-label'><span class='entity-name'>Event</span> <span class='action-name'>Show</span> (using <span class='attribute-name'>moxi_works_agent_id</span>)  Response Payload Example
 </span></div></blockquote>
 <pre class="highlight json"><code><span class="w">
 </span><span class="p">{</span><span class="w">
@@ -687,7 +968,6 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
   </span><span class="nt">"partner_event_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"booyuh"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"event_subject"</span><span class="p">:</span><span class="w"> </span><span class="s2">"the subject"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"event_location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"the location"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"is_meeting"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
   </span><span class="nt">"all_day"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="nt">"event_start"</span><span class="p">:</span><span class="w"> </span><span class="mi">1462234227</span><span class="p">,</span><span class="w">
   </span><span class="nt">"event_end"</span><span class="p">:</span><span class="w"> </span><span class="mi">1462241468</span><span class="p">,</span><span class="w">
@@ -717,8 +997,12 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 </tr>
 </thead><tbody>
 <tr>
-<td><span class="response-data">moxi_works_agent_id</span></td>
-<td><span class="response-data"><span class="data-type">String</span></span></td>
+<td><span class="multi-option-response-data">agent_uuid*</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="multi-option-response-data">moxi_works_agent_id*</span></td>
+<td><span class="data-type">String</span></td>
 </tr>
 <tr>
 <td><span class="response-data">partner_event_id</span></td>
@@ -731,10 +1015,6 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <tr>
 <td><span class="response-data">event_location</span></td>
 <td><span class="data-type">String</span></td>
-</tr>
-<tr>
-<td><span class="response-data">is_meeting</span></td>
-<td><span class="data-type">Boolean</span></td>
 </tr>
 <tr>
 <td><span class="response-data">all_day</span></td>
@@ -757,6 +1037,11 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <td><span class="data-type">String</span></td>
 </tr>
 </tbody></table>
+
+<p><span class='multi-option-response-data'>* Either <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> will be returned depending on whether it is used in the request. The response payload object&rsquo;s agent identifier key will match the passed parameter.</span></p>
+
+<p><span class="response-data-head">agent_uuid</span>
+<span class="response-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>Event</span>  is associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID.</span></p>
 
 <p><span class="response-data-head">moxi_works_agent_id</span>
 <span class="response-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>Event</span> is associated with. This will be a string that may take the form of an email address, or a unique identification string.</span></p>
@@ -790,7 +1075,57 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <div class='highlight php'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-php/classes/MoxiworksPlatform.Event.html#method_search'>PHP Search Docs</a></span></blockquote></div>
 
 <blockquote>
-<p><span class="data-example-label"><span class='entity-name'>Event</span> <span class='action-name'>Index</span> Example</span></p>
+<p><span class="data-example-label"><span class='entity-name'>Event</span> <span class='action-name'>Index</span> (using <span class='attribute-name'>agent_uuid</span>) Example</span></p>
+</blockquote>
+
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"agent_uuid"</span><span class="p">:</span><span class="s2">"12345678-1234-1234-1234-1234567890ab"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"date_start"</span><span class="p">:</span><span class="mi">1461108284</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"date_end"</span><span class="p">:</span><span class="mi">1462317907</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/events?agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;date_start=1461108284&amp;date_end=1462317907%20fuller</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">api.moxiworks.com</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.moxi-platform+json;version=1</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Basic XNNeXAAAUZaQlF0dA==</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/x-www-form-urlencoded</span>
+
+</code></pre>
+
+<pre class="highlight ruby"><code><span class="c1">##### set up prerequisites once</span>
+<span class="nb">require</span> <span class="s1">'moxiworks_platform'</span>
+
+<span class="n">platform_identifier</span> <span class="o">=</span> <span class="s1">'abc123'</span>
+
+<span class="n">platform_secret</span> <span class="o">=</span> <span class="s1">'secret'</span>
+
+<span class="no">MoxiworksPlatform</span><span class="o">::</span><span class="no">Credentials</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">platform_identifier</span><span class="p">,</span> <span class="n">platform_secret</span><span class="p">)</span>
+<span class="c1">##### end prerequisites</span>
+
+<span class="n">moxi_works_event</span> <span class="o">=</span> <span class="no">MoxiworksPlatform</span><span class="o">::</span><span class="no">Event</span><span class="p">.</span><span class="nf">search</span><span class="p">(</span>
+        <span class="ss">agent_uuid: </span><span class="s2">"12345678-1234-1234-1234-1234567890ab"</span><span class="p">,</span>
+        <span class="ss">date_start: </span><span class="mi">1462317907</span><span class="p">,</span>
+        <span class="ss">date_end: </span><span class="mi">1461108284</span><span class="p">)</span>
+
+</code></pre>
+
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+<span class="nv">$platform_identifier</span> <span class="o">=</span> <span class="s1">'abc123'</span><span class="p">;</span> <span class="c1">// platorm_identifier provided by Moxi Works Platform Rep
+</span><span class="nv">$platform_secret</span> <span class="o">=</span> <span class="s1">'secret'</span><span class="p">;</span> <span class="c1">//platform_secret provided by Moxi Works Platform Rep
+</span>
+<span class="nv">$credentials</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MoxiworksPlatform\Credentials</span><span class="p">(</span><span class="nv">$platform_identifier</span><span class="p">,</span> <span class="nv">$platform_secret</span><span class="p">);</span>
+
+<span class="nv">$moxi_works_event</span> <span class="o">=</span> <span class="nx">MoxiworksPlatform\Event</span><span class="o">::</span><span class="na">search</span><span class="p">([</span>
+        <span class="s1">'agent_uuid'</span> <span class="o">=&gt;</span> <span class="s1">'12345678-1234-1234-1234-1234567890ab'</span><span class="p">,</span>
+        <span class="s1">'date_start'</span> <span class="o">=&gt;</span> <span class="mi">1462317907</span><span class="p">,</span>
+        <span class="s1">'date_end'</span> <span class="o">=&gt;</span> <span class="mi">1461108284</span><span class="p">]);</span>
+<span class="cp">?&gt;</span>
+</code></pre>
+
+<blockquote>
+<p><span class="data-example-label"><span class='entity-name'>Event</span> <span class='action-name'>Index</span> (using <span class='attribute-name'>agent_uuid</span>) Example</span></p>
 </blockquote>
 
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
@@ -853,9 +1188,14 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 </tr>
 </thead><tbody>
 <tr>
-<td><span class="required-data">moxi_works_agent_id</span></td>
-<td><span class="required-data"><span class="data-type">String</span></span></td>
-<td><span class="required-data">255</span></td>
+<td><span class="multi-option-required-data">agent_uuid*</span></td>
+<td><span class="multi-option-required-data"><span class="data-type">String</span></span></td>
+<td><span class="multi-option-required-data">255</span></td>
+</tr>
+<tr>
+<td><span class="multi-option-required-data">moxi_works_agent_id*</span></td>
+<td><span class="multi-option-required-data"><span class="data-type">String</span></span></td>
+<td><span class="multi-option-required-data">255</span></td>
 </tr>
 <tr>
 <td><span class="required-data"><span class="required-data">date_start</span></span></td>
@@ -869,7 +1209,12 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 </tr>
 </tbody></table>
 
+<p><span class="multi-option-required-data">* <strong>Either <span class='attribute-name'>moxi_works_agent_id</span> or <span class='attribute-name'>agent_uuid</span> must be supplied. For guidance on which Agent identifier better fits your use-case, see <a href="#agent-identifiers">Agent Identifiers</a></strong></span></p>
+
 <p><span class="required-data"><strong>Required Parameters Are In Red</strong></span></p>
+
+<p><span class="request-data-head">agent_uuid</span>
+<span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which an  <span class='entity-name'>Event</span> entry is associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID. <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>Event</span> <span class='action-name'>Index</span> request to be accepted.</span></p>
 
 <p><span class="request-data-head">moxi_works_agent_id</span>
 <span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which you are searching for associated <span class='entity-name'>Event</span> objects. This will be a string that may take the form of an email address, or a unique identification string. This data is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>Event</span> <span class='action-name'>Index</span>  request to be accepted.</span></p>
@@ -881,7 +1226,57 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <span class="request-data-remarks">This is the latest time that you are searching for an <span class='entity-name'>Event</span> to be in. This data is required and must be a Unix timestamp after <span class='attribute-name'>date_start</span>.</span></p>
 
 <blockquote><div class='highlight json' style="display: block">
-<span class='data-example-label'><span class='entity-name'>Event</span> <span class='action-name'>Index</span> Response Payload Example
+<span class='data-example-label'><span class='entity-name'>Event</span> <span class='action-name'>Index</span> (using <span class='attribute-name'>agent_uuid</span>) Response Payload Example
+</span></div></blockquote>
+<pre class="highlight json"><code><span class="w">
+</span><span class="p">[{</span><span class="nt">"date"</span><span class="p">:</span><span class="s2">"04/19/2016"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"events"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="nt">"agent_uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345678-1234-1234-1234-1234567890ab"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"partner_event_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"waat"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"event_subject"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dis subject"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"event_location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"the location"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"send_reminder"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"all_day"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"event_start"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"event_end"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"attendees"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Contact1ID, Contact2ID, Contact3ID"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"note"</span><span class="p">:</span><span class="w"> </span><span class="s2">"more notable stuff"</span><span class="w">
+</span><span class="p">},</span><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="nt">"agent_uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345678-1234-1234-1234-1234567890ab"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"partner_event_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abcd"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"event_subject"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mah subject"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"event_location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"_the_ location"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"send_reminder"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"all_day"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"event_start"</span><span class="p">:</span><span class="w"> </span><span class="mi">1462234327</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"event_end"</span><span class="p">:</span><span class="w"> </span><span class="mi">1462241468</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"attendees"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"note"</span><span class="p">:</span><span class="w"> </span><span class="s2">"more notable stuff"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">]},</span><span class="w">
+</span><span class="p">{</span><span class="nt">"date"</span><span class="p">:</span><span class="s2">"04/20/2016"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"events"</span><span class="p">:[{</span><span class="w">
+  </span><span class="nt">"agent_uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345678-1234-1234-1234-1234567890ab"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"partner_event_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"booyuh"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"event_subject"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dat subject"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"event_location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"the other location"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"send_reminder"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"all_day"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"event_start"</span><span class="p">:</span><span class="w"> </span><span class="mi">1462234227</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"event_end"</span><span class="p">:</span><span class="w"> </span><span class="mi">1462241468</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"attendees"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"note"</span><span class="p">:</span><span class="w"> </span><span class="s2">"even more notable stuff"</span><span class="w">
+</span><span class="p">}]</span><span class="w">
+</span><span class="p">},</span><span class="w">
+</span><span class="p">{</span><span class="nt">"date"</span><span class="p">:</span><span class="s2">"04/21/2016"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"events"</span><span class="p">:[]</span><span class="w">
+</span><span class="p">}]</span><span class="w">
+</span></code></pre>
+
+<blockquote><div class='highlight json' style="display: block">
+<span class='data-example-label'><span class='entity-name'>Event</span> <span class='action-name'>Index</span> (using <span class='attribute-name'>moxi_works_agent_id</span>) Response Payload Example
 </span></div></blockquote>
 <pre class="highlight json"><code><span class="w">
 </span><span class="p">[{</span><span class="nt">"date"</span><span class="p">:</span><span class="s2">"04/19/2016"</span><span class="p">,</span><span class="w">
@@ -892,13 +1287,10 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
   </span><span class="nt">"event_subject"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dis subject"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"event_location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"the location"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"send_reminder"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"is_meeting"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="nt">"all_day"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
   </span><span class="nt">"event_start"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"event_end"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"required_attendees"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"optional_attendees"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Contact1ID, Contact2ID, Contact3ID"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"recurring"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"attendees"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Contact1ID, Contact2ID, Contact3ID"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"note"</span><span class="p">:</span><span class="w"> </span><span class="s2">"more notable stuff"</span><span class="w">
 </span><span class="p">},</span><span class="w">
 </span><span class="p">{</span><span class="w">
@@ -907,13 +1299,10 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
   </span><span class="nt">"event_subject"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mah subject"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"event_location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"_the_ location"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"send_reminder"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"is_meeting"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
   </span><span class="nt">"all_day"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="nt">"event_start"</span><span class="p">:</span><span class="w"> </span><span class="mi">1462234327</span><span class="p">,</span><span class="w">
   </span><span class="nt">"event_end"</span><span class="p">:</span><span class="w"> </span><span class="mi">1462241468</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"required_attendees"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"optional_attendees"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"recurring"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"attendees"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"note"</span><span class="p">:</span><span class="w"> </span><span class="s2">"more notable stuff"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span><span class="p">]},</span><span class="w">
@@ -924,13 +1313,10 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
   </span><span class="nt">"event_subject"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dat subject"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"event_location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"the other location"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"send_reminder"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"is_meeting"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
   </span><span class="nt">"all_day"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="nt">"event_start"</span><span class="p">:</span><span class="w"> </span><span class="mi">1462234227</span><span class="p">,</span><span class="w">
   </span><span class="nt">"event_end"</span><span class="p">:</span><span class="w"> </span><span class="mi">1462241468</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"required_attendees"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"optional_attendees"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"recurring"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"attendees"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"note"</span><span class="p">:</span><span class="w"> </span><span class="s2">"even more notable stuff"</span><span class="w">
 </span><span class="p">}]</span><span class="w">
 </span><span class="p">},</span><span class="w">
@@ -988,8 +1374,12 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 </tr>
 </thead><tbody>
 <tr>
-<td><span class="response-data">moxi_works_agent_id</span></td>
-<td><span class="response-data"><span class="data-type">String</span></span></td>
+<td><span class="multi-option-response-data">agent_uuid*</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="multi-option-response-data">moxi_works_agent_id*</span></td>
+<td><span class="data-type">String</span></td>
 </tr>
 <tr>
 <td><span class="response-data">partner_event_id</span></td>
@@ -1002,10 +1392,6 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <tr>
 <td><span class="response-data">event_location</span></td>
 <td><span class="data-type">String</span></td>
-</tr>
-<tr>
-<td><span class="response-data">is_meeting</span></td>
-<td><span class="data-type">Boolean</span></td>
 </tr>
 <tr>
 <td><span class="response-data">all_day</span></td>
@@ -1028,6 +1414,11 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <td><span class="data-type">String</span></td>
 </tr>
 </tbody></table>
+
+<p><span class='multi-option-response-data'>* Either <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> will be returned depending on whether it is used in the request. The response payload object&rsquo;s agent identifier key will match the passed parameter.</span></p>
+
+<p><span class="response-data-head">agent_uuid</span>
+<span class="response-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>Event</span>  is associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID.</span></p>
 
 <p><span class="response-data-head">moxi_works_agent_id</span>
 <span class="response-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>Event</span> is associated with. This will be a string that may take the form of an email address, or a unique identification string.</span></p>
@@ -1061,7 +1452,54 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <div class='highlight php'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-php/classes/MoxiworksPlatform.Event.html#method_delete'>PHP Delete Docs</a></span></blockquote></div>
 
 <blockquote>
-<p><span class="data-example-label"><span class='entity-name'>Event</span> <span class='action-name'>Delete</span> Example</span></p>
+<p><span class="data-example-label"><span class='entity-name'>Event</span> <span class='action-name'>Delete</span> (using <span class='attribute-name'>agent_uuid</span>) Example</span></p>
+</blockquote>
+
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"agent_uuid"</span><span class="p">:</span><span class="s2">"12345678-1234-1234-1234-1234567890ab"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"partner_event_id"</span><span class="p">:</span><span class="s2">"MySystemsUniqueEventID"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+
+<pre class="highlight http"><code><span class="nf">DELETE</span> <span class="nn">/api/events/my_event_id?agent_uuid=12345678-1234-1234-1234-1234567890ab</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">api.moxiworks.com</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.moxi-platform+json;version=1</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Basic XNNeXAAAUZaQlF0dA==</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/x-www-form-urlencoded</span>
+
+</code></pre>
+
+<pre class="highlight ruby"><code><span class="c1">##### set up prerequisites once</span>
+<span class="nb">require</span> <span class="s1">'moxiworks_platform'</span>
+
+<span class="n">platform_identifier</span> <span class="o">=</span> <span class="s1">'abc123'</span>
+
+<span class="n">platform_secret</span> <span class="o">=</span> <span class="s1">'secret'</span>
+
+<span class="no">MoxiworksPlatform</span><span class="o">::</span><span class="no">Credentials</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">platform_identifier</span><span class="p">,</span> <span class="n">platform_secret</span><span class="p">)</span>
+<span class="c1">##### end prerequisites</span>
+
+<span class="n">success</span> <span class="o">=</span> <span class="no">MoxiworksPlatform</span><span class="o">::</span><span class="no">Event</span><span class="p">.</span><span class="nf">delete</span><span class="p">(</span>
+        <span class="ss">agent_uuid: </span><span class="s2">"12345678-1234-1234-1234-1234567890ab"</span><span class="p">,</span>
+        <span class="ss">partner_event_id: </span><span class="s2">"booyuh"</span><span class="p">)</span>
+
+</code></pre>
+
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+<span class="nv">$platform_identifier</span> <span class="o">=</span> <span class="s1">'abc123'</span><span class="p">;</span> <span class="c1">// platorm_identifier provided by Moxi Works Platform Rep
+</span><span class="nv">$platform_secret</span> <span class="o">=</span> <span class="s1">'secret'</span><span class="p">;</span> <span class="c1">//platform_secret provided by Moxi Works Platform Rep
+</span>
+<span class="nv">$credentials</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MoxiworksPlatform\Credentials</span><span class="p">(</span><span class="nv">$platform_identifier</span><span class="p">,</span> <span class="nv">$platform_secret</span><span class="p">);</span>
+
+<span class="nv">$success</span> <span class="o">=</span> <span class="nx">MoxiworksPlatform\Event</span><span class="o">::</span><span class="na">delete</span><span class="p">([</span>
+        <span class="s1">'agent_uuid'</span> <span class="o">=&gt;</span> <span class="s1">'12345678-1234-1234-1234-1234567890ab'</span><span class="p">,</span>
+        <span class="s1">'partner_event_id'</span> <span class="o">=&gt;</span> <span class="s1">'booyuh'</span><span class="p">]);</span>
+<span class="cp">?&gt;</span>
+</code></pre>
+
+<blockquote>
+<p><span class="data-example-label"><span class='entity-name'>Event</span> <span class='action-name'>Delete</span> (using <span class='attribute-name'>moxi_works_agent_id</span>) Example</span></p>
 </blockquote>
 
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
@@ -1119,9 +1557,14 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 </tr>
 </thead><tbody>
 <tr>
-<td><span class="required-data">moxi_works_agent_id</span></td>
-<td><span class="required-data"><span class="data-type">String</span></span></td>
-<td><span class="required-data">255</span></td>
+<td><span class="multi-option-required-data">agent_uuid*</span></td>
+<td><span class="multi-option-required-data"><span class="data-type">String</span></span></td>
+<td><span class="multi-option-required-data">255</span></td>
+</tr>
+<tr>
+<td><span class="multi-option-required-data">moxi_works_agent_id*</span></td>
+<td><span class="multi-option-required-data"><span class="data-type">String</span></span></td>
+<td><span class="multi-option-required-data">255</span></td>
 </tr>
 <tr>
 <td><span class="required-data">partner_event_id</span></td>
@@ -1130,10 +1573,15 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 </tr>
 </tbody></table>
 
+<p><span class="multi-option-required-data">* <strong>Either <span class='attribute-name'>moxi_works_agent_id</span> or <span class='attribute-name'>agent_uuid</span> must be supplied. For guidance on which Agent identifier better fits your use-case, see <a href="#agent-identifiers">Agent Identifiers</a></strong></span></p>
+
 <p><span class="required-data"><strong>Required Parameters Are In Red</strong></span></p>
 
 <p><span class="request-data-head">moxi_works_agent_id</span>
 <span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which you are searching for associated <span class='entity-name'>Event</span> objects. This will be a string that may take the form of an email address, or a unique identification string. This data is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>Event</span> <span class='action-name'>Delete</span>  request to be accepted.</span></p>
+
+<p><span class="request-data-head">agent_uuid</span>
+<span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which an  <span class='entity-name'>Event</span> entry is associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID. <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>Event</span> <span class='action-name'>Show</span> request to be accepted.</span></p>
 
 <p><span class="request-data-head">partner_event_id</span>
 <span class="request-data-remarks">This is the unique identifer you use in your system that has been associated with the <span class='entity-name'>Event</span>. This data is required and must reference a previously created <span class='entity-name'>Event</span> you have created on The Moxi Works Platform.</span></p>

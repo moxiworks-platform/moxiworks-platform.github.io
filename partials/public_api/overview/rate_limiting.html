@@ -30,7 +30,7 @@
       <div class="content">
         <h3 id="rate-limiting">Rate Limiting</h3>
 
-<p>To ensure that system resources are not overloaded and response quality degrated, Moxi Works allows only a limited number of requests every minute. </p>
+<p>To ensure that system resources are not overloaded and response quality degrated, Moxi Works allows only a limited number of requests every minute.</p>
 
 <blockquote><div class='highlight json' style="display: block">
 <span class='data-example-label'>Over-limit Error Response Example</span>
@@ -43,13 +43,44 @@
 </span></code></pre>
 
 <p><strong>Handling &ldquo;Rate Limit Exceeded&rdquo; error</strong>
-In order to prevent abuse and undue stress on the Moxi Works servers, the API has a rate limiting feature that restricts users to <strong>300</strong> requests per minute per Access Token. </p>
+In order to prevent abuse and undue stress on the Moxi Works servers, the API has a rate limiting feature that restricts users to <strong>300</strong> requests per minute per Access Token.</p>
 
 <p>If and when the limit is enforced, any requests that exceed this limit will be rejected with an <strong>429</strong> HTTP status code, along with the JSON response body shown to the right</p>
 
-<p>It is recommended that you design your integration to gracefully handle this rate limit error. 
-One way to accomplish this would be to have your integration <em>sleep</em> for 60 seconds when this error is returned from the API, then retry the request. 
-Alternatively, you might choose to use <a href="https://en.wikipedia.org/wiki/Exponential_backoff">exponential backoff</a> (an error handling strategy whereby you periodically retry a failed request with progressively longer wait times between retries, until either the request succeeds or a specified number of retry attempts is reached). </p>
+<p>It is recommended that you design your integration to gracefully handle this rate limit error.
+One way to accomplish this would be to have your integration <em>sleep</em> for 60 seconds when this error is returned from the API, then retry the request.
+Alternatively, you might choose to use <a href="https://en.wikipedia.org/wiki/Exponential_backoff">exponential backoff</a> (an error handling strategy whereby you periodically retry a failed request with progressively longer wait times between retries, until either the request succeeds or a specified number of retry attempts is reached).</p>
+
+<p>The Moxi Works Platform includes rate limiting information in the response headers. The following headers are included in every response:</p>
+
+<table><thead>
+<tr>
+<th>Response Header</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>X-RateLimit-Limit</td>
+<td>Integer</td>
+<td>Number of request available in each period</td>
+</tr>
+<tr>
+<td>X-RateLimit-Remaining</td>
+<td>Integer</td>
+<td>Requests remaining in current period</td>
+</tr>
+<tr>
+<td>X-RateLimit-Period</td>
+<td>Integer</td>
+<td>Rate limit period length (in seconds)</td>
+</tr>
+<tr>
+<td>X-RateLimit-Reset</td>
+<td>Unix Timestamp</td>
+<td>Timestamp at which the next period begins</td>
+</tr>
+</tbody></table>
 
       </div>
       <div class="dark-box">

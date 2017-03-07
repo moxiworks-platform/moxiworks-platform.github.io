@@ -144,6 +144,7 @@
   </span><span class="nt">"offices"</span><span class="p">:[</span><span class="w">
     </span><span class="p">{</span><span class="w">
     </span><span class="nt">"moxi_works_office_id"</span><span class="p">:</span><span class="s2">"feedface-dead-beef-aadf-baddeedc645"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="s2">"1234"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"image_url"</span><span class="p">:</span><span class="s2">"http://the.office.image/image.png"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"Bob's Better Brokerage"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"address"</span><span class="p">:</span><span class="s2">"101 South Southerly Street"</span><span class="p">,</span><span class="w">
@@ -209,6 +210,10 @@
 </thead><tbody>
 <tr>
 <td><span class="response-data">moxi_works_office_id</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">id</span></td>
 <td><span class="data-type">String</span></td>
 </tr>
 <tr>
@@ -283,6 +288,9 @@
 
 <p><span class="response-data-head">moxi_works_office_id</span>
 <span class="response-data-remarks">This is the Moxi Works Platform ID of the office for this <span class='entity-name'>Office</span>. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID.</span></p>
+
+<p><span class="response-data-head">id</span>
+<span class="response-data-remarks">An alternate integer ID of the office. If you are integrating with Moxi Works Authentication services, you should use this ID.</span></p>
 
 <p><span class="response-data-head">image_url</span>
 <span class="response-data-remarks">URL to an image of the office. This can be null if there is no data for this attribute.</span></p>

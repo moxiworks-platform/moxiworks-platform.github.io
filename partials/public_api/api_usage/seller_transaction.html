@@ -81,7 +81,103 @@
 <div class='highlight php'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-php/classes/MoxiworksPlatform.SellerTransaction.html#method_create'>PHP Create Docs</a></span></blockquote></div>
 
 <blockquote>
-<p><span class="data-example-label"><span class='entity-name'>SellerTransaction</span> <span class='action-name'>Create</span> Example</span></p>
+<p><span class="data-example-label"><span class='entity-name'>SellerTransaction</span> <span class='action-name'>Create</span> (using <span class='attribute-name'>agent_uuid</span>) Example</span></p>
+</blockquote>
+
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"agent_uuid"</span><span class="p">:</span><span class="s2">"12345678-1234-1234-1234-1234567890ab"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"moxi_works_contact_id"</span><span class="p">:</span><span class="s2">"babebead-feed-face-dead-beefbad4babe"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"transaction_name"</span><span class="p">:</span><span class="s2">"Bob And Linda Tonkanaka"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"notes"</span><span class="p">:</span><span class="s2">"take care to write notes that are descriptive and helpful"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"address"</span><span class="p">:</span><span class="s2">"1234 memory lane"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"city"</span><span class="p">:</span><span class="s2">"hereville"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"state"</span><span class="p">:</span><span class="s2">"provinceland"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"zip_code"</span><span class="p">:</span><span class="s2">"18292"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"sqft"</span><span class="p">:</span><span class="mi">2345</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"beds"</span><span class="p">:</span><span class="mi">12</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"baths"</span><span class="p">:</span><span class="mf">34.5</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"is_mls_transaction"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"mls_number"</span><span class="p">:</span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"commission_percentage"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"commission_flat_fee"</span><span class="p">:</span><span class="mi">12345</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"target_price"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"min_price"</span><span class="p">:</span><span class="mi">292929</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"max_price"</span><span class="p">:</span><span class="mi">2323223</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+
+</span></code></pre>
+
+<pre class="highlight http"><code><span class="nf">POST</span> <span class="nn">/api/seller_transactions</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">api.moxiworks.com</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.moxi-platform+json;version=1</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Basic XNNeXAAAUZaQlF0dA==</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/x-www-form-urlencoded</span>
+
+agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;moxi_works_contact_id=babebead-feed-face-dead-beefbad4babe&amp;beds=12&amp;baths=34.5&amp;notes=take%20care%20to%20write%20notes%20that%20are%20descriptive%20and%20helpful&amp;transaction_name=Bob%20And%20Linda%20Tonkanaka&amp;address=1234%20memory%20lane&amp;city=hereville&amp;state=provinceland&amp;zip_code=18292&amp;sqft=2345&amp;is_mls_transaction=true&amp;commission_flat_fee=12345&amp;target_price=&amp;max_price=2323223&amp;min_price=232323&amp;mls_number=abc123
+
+</code></pre>
+
+<pre class="highlight ruby"><code><span class="c1">##### set up prerequisites once</span>
+<span class="nb">require</span> <span class="s1">'moxiworks_platform'</span>
+
+<span class="n">platform_identifier</span> <span class="o">=</span> <span class="s1">'abc123'</span>
+
+<span class="n">platform_secret</span> <span class="o">=</span> <span class="s1">'secret'</span>
+
+<span class="no">MoxiworksPlatform</span><span class="o">::</span><span class="no">Credentials</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">platform_identifier</span><span class="p">,</span> <span class="n">platform_secret</span><span class="p">)</span>
+<span class="c1">##### end prerequisites</span>
+
+<span class="n">moxi_works_transaction</span> <span class="o">=</span> <span class="no">MoxiworksPlatform</span><span class="o">::</span><span class="no">SellerTransaction</span><span class="p">.</span><span class="nf">create</span><span class="p">(</span>
+      <span class="n">agent_uuid</span><span class="ss">:"12345678-1234-1234-1234-1234567890ab"</span><span class="p">,</span>
+      <span class="n">moxi_works_contact_id</span><span class="ss">:"babebead-feed-face-dead-beefbad4babe"</span><span class="p">,</span>
+      <span class="nb">name</span><span class="ss">:"Bob And Linda Tonkanaka"</span><span class="p">,</span>
+      <span class="n">notes</span><span class="ss">:"take care to write notes that are descriptive and helpful"</span><span class="p">,</span>
+      <span class="n">address</span><span class="ss">:"1234 memory lane"</span><span class="p">,</span>
+      <span class="n">city</span><span class="ss">:"hereville"</span><span class="p">,</span>
+      <span class="n">state</span><span class="ss">:"provinceland"</span><span class="p">,</span>
+      <span class="n">zip_code</span><span class="ss">:"18292"</span><span class="p">,</span>
+      <span class="n">sqft</span><span class="p">:</span><span class="mi">2345</span><span class="p">,</span>
+      <span class="n">beds</span><span class="p">:</span><span class="mi">12</span><span class="p">,</span>
+      <span class="n">baths</span><span class="p">:</span><span class="mi">34</span><span class="o">.</span><span class="mi">5</span><span class="p">,</span>
+      <span class="n">is_mls_transaction</span><span class="ss">:true</span><span class="p">,</span>
+      <span class="n">mls_number</span><span class="ss">:"abc123"</span><span class="p">,</span>
+      <span class="n">commission_flat_fee</span><span class="p">:</span><span class="mi">12345</span><span class="p">,</span>
+      <span class="n">min_price</span><span class="p">:</span><span class="mi">292929</span><span class="p">,</span>
+      <span class="n">max_price</span><span class="p">:</span><span class="mi">2323223</span>
+      <span class="p">)</span>
+
+</code></pre>
+
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+<span class="nv">$platform_identifier</span> <span class="o">=</span> <span class="s1">'abc123'</span><span class="p">;</span> <span class="c1">// platorm_identifier provided by Moxi Works Platform Rep
+</span><span class="nv">$platform_secret</span> <span class="o">=</span> <span class="s1">'secret'</span><span class="p">;</span> <span class="c1">//platform_secret provided by Moxi Works Platform Rep
+</span>
+<span class="nv">$credentials</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MoxiworksPlatform\Credentials</span><span class="p">(</span><span class="nv">$platform_identifier</span><span class="p">,</span> <span class="nv">$platform_secret</span><span class="p">);</span>
+
+<span class="nv">$moxi_works_transaction</span> <span class="o">=</span> <span class="nx">MoxiworksPlatform\SellerTransaction</span><span class="o">::</span><span class="na">create</span><span class="p">([</span>
+      <span class="s2">"agent_uuid"</span> <span class="o">=&gt;</span> <span class="s2">"12345678-1234-1234-1234-1234567890ab"</span><span class="p">,</span>
+      <span class="s2">"moxi_works_contact_id"</span> <span class="o">=&gt;</span> <span class="s2">"babebead-feed-face-dead-beefbad4babe"</span><span class="p">,</span>
+      <span class="s2">"transaction_name"</span> <span class="o">=&gt;</span> <span class="s2">"Bob And Linda Tonkanaka"</span><span class="p">,</span>
+      <span class="s2">"notes"</span> <span class="o">=&gt;</span> <span class="s2">"take care to write notes that are descriptive and helpful"</span><span class="p">,</span>
+      <span class="s2">"address"</span> <span class="o">=&gt;</span> <span class="s2">"1234 memory lane"</span><span class="p">,</span>
+      <span class="s2">"city"</span> <span class="o">=&gt;</span> <span class="s2">"hereville"</span><span class="p">,</span>
+      <span class="s2">"state"</span> <span class="o">=&gt;</span> <span class="s2">"provinceland"</span><span class="p">,</span>
+      <span class="s2">"zip_code"</span> <span class="o">=&gt;</span> <span class="s2">"18292"</span><span class="p">,</span>
+      <span class="s2">"sqft"</span> <span class="o">=&gt;</span> <span class="mi">2345</span><span class="p">,</span>
+      <span class="s2">"beds"</span> <span class="o">=&gt;</span> <span class="mi">12</span><span class="p">,</span>
+      <span class="s2">"baths"</span> <span class="o">=&gt;</span> <span class="mf">34.5</span><span class="p">,</span>
+      <span class="s2">"is_mls_transaction"</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="s2">"mls_number"</span> <span class="o">=&gt;</span> <span class="s2">"abc123"</span><span class="p">,</span>
+      <span class="s2">"commission_flat_fee"</span> <span class="o">=&gt;</span> <span class="mi">12345</span><span class="p">,</span>
+      <span class="s2">"min_price"</span> <span class="o">=&gt;</span> <span class="mi">292929</span><span class="p">,</span>
+      <span class="s2">"max_price"</span> <span class="o">=&gt;</span> <span class="mi">2323223</span>
+       <span class="p">]);</span>
+<span class="cp">?&gt;</span>
+</code></pre>
+
+<blockquote>
+<p><span class="data-example-label"><span class='entity-name'>SellerTransaction</span> <span class='action-name'>Create</span> (using <span class='attribute-name'>moxi_works_agent_id</span>) Example</span></p>
 </blockquote>
 
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
@@ -177,11 +273,11 @@ moxi_works_agent_id=abc123&amp;moxi_works_contact_id=babebead-feed-face-dead-bee
 </code></pre>
 
 <blockquote>
-<p><span class="data-example-label">Non MLS <span class='entity-name'>SellerTransaction</span> <span class='action-name'>Create</span> Example</span></p>
+<p><span class="data-example-label">Non MLS <span class='entity-name'>SellerTransaction</span> <span class='action-name'>Create</span> (using <span class='attribute-name'>agent_uuid</span>) Example</span></p>
 </blockquote>
 
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"moxi_works_agent_id"</span><span class="p">:</span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"agent_uuid"</span><span class="p">:</span><span class="s2">"12345678-1234-1234-1234-1234567890ab"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"moxi_works_contact_id"</span><span class="p">:</span><span class="s2">"babebead-feed-face-dead-beefbad4babe"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"transaction_name"</span><span class="p">:</span><span class="s2">"Bob And Linda Tonkanaka"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"notes"</span><span class="p">:</span><span class="s2">"take care to write notes that are descriptive and helpful"</span><span class="p">,</span><span class="w">
@@ -210,7 +306,7 @@ moxi_works_agent_id=abc123&amp;moxi_works_contact_id=babebead-feed-face-dead-bee
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">Basic XNNeXAAAUZaQlF0dA==</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/x-www-form-urlencoded</span>
 
-moxi_works_agent_id=abc123&amp;moxi_works_contact_id=babebead-feed-face-dead-beefbad4babe&amp;beds=12&amp;baths=34.5&amp;notes=take%20care%20to%20write%20notes%20that%20are%20descriptive%20and%20helpful&amp;transaction_name=Bob%20And%20Linda%20Tonkanaka&amp;address=1234%20memory%20lane&amp;city=hereville&amp;state=provinceland&amp;zip_code=18292&amp;sqft=2345&amp;is_mls_transaction=false&amp;commission_flat_fee=12345&amp;target_price=&amp;max_price=2323223&amp;min_price=232323
+agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;moxi_works_contact_id=babebead-feed-face-dead-beefbad4babe&amp;beds=12&amp;baths=34.5&amp;notes=take%20care%20to%20write%20notes%20that%20are%20descriptive%20and%20helpful&amp;transaction_name=Bob%20And%20Linda%20Tonkanaka&amp;address=1234%20memory%20lane&amp;city=hereville&amp;state=provinceland&amp;zip_code=18292&amp;sqft=2345&amp;is_mls_transaction=false&amp;commission_flat_fee=12345&amp;target_price=&amp;max_price=2323223&amp;min_price=232323
 
 </code></pre>
 
@@ -225,7 +321,7 @@ moxi_works_agent_id=abc123&amp;moxi_works_contact_id=babebead-feed-face-dead-bee
 <span class="c1">##### end prerequisites</span>
 
 <span class="n">moxi_works_transaction</span> <span class="o">=</span> <span class="no">MoxiworksPlatform</span><span class="o">::</span><span class="no">SellerTransaction</span><span class="p">.</span><span class="nf">create</span><span class="p">(</span>
-      <span class="n">moxi_works_agent_id</span><span class="ss">:"abc123"</span><span class="p">,</span>
+      <span class="n">agent_uuid</span><span class="ss">:"12345678-1234-1234-1234-1234567890ab"</span><span class="p">,</span>
       <span class="n">moxi_works_contact_id</span><span class="ss">:"babebead-feed-face-dead-beefbad4babe"</span><span class="p">,</span>
       <span class="nb">name</span><span class="ss">:"Bob And Linda Tonkanaka"</span><span class="p">,</span>
       <span class="n">notes</span><span class="ss">:"take care to write notes that are descriptive and helpful"</span><span class="p">,</span>
@@ -252,7 +348,7 @@ moxi_works_agent_id=abc123&amp;moxi_works_contact_id=babebead-feed-face-dead-bee
 <span class="nv">$credentials</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MoxiworksPlatform\Credentials</span><span class="p">(</span><span class="nv">$platform_identifier</span><span class="p">,</span> <span class="nv">$platform_secret</span><span class="p">);</span>
 
 <span class="nv">$moxi_works_transaction</span> <span class="o">=</span> <span class="nx">MoxiworksPlatform\SellerTransaction</span><span class="o">::</span><span class="na">create</span><span class="p">([</span>
-      <span class="s2">"moxi_works_agent_id"</span> <span class="o">=&gt;</span> <span class="s2">"abc123"</span><span class="p">,</span>
+      <span class="s2">"agent_uuid"</span> <span class="o">=&gt;</span> <span class="s2">"12345678-1234-1234-1234-1234567890ab"</span><span class="p">,</span>
       <span class="s2">"moxi_works_contact_id"</span> <span class="o">=&gt;</span> <span class="s2">"babebead-feed-face-dead-beefbad4babe"</span><span class="p">,</span>
       <span class="s2">"transaction_name"</span> <span class="o">=&gt;</span> <span class="s2">"Bob And Linda Tonkanaka"</span><span class="p">,</span>
       <span class="s2">"notes"</span> <span class="o">=&gt;</span> <span class="s2">"take care to write notes that are descriptive and helpful"</span><span class="p">,</span>
@@ -286,9 +382,14 @@ moxi_works_agent_id=abc123&amp;moxi_works_contact_id=babebead-feed-face-dead-bee
 </tr>
 </thead><tbody>
 <tr>
-<td><span class="required-data">moxi_works_agent_id</span></td>
-<td><span class="required-data"><span class="data-type">String</span></span></td>
-<td><span class="required-data">255</span></td>
+<td><span class="multi-option-required-data">agent_uuid*</span></td>
+<td><span class="multi-option-required-data"><span class="data-type">String</span></span></td>
+<td><span class="multi-option-required-data">255</span></td>
+</tr>
+<tr>
+<td><span class="multi-option-required-data">moxi_works_agent_id*</span></td>
+<td><span class="multi-option-required-data"><span class="data-type">String</span></span></td>
+<td><span class="multi-option-required-data">255</span></td>
 </tr>
 <tr>
 <td><span class="required-data">moxi_works_contact_id</span></td>
@@ -387,7 +488,12 @@ moxi_works_agent_id=abc123&amp;moxi_works_contact_id=babebead-feed-face-dead-bee
 </tr>
 </tbody></table>
 
+<p><span class="multi-option-required-data">* <strong>Either <span class='attribute-name'>moxi_works_agent_id</span> or <span class='attribute-name'>agent_uuid</span> must be supplied. For guidance on which Agent identifier better fits your use-case, see <a href="#agent-identifiers">Agent Identifiers</a></strong></span></p>
+
 <p><span class="required-data"><strong>Required Parameters Are In Red</strong></span></p>
+
+<p><span class="request-data-head">agent_uuid</span>
+<span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which an  <span class='entity-name'>SellerTransaction</span> entry is associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID. <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>SellerTransaction</span> <span class='action-name'>Create</span> request to be accepted.</span></p>
 
 <p><span class="request-data-head">moxi_works_agent_id</span>
 <span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>SellerTransaction</span> object is to be associated with. This will be a string that may take the form of an email address, or a unique identification string. This data is required and must reference a valid Moxi Works <span class='entity-name'>Agent</span> ID for your <span class='entity-name'>SellerTransaction</span> <span class='action-name'>Create</span>  request to be accepted.</span></p>
@@ -460,7 +566,39 @@ moxi_works_agent_id=abc123&amp;moxi_works_contact_id=babebead-feed-face-dead-bee
 <aside class="note">When setting a <span class='entity-name'>SellerTransaction</span> price, you can set <b>either</b> a target price or a price range, but not both. If using <span class='attribute-name'>target_price</span> then <span class='attribute-name'>min_price</span> and <span class='attribute-name'>max_price</span> should not be populated. If using either <span class='attribute-name'>min_price</span> or <span class='attribute-name'>max_price</span>, then <span class='attribute-name'>target_price</span> should not be populated.</aside>
 
 <blockquote><div class='highlight json' style="display: block">
-<span class='data-example-label'><span class='entity-name'>SellerTransaction</span> <span class='action-name'>Create</span> Response Payload Example
+<span class='data-example-label'><span class='entity-name'>SellerTransaction</span> <span class='action-name'>Create</span> (using <span class='attribute-name'>agent_uuid</span>) Response Payload Example
+</span></div></blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"agent_uuid"</span><span class="p">:</span><span class="s2">"12345678-1234-1234-1234-1234567890ab"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"moxi_works_transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"facefeed-beef-daff-dead-cad4edd1e4d"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"moxi_works_contact_id"</span><span class="p">:</span><span class="s2">"babebead-feed-face-dead-beefbad4babe"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"partner_contact_id"</span><span class="p">:</span><span class="s2">"MySystemsContactIDForTheContactAssociatedWithThisSellerTransaction"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"transaction_name"</span><span class="p">:</span><span class="s2">"Bob And Linda Tonkanaka"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"notes"</span><span class="p">:</span><span class="s2">"take care to write notes that are descriptive and helpful"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"stage"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"stage_name"</span><span class="p">:</span><span class="s2">"initialized"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"address"</span><span class="p">:</span><span class="s2">"1234 memory lane"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"city"</span><span class="p">:</span><span class="s2">"hereville"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"state"</span><span class="p">:</span><span class="s2">"provinceland"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"zip_code"</span><span class="p">:</span><span class="s2">"18292"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"sqft"</span><span class="p">:</span><span class="mi">2345</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"beds"</span><span class="p">:</span><span class="mi">12</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"baths"</span><span class="p">:</span><span class="mf">34.5</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"is_mls_transaction"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"mls_number"</span><span class="p">:</span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"commission_percentage"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"commission_flat_fee"</span><span class="p">:</span><span class="mi">12345</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"target_price"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"min_price"</span><span class="p">:</span><span class="mi">292929</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"max_price"</span><span class="p">:</span><span class="mi">2323223</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"closing_price"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"closing_timestamp"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"start_timestamp"</span><span class="p">:</span><span class="kc">null</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote><div class='highlight json' style="display: block">
+<span class='data-example-label'><span class='entity-name'>SellerTransaction</span> <span class='action-name'>Create</span> (using <span class='attribute-name'>moxi_works_agent_id</span>) Response Payload Example
 </span></div></blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"moxi_works_agent_id"</span><span class="p">:</span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
@@ -513,8 +651,12 @@ moxi_works_agent_id=abc123&amp;moxi_works_contact_id=babebead-feed-face-dead-bee
 </tr>
 </thead><tbody>
 <tr>
-<td><span class="response-data">moxi_works_agent_id</span></td>
-<td><span class="response-data"><span class="data-type">String</span></span></td>
+<td><span class="multi-option-response-data">agent_uuid*</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="multi-option-response-data">moxi_works_agent_id*</span></td>
+<td><span class="data-type">String</span></td>
 </tr>
 <tr>
 <td><span class="response-data">moxi_works_transaction_id</span></td>
@@ -614,6 +756,11 @@ moxi_works_agent_id=abc123&amp;moxi_works_contact_id=babebead-feed-face-dead-bee
 </tr>
 </tbody></table>
 
+<p><span class='multi-option-response-data'>* Either <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> will be returned depending on whether it is used in the request. The response payload object&rsquo;s agent identifier key will match the passed parameter.</span></p>
+
+<p><span class="response-data-head">agent_uuid</span>
+<span class="response-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>SellerTransaction</span> is associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID.</span></p>
+
 <p><span class="response-data-head">moxi_works_agent_id</span>
 <span class="response-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>SellerTransaction</span> is associated with. This will be a string that may take the form of an email address, or a unique alphanumeric identification string.</span></p>
 
@@ -699,7 +846,106 @@ moxi_works_agent_id=abc123&amp;moxi_works_contact_id=babebead-feed-face-dead-bee
 <div class='highlight php'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-php/classes/MoxiworksPlatform.SellerTransaction.html#method_update'>PHP Update Docs</a></span></blockquote></div>
 
 <blockquote>
-<p><span class="data-example-label"><span class='entity-name'>SellerTransaction</span> <span class='action-name'>Update</span> Example</span></p>
+<p><span class="data-example-label"><span class='entity-name'>SellerTransaction</span> <span class='action-name'>Update</span> (using <span class='attribute-name'>agent_uuid</span>) Example</span></p>
+</blockquote>
+
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"agent_uuid"</span><span class="p">:</span><span class="s2">"12345678-1234-1234-1234-1234567890ab"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"moxi_works_transaction_id"</span><span class="p">:</span><span class="s2">"babebead-feed-face-dead-beefbad4babe"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"transaction_name"</span><span class="p">:</span><span class="s2">"Bob And Linda Tonkanaka"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"notes"</span><span class="p">:</span><span class="s2">"take care to write notes that are descriptive and helpful"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"address"</span><span class="p">:</span><span class="s2">"1234 memory lane"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"city"</span><span class="p">:</span><span class="s2">"hereville"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"state"</span><span class="p">:</span><span class="s2">"provinceland"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"zip_code"</span><span class="p">:</span><span class="s2">"18292"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"sqft"</span><span class="p">:</span><span class="mi">2345</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"beds"</span><span class="p">:</span><span class="mi">12</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"baths"</span><span class="p">:</span><span class="mf">34.5</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"is_mls_transaction"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"mls_number"</span><span class="p">:</span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"commission_percentage"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"commission_flat_fee"</span><span class="p">:</span><span class="mi">12345</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"target_price"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"min_price"</span><span class="p">:</span><span class="mi">292929</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"max_price"</span><span class="p">:</span><span class="mi">2323223</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"promote_transaction"</span><span class="p">:</span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+
+</span></code></pre>
+
+<pre class="highlight http"><code><span class="nf">PUT</span> <span class="nn">/api/seller_transactions/[moxi_works_transaction_id]</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">api.moxiworks.com</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.moxi-platform+json;version=1</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Basic XNNeXAAAUZaQlF0dA==</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/x-www-form-urlencoded</span>
+
+agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;beds=12&amp;baths=34.5&amp;notes=take%20care%20to%20write%20notes%20that%20are%20descriptive%20and%20helpful&amp;transaction_name=Bob%20And%20Linda%20Tonkanaka&amp;address=1234%20memory%20lane&amp;city=hereville&amp;state=provinceland&amp;zip_code=18292&amp;sqft=2345&amp;is_mls_transaction=true&amp;commission_flat_fee=12345&amp;target_price=&amp;max_price=2323223&amp;min_price=232323&amp;mls_number=abc123&amp;promote_transaction=true
+
+</code></pre>
+
+<pre class="highlight ruby"><code><span class="c1">##### set up prerequisites once</span>
+<span class="nb">require</span> <span class="s1">'moxiworks_platform'</span>
+
+<span class="n">platform_identifier</span> <span class="o">=</span> <span class="s1">'abc123'</span>
+
+<span class="n">platform_secret</span> <span class="o">=</span> <span class="s1">'secret'</span>
+
+<span class="no">MoxiworksPlatform</span><span class="o">::</span><span class="no">Credentials</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">platform_identifier</span><span class="p">,</span> <span class="n">platform_secret</span><span class="p">)</span>
+<span class="c1">##### end prerequisites</span>
+
+<span class="n">moxi_works_transaction</span> <span class="o">=</span> <span class="no">MoxiworksPlatform</span><span class="o">::</span><span class="no">SellerTransaction</span><span class="p">.</span><span class="nf">update</span><span class="p">(</span>
+      <span class="n">agent_uuid</span><span class="ss">:"12345678-1234-1234-1234-1234567890ab"</span><span class="p">,</span>
+      <span class="n">moxi_works_transaction_id</span><span class="ss">:"babebead-feed-face-dead-beefbad4babe"</span><span class="p">,</span>
+      <span class="nb">name</span><span class="ss">:"Bob And Linda Tonkanaka"</span><span class="p">,</span>
+      <span class="n">notes</span><span class="ss">:"take care to write notes that are descriptive and helpful"</span><span class="p">,</span>
+      <span class="n">address</span><span class="ss">:"1234 memory lane"</span><span class="p">,</span>
+      <span class="n">city</span><span class="ss">:"hereville"</span><span class="p">,</span>
+      <span class="n">state</span><span class="ss">:"provinceland"</span><span class="p">,</span>
+      <span class="n">zip_code</span><span class="ss">:"18292"</span><span class="p">,</span>
+      <span class="n">sqft</span><span class="p">:</span><span class="mi">2345</span><span class="p">,</span>
+      <span class="n">beds</span><span class="p">:</span><span class="mi">12</span><span class="p">,</span>
+      <span class="n">baths</span><span class="p">:</span><span class="mi">34</span><span class="o">.</span><span class="mi">5</span><span class="p">,</span>
+      <span class="n">is_mls_transaction</span><span class="ss">:true</span><span class="p">,</span>
+      <span class="n">mls_number</span><span class="ss">:"abc123"</span><span class="p">,</span>
+      <span class="n">commission_flat_fee</span><span class="p">:</span><span class="mi">12345</span><span class="p">,</span>
+      <span class="n">min_price</span><span class="p">:</span><span class="mi">292929</span><span class="p">,</span>
+      <span class="n">max_price</span><span class="p">:</span><span class="mi">2323223</span><span class="p">,</span>
+      <span class="n">promote_transaction</span><span class="ss">:true</span>
+      <span class="p">)</span>
+
+</code></pre>
+
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+<span class="nv">$platform_identifier</span> <span class="o">=</span> <span class="s1">'abc123'</span><span class="p">;</span> <span class="c1">// platorm_identifier provided by Moxi Works Platform Rep
+</span><span class="nv">$platform_secret</span> <span class="o">=</span> <span class="s1">'secret'</span><span class="p">;</span> <span class="c1">//platform_secret provided by Moxi Works Platform Rep
+</span>
+<span class="nv">$credentials</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MoxiworksPlatform\Credentials</span><span class="p">(</span><span class="nv">$platform_identifier</span><span class="p">,</span> <span class="nv">$platform_secret</span><span class="p">);</span>
+
+<span class="nv">$moxi_works_transaction</span> <span class="o">=</span> <span class="nx">MoxiworksPlatform\SellerTransaction</span><span class="o">::</span><span class="na">update</span><span class="p">([</span>
+      <span class="s2">"agent_uuid"</span> <span class="o">=&gt;</span> <span class="s2">"12345678-1234-1234-1234-1234567890ab"</span><span class="p">,</span>
+      <span class="s2">"moxi_works_transaction_id"</span> <span class="o">=&gt;</span> <span class="s2">"babebead-feed-face-dead-beefbad4babe"</span><span class="p">,</span>
+      <span class="s2">"transaction_name"</span> <span class="o">=&gt;</span> <span class="s2">"Bob And Linda Tonkanaka"</span><span class="p">,</span>
+      <span class="s2">"notes"</span> <span class="o">=&gt;</span> <span class="s2">"take care to write notes that are descriptive and helpful"</span><span class="p">,</span>
+      <span class="s2">"address"</span> <span class="o">=&gt;</span> <span class="s2">"1234 memory lane"</span><span class="p">,</span>
+      <span class="s2">"city"</span> <span class="o">=&gt;</span> <span class="s2">"hereville"</span><span class="p">,</span>
+      <span class="s2">"state"</span> <span class="o">=&gt;</span> <span class="s2">"provinceland"</span><span class="p">,</span>
+      <span class="s2">"zip_code"</span> <span class="o">=&gt;</span> <span class="s2">"18292"</span><span class="p">,</span>
+      <span class="s2">"sqft"</span> <span class="o">=&gt;</span> <span class="mi">2345</span><span class="p">,</span>
+      <span class="s2">"beds"</span> <span class="o">=&gt;</span> <span class="mi">12</span><span class="p">,</span>
+      <span class="s2">"baths"</span> <span class="o">=&gt;</span> <span class="mf">34.5</span><span class="p">,</span>
+      <span class="s2">"is_mls_transaction"</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="s2">"mls_number"</span> <span class="o">=&gt;</span> <span class="s2">"abc123"</span><span class="p">,</span>
+      <span class="s2">"commission_flat_fee"</span> <span class="o">=&gt;</span> <span class="mi">12345</span><span class="p">,</span>
+      <span class="s2">"min_price"</span> <span class="o">=&gt;</span> <span class="mi">292929</span><span class="p">,</span>
+      <span class="s2">"max_price"</span> <span class="o">=&gt;</span> <span class="mi">2323223</span><span class="p">,</span>
+      <span class="s2">"promote_transaction"</span> <span class="o">=&gt;</span> <span class="kc">true</span>
+       <span class="p">]);</span>
+<span class="cp">?&gt;</span>
+</code></pre>
+
+<blockquote>
+<p><span class="data-example-label"><span class='entity-name'>SellerTransaction</span> <span class='action-name'>Update</span> (using <span class='attribute-name'>moxi_works_agent_id</span>) Example</span></p>
 </blockquote>
 
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
@@ -798,11 +1044,11 @@ moxi_works_agent_id=abc123&amp;beds=12&amp;baths=34.5&amp;notes=take%20care%20to
 </code></pre>
 
 <blockquote>
-<p><span class="data-example-label">Non MLS <span class='entity-name'>SellerTransaction</span> <span class='action-name'>Update</span> Example</span></p>
+<p><span class="data-example-label">Non MLS <span class='entity-name'>SellerTransaction</span> <span class='action-name'>Update</span> (using <span class='attribute-name'>agent_uuid</span>) Example</span></p>
 </blockquote>
 
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"moxi_works_agent_id"</span><span class="p">:</span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"agent_uuid"</span><span class="p">:</span><span class="s2">"12345678-1234-1234-1234-1234567890ab"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"moxi_works_transaction_id"</span><span class="p">:</span><span class="s2">"babebead-feed-face-dead-beefbad4babe"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"transaction_name"</span><span class="p">:</span><span class="s2">"Bob And Linda Tonkanaka"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"notes"</span><span class="p">:</span><span class="s2">"take care to write notes that are descriptive and helpful"</span><span class="p">,</span><span class="w">
@@ -831,7 +1077,7 @@ moxi_works_agent_id=abc123&amp;beds=12&amp;baths=34.5&amp;notes=take%20care%20to
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">Basic XNNeXAAAUZaQlF0dA==</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/x-www-form-urlencoded</span>
 
-moxi_works_agent_id=abc123&amp;beds=12&amp;baths=34.5&amp;notes=take%20care%20to%20write%20notes%20that%20are%20descriptive%20and%20helpful&amp;transaction_name=Bob%20And%20Linda%20Tonkanaka&amp;address=1234%20memory%20lane&amp;city=hereville&amp;state=provinceland&amp;zip_code=18292&amp;sqft=2345&amp;is_mls_transaction=false&amp;commission_flat_fee=12345&amp;target_price=&amp;max_price=2323223&amp;min_price=232323
+agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;beds=12&amp;baths=34.5&amp;notes=take%20care%20to%20write%20notes%20that%20are%20descriptive%20and%20helpful&amp;transaction_name=Bob%20And%20Linda%20Tonkanaka&amp;address=1234%20memory%20lane&amp;city=hereville&amp;state=provinceland&amp;zip_code=18292&amp;sqft=2345&amp;is_mls_transaction=false&amp;commission_flat_fee=12345&amp;target_price=&amp;max_price=2323223&amp;min_price=232323
 
 </code></pre>
 
@@ -846,7 +1092,7 @@ moxi_works_agent_id=abc123&amp;beds=12&amp;baths=34.5&amp;notes=take%20care%20to
 <span class="c1">##### end prerequisites</span>
 
 <span class="n">moxi_works_transaction</span> <span class="o">=</span> <span class="no">MoxiworksPlatform</span><span class="o">::</span><span class="no">SellerTransaction</span><span class="p">.</span><span class="nf">update</span><span class="p">(</span>
-      <span class="n">moxi_works_agent_id</span><span class="ss">:"abc123"</span><span class="p">,</span>
+      <span class="n">agent_uuid</span><span class="ss">:"12345678-1234-1234-1234-1234567890ab"</span><span class="p">,</span>
       <span class="n">moxi_works_transaction_id</span><span class="ss">:"babebead-feed-face-dead-beefbad4babe"</span><span class="p">,</span>
       <span class="nb">name</span><span class="ss">:"Bob And Linda Tonkanaka"</span><span class="p">,</span>
       <span class="n">notes</span><span class="ss">:"take care to write notes that are descriptive and helpful"</span><span class="p">,</span>
@@ -873,7 +1119,7 @@ moxi_works_agent_id=abc123&amp;beds=12&amp;baths=34.5&amp;notes=take%20care%20to
 <span class="nv">$credentials</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MoxiworksPlatform\Credentials</span><span class="p">(</span><span class="nv">$platform_identifier</span><span class="p">,</span> <span class="nv">$platform_secret</span><span class="p">);</span>
 
 <span class="nv">$moxi_works_transaction</span> <span class="o">=</span> <span class="nx">MoxiworksPlatform\SellerTransaction</span><span class="o">::</span><span class="na">update</span><span class="p">([</span>
-      <span class="s2">"moxi_works_agent_id"</span> <span class="o">=&gt;</span> <span class="s2">"abc123"</span><span class="p">,</span>
+      <span class="s2">"agent_uuid"</span> <span class="o">=&gt;</span> <span class="s2">"12345678-1234-1234-1234-1234567890ab"</span><span class="p">,</span>
       <span class="s2">"moxi_works_transaction_id"</span> <span class="o">=&gt;</span> <span class="s2">"babebead-feed-face-dead-beefbad4babe"</span><span class="p">,</span>
       <span class="s2">"transaction_name"</span> <span class="o">=&gt;</span> <span class="s2">"Bob And Linda Tonkanaka"</span><span class="p">,</span>
       <span class="s2">"notes"</span> <span class="o">=&gt;</span> <span class="s2">"take care to write notes that are descriptive and helpful"</span><span class="p">,</span>
@@ -909,9 +1155,14 @@ moxi_works_agent_id=abc123&amp;beds=12&amp;baths=34.5&amp;notes=take%20care%20to
 </tr>
 </thead><tbody>
 <tr>
-<td><span class="required-data">moxi_works_agent_id</span></td>
-<td><span class="required-data"><span class="data-type">String</span></span></td>
-<td><span class="required-data">255</span></td>
+<td><span class="multi-option-required-data">agent_uuid*</span></td>
+<td><span class="multi-option-required-data"><span class="data-type">String</span></span></td>
+<td><span class="multi-option-required-data">255</span></td>
+</tr>
+<tr>
+<td><span class="multi-option-required-data">moxi_works_agent_id*</span></td>
+<td><span class="multi-option-required-data"><span class="data-type">String</span></span></td>
+<td><span class="multi-option-required-data">255</span></td>
 </tr>
 <tr>
 <td><span class="required-data">moxi_works_transaction_id</span></td>
@@ -1020,7 +1271,12 @@ moxi_works_agent_id=abc123&amp;beds=12&amp;baths=34.5&amp;notes=take%20care%20to
 </tr>
 </tbody></table>
 
+<p><span class="multi-option-required-data">* <strong>Either <span class='attribute-name'>moxi_works_agent_id</span> or <span class='attribute-name'>agent_uuid</span> must be supplied. For guidance on which Agent identifier better fits your use-case, see <a href="#agent-identifiers">Agent Identifiers</a></strong></span></p>
+
 <p><span class="required-data"><strong>Required Parameters Are In Red</strong></span></p>
+
+<p><span class="request-data-head">agent_uuid</span>
+<span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which an  <span class='entity-name'>SellerTransaction</span> entry is associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID. <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>SellerTransaction</span> <span class='action-name'>Update</span> request to be accepted.</span></p>
 
 <p><span class="request-data-head">moxi_works_agent_id</span>
 <span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>SellerTransaction</span> object is associated with. This will be a string that may take the form of an email address, or a unique identification string. This data is required and must reference a valid Moxi Works <span class='entity-name'>Agent</span> ID for your <span class='entity-name'>SellerTransaction</span> <span class='action-name'>Update</span>  request to be accepted.</span></p>
@@ -1099,7 +1355,39 @@ moxi_works_agent_id=abc123&amp;beds=12&amp;baths=34.5&amp;notes=take%20care%20to
 <p>In order to promote a <span class='entity-name'>SellerTransaction</span> to the next stage, include the <span class='attribute-name'>promote_transaction</span> parameter in your <span class='action-name'>Update</span> request and set it to <code class="prettyprint">true</code>.  For more information about <span class='entity-name'>SellerTransaction</span> stages, see <a href='#sellertransaction-stages'><span class='entity-name'>SellerTransaction</span> Stages</a>.</p>
 
 <blockquote><div class='highlight json' style="display: block">
-<span class='data-example-label'><span class='entity-name'>SellerTransaction</span> <span class='action-name'>Update</span> Response Payload Example
+<span class='data-example-label'><span class='entity-name'>SellerTransaction</span> <span class='action-name'>Update</span> (using <span class='attribute-name'>agent_uuid</span>) Response Payload Example
+</span></div></blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"agent_uuid"</span><span class="p">:</span><span class="s2">"12345678-1234-1234-1234-1234567890ab"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"moxi_works_transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"facefeed-beef-daff-dead-cad4edd1e4d"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"moxi_works_contact_id"</span><span class="p">:</span><span class="s2">"babebead-feed-face-dead-beefbad4babe"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"partner_contact_id"</span><span class="p">:</span><span class="s2">"MySystemsContactIDForTheContactAssociatedWithThisSellerTransaction"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"transaction_name"</span><span class="p">:</span><span class="s2">"Bob And Linda Tonkanaka"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"notes"</span><span class="p">:</span><span class="s2">"take care to write notes that are descriptive and helpful"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"stage"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"stage_name"</span><span class="p">:</span><span class="s2">"initialized"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"address"</span><span class="p">:</span><span class="s2">"1234 memory lane"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"city"</span><span class="p">:</span><span class="s2">"hereville"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"state"</span><span class="p">:</span><span class="s2">"provinceland"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"zip_code"</span><span class="p">:</span><span class="s2">"18292"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"sqft"</span><span class="p">:</span><span class="mi">2345</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"beds"</span><span class="p">:</span><span class="mi">12</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"baths"</span><span class="p">:</span><span class="mf">34.5</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"is_mls_transaction"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"mls_number"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"commission_percentage"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"commission_flat_fee"</span><span class="p">:</span><span class="mi">12345</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"target_price"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"min_price"</span><span class="p">:</span><span class="mi">292929</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"max_price"</span><span class="p">:</span><span class="mi">2323223</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"closing_price"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"closing_timestamp"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"start_timestamp"</span><span class="p">:</span><span class="kc">null</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote><div class='highlight json' style="display: block">
+<span class='data-example-label'><span class='entity-name'>SellerTransaction</span> <span class='action-name'>Update</span> (using <span class='attribute-name'>moxi_works_agent_id</span>) Response Payload Example
 </span></div></blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"moxi_works_agent_id"</span><span class="p">:</span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
@@ -1118,7 +1406,7 @@ moxi_works_agent_id=abc123&amp;beds=12&amp;baths=34.5&amp;notes=take%20care%20to
   </span><span class="nt">"beds"</span><span class="p">:</span><span class="mi">12</span><span class="p">,</span><span class="w">
   </span><span class="nt">"baths"</span><span class="p">:</span><span class="mf">34.5</span><span class="p">,</span><span class="w">
   </span><span class="nt">"is_mls_transaction"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"mls_number"</span><span class="p">:</span><span class="err">nil</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"mls_number"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"commission_percentage"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"commission_flat_fee"</span><span class="p">:</span><span class="mi">12345</span><span class="p">,</span><span class="w">
   </span><span class="nt">"target_price"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -1152,8 +1440,12 @@ moxi_works_agent_id=abc123&amp;beds=12&amp;baths=34.5&amp;notes=take%20care%20to
 </tr>
 </thead><tbody>
 <tr>
-<td><span class="response-data">moxi_works_agent_id</span></td>
-<td><span class="response-data"><span class="data-type">String</span></span></td>
+<td><span class="multi-option-response-data">agent_uuid*</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="multi-option-response-data">moxi_works_agent_id*</span></td>
+<td><span class="data-type">String</span></td>
 </tr>
 <tr>
 <td><span class="response-data">moxi_works_transaction_id</span></td>
@@ -1252,6 +1544,11 @@ moxi_works_agent_id=abc123&amp;beds=12&amp;baths=34.5&amp;notes=take%20care%20to
 <td><span class="data-type">Integer or null</span></td>
 </tr>
 </tbody></table>
+
+<p><span class='multi-option-response-data'>* Either <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> will be returned depending on whether it is used in the request. The response payload object&rsquo;s agent identifier key will match the passed parameter.</span></p>
+
+<p><span class="response-data-head">agent_uuid</span>
+<span class="response-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>SellerTransaction</span>  is associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID.</span></p>
 
 <p><span class="response-data-head">moxi_works_agent_id</span>
 <span class="response-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>SellerTransaction</span> is associated with. This will be a string that may take the form of an email address, or a unique alphanumeric identification string.</span></p>
@@ -1338,11 +1635,11 @@ moxi_works_agent_id=abc123&amp;beds=12&amp;baths=34.5&amp;notes=take%20care%20to
 <div class='highlight php'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-php/classes/MoxiworksPlatform.SellerTransaction.html#method_find'>PHP Find Docs</a></span></blockquote></div>
 
 <blockquote>
-<p><span class="data-example-label"><span class='entity-name'>SellerTransaction</span> <span class='action-name'>Show</span> Example</span></p>
+<p><span class="data-example-label"><span class='entity-name'>SellerTransaction</span> <span class='action-name'>Show</span> (using <span class='attribute-name'>agent_uuid</span>) Example</span></p>
 </blockquote>
 
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"moxi_works_agent_id"</span><span class="p">:</span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"agent_uuid"</span><span class="p">:</span><span class="s2">"12345678-1234-1234-1234-1234567890ab"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"moxi_works_transaction_id"</span><span class="p">:</span><span class="s2">"babebead-feed-face-dead-beefbad4babe"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
@@ -1355,7 +1652,7 @@ moxi_works_agent_id=abc123&amp;beds=12&amp;baths=34.5&amp;notes=take%20care%20to
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">Basic XNNeXAAAUZaQlF0dA==</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/x-www-form-urlencoded</span>
 
-moxi_works_agent_id=abc123
+agent_uuid=12345678-1234-1234-1234-1234567890ab
 
 </code></pre>
 
@@ -1370,7 +1667,7 @@ moxi_works_agent_id=abc123
 <span class="c1">##### end prerequisites</span>
 
 <span class="n">moxi_works_transaction</span> <span class="o">=</span> <span class="no">MoxiworksPlatform</span><span class="o">::</span><span class="no">SellerTransaction</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span>
-      <span class="n">moxi_works_agent_id</span><span class="ss">:"abc123"</span><span class="p">,</span>
+      <span class="n">agent_uuid</span><span class="ss">:"12345678-1234-1234-1234-1234567890ab"</span><span class="p">,</span>
       <span class="n">moxi_works_transaction_id</span><span class="ss">:"babebead-feed-face-dead-beefbad4babe"</span>
       <span class="p">)</span>
 
@@ -1383,14 +1680,14 @@ moxi_works_agent_id=abc123
 <span class="nv">$credentials</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MoxiworksPlatform\Credentials</span><span class="p">(</span><span class="nv">$platform_identifier</span><span class="p">,</span> <span class="nv">$platform_secret</span><span class="p">);</span>
 
 <span class="nv">$moxi_works_transaction</span> <span class="o">=</span> <span class="nx">MoxiworksPlatform\SellerTransaction</span><span class="o">::</span><span class="na">find</span><span class="p">([</span>
-      <span class="s2">"moxi_works_agent_id"</span> <span class="o">=&gt;</span> <span class="s2">"abc123"</span><span class="p">,</span>
+      <span class="s2">"agent_uuid"</span> <span class="o">=&gt;</span> <span class="s2">"12345678-1234-1234-1234-1234567890ab"</span><span class="p">,</span>
       <span class="s2">"moxi_works_transaction_id"</span> <span class="o">=&gt;</span> <span class="s2">"babebead-feed-face-dead-beefbad4babe"</span>
        <span class="p">]);</span>
 <span class="cp">?&gt;</span>
 </code></pre>
 
 <blockquote>
-<p><span class="data-example-label">Non MLS <span class='entity-name'>SellerTransaction</span> <span class='action-name'>Show</span> Example</span></p>
+<p><span class="data-example-label"><span class='entity-name'>SellerTransaction</span> <span class='action-name'>Show</span> (using <span class='attribute-name'>moxi_works_agent_id</span>) Example</span></p>
 </blockquote>
 
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
@@ -1455,19 +1752,69 @@ moxi_works_agent_id=abc123
 </tr>
 </thead><tbody>
 <tr>
-<td><span class="required-data">moxi_works_agent_id</span></td>
+<td><span class="multi-option-required-data">agent_uuid*</span></td>
+<td><span class="multi-option-required-data"><span class="data-type">String</span></span></td>
+<td><span class="multi-option-required-data">255</span></td>
+</tr>
+<tr>
+<td><span class="multi-option-required-data">moxi_works_agent_id*</span></td>
+<td><span class="multi-option-required-data"><span class="data-type">String</span></span></td>
+<td><span class="multi-option-required-data">255</span></td>
+</tr>
+<tr>
+<td><span class="required-data">moxi_works_transaction_id</span></td>
 <td><span class="required-data"><span class="data-type">String</span></span></td>
 <td><span class="required-data">255</span></td>
 </tr>
 </tbody></table>
 
+<p><span class="multi-option-required-data">* <strong>Either <span class='attribute-name'>moxi_works_agent_id</span> or <span class='attribute-name'>agent_uuid</span> must be supplied. For guidance on which Agent identifier better fits your use-case, see <a href="#agent-identifiers">Agent Identifiers</a></strong></span></p>
+
 <p><span class="required-data"><strong>Required Parameters Are In Red</strong></span></p>
+
+<p><span class="request-data-head">agent_uuid</span>
+<span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which an  <span class='entity-name'>BuyerTransaction</span> entry is associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID. <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>SellerTransaction</span> <span class='action-name'>Show</span> request to be accepted.</span></p>
 
 <p><span class="request-data-head">moxi_works_agent_id</span>
 <span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>SellerTransaction</span> object is associated with. This will be a string that may take the form of an email address, or a unique identification string. This data is required and must reference a valid Moxi Works <span class='entity-name'>Agent</span> ID for your <span class='entity-name'>SellerTransaction</span> <span class='action-name'>Show</span>  request to be accepted.</span></p>
 
+<p><span class="request-data-head">moxi_works_transaction_id</span>
+<span class="requwst-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>SellerTransaction</span>. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID.</span></p>
+
 <blockquote><div class='highlight json' style="display: block">
-<span class='data-example-label'><span class='entity-name'>SellerTransaction</span> <span class='action-name'>Show</span> Response Payload Example
+<span class='data-example-label'><span class='entity-name'>SellerTransaction</span> <span class='action-name'>Show</span> (using <span class='attribute-name'>agent_uuid</span>) Response Payload Example
+</span></div></blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"agent_uuid"</span><span class="p">:</span><span class="s2">"12345678-1234-1234-1234-1234567890ab"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"moxi_works_transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"facefeed-beef-daff-dead-cad4edd1e4d"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"moxi_works_contact_id"</span><span class="p">:</span><span class="s2">"babebead-feed-face-dead-beefbad4babe"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"partner_contact_id"</span><span class="p">:</span><span class="s2">"MySystemsContactIDForTheContactAssociatedWithThisSellerTransaction"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"transaction_name"</span><span class="p">:</span><span class="s2">"Bob And Linda Tonkanaka"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"notes"</span><span class="p">:</span><span class="s2">"take care to write notes that are descriptive and helpful"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"stage"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"stage_name"</span><span class="p">:</span><span class="s2">"initialized"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"address"</span><span class="p">:</span><span class="s2">"1234 memory lane"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"city"</span><span class="p">:</span><span class="s2">"hereville"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"state"</span><span class="p">:</span><span class="s2">"provinceland"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"zip_code"</span><span class="p">:</span><span class="s2">"18292"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"sqft"</span><span class="p">:</span><span class="mi">2345</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"beds"</span><span class="p">:</span><span class="mi">12</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"baths"</span><span class="p">:</span><span class="mf">34.5</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"is_mls_transaction"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"mls_number"</span><span class="p">:</span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"commission_percentage"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"commission_flat_fee"</span><span class="p">:</span><span class="mi">12345</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"target_price"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"min_price"</span><span class="p">:</span><span class="mi">292929</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"max_price"</span><span class="p">:</span><span class="mi">2323223</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"closing_price"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"closing_timestamp"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"start_timestamp"</span><span class="p">:</span><span class="kc">null</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote><div class='highlight json' style="display: block">
+<span class='data-example-label'><span class='entity-name'>SellerTransaction</span> <span class='action-name'>Show</span> (using <span class='attribute-name'>moxi_works_agent_id</span>) Response Payload Example
 </span></div></blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"moxi_works_agent_id"</span><span class="p">:</span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
@@ -1520,8 +1867,12 @@ moxi_works_agent_id=abc123
 </tr>
 </thead><tbody>
 <tr>
-<td><span class="response-data">moxi_works_agent_id</span></td>
-<td><span class="response-data"><span class="data-type">String</span></span></td>
+<td><span class="multi-option-response-data">agent_uuid*</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="multi-option-response-data">moxi_works_agent_id*</span></td>
+<td><span class="data-type">String</span></td>
 </tr>
 <tr>
 <td><span class="response-data">moxi_works_transaction_id</span></td>
@@ -1621,6 +1972,11 @@ moxi_works_agent_id=abc123
 </tr>
 </tbody></table>
 
+<p><span class='multi-option-response-data'>* Either <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> will be returned depending on whether it is used in the request. The response payload object&rsquo;s agent identifier key will match the passed parameter.</span></p>
+
+<p><span class="response-data-head">agent_uuid</span>
+<span class="response-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>SellerTransaction</span>  is associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID.</span></p>
+
 <p><span class="response-data-head">moxi_works_agent_id</span>
 <span class="response-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>SellerTransaction</span> is associated with. This will be a string that may take the form of an email address, or a unique alphanumeric identification string.</span></p>
 
@@ -1706,12 +2062,11 @@ moxi_works_agent_id=abc123
 <div class='highlight php'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-php/classes/MoxiworksPlatform.SellerTransaction.html#method_find'>PHP Search Docs</a></span></blockquote></div>
 
 <blockquote>
-<p><span class="data-example-label"><span class='entity-name'>SellerTransaction</span> <span class='action-name'>Index</span> Example</span></p>
+<p><span class="data-example-label"><span class='entity-name'>SellerTransaction</span> <span class='action-name'>Index</span> (using <span class='attribute-name'>agent_uuid</span>) Example</span></p>
 </blockquote>
 
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"moxi_works_agent_id"</span><span class="p">:</span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"moxi_works_transaction_id"</span><span class="p">:</span><span class="s2">"babebead-feed-face-dead-beefbad4babe"</span><span class="w">
+  </span><span class="nt">"agent_uuid"</span><span class="p">:</span><span class="s2">"12345678-1234-1234-1234-1234567890ab"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
 
@@ -1723,7 +2078,7 @@ moxi_works_agent_id=abc123
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">Basic XNNeXAAAUZaQlF0dA==</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/x-www-form-urlencoded</span>
 
-moxi_works_agent_id=abc123
+agent_uuid=12345678-1234-1234-1234-1234567890ab
 
 </code></pre>
 
@@ -1738,8 +2093,7 @@ moxi_works_agent_id=abc123
 <span class="c1">##### end prerequisites</span>
 
 <span class="n">moxi_works_transaction</span> <span class="o">=</span> <span class="no">MoxiworksPlatform</span><span class="o">::</span><span class="no">SellerTransaction</span><span class="p">.</span><span class="nf">search</span><span class="p">(</span>
-      <span class="n">moxi_works_agent_id</span><span class="ss">:"abc123"</span><span class="p">,</span>
-      <span class="n">moxi_works_transaction_id</span><span class="ss">:"babebead-feed-face-dead-beefbad4babe"</span>
+      <span class="n">agent_uuid</span><span class="ss">:"12345678-1234-1234-1234-1234567890ab"</span>
       <span class="p">)</span>
 
 </code></pre>
@@ -1751,19 +2105,17 @@ moxi_works_agent_id=abc123
 <span class="nv">$credentials</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MoxiworksPlatform\Credentials</span><span class="p">(</span><span class="nv">$platform_identifier</span><span class="p">,</span> <span class="nv">$platform_secret</span><span class="p">);</span>
 
 <span class="nv">$moxi_works_transaction</span> <span class="o">=</span> <span class="nx">MoxiworksPlatform\SellerTransaction</span><span class="o">::</span><span class="na">search</span><span class="p">([</span>
-      <span class="s2">"moxi_works_agent_id"</span> <span class="o">=&gt;</span> <span class="s2">"abc123"</span><span class="p">,</span>
-      <span class="s2">"moxi_works_transaction_id"</span> <span class="o">=&gt;</span> <span class="s2">"babebead-feed-face-dead-beefbad4babe"</span>
+      <span class="s2">"moxi_works_agent_id"</span> <span class="o">=&gt;</span> <span class="s2">"agent_uuid"</span>
        <span class="p">]);</span>
 <span class="cp">?&gt;</span>
 </code></pre>
 
 <blockquote>
-<p><span class="data-example-label">Non MLS <span class='entity-name'>SellerTransaction</span> <span class='action-name'>Index</span> Example</span></p>
+<p><span class="data-example-label"><span class='entity-name'>SellerTransaction</span> <span class='action-name'>Index</span> (using <span class='attribute-name'>moxi_works_agent_id</span>) Example</span></p>
 </blockquote>
 
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"moxi_works_agent_id"</span><span class="p">:</span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"moxi_works_transaction_id"</span><span class="p">:</span><span class="s2">"babebead-feed-face-dead-beefbad4babe"</span><span class="w">
+  </span><span class="nt">"moxi_works_agent_id"</span><span class="p">:</span><span class="s2">"abc123"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
 
@@ -1790,8 +2142,7 @@ moxi_works_agent_id=abc123
 <span class="c1">##### end prerequisites</span>
 
 <span class="n">moxi_works_transaction</span> <span class="o">=</span> <span class="no">MoxiworksPlatform</span><span class="o">::</span><span class="no">SellerTransaction</span><span class="p">.</span><span class="nf">search</span><span class="p">(</span>
-      <span class="n">moxi_works_agent_id</span><span class="ss">:"abc123"</span><span class="p">,</span>
-      <span class="n">moxi_works_transaction_id</span><span class="ss">:"babebead-feed-face-dead-beefbad4babe"</span>
+      <span class="n">moxi_works_agent_id</span><span class="ss">:"abc123"</span>
       <span class="p">)</span>
 
 </code></pre>
@@ -1803,8 +2154,7 @@ moxi_works_agent_id=abc123
 <span class="nv">$credentials</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MoxiworksPlatform\Credentials</span><span class="p">(</span><span class="nv">$platform_identifier</span><span class="p">,</span> <span class="nv">$platform_secret</span><span class="p">);</span>
 
 <span class="nv">$moxi_works_transaction</span> <span class="o">=</span> <span class="nx">MoxiworksPlatform\SellerTransaction</span><span class="o">::</span><span class="na">search</span><span class="p">([</span>
-      <span class="s2">"moxi_works_agent_id"</span> <span class="o">=&gt;</span> <span class="s2">"abc123"</span><span class="p">,</span>
-      <span class="s2">"moxi_works_transaction_id"</span> <span class="o">=&gt;</span> <span class="s2">"babebead-feed-face-dead-beefbad4babe"</span>
+      <span class="s2">"moxi_works_agent_id"</span> <span class="o">=&gt;</span> <span class="s2">"abc123"</span>
        <span class="p">]);</span>
 <span class="cp">?&gt;</span>
 </code></pre>
@@ -1823,9 +2173,14 @@ moxi_works_agent_id=abc123
 </tr>
 </thead><tbody>
 <tr>
-<td><span class="required-data">moxi_works_agent_id</span></td>
-<td><span class="required-data"><span class="data-type">String</span></span></td>
-<td><span class="required-data">255</span></td>
+<td><span class="multi-option-required-data">agent_uuid*</span></td>
+<td><span class="multi-option-required-data"><span class="data-type">String</span></span></td>
+<td><span class="multi-option-required-data">255</span></td>
+</tr>
+<tr>
+<td><span class="multi-option-required-data">moxi_works_agent_id*</span></td>
+<td><span class="multi-option-required-data"><span class="data-type">String</span></span></td>
+<td><span class="multi-option-required-data">255</span></td>
 </tr>
 <tr>
 <td><span class="optional-data">moxi_works_contact_id</span></td>
@@ -1838,18 +2193,18 @@ moxi_works_agent_id=abc123
 <td>255</td>
 </tr>
 <tr>
-<td><span class="optional-data">include_unconfigured</span></td>
-<td><span class="data-type">Boolean</span></td>
-<td>255</td>
-</tr>
-<tr>
 <td><span class="optional-data">page_number</span></td>
 <td><span class="data-type">Integer</span></td>
 <td>255</td>
 </tr>
 </tbody></table>
 
+<p><span class="multi-option-required-data">* <strong>Either <span class='attribute-name'>moxi_works_agent_id</span> or <span class='attribute-name'>agent_uuid</span> must be supplied. For guidance on which Agent identifier better fits your use-case, see <a href="#agent-identifiers">Agent Identifiers</a></strong></span></p>
+
 <p><span class="required-data"><strong>Required Parameters Are In Red</strong></span></p>
+
+<p><span class="request-data-head">agent_uuid</span>
+<span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which an  <span class='entity-name'>SellerTransaction</span> entry is associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID. <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>SellerTransaction</span> <span class='action-name'>Index</span> request to be accepted.</span></p>
 
 <p><span class="request-data-head">moxi_works_agent_id</span>
 <span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which the <span class='entity-name'>SellerTransaction</span> objects are associated with. This will be a string that may take the form of an email address, or a unique identification string. This data is required and must reference a valid Moxi Works <span class='entity-name'>Agent</span> ID for your <span class='entity-name'>SellerTransaction</span> <span class='action-name'>Index</span>  request to be accepted.</span></p>
@@ -1860,14 +2215,50 @@ moxi_works_agent_id=abc123
 <p><span class="request-data-head">partner_contact_id</span>
 <span class="request-data-remarks">This is the unique identifer you use in your system that has been associated with the <span class='entity-name'>Contact</span> you want to find <span class='entity-name'>SellerTransaction</span> objects for. You can use either <span class='attribute-name'>moxi_works_contact_id</span> or <span class='attribute-name'>partner_contact_id</span> when searching for <span class='entity-name'>SellerTransaction</span> objects associated with a specific <span class='entity-name'>Contact</span>.</span></p>
 
-<p><span class="request-data-head">include_unconfigured</span>
-<span class="request-data-remarks">Whether to include <span class='entity-name'>SellerTransaction</span> objects that are not configured. By default only <tt>configured</tt>, <tt>active</tt>, <tt>pending</tt> and <tt>completed</tt> <span class='entity-name'>SellerTransaction</span> objects are returned. To include <tt>initialized</tt> <span class='entity-name'>SellerTransaction</span> objects, pass <span class='attribute-name'>include_unconfigured</span> in your request parameters set to <tt>true</tt></span></p>
-
 <p><span class="request-data-head">page_number</span>
 <span class="request-data-remarks">Page of <span class='entity-name'>SellerTransaction</span> records to return. Use if <code class="prettyprint">total_pages</code> indicates that there is more than one page of data available.</span></p>
 
 <blockquote><div class='highlight json' style="display: block">
-<span class='data-example-label'><span class='entity-name'>SellerTransaction</span> <span class='action-name'>Index</span> Response Payload Example
+<span class='data-example-label'><span class='entity-name'>SellerTransaction</span> <span class='action-name'>Index</span> (using <span class='attribute-name'>agent_uuid</span>) Response Payload Example
+</span></div></blockquote>
+
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"page_number"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"total_pages"</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"transactions"</span><span class="p">:[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"agent_uuid"</span><span class="p">:</span><span class="s2">"12345678-1234-1234-1234-1234567890ab"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"moxi_works_transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"facefeed-beef-daff-dead-cad4edd1e4d"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"moxi_works_contact_id"</span><span class="p">:</span><span class="s2">"babebead-feed-face-dead-beefbad4babe"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"partner_contact_id"</span><span class="p">:</span><span class="s2">"MySystemsContactIDForTheContactAssociatedWithThisSellerTransaction"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"transaction_name"</span><span class="p">:</span><span class="s2">"Bob And Linda Tonkanaka"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"notes"</span><span class="p">:</span><span class="s2">"take care to write notes that are descriptive and helpful"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"stage"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"stage_name"</span><span class="p">:</span><span class="s2">"initialized"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"address"</span><span class="p">:</span><span class="s2">"1234 memory lane"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"city"</span><span class="p">:</span><span class="s2">"hereville"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"state"</span><span class="p">:</span><span class="s2">"provinceland"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"zip_code"</span><span class="p">:</span><span class="s2">"18292"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"sqft"</span><span class="p">:</span><span class="mi">2345</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"beds"</span><span class="p">:</span><span class="mi">12</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"baths"</span><span class="p">:</span><span class="mf">34.5</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"is_mls_transaction"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"mls_number"</span><span class="p">:</span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"commission_percentage"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"commission_flat_fee"</span><span class="p">:</span><span class="mi">12345</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"target_price"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"min_price"</span><span class="p">:</span><span class="mi">292929</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"max_price"</span><span class="p">:</span><span class="mi">2323223</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"closing_price"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"closing_timestamp"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"start_timestamp"</span><span class="p">:</span><span class="kc">null</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote><div class='highlight json' style="display: block">
+<span class='data-example-label'><span class='entity-name'>SellerTransaction</span> <span class='action-name'>Index</span> (using <span class='attribute-name'>moxi_works_agent_id</span>) Response Payload Example
 </span></div></blockquote>
 
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
@@ -1959,8 +2350,12 @@ moxi_works_agent_id=abc123
 </tr>
 </thead><tbody>
 <tr>
-<td><span class="response-data">moxi_works_agent_id</span></td>
-<td><span class="response-data"><span class="data-type">String</span></span></td>
+<td><span class="multi-option-response-data">agent_uuid*</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="multi-option-response-data">moxi_works_agent_id*</span></td>
+<td><span class="data-type">String</span></td>
 </tr>
 <tr>
 <td><span class="response-data">moxi_works_transaction_id</span></td>
@@ -2059,6 +2454,11 @@ moxi_works_agent_id=abc123
 <td><span class="data-type">Integer or null</span></td>
 </tr>
 </tbody></table>
+
+<p><span class='multi-option-response-data'>* Either <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> will be returned depending on whether it is used in the request. The response payload object&rsquo;s agent identifier key will match the passed parameter.</span></p>
+
+<p><span class="response-data-head">agent_uuid</span>
+<span class="response-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>SellerTransaction</span>  is associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID.</span></p>
 
 <p><span class="response-data-head">moxi_works_agent_id</span>
 <span class="response-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>SellerTransaction</span> is associated with. This will be a string that may take the form of an email address, or a unique alphanumeric identification string.</span></p>

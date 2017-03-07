@@ -35,7 +35,168 @@
 <div class='highlight php'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-php/classes/MoxiworksPlatform.Contact.html#method_update'>PHP Update Docs</a></span></blockquote></div>
 
 <blockquote>
-<p><span class="data-example-label"><span class='entity-name'>Contact</span> <span class='action-name'>Update</span> Example</span></p>
+<p><span class="data-example-label"><span class='entity-name'>Contact</span> <span class='action-name'>Update</span> (using <span class='attribute-name'>agent_uuid</span>) Example</span></p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+</span><span class="nt">"agent_uuid"</span><span class="p">:</span><span class="s2">"12345678-1234-1234-1234-1234567890ab"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"partner_contact_id"</span><span class="p">:</span><span class="s2">"booyuh"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"contact_name"</span><span class="p">:</span><span class="s2">"Firstname Middlenyme Larstnam"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"gender"</span><span class="p">:</span><span class="s2">"m"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"primary_email_address"</span><span class="p">:</span><span class="s2">"me@justabout.right.here"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"secondary_email_address"</span><span class="p">:</span><span class="s2">"me.too@justabout.right.here"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"primary_phone_number"</span><span class="p">:</span><span class="s2">"9995551212"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"secondary_phone_number"</span><span class="p">:</span><span class="s2">"(333) 555-1185"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"home_street_address"</span><span class="p">:</span><span class="s2">"1234 Sesame St."</span><span class="p">,</span><span class="w">
+</span><span class="nt">"home_city"</span><span class="p">:</span><span class="s2">"Cityville"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"home_state"</span><span class="p">:</span><span class="s2">"Stateland"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"home_zip"</span><span class="p">:</span><span class="s2">"12345-6789"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"home_country"</span><span class="p">:</span><span class="s2">"Ottoman Empire"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"job_title"</span><span class="p">:</span><span class="s2">"Junior Bacon Burner"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"occupation"</span><span class="p">:</span><span class="s2">"chef"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"property_url"</span><span class="p">:</span><span class="s2">"http://my.property.website.is/here"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"property_mls_id"</span><span class="p">:</span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"property_street_address"</span><span class="p">:</span><span class="s2">"2345 67th place"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"property_city"</span><span class="p">:</span><span class="s2">"Townland"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"property_state"</span><span class="p">:</span><span class="s2">"Statesville"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"property_zip"</span><span class="p">:</span><span class="s2">"98765-4321"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"property_beds"</span><span class="p">:</span><span class="s2">"18"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"property_baths"</span><span class="p">:</span><span class="s2">"12.5"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"property_list_price"</span><span class="p">:</span><span class="s2">"123456789"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"property_listing_status"</span><span class="p">:</span><span class="s2">"Active"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"property_photo_url"</span><span class="p">:</span><span class="s2">"http://property.photo.is/here.jpg"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"search_city"</span><span class="p">:</span><span class="s2">"Searchland"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"search_state"</span><span class="p">:</span><span class="s2">"Searchsylvania"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"search_zip"</span><span class="p">:</span><span class="s2">"12345-6789"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"search_min_beds"</span><span class="p">:</span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"search_min_baths"</span><span class="p">:</span><span class="s2">"3.25"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"search_min_price"</span><span class="p">:</span><span class="s2">"1234567"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"search_max_price"</span><span class="p">:</span><span class="s2">"1234569"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"search_min_sq_ft"</span><span class="p">:</span><span class="s2">"1234"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"search_max_sq_ft"</span><span class="p">:</span><span class="s2">"1235"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"search_min_lot_size"</span><span class="p">:</span><span class="s2">"3234"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"search_max_lot_size"</span><span class="p">:</span><span class="s2">"3235"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"search_min_year_built"</span><span class="p">:</span><span class="s2">"1388"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"search_max_year_built"</span><span class="p">:</span><span class="s2">"2044"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"search_property_types"</span><span class="p">:</span><span class="s2">"Condo, Single Family, Townhouse"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"note"</span><span class="p">:</span><span class="s2">"whatevers2009"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<pre class="highlight http"><code><span class="nf">PUT</span> <span class="nn">/api/contacts/[partner_contact_id]</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">api.moxiworks.com</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.moxi-platform+json;version=1</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Basic XNNeXAAAUZaQlF0dA==</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/x-www-form-urlencoded</span>
+
+
+agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;partner_contact_id=abc982cdf345&amp;contact_name=Billy+Football&amp;gender=m&amp;primary_email_address=johnny%40football.foo&amp;secondary_email_address=fooball%40johnnyshead.lost&amp;primary_phone_number=123123213&amp;secondary_phone_number=2929292922&amp;home_street_address=1234+Winterfell+Way&amp;home_city=Cityville&amp;home_state=Stateland&amp;home_zip=12345&amp;home_country=Westeros&amp;job_title=Junior+Bacon+Burner&amp;occupation=Chef&amp;property_url=http%3A%2F%2Fteh.property.is%2Fhere&amp;property_mls_id=123abc&amp;property_street_address=1234+here+ave.&amp;property_city=anywhereville&amp;property_state=anystate&amp;property_zip=918928&amp;property_beds=21&amp;property_baths=12.75&amp;property_list_price=1231213&amp;property_listing_status=Active&amp;property_photo_url=http%3A%2F%2Fthis.is%2Fthe%2Fphoto.jpg&amp;search_city=searchville&amp;search_state=ofconfusion&amp;search_zip=92882&amp;search_min_beds=12&amp;search_min_baths=4&amp;search_min_price=1234&amp;search_max_price=22324&amp;search_min_sq_ft=1234&amp;search_max_sq_ft=23455&amp;search_min_lot_size=29299&amp;search_max_lot_size=292929&amp;search_min_year_built=1999&amp;search_max_year_built=2004&amp;search_property_types=Condo%2C+Single-Family&amp;note=whatevers2009
+</code></pre>
+<pre class="highlight ruby"><code><span class="c1">##### set up prerequisites once</span>
+<span class="nb">require</span> <span class="s1">'moxiworks_platform'</span>
+
+<span class="n">platform_identifier</span> <span class="o">=</span> <span class="s1">'abc123'</span>
+
+<span class="n">platform_secret</span> <span class="o">=</span> <span class="s1">'secret'</span>
+
+<span class="no">MoxiworksPlatform</span><span class="o">::</span><span class="no">Credentials</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">platform_identifier</span><span class="p">,</span> <span class="n">platform_secret</span><span class="p">)</span>
+<span class="c1">##### end prerequisites</span>
+
+<span class="n">moxi_works_contact</span> <span class="o">=</span> <span class="no">MoxiworksPlatform</span><span class="o">::</span><span class="no">Contact</span><span class="p">.</span><span class="nf">update</span><span class="p">(</span>
+        <span class="ss">agent_uuid: </span><span class="s2">"12345678-1234-1234-1234-1234567890ab"</span><span class="p">,</span>
+        <span class="ss">partner_contact_id: </span><span class="s2">"booyuh"</span><span class="p">,</span>
+        <span class="ss">contact_name: </span><span class="s2">"Firstname Middlenyme Larstnam"</span><span class="p">,</span>
+        <span class="ss">gender: </span><span class="s2">"m"</span><span class="p">,</span>
+        <span class="ss">primary_email_address: </span><span class="s2">"me@justabout.right.here"</span><span class="p">,</span>
+        <span class="ss">secondary_email_address: </span><span class="s2">"me.too@justabout.right.here"</span><span class="p">,</span>
+        <span class="ss">primary_phone_number: </span><span class="s2">"9995551212"</span><span class="p">,</span>
+        <span class="ss">secondary_phone_number: </span><span class="s2">"(333) 555-1185"</span><span class="p">,</span>
+        <span class="ss">home_street_address: </span><span class="s2">"1234 Sesame St."</span><span class="p">,</span>
+        <span class="ss">home_city: </span><span class="s2">"Cityville"</span><span class="p">,</span>
+        <span class="ss">home_state: </span><span class="s2">"Stateland"</span><span class="p">,</span>
+        <span class="ss">home_zip: </span><span class="s2">"12345-6789"</span><span class="p">,</span>
+        <span class="ss">home_country: </span><span class="s2">"Ottoman Empire"</span><span class="p">,</span>
+        <span class="ss">job_title: </span><span class="s2">"Junior Bacon Burner"</span><span class="p">,</span>
+        <span class="ss">occupation: </span><span class="s2">"chef"</span><span class="p">,</span>
+        <span class="ss">property_url: </span><span class="s2">"http://my.property.website.is/here"</span><span class="p">,</span>
+        <span class="ss">property_mls_id: </span><span class="s2">"abc123"</span><span class="p">,</span>
+        <span class="ss">property_street_address: </span><span class="s2">"2345 67th place"</span><span class="p">,</span>
+        <span class="ss">property_city: </span><span class="s2">"Townland"</span><span class="p">,</span>
+        <span class="ss">property_state: </span><span class="s2">"Statesville"</span><span class="p">,</span>
+        <span class="ss">property_zip: </span><span class="s2">"98765-4321"</span><span class="p">,</span>
+        <span class="ss">property_beds: </span><span class="s2">"18"</span><span class="p">,</span>
+        <span class="ss">property_baths: </span><span class="s2">"12.5"</span><span class="p">,</span>
+        <span class="ss">property_list_price: </span><span class="s2">"123456789"</span><span class="p">,</span>
+        <span class="ss">property_listing_status: </span><span class="s2">"Active"</span><span class="p">,</span>
+        <span class="ss">property_photo_url: </span><span class="s2">"http://property.photo.is/here.jpg"</span><span class="p">,</span>
+        <span class="ss">search_city: </span><span class="s2">"Searchland"</span><span class="p">,</span>
+        <span class="ss">search_state: </span><span class="s2">"Searchsylvania"</span><span class="p">,</span>
+        <span class="ss">search_zip: </span><span class="s2">"12345-6789"</span><span class="p">,</span>
+        <span class="ss">search_min_beds: </span><span class="s2">"2"</span><span class="p">,</span>
+        <span class="ss">search_min_baths: </span><span class="s2">"3.25"</span><span class="p">,</span>
+        <span class="ss">search_min_price: </span><span class="s2">"1234567"</span><span class="p">,</span>
+        <span class="ss">search_max_price: </span><span class="s2">"1234569"</span><span class="p">,</span>
+        <span class="ss">search_min_sq_ft: </span><span class="s2">"1234"</span><span class="p">,</span>
+        <span class="ss">search_max_sq_ft: </span><span class="s2">"1235"</span><span class="p">,</span>
+        <span class="ss">search_min_lot_size: </span><span class="s2">"3234"</span><span class="p">,</span>
+        <span class="ss">search_max_lot_size: </span><span class="s2">"3235"</span><span class="p">,</span>
+        <span class="ss">search_min_year_built: </span><span class="s2">"1388"</span><span class="p">,</span>
+        <span class="ss">search_max_year_built: </span><span class="s2">"2044"</span><span class="p">,</span>
+        <span class="ss">search_property_types: </span><span class="s2">"Condo, Single Family, Townhouse"</span><span class="p">,</span>
+        <span class="ss">note: </span><span class="s2">"whatevers2009"</span><span class="p">)</span>
+
+</code></pre>
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+<span class="nv">$platform_identifier</span> <span class="o">=</span> <span class="s1">'abc123'</span><span class="p">;</span> <span class="c1">// platorm_identifier provided by Moxi Works Platform Rep
+</span><span class="nv">$platform_secret</span> <span class="o">=</span> <span class="s1">'secret'</span><span class="p">;</span> <span class="c1">//platform_secret provided by Moxi Works Platform Rep
+</span>
+<span class="nv">$credentials</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MoxiworksPlatform\Credentials</span><span class="p">(</span><span class="nv">$platform_identifier</span><span class="p">,</span> <span class="nv">$platform_secret</span><span class="p">);</span>
+
+<span class="nv">$moxi_works_contact</span> <span class="o">=</span> <span class="mi">12345678</span><span class="o">-</span><span class="mi">1234</span><span class="o">-</span><span class="mi">1234</span><span class="o">-</span><span class="mi">1234</span><span class="o">-</span><span class="mi">1234567890</span><span class="nx">ab\Contact</span><span class="o">::</span><span class="na">update</span><span class="p">([</span>
+        <span class="s1">'agent_uuid'</span>  <span class="o">=&gt;</span> <span class="s1">'1234abcd'</span><span class="p">,</span>
+        <span class="s1">'partner_contact_id'</span>  <span class="o">=&gt;</span> <span class="s1">'booyuh'</span><span class="p">,</span>
+        <span class="s1">'contact_name'</span>  <span class="o">=&gt;</span> <span class="s1">'Firstname Middlenyme Larstnam'</span><span class="p">,</span>
+        <span class="s1">'gender'</span>  <span class="o">=&gt;</span> <span class="s1">'m'</span><span class="p">,</span>
+        <span class="s1">'primary_email_address'</span>  <span class="o">=&gt;</span> <span class="s1">'me@justabout.right.here'</span><span class="p">,</span>
+        <span class="s1">'secondary_email_address'</span>  <span class="o">=&gt;</span> <span class="s1">'me.too@justabout.right.here'</span><span class="p">,</span>
+        <span class="s1">'primary_phone_number'</span>  <span class="o">=&gt;</span> <span class="s1">'9995551212'</span><span class="p">,</span>
+        <span class="s1">'secondary_phone_number'</span>  <span class="o">=&gt;</span> <span class="s1">'(333) 555-1185'</span><span class="p">,</span>
+        <span class="s1">'home_street_address'</span>  <span class="o">=&gt;</span> <span class="s1">'1234 Sesame St.'</span><span class="p">,</span>
+        <span class="s1">'home_city'</span>  <span class="o">=&gt;</span> <span class="s1">'Cityville'</span><span class="p">,</span>
+        <span class="s1">'home_state'</span>  <span class="o">=&gt;</span> <span class="s1">'Stateland'</span><span class="p">,</span>
+        <span class="s1">'home_zip'</span>  <span class="o">=&gt;</span> <span class="s1">'12345-6789'</span><span class="p">,</span>
+        <span class="s1">'home_country'</span>  <span class="o">=&gt;</span> <span class="s1">'Ottoman Empire'</span><span class="p">,</span>
+        <span class="s1">'job_title'</span>  <span class="o">=&gt;</span> <span class="s1">'Junior Bacon Burner'</span><span class="p">,</span>
+        <span class="s1">'occupation'</span>  <span class="o">=&gt;</span> <span class="s1">'chef'</span><span class="p">,</span>
+        <span class="s1">'property_url'</span>  <span class="o">=&gt;</span> <span class="s1">'http://my.property.website.is/here'</span><span class="p">,</span>
+        <span class="s1">'property_mls_id'</span>  <span class="o">=&gt;</span> <span class="s1">'abc123'</span><span class="p">,</span>
+        <span class="s1">'property_street_address'</span>  <span class="o">=&gt;</span> <span class="s1">'2345 67th place'</span><span class="p">,</span>
+        <span class="s1">'property_city'</span>  <span class="o">=&gt;</span> <span class="s1">'Townland'</span><span class="p">,</span>
+        <span class="s1">'property_state'</span>  <span class="o">=&gt;</span> <span class="s1">'Statesville'</span><span class="p">,</span>
+        <span class="s1">'property_zip'</span>  <span class="o">=&gt;</span> <span class="s1">'98765-4321'</span><span class="p">,</span>
+        <span class="s1">'property_beds'</span>  <span class="o">=&gt;</span> <span class="s1">'18'</span><span class="p">,</span>
+        <span class="s1">'property_baths'</span>  <span class="o">=&gt;</span> <span class="s1">'12.5'</span><span class="p">,</span>
+        <span class="s1">'property_list_price'</span>  <span class="o">=&gt;</span> <span class="s1">'123456789'</span><span class="p">,</span>
+        <span class="s1">'property_listing_status'</span>  <span class="o">=&gt;</span> <span class="s1">'Active'</span><span class="p">,</span>
+        <span class="s1">'property_photo_url'</span>  <span class="o">=&gt;</span> <span class="s1">'http://property.photo.is/here.jpg'</span><span class="p">,</span>
+        <span class="s1">'search_city'</span>  <span class="o">=&gt;</span> <span class="s1">'Searchland'</span><span class="p">,</span>
+        <span class="s1">'search_state'</span>  <span class="o">=&gt;</span> <span class="s1">'Searchsylvania'</span><span class="p">,</span>
+        <span class="s1">'search_zip'</span>  <span class="o">=&gt;</span> <span class="s1">'12345-6789'</span><span class="p">,</span>
+        <span class="s1">'search_min_beds'</span>  <span class="o">=&gt;</span> <span class="s1">'2'</span><span class="p">,</span>
+        <span class="s1">'search_min_baths'</span>  <span class="o">=&gt;</span> <span class="s1">'3.25'</span><span class="p">,</span>
+        <span class="s1">'search_min_price'</span>  <span class="o">=&gt;</span> <span class="s1">'1234567'</span><span class="p">,</span>
+        <span class="s1">'search_max_price'</span>  <span class="o">=&gt;</span> <span class="s1">'1234569'</span><span class="p">,</span>
+        <span class="s1">'search_min_sq_ft'</span>  <span class="o">=&gt;</span> <span class="s1">'1234'</span><span class="p">,</span>
+        <span class="s1">'search_max_sq_ft'</span>  <span class="o">=&gt;</span> <span class="s1">'1235'</span><span class="p">,</span>
+        <span class="s1">'search_min_lot_size'</span>  <span class="o">=&gt;</span> <span class="s1">'3234'</span><span class="p">,</span>
+        <span class="s1">'search_max_lot_size'</span>  <span class="o">=&gt;</span> <span class="s1">'3235'</span><span class="p">,</span>
+        <span class="s1">'search_min_year_built'</span>  <span class="o">=&gt;</span> <span class="s1">'1388'</span><span class="p">,</span>
+        <span class="s1">'search_max_year_built'</span>  <span class="o">=&gt;</span> <span class="s1">'2044'</span><span class="p">,</span>
+        <span class="s1">'search_property_types'</span>  <span class="o">=&gt;</span> <span class="s1">'Condo, Single Family, Townhouse'</span><span class="p">,</span>
+        <span class="s1">'note'</span>  <span class="o">=&gt;</span> <span class="s1">'whatevers2009'</span><span class="p">]);</span>
+<span class="cp">?&gt;</span>
+</code></pre>
+
+<blockquote>
+<p><span class="data-example-label"><span class='entity-name'>Contact</span> <span class='action-name'>Update</span> (using <span class='attribute-name'>moxi_works_agent_id</span>) Example</span></p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
 </span><span class="nt">"moxi_works_agent_id"</span><span class="p">:</span><span class="s2">"1234abcd"</span><span class="p">,</span><span class="w">
@@ -211,9 +372,14 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 </tr>
 </thead><tbody>
 <tr>
-<td><span class="required-data">moxi_works_agent_id</span></td>
-<td><span class="required-data"><span class="data-type">String</span></span></td>
-<td><span class="required-data">255</span></td>
+<td><span class="multi-option-required-data">agent_uuid*</span></td>
+<td><span class="multi-option-required-data"><span class="data-type">String</span></span></td>
+<td><span class="multi-option-required-data">255</span></td>
+</tr>
+<tr>
+<td><span class="multi-option-required-data">moxi_works_agent_id*</span></td>
+<td><span class="multi-option-required-data"><span class="data-type">String</span></span></td>
+<td><span class="multi-option-required-data">255</span></td>
 </tr>
 <tr>
 <td><span class="required-data">partner_contact_id</span></td>
@@ -417,7 +583,12 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 </tr>
 </tbody></table>
 
+<p><span class="multi-option-required-data">* <strong>Either <span class='attribute-name'>moxi_works_agent_id</span> or <span class='attribute-name'>agent_uuid</span> must be supplied. For guidance on which Agent identifier better fits your use-case, see <a href="#agent-identifiers">Agent Identifiers</a></strong></span></p>
+
 <p><span class="required-data"><strong>Required Parameters Are In Red</strong></span></p>
+
+<p><span class="request-data-head">agent_uuid</span>
+<span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which an  <span class='entity-name'>Contact</span> entry is associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID. <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>Contact</span> <span class='action-name'>Update</span> request to be accepted.</span></p>
 
 <p><span class="request-data-head">moxi_works_agent_id</span>
 <span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>Contact</span> entry is to be associated with. This will be a string that may take the form of an email address, or a unique identification string. This data is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>Contact</span> <span class='action-name'>Update</span>  request to be accepted.</span></p>
@@ -538,7 +709,56 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 <p>The following attributes make up the payload of the <span class='entity-name'>Contact</span> response for a <span class='action-name'>Update</span> request.</p>
 
 <blockquote><div class='highlight json' style="display: block">
-<span class='data-example-label'><span class='entity-name'>Contact</span> <span class='action-name'>Update</span> Response Payload Example
+<span class='data-example-label'><span class='entity-name'>Contact</span> <span class='action-name'>Update</span> (using <span class='attribute-name'>agent_uuid</span>) Response Payload Example
+</span></div></blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"agent_uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345678-1234-1234-1234-1234567890ab"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"partner_contact_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"booyuh"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"moxi_works_contact_id"</span><span class="p">:</span><span class="s2">"deadbeef-feed-face-bad4dad22dead"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"contact_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Firstname Middlenyme Larstnam"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"gender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"m"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"primary_email_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"me@justabout.right.here"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"secondary_email_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"me.too@justabout.right.here"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"primary_phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9995551212"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"secondary_phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"(333) 555-1185"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"home_street_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234 Sesame St."</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"home_city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cityville"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"home_state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Stateland"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"home_zip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345-6789"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"home_country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ottoman Empire"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"job_title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Junior Bacon Burner"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"occupation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"chef"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"property_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://my.property.website.is/here"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"property_mls_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"property_street_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2345 67th place"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"property_city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Townland"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"property_state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Statesville"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"property_zip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"98765-4321"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"property_beds"</span><span class="p">:</span><span class="w"> </span><span class="s2">"18"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"property_baths"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12.5"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"property_list_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456789"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"property_listing_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Active"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"property_photo_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://property.photo.is/here.jpg"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"search_city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Searchland"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"search_state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Searchsylvania"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"search_zip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345-6789"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"search_min_beds"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"search_min_baths"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3.25"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"search_min_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234567"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"search_max_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234569"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"search_min_sq_ft"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"search_max_sq_ft"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1235"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"search_min_lot_size"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3234"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"search_max_lot_size"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3235"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"search_min_year_built"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1388"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"search_max_year_built"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2044"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"search_property_types"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Condo, Single Family, Townhouse"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"note"</span><span class="p">:</span><span class="w"> </span><span class="s2">"whatevers2009"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote><div class='highlight json' style="display: block">
+<span class='data-example-label'><span class='entity-name'>Contact</span> <span class='action-name'>Update</span> (using <span class='attribute-name'>moxi_works_agent_id</span>) Response Payload Example
 </span></div></blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"moxi_works_agent_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234abcd"</span><span class="p">,</span><span class="w">
@@ -606,8 +826,12 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 </tr>
 </thead><tbody>
 <tr>
-<td><span class="response-data">moxi_works_agent_id</span></td>
-<td><span class="response-data"><span class="data-type">String</span></span></td>
+<td><span class="multi-option-response-data">agent_uuid*</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="multi-option-response-data">moxi_works_agent_id*</span></td>
+<td><span class="data-type">String</span></td>
 </tr>
 <tr>
 <td><span class="response-data">partner_contact_id</span></td>
@@ -774,6 +998,11 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 <td><span class="data-type">String or null</span></td>
 </tr>
 </tbody></table>
+
+<p><span class='multi-option-response-data'>* Either <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> will be returned depending on whether it is used in the request. The response payload object&rsquo;s agent identifier key will match the passed parameter.</span></p>
+
+<p><span class="response-data-head">agent_uuid</span>
+<span class="response-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>Contact</span>  is associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID.</span></p>
 
 <p><span class="response-data-head">moxi_works_agent_id</span>
 <span class="response-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span>. This will be a string that may take the form of an email address, or a unique alphanumeric identification string.</span></p>

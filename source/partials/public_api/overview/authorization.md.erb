@@ -32,13 +32,13 @@ $credentials = new MoxiworksPlatform\Credentials($platform_identifier, $platform
 
   <aside class="warning">To ensure that your key and secret remain secret, always use HTTPS when making requests from the Moxi Works Platform public API.</aside>
 
-The Moxi Works API utilizes Authorization HTTP headers for authorization. 
+The Moxi Works API utilizes Authorization HTTP headers for authorization.
 
 To authorize your request, use the API Identifier and Secret combination you have been provided by your Moxi Works Platform representative.
 
 When composing your basic header, per <a href='https://www.ietf.org/rfc/rfc2617.txt'>RFC 2617</a> you'll need to base 64 encode your Moxi Works Platform Identifier and Secret and remember to separate your platform identifier and secret with a colon.
 
-<aside class='info'>Use your platform ID as the Authorization header username and platform secret as the password.</aside>
+<aside class='info'>Use your Partner ID as the Authorization header username and Partner Secret as the password.</aside>
 
 
 #### Help with HTTP Basic Auth on your platform

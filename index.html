@@ -12046,12 +12046,12 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <td>255</td>
 </tr>
 <tr>
-<td><span class="optional-data">moxi_works_agent_id</span></td>
+<td><span class="optional-data">agent_uuid</span></td>
 <td><span class="data-type">String</span></td>
 <td>255</td>
 </tr>
 <tr>
-<td><span class="optional-data">agent_uuid</span></td>
+<td><span class="optional-data">moxi_works_agent_id</span></td>
 <td><span class="data-type">String</span></td>
 <td>255</td>
 </tr>
@@ -12064,9 +12064,6 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 
 <p><span class="required-data"><strong>Required Parameters Are In Red</strong></span></p>
 
-<p><span class="request-data-head">agent_uuid</span>
-<span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which  <span class='entity-name'>Listing</span> objects are associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID.</span></p>
-
 <p><span class="request-data-head">moxi_works_company_id</span>
 <span class="request-data-remarks">A valid Moxi Works <span class='entity-name'>Company</span> ID. Use <a href="#company">Company Endpoint</a> to determine what <span class='attribute-name'>moxi_works_company_id</span> you can use.</span></p>
 
@@ -12074,6 +12071,9 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 
 <p><span class="request-data-head">updated_since</span>
 <span class="request-data-remarks">Paged responses of all <span class='entity-name'>Listing</span> objects updated after this Unix timestamp will be returned in the response. <strong>If no <span class='attribute-name'>updated_since</span> parameter is included in the request, only <span class='entity-name'>Listing</span> objects updated in the last seven days will be returned.</strong></span></p>
+
+<p><span class="request-data-head">agent_uuid</span>
+<span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which  <span class='entity-name'>Listing</span> objects are associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID.</span></p>
 
 <p><span class="request-data-head">moxi_works_agent_id</span>
 <span class="request-data-remarks">Use this parameter when searching for <span class='entity-name'>Listing</span> objects associated with a specific <span class='entity-name'>Agent</span>.  This will be a string that may take the form of an email address, or a unique identification string. This data must reference a valid Moxi Works Agent ID for your <span class='entity-name'>Listing</span> <span class='action-name'>Index</span>  request to be accepted.</span></p>

@@ -1,7 +1,7 @@
 ### Error Handling
- 
+
  > **Error Response Example**
- 
+
 ```json
 {
   "status":"error",
@@ -11,7 +11,7 @@
 }
 ```
 
-The following table specifies the recommended action for each Moxi Works API error code. 
+The following table specifies the recommended action for each Moxi Works API error code.
 
 <aside class='notice'>When reporting issues that are not resolvable using the following table, please include the entire response (including request_id) in your report.</aside>
 
@@ -21,19 +21,20 @@ The following table specifies the recommended action for each Moxi Works API err
 
 API Error Code | HTTP Status Code | Message | Recommended Action |
 -----|-----|-----|-----|
-1000 | 400 | A required header was missing or invalid: {0} | <span class="fix-then-retry-error">Fix issue, then retry.</span>
-1010 | 400 | A required object attribute is missing from your request: {0}. | <span class="fix-then-retry-error">Fix issue, then retry.</span>
-1020 | 400 | Unable to parse request. The following error occurred: {0} | <span class="fix-then-retry-error">Fix issue, then retry.</span>
-1030 | 400 | A required parameter is missing from your request: {0}. | <span class="fix-then-retry-error">Fix issue, then retry.</span>
-1040 | 400 | The value {0} was not valid for the parameter {1}. | <span class="fix-then-retry-error">Fix issue, then retry.</span>
+1000 | 400 | A required header was missing or invalid: | <span class="fix-then-retry-error">Fix issue, then retry.</span>
+1010 | 400 | A required object attribute is missing from your request. | <span class="fix-then-retry-error">Fix issue, then retry.</span>
+1020 | 400 | Unable to parse request. Error will be included in response payload.| <span class="fix-then-retry-error">Fix issue, then retry.</span>
+1030 | 400 | A required parameter is missing from your request. | <span class="fix-then-retry-error">Fix issue, then retry.</span>
+1040 | 400 | The value was not valid for the parameter. | <span class="fix-then-retry-error">Fix issue, then retry.</span>
 1050 | 400 | The HTTP request body is required for this Method. | <span class="fix-then-retry-error">Fix issue, then retry.</span>
-1060 | 400 | The attribute(s) {0} are not allowed for this operation. | <span class="fix-then-retry-error">Fix issue, then retry.</span>
+1060 | 400 | The attribute(s) are not allowed for this operation. | <span class="fix-then-retry-error">Fix issue, then retry.</span>
 1200 | 400 | Malformed data in request. | <span class="fix-then-retry-error">Fix issue, then retry.</span>
-1210 | 400 | Unsupported operation: {0}. | <span class="no-retry-error">Do not retry.</span>
+1210 | 400 | Unsupported operation. | <span class="no-retry-error">Do not retry.</span>
 2000 | 401 | Basic Authorization header required. | <span class="fix-then-retry-error">Fix issue, then retry.</span><br/><br/>Hint: Verify that <b>Authorization</b> header is present and set properly.
 2010 | 401 |  Your Authorization header is invalid. | <span class="fix-then-retry-error">Fix issue, then retry.</span><br/><br/>Hint: Verify that the Moxi Works Platform Identifier and Secret specified in the <b>Authorization</b> header are valid and properly encoded.
 2015 | 401 | Unauthorized request. | <span class="no-retry-error">Do not retry.</span>
-2020 | 403 |  You are not authorized to perform this action. | <span class="fix-then-retry-error">Fix issue, then retry.</span><br/><br/>Hint: Verify that <b>Authorization</b> header is present and set properly, and that your account has access to the requested resource.
+2020 | 403 |  You are forbidden to perform this action. | <span class="no-retry-error">Do not retry.</span><br/><br/>
+2025 | 403 |  You are forbidden to perform this action. Agent does not have access to requested resource. | <span class="no-retry-error">Do not retry.</span><br/><br/>
 3010 | 404 | Version not supported. | <span class="fix-then-retry-error">Fix issue, then retry.</span>
 3015 | 404 | Resource not found. | <span class="fix-then-retry-error">Fix issue, then retry.</span><br/><br/>Hint: Verify that you are using a valid resource path (i.e. /api/contacts/, /api/events/ etc.)
 3020 | 405 | HTTP Method not supported. | <span class="fix-then-retry-error">Fix issue, then retry.</span><br/><br/>Hint: Verify that the proper verb is specified for the request (GET, PUT, POST, or DELETE).
@@ -44,4 +45,3 @@ API Error Code | HTTP Status Code | Message | Recommended Action |
 5010 | 500 | An unexpected error has occurred. Please retry your request. If you encounter this error repeatedly, please contact api@moxiworks.com for assistance. | <span class="retry-later-error">Retry using <a href="https://en.wikipedia.org/wiki/Exponential_backoff" target="_blank">exponential backoff</a>.</span>
 5020 | 500 | Server timeout exceeded. Request has failed. | <span class="retry-later-error">Retry using <a href="https://en.wikipedia.org/wiki/Exponential_backoff" target="_blank">exponential backoff</a>.</span>
 5030 | 503 | api.moxiworks.com is currently offline for system maintenance. Please check back again shortly. | <span class="retry-later-error">Retry using <a href="https://en.wikipedia.org/wiki/Exponential_backoff" target="_blank">exponential backoff</a>.</span><br/><br/>Hint: Wait time between retries should measure in minutes (not seconds).
-

@@ -505,7 +505,7 @@ to view, use the following:
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>The following table specifies the recommended action for each Moxi Works API error code. </p>
+<p>The following table specifies the recommended action for each Moxi Works API error code.</p>
 
 <aside class='notice'>When reporting issues that are not resolvable using the following table, please include the entire response (including request_id) in your report.</aside>
 
@@ -524,31 +524,31 @@ to view, use the following:
 <tr>
 <td>1000</td>
 <td>400</td>
-<td>A required header was missing or invalid: {0}</td>
+<td>A required header was missing or invalid:</td>
 <td><span class="fix-then-retry-error">Fix issue, then retry.</span></td>
 </tr>
 <tr>
 <td>1010</td>
 <td>400</td>
-<td>A required object attribute is missing from your request: {0}.</td>
+<td>A required object attribute is missing from your request.</td>
 <td><span class="fix-then-retry-error">Fix issue, then retry.</span></td>
 </tr>
 <tr>
 <td>1020</td>
 <td>400</td>
-<td>Unable to parse request. The following error occurred: {0}</td>
+<td>Unable to parse request. Error will be included in response payload.</td>
 <td><span class="fix-then-retry-error">Fix issue, then retry.</span></td>
 </tr>
 <tr>
 <td>1030</td>
 <td>400</td>
-<td>A required parameter is missing from your request: {0}.</td>
+<td>A required parameter is missing from your request.</td>
 <td><span class="fix-then-retry-error">Fix issue, then retry.</span></td>
 </tr>
 <tr>
 <td>1040</td>
 <td>400</td>
-<td>The value {0} was not valid for the parameter {1}.</td>
+<td>The value was not valid for the parameter.</td>
 <td><span class="fix-then-retry-error">Fix issue, then retry.</span></td>
 </tr>
 <tr>
@@ -560,7 +560,7 @@ to view, use the following:
 <tr>
 <td>1060</td>
 <td>400</td>
-<td>The attribute(s) {0} are not allowed for this operation.</td>
+<td>The attribute(s) are not allowed for this operation.</td>
 <td><span class="fix-then-retry-error">Fix issue, then retry.</span></td>
 </tr>
 <tr>
@@ -572,7 +572,7 @@ to view, use the following:
 <tr>
 <td>1210</td>
 <td>400</td>
-<td>Unsupported operation: {0}.</td>
+<td>Unsupported operation.</td>
 <td><span class="no-retry-error">Do not retry.</span></td>
 </tr>
 <tr>
@@ -596,8 +596,14 @@ to view, use the following:
 <tr>
 <td>2020</td>
 <td>403</td>
-<td>You are not authorized to perform this action.</td>
-<td><span class="fix-then-retry-error">Fix issue, then retry.</span><br/><br/>Hint: Verify that <b>Authorization</b> header is present and set properly, and that your account has access to the requested resource.</td>
+<td>You are forbidden to perform this action.</td>
+<td><span class="no-retry-error">Do not retry.</span><br/><br/></td>
+</tr>
+<tr>
+<td>2025</td>
+<td>403</td>
+<td>You are forbidden to perform this action. Agent does not have access to requested resource.</td>
+<td><span class="no-retry-error">Do not retry.</span><br/><br/></td>
 </tr>
 <tr>
 <td>3010</td>

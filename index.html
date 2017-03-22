@@ -1505,7 +1505,29 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
   </span><span class="nt">"facebook"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.facebook.com/moxiworks/"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"home_page"</span><span class="p">:</span><span class="w"> </span><span class="s2">"foo.com"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"profile_image_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://picturererer.com/pics37/ImageStore.dll?id=852087C5D3A533DD&amp;w=200"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"profile_thumb_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://picturererer.com/pics37/ImageStore.dll?id=852087C5D3A533DD&amp;w=75"</span><span class="w">
+  </span><span class="nt">"profile_thumb_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://picturererer.com/pics37/ImageStore.dll?id=852087C5D3A533DD&amp;w=75"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"alternate_offices"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"moxi_works_office_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"office_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1234</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"office_address_street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2636 NW Office Street"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"office_address_street2"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"office_address_city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Altville"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"office_address_state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IN"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"office_address_zip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"23232"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"office_phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"813.555.1221"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"moxi_works_office_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xyz789"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"office_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5678</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"office_address_street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"700 123rd Ave"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"office_address_street2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Suite 1234"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"office_address_city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nextus"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"office_address_state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AL"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"office_address_zip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"99899"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"office_phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"66655544444"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -1629,6 +1651,10 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
 <td><span class="response-data">profile_thumb_url</span></td>
 <td><span class="data-type">String</span></td>
 </tr>
+<tr>
+<td><span class="response-data">alternate_offices</span></td>
+<td><span class="data-type">Array</span></td>
+</tr>
 </tbody></table>
 
 <p><span class="response-data-head">moxi_works_agent_id</span>
@@ -1708,6 +1734,74 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
 
 <p><span class="response-data-head">profile_thumb_url</span>
 <span class="response-data-remarks">This is a valid URL for a thumbnail size image for the agent.  If no agent image has been uploaded for this agent a default image url will be provided.</span></p>
+
+<h6 id="alternate_offices-object"><span class='attribute-name'>alternate_offices</span> Object</h6>
+
+<p>The <span class='attribute-name'>alternate_offices</span> array contains Dictionary objects representing <span class='entity-name'>AlternateOffice</span> entries. The structure of each <span class='entity-name'>AlternateOffice</span> entry is shown below.</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span class="response-data">moxi_works_office_id</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">office_id</span></td>
+<td><span class="data-type">Integer</span></td>
+</tr>
+<tr>
+<td><span class="response-data">office_address_street</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">office_address_street2</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">office_address_city</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">office_address_state</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">office_address_zip</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">office_phone_number</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
+</tbody></table>
+
+<p><span class="response-data-head">moxi_works_office_id</span>
+<span class="response-data-remarks">This is the unique identifier for the Moxi Works Platform <span class='entity-name'>AlternateOffice</span> entry.</span></p>
+
+<p><span class="response-data-head">office_id</span>
+<span class="response-data-remarks">This is an integer identifier for the Moxi Works Platform <span class='entity-name'>AlternateOffice</span> entry. If you are using Moxi Works SSO, this will be the ID corresponding to the ID provided there.</span></p>
+
+<p><span class="response-data-head">office_address_street</span>
+<span class="response-data-remarks">The street address of the office represented by this <span class='entity-name'>AlternateOffice</span> entry.</span></p>
+
+<p><span class="response-data-head">office_address_street2</span>
+<span class="response-data-remarks">The second line of the street address (if required) of the office represented by this <span class='entity-name'>AlternateOffice</span> entry.</span></p>
+
+<p><span class="response-data-head">office_address_city</span>
+<span class="response-data-remarks">The city portion of the address of the office represented by this <span class='entity-name'>AlternateOffice</span> entry.</span></p>
+
+<p><span class="response-data-head">office_address_state</span>
+<span class="response-data-remarks">The state portion of the address of the office represented by this <span class='entity-name'>AlternateOffice</span> entry.</span></p>
+
+<p><span class="response-data-head">office_address_zip</span>
+<span class="response-data-remarks">The postal code portion of the address of the office represented by this <span class='entity-name'>AlternateOffice</span> entry.</span></p>
+
+<p><span class="response-data-head">office_phone_number</span>
+<span class="response-data-remarks">The phone number of the office represented by this <span class='entity-name'>AlternateOffice</span> entry.</span></p>
 
 
 <h4 id="agent-index"><span class='entity-name'>Agent</span> <span class='action-name'>Index</span></h4>
@@ -1913,7 +2007,29 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
   </span><span class="nt">"facebook"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.facebook.com/moxiworks/"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"home_page"</span><span class="p">:</span><span class="w"> </span><span class="s2">"foo.com"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"profile_image_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://picturererer.com/pics37/ImageStore.dll?id=852087C5D3A533DD&amp;w=200"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"profile_thumb_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://picturererer.com/pics37/ImageStore.dll?id=852087C5D3A533DD&amp;w=75"</span><span class="w">
+  </span><span class="nt">"profile_thumb_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://picturererer.com/pics37/ImageStore.dll?id=852087C5D3A533DD&amp;w=75"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"alternate_offices"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"moxi_works_office_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"office_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1234</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"office_address_street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2636 NW Office Street"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"office_address_street2"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"office_address_city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Altville"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"office_address_state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IN"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"office_address_zip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"23232"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"office_phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"813.555.1221"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"moxi_works_office_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xyz789"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"office_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5678</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"office_address_street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"700 123rd Ave"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"office_address_street2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Suite 1234"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"office_address_city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nextus"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"office_address_state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AL"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"office_address_zip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"99899"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"office_phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"66655544444"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -2063,6 +2179,10 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
 <td><span class="response-data">profile_thumb_url</span></td>
 <td><span class="data-type">String</span></td>
 </tr>
+<tr>
+<td><span class="response-data">alternate_offices</span></td>
+<td><span class="data-type">Array</span></td>
+</tr>
 </tbody></table>
 
 <p><span class="response-data-head">moxi_works_agent_id</span>
@@ -2142,6 +2262,74 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
 
 <p><span class="response-data-head">profile_thumb_url</span>
 <span class="response-data-remarks">This is a valid URL for a thumbnail size image for the agent. If no agent image has been uploaded for this agent a default image url will be provided.</span></p>
+
+<h6 id="alternate_offices-object"><span class='attribute-name'>alternate_offices</span> Object</h6>
+
+<p>The <span class='attribute-name'>alternate_offices</span> array contains Dictionary objects representing <span class='entity-name'>AlternateOffice</span> entries. The structure of each <span class='entity-name'>AlternateOffice</span> entry is shown below.</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span class="response-data">moxi_works_office_id</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">office_id</span></td>
+<td><span class="data-type">Integer</span></td>
+</tr>
+<tr>
+<td><span class="response-data">office_address_street</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">office_address_street2</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">office_address_city</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">office_address_state</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">office_address_zip</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">office_phone_number</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
+</tbody></table>
+
+<p><span class="response-data-head">moxi_works_office_id</span>
+<span class="response-data-remarks">This is the unique identifier for the Moxi Works Platform <span class='entity-name'>AlternateOffice</span> entry.</span></p>
+
+<p><span class="response-data-head">office_id</span>
+<span class="response-data-remarks">This is an integer identifier for the Moxi Works Platform <span class='entity-name'>AlternateOffice</span> entry. If you are using Moxi Works SSO, this will be the ID corresponding to the ID provided there.</span></p>
+
+<p><span class="response-data-head">office_address_street</span>
+<span class="response-data-remarks">The street address of the office represented by this <span class='entity-name'>AlternateOffice</span> entry.</span></p>
+
+<p><span class="response-data-head">office_address_street2</span>
+<span class="response-data-remarks">The second line of the street address (if required) of the office represented by this <span class='entity-name'>AlternateOffice</span> entry.</span></p>
+
+<p><span class="response-data-head">office_address_city</span>
+<span class="response-data-remarks">The city portion of the address of the office represented by this <span class='entity-name'>AlternateOffice</span> entry.</span></p>
+
+<p><span class="response-data-head">office_address_state</span>
+<span class="response-data-remarks">The state portion of the address of the office represented by this <span class='entity-name'>AlternateOffice</span> entry.</span></p>
+
+<p><span class="response-data-head">office_address_zip</span>
+<span class="response-data-remarks">The postal code portion of the address of the office represented by this <span class='entity-name'>AlternateOffice</span> entry.</span></p>
+
+<p><span class="response-data-head">office_phone_number</span>
+<span class="response-data-remarks">The phone number of the office represented by this <span class='entity-name'>AlternateOffice</span> entry.</span></p>
 
 
 <h3 id="buyertransaction"><span class='entity-name'>BuyerTransaction</span></h3>

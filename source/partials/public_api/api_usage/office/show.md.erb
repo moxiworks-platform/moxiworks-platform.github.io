@@ -62,6 +62,7 @@ When showing <span class='entity-name'>Office</span> entities using the Moxi Wor
 Attribute | Type  | Length Limit |
 -----|-----|-----|-----|
 |<span class="required-data">moxi_works_office_id</span>|<span class="required-data"><span class="data-type">String</span></span>|<span class="required-data">255<span> |
+  |<span class="required-data">moxi_works_company_id</span>|<span class="required-data"><span class="data-type">String</span></span>|<span class="required-data">255<span> |
 
 
 <span class="required-data">**Required Parameters Are In Red**</span>
@@ -69,6 +70,12 @@ Attribute | Type  | Length Limit |
 
 <span class="request-data-head">moxi_works_office_id</span>
 <span class="request-data-remarks">A valid Moxi Works <span class='entity-name'>Office</span> ID. Use [Office Index Endpoint](#office-index) for a list of all <span class='entity-name'>Office</span> objects associated with  a <span class='entity-name'>Company</span> or use the <span class='attribute-name'>moxi_works_office_id</span> attribute returned in an <span class='entity-name'>Agent</span> response.</span>
+
+
+<span class="request-data-head">moxi_works_company_id</span>
+<span class="request-data-remarks">A valid Moxi Works <span class='entity-name'>Company</span> ID. Use [Company Endpoint](#company) to determine what <span class='attribute-name'>moxi_works_company_id</span> you can use.</span>
+
+<aside class="note">Use <a href='#company'>Company Endpoint</a> to determine the moxi_works_company_id to send.</aside>
 
 
 <blockquote><div class='highlight json' style="display: block">

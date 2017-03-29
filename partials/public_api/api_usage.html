@@ -4817,7 +4817,7 @@ The following attributes make up the payload of each <span class='entity-name'>C
 
 <p>Moxi Works Platform <span class='entity-name'>Contact</span> entities represent an agent&rsquo;s contacts in the Moxi Works Platform.</p>
 
-<h4 id="contact-create"><span class='entity-name'>Contact</span> <span class='action-name'>Create</span></h4>
+<p>#### <span class='entity-name'>Contact</span> <span class='action-name'>Create</span></p>
 
 <div class='highlight ruby'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-ruby/MoxiworksPlatform/Contact.html#create-class_method'>Ruby Create Docs</a></span></blockquote></div>
 
@@ -5524,7 +5524,11 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
   </span><span class="nt">"agent_uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345678-1234-1234-1234-1234567890ab"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"partner_contact_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"booyuh"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"moxi_works_contact_id"</span><span class="p">:</span><span class="s2">"deadbeef-feed-face-2bad4daddead"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"contact_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Firstname Middlenyme Larstnam"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"contact_name"</span><span class="p">:</span><span class="s2">"Firstname Middlenyme Larstnam"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"first_name"</span><span class="p">:</span><span class="s2">"Firstname"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"middle_name"</span><span class="p">:</span><span class="s2">"Middlenyme"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"last_name"</span><span class="p">:</span><span class="s2">"Larstnam"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"suffix"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"gender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"m"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"primary_email_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"me@justabout.right.here"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"secondary_email_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"me.too@justabout.right.here"</span><span class="p">,</span><span class="w">
@@ -5573,7 +5577,11 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
   </span><span class="nt">"moxi_works_agent_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234abcd"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"partner_contact_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"booyuh"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"moxi_works_contact_id"</span><span class="p">:</span><span class="s2">"deadbeef-feed-face-2bad4daddead"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"contact_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Firstname Middlenyme Larstnam"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"contact_name"</span><span class="p">:</span><span class="s2">"Firstname Middlenyme Larstnam"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"first_name"</span><span class="p">:</span><span class="s2">"Firstname"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"middle_name"</span><span class="p">:</span><span class="s2">"Middlenyme"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"last_name"</span><span class="p">:</span><span class="s2">"Larstnam"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"suffix"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"gender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"m"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"primary_email_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"me@justabout.right.here"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"secondary_email_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"me.too@justabout.right.here"</span><span class="p">,</span><span class="w">
@@ -5652,6 +5660,22 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 </tr>
 <tr>
 <td><span class="response-data">contact_name</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">first_name</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">middle_name</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">last_name</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">suffix</span></td>
 <td><span class="data-type">String or null</span></td>
 </tr>
 <tr>
@@ -5824,6 +5848,18 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 
 <p><span class="response-data-head">contact_name</span>
 <span class="response-data-remarks">This is the full name of the contact you are creating a <span class='entity-name'>Contact</span> record for. You should format this information as <i>first middle last</i>. This value will be null if no data is available for this attribute. </span></p>
+
+<p><span class="response-data-head">first_name</span>
+<span class="response-data-remarks">This is the first name of the contact associated with this <span class='entity-name'>Contact</span> record. This value will be null if no data is available for this attribute. </span></p>
+
+<p><span class="response-data-head">middle_name</span>
+<span class="response-data-remarks">This is the middle name of the contact associated with this <span class='entity-name'>Contact</span> record. This value will be null if no data is available for this attribute. </span></p>
+
+<p><span class="response-data-head">last_name</span>
+<span class="response-data-remarks">This is the last name of the contact associated with this <span class='entity-name'>Contact</span> record. This value will be null if no data is available for this attribute. </span></p>
+
+<p><span class="response-data-head">suffix</span>
+<span class="response-data-remarks">This is the generational suffix of the name of the contact associated with this <span class='entity-name'>Contact</span> record. This value will be null if no data is available for this attribute. Supported suffixes are II III IV JR JR. SR SR. </span></p>
 
 <p><span class="response-data-head">gender</span>
 <span class="response-data-remarks">The gender of the contact. This can be <code class="prettyprint">male</code>, <code class="prettyprint">female</code>, <code class="prettyprint">m</code> or <code class="prettyprint">f</code>. No matter what is provided in the request, the response payload will return <code class="prettyprint">m</code> or <code class="prettyprint">f</code>.  This value will be null if no data is available for this attribute. </span></p>
@@ -6626,7 +6662,11 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
   </span><span class="nt">"agent_uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345678-1234-1234-1234-1234567890ab"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"partner_contact_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"booyuh"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"moxi_works_contact_id"</span><span class="p">:</span><span class="s2">"deadbeef-feed-face-bad4dad22dead"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"contact_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Firstname Middlenyme Larstnam"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"contact_name"</span><span class="p">:</span><span class="s2">"Firstname Middlenyme Larstnam"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"first_name"</span><span class="p">:</span><span class="s2">"Firstname"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"middle_name"</span><span class="p">:</span><span class="s2">"Middlenyme"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"last_name"</span><span class="p">:</span><span class="s2">"Larstnam"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"suffix"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"gender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"m"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"primary_email_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"me@justabout.right.here"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"secondary_email_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"me.too@justabout.right.here"</span><span class="p">,</span><span class="w">
@@ -6675,7 +6715,11 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
   </span><span class="nt">"moxi_works_agent_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234abcd"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"partner_contact_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"booyuh"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"moxi_works_contact_id"</span><span class="p">:</span><span class="s2">"deadbeef-feed-face-bad4dad22dead"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"contact_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Firstname Middlenyme Larstnam"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"contact_name"</span><span class="p">:</span><span class="s2">"Firstname Middlenyme Larstnam"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"first_name"</span><span class="p">:</span><span class="s2">"Firstname"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"middle_name"</span><span class="p">:</span><span class="s2">"Middlenyme"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"last_name"</span><span class="p">:</span><span class="s2">"Larstnam"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"suffix"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"gender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"m"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"primary_email_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"me@justabout.right.here"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"secondary_email_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"me.too@justabout.right.here"</span><span class="p">,</span><span class="w">
@@ -6754,6 +6798,22 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 </tr>
 <tr>
 <td><span class="response-data">contact_name</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">first_name</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">middle_name</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">last_name</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">suffix</span></td>
 <td><span class="data-type">String or null</span></td>
 </tr>
 <tr>
@@ -6926,6 +6986,18 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 
 <p><span class="response-data-head">contact_name</span>
 <span class="response-data-remarks">This is the full name of the contact you are creating a <span class='entity-name'>Contact</span> record for. You should format this information as <i>first middle last</i>. This value will be null if no data is available for this attribute. </span></p>
+
+<p><span class="response-data-head">first_name</span>
+<span class="response-data-remarks">This is the first name of the contact associated with this <span class='entity-name'>Contact</span> record. This value will be null if no data is available for this attribute. </span></p>
+
+<p><span class="response-data-head">middle_name</span>
+<span class="response-data-remarks">This is the middle name of the contact associated with this <span class='entity-name'>Contact</span> record. This value will be null if no data is available for this attribute. </span></p>
+
+<p><span class="response-data-head">last_name</span>
+<span class="response-data-remarks">This is the last name of the contact associated with this <span class='entity-name'>Contact</span> record. This value will be null if no data is available for this attribute. </span></p>
+
+<p><span class="response-data-head">suffix</span>
+<span class="response-data-remarks">This is the generational suffix of the name of the contact associated with this <span class='entity-name'>Contact</span> record. This value will be null if no data is available for this attribute. Supported suffixes are II III IV JR JR. SR SR. </span></p>
 
 <p><span class="response-data-head">gender</span>
 <span class="response-data-remarks">The gender of the contact. This can be <code class="prettyprint">male</code>, <code class="prettyprint">female</code>, <code class="prettyprint">m</code> or <code class="prettyprint">f</code>. No matter what is provided in the request, the response payload will return <code class="prettyprint">m</code> or <code class="prettyprint">f</code>.  This value will be null if no data is available for this attribute. </span></p>
@@ -7183,7 +7255,11 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
   </span><span class="nt">"agent_uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345678-1234-1234-1234-1234567890ab"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"partner_contact_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"booyuh"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"moxi_works_contact_id"</span><span class="p">:</span><span class="s2">"deadbeef-feed-face-bad4dad22dead"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"contact_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Firstname Middlenyme Larstnam"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"contact_name"</span><span class="p">:</span><span class="s2">"Firstname Middlenyme Larstnam"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"first_name"</span><span class="p">:</span><span class="s2">"Firstname"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"middle_name"</span><span class="p">:</span><span class="s2">"Middlenyme"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"last_name"</span><span class="p">:</span><span class="s2">"Larstnam"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"suffix"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"gender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"m"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"primary_email_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"me@justabout.right.here"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"secondary_email_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"me.too@justabout.right.here"</span><span class="p">,</span><span class="w">
@@ -7231,7 +7307,11 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
   </span><span class="nt">"moxi_works_agent_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234abcd"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"partner_contact_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"booyuh"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"moxi_works_contact_id"</span><span class="p">:</span><span class="s2">"deadbeef-feed-face-bad4dad22dead"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"contact_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Firstname Middlenyme Larstnam"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"contact_name"</span><span class="p">:</span><span class="s2">"Firstname Middlenyme Larstnam"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"first_name"</span><span class="p">:</span><span class="s2">"Firstname"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"middle_name"</span><span class="p">:</span><span class="s2">"Middlenyme"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"last_name"</span><span class="p">:</span><span class="s2">"Larstnam"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"suffix"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"gender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"m"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"primary_email_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"me@justabout.right.here"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"secondary_email_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"me.too@justabout.right.here"</span><span class="p">,</span><span class="w">
@@ -7309,6 +7389,22 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 </tr>
 <tr>
 <td><span class="response-data">contact_name</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">first_name</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">middle_name</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">last_name</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">suffix</span></td>
 <td><span class="data-type">String or null</span></td>
 </tr>
 <tr>
@@ -7481,6 +7577,18 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 
 <p><span class="response-data-head">contact_name</span>
 <span class="response-data-remarks">This is the full name of the contact you are finding a <span class='entity-name'>Contact</span> record for. You should format this information as <i>first middle last</i>. This value will be null if no data is available for this attribute. </span></p>
+
+<p><span class="response-data-head">first_name</span>
+<span class="response-data-remarks">This is the first name of the contact associated with this <span class='entity-name'>Contact</span> record. This value will be null if no data is available for this attribute. </span></p>
+
+<p><span class="response-data-head">middle_name</span>
+<span class="response-data-remarks">This is the middle name of the contact associated with this <span class='entity-name'>Contact</span> record. This value will be null if no data is available for this attribute. </span></p>
+
+<p><span class="response-data-head">last_name</span>
+<span class="response-data-remarks">This is the last name of the contact associated with this <span class='entity-name'>Contact</span> record. This value will be null if no data is available for this attribute. </span></p>
+
+<p><span class="response-data-head">suffix</span>
+<span class="response-data-remarks">This is the generational suffix of the name of the contact associated with this <span class='entity-name'>Contact</span> record. This value will be null if no data is available for this attribute. Supported suffixes are II III IV JR JR. SR SR. </span></p>
 
 <p><span class="response-data-head">gender</span>
 <span class="response-data-remarks">The gender of the contact. This can be <code class="prettyprint">male</code>, <code class="prettyprint">female</code>, <code class="prettyprint">m</code> or <code class="prettyprint">f</code>. No matter what is provided in the request, the response payload will return <code class="prettyprint">m</code> or <code class="prettyprint">f</code>.  This value will be null if no data is available for this attribute. </span></p>
@@ -7767,7 +7875,11 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
   </span><span class="nt">"agent_uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345678-1234-1234-1234-1234567890ab"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"partner_contact_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"booyuh"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"moxi_works_contact_id"</span><span class="p">:</span><span class="s2">"deadbeef-feed-face-2bad4daddead"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"contact_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"buckminster fuller"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"contact_name"</span><span class="p">:</span><span class="s2">"Firstname Middlenyme Larstnam"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"first_name"</span><span class="p">:</span><span class="s2">"Firstname"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"middle_name"</span><span class="p">:</span><span class="s2">"Middlenyme"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"last_name"</span><span class="p">:</span><span class="s2">"Larstnam"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"suffix"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"gender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"m"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"primary_email_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"me@justabout.right.here"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"secondary_email_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"me.too@justabout.right.here"</span><span class="p">,</span><span class="w">
@@ -7811,6 +7923,10 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
   </span><span class="nt">"partner_contact_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fooyuh"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"moxi_works_contact_id"</span><span class="p">:</span><span class="s2">"deadbeef-feed-face-2baddadbdead"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"contact_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"buckminster fuller"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"first_name"</span><span class="p">:</span><span class="s2">"buckminster"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"middle_name"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"last_name"</span><span class="p">:</span><span class="s2">"fuller"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"suffix"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"gender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"m"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"primary_email_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"whatever@whatevers.right.here"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"secondary_email_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"me.2009@2009.whatevers.here"</span><span class="p">,</span><span class="w">
@@ -7864,7 +7980,11 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
   </span><span class="nt">"moxi_works_agent_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234abcd"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"partner_contact_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"booyuh"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"moxi_works_contact_id"</span><span class="p">:</span><span class="s2">"deadbeef-feed-face-2bad4daddead"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"contact_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"buckminster fuller"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"contact_name"</span><span class="p">:</span><span class="s2">"Firstname Middlenyme Larstnam"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"first_name"</span><span class="p">:</span><span class="s2">"Firstname"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"middle_name"</span><span class="p">:</span><span class="s2">"Middlenyme"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"last_name"</span><span class="p">:</span><span class="s2">"Larstnam"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"suffix"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"gender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"m"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"primary_email_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"me@justabout.right.here"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"secondary_email_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"me.too@justabout.right.here"</span><span class="p">,</span><span class="w">
@@ -7908,6 +8028,10 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
   </span><span class="nt">"partner_contact_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fooyuh"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"moxi_works_contact_id"</span><span class="p">:</span><span class="s2">"deadbeef-feed-face-2baddadbdead"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"contact_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"buckminster fuller"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"first_name"</span><span class="p">:</span><span class="s2">"buckminster"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"middle_name"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"last_name"</span><span class="p">:</span><span class="s2">"fuller"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"suffix"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"gender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"m"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"primary_email_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"whatever@whatevers.right.here"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"secondary_email_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"me.2009@2009.whatevers.here"</span><span class="p">,</span><span class="w">
@@ -8021,6 +8145,22 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 </tr>
 <tr>
 <td><span class="response-data">contact_name</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">first_name</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">middle_name</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">last_name</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">suffix</span></td>
 <td><span class="data-type">String or null</span></td>
 </tr>
 <tr>
@@ -8193,6 +8333,18 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 
 <p><span class="response-data-head">contact_name</span>
 <span class="response-data-remarks">This is the full name of the contact you are creating a <span class='entity-name'>Contact</span> record for. You should format this information as <i>first middle last</i>. This value will be null if no data is available for this attribute. </span></p>
+
+<p><span class="response-data-head">first_name</span>
+<span class="response-data-remarks">This is the first name of the contact associated with this <span class='entity-name'>Contact</span> record. This value will be null if no data is available for this attribute. </span></p>
+
+<p><span class="response-data-head">middle_name</span>
+<span class="response-data-remarks">This is the middle name of the contact associated with this <span class='entity-name'>Contact</span> record. This value will be null if no data is available for this attribute. </span></p>
+
+<p><span class="response-data-head">last_name</span>
+<span class="response-data-remarks">This is the last name of the contact associated with this <span class='entity-name'>Contact</span> record. This value will be null if no data is available for this attribute. </span></p>
+
+<p><span class="response-data-head">suffix</span>
+<span class="response-data-remarks">This is the generational suffix of the name of the contact associated with this <span class='entity-name'>Contact</span> record. This value will be null if no data is available for this attribute. Supported suffixes are II III IV JR JR. SR SR. </span></p>
 
 <p><span class="response-data-head">gender</span>
 <span class="response-data-remarks">The gender of the contact. This can be <code class="prettyprint">male</code>, <code class="prettyprint">female</code>, <code class="prettyprint">m</code> or <code class="prettyprint">f</code>. No matter what is provided in the request, the response payload will return <code class="prettyprint">m</code> or <code class="prettyprint">f</code>.  This value will be null if no data is available for this attribute. </span></p>
@@ -10538,10 +10690,6 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <td><span class="data-type">String or null</span></td>
 </tr>
 <tr>
-<td><span class="response-data">gender</span></td>
-<td><span class="data-type">String or null</span></td>
-</tr>
-<tr>
 <td><span class="response-data">first_name</span></td>
 <td><span class="data-type">String or null</span></td>
 </tr>
@@ -10555,6 +10703,10 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 </tr>
 <tr>
 <td><span class="response-data">suffix</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">gender</span></td>
 <td><span class="data-type">String or null</span></td>
 </tr>
 <tr>
@@ -10621,6 +10773,9 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 
 <p><span class="response-data-head">last_name</span>
 <span class="response-data-remarks">This is the last name of the contact associated with this <span class='entity-name'>Contact</span> record. This value will be null if no data is available for this attribute. </span></p>
+
+<p><span class="response-data-head">suffix</span>
+<span class="response-data-remarks">This is the generational suffix of the name of the contact associated with this <span class='entity-name'>Contact</span> record. This value will be null if no data is available for this attribute. Supported suffixes are II III IV JR JR. SR SR. </span></p>
 
 <p><span class="response-data-head">gender</span>
 <span class="response-data-remarks">The gender of the contact. This can be <code class="prettyprint">male</code>, <code class="prettyprint">female</code>, <code class="prettyprint">m</code> or <code class="prettyprint">f</code>. No matter what is provided in the request, the response payload will return <code class="prettyprint">m</code> or <code class="prettyprint">f</code>.  This value will be null if no data is available for this attribute. </span></p>

@@ -335,10 +335,6 @@
 <td><span class="data-type">String or null</span></td>
 </tr>
 <tr>
-<td><span class="response-data">gender</span></td>
-<td><span class="data-type">String or null</span></td>
-</tr>
-<tr>
 <td><span class="response-data">first_name</span></td>
 <td><span class="data-type">String or null</span></td>
 </tr>
@@ -352,6 +348,10 @@
 </tr>
 <tr>
 <td><span class="response-data">suffix</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">gender</span></td>
 <td><span class="data-type">String or null</span></td>
 </tr>
 <tr>
@@ -418,6 +418,9 @@
 
 <p><span class="response-data-head">last_name</span>
 <span class="response-data-remarks">This is the last name of the contact associated with this <span class='entity-name'>Contact</span> record. This value will be null if no data is available for this attribute. </span></p>
+
+<p><span class="response-data-head">suffix</span>
+<span class="response-data-remarks">This is the generational suffix of the name of the contact associated with this <span class='entity-name'>Contact</span> record. This value will be null if no data is available for this attribute. Supported suffixes are II III IV JR JR. SR SR. </span></p>
 
 <p><span class="response-data-head">gender</span>
 <span class="response-data-remarks">The gender of the contact. This can be <code class="prettyprint">male</code>, <code class="prettyprint">female</code>, <code class="prettyprint">m</code> or <code class="prettyprint">f</code>. No matter what is provided in the request, the response payload will return <code class="prettyprint">m</code> or <code class="prettyprint">f</code>.  This value will be null if no data is available for this attribute. </span></p>

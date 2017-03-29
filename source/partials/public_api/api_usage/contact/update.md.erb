@@ -546,7 +546,11 @@ The following attributes make up the payload of the <span class='entity-name'>Co
   "agent_uuid": "12345678-1234-1234-1234-1234567890ab",
   "partner_contact_id": "booyuh",
   "moxi_works_contact_id":"deadbeef-feed-face-bad4dad22dead",
-  "contact_name": "Firstname Middlenyme Larstnam",
+  "contact_name":"Firstname Middlenyme Larstnam",
+  "first_name":"Firstname",
+  "middle_name":"Middlenyme",
+  "last_name":"Larstnam",
+  "suffix":null,
   "gender": "m",
   "primary_email_address": "me@justabout.right.here",
   "secondary_email_address": "me.too@justabout.right.here",
@@ -598,7 +602,11 @@ The following attributes make up the payload of the <span class='entity-name'>Co
   "moxi_works_agent_id": "1234abcd",
   "partner_contact_id": "booyuh",
   "moxi_works_contact_id":"deadbeef-feed-face-bad4dad22dead",
-  "contact_name": "Firstname Middlenyme Larstnam",
+  "contact_name":"Firstname Middlenyme Larstnam",
+  "first_name":"Firstname",
+  "middle_name":"Middlenyme",
+  "last_name":"Larstnam",
+  "suffix":null,
   "gender": "m",
   "primary_email_address": "me@justabout.right.here",
   "secondary_email_address": "me.too@justabout.right.here",
@@ -661,6 +669,10 @@ Attribute | Type |
 |<span class="response-data">partner_contact_id</span>|<span class="response-data"><span class="data-type">String</span>
 |<span class="response-data">moxi_works_contact_id</span>|<span class="data-type">String</span>|
 |<span class="response-data">contact_name</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">first_name</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">middle_name</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">last_name</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">suffix</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">gender</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">primary_email_address</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">secondary_email_address</span>|<span class="data-type">String or null</span>|
@@ -717,6 +729,19 @@ Attribute | Type |
 
 <span class="response-data-head">contact_name</span>
 <span class="response-data-remarks">This is the full name of the contact you are creating a <span class='entity-name'>Contact</span> record for. You should format this information as <i>first middle last</i>. This value will be null if no data is available for this attribute. </span>
+
+<span class="response-data-head">first_name</span>
+<span class="response-data-remarks">This is the first name of the contact associated with this <span class='entity-name'>Contact</span> record. This value will be null if no data is available for this attribute. </span>
+
+<span class="response-data-head">middle_name</span>
+<span class="response-data-remarks">This is the middle name of the contact associated with this <span class='entity-name'>Contact</span> record. This value will be null if no data is available for this attribute. </span>
+
+
+<span class="response-data-head">last_name</span>
+<span class="response-data-remarks">This is the last name of the contact associated with this <span class='entity-name'>Contact</span> record. This value will be null if no data is available for this attribute. </span>
+
+<span class="response-data-head">suffix</span>
+<span class="response-data-remarks">This is the generational suffix of the name of the contact associated with this <span class='entity-name'>Contact</span> record. This value will be null if no data is available for this attribute. Supported suffixes are II III IV JR JR. SR SR. </span>
 
 <span class="response-data-head">gender</span>
 <span class="response-data-remarks">The gender of the contact. This can be `male`, `female`, `m` or `f`. No matter what is provided in the request, the response payload will return `m` or `f`.  This value will be null if no data is available for this attribute. </span>

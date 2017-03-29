@@ -296,11 +296,11 @@ Attribute | Type |
 -----|-----|-----|-----|
 |<span class="response-data">moxi_works_contact_id</span>|<span class="response-data"><span class="data-type">String</span></span>|
 |<span class="response-data">contact_name</span>|<span class="data-type">String or null</span>|
-|<span class="response-data">gender</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">first_name</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">middle_name</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">last_name</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">suffix</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">gender</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">primary_email_address</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">secondary_email_address</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">primary_phone_number</span>|<span class="data-type">String or null</span>|
@@ -321,7 +321,6 @@ Attribute | Type |
 <span class="response-data-head">contact_name</span>
 <span class="response-data-remarks">This is the full name of the contact associated with this <span class='entity-name'>Contact</span> record. You should format this information as <i>first middle last</i>. This value will be null if no data is available for this attribute. </span>
 
-
 <span class="response-data-head">first_name</span>
 <span class="response-data-remarks">This is the first name of the contact associated with this <span class='entity-name'>Contact</span> record. This value will be null if no data is available for this attribute. </span>
 
@@ -331,6 +330,10 @@ Attribute | Type |
 
 <span class="response-data-head">last_name</span>
 <span class="response-data-remarks">This is the last name of the contact associated with this <span class='entity-name'>Contact</span> record. This value will be null if no data is available for this attribute. </span>
+
+<span class="response-data-head">suffix</span>
+<span class="response-data-remarks">This is the generational suffix of the name of the contact associated with this <span class='entity-name'>Contact</span> record. This value will be null if no data is available for this attribute. Supported suffixes are II III IV JR JR. SR SR. </span>
+
 
 <span class="response-data-head">gender</span>
 <span class="response-data-remarks">The gender of the contact. This can be `male`, `female`, `m` or `f`. No matter what is provided in the request, the response payload will return `m` or `f`.  This value will be null if no data is available for this attribute. </span>

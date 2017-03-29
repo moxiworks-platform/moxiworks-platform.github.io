@@ -93,12 +93,22 @@
 <td><span class="required-data"><span class="data-type">String</span></span></td>
 <td><span class="required-data">255<span></td>
 </tr>
+<tr>
+<td></td>
+<td><span class="required-data">moxi_works_company_id</span></td>
+<td><span class="required-data"><span class="data-type">String</span></span></td>
+</tr>
 </tbody></table>
 
 <p><span class="required-data"><strong>Required Parameters Are In Red</strong></span></p>
 
 <p><span class="request-data-head">moxi_works_office_id</span>
 <span class="request-data-remarks">A valid Moxi Works <span class='entity-name'>Office</span> ID. Use <a href="#office-index">Office Index Endpoint</a> for a list of all <span class='entity-name'>Office</span> objects associated with  a <span class='entity-name'>Company</span> or use the <span class='attribute-name'>moxi_works_office_id</span> attribute returned in an <span class='entity-name'>Agent</span> response.</span></p>
+
+<p><span class="request-data-head">moxi_works_company_id</span>
+<span class="request-data-remarks">A valid Moxi Works <span class='entity-name'>Company</span> ID. Use <a href="#company">Company Endpoint</a> to determine what <span class='attribute-name'>moxi_works_company_id</span> you can use.</span></p>
+
+<aside class="note">Use <a href='#company'>Company Endpoint</a> to determine the moxi_works_company_id to send.</aside>
 
 <blockquote><div class='highlight json' style="display: block">
 <span class="data-example-label">Office Show: Success Response</span>

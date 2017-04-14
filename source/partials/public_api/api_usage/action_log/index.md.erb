@@ -124,10 +124,10 @@ Attribute | Type | Length Limit |
 
 
 
-<span class="multi-option-required-data">* **Either <span class='attribute-name'>moxi_works_agent_id</span> or <span class='attribute-name'>agent_uuid</span> must be supplied. For guidance on which Agent identifier better fits your use-case, see [Agent Identifiers](#agent-identifiers)**</span>
+<span class="multi-option-required-data"> * Either <span class='attribute-name'>moxi_works_agent_id</span> or <span class='attribute-name'>agent_uuid</span> must be supplied. For guidance on which Agent identifier better fits your use-case, see [Agent Identifiers](#agent-identifiers)</span>
 
 
-<span class="multi-option-required-data">† **Either <span class='attribute-name'>moxi_works_contact_id</span> or <span class='attribute-name'>partner_contact_id</span> must be supplied.**</span>
+<span class="multi-option-required-data"> † Either <span class='attribute-name'>moxi_works_contact_id</span> or <span class='attribute-name'>partner_contact_id</span> must be supplied.</span>
 
 
 <span class="required-data">**Required Parameters Are In Red**</span>
@@ -293,10 +293,15 @@ Attribute | Type |
 -----|-----|-----|-----|
 |<span class="multi-option-response-data">agent_uuid*</span>|<span class="data-type">String</span>| |
 |<span class="multi-option-response-data">moxi_works_agent_id*</span>|<span class="data-type">String</span>| |
-|<span class="response-data">partner_contact_id</span>|<span class="data-type">String</span>|
+|<span class="response-data">moxi_works_contact_id †</span>|<span class="data-type">String</span>| |
+|<span class="response-data">partner_contact_id †</span>|<span class="data-type">String</span>|
+
 |<span class="response-data">actions</span>|<span class="data-type">Array</span>|
 
-<span class='multi-option-response-data'>* Either <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> will be returned depending on whether it is used in the request. The response payload object's agent identifier key will match the passed parameter.</span>
+<span class='multi-option-response-data'> * Either <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> will be returned depending on whether it is used in the request. The response payload object's agent identifier key will match the passed parameter.</span>
+
+
+<span class='multi-option-response-data'> † Either <span class='attribute-name'>moxi_works_contact_id</span> or <span class='attribute-name'>partner_contact_id</span> will be returned depending on whether it is used in the request. The response payload object's agent identifier key will match the passed parameter.</span>
 
 
 <span class="response-data-head">agent_uuid</span>
@@ -305,8 +310,13 @@ Attribute | Type |
 <span class="response-data-head">moxi_works_agent_id</span>
 <span class="response-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which an action log entry is associated with. This will be a string that may take the form of an email address, or a unique alphanumeric identification string.</span>
 
+
+<span class="response-data-head">moxi_works_contact_id</span>
+<span class="response-data-remarks">This is the Moxi Works Platform ID of this <span class='entity-name'>Contact</span> that this <span class='entity-name'>ActionLog</span> entry is about. This will be an [RFC 4122](https://tools.ietf.org/html/rfc4122) compliant UUID.</span>
+
+
 <span class="response-data-head">partner_contact_id</span>
-<span class="response-data-remarks">This is the unique identifer you use in your system that has been associated with the <span class='entity-name'>Contact</span> that this <span class='entity-name'>ActionLog</span> entry is about</span>
+<span class="response-data-remarks">This is the unique identifer you use in your system that has been associated with the <span class='entity-name'>Contact</span> that this <span class='entity-name'>ActionLog</span> entry is about.</span>
 
 <span class="response-data-head">actions</span>
 <span class="response-data-remarks">This is an Array containing any <span class='entity-name'>ActionLog</span> entries found for the <span class='action-name'>Index</span> request.</span>

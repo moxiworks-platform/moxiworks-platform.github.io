@@ -140,10 +140,15 @@ Attribute | Type | Length Limit |
 |<span class="multi-option-required-data">agent_uuid*</span>|<span class="multi-option-required-data"><span class="data-type">String</span></span>| <span class="multi-option-required-data">255</span>
 |<span class="multi-option-required-data">moxi_works_agent_id*</span>|<span class="multi-option-required-data"><span class="data-type">String</span></span>| <span class="multi-option-required-data">255</span>
 |<span class="required-data">body</span>|<span class="required-data"><span class="data-type">String</span></span>|<span class="required-data">255</span> |
-|<span class="required-data">partner_contact_id</span>|<span class="required-data"><span class="data-type">String</span></span>| <span class="required-data">255</span>
+|<span class="required-data">moxi_works_contact_id †</span>|<span class="required-data"><span class="data-type">String</span></span>| <span class="required-data">255</span>
+|<span class="required-data">partner_contact_id †</span>|<span class="required-data"><span class="data-type">String</span></span>| <span class="required-data">255</span>
 |<span class="required-data">title</span>|<span class="required-data"><span class="data-type">String</span></span>| <span class="required-data">85</span> |
 
 <span class="multi-option-required-data">* **Either <span class='attribute-name'>moxi_works_agent_id</span> or <span class='attribute-name'>agent_uuid</span> must be supplied. For guidance on which Agent identifier better fits your use-case, see [Agent Identifiers](#agent-identifiers)**</span>
+
+
+<span class="multi-option-required-data">† **Either <span class='attribute-name'>moxi_works_contact_id</span> or <span class='attribute-name'>partner_contact_id</span> must be supplied.**</span>
+
 
 
 <span class="required-data">**Required Parameters Are In Red**</span>
@@ -157,6 +162,10 @@ Attribute | Type | Length Limit |
 
 <span class="request-data-head">body</span>
 <span class="request-data-remarks">This is a human readable string which would be presented to the Agent as the content of the <span class='entity-name'>ActionLog</span> entry. This can be any arbitrary plain-text string which would be practical for the agent to see in the history of events associated with a <span class='entity-name'>Contact</span>. It must be greater than 0 and must be less than 255 characters.</span>
+
+
+<span class="request-data-head">moxi_works_contact_id</span>
+<span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Contact</span> which this <span class='entity-name'>ActionLog</span> object is to be associated with. This will be an [RFC 4122](https://tools.ietf.org/html/rfc4122) compliant UUID. This data is required and must reference a valid Moxi Works <span class='entity-name'>Contact</span> ID for your <span class='entity-name'>ActionLog</span> <span class='action-name'>Create</span>  request to be accepted. This is the same as the <span class='attribute-name'>moxi_works_contact_id</span> attribute of the  <span class='entity-name'>Contact</span> response.</span>
 
 <span class="request-data-head">partner_contact_id</span>
 <span class="request-data-remarks">This is the unique identifer you use in your system that has been associated with the <span class='entity-name'>Contact</span> that you are creating an <span class='entity-name'>ActionLog</span> entry about. You should have already created the <span class='entity-name'>Contact</span> record on the Moxi Works Platform using [Contact Create](/#contact-create) before attempting to use the contact ID to create an <span class='entity-name'>ActionLog</span> entry about the <span class='entity-name'>Contact</span>. Your request will be rejected if the <span class='entity-name'>Contact</span> record does not exist.</span>

@@ -9464,6 +9464,8 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
   </span><span class="nt">"event_subject"</span><span class="p">:</span><span class="s2">"meeting at Joe Seller's house"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"event_location"</span><span class="p">:</span><span class="s2">"1234 Joe Seller Way Sellerville, WY 82372"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"all_day"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"send_reminder"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"remind_minutes_before"</span><span class="p">:</span><span class="mi">15</span><span class="p">,</span><span class="w">
   </span><span class="nt">"event_start"</span><span class="p">:</span><span class="mi">1462234227</span><span class="p">,</span><span class="w">
   </span><span class="nt">"event_end"</span><span class="p">:</span><span class="mi">1462241468</span><span class="p">,</span><span class="w">
   </span><span class="nt">"attendees"</span><span class="p">:</span><span class="s2">"contactIDForContactIAlreadyCreated,otherContactIDForContactIAlreadyCreated"</span><span class="p">,</span><span class="w">
@@ -9499,10 +9501,11 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;partner_event_id=abc98df345&
         <span class="ss">event_subject: </span><span class="s2">"the subject"</span><span class="p">,</span>
         <span class="ss">event_location: </span><span class="s2">"the location"</span><span class="p">,</span>
         <span class="ss">all_day: </span><span class="kp">false</span><span class="p">,</span>
+        <span class="ss">send_reminder: </span><span class="kp">true</span><span class="p">,</span>
+        <span class="ss">remind_minutes_before: </span><span class="mi">15</span><span class="p">,</span>
         <span class="ss">event_start: </span><span class="mi">1462234227</span><span class="p">,</span>
         <span class="ss">event_end: </span><span class="mi">1462241468</span><span class="p">,</span>
-        <span class="ss">required_attendees: </span><span class="p">[</span><span class="n">contact1ID</span><span class="p">,</span> <span class="n">contact2ID</span><span class="p">],</span>
-        <span class="ss">optional_attendees: </span><span class="p">[</span><span class="n">contact3ID</span><span class="p">],</span>
+        <span class="ss">attendees: </span><span class="p">[</span><span class="n">contact1ID</span><span class="p">,</span> <span class="n">contact2ID</span><span class="p">],</span>
         <span class="ss">note: </span><span class="s1">'notable stuff'</span>
         <span class="p">)</span>
 
@@ -9520,10 +9523,11 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;partner_event_id=abc98df345&
         <span class="s1">'event_subject'</span>  <span class="o">=&gt;</span> <span class="s1">'the subject'</span><span class="p">,</span>
         <span class="s1">'event_location'</span>  <span class="o">=&gt;</span> <span class="s1">'the location'</span><span class="p">,</span>
         <span class="s1">'all_day'</span>  <span class="o">=&gt;</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="s1">'send_reminder'</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="s1">'remind_minutes_before'</span> <span class="o">=&gt;</span> <span class="mi">15</span><span class="p">,</span>
         <span class="s1">'event_start'</span>  <span class="o">=&gt;</span> <span class="mi">1462234227</span><span class="p">,</span>
         <span class="s1">'event_end'</span>  <span class="o">=&gt;</span> <span class="mi">1462241468</span><span class="p">,</span>
-        <span class="s1">'required_attendees'</span>  <span class="o">=&gt;</span> <span class="kc">null</span><span class="p">,</span>
-        <span class="s1">'optional_attendees'</span> <span class="o">=&gt;</span> <span class="kc">null</span><span class="p">,</span>
+        <span class="s1">'attendees'</span>  <span class="o">=&gt;</span> <span class="kc">null</span><span class="p">,</span>
         <span class="s1">'note'</span>  <span class="o">=&gt;</span> <span class="s1">'notable stuff'</span><span class="p">]);</span>
 <span class="cp">?&gt;</span>
 </code></pre>
@@ -9538,6 +9542,8 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;partner_event_id=abc98df345&
   </span><span class="nt">"event_subject"</span><span class="p">:</span><span class="s2">"meeting at Joe Seller's house"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"event_location"</span><span class="p">:</span><span class="s2">"1234 Joe Seller Way Sellerville, WY 82372"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"all_day"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"send_reminder"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"remind_minutes_before"</span><span class="p">:</span><span class="mi">15</span><span class="p">,</span><span class="w">
   </span><span class="nt">"event_start"</span><span class="p">:</span><span class="mi">1462234227</span><span class="p">,</span><span class="w">
   </span><span class="nt">"event_end"</span><span class="p">:</span><span class="mi">1462241468</span><span class="p">,</span><span class="w">
   </span><span class="nt">"attendees"</span><span class="p">:</span><span class="s2">"contactIDForContactIAlreadyCreated,otherContactIDForContactIAlreadyCreated"</span><span class="p">,</span><span class="w">
@@ -9576,10 +9582,11 @@ attendees=&amp;note=here%20is%20the%20note
         <span class="ss">event_subject: </span><span class="s2">"the subject"</span><span class="p">,</span>
         <span class="ss">event_location: </span><span class="s2">"the location"</span><span class="p">,</span>
         <span class="ss">all_day: </span><span class="kp">false</span><span class="p">,</span>
+        <span class="ss">send_reminder: </span><span class="kp">true</span><span class="p">,</span>
+        <span class="ss">remind_minutes_before: </span><span class="mi">15</span><span class="p">,</span>
         <span class="ss">event_start: </span><span class="mi">1462234227</span><span class="p">,</span>
         <span class="ss">event_end: </span><span class="mi">1462241468</span><span class="p">,</span>
-        <span class="ss">required_attendees: </span><span class="p">[</span><span class="n">contact1ID</span><span class="p">,</span> <span class="n">contact2ID</span><span class="p">],</span>
-        <span class="ss">optional_attendees: </span><span class="p">[</span><span class="n">contact3ID</span><span class="p">],</span>
+        <span class="ss">attendees: </span><span class="p">[</span><span class="n">contact1ID</span><span class="p">,</span> <span class="n">contact2ID</span><span class="p">],</span>
         <span class="ss">note: </span><span class="s1">'notable stuff'</span>
         <span class="p">)</span>
 
@@ -9597,10 +9604,11 @@ attendees=&amp;note=here%20is%20the%20note
         <span class="s1">'event_subject'</span>  <span class="o">=&gt;</span> <span class="s1">'the subject'</span><span class="p">,</span>
         <span class="s1">'event_location'</span>  <span class="o">=&gt;</span> <span class="s1">'the location'</span><span class="p">,</span>
         <span class="s1">'all_day'</span>  <span class="o">=&gt;</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="s1">'send_reminder'</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="s1">'remind_minutes_before'</span> <span class="o">=&gt;</span> <span class="mi">15</span><span class="p">,</span>
         <span class="s1">'event_start'</span>  <span class="o">=&gt;</span> <span class="mi">1462234227</span><span class="p">,</span>
         <span class="s1">'event_end'</span>  <span class="o">=&gt;</span> <span class="mi">1462241468</span><span class="p">,</span>
-        <span class="s1">'required_attendees'</span>  <span class="o">=&gt;</span> <span class="kc">null</span><span class="p">,</span>
-        <span class="s1">'optional_attendees'</span> <span class="o">=&gt;</span> <span class="kc">null</span><span class="p">,</span>
+        <span class="s1">'attendees'</span>  <span class="o">=&gt;</span> <span class="kc">null</span><span class="p">,</span>
         <span class="s1">'note'</span>  <span class="o">=&gt;</span> <span class="s1">'notable stuff'</span><span class="p">]);</span>
 <span class="cp">?&gt;</span>
 </code></pre>
@@ -9619,6 +9627,11 @@ attendees=&amp;note=here%20is%20the%20note
 </tr>
 </thead><tbody>
 <tr>
+<td><span class="required-data">partner_event_id</span></td>
+<td><span class="required-data"><span class="data-type">String</span></span></td>
+<td><span class="required-data">255</span></td>
+</tr>
+<tr>
 <td><span class="multi-option-required-data">agent_uuid*</span></td>
 <td><span class="multi-option-required-data"><span class="data-type">String</span></span></td>
 <td><span class="multi-option-required-data">255</span></td>
@@ -9627,21 +9640,6 @@ attendees=&amp;note=here%20is%20the%20note
 <td><span class="multi-option-required-data">moxi_works_agent_id*</span></td>
 <td><span class="multi-option-required-data"><span class="data-type">String</span></span></td>
 <td><span class="multi-option-required-data">255</span></td>
-</tr>
-<tr>
-<td><span class="required-data">partner_event_id</span></td>
-<td><span class="required-data"><span class="data-type">String</span></span></td>
-<td><span class="required-data">255</span></td>
-</tr>
-<tr>
-<td><span class="required-data">event_start</span></td>
-<td><span class="required-data"><span class="data-type">Integer</span></span></td>
-<td><span class="required-data">255</span></td>
-</tr>
-<tr>
-<td><span class="required-data">event_end</span></td>
-<td><span class="required-data"><span class="data-type">Integer</span></span></td>
-<td><span class="required-data">255</span></td>
 </tr>
 <tr>
 <td><span class="optional-data">event_subject</span></td>
@@ -9654,12 +9652,37 @@ attendees=&amp;note=here%20is%20the%20note
 <td>255</td>
 </tr>
 <tr>
-<td><span class="optional-data">attendees</span></td>
+<td><span class="optional-data">note</span></td>
 <td><span class="data-type">String</span></td>
 <td></td>
 </tr>
 <tr>
-<td><span class="optional-data">note</span></td>
+<td><span class="optional-data">send_reminder</span></td>
+<td><span class="data-type">Boolean</span></td>
+<td>255</td>
+</tr>
+<tr>
+<td><span class="optional-data">remind_minutes_before</span></td>
+<td><span class="data-type">Integer</span></td>
+<td>255</td>
+</tr>
+<tr>
+<td><span class="required-data">event_start</span></td>
+<td><span class="required-data"><span class="data-type">Integer</span></span></td>
+<td><span class="required-data">255</span></td>
+</tr>
+<tr>
+<td><span class="required-data">event_end</span></td>
+<td><span class="required-data"><span class="data-type">Integer</span></span></td>
+<td><span class="required-data">255</span></td>
+</tr>
+<tr>
+<td><span class="optional-data">all_day</span></td>
+<td><span class="data-type">Boolean</span></td>
+<td>255</td>
+</tr>
+<tr>
+<td><span class="optional-data">attendees</span></td>
 <td><span class="data-type">String</span></td>
 <td></td>
 </tr>
@@ -9669,14 +9692,26 @@ attendees=&amp;note=here%20is%20the%20note
 
 <p><span class="required-data"><strong>Required Parameters Are In Red</strong></span></p>
 
+<p><span class="request-data-head">partner_event_id</span>
+<span class="request-data-remarks">This is the unique identifer you use in your system that has been associated with the <span class='entity-name'>Event</span> that you are creating. This data is required and must be a unique key.</span></p>
+
 <p><span class="request-data-head">agent_uuid</span>
 <span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which an  <span class='entity-name'>Event</span> entry is associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID. <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>Event</span> <span class='action-name'>Create</span> request to be accepted.</span></p>
+
+<p><span class="request-data-head">event_subject</span>
+<span class="request-data-remarks">This is a short, descriptive, human readable phrase to be displayed to the agent which lets them know what this <span class='entity-name'>Event</span> regards.</span></p>
+
+<p><span class="request-data-head">event_location</span>
+<span class="request-data-remarks">This is a human readable locatition reference regarding where the event is located that will be meaningful to the agent.</span></p>
 
 <p><span class="request-data-head">moxi_works_agent_id</span>
 <span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>Event</span> is to be associated with. This will be a string that may take the form of an email address, or a unique identification string. This data is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>Event</span> <span class='action-name'>Create</span>  request to be accepted.</span></p>
 
-<p><span class="request-data-head">partner_event_id</span>
-<span class="request-data-remarks">This is the unique identifer you use in your system that has been associated with the <span class='entity-name'>Event</span> that you are creating. This data is required and must be a unique key.</span></p>
+<p><span class="request-data-head">send_reminder</span>
+<span class="request-data-remarks">Whether to send a reminder about the event to attendees before the event starts.</span></p>
+
+<p><span class="request-data-head">remind_minutes_before</span>
+<span class="request-data-remarks">If <span class='attribute-name'>send_reminder</span> is true, this is how many minutes before the start of the event to send the reminder. Default is 15 minutes before.</span></p>
 
 <p><span class="request-data-head">event_start</span>
 <span class="request-data-remarks">This is the Unix timestamp representing the start time of the <span class='entity-name'>Event</span> that you are creating. This data is required and must be a valid Unix timestamp.</span></p>
@@ -9684,11 +9719,8 @@ attendees=&amp;note=here%20is%20the%20note
 <p><span class="request-data-head">event_end</span>
 <span class="request-data-remarks">This is the Unix timestamp representing the end time of the <span class='entity-name'>Event</span> that you are creating. This data is required and must be a valid Unix timestamp.</span></p>
 
-<p><span class="request-data-head">event_subject</span>
-<span class="request-data-remarks">This is a short, descriptive, human readable phrase to be displayed to the agent which lets them know what this <span class='entity-name'>Event</span> regards.</span></p>
-
-<p><span class="request-data-head">event_location</span>
-<span class="request-data-remarks">This is a human readable locatition reference regarding where the event is located that will be meaningful to the agent.</span></p>
+<p><span class="request-data-head">all_day</span>
+<span class="request-data-remarks">Whether the event is an all day event.</span></p>
 
 <p><span class="request-data-head">attendees</span>
 <span class="request-data-remarks">This is a comma separated list of contacts that have already been added through the Moxi Works Platform API who will be present at the referenced event. (Use IDs from your system &ndash; i.e. partner_contact_id from <a href="#contact-create">Contact Create</a> ).</span></p>
@@ -9707,15 +9739,17 @@ attendees=&amp;note=here%20is%20the%20note
 </span></div></blockquote>
 <pre class="highlight json"><code><span class="w">
 </span><span class="p">{</span><span class="w">
-  </span><span class="nt">"agent_uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345678-1234-1234-1234-1234567890ab"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"partner_event_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"booyuh"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"event_subject"</span><span class="p">:</span><span class="w"> </span><span class="s2">"the subject"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"event_location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"the location"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"all_day"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"agent_uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345678-1234-1234-1234-1234567890ab"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"event_subject"</span><span class="p">:</span><span class="w"> </span><span class="s2">"event subject"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"event_location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"event location"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"note"</span><span class="p">:</span><span class="w"> </span><span class="s2">"notable stuff"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"send_reminder"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"remind_minutes_before"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
   </span><span class="nt">"event_start"</span><span class="p">:</span><span class="w"> </span><span class="mi">1462234227</span><span class="p">,</span><span class="w">
   </span><span class="nt">"event_end"</span><span class="p">:</span><span class="w"> </span><span class="mi">1462241468</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"attendees"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Contact1ID, Contact2ID"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"note"</span><span class="p">:</span><span class="w"> </span><span class="s2">"notable stuff"</span><span class="w">
+  </span><span class="nt">"all_day"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"attendees"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Contact1ID,Contact2ID"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -9724,15 +9758,17 @@ attendees=&amp;note=here%20is%20the%20note
 </span></div></blockquote>
 <pre class="highlight json"><code><span class="w">
 </span><span class="p">{</span><span class="w">
-  </span><span class="nt">"moxi_works_agent_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234abcd"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"partner_event_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"booyuh"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"event_subject"</span><span class="p">:</span><span class="w"> </span><span class="s2">"the subject"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"event_location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"the location"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"all_day"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"moxi_works_agent_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234abcd"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"event_subject"</span><span class="p">:</span><span class="w"> </span><span class="s2">"event subject"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"event_location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"event location"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"note"</span><span class="p">:</span><span class="w"> </span><span class="s2">"notable stuff"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"send_reminder"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"remind_minutes_before"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
   </span><span class="nt">"event_start"</span><span class="p">:</span><span class="w"> </span><span class="mi">1462234227</span><span class="p">,</span><span class="w">
   </span><span class="nt">"event_end"</span><span class="p">:</span><span class="w"> </span><span class="mi">1462241468</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"attendees"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Contact1ID, Contact2ID"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"note"</span><span class="p">:</span><span class="w"> </span><span class="s2">"notable stuff"</span><span class="w">
+  </span><span class="nt">"all_day"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"attendees"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Contact1ID,Contact2ID"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -9757,6 +9793,10 @@ attendees=&amp;note=here%20is%20the%20note
 </tr>
 </thead><tbody>
 <tr>
+<td><span class="response-data">partner_event_id</span></td>
+<td><span class="response-data"><span class="data-type">String</span></td>
+</tr>
+<tr>
 <td><span class="multi-option-response-data">agent_uuid*</span></td>
 <td><span class="data-type">String</span></td>
 </tr>
@@ -9765,15 +9805,27 @@ attendees=&amp;note=here%20is%20the%20note
 <td><span class="data-type">String</span></td>
 </tr>
 <tr>
-<td><span class="response-data">partner_event_id</span></td>
-<td><span class="response-data"><span class="data-type">String</span></td>
-</tr>
-<tr>
 <td><span class="response-data">event_subject</span></td>
 <td><span class="data-type">String</span></td>
 </tr>
 <tr>
 <td><span class="response-data">event_location</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">note</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">send_reminder</span></td>
+<td><span class="data-type">Boolean</span></td>
+</tr>
+<tr>
+<td><span class="response-data">remind_minutes_before</span></td>
+<td><span class="data-type">Integer</span></td>
+</tr>
+<tr>
+<td><span class="response-data">note</span></td>
 <td><span class="data-type">String</span></td>
 </tr>
 <tr>
@@ -9792,13 +9844,12 @@ attendees=&amp;note=here%20is%20the%20note
 <td><span class="response-data">attendees</span></td>
 <td><span class="data-type">String</span></td>
 </tr>
-<tr>
-<td><span class="response-data">note</span></td>
-<td><span class="data-type">String</span></td>
-</tr>
 </tbody></table>
 
 <p><span class='multi-option-response-data'>* Either <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> will be returned depending on whether it is used in the request. The response payload object&rsquo;s agent identifier key will match the passed parameter.</span></p>
+
+<p><span class="response-data-head">partner_event_id</span>
+<span class="response-data-remarks">This is the unique identifer you use in your system that has been associated with the <span class='entity-name'>Event</span>.</span></p>
 
 <p><span class="response-data-head">agent_uuid</span>
 <span class="response-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>Event</span>  is associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID.</span></p>
@@ -9806,8 +9857,20 @@ attendees=&amp;note=here%20is%20the%20note
 <p><span class="response-data-head">moxi_works_agent_id</span>
 <span class="response-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>Event</span> is associated with. This will be a string that may take the form of an email address, or a unique identification string.</span></p>
 
-<p><span class="response-data-head">partner_event_id</span>
-<span class="response-data-remarks">This is the unique identifer you use in your system that has been associated with the <span class='entity-name'>Event</span>.</span></p>
+<p><span class="response-data-head">event_subject</span>
+<span class="response-data-remarks">This is a short, descriptive, human readable phrase to be displayed to the agent which lets them know what this <span class='entity-name'>Event</span> regards.</span></p>
+
+<p><span class="response-data-head">event_location</span>
+<span class="response-data-remarks">This is a human readable locatition reference regarding where the event is located that will be meaningful to the agent.</span></p>
+
+<p><span class="response-data-head">send_reminder</span>
+<span class="response-data-remarks">Whether to send a reminder to attendees before the start of the event.</span></p>
+
+<p><span class="response-data-head">remind_minutes_before</span>
+<span class="response-data-remarks">Number of minutes prior to the start of the event that attendees should be notified.</span></p>
+
+<p><span class="response-data-head">note</span>
+<span class="response-data-remarks">This is a human readable note about the event that will be meaningful to the agent.</span></p>
 
 <p><span class="response-data-head">event_start</span>
 <span class="response-data-remarks">This is the Unix timestamp representing the start time of the <span class='entity-name'>Event</span>. </span></p>
@@ -9815,17 +9878,8 @@ attendees=&amp;note=here%20is%20the%20note
 <p><span class="response-data-head">event_end</span>
 <span class="response-data-remarks">This is the Unix timestamp representing the end time of the <span class='entity-name'>Event</span>.</span></p>
 
-<p><span class="response-data-head">event_subject</span>
-<span class="response-data-remarks">This is a short, descriptive, human readable phrase to be displayed to the agent which lets them know what this <span class='entity-name'>Event</span> regards.</span></p>
-
-<p><span class="response-data-head">event_location</span>
-<span class="response-data-remarks">This is a human readable locatition reference regarding where the event is located that will be meaningful to the agent.</span></p>
-
 <p><span class="response-data-head">attendees</span>
 <span class="response-data-remarks">This is a comma separated list of contacts that have already been added through the Moxi Works Platform API who will be present at the referenced event. (Use IDs from your system &ndash; i.e. partner_contact_id from <a href="#contact-create">Contact Create</a> ).</span></p>
-
-<p><span class="response-data-head">event_location</span>
-<span class="response-data-remarks">This is a human readable details about the event that will be meaningful to the agent or any details that are not otherwise represented in the structure of the <span class='entity-name'>Event</span> object.</span></p>
 
 
 <h4 id="event-update"><span class='entity-name'>Event</span> <span class='action-name'>Update</span></h4>
@@ -10004,6 +10058,11 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 </tr>
 </thead><tbody>
 <tr>
+<td><span class="required-data">partner_event_id</span></td>
+<td><span class="required-data"><span class="data-type">String</span></span></td>
+<td><span class="required-data">255</span></td>
+</tr>
+<tr>
 <td><span class="multi-option-required-data">agent_uuid*</span></td>
 <td><span class="multi-option-required-data"><span class="data-type">String</span></span></td>
 <td><span class="multi-option-required-data">255</span></td>
@@ -10012,21 +10071,6 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <td><span class="multi-option-required-data">moxi_works_agent_id*</span></td>
 <td><span class="multi-option-required-data"><span class="data-type">String</span></span></td>
 <td><span class="multi-option-required-data">255</span></td>
-</tr>
-<tr>
-<td><span class="required-data">partner_event_id</span></td>
-<td><span class="required-data"><span class="data-type">String</span></span></td>
-<td><span class="required-data">255</span></td>
-</tr>
-<tr>
-<td><span class="required-data">event_start</span></td>
-<td><span class="required-data"><span class="data-type">Integer</span></span></td>
-<td><span class="required-data">255</span></td>
-</tr>
-<tr>
-<td><span class="required-data">event_end</span></td>
-<td><span class="required-data"><span class="data-type">Integer</span></span></td>
-<td><span class="required-data">255</span></td>
 </tr>
 <tr>
 <td><span class="optional-data">event_subject</span></td>
@@ -10039,12 +10083,37 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <td>255</td>
 </tr>
 <tr>
-<td><span class="optional-data">attendees</span></td>
+<td><span class="optional-data">note</span></td>
 <td><span class="data-type">String</span></td>
 <td></td>
 </tr>
 <tr>
-<td><span class="optional-data">note</span></td>
+<td><span class="optional-data">send_reminder</span></td>
+<td><span class="data-type">Boolean</span></td>
+<td>255</td>
+</tr>
+<tr>
+<td><span class="optional-data">remind_minutes_before</span></td>
+<td><span class="data-type">Integer</span></td>
+<td>255</td>
+</tr>
+<tr>
+<td><span class="required-data">event_start</span></td>
+<td><span class="required-data"><span class="data-type">Integer</span></span></td>
+<td><span class="required-data">255</span></td>
+</tr>
+<tr>
+<td><span class="required-data">event_end</span></td>
+<td><span class="required-data"><span class="data-type">Integer</span></span></td>
+<td><span class="required-data">255</span></td>
+</tr>
+<tr>
+<td><span class="optional-data">all_day</span></td>
+<td><span class="data-type">Boolean</span></td>
+<td>255</td>
+</tr>
+<tr>
+<td><span class="optional-data">attendees</span></td>
 <td><span class="data-type">String</span></td>
 <td></td>
 </tr>
@@ -10054,20 +10123,11 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 
 <p><span class="required-data"><strong>Required Parameters Are In Red</strong></span></p>
 
-<p><span class="request-data-head">agent_uuid</span>
-<span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which an  <span class='entity-name'>Event</span> entry is associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID. <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>Event</span> <span class='action-name'>Update</span> request to be accepted.</span></p>
-
-<p><span class="request-data-head">moxi_works_agent_id</span>
-<span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>Event</span> is to be associated with. This will be a string that may take the form of an email address, or a unique identification string. This data is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>Event</span> <span class='action-name'>Update</span>  request to be accepted.</span></p>
-
 <p><span class="request-data-head">partner_event_id</span>
-<span class="request-data-remarks">This is the unique identifer you use in your system that has been associated with the <span class='entity-name'>Event</span> that you are creating. This data is required and must be a unique key.</span></p>
+<span class="request-data-remarks">This is the unique identifer you use in your system that has been associated with the <span class='entity-name'>Event</span> that you are updating.</span></p>
 
-<p><span class="request-data-head">event_start</span>
-<span class="request-data-remarks">This is the Unix timestamp representing the start time of the <span class='entity-name'>Event</span> that you are creating. This data is required and must be a valid Unix timestamp.</span></p>
-
-<p><span class="request-data-head">event_end</span>
-<span class="request-data-remarks">This is the Unix timestamp representing the end time of the <span class='entity-name'>Event</span> that you are creating. This data is required and must be a valid Unix timestamp.</span></p>
+<p><span class="request-data-head">agent_uuid</span>
+<span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which an  <span class='entity-name'>Event</span> entry is associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID. <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>Event</span> <span class='action-name'>Create</span> request to be accepted.</span></p>
 
 <p><span class="request-data-head">event_subject</span>
 <span class="request-data-remarks">This is a short, descriptive, human readable phrase to be displayed to the agent which lets them know what this <span class='entity-name'>Event</span> regards.</span></p>
@@ -10075,8 +10135,26 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <p><span class="request-data-head">event_location</span>
 <span class="request-data-remarks">This is a human readable locatition reference regarding where the event is located that will be meaningful to the agent.</span></p>
 
+<p><span class="request-data-head">moxi_works_agent_id</span>
+<span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>Event</span> is to be associated with. This will be a string that may take the form of an email address, or a unique identification string. This data is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>Event</span> <span class='action-name'>Create</span>  request to be accepted.</span></p>
+
+<p><span class="request-data-head">send_reminder</span>
+<span class="request-data-remarks">Whether to send a reminder about the event to attendees before the event starts.</span></p>
+
+<p><span class="request-data-head">remind_minutes_before</span>
+<span class="request-data-remarks">If <span class='attribute-name'>send_reminder</span> is true, this is how many minutes before the start of the event to send the reminder. Default is 15 minutes before.</span></p>
+
+<p><span class="request-data-head">event_start</span>
+<span class="request-data-remarks">This is the Unix timestamp representing the start time of the <span class='entity-name'>Event</span> that you are creating. This data is required and must be a valid Unix timestamp.</span></p>
+
+<p><span class="request-data-head">event_end</span>
+<span class="request-data-remarks">This is the Unix timestamp representing the end time of the <span class='entity-name'>Event</span> that you are creating. This data is required and must be a valid Unix timestamp.</span></p>
+
+<p><span class="request-data-head">all_day</span>
+<span class="request-data-remarks">Whether the event is an all day event.</span></p>
+
 <p><span class="request-data-head">attendees</span>
-<span class="request-data-remarks">This is a comma separated list of contacts that have already been added through the Moxi Works Platform API who will be present at the referenced event. (Use IDs from your system &ndash; i.e. partner_contact_id from <a href="#contact-create">Contact Create</a>).</span></p>
+<span class="request-data-remarks">This is a comma separated list of contacts that have already been added through the Moxi Works Platform API who will be present at the referenced event. (Use IDs from your system &ndash; i.e. partner_contact_id from <a href="#contact-create">Contact Create</a> ).</span></p>
 
 <aside class="note">Attendees must be Contacts with an associated email address. <b>Attendees added who don&rsquo;t have an email address associated will not be added to the event.</b></aside>
 
@@ -10142,6 +10220,10 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 </tr>
 </thead><tbody>
 <tr>
+<td><span class="response-data">partner_event_id</span></td>
+<td><span class="response-data"><span class="data-type">String</span></td>
+</tr>
+<tr>
 <td><span class="multi-option-response-data">agent_uuid*</span></td>
 <td><span class="data-type">String</span></td>
 </tr>
@@ -10150,15 +10232,27 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <td><span class="data-type">String</span></td>
 </tr>
 <tr>
-<td><span class="response-data">partner_event_id</span></td>
-<td><span class="response-data"><span class="data-type">String</span></td>
-</tr>
-<tr>
 <td><span class="response-data">event_subject</span></td>
 <td><span class="data-type">String</span></td>
 </tr>
 <tr>
 <td><span class="response-data">event_location</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">note</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">send_reminder</span></td>
+<td><span class="data-type">Boolean</span></td>
+</tr>
+<tr>
+<td><span class="response-data">remind_minutes_before</span></td>
+<td><span class="data-type">Integer</span></td>
+</tr>
+<tr>
+<td><span class="response-data">note</span></td>
 <td><span class="data-type">String</span></td>
 </tr>
 <tr>
@@ -10177,13 +10271,12 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <td><span class="response-data">attendees</span></td>
 <td><span class="data-type">String</span></td>
 </tr>
-<tr>
-<td><span class="response-data">note</span></td>
-<td><span class="data-type">String</span></td>
-</tr>
 </tbody></table>
 
 <p><span class='multi-option-response-data'>* Either <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> will be returned depending on whether it is used in the request. The response payload object&rsquo;s agent identifier key will match the passed parameter.</span></p>
+
+<p><span class="response-data-head">partner_event_id</span>
+<span class="response-data-remarks">This is the unique identifer you use in your system that has been associated with the <span class='entity-name'>Event</span>.</span></p>
 
 <p><span class="response-data-head">agent_uuid</span>
 <span class="response-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>Event</span>  is associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID.</span></p>
@@ -10191,8 +10284,20 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <p><span class="response-data-head">moxi_works_agent_id</span>
 <span class="response-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>Event</span> is associated with. This will be a string that may take the form of an email address, or a unique identification string.</span></p>
 
-<p><span class="response-data-head">partner_event_id</span>
-<span class="response-data-remarks">This is the unique identifer you use in your system that has been associated with the <span class='entity-name'>Event</span>.</span></p>
+<p><span class="response-data-head">event_subject</span>
+<span class="response-data-remarks">This is a short, descriptive, human readable phrase to be displayed to the agent which lets them know what this <span class='entity-name'>Event</span> regards.</span></p>
+
+<p><span class="response-data-head">event_location</span>
+<span class="response-data-remarks">This is a human readable locatition reference regarding where the event is located that will be meaningful to the agent.</span></p>
+
+<p><span class="response-data-head">send_reminder</span>
+<span class="response-data-remarks">Whether to send a reminder to attendees before the start of the event.</span></p>
+
+<p><span class="response-data-head">remind_minutes_before</span>
+<span class="response-data-remarks">Number of minutes prior to the start of the event that attendees should be notified.</span></p>
+
+<p><span class="response-data-head">note</span>
+<span class="response-data-remarks">This is a human readable note about the event that will be meaningful to the agent.</span></p>
 
 <p><span class="response-data-head">event_start</span>
 <span class="response-data-remarks">This is the Unix timestamp representing the start time of the <span class='entity-name'>Event</span>. </span></p>
@@ -10200,17 +10305,8 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <p><span class="response-data-head">event_end</span>
 <span class="response-data-remarks">This is the Unix timestamp representing the end time of the <span class='entity-name'>Event</span>.</span></p>
 
-<p><span class="response-data-head">event_subject</span>
-<span class="response-data-remarks">This is a short, descriptive, human readable phrase to be displayed to the agent which lets them know what this <span class='entity-name'>Event</span> regards.</span></p>
-
-<p><span class="response-data-head">event_location</span>
-<span class="response-data-remarks">This is a human readable locatition reference regarding where the event is located that will be meaningful to the agent.</span></p>
-
 <p><span class="response-data-head">attendees</span>
-<span class="response-data-remarks">This is a comma separated list of contacts that have already been added through the Moxi Works Platform API who will be present at the referenced event. (Use IDs from your system &ndash; i.e. partner_contact_id from <a href="#contact-create">Contact Create</a>).</span></p>
-
-<p><span class="response-data-head">event_location</span>
-<span class="response-data-remarks">This is a human readable details about the event that will be meaningful to the agent or any details that are not otherwise represented in the structure of the <span class='entity-name'>Event</span> object.</span></p>
+<span class="response-data-remarks">This is a comma separated list of contacts that have already been added through the Moxi Works Platform API who will be present at the referenced event. (Use IDs from your system &ndash; i.e. partner_contact_id from <a href="#contact-create">Contact Create</a> ).</span></p>
 
 
 <h4 id="event-show"><span class='entity-name'>Event</span> <span class='action-name'>Show</span></h4>
@@ -10363,15 +10459,17 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 </span></div></blockquote>
 <pre class="highlight json"><code><span class="w">
 </span><span class="p">{</span><span class="w">
-  </span><span class="nt">"agent_uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345678-1234-1234-1234-1234567890ab"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"partner_event_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"booyuh"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"event_subject"</span><span class="p">:</span><span class="w"> </span><span class="s2">"the subject"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"event_location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"the location"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"all_day"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"agent_uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345678-1234-1234-1234-1234567890ab"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"event_subject"</span><span class="p">:</span><span class="w"> </span><span class="s2">"event subject"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"event_location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"event location"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"note"</span><span class="p">:</span><span class="w"> </span><span class="s2">"notable stuff"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"send_reminder"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"remind_minutes_before"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
   </span><span class="nt">"event_start"</span><span class="p">:</span><span class="w"> </span><span class="mi">1462234227</span><span class="p">,</span><span class="w">
   </span><span class="nt">"event_end"</span><span class="p">:</span><span class="w"> </span><span class="mi">1462241468</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"attendees"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Contact1ID, Contact2ID"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"note"</span><span class="p">:</span><span class="w"> </span><span class="s2">"notable stuff"</span><span class="w">
+  </span><span class="nt">"all_day"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"attendees"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Contact1ID,Contact2ID"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -10380,15 +10478,17 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 </span></div></blockquote>
 <pre class="highlight json"><code><span class="w">
 </span><span class="p">{</span><span class="w">
-  </span><span class="nt">"moxi_works_agent_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234abcd"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"partner_event_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"booyuh"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"event_subject"</span><span class="p">:</span><span class="w"> </span><span class="s2">"the subject"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"event_location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"the location"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"all_day"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"moxi_works_agent_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234abcd"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"event_subject"</span><span class="p">:</span><span class="w"> </span><span class="s2">"event subject"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"event_location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"event location"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"note"</span><span class="p">:</span><span class="w"> </span><span class="s2">"notable stuff"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"send_reminder"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"remind_minutes_before"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
   </span><span class="nt">"event_start"</span><span class="p">:</span><span class="w"> </span><span class="mi">1462234227</span><span class="p">,</span><span class="w">
   </span><span class="nt">"event_end"</span><span class="p">:</span><span class="w"> </span><span class="mi">1462241468</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"attendees"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Contact1ID, Contact2ID"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"note"</span><span class="p">:</span><span class="w"> </span><span class="s2">"notable stuff"</span><span class="w">
+  </span><span class="nt">"all_day"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"attendees"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Contact1ID,Contact2ID"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -10413,6 +10513,10 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 </tr>
 </thead><tbody>
 <tr>
+<td><span class="response-data">partner_event_id</span></td>
+<td><span class="response-data"><span class="data-type">String</span></td>
+</tr>
+<tr>
 <td><span class="multi-option-response-data">agent_uuid*</span></td>
 <td><span class="data-type">String</span></td>
 </tr>
@@ -10421,15 +10525,27 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <td><span class="data-type">String</span></td>
 </tr>
 <tr>
-<td><span class="response-data">partner_event_id</span></td>
-<td><span class="response-data"><span class="data-type">String</span></td>
-</tr>
-<tr>
 <td><span class="response-data">event_subject</span></td>
 <td><span class="data-type">String</span></td>
 </tr>
 <tr>
 <td><span class="response-data">event_location</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">note</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">send_reminder</span></td>
+<td><span class="data-type">Boolean</span></td>
+</tr>
+<tr>
+<td><span class="response-data">remind_minutes_before</span></td>
+<td><span class="data-type">Integer</span></td>
+</tr>
+<tr>
+<td><span class="response-data">note</span></td>
 <td><span class="data-type">String</span></td>
 </tr>
 <tr>
@@ -10448,13 +10564,12 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <td><span class="response-data">attendees</span></td>
 <td><span class="data-type">String</span></td>
 </tr>
-<tr>
-<td><span class="response-data">note</span></td>
-<td><span class="data-type">String</span></td>
-</tr>
 </tbody></table>
 
 <p><span class='multi-option-response-data'>* Either <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> will be returned depending on whether it is used in the request. The response payload object&rsquo;s agent identifier key will match the passed parameter.</span></p>
+
+<p><span class="response-data-head">partner_event_id</span>
+<span class="response-data-remarks">This is the unique identifer you use in your system that has been associated with the <span class='entity-name'>Event</span>.</span></p>
 
 <p><span class="response-data-head">agent_uuid</span>
 <span class="response-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>Event</span>  is associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID.</span></p>
@@ -10462,8 +10577,20 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <p><span class="response-data-head">moxi_works_agent_id</span>
 <span class="response-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>Event</span> is associated with. This will be a string that may take the form of an email address, or a unique identification string.</span></p>
 
-<p><span class="response-data-head">partner_event_id</span>
-<span class="response-data-remarks">This is the unique identifer you use in your system that has been associated with the <span class='entity-name'>Event</span>.</span></p>
+<p><span class="response-data-head">event_subject</span>
+<span class="response-data-remarks">This is a short, descriptive, human readable phrase to be displayed to the agent which lets them know what this <span class='entity-name'>Event</span> regards.</span></p>
+
+<p><span class="response-data-head">event_location</span>
+<span class="response-data-remarks">This is a human readable locatition reference regarding where the event is located that will be meaningful to the agent.</span></p>
+
+<p><span class="response-data-head">send_reminder</span>
+<span class="response-data-remarks">Whether to send a reminder to attendees before the start of the event.</span></p>
+
+<p><span class="response-data-head">remind_minutes_before</span>
+<span class="response-data-remarks">Number of minutes prior to the start of the event that attendees should be notified.</span></p>
+
+<p><span class="response-data-head">note</span>
+<span class="response-data-remarks">This is a human readable note about the event that will be meaningful to the agent.</span></p>
 
 <p><span class="response-data-head">event_start</span>
 <span class="response-data-remarks">This is the Unix timestamp representing the start time of the <span class='entity-name'>Event</span>. </span></p>
@@ -10471,17 +10598,8 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <p><span class="response-data-head">event_end</span>
 <span class="response-data-remarks">This is the Unix timestamp representing the end time of the <span class='entity-name'>Event</span>.</span></p>
 
-<p><span class="response-data-head">event_subject</span>
-<span class="response-data-remarks">This is a short, descriptive, human readable phrase to be displayed to the agent which lets them know what this <span class='entity-name'>Event</span> regards.</span></p>
-
-<p><span class="response-data-head">event_location</span>
-<span class="response-data-remarks">This is a human readable locatition reference regarding where the event is located that will be meaningful to the agent.</span></p>
-
 <p><span class="response-data-head">attendees</span>
-<span class="response-data-remarks">This is a comma separated list of contacts that have already been added through the Moxi Works Platform API who will be present at the referenced event. (This will contain IDs from your system &ndash; i.e. partner_contact_id from <a href="#contact-create">Contact Create</a> ).</span></p>
-
-<p><span class="response-data-head">event_location</span>
-<span class="response-data-remarks">This is a human readable details about the event that should be meaningful to the agent or any details that are not otherwise represented in the structure of the <span class='entity-name'>Event</span> object.</span></p>
+<span class="response-data-remarks">This is a comma separated list of contacts that have already been added through the Moxi Works Platform API who will be present at the referenced event. (Use IDs from your system &ndash; i.e. partner_contact_id from <a href="#contact-create">Contact Create</a> ).</span></p>
 
 
 <h4 id="event-index"><span class='entity-name'>Event</span> <span class='action-name'>Index</span></h4>
@@ -10653,6 +10771,7 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
   </span><span class="nt">"event_subject"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dis subject"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"event_location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"the location"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"send_reminder"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"remind_minutes_before"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
   </span><span class="nt">"all_day"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
   </span><span class="nt">"event_start"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"event_end"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -10665,6 +10784,7 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
   </span><span class="nt">"event_subject"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mah subject"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"event_location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"_the_ location"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"send_reminder"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"remind_minutes_before"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
   </span><span class="nt">"all_day"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="nt">"event_start"</span><span class="p">:</span><span class="w"> </span><span class="mi">1462234327</span><span class="p">,</span><span class="w">
   </span><span class="nt">"event_end"</span><span class="p">:</span><span class="w"> </span><span class="mi">1462241468</span><span class="p">,</span><span class="w">
@@ -10679,6 +10799,7 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
   </span><span class="nt">"event_subject"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dat subject"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"event_location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"the other location"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"send_reminder"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"remind_minutes_before"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
   </span><span class="nt">"all_day"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="nt">"event_start"</span><span class="p">:</span><span class="w"> </span><span class="mi">1462234227</span><span class="p">,</span><span class="w">
   </span><span class="nt">"event_end"</span><span class="p">:</span><span class="w"> </span><span class="mi">1462241468</span><span class="p">,</span><span class="w">
@@ -10703,6 +10824,7 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
   </span><span class="nt">"event_subject"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dis subject"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"event_location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"the location"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"send_reminder"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"remind_minutes_before"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
   </span><span class="nt">"all_day"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
   </span><span class="nt">"event_start"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"event_end"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -10715,6 +10837,7 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
   </span><span class="nt">"event_subject"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mah subject"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"event_location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"_the_ location"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"send_reminder"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"remind_minutes_before"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
   </span><span class="nt">"all_day"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="nt">"event_start"</span><span class="p">:</span><span class="w"> </span><span class="mi">1462234327</span><span class="p">,</span><span class="w">
   </span><span class="nt">"event_end"</span><span class="p">:</span><span class="w"> </span><span class="mi">1462241468</span><span class="p">,</span><span class="w">
@@ -10729,6 +10852,7 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
   </span><span class="nt">"event_subject"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dat subject"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"event_location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"the other location"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"send_reminder"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"remind_minutes_before"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
   </span><span class="nt">"all_day"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="nt">"event_start"</span><span class="p">:</span><span class="w"> </span><span class="mi">1462234227</span><span class="p">,</span><span class="w">
   </span><span class="nt">"event_end"</span><span class="p">:</span><span class="w"> </span><span class="mi">1462241468</span><span class="p">,</span><span class="w">
@@ -10790,6 +10914,10 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 </tr>
 </thead><tbody>
 <tr>
+<td><span class="response-data">partner_event_id</span></td>
+<td><span class="response-data"><span class="data-type">String</span></td>
+</tr>
+<tr>
 <td><span class="multi-option-response-data">agent_uuid*</span></td>
 <td><span class="data-type">String</span></td>
 </tr>
@@ -10798,15 +10926,27 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <td><span class="data-type">String</span></td>
 </tr>
 <tr>
-<td><span class="response-data">partner_event_id</span></td>
-<td><span class="response-data"><span class="data-type">String</span></td>
-</tr>
-<tr>
 <td><span class="response-data">event_subject</span></td>
 <td><span class="data-type">String</span></td>
 </tr>
 <tr>
 <td><span class="response-data">event_location</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">note</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">send_reminder</span></td>
+<td><span class="data-type">Boolean</span></td>
+</tr>
+<tr>
+<td><span class="response-data">remind_minutes_before</span></td>
+<td><span class="data-type">Integer</span></td>
+</tr>
+<tr>
+<td><span class="response-data">note</span></td>
 <td><span class="data-type">String</span></td>
 </tr>
 <tr>
@@ -10825,13 +10965,12 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <td><span class="response-data">attendees</span></td>
 <td><span class="data-type">String</span></td>
 </tr>
-<tr>
-<td><span class="response-data">note</span></td>
-<td><span class="data-type">String</span></td>
-</tr>
 </tbody></table>
 
 <p><span class='multi-option-response-data'>* Either <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> will be returned depending on whether it is used in the request. The response payload object&rsquo;s agent identifier key will match the passed parameter.</span></p>
+
+<p><span class="response-data-head">partner_event_id</span>
+<span class="response-data-remarks">This is the unique identifer you use in your system that has been associated with the <span class='entity-name'>Event</span>.</span></p>
 
 <p><span class="response-data-head">agent_uuid</span>
 <span class="response-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>Event</span>  is associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID.</span></p>
@@ -10839,8 +10978,20 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <p><span class="response-data-head">moxi_works_agent_id</span>
 <span class="response-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>Event</span> is associated with. This will be a string that may take the form of an email address, or a unique identification string.</span></p>
 
-<p><span class="response-data-head">partner_event_id</span>
-<span class="response-data-remarks">This is the unique identifer you use in your system that has been associated with the <span class='entity-name'>Event</span>.</span></p>
+<p><span class="response-data-head">event_subject</span>
+<span class="response-data-remarks">This is a short, descriptive, human readable phrase to be displayed to the agent which lets them know what this <span class='entity-name'>Event</span> regards.</span></p>
+
+<p><span class="response-data-head">event_location</span>
+<span class="response-data-remarks">This is a human readable locatition reference regarding where the event is located that will be meaningful to the agent.</span></p>
+
+<p><span class="response-data-head">send_reminder</span>
+<span class="response-data-remarks">Whether to send a reminder to attendees before the start of the event.</span></p>
+
+<p><span class="response-data-head">remind_minutes_before</span>
+<span class="response-data-remarks">Number of minutes prior to the start of the event that attendees should be notified.</span></p>
+
+<p><span class="response-data-head">note</span>
+<span class="response-data-remarks">This is a human readable note about the event that will be meaningful to the agent.</span></p>
 
 <p><span class="response-data-head">event_start</span>
 <span class="response-data-remarks">This is the Unix timestamp representing the start time of the <span class='entity-name'>Event</span>. </span></p>
@@ -10848,17 +10999,8 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <p><span class="response-data-head">event_end</span>
 <span class="response-data-remarks">This is the Unix timestamp representing the end time of the <span class='entity-name'>Event</span>.</span></p>
 
-<p><span class="response-data-head">event_subject</span>
-<span class="response-data-remarks">This is a short, descriptive, human readable phrase to be displayed to the agent which lets them know what this <span class='entity-name'>Event</span> regards.</span></p>
-
-<p><span class="response-data-head">event_location</span>
-<span class="response-data-remarks">This is a human readable locatition reference regarding where the event is located that will be meaningful to the agent.</span></p>
-
 <p><span class="response-data-head">attendees</span>
-<span class="response-data-remarks">This is a comma separated list of contacts that have already been added through the Moxi Works Platform API who will be present at the referenced event. (Use IDs from your system &ndash; i.e. partner_contact_id from <a href="#contact-create">Contact Create</a>).</span></p>
-
-<p><span class="response-data-head">event_location</span>
-<span class="response-data-remarks">This is a human readable details about the event that will be meaningful to the agent or any details that are not otherwise represented in the structure of the <span class='entity-name'>Event</span> object.</span></p>
+<span class="response-data-remarks">This is a comma separated list of contacts that have already been added through the Moxi Works Platform API who will be present at the referenced event. (Use IDs from your system &ndash; i.e. partner_contact_id from <a href="#contact-create">Contact Create</a> ).</span></p>
 
 
 <h4 id="event-delete"><span class='entity-name'>Event</span> <span class='action-name'>Delete</span></h4>

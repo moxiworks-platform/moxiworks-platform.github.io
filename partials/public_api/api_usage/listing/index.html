@@ -248,6 +248,39 @@
   </span><span class="nt">"OnMarket"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
   </span><span class="nt">"Status"</span><span class="p">:</span><span class="s2">"active"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"MoxiWorksListingId"</span><span class="p">:</span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"PropertyFeatures"</span><span class="p">:[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"PropertyFeatureName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kitchen Information"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"PropertyFeatureValues"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"Dishwasher"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Microwave"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Oven/Range Freestanding"</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"PropertyFeatureName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Roof Description"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"PropertyFeatureValues"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"Comp Shingle"</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"PropertyFeatureName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Number Of Stories"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"PropertyFeatureValues"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"Two Story"</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"PropertyFeatureName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Interior Features"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"PropertyFeatureValues"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"Bath Master"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Broadband Internet"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Cable/Satellite Tv"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Dishwasher"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Microwave"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Oven/Range Freestanding"</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
   </span><span class="nt">"ListingImages"</span><span class="p">:[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"FullURL"</span><span class="p">:</span><span class="s2">"http://images.moxiworks.com/static/images/br/imagoo/default_property_image_wre-326x250.png"</span><span class="p">,</span><span class="w">
@@ -503,6 +536,10 @@
 <td><span class="response-data"><span class="data-type">String</span></td>
 </tr>
 <tr>
+<td><span class="response-data">PropertyFeatures</span></td>
+<td><span class="response-data"><span class="data-type">Array</span></td>
+</tr>
+<tr>
 <td><span class="response-data">LisingImages</span></td>
 <td><span class="response-data"><span class="data-type">Array</span></td>
 </tr>
@@ -646,8 +683,37 @@
 <p><span class="response-data-head">MoxiWorksListingID</span>
 <span class="response-data-remarks">The unique Identifier for the listing in The Moxi Works Platform.</span></p>
 
+<p><span class="response-data-head">PropertyFeatures</span>
+<span class="response-data-remarks">Any defined features about the property.</span></p>
+
 <p><span class="response-data-head">ListingImages</span>
 <span class="response-data-remarks">Any images of the property.</span></p>
+
+<h6 id="propertyfeature-objects"><span class='attribute-name'>PropertyFeature</span> Objects</h6>
+
+<p>Each object in the <span class='attribute-name'>PropertyFeatures</span> array will have the following structure.</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span class="response-data">PropertyFeatureName</span></td>
+<td><span class="response-data"><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">PropertyFeatureValues</span></td>
+<td><span class="response-data"><span class="data-type">Array</span></td>
+</tr>
+</tbody></table>
+
+<p><span class="response-data-head">PropertyFeatureName</span>
+<span class="response-data-remarks">Human readable name associated with the feature.</span></p>
+
+<p><span class="response-data-head">PropertyFeatureValues</span>
+<span class="response-data-remarks">An array of strings which are human readable values associated with the feature.</span></p>
 
 <h6 id="listingimages-objects"><span class='attribute-name'>ListingImages</span> Objects</h6>
 

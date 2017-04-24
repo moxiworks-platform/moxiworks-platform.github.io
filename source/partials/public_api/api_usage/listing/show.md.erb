@@ -137,6 +137,39 @@ Attribute | Type | Length Limit |
   "OnMarket":true,
   "Status":"active",
   "MoxiWorksListingId":"abc123",
+  "PropertyFeatures":[
+    {
+      "PropertyFeatureName": "Kitchen Information",
+      "PropertyFeatureValues": [
+        "Dishwasher",
+        "Microwave",
+        "Oven/Range Freestanding"
+      ]
+      },
+      {
+      "PropertyFeatureName": "Roof Description",
+      "PropertyFeatureValues": [
+        "Comp Shingle"
+      ]
+      },
+      {
+      "PropertyFeatureName": "Number Of Stories",
+      "PropertyFeatureValues": [
+        "Two Story"
+      ]
+      },
+        {
+      "PropertyFeatureName": "Interior Features",
+      "PropertyFeatureValues": [
+        "Bath Master",
+        "Broadband Internet",
+        "Cable/Satellite Tv",
+        "Dishwasher",
+        "Microwave",
+        "Oven/Range Freestanding"
+      ]
+    }
+  ],
   "ListingImages":[
     {
       "FullURL":"http://images.moxiworks.com/static/images/br/imagoo/default_property_image_wre-326x250.png",
@@ -188,7 +221,7 @@ Attribute | Type |
 |<span class="response-data">CreatedDate</span>|<span class="response-data"><span class="data-type">String</span>
 |<span class="response-data">ElementarySchool</span>|<span class="response-data"><span class="data-type">String or null</span>
 |<span class="response-data">GarageSpaces</span>|<span class="response-data"><span class="data-type">Integer or null</span>
-|<span class="response-data">WaterfrontYN</span>|<span class="response-data"><span class="data-type">Boolean</span>
+|<span class="response-data">WaterfrontYN</span>|<span class="response-data"><span class="data-type">Boolean or null</span>
 |<span class="response-data">HighSchool</span>|<span class="response-data"><span class="data-type">String or null</span>
 |<span class="response-data">AssociationFee</span>|<span class="response-data"><span class="data-type">Integer or null</span>
 |<span class="response-data">ListOfficeName</span>|<span class="response-data"><span class="data-type">String or null</span>
@@ -219,6 +252,7 @@ Attribute | Type |
 |<span class="response-data">OnMarket</span>|<span class="response-data"><span class="data-type">Boolean or null</span>
 |<span class="response-data">Status</span>|<span class="response-data"><span class="data-type">String or null</span>
 |<span class="response-data">MoxiWorksListingId</span>|<span class="response-data"><span class="data-type">String</span>
+|<span class="response-data">PropertyFeatures</span>|<span class="response-data"><span class="data-type">Array</span>
 |<span class="response-data">ListingImages</span>|<span class="response-data"><span class="data-type">Array</span>
 
 <span class="response-data-head">LotSizeAcres</span>
@@ -397,8 +431,29 @@ Attribute | Type |
 <span class="response-data-head">MoxiWorksListingID</span>
 <span class="response-data-remarks">The unique Identifier for the listing in The Moxi Works Platform.</span>
 
+<span class="response-data-head">PropertyFeatures</span>
+<span class="response-data-remarks">Any defined features about the property.</span>
+
+
 <span class="response-data-head">ListingImages</span>
 <span class="response-data-remarks">Any images of the property.</span>
+
+
+###### <span class='attribute-name'>PropertyFeature</span> Objects
+
+Each object in the <span class='attribute-name'>PropertyFeatures</span> array will have the following structure.
+
+Attribute | Type |
+-----|-----|-----|-----|
+|<span class="response-data">PropertyFeatureName</span>|<span class="response-data"><span class="data-type">String</span>
+|<span class="response-data">PropertyFeatureValues</span>|<span class="response-data"><span class="data-type">Array</span>
+
+<span class="response-data-head">PropertyFeatureName</span>
+<span class="response-data-remarks">Human readable name associated with the feature.</span>
+
+<span class="response-data-head">PropertyFeatureValues</span>
+<span class="response-data-remarks">An array of strings which are human readable values associated with the feature.</span>
+
 
 
 ###### <span class='attribute-name'>ListingImages</span> Objects

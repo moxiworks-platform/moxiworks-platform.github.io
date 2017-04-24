@@ -154,15 +154,17 @@ The following attributes make up the payload of the <span class='entity-name'>Ev
 ```json
 
 {
-  "agent_uuid": "12345678-1234-1234-1234-1234567890ab",
   "partner_event_id": "booyuh",
-  "event_subject": "the subject",
-  "event_location": "the location",
-  "all_day": false,
+  "agent_uuid": "12345678-1234-1234-1234-1234567890ab",
+  "event_subject": "event subject",
+  "event_location": "event location",
+  "note": "notable stuff",
+  "send_reminder": true,
+  "remind_minutes_before": 15,
   "event_start": 1462234227,
   "event_end": 1462241468,
-  "attendees": "Contact1ID, Contact2ID",
-  "note": "notable stuff"
+  "all_day": false,
+  "attendees": "Contact1ID,Contact2ID"
 }
 ```
 
@@ -174,15 +176,17 @@ The following attributes make up the payload of the <span class='entity-name'>Ev
 ```json
 
 {
-  "moxi_works_agent_id": "1234abcd",
   "partner_event_id": "booyuh",
-  "event_subject": "the subject",
-  "event_location": "the location",
-  "all_day": false,
+  "moxi_works_agent_id": "1234abcd",
+  "event_subject": "event subject",
+  "event_location": "event location",
+  "note": "notable stuff",
+  "send_reminder": true,
+  "remind_minutes_before": 15,
   "event_start": 1462234227,
   "event_end": 1462241468,
-  "attendees": "Contact1ID, Contact2ID",
-  "note": "notable stuff"
+  "all_day": false,
+  "attendees": "Contact1ID,Contact2ID"
 }
 ```
 
@@ -204,34 +208,31 @@ The following attributes make up the payload of the <span class='entity-name'>Ev
 
 Attribute | Type |
 -----|-----|-----|-----|
+|<span class="response-data">partner_event_id</span>|<span class="response-data"><span class="data-type">String</span>
 |<span class="multi-option-response-data">agent_uuid*</span>|<span class="data-type">String</span>| |
 |<span class="multi-option-response-data">moxi_works_agent_id*</span>|<span class="data-type">String</span>| |
-|<span class="response-data">partner_event_id</span>|<span class="response-data"><span class="data-type">String</span>
 |<span class="response-data">event_subject</span>|<span class="data-type">String</span>|
 |<span class="response-data">event_location</span>|<span class="data-type">String</span>|
+|<span class="response-data">note</span>|<span class="data-type">String</span>|
+|<span class="response-data">send_reminder</span>|<span class="data-type">Boolean</span>|
+|<span class="response-data">remind_minutes_before</span>|<span class="data-type">Integer</span>|
+|<span class="response-data">note</span>|<span class="data-type">String</span>|
 |<span class="response-data">all_day</span>|<span class="data-type">Boolean</span>|
 |<span class="response-data">event_start</span>|<span class="data-type">Integer</span>|
 |<span class="response-data">event_end</span>|<span class="data-type">Integer</span>|
 |<span class="response-data">attendees</span>|<span class="data-type">String</span>|
-|<span class="response-data">note</span>|<span class="data-type">String</span>|
+
 
 <span class='multi-option-response-data'>* Either <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> will be returned depending on whether it is used in the request. The response payload object's agent identifier key will match the passed parameter.</span>
-
-<span class="response-data-head">agent_uuid</span>
-<span class="response-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>Event</span>  is associated with. This will be an [RFC 4122](https://tools.ietf.org/html/rfc4122) compliant UUID.</span>
-
-
-<span class="response-data-head">moxi_works_agent_id</span>
-<span class="response-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>Event</span> is associated with. This will be a string that may take the form of an email address, or a unique identification string.</span>
 
 <span class="response-data-head">partner_event_id</span>
 <span class="response-data-remarks">This is the unique identifer you use in your system that has been associated with the <span class='entity-name'>Event</span>.</span>
 
-<span class="response-data-head">event_start</span>
-<span class="response-data-remarks">This is the Unix timestamp representing the start time of the <span class='entity-name'>Event</span>. </span>
+<span class="response-data-head">agent_uuid</span>
+<span class="response-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>Event</span>  is associated with. This will be an [RFC 4122](https://tools.ietf.org/html/rfc4122) compliant UUID.</span>
 
-<span class="response-data-head">event_end</span>
-<span class="response-data-remarks">This is the Unix timestamp representing the end time of the <span class='entity-name'>Event</span>.</span>
+<span class="response-data-head">moxi_works_agent_id</span>
+<span class="response-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>Event</span> is associated with. This will be a string that may take the form of an email address, or a unique identification string.</span>
 
 <span class="response-data-head">event_subject</span>
 <span class="response-data-remarks">This is a short, descriptive, human readable phrase to be displayed to the agent which lets them know what this <span class='entity-name'>Event</span> regards.</span>
@@ -239,8 +240,20 @@ Attribute | Type |
 <span class="response-data-head">event_location</span>
 <span class="response-data-remarks">This is a human readable locatition reference regarding where the event is located that will be meaningful to the agent.</span>
 
-<span class="response-data-head">attendees</span>
-<span class="response-data-remarks">This is a comma separated list of contacts that have already been added through the Moxi Works Platform API who will be present at the referenced event. (This will contain IDs from your system -- i.e. partner_contact_id from [Contact Create](#contact-create) ).</span>
+<span class="response-data-head">send_reminder</span>
+<span class="response-data-remarks">Whether to send a reminder to attendees before the start of the event.</span>
 
-<span class="response-data-head">event_location</span>
-<span class="response-data-remarks">This is a human readable details about the event that should be meaningful to the agent or any details that are not otherwise represented in the structure of the <span class='entity-name'>Event</span> object.</span>
+<span class="response-data-head">remind_minutes_before</span>
+<span class="response-data-remarks">Number of minutes prior to the start of the event that attendees should be notified.</span>
+
+<span class="response-data-head">note</span>
+<span class="response-data-remarks">This is a human readable note about the event that will be meaningful to the agent.</span>
+
+<span class="response-data-head">event_start</span>
+<span class="response-data-remarks">This is the Unix timestamp representing the start time of the <span class='entity-name'>Event</span>. </span>
+
+<span class="response-data-head">event_end</span>
+<span class="response-data-remarks">This is the Unix timestamp representing the end time of the <span class='entity-name'>Event</span>.</span>
+
+<span class="response-data-head">attendees</span>
+<span class="response-data-remarks">This is a comma separated list of contacts that have already been added through the Moxi Works Platform API who will be present at the referenced event. (Use IDs from your system -- i.e. partner_contact_id from [Contact Create](#contact-create) ).</span>

@@ -173,6 +173,7 @@
   </span><span class="nt">"OnMarket"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
   </span><span class="nt">"Status"</span><span class="p">:</span><span class="s2">"active"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"MoxiWorksListingId"</span><span class="p">:</span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"AgentCreatedListing"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="nt">"PropertyFeatures"</span><span class="p">:[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"PropertyFeatureName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kitchen Information"</span><span class="p">,</span><span class="w">
@@ -212,8 +213,15 @@
       </span><span class="nt">"GalleryURL"</span><span class="p">:</span><span class="s2">"http://images.moxiworks.com/static/images/br/imagoo/default_property_image_wre-326x250.png"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"RawURL"</span><span class="p">:</span><span class="s2">"http://images.moxiworks.com/static/images/br/imagoo/default_property_image_wre-326x250.png"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"SmallURL"</span><span class="p">:</span><span class="s2">"http://images.moxiworks.com/static/images/br/imagoo/default_property_image_wre-326x250.png"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"ThumbURL"</span><span class="p">:</span><span class="s2">"http://images.moxiworks.com/static/images/br/imagoo/default_property_image_wre-326x250.png"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+      </span><span class="nt">"ThumbURL"</span><span class="p">:</span><span class="s2">"http://images.moxiworks.com/static/images/br/imagoo/default_property_image_wre-326x250.png"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Title"</span><span class="p">:</span><span class="s2">"Image Title"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"IsMainListingImage"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Caption"</span><span class="p">:</span><span class="s2">"Image Caption"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Description"</span><span class="p">:</span><span class="s2">"Image Description"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Width"</span><span class="p">:</span><span class="mi">1024</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Height"</span><span class="p">:</span><span class="mi">768</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"MimeType"</span><span class="p">:</span><span class="s2">"image/jpeg"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -434,6 +442,10 @@
 <td><span class="response-data"><span class="data-type">String</span></td>
 </tr>
 <tr>
+<td><span class="response-data">AgentCreatedListing</span></td>
+<td><span class="response-data"><span class="data-type">Boolean</span></td>
+</tr>
+<tr>
 <td><span class="response-data">PropertyFeatures</span></td>
 <td><span class="response-data"><span class="data-type">Array</span></td>
 </tr>
@@ -581,6 +593,9 @@
 <p><span class="response-data-head">MoxiWorksListingID</span>
 <span class="response-data-remarks">The unique Identifier for the listing in The Moxi Works Platform.</span></p>
 
+<p><span class="response-data-head">AgentCreatedListing</span>
+<span class="response-data-remarks">Whether the agent created this listing.</span></p>
+
 <p><span class="response-data-head">PropertyFeatures</span>
 <span class="response-data-remarks">Any defined features about the property.</span></p>
 
@@ -643,6 +658,34 @@
 <td><span class="response-data">RawURL</span></td>
 <td><span class="response-data"><span class="data-type">String</span></td>
 </tr>
+<tr>
+<td><span class="response-data">Title</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">IsMainListingImage</span></td>
+<td><span class="response-data"><span class="data-type">Boolean</span></td>
+</tr>
+<tr>
+<td><span class="response-data">Caption</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">Description</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">Width</span></td>
+<td><span class="response-data"><span class="data-type">Integer or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">Height</span></td>
+<td><span class="response-data"><span class="data-type">Integer or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">MimeType</span></td>
+<td><span class="response-data"><span class="data-type">String</span></td>
+</tr>
 </tbody></table>
 
 <p><span class="response-data-head">ThumbURL</span>
@@ -659,6 +702,27 @@
 
 <p><span class="response-data-head">RawURL</span>
 <span class="response-data-remarks">This is a valid URL to the raw image as uploaded. This is the largest size image returned in each object in the <span class='attribute-name'>ListingImages</span> array. Due to variation in size, this image should not be considered for use when displaying images rendered in a browser.</span></p>
+
+<p><span class="response-data-head">Title</span>
+<span class="response-data-remarks">Human readable title of image.</span></p>
+
+<p><span class="response-data-head">IsMainListingImage</span>
+<span class="response-data-remarks">Whether this image is considered the primary image for the listing.</span></p>
+
+<p><span class="response-data-head">Caption</span>
+<span class="response-data-remarks">Human readable caption for the image.</span></p>
+
+<p><span class="response-data-head">Description</span>
+<span class="response-data-remarks">Human readable description of image.</span></p>
+
+<p><span class="response-data-head">Width</span>
+<span class="response-data-remarks">Width of the raw image.</span></p>
+
+<p><span class="response-data-head">Height</span>
+<span class="response-data-remarks">Height of the raw image.</span></p>
+
+<p><span class="response-data-head">MimeType</span>
+<span class="response-data-remarks">MIME or media type of the image.</span></p>
 
 
 <h4 id="listing-index"><span class='entity-name'>Listing</span> <span class='action-name'>Index  </span></h4>
@@ -929,7 +993,14 @@
       </span><span class="nt">"GalleryURL"</span><span class="p">:</span><span class="s2">"http://images.moxiworks.com/static/images/br/imagoo/default_property_image_wre-326x250.png"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"RawURL"</span><span class="p">:</span><span class="s2">"http://images.moxiworks.com/static/images/br/imagoo/default_property_image_wre-326x250.png"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"SmallURL"</span><span class="p">:</span><span class="s2">"http://images.moxiworks.com/static/images/br/imagoo/default_property_image_wre-326x250.png"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"ThumbURL"</span><span class="p">:</span><span class="s2">"http://images.moxiworks.com/static/images/br/imagoo/default_property_image_wre-326x250.png"</span><span class="w">
+      </span><span class="nt">"ThumbURL"</span><span class="p">:</span><span class="s2">"http://images.moxiworks.com/static/images/br/imagoo/default_property_image_wre-326x250.png"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Title"</span><span class="p">:</span><span class="s2">"Image Title"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"IsMainListingImage"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Caption"</span><span class="p">:</span><span class="s2">"Image Caption"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Description"</span><span class="p">:</span><span class="s2">"Image Description"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Width"</span><span class="p">:</span><span class="mi">1024</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Height"</span><span class="p">:</span><span class="mi">768</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"MimeType"</span><span class="p">:</span><span class="s2">"image/jpeg"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -1370,22 +1441,50 @@
 </thead><tbody>
 <tr>
 <td><span class="response-data">ThumbURL</span></td>
-<td><span class="response-data"><span class="data-type">String</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
 </tr>
 <tr>
 <td><span class="response-data">SmallURL</span></td>
-<td><span class="response-data"><span class="data-type">String</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
 </tr>
 <tr>
 <td><span class="response-data">FullURL</span></td>
-<td><span class="response-data"><span class="data-type">String</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
 </tr>
 <tr>
 <td><span class="response-data">GalleryURL</span></td>
-<td><span class="response-data"><span class="data-type">String</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
 </tr>
 <tr>
 <td><span class="response-data">RawURL</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">Title</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">IsMainListingImage</span></td>
+<td><span class="response-data"><span class="data-type">Boolean</span></td>
+</tr>
+<tr>
+<td><span class="response-data">Caption</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">Description</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">Width</span></td>
+<td><span class="response-data"><span class="data-type">Integer or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">Height</span></td>
+<td><span class="response-data"><span class="data-type">Integer or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">MimeType</span></td>
 <td><span class="response-data"><span class="data-type">String</span></td>
 </tr>
 </tbody></table>
@@ -1404,6 +1503,27 @@
 
 <p><span class="response-data-head">RawURL</span>
 <span class="response-data-remarks">This is a valid URL to the raw image as uploaded. This is the largest size image returned in each object in the <span class='attribute-name'>ListingImages</span> array. Due to variation in size, this image should not be considered for use when displaying images rendered in a browser.</span></p>
+
+<p><span class="response-data-head">Title</span>
+<span class="response-data-remarks">Human readable title of image.</span></p>
+
+<p><span class="response-data-head">IsMainListingImage</span>
+<span class="response-data-remarks">Whether this image is considered the primary image for the listing.</span></p>
+
+<p><span class="response-data-head">Caption</span>
+<span class="response-data-remarks">Human readable caption for the image.</span></p>
+
+<p><span class="response-data-head">Description</span>
+<span class="response-data-remarks">Human readable description of image.</span></p>
+
+<p><span class="response-data-head">Width</span>
+<span class="response-data-remarks">Width of the raw image.</span></p>
+
+<p><span class="response-data-head">Height</span>
+<span class="response-data-remarks">Height of the raw image.</span></p>
+
+<p><span class="response-data-head">MimeType</span>
+<span class="response-data-remarks">MIME or media type of the image.</span></p>
 
       </div>
       <div class="dark-box">

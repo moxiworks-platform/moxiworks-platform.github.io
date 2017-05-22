@@ -137,6 +137,7 @@ Attribute | Type | Length Limit |
   "OnMarket":true,
   "Status":"active",
   "MoxiWorksListingId":"abc123",
+  "AgentCreatedListing":false,
   "PropertyFeatures":[
     {
       "PropertyFeatureName": "Kitchen Information",
@@ -176,8 +177,15 @@ Attribute | Type | Length Limit |
       "GalleryURL":"http://images.moxiworks.com/static/images/br/imagoo/default_property_image_wre-326x250.png",
       "RawURL":"http://images.moxiworks.com/static/images/br/imagoo/default_property_image_wre-326x250.png",
       "SmallURL":"http://images.moxiworks.com/static/images/br/imagoo/default_property_image_wre-326x250.png",
-      "ThumbURL":"http://images.moxiworks.com/static/images/br/imagoo/default_property_image_wre-326x250.png"
-    }
+      "ThumbURL":"http://images.moxiworks.com/static/images/br/imagoo/default_property_image_wre-326x250.png",
+      "Title":"Image Title",
+      "IsMainListingImage":true,
+      "Caption":"Image Caption",
+      "Description":"Image Description",
+      "Width":1024,
+      "Height":768,
+      "MimeType":"image/jpeg"
+      }
   ]
 }
 ```
@@ -252,6 +260,7 @@ Attribute | Type |
 |<span class="response-data">OnMarket</span>|<span class="response-data"><span class="data-type">Boolean or null</span>
 |<span class="response-data">Status</span>|<span class="response-data"><span class="data-type">String or null</span>
 |<span class="response-data">MoxiWorksListingId</span>|<span class="response-data"><span class="data-type">String</span>
+|<span class="response-data">AgentCreatedListing</span>|<span class="response-data"><span class="data-type">Boolean</span>
 |<span class="response-data">PropertyFeatures</span>|<span class="response-data"><span class="data-type">Array</span>
 |<span class="response-data">ListingImages</span>|<span class="response-data"><span class="data-type">Array</span>
 
@@ -431,6 +440,11 @@ Attribute | Type |
 <span class="response-data-head">MoxiWorksListingID</span>
 <span class="response-data-remarks">The unique Identifier for the listing in The Moxi Works Platform.</span>
 
+
+<span class="response-data-head">AgentCreatedListing</span>
+<span class="response-data-remarks">Whether the agent created this listing.</span>
+
+
 <span class="response-data-head">PropertyFeatures</span>
 <span class="response-data-remarks">Any defined features about the property.</span>
 
@@ -467,6 +481,14 @@ Attribute | Type |
 |<span class="response-data">FullURL</span>|<span class="response-data"><span class="data-type">String</span>
 |<span class="response-data">GalleryURL</span>|<span class="response-data"><span class="data-type">String</span>
 |<span class="response-data">RawURL</span>|<span class="response-data"><span class="data-type">String</span>
+|<span class="response-data">Title</span>|<span class="response-data"><span class="data-type">String or null</span>
+|<span class="response-data">IsMainListingImage</span>|<span class="response-data"><span class="data-type">Boolean</span>
+|<span class="response-data">Caption</span>|<span class="response-data"><span class="data-type">String or null</span>
+|<span class="response-data">Description</span>|<span class="response-data"><span class="data-type">String or null</span>
+|<span class="response-data">Width</span>|<span class="response-data"><span class="data-type">Integer or null</span>
+|<span class="response-data">Height</span>|<span class="response-data"><span class="data-type">Integer or null</span>
+|<span class="response-data">MimeType</span>|<span class="response-data"><span class="data-type">String</span>
+
 
 
 
@@ -484,3 +506,28 @@ Attribute | Type |
 
 <span class="response-data-head">RawURL</span>
 <span class="response-data-remarks">This is a valid URL to the raw image as uploaded. This is the largest size image returned in each object in the <span class='attribute-name'>ListingImages</span> array. Due to variation in size, this image should not be considered for use when displaying images rendered in a browser.</span>
+
+<span class="response-data-head">Title</span>
+<span class="response-data-remarks">Human readable title of image.</span>
+
+<span class="response-data-head">IsMainListingImage</span>
+<span class="response-data-remarks">Whether this image is considered the primary image for the listing.</span>
+
+<span class="response-data-head">Caption</span>
+<span class="response-data-remarks">Human readable caption for the image.</span>
+
+<span class="response-data-head">Description</span>
+<span class="response-data-remarks">Human readable description of image.</span>
+
+<span class="response-data-head">Width</span>
+<span class="response-data-remarks">Width of the raw image.</span>
+
+<span class="response-data-head">Height</span>
+<span class="response-data-remarks">Height of the raw image.</span>
+
+<span class="response-data-head">MimeType</span>
+<span class="response-data-remarks">MIME or media type of the image.</span>
+
+  
+    
+  

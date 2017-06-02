@@ -121,6 +121,7 @@ Attribute | Type | Length Limit |
 |<span class="optional-data">contact_name</span>|<span class="data-type">String</span>| 255 |
 |<span class="optional-data">email_address</span>|<span class="data-type">String</span>| 255 |
 |<span class="optional-data">phone_number</span>|<span class="data-type">String</span>| 255 |
+|<span class="optional-data">updated_since</span>|<span class="data-type">Integer</span>| 255 |
 |<span class="optional-data">page_number</span>|<span class="data-type">Integer</span>| 255 |
 
 
@@ -147,6 +148,10 @@ Attribute | Type | Length Limit |
 
 <span class="request-data-head">phone_number</span>
 <span class="request-data-remarks">A phone number associated with the  <span class='entity-name'>Contact</span> record. May be primary or secondary.</span>
+
+
+<span class="request-data-head">updated_since</span>
+<span class="request-data-remarks">Paged responses of all <span class='entity-name'>Contact</span> objects updated after this Unix timestamp will be returned in the response.</span>
 
 
 <span class="request-data-head">page_number</span>

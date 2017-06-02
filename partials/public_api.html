@@ -8483,6 +8483,11 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 <td>255</td>
 </tr>
 <tr>
+<td><span class="optional-data">updated_since</span></td>
+<td><span class="data-type">Integer</span></td>
+<td>255</td>
+</tr>
+<tr>
 <td><span class="optional-data">page_number</span></td>
 <td><span class="data-type">Integer</span></td>
 <td>255</td>
@@ -8507,6 +8512,9 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 
 <p><span class="request-data-head">phone_number</span>
 <span class="request-data-remarks">A phone number associated with the  <span class='entity-name'>Contact</span> record. May be primary or secondary.</span></p>
+
+<p><span class="request-data-head">updated_since</span>
+<span class="request-data-remarks">Paged responses of all <span class='entity-name'>Contact</span> objects updated after this Unix timestamp will be returned in the response.</span></p>
 
 <p><span class="request-data-head">page_number</span>
 <span class="request-data-remarks">Page of <span class='entity-name'>Contact</span> records to return. Use if <code class="prettyprint">total_pages</code> indicates that there is more than one page of data available.</span></p>

@@ -575,6 +575,28 @@ The following attributes make up the payload of the <span class='entity-name'>Co
   "home_country": "Ottoman Empire",
   "job_title": "Junior Bacon Burner",
   "occupation": "chef",
+  "is_new_contact": true,
+  "birthday": 1496310636,
+  "anniversary": 1495199540,
+  "home_purchase_anniversary": 1484088442,
+  "social_media_profiles": [
+    {
+  "key": "facebook",
+  "url": null
+  },
+    {
+  "key": "linkedin",
+  "url": null
+  },
+    {
+  "key": "twitter",
+  "url": null
+  },
+    {
+  "key": "googleplus",
+  "url": null
+  }
+  ],
   "property_url": "http://my.property.website.is/here",
   "property_mls_id": "abc123",
   "property_street_address": "2345 67th place",
@@ -633,6 +655,28 @@ The following attributes make up the payload of the <span class='entity-name'>Co
   "home_country": "Ottoman Empire",
   "job_title": "Junior Bacon Burner",
   "occupation": "chef",
+  "is_new_contact": true,
+  "birthday": 1496310636,
+  "anniversary": 1495199540,
+  "home_purchase_anniversary": 1484088442,
+  "social_media_profiles": [
+    {
+  "key": "facebook",
+  "url": null
+  },
+    {
+  "key": "linkedin",
+  "url": null
+  },
+    {
+  "key": "twitter",
+  "url": null
+  },
+    {
+  "key": "googleplus",
+  "url": null
+  }
+  ],
   "property_url": "http://my.property.website.is/here",
   "property_mls_id": "abc123",
   "property_street_address": "2345 67th place",
@@ -699,6 +743,11 @@ Attribute | Type |
 |<span class="response-data">home_country</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">job_title</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">occupation</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">is_new_contact</span>|<span class="data-type">Boolean</span>|
+|<span class="response-data">birthday</span>|<span class="data-type">Integer or null</span>|
+|<span class="response-data">anniversary</span>|<span class="data-type">Integer or null</span>|
+|<span class="response-data">home_purchase_anniversary</span>|<span class="data-type">Integer or null</span>|
+|<span class="response-data">social_media_profiles</span>|<span class="data-type">Array</span>|
 |<span class="response-data">property_url</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">property_mls_id</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">property_street_address</span>|<span class="data-type">String or null</span>|
@@ -793,6 +842,36 @@ Attribute | Type |
 
 <span class="response-data-head">occupation</span>
 <span class="response-data-remarks">The contact's profession.  This value will be null if no data is available for this attribute. </span>
+
+<span class="response-data-head">is_new_contact</span>
+<span class="response-data-remarks">Whether the contact was recently added to the Agent's database. </span>
+
+
+<span class="response-data-head">birthday</span>
+<span class="response-data-remarks">Birthday of the contact represented as a Unix Timestamp. </span>
+
+
+<span class="response-data-head">anniversary</span>
+<span class="response-data-remarks">Wedding anniversary of the contact represented as a Unix Timestamp. </span>
+
+
+<span class="response-data-head">home_purchase_anniversary</span>
+<span class="response-data-remarks">Anniversary of the contact's home purchase represented as a Unix Timestamp. </span>
+
+
+
+###### <span class='attribute-name'>social_media_profiles</span> Objects
+
+Each object in the <span class='attribute-name'>social_media_profiles</span> array will have the following structure.
+
+Attribute | Type |
+-----|-----|-----|-----|
+|<span class="response-data">key</span>|<span class="response-data"><span class="data-type">String</span>
+|<span class="response-data">url</span>|<span class="response-data"><span class="data-type">String</span>
+
+
+<span class="response-data-head">key</span>
+<span class="response-data-remarks">The key identifier of the social media url. Defined keys are 'facebook,' 'linkedin,' 'twitter,' and 'googleplus'</span>
 
 
 <span class="response-data-head">property_url</span>

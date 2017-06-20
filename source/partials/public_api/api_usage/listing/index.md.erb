@@ -197,7 +197,7 @@ Attribute | Type | Length Limit |
   "ListingID":"12323",
   "ListAgentFullName":"Bob Agentson",
   "ListAgentUUID":"8675309e9-1234-dead-beef-deadbeefdead",
-  "SecondaryListAgentFullName":"Richard Agentson",
+  "SecondaryListAgentFullName":"Richard Agent",
   "SecondaryListAgentUUID":"8675309e9-2345-dead-beef-deadbeefdead",
   "Address":"97 Hilltop Road",
   "Address2":null,
@@ -222,6 +222,7 @@ Attribute | Type | Length Limit |
   "OnMarket":true,
   "Status":"active",
   "MoxiWorksListingId":"abc123",
+  "AgentCreatedListing":false,
   "PropertyFeatures":[
     {
       "PropertyFeatureName": "Kitchen Information",
@@ -362,6 +363,7 @@ Attribute | Type |
 |<span class="response-data">OnMarket</span>|<span class="response-data"><span class="data-type">Boolean or null</span>
 |<span class="response-data">Status</span>|<span class="response-data"><span class="data-type">String or null</span>
 |<span class="response-data">MoxiWorksListingId</span>|<span class="response-data"><span class="data-type">String</span>
+|<span class="response-data">AgentCreatedListing</span>|<span class="response-data"><span class="data-type">Boolean</span>
 |<span class="response-data">PropertyFeatures</span>|<span class="response-data"><span class="data-type">Array</span>
 |<span class="response-data">LisingImages</span>|<span class="response-data"><span class="data-type">Array</span>
 
@@ -459,11 +461,11 @@ Attribute | Type |
 
 
 <span class="response-data-head">SecondaryListAgentFullName</span>
-<span class="response-data-remarks">The name of the secondary listing agent.</span>
+<span class="response-data-remarks">If there is a second listing agent, the name of the second listing agent.</span>
 
 
 <span class="response-data-head">SecondaryListAgentUUID</span>
-<span class="response-data-remarks">A unique identifier for the secondary listing agent. This will correspond to the uuid field of an <span class='entity-name'>Agent</span>.</span>
+<span class="response-data-remarks">If there is a second listing agent, the unique identifier for the second listing agent. This will correspond to the uuid field of an <span class='entity-name'>Agent</span>.</span>
 
 
 <span class="response-data-head">Address</span>
@@ -547,6 +549,9 @@ Attribute | Type |
 
 <span class="response-data-head">MoxiWorksListingID</span>
 <span class="response-data-remarks">The unique Identifier for the listing in The Moxi Works Platform.</span>
+
+<span class="response-data-head">AgentCreatedListing</span>
+<span class="response-data-remarks">Whether the agent created this listing.</span>
 
 
 <span class="response-data-head">PropertyFeatures</span>

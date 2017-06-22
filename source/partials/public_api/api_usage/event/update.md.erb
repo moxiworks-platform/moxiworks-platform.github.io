@@ -17,7 +17,9 @@
   "event_start":1462234227,
   "event_end":1462241468,
   "attendees":"contactIDForContactIAlreadyCreated,otherContactIDForContactIAlreadyCreated",
-  "note":"noteworthy stuff that's shown to the agent"
+  "note":"noteworthy stuff that's shown to the agent",
+  "send_reminder": true,
+  "remind_minutes_before": 15
 }
 
 ```
@@ -58,7 +60,9 @@ moxi_works_event = MoxiworksPlatform::Event.update(
         event_end: 1462241468,
         required_attendees: nil,
         optional_attendees: ['Contact1ID', 'Contact2ID']
-        note: 'notable stuff'
+        note: 'notable stuff',
+        send_reminder: true,
+        remind_minutes_before: 15
         )
 
 ```
@@ -80,7 +84,9 @@ $moxi_works_event = MoxiworksPlatform\Event::update([
         'event_end' => 1462241468,
         'required_attendees' => null,
         'optional_attendees' => null,
-        'note' => 'notable stuff']);
+        'note' => 'notable stuff',
+        'send_reminder' => true,
+        'remind_minutes_before' => 15]);
 ?>
 ```
 
@@ -97,7 +103,9 @@ $moxi_works_event = MoxiworksPlatform\Event::update([
   "event_start":1462234227,
   "event_end":1462241468,
   "attendees":"contactIDForContactIAlreadyCreated,otherContactIDForContactIAlreadyCreated",
-  "note":"noteworthy stuff that's shown to the agent"
+  "note":"noteworthy stuff that's shown to the agent",
+  "send_reminder": true,
+  "remind_minutes_before": 15
 }
 
 ```
@@ -138,7 +146,9 @@ moxi_works_event = MoxiworksPlatform::Event.update(
         event_end: 1462241468,
         required_attendees: nil,
         optional_attendees: ['Contact1ID', 'Contact2ID']
-        note: 'notable stuff'
+        note: 'notable stuff',
+        send_reminder: true,
+        remind_minutes_before: 15
         )
 
 ```
@@ -160,7 +170,9 @@ $moxi_works_event = MoxiworksPlatform\Event::update([
         'event_end' => 1462241468,
         'required_attendees' => null,
         'optional_attendees' => null,
-        'note' => 'notable stuff']);
+        'note' => 'notable stuff',
+        'send_reminder' => true,
+        'remind_minutes_before' => 15]);
 ?>
 ```
 
@@ -259,7 +271,9 @@ The following attributes make up the payload of the <span class='entity-name'>Ev
   "event_start": 1462234227,
   "event_end": 1462241468,
   "attendees": "Contact1ID, Contact2ID",
-  "note": "notable stuff"
+  "note": "notable stuff",
+  "send_reminder": true,
+  "remind_minutes_before": 15
 }
 ```
 
@@ -281,7 +295,9 @@ The following attributes make up the payload of the <span class='entity-name'>Ev
   "event_start": 1462234227,
   "event_end": 1462241468,
   "attendees": "Contact1ID, Contact2ID",
-  "note": "notable stuff"
+  "note": "notable stuff",
+  "send_reminder": true,
+  "remind_minutes_before": 15
 }
 ```
 

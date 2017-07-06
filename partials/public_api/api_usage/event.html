@@ -485,7 +485,9 @@ attendees=&amp;note=here%20is%20the%20note
   </span><span class="nt">"event_start"</span><span class="p">:</span><span class="mi">1462234227</span><span class="p">,</span><span class="w">
   </span><span class="nt">"event_end"</span><span class="p">:</span><span class="mi">1462241468</span><span class="p">,</span><span class="w">
   </span><span class="nt">"attendees"</span><span class="p">:</span><span class="s2">"contactIDForContactIAlreadyCreated,otherContactIDForContactIAlreadyCreated"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"note"</span><span class="p">:</span><span class="s2">"noteworthy stuff that's shown to the agent"</span><span class="w">
+  </span><span class="nt">"note"</span><span class="p">:</span><span class="s2">"noteworthy stuff that's shown to the agent"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"send_reminder"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"remind_minutes_before"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
 </span></code></pre>
@@ -524,7 +526,9 @@ note=here%20is%20the%20note
         <span class="ss">event_end: </span><span class="mi">1462241468</span><span class="p">,</span>
         <span class="ss">required_attendees: </span><span class="kp">nil</span><span class="p">,</span>
         <span class="ss">optional_attendees: </span><span class="p">[</span><span class="s1">'Contact1ID'</span><span class="p">,</span> <span class="s1">'Contact2ID'</span><span class="p">]</span>
-        <span class="ss">note: </span><span class="s1">'notable stuff'</span>
+        <span class="ss">note: </span><span class="s1">'notable stuff'</span><span class="p">,</span>
+        <span class="ss">send_reminder: </span><span class="kp">true</span><span class="p">,</span>
+        <span class="ss">remind_minutes_before: </span><span class="mi">15</span>
         <span class="p">)</span>
 
 </code></pre>
@@ -545,7 +549,9 @@ note=here%20is%20the%20note
         <span class="s1">'event_end'</span> <span class="o">=&gt;</span> <span class="mi">1462241468</span><span class="p">,</span>
         <span class="s1">'required_attendees'</span> <span class="o">=&gt;</span> <span class="kc">null</span><span class="p">,</span>
         <span class="s1">'optional_attendees'</span> <span class="o">=&gt;</span> <span class="kc">null</span><span class="p">,</span>
-        <span class="s1">'note'</span> <span class="o">=&gt;</span> <span class="s1">'notable stuff'</span><span class="p">]);</span>
+        <span class="s1">'note'</span> <span class="o">=&gt;</span> <span class="s1">'notable stuff'</span><span class="p">,</span>
+        <span class="s1">'send_reminder'</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="s1">'remind_minutes_before'</span> <span class="o">=&gt;</span> <span class="mi">15</span><span class="p">]);</span>
 <span class="cp">?&gt;</span>
 </code></pre>
 
@@ -562,7 +568,9 @@ note=here%20is%20the%20note
   </span><span class="nt">"event_start"</span><span class="p">:</span><span class="mi">1462234227</span><span class="p">,</span><span class="w">
   </span><span class="nt">"event_end"</span><span class="p">:</span><span class="mi">1462241468</span><span class="p">,</span><span class="w">
   </span><span class="nt">"attendees"</span><span class="p">:</span><span class="s2">"contactIDForContactIAlreadyCreated,otherContactIDForContactIAlreadyCreated"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"note"</span><span class="p">:</span><span class="s2">"noteworthy stuff that's shown to the agent"</span><span class="w">
+  </span><span class="nt">"note"</span><span class="p">:</span><span class="s2">"noteworthy stuff that's shown to the agent"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"send_reminder"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"remind_minutes_before"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
 </span></code></pre>
@@ -601,7 +609,9 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
         <span class="ss">event_end: </span><span class="mi">1462241468</span><span class="p">,</span>
         <span class="ss">required_attendees: </span><span class="kp">nil</span><span class="p">,</span>
         <span class="ss">optional_attendees: </span><span class="p">[</span><span class="s1">'Contact1ID'</span><span class="p">,</span> <span class="s1">'Contact2ID'</span><span class="p">]</span>
-        <span class="ss">note: </span><span class="s1">'notable stuff'</span>
+        <span class="ss">note: </span><span class="s1">'notable stuff'</span><span class="p">,</span>
+        <span class="ss">send_reminder: </span><span class="kp">true</span><span class="p">,</span>
+        <span class="ss">remind_minutes_before: </span><span class="mi">15</span>
         <span class="p">)</span>
 
 </code></pre>
@@ -622,7 +632,9 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
         <span class="s1">'event_end'</span> <span class="o">=&gt;</span> <span class="mi">1462241468</span><span class="p">,</span>
         <span class="s1">'required_attendees'</span> <span class="o">=&gt;</span> <span class="kc">null</span><span class="p">,</span>
         <span class="s1">'optional_attendees'</span> <span class="o">=&gt;</span> <span class="kc">null</span><span class="p">,</span>
-        <span class="s1">'note'</span> <span class="o">=&gt;</span> <span class="s1">'notable stuff'</span><span class="p">]);</span>
+        <span class="s1">'note'</span> <span class="o">=&gt;</span> <span class="s1">'notable stuff'</span><span class="p">,</span>
+        <span class="s1">'send_reminder'</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="s1">'remind_minutes_before'</span> <span class="o">=&gt;</span> <span class="mi">15</span><span class="p">]);</span>
 <span class="cp">?&gt;</span>
 </code></pre>
 
@@ -762,7 +774,9 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
   </span><span class="nt">"event_start"</span><span class="p">:</span><span class="w"> </span><span class="mi">1462234227</span><span class="p">,</span><span class="w">
   </span><span class="nt">"event_end"</span><span class="p">:</span><span class="w"> </span><span class="mi">1462241468</span><span class="p">,</span><span class="w">
   </span><span class="nt">"attendees"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Contact1ID, Contact2ID"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"note"</span><span class="p">:</span><span class="w"> </span><span class="s2">"notable stuff"</span><span class="w">
+  </span><span class="nt">"note"</span><span class="p">:</span><span class="w"> </span><span class="s2">"notable stuff"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"send_reminder"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"remind_minutes_before"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -779,7 +793,9 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
   </span><span class="nt">"event_start"</span><span class="p">:</span><span class="w"> </span><span class="mi">1462234227</span><span class="p">,</span><span class="w">
   </span><span class="nt">"event_end"</span><span class="p">:</span><span class="w"> </span><span class="mi">1462241468</span><span class="p">,</span><span class="w">
   </span><span class="nt">"attendees"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Contact1ID, Contact2ID"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"note"</span><span class="p">:</span><span class="w"> </span><span class="s2">"notable stuff"</span><span class="w">
+  </span><span class="nt">"note"</span><span class="p">:</span><span class="w"> </span><span class="s2">"notable stuff"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"send_reminder"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"remind_minutes_before"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 

@@ -974,6 +974,26 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 <td><span class="data-type">String or null</span></td>
 </tr>
 <tr>
+<td><span class="response-data">is_new_contact</span></td>
+<td><span class="data-type">Boolean</span></td>
+</tr>
+<tr>
+<td><span class="response-data">birthday</span></td>
+<td><span class="data-type">Integer or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">anniversary</span></td>
+<td><span class="data-type">Integer or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">home_purchase_anniversary</span></td>
+<td><span class="data-type">Integer or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">social_media_profiles</span></td>
+<td><span class="data-type">Array</span></td>
+</tr>
+<tr>
 <td><span class="response-data">property_url</span></td>
 <td><span class="data-type">String or null</span></td>
 </tr>
@@ -1137,6 +1157,41 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 
 <p><span class="response-data-head">occupation</span>
 <span class="response-data-remarks">The contact&rsquo;s profession.  This value will be null if no data is available for this attribute. </span></p>
+
+<p><span class="response-data-head">is_new_contact</span>
+<span class="response-data-remarks">Whether the contact was recently added to the Agent&rsquo;s database. </span></p>
+
+<p><span class="response-data-head">birthday</span>
+<span class="response-data-remarks">Birthday of the contact represented as a Unix Timestamp. </span></p>
+
+<p><span class="response-data-head">anniversary</span>
+<span class="response-data-remarks">Wedding anniversary of the contact represented as a Unix Timestamp. </span></p>
+
+<p><span class="response-data-head">home_purchase_anniversary</span>
+<span class="response-data-remarks">Anniversary of the contact&rsquo;s home purchase represented as a Unix Timestamp. </span></p>
+
+<h6 id="social_media_profiles-objects"><span class='attribute-name'>social_media_profiles</span> Objects</h6>
+
+<p>Each object in the <span class='attribute-name'>social_media_profiles</span> array will have the following structure.</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span class="response-data">key</span></td>
+<td><span class="response-data"><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">url</span></td>
+<td><span class="response-data"><span class="data-type">String</span></td>
+</tr>
+</tbody></table>
+
+<p><span class="response-data-head">key</span>
+<span class="response-data-remarks">The key identifier of the social media url. Defined keys are &lsquo;facebook,&rsquo; &#39;linkedin,&rsquo; &#39;twitter,&rsquo; and &#39;googleplus&rsquo;</span></p>
 
 <p><span class="response-data-head">property_url</span>
 <span class="response-data-remarks">This will be a valid URL for a property of interest in your system that can be viewed by the agent. This value will be null if no data is available for this attribute. </span></p>

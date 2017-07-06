@@ -225,6 +225,8 @@
   </span><span class="nt">"ListingID"</span><span class="p">:</span><span class="s2">"12323"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"ListAgentFullName"</span><span class="p">:</span><span class="s2">"Bob Agentson"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"ListAgentUUID"</span><span class="p">:</span><span class="s2">"8675309e9-1234-dead-beef-deadbeefdead"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"SecondaryListAgentFullName"</span><span class="p">:</span><span class="s2">"Richard Agent"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"SecondaryListAgentUUID"</span><span class="p">:</span><span class="s2">"8675309e9-2345-dead-beef-deadbeefdead"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"Address"</span><span class="p">:</span><span class="s2">"97 Hilltop Road"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"Address2"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"City"</span><span class="p">:</span><span class="s2">"Montecarlo"</span><span class="p">,</span><span class="w">
@@ -248,6 +250,7 @@
   </span><span class="nt">"OnMarket"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
   </span><span class="nt">"Status"</span><span class="p">:</span><span class="s2">"active"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"MoxiWorksListingId"</span><span class="p">:</span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"AgentCreatedListing"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="nt">"PropertyFeatures"</span><span class="p">:[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"PropertyFeatureName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kitchen Information"</span><span class="p">,</span><span class="w">
@@ -451,6 +454,14 @@
 <td><span class="response-data"><span class="data-type">String</span></td>
 </tr>
 <tr>
+<td><span class="response-data">SecondaryListAgentFullName</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">SecondaryListAgentUUID</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+<tr>
 <td><span class="response-data">Address</span></td>
 <td><span class="response-data"><span class="data-type">String or null</span></td>
 </tr>
@@ -543,6 +554,10 @@
 <td><span class="response-data"><span class="data-type">String</span></td>
 </tr>
 <tr>
+<td><span class="response-data">AgentCreatedListing</span></td>
+<td><span class="response-data"><span class="data-type">Boolean</span></td>
+</tr>
+<tr>
 <td><span class="response-data">PropertyFeatures</span></td>
 <td><span class="response-data"><span class="data-type">Array</span></td>
 </tr>
@@ -627,6 +642,12 @@
 <p><span class="response-data-head">ListAgentUUID</span>
 <span class="response-data-remarks">A unique identifier for the listing agent. This will correspond to the uuid field of an <span class='entity-name'>Agent</span>.</span></p>
 
+<p><span class="response-data-head">SecondaryListAgentFullName</span>
+<span class="response-data-remarks">If there is a second listing agent, the name of the second listing agent.</span></p>
+
+<p><span class="response-data-head">SecondaryListAgentUUID</span>
+<span class="response-data-remarks">If there is a second listing agent, the unique identifier for the second listing agent. This will correspond to the uuid field of an <span class='entity-name'>Agent</span>.</span></p>
+
 <p><span class="response-data-head">Address</span>
 <span class="response-data-remarks">The street address of the property.</span></p>
 
@@ -689,6 +710,9 @@
 
 <p><span class="response-data-head">MoxiWorksListingID</span>
 <span class="response-data-remarks">The unique Identifier for the listing in The Moxi Works Platform.</span></p>
+
+<p><span class="response-data-head">AgentCreatedListing</span>
+<span class="response-data-remarks">Whether the agent created this listing.</span></p>
 
 <p><span class="response-data-head">PropertyFeatures</span>
 <span class="response-data-remarks">Any defined features about the property.</span></p>

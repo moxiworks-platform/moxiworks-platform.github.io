@@ -986,6 +986,26 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 <td><span class="data-type">String or null</span></td>
 </tr>
 <tr>
+<td><span class="response-data">is_new_contact</span></td>
+<td><span class="data-type">Boolean</span></td>
+</tr>
+<tr>
+<td><span class="response-data">birthday</span></td>
+<td><span class="data-type">Integer or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">anniversary</span></td>
+<td><span class="data-type">Integer or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">home_purchase_anniversary</span></td>
+<td><span class="data-type">Integer or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">social_media_profiles</span></td>
+<td><span class="data-type">Array</span></td>
+</tr>
+<tr>
 <td><span class="response-data">property_url</span></td>
 <td><span class="data-type">String or null</span></td>
 </tr>
@@ -1149,6 +1169,41 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 
 <p><span class="response-data-head">occupation</span>
 <span class="response-data-remarks">The contact&rsquo;s profession.  This value will be null if no data is available for this attribute. </span></p>
+
+<p><span class="response-data-head">is_new_contact</span>
+<span class="response-data-remarks">Whether the contact was recently added to the Agent&rsquo;s database. </span></p>
+
+<p><span class="response-data-head">birthday</span>
+<span class="response-data-remarks">Birthday of the contact represented as a Unix Timestamp. </span></p>
+
+<p><span class="response-data-head">anniversary</span>
+<span class="response-data-remarks">Wedding anniversary of the contact represented as a Unix Timestamp. </span></p>
+
+<p><span class="response-data-head">home_purchase_anniversary</span>
+<span class="response-data-remarks">Anniversary of the contact&rsquo;s home purchase represented as a Unix Timestamp. </span></p>
+
+<h6 id="social_media_profiles-objects"><span class='attribute-name'>social_media_profiles</span> Objects</h6>
+
+<p>Each object in the <span class='attribute-name'>social_media_profiles</span> array will have the following structure.</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span class="response-data">key</span></td>
+<td><span class="response-data"><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">url</span></td>
+<td><span class="response-data"><span class="data-type">String</span></td>
+</tr>
+</tbody></table>
+
+<p><span class="response-data-head">key</span>
+<span class="response-data-remarks">The key identifier of the social media url. Defined keys are &lsquo;facebook,&rsquo; &lsquo;linkedin,&rsquo; &#39;twitter,&rsquo; and &#39;googleplus&rsquo;</span></p>
 
 <p><span class="response-data-head">property_url</span>
 <span class="response-data-remarks">This will be a valid URL for a property of interest in your system that can be viewed by the agent. This value will be null if no data is available for this attribute. </span></p>
@@ -1938,6 +1993,28 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
   </span><span class="nt">"home_country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ottoman Empire"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"job_title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Junior Bacon Burner"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"occupation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"chef"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"is_new_contact"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"birthday"</span><span class="p">:</span><span class="w"> </span><span class="mi">1496310636</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"anniversary"</span><span class="p">:</span><span class="w"> </span><span class="mi">1495199540</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"home_purchase_anniversary"</span><span class="p">:</span><span class="w"> </span><span class="mi">1484088442</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"social_media_profiles"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+  </span><span class="nt">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"facebook"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+  </span><span class="nt">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"linkedin"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+  </span><span class="nt">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"twitter"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+  </span><span class="nt">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"googleplus"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
   </span><span class="nt">"property_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://my.property.website.is/here"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"property_mls_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"property_street_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2345 67th place"</span><span class="p">,</span><span class="w">
@@ -1991,6 +2068,28 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
   </span><span class="nt">"home_country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ottoman Empire"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"job_title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Junior Bacon Burner"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"occupation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"chef"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"is_new_contact"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"birthday"</span><span class="p">:</span><span class="w"> </span><span class="mi">1496310636</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"anniversary"</span><span class="p">:</span><span class="w"> </span><span class="mi">1495199540</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"home_purchase_anniversary"</span><span class="p">:</span><span class="w"> </span><span class="mi">1484088442</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"social_media_profiles"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+  </span><span class="nt">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"facebook"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+  </span><span class="nt">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"linkedin"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+  </span><span class="nt">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"twitter"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+  </span><span class="nt">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"googleplus"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
   </span><span class="nt">"property_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://my.property.website.is/here"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"property_mls_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"property_street_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2345 67th place"</span><span class="p">,</span><span class="w">
@@ -2122,6 +2221,26 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 <tr>
 <td><span class="response-data">occupation</span></td>
 <td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">is_new_contact</span></td>
+<td><span class="data-type">Boolean</span></td>
+</tr>
+<tr>
+<td><span class="response-data">birthday</span></td>
+<td><span class="data-type">Integer or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">anniversary</span></td>
+<td><span class="data-type">Integer or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">home_purchase_anniversary</span></td>
+<td><span class="data-type">Integer or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">social_media_profiles</span></td>
+<td><span class="data-type">Array</span></td>
 </tr>
 <tr>
 <td><span class="response-data">property_url</span></td>
@@ -2287,6 +2406,41 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 
 <p><span class="response-data-head">occupation</span>
 <span class="response-data-remarks">The contact&rsquo;s profession.  This value will be null if no data is available for this attribute. </span></p>
+
+<p><span class="response-data-head">is_new_contact</span>
+<span class="response-data-remarks">Whether the contact was recently added to the Agent&rsquo;s database. </span></p>
+
+<p><span class="response-data-head">birthday</span>
+<span class="response-data-remarks">Birthday of the contact represented as a Unix Timestamp. </span></p>
+
+<p><span class="response-data-head">anniversary</span>
+<span class="response-data-remarks">Wedding anniversary of the contact represented as a Unix Timestamp. </span></p>
+
+<p><span class="response-data-head">home_purchase_anniversary</span>
+<span class="response-data-remarks">Anniversary of the contact&rsquo;s home purchase represented as a Unix Timestamp. </span></p>
+
+<h6 id="social_media_profiles-objects"><span class='attribute-name'>social_media_profiles</span> Objects</h6>
+
+<p>Each object in the <span class='attribute-name'>social_media_profiles</span> array will have the following structure.</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span class="response-data">key</span></td>
+<td><span class="response-data"><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">url</span></td>
+<td><span class="response-data"><span class="data-type">String</span></td>
+</tr>
+</tbody></table>
+
+<p><span class="response-data-head">key</span>
+<span class="response-data-remarks">The key identifier of the social media url. Defined keys are &lsquo;facebook,&rsquo; &#39;linkedin,&rsquo; &#39;twitter,&rsquo; and &#39;googleplus&rsquo;</span></p>
 
 <p><span class="response-data-head">property_url</span>
 <span class="response-data-remarks">This will be a valid URL for a property of interest in your system that can be viewed by the agent. This value will be null if no data is available for this attribute. </span></p>
@@ -2531,6 +2685,28 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
   </span><span class="nt">"home_country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ottoman Empire"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"job_title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Junior Bacon Burner"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"occupation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"chef"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"is_new_contact"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"birthday"</span><span class="p">:</span><span class="w"> </span><span class="mi">1496310636</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"anniversary"</span><span class="p">:</span><span class="w"> </span><span class="mi">1495199540</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"home_purchase_anniversary"</span><span class="p">:</span><span class="w"> </span><span class="mi">1484088442</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"social_media_profiles"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+  </span><span class="nt">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"facebook"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+  </span><span class="nt">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"linkedin"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+  </span><span class="nt">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"twitter"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+  </span><span class="nt">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"googleplus"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
   </span><span class="nt">"property_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://my.property.website.is/here"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"property_mls_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"property_street_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2345 67th place"</span><span class="p">,</span><span class="w">
@@ -2583,6 +2759,28 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
   </span><span class="nt">"home_country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ottoman Empire"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"job_title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Junior Bacon Burner"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"occupation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"chef"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"is_new_contact"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"birthday"</span><span class="p">:</span><span class="w"> </span><span class="mi">1496310636</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"anniversary"</span><span class="p">:</span><span class="w"> </span><span class="mi">1495199540</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"home_purchase_anniversary"</span><span class="p">:</span><span class="w"> </span><span class="mi">1484088442</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"social_media_profiles"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+  </span><span class="nt">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"facebook"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+  </span><span class="nt">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"linkedin"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+  </span><span class="nt">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"twitter"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+  </span><span class="nt">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"googleplus"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
   </span><span class="nt">"property_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://my.property.website.is/here"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"property_mls_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"property_street_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2345 67th place"</span><span class="p">,</span><span class="w">
@@ -2713,6 +2911,26 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 <tr>
 <td><span class="response-data">occupation</span></td>
 <td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">is_new_contact</span></td>
+<td><span class="data-type">Boolean</span></td>
+</tr>
+<tr>
+<td><span class="response-data">birthday</span></td>
+<td><span class="data-type">Integer or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">anniversary</span></td>
+<td><span class="data-type">Integer or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">home_purchase_anniversary</span></td>
+<td><span class="data-type">Integer or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">social_media_profiles</span></td>
+<td><span class="data-type">Array</span></td>
 </tr>
 <tr>
 <td><span class="response-data">property_url</span></td>
@@ -2878,6 +3096,41 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 
 <p><span class="response-data-head">occupation</span>
 <span class="response-data-remarks">The contact&rsquo;s profession.  This value will be null if no data is available for this attribute. </span></p>
+
+<p><span class="response-data-head">is_new_contact</span>
+<span class="response-data-remarks">Whether the contact was recently added to the Agent&rsquo;s database. </span></p>
+
+<p><span class="response-data-head">birthday</span>
+<span class="response-data-remarks">Birthday of the contact represented as a Unix Timestamp. </span></p>
+
+<p><span class="response-data-head">anniversary</span>
+<span class="response-data-remarks">Wedding anniversary of the contact represented as a Unix Timestamp. </span></p>
+
+<p><span class="response-data-head">home_purchase_anniversary</span>
+<span class="response-data-remarks">Anniversary of the contact&rsquo;s home purchase represented as a Unix Timestamp. </span></p>
+
+<h6 id="social_media_profiles-objects"><span class='attribute-name'>social_media_profiles</span> Objects</h6>
+
+<p>Each object in the <span class='attribute-name'>social_media_profiles</span> array will have the following structure.</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span class="response-data">key</span></td>
+<td><span class="response-data"><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">url</span></td>
+<td><span class="response-data"><span class="data-type">String</span></td>
+</tr>
+</tbody></table>
+
+<p><span class="response-data-head">key</span>
+<span class="response-data-remarks">The key identifier of the social media url. Defined keys are &lsquo;facebook,&rsquo; &#39;linkedin,&rsquo; &#39;twitter,&rsquo; and &#39;googleplus&rsquo;</span></p>
 
 <p><span class="response-data-head">property_url</span>
 <span class="response-data-remarks">This will be a valid URL for a property of interest in your system that can be viewed by the agent. This value will be null if no data is available for this attribute. </span></p>
@@ -3159,6 +3412,28 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
   </span><span class="nt">"home_country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ottoman Empire"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"job_title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Junior Bacon Burner"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"occupation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"chef"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"is_new_contact"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"birthday"</span><span class="p">:</span><span class="w"> </span><span class="mi">1496310636</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"anniversary"</span><span class="p">:</span><span class="w"> </span><span class="mi">1495199540</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"home_purchase_anniversary"</span><span class="p">:</span><span class="w"> </span><span class="mi">1484088442</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"social_media_profiles"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+  </span><span class="nt">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"facebook"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+  </span><span class="nt">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"linkedin"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+  </span><span class="nt">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"twitter"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+  </span><span class="nt">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"googleplus"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
   </span><span class="nt">"property_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://my.property.website.is/here"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"property_mls_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"property_street_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2345 67th place"</span><span class="p">,</span><span class="w">
@@ -3205,6 +3480,28 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
   </span><span class="nt">"home_zip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345-6789"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"home_country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Brovilee"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"job_title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Junior Cheese Head"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"is_new_contact"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"birthday"</span><span class="p">:</span><span class="w"> </span><span class="mi">1496310636</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"anniversary"</span><span class="p">:</span><span class="w"> </span><span class="mi">1495199540</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"home_purchase_anniversary"</span><span class="p">:</span><span class="w"> </span><span class="mi">1484088442</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"social_media_profiles"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+  </span><span class="nt">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"facebook"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+  </span><span class="nt">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"linkedin"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+  </span><span class="nt">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"twitter"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+  </span><span class="nt">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"googleplus"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
   </span><span class="nt">"occupation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"football fan"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"property_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://my.property.website.is/here"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"property_mls_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
@@ -3264,6 +3561,28 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
   </span><span class="nt">"home_country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ottoman Empire"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"job_title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Junior Bacon Burner"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"occupation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"chef"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"is_new_contact"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"birthday"</span><span class="p">:</span><span class="w"> </span><span class="mi">1496310636</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"anniversary"</span><span class="p">:</span><span class="w"> </span><span class="mi">1495199540</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"home_purchase_anniversary"</span><span class="p">:</span><span class="w"> </span><span class="mi">1484088442</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"social_media_profiles"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+  </span><span class="nt">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"facebook"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+  </span><span class="nt">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"linkedin"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+  </span><span class="nt">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"twitter"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+  </span><span class="nt">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"googleplus"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
   </span><span class="nt">"property_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://my.property.website.is/here"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"property_mls_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"property_street_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2345 67th place"</span><span class="p">,</span><span class="w">
@@ -3311,6 +3630,28 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
   </span><span class="nt">"home_country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Brovilee"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"job_title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Junior Cheese Head"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"occupation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"football fan"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"is_new_contact"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"birthday"</span><span class="p">:</span><span class="w"> </span><span class="mi">1496310636</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"anniversary"</span><span class="p">:</span><span class="w"> </span><span class="mi">1495199540</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"home_purchase_anniversary"</span><span class="p">:</span><span class="w"> </span><span class="mi">1484088442</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"social_media_profiles"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+  </span><span class="nt">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"facebook"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+  </span><span class="nt">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"linkedin"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+  </span><span class="nt">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"twitter"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+  </span><span class="nt">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"googleplus"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
   </span><span class="nt">"property_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://my.property.website.is/here"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"property_mls_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"property_street_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2345 67th place"</span><span class="p">,</span><span class="w">
@@ -3479,6 +3820,26 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 <td><span class="data-type">String or null</span></td>
 </tr>
 <tr>
+<td><span class="response-data">is_new_contact</span></td>
+<td><span class="data-type">Boolean</span></td>
+</tr>
+<tr>
+<td><span class="response-data">birthday</span></td>
+<td><span class="data-type">Integer or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">anniversary</span></td>
+<td><span class="data-type">Integer or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">home_purchase_anniversary</span></td>
+<td><span class="data-type">Integer or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">social_media_profiles</span></td>
+<td><span class="data-type">Array</span></td>
+</tr>
+<tr>
 <td><span class="response-data">property_url</span></td>
 <td><span class="data-type">String or null</span></td>
 </tr>
@@ -3642,6 +4003,41 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 
 <p><span class="response-data-head">occupation</span>
 <span class="response-data-remarks">The contact&rsquo;s profession.  This value will be null if no data is available for this attribute. </span></p>
+
+<p><span class="response-data-head">is_new_contact</span>
+<span class="response-data-remarks">Whether the contact was recently added to the Agent&rsquo;s database. </span></p>
+
+<p><span class="response-data-head">birthday</span>
+<span class="response-data-remarks">Birthday of the contact represented as a Unix Timestamp. </span></p>
+
+<p><span class="response-data-head">anniversary</span>
+<span class="response-data-remarks">Wedding anniversary of the contact represented as a Unix Timestamp. </span></p>
+
+<p><span class="response-data-head">home_purchase_anniversary</span>
+<span class="response-data-remarks">Anniversary of the contact&rsquo;s home purchase represented as a Unix Timestamp. </span></p>
+
+<h6 id="social_media_profiles-objects"><span class='attribute-name'>social_media_profiles</span> Objects</h6>
+
+<p>Each object in the <span class='attribute-name'>social_media_profiles</span> array will have the following structure.</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span class="response-data">key</span></td>
+<td><span class="response-data"><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">url</span></td>
+<td><span class="response-data"><span class="data-type">String</span></td>
+</tr>
+</tbody></table>
+
+<p><span class="response-data-head">key</span>
+<span class="response-data-remarks">The key identifier of the social media url. Defined keys are &lsquo;facebook,&rsquo; &#39;linkedin,&rsquo; &#39;twitter,&rsquo; and &#39;googleplus&rsquo;</span></p>
 
 <p><span class="response-data-head">property_url</span>
 <span class="response-data-remarks">This will be a valid URL for a property of interest in your system that can be viewed by the agent. This value will be null if no data is available for this attribute. </span></p>

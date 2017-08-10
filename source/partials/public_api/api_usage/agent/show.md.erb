@@ -146,6 +146,9 @@ The following attributes make up the payload of the <span class='entity-name'>Ag
 {
   "moxi_works_agent_id": "abc123",
   "moxi_works_office_id":"8c3f446c-aab9-11e6-9a0f-d0e1408e8026",
+  "office_id":"1234",
+  "company_id":"2345",
+  "agent_id":"67890",
   "office_address_street": "3456 Office Ln.",
   "office_address_street2":"Suite 1234",
   "office_address_city": "Officeville",
@@ -161,6 +164,7 @@ The following attributes make up the payload of the <span class='entity-name'>Ag
   "office_phone_number": "(234)456-7890",
   "primary_email_address": "the_agent@agentdomain.com",
   "secondary_email_address": "the_agent_alt@otherdomain.com",
+  "lead_routing_email_address":"leadrouter@thisdomain.com",
   "title": "Broker",
   "uuid":"8675309e9-1234-dead-beef-deadbeefdead",
   "twitter": "@agentguy",
@@ -213,6 +217,9 @@ Attribute | Type |
 -----|-----|-----|-----|
 |<span class="response-data">moxi_works_agent_id</span>|<span class="data-type">String</span>|
 |<span class="response-data">moxi_works_office_id</span>|<span class="data-type">String</span>|
+|<span class="response-data">office_id</span>|<span class="data-type">String</span>|
+|<span class="response-data">company_id</span>|<span class="data-type">String</span>|
+|<span class="response-data">agent_id</span>|<span class="data-type">String</span>|
 |<span class="response-data">office_address_street</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">office_address_street2</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">office_address_city</span>|<span class="data-type">String or null</span>|
@@ -228,6 +235,7 @@ Attribute | Type |
 |<span class="response-data">office_phone_number</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">primary_email_address</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">secondary_email_address</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">lead_routing_email_address</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">title</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">uuid</span>|<span class="data-type">String</span>|
 |<span class="response-data">twitter</span>|<span class="data-type">String or null</span>|
@@ -246,9 +254,17 @@ Attribute | Type |
 <span class="response-data-head">moxi_works_office_id</span>
 <span class="response-data-remarks">This is the Moxi Works Platform ID of the office for this <span class='entity-name'>Agent</span>. This will be an [RFC 4122](https://tools.ietf.org/html/rfc4122) compliant UUID.</span>
 
+<span class="response-data-head">office_id</span>
+<span class="response-data-remarks">This is the ID of the office for this <span class='entity-name'>Agent</span>. This will be an integer.</span>
+
+<span class="response-data-head">company_id</span>
+<span class="response-data-remarks">This is the ID of the company for this <span class='entity-name'>Agent</span>. This will be an integer.</span>
+
+<span class="response-data-head">agent_id</span>
+<span class="response-data-remarks">This is the ID of this <span class='entity-name'>Agent</span>. This will be an integer.</span>
+
 <span class="response-data-head">office_address_street</span>
 <span class="response-data-remarks">The street address of the agent's office. This can be null if there is no data for this attribute.</span>
-
 
 <span class="response-data-head">office_address_street2</span>
 <span class="response-data-remarks">The suite or office number of the agent's office. This can be null if there is no data for this attribute.</span>
@@ -292,10 +308,11 @@ Attribute | Type |
 <span class="response-data-head">primary_email_address</span>
 <span class="response-data-remarks">This is the agent's main email address. This email address should be considered the email address the agent would prefer to be contacted by.  This can be null if there is no data for this attribute.</span>
 
-
 <span class="response-data-head">secondary_email_address</span>
 <span class="response-data-remarks">This is the agent's alternate email address. This email address should be considered the email address the agent would want to be contacted by only if the address in <span class='attribute-name'>primary_email_address</span> is not functional.  This can be null if there is no data for this attribute.</span>
 
+<span class="response-data-head">lead_routing_email_address</span>
+<span class="response-data-remarks">This is the agent's lead routing email address.  This can be null if there is no data for this attribute.</span>
 
 <span class="response-data-head">title</span>
 <span class="response-data-remarks">This is the business title of the agent.  This can be null if there is no data for this attribute.</span>

@@ -1490,6 +1490,9 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"moxi_works_agent_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"moxi_works_office_id"</span><span class="p">:</span><span class="s2">"8c3f446c-aab9-11e6-9a0f-d0e1408e8026"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"office_id"</span><span class="p">:</span><span class="s2">"1234"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"company_id"</span><span class="p">:</span><span class="s2">"2345"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"agent_id"</span><span class="p">:</span><span class="s2">"67890"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"office_address_street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3456 Office Ln."</span><span class="p">,</span><span class="w">
   </span><span class="nt">"office_address_street2"</span><span class="p">:</span><span class="s2">"Suite 1234"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"office_address_city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Officeville"</span><span class="p">,</span><span class="w">
@@ -1505,6 +1508,7 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
   </span><span class="nt">"office_phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"(234)456-7890"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"primary_email_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"the_agent@agentdomain.com"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"secondary_email_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"the_agent_alt@otherdomain.com"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"lead_routing_email_address"</span><span class="p">:</span><span class="s2">"leadrouter@thisdomain.com"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Broker"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"uuid"</span><span class="p">:</span><span class="s2">"8675309e9-1234-dead-beef-deadbeefdead"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"twitter"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@agentguy"</span><span class="p">,</span><span class="w">
@@ -1564,6 +1568,18 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
 </tr>
 <tr>
 <td><span class="response-data">moxi_works_office_id</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">office_id</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">company_id</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">agent_id</span></td>
 <td><span class="data-type">String</span></td>
 </tr>
 <tr>
@@ -1627,6 +1643,10 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
 <td><span class="data-type">String or null</span></td>
 </tr>
 <tr>
+<td><span class="response-data">lead_routing_email_address</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
 <td><span class="response-data">title</span></td>
 <td><span class="data-type">String or null</span></td>
 </tr>
@@ -1669,6 +1689,15 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
 
 <p><span class="response-data-head">moxi_works_office_id</span>
 <span class="response-data-remarks">This is the Moxi Works Platform ID of the office for this <span class='entity-name'>Agent</span>. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID.</span></p>
+
+<p><span class="response-data-head">office_id</span>
+<span class="response-data-remarks">This is the ID of the office for this <span class='entity-name'>Agent</span>. This will be an integer.</span></p>
+
+<p><span class="response-data-head">company_id</span>
+<span class="response-data-remarks">This is the ID of the company for this <span class='entity-name'>Agent</span>. This will be an integer.</span></p>
+
+<p><span class="response-data-head">agent_id</span>
+<span class="response-data-remarks">This is the ID of this <span class='entity-name'>Agent</span>. This will be an integer.</span></p>
 
 <p><span class="response-data-head">office_address_street</span>
 <span class="response-data-remarks">The street address of the agent&rsquo;s office. This can be null if there is no data for this attribute.</span></p>
@@ -1717,6 +1746,9 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
 
 <p><span class="response-data-head">secondary_email_address</span>
 <span class="response-data-remarks">This is the agent&rsquo;s alternate email address. This email address should be considered the email address the agent would want to be contacted by only if the address in <span class='attribute-name'>primary_email_address</span> is not functional.  This can be null if there is no data for this attribute.</span></p>
+
+<p><span class="response-data-head">lead_routing_email_address</span>
+<span class="response-data-remarks">This is the agent&rsquo;s lead routing email address.  This can be null if there is no data for this attribute.</span></p>
 
 <p><span class="response-data-head">title</span>
 <span class="response-data-remarks">This is the business title of the agent.  This can be null if there is no data for this attribute.</span></p>
@@ -1992,6 +2024,9 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
 </span><span class="p">{</span><span class="w">
   </span><span class="nt">"moxi_works_agent_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"moxi_works_office_id"</span><span class="p">:</span><span class="s2">"8c3f446c-aab9-11e6-9a0f-d0e1408e8026"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"office_id"</span><span class="p">:</span><span class="s2">"1234"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"company_id"</span><span class="p">:</span><span class="s2">"2345"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"agent_id"</span><span class="p">:</span><span class="s2">"67890"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"office_address_street"</span><span class="p">:</span><span class="s2">"3456 Office Ln."</span><span class="p">,</span><span class="w">
   </span><span class="nt">"office_address_street2"</span><span class="p">:</span><span class="s2">"Suite 1234"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"office_address_city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Officeville"</span><span class="p">,</span><span class="w">
@@ -2007,6 +2042,7 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
   </span><span class="nt">"office_phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"(234)456-7890"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"primary_email_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"the_agent@agentdomain.com"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"secondary_email_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"the_agent_alt@otherdomain.com"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"lead_routing_email_address"</span><span class="p">:</span><span class="s2">"leadrouter@thisdomain.com"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Broker"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"uuid"</span><span class="p">:</span><span class="s2">"8675309e9-1234-dead-beef-deadbeefdead"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"twitter"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@agentguy"</span><span class="p">,</span><span class="w">
@@ -2095,6 +2131,18 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
 <td><span class="data-type">String</span></td>
 </tr>
 <tr>
+<td><span class="response-data">office_id</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">company_id</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">agent_id</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
+<tr>
 <td><span class="response-data">office_address_street</span></td>
 <td><span class="data-type">String or null</span></td>
 </tr>
@@ -2155,6 +2203,10 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
 <td><span class="data-type">String or null</span></td>
 </tr>
 <tr>
+<td><span class="response-data">lead_routing_email_address</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
 <td><span class="response-data">title</span></td>
 <td><span class="data-type">String or null</span></td>
 </tr>
@@ -2197,6 +2249,15 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
 
 <p><span class="response-data-head">moxi_works_office_id</span>
 <span class="response-data-remarks">This is the Moxi Works Platform ID of the office for this <span class='entity-name'>Agent</span>. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID.</span></p>
+
+<p><span class="response-data-head">office_id</span>
+<span class="response-data-remarks">This is the ID of the office for this <span class='entity-name'>Agent</span>. This will be an integer.</span></p>
+
+<p><span class="response-data-head">company_id</span>
+<span class="response-data-remarks">This is the ID of the company for this <span class='entity-name'>Agent</span>. This will be an integer.</span></p>
+
+<p><span class="response-data-head">agent_id</span>
+<span class="response-data-remarks">This is the ID of this <span class='entity-name'>Agent</span>. This will be an integer.</span></p>
 
 <p><span class="response-data-head">office_address_street</span>
 <span class="response-data-remarks">The street address of the agent&rsquo;s office. This can be null if there is no data for this attribute.</span></p>
@@ -2245,6 +2306,9 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
 
 <p><span class="response-data-head">secondary_email_address</span>
 <span class="response-data-remarks">This is the agent&rsquo;s alternate email address. This email address should be considered the email address the agent would want to be contacted by only if the address in <span class='attribute-name'>primary_email_address</span> is not functional.  This can be null if there is no data for this attribute.</span></p>
+
+<p><span class="response-data-head">lead_routing_email_address</span>
+<span class="response-data-remarks">This is the agent&rsquo;s lead routing email address.  This can be null if there is no data for this attribute.</span></p>
 
 <p><span class="response-data-head">title</span>
 <span class="response-data-remarks">This is the business title of the agent.  This can be null if there is no data for this attribute.</span></p>

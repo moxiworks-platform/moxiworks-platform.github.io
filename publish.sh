@@ -18,3 +18,6 @@ git checkout develop
 git push origin master
 git push origin develop
 git push origin gh-pages
+git push upstream master
+git push upstream develop
+git push upstream gh-pages

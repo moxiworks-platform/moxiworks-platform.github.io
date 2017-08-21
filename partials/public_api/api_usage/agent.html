@@ -186,9 +186,12 @@
 </span></div></blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"moxi_works_agent_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"client_agent_id"</span><span class="p">:</span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"moxi_works_office_id"</span><span class="p">:</span><span class="s2">"8c3f446c-aab9-11e6-9a0f-d0e1408e8026"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"office_id"</span><span class="p">:</span><span class="s2">"1234"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"client_office_id"</span><span class="p">:</span><span class="s2">"987123"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"company_id"</span><span class="p">:</span><span class="s2">"2345"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"client_company_id"</span><span class="p">:</span><span class="s2">"abc392"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"agent_id"</span><span class="p">:</span><span class="s2">"67890"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"office_address_street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3456 Office Ln."</span><span class="p">,</span><span class="w">
   </span><span class="nt">"office_address_street2"</span><span class="p">:</span><span class="s2">"Suite 1234"</span><span class="p">,</span><span class="w">
@@ -264,6 +267,14 @@
 <td><span class="data-type">String</span></td>
 </tr>
 <tr>
+<td><span class="response-data">client_agent_id</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">agent_id</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
+<tr>
 <td><span class="response-data">moxi_works_office_id</span></td>
 <td><span class="data-type">String</span></td>
 </tr>
@@ -272,11 +283,15 @@
 <td><span class="data-type">String</span></td>
 </tr>
 <tr>
+<td><span class="response-data">client_office_id</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
+<tr>
 <td><span class="response-data">company_id</span></td>
 <td><span class="data-type">String</span></td>
 </tr>
 <tr>
-<td><span class="response-data">agent_id</span></td>
+<td><span class="response-data">client_company_id</span></td>
 <td><span class="data-type">String</span></td>
 </tr>
 <tr>
@@ -384,17 +399,26 @@
 <p><span class="response-data-head">moxi_works_agent_id</span>
 <span class="response-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span>. This will be a string that may take the form of an email address, or a unique alphanumeric identification string.</span></p>
 
+<p><span class="response-data-head">client_agent_id</span>
+<span class="response-data-remarks">This is the  ID of the <span class='entity-name'>Agent</span> utilized by their company.</span></p>
+
+<p><span class="response-data-head">agent_id</span>
+<span class="response-data-remarks">This is the ID of this <span class='entity-name'>Agent</span>. This will be an integer.</span></p>
+
 <p><span class="response-data-head">moxi_works_office_id</span>
 <span class="response-data-remarks">This is the Moxi Works Platform ID of the office for this <span class='entity-name'>Agent</span>. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID.</span></p>
 
 <p><span class="response-data-head">office_id</span>
 <span class="response-data-remarks">This is the ID of the office for this <span class='entity-name'>Agent</span>. This will be an integer.</span></p>
 
+<p><span class="response-data-head">client_office_id</span>
+<span class="response-data-remarks">This is the  ID of the office for this <span class='entity-name'>Agent</span> utilized by their company.</span></p>
+
 <p><span class="response-data-head">company_id</span>
 <span class="response-data-remarks">This is the ID of the company for this <span class='entity-name'>Agent</span>. This will be an integer.</span></p>
 
-<p><span class="response-data-head">agent_id</span>
-<span class="response-data-remarks">This is the ID of this <span class='entity-name'>Agent</span>. This will be an integer.</span></p>
+<p><span class="response-data-head">client_company_id</span>
+<span class="response-data-remarks">This is the ID of the <span class='entity-name'>Company</span> utilized by their company.</span></p>
 
 <p><span class="response-data-head">office_address_street</span>
 <span class="response-data-remarks">The street address of the agent&rsquo;s office. This can be null if there is no data for this attribute.</span></p>
@@ -720,9 +744,12 @@
 </span><span class="nt">"agents"</span><span class="p">:[</span><span class="w">
 </span><span class="p">{</span><span class="w">
   </span><span class="nt">"moxi_works_agent_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"client_agent_id"</span><span class="p">:</span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"moxi_works_office_id"</span><span class="p">:</span><span class="s2">"8c3f446c-aab9-11e6-9a0f-d0e1408e8026"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"office_id"</span><span class="p">:</span><span class="s2">"1234"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"client_office_id"</span><span class="p">:</span><span class="s2">"987123"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"company_id"</span><span class="p">:</span><span class="s2">"2345"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"client_company_id"</span><span class="p">:</span><span class="s2">"abc392"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"agent_id"</span><span class="p">:</span><span class="s2">"67890"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"office_address_street"</span><span class="p">:</span><span class="s2">"3456 Office Ln."</span><span class="p">,</span><span class="w">
   </span><span class="nt">"office_address_street2"</span><span class="p">:</span><span class="s2">"Suite 1234"</span><span class="p">,</span><span class="w">
@@ -824,6 +851,14 @@
 <td><span class="data-type">String</span></td>
 </tr>
 <tr>
+<td><span class="response-data">client_agent_id</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">agent_id</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
+<tr>
 <td><span class="response-data">moxi_works_office_id</span></td>
 <td><span class="data-type">String</span></td>
 </tr>
@@ -832,11 +867,15 @@
 <td><span class="data-type">String</span></td>
 </tr>
 <tr>
+<td><span class="response-data">client_office_id</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
+<tr>
 <td><span class="response-data">company_id</span></td>
 <td><span class="data-type">String</span></td>
 </tr>
 <tr>
-<td><span class="response-data">agent_id</span></td>
+<td><span class="response-data">client_company_id</span></td>
 <td><span class="data-type">String</span></td>
 </tr>
 <tr>
@@ -944,17 +983,26 @@
 <p><span class="response-data-head">moxi_works_agent_id</span>
 <span class="response-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span>. This will be a string that may take the form of an email address, or a unique alphanumeric identification string.</span></p>
 
+<p><span class="response-data-head">client_agent_id</span>
+<span class="response-data-remarks">This is the  ID of the <span class='entity-name'>Agent</span> utilized by their company.</span></p>
+
+<p><span class="response-data-head">agent_id</span>
+<span class="response-data-remarks">This is the ID of this <span class='entity-name'>Agent</span>. This will be an integer.</span></p>
+
 <p><span class="response-data-head">moxi_works_office_id</span>
 <span class="response-data-remarks">This is the Moxi Works Platform ID of the office for this <span class='entity-name'>Agent</span>. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID.</span></p>
 
 <p><span class="response-data-head">office_id</span>
 <span class="response-data-remarks">This is the ID of the office for this <span class='entity-name'>Agent</span>. This will be an integer.</span></p>
 
+<p><span class="response-data-head">client_office_id</span>
+<span class="response-data-remarks">This is the  ID of the office for this <span class='entity-name'>Agent</span> utilized by their company.</span></p>
+
 <p><span class="response-data-head">company_id</span>
 <span class="response-data-remarks">This is the ID of the company for this <span class='entity-name'>Agent</span>. This will be an integer.</span></p>
 
-<p><span class="response-data-head">agent_id</span>
-<span class="response-data-remarks">This is the ID of this <span class='entity-name'>Agent</span>. This will be an integer.</span></p>
+<p><span class="response-data-head">client_company_id</span>
+<span class="response-data-remarks">This is the ID of the <span class='entity-name'>Company</span> utilized by their company.</span></p>
 
 <p><span class="response-data-head">office_address_street</span>
 <span class="response-data-remarks">The street address of the agent&rsquo;s office. This can be null if there is no data for this attribute.</span></p>

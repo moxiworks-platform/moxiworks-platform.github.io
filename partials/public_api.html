@@ -2789,8 +2789,9 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
 <span class='data-example-label'><span class='entity-name'>Brand</span> <span class='action-name'>Index</span> Response Payload Example</span>
 </div></blockquote>
 
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-</span><span class="nt">"image_logo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://image.url/image.png"</span><span class="p">,</span><span class="w">
+<pre class="highlight json"><code><span class="p">[{</span><span class="w">
+  </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"brand name"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"image_logo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://image.url/image.png"</span><span class="p">,</span><span class="w">
 </span><span class="nt">"cma_authoring_color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#123456"</span><span class="p">,</span><span class="w">
 </span><span class="nt">"background_color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#123456"</span><span class="p">,</span><span class="w">
 </span><span class="nt">"background_font_color_primary"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#654321"</span><span class="p">,</span><span class="w">
@@ -2805,8 +2806,8 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
 </span><span class="nt">"image_favicon"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://favicon.url/favicon.ico"</span><span class="p">,</span><span class="w">
 </span><span class="nt">"image_pres_cover_logo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://image.url/pres_cover_logo@341x110.png"</span><span class="p">,</span><span class="w">
 </span><span class="nt">"pres_block_background_color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#654321"</span><span class="p">,</span><span class="w">
-</span><span class="nt">"pres_block_text_color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#123456"</span><span class="w">
-</span><span class="p">}</span><span class="w">
+</span><span class="nt">"pres_block_text_color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#123456"</span><span class="p">,</span><span class="w">
+</span><span class="err">}</span><span class="p">]</span><span class="w">
 </span></code></pre>
 
 <blockquote><div class='highlight json' style="display: block">
@@ -2830,6 +2831,10 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
 <th>Type</th>
 </tr>
 </thead><tbody>
+<tr>
+<td><span class="response-data">name</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
 <tr>
 <td><span class="response-data">image_logo</span></td>
 <td><span class="data-type">String</span></td>
@@ -2895,6 +2900,9 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
 <td><span class="data-type">String</span></td>
 </tr>
 </tbody></table>
+
+<p><span class="response-data-head">name</span>
+<span class="response-data-remarks">Human readable string identifying the brand.</span></p>
 
 <p><span class="response-data-head">image_logo</span>
 <span class="response-data-remarks">Company Logo</span></p>
@@ -13781,6 +13789,11 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <td>255</td>
 </tr>
 <tr>
+<td><span class="optional-data">moxi_works_office_id</span></td>
+<td><span class="data-type">String</span></td>
+<td>255</td>
+</tr>
+<tr>
 <td><span class="optional-data">last_moxi_works_listing_id</span></td>
 <td><span class="data-type">String</span></td>
 <td>255</td>
@@ -13802,6 +13815,9 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 
 <p><span class="request-data-head">moxi_works_agent_id</span>
 <span class="request-data-remarks">Use this parameter when searching for <span class='entity-name'>Listing</span> objects associated with a specific <span class='entity-name'>Agent</span>.  This will be a string that may take the form of an email address, or a unique identification string. This data must reference a valid Moxi Works Agent ID for your <span class='entity-name'>Listing</span> <span class='action-name'>Index</span>  request to be accepted.</span></p>
+
+<p><span class="request-data-head">moxi_works_office_id</span>
+<span class="request-data-remarks">Use this parameter when searching for <span class='entity-name'>Listing</span> objects associated with a specific <span class='entity-name'>Office</span>.  This data must reference a valid Moxi Works Office ID for your <span class='entity-name'>Listing</span> <span class='action-name'>Index</span>  request to be accepted.</span></p>
 
 <p><span class="request-data-head">last_moxi_works_listing_id</span>
 <span class="request-data-remarks">If fetching a multi-page response, this should be the <span class='attribute-name'>MoxiWorksListingId</span> found in the last <span class='entity-name'>Listing</span> object of the previously fetched page.</span></p>

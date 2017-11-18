@@ -260,6 +260,16 @@ Attribute | Type | Length Limit |
       ]
     }
   ],
+  "CompanyListingAttributes": [
+    {
+      "AttributeId": "the collection",
+      "AttributeName": "The Collection"
+    },
+      {
+        "AttributeId": "destination",
+        "AttributeName": "Destination"
+    }
+  ],
   "ListingImages":[
     {
       "FullURL":"http://images.moxiworks.com/static/images/br/imagoo/default_property_image_wre-326x250.png",
@@ -369,6 +379,7 @@ Attribute | Type |
 |<span class="response-data">MoxiWorksListingId</span>|<span class="response-data"><span class="data-type">String</span>
 |<span class="response-data">AgentCreatedListing</span>|<span class="response-data"><span class="data-type">Boolean</span>
 |<span class="response-data">PropertyFeatures</span>|<span class="response-data"><span class="data-type">Array</span>
+|<span class="response-data">CompanyListingAttributes</span>|<span class="response-data"><span class="data-type">Array</span>
 |<span class="response-data">LisingImages</span>|<span class="response-data"><span class="data-type">Array</span>
 
 <span class="response-data-head">LotSizeAcres</span>
@@ -561,6 +572,9 @@ Attribute | Type |
 <span class="response-data-head">PropertyFeatures</span>
 <span class="response-data-remarks">Any defined features about the property.</span>
 
+<span class="response-data-head">CompanyListingAttributes</span>
+<span class="response-data-remarks">Company specific attributes associated with the listing. These will be defined by the company & should not be expected to be uniform across companies.</span>
+
 
 <span class="response-data-head">ListingImages</span>
 <span class="response-data-remarks">Any images of the property.</span>
@@ -581,6 +595,23 @@ Attribute | Type |
 
 <span class="response-data-head">PropertyFeatureValues</span>
 <span class="response-data-remarks">An array of strings which are human readable values associated with the feature.</span>
+
+
+
+###### <span class='attribute-name'>CompanyListingAttributes</span> Objects
+
+Each object in the <span class='attribute-name'>CompanyListingAttributes</span> array will have the following structure.
+
+Attribute | Type |
+-----|-----|-----|-----|
+|<span class="response-data">AttributeId</span>|<span class="response-data"><span class="data-type">String</span>
+|<span class="response-data">AttributeName</span>|<span class="response-data"><span class="data-type">String</span>
+
+<span class="response-data-head">AttributeId</span>
+<span class="response-data-remarks">Unique ID for the attribute.</span>
+
+<span class="response-data-head">AttributeName</span>
+<span class="response-data-remarks">Human readable name of the company specific listing attribute.</span>
 
 
 

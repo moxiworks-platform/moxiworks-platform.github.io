@@ -452,6 +452,10 @@
 <td><span class="response-data"><span class="data-type">Array</span></td>
 </tr>
 <tr>
+<td><span class="response-data">CompanyListingAttributes</span></td>
+<td><span class="response-data"><span class="data-type">Array</span></td>
+</tr>
+<tr>
 <td><span class="response-data">ListingImages</span></td>
 <td><span class="response-data"><span class="data-type">Array</span></td>
 </tr>
@@ -607,6 +611,9 @@
 <p><span class="response-data-head">PropertyFeatures</span>
 <span class="response-data-remarks">Any defined features about the property.</span></p>
 
+<p><span class="response-data-head">CompanyListingAttributes</span>
+<span class="response-data-remarks">Company specific attributes associated with the listing. These will be defined by the company &amp; should not be expected to be uniform across companies.</span></p>
+
 <p><span class="response-data-head">ListingImages</span>
 <span class="response-data-remarks">Any images of the property.</span></p>
 
@@ -635,6 +642,32 @@
 
 <p><span class="response-data-head">PropertyFeatureValues</span>
 <span class="response-data-remarks">An array of strings which are human readable values associated with the feature.</span></p>
+
+<h6 id="companylistingattributes-objects"><span class='attribute-name'>CompanyListingAttributes</span> Objects</h6>
+
+<p>Each object in the <span class='attribute-name'>CompanyListingAttributes</span> array will have the following structure.</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span class="response-data">AttributeId</span></td>
+<td><span class="response-data"><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">AttributeName</span></td>
+<td><span class="response-data"><span class="data-type">String</span></td>
+</tr>
+</tbody></table>
+
+<p><span class="response-data-head">AttributeId</span>
+<span class="response-data-remarks">Unique ID for the attribute.</span></p>
+
+<p><span class="response-data-head">AttributeName</span>
+<span class="response-data-remarks">Human readable name of the company specific listing attribute.</span></p>
 
 <h6 id="listingimages-objects"><span class='attribute-name'>ListingImages</span> Objects</h6>
 

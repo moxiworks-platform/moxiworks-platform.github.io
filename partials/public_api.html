@@ -28,7 +28,7 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id="moxi-works-api-1-12-1">Moxi Works API (1.12.1)</h1>
+        <h1 id="moxi-works-api-1-12-2">Moxi Works API (1.12.2)</h1>
 
 <h2 id="api-overview">API Overview</h2>
 
@@ -13687,6 +13687,10 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <td><span class="response-data"><span class="data-type">Array</span></td>
 </tr>
 <tr>
+<td><span class="response-data">CompanyListingAttributes</span></td>
+<td><span class="response-data"><span class="data-type">Array</span></td>
+</tr>
+<tr>
 <td><span class="response-data">ListingImages</span></td>
 <td><span class="response-data"><span class="data-type">Array</span></td>
 </tr>
@@ -13842,6 +13846,9 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <p><span class="response-data-head">PropertyFeatures</span>
 <span class="response-data-remarks">Any defined features about the property.</span></p>
 
+<p><span class="response-data-head">CompanyListingAttributes</span>
+<span class="response-data-remarks">Company specific attributes associated with the listing. These will be defined by the company &amp; should not be expected to be uniform across companies.</span></p>
+
 <p><span class="response-data-head">ListingImages</span>
 <span class="response-data-remarks">Any images of the property.</span></p>
 
@@ -13870,6 +13877,32 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 
 <p><span class="response-data-head">PropertyFeatureValues</span>
 <span class="response-data-remarks">An array of strings which are human readable values associated with the feature.</span></p>
+
+<h6 id="companylistingattributes-objects"><span class='attribute-name'>CompanyListingAttributes</span> Objects</h6>
+
+<p>Each object in the <span class='attribute-name'>CompanyListingAttributes</span> array will have the following structure.</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span class="response-data">AttributeId</span></td>
+<td><span class="response-data"><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">AttributeName</span></td>
+<td><span class="response-data"><span class="data-type">String</span></td>
+</tr>
+</tbody></table>
+
+<p><span class="response-data-head">AttributeId</span>
+<span class="response-data-remarks">Unique ID for the attribute.</span></p>
+
+<p><span class="response-data-head">AttributeName</span>
+<span class="response-data-remarks">Human readable name of the company specific listing attribute.</span></p>
 
 <h6 id="listingimages-objects"><span class='attribute-name'>ListingImages</span> Objects</h6>
 
@@ -14241,6 +14274,16 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
       </span><span class="p">]</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"CompanyListingAttributes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"AttributeId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"the collection"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"AttributeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The Collection"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"AttributeId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"destination"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"AttributeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Destination"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
   </span><span class="nt">"ListingImages"</span><span class="p">:[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"FullURL"</span><span class="p">:</span><span class="s2">"http://images.moxiworks.com/static/images/br/imagoo/default_property_image_wre-326x250.png"</span><span class="p">,</span><span class="w">
@@ -14520,6 +14563,10 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <td><span class="response-data"><span class="data-type">Array</span></td>
 </tr>
 <tr>
+<td><span class="response-data">CompanyListingAttributes</span></td>
+<td><span class="response-data"><span class="data-type">Array</span></td>
+</tr>
+<tr>
 <td><span class="response-data">LisingImages</span></td>
 <td><span class="response-data"><span class="data-type">Array</span></td>
 </tr>
@@ -14675,6 +14722,9 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <p><span class="response-data-head">PropertyFeatures</span>
 <span class="response-data-remarks">Any defined features about the property.</span></p>
 
+<p><span class="response-data-head">CompanyListingAttributes</span>
+<span class="response-data-remarks">Company specific attributes associated with the listing. These will be defined by the company &amp; should not be expected to be uniform across companies.</span></p>
+
 <p><span class="response-data-head">ListingImages</span>
 <span class="response-data-remarks">Any images of the property.</span></p>
 
@@ -14703,6 +14753,32 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 
 <p><span class="response-data-head">PropertyFeatureValues</span>
 <span class="response-data-remarks">An array of strings which are human readable values associated with the feature.</span></p>
+
+<h6 id="companylistingattributes-objects"><span class='attribute-name'>CompanyListingAttributes</span> Objects</h6>
+
+<p>Each object in the <span class='attribute-name'>CompanyListingAttributes</span> array will have the following structure.</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span class="response-data">AttributeId</span></td>
+<td><span class="response-data"><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">AttributeName</span></td>
+<td><span class="response-data"><span class="data-type">String</span></td>
+</tr>
+</tbody></table>
+
+<p><span class="response-data-head">AttributeId</span>
+<span class="response-data-remarks">Unique ID for the attribute.</span></p>
+
+<p><span class="response-data-head">AttributeName</span>
+<span class="response-data-remarks">Human readable name of the company specific listing attribute.</span></p>
 
 <h6 id="listingimages-objects"><span class='attribute-name'>ListingImages</span> Objects</h6>
 

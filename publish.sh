@@ -12,6 +12,7 @@ mkdir old
 mv * old
 mv old/build/* ./
 rm -r old
+git add *
 git commit -a -m "doc build"
 git checkout develop
 git push origin master --force

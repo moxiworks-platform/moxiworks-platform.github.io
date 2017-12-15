@@ -17,7 +17,7 @@ git merge gh-pages
 git checkout develop
 git push origin master --force
 git push origin develop --force
-git push origin gh-pages
+git push origin gh-pages --force
 git push upstream master --force
 git push upstream develop --force
-git push upstream gh-pages
+git push upstream gh-pages --force

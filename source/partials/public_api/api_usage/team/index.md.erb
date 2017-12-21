@@ -1,0 +1,190 @@
+#### <span class='entity-name'>Team</span> <span class='action-name'>Index</span>
+
+<div class='highlight ruby'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-ruby/MoxiworksPlatform/Team.html#search-class_method'>Ruby Search Docs</a></span></blockquote></div>
+
+<div class='highlight php'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-php/classes/MoxiworksPlatform.Team.html#method_search'>PHP Search Docs</a></span></blockquote></div>
+
+> <span class="data-example-label"><span class='entity-name'>Team</span> <span class='action-name'>Index</span> Example</span>
+
+
+> All <span class='entity-name'>Team</span> objects for specified <span class='entity-name'>Company</span>
+
+```http
+GET /api/teams?moxi_works_company_id=abc123 HTTP/1.1
+Host: api.moxiworks.com
+Accept: application/vnd.moxi-platform+json;version=1
+Authorization: Basic XNNeXAAAUZaQlF0dA==
+Content-Type: application/x-www-form-urlencoded
+
+```
+
+```json
+{
+  "moxi_works_company_id":"the_company"
+}
+
+```
+
+```ruby
+
+##### set up prerequisites once
+require 'moxiworks_platform'
+
+platform_identifier = 'abc123'
+
+platform_secret = 'secret'
+
+MoxiworksPlatform::Credentials.new(platform_identifier, platform_secret)
+##### end prerequisites
+
+company_teams = MoxiworksPlatform::Team.search(moxi_works_company_id: "abc123")
+
+```
+
+```php
+<?php
+$platform_identifier = 'abc123'; // platorm_identifier provided by Moxi Works Platform Rep
+$platform_secret = 'secret'; //platform_secret provided by Moxi Works Platform Rep
+
+$credentials = new MoxiworksPlatform\Credentials($platform_identifier, $platform_secret);
+
+$company_teams = MoxiworksPlatform\Team::search(['moxi_works_company_id' => 'abc123']);
+?>
+```
+
+
+##### <span class='entity-name'>Team</span> <span class='action-name'>Index</span> Request Attributes
+
+<aside class="note">Send a <b>GET</b> request to https://api.moxiworks.com/api/teams</aside>
+
+When searching for <span class='entity-name'>Team</span> entities using the Moxi Works platform API, format your data using the following parameters.
+
+
+Attribute | Type  | Length Limit |
+-----|-----|-----|-----|
+|<span class="required-data">moxi_works_company_id</span>|<span class="required-data"><span class="data-type">String</span></span>|<span class="required-data">255<span> |
+
+
+<span class="required-data">**Required Parameters Are In Red**</span>
+
+<span class="request-data-head">moxi_works_company_id</span>
+<span class="request-data-remarks">A valid Moxi Works <span class='entity-name'>Company</span> ID. Use [Company Endpoint](#company) to determine what <span class='attribute-name'>moxi_works_company_id</span> you can use.</span>
+
+<aside class="note">Use <a href='#company'>Company Endpoint</a> to determine the moxi_works_company_id to send.</aside>
+
+
+<blockquote><div class='highlight json' style="display: block">
+<span class="data-example-label">Team Index: Success Response</span>
+</div></blockquote>
+
+```json
+
+[
+  {
+  "uuid":"feedface-dead-beef-aadf-baddeedc645",
+  "name": "New Team One",
+  "email": "email@address",
+  "address1": "1234 Here St.",
+  "address2": "Suite: 1234",
+  "city": "Sweetville",
+  "zipcode": "91820",
+  "state": "OR",
+  "phone": "666-555-1234",
+  "fax": "666-867-5309",
+  "logo_url": "http://website.url/logo.png",
+  "photo_url": "http://website.url/image.jpg",
+  "description": "<h1>Heading 1</h1><ol><li>a</li></ol><h1><br />This team is the <em><strong>teamiest</strong> </em>of all the <sub>teams</sub>, <span style="text-decoration: underline;">hands</span> down!</h1>",
+  "social_media_urls": null,
+  "alt_phone": "666-555-4444",
+  "alt_email": "alternate@email.address",
+  "website_url": "http://the.team.website",
+  "active": true
+  }
+]
+```
+
+<blockquote><div class='highlight json' style="display: block">
+<span class="data-example-label">Team Index: Failure Response</span>
+</div> See <a href='#error-handling'>Error Handling</a> for details about individual error codes.</blockquote>
+
+```json
+{
+  "status":"fail",
+  "errorCode": xxx,
+  "messages": ["messages"]
+}
+
+```
+
+<span class='entity-name'>Team</span>  <span class='action-name'>Index</span> responses are divided into pages of  <span class='entity-name'>Team</span> objects. Use response payload attributes <span class='attribute-name'>total_pages</span> and <span class='attribute-name'>page_number</span> to determine how many pages of  <span class='entity-name'>Team</span> objects there are and whether additional pages need to be requested.
+
+
+Attribute | Type |
+-----|-----|-----|-----|
+|<span class="response-data">uuid</span>|<span class="data-type">String</span>|
+|<span class="response-data">name</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">email</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">address1</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">address2</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">city</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">zipcode</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">state</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">phone</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">fax</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">logo_url</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">photo_url</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">description</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">alt_phone</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">alt_email</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">website_url</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">active</span>|<span class="data-type">Boolean</span>|
+
+
+<span class="response-data-head">uuid</span>
+<span class="response-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Team</span>. This will be an [RFC 4122](https://tools.ietf.org/html/rfc4122) compliant UUID.</span>
+
+<span class="response-data-head">name</span>
+<span class="response-data-remarks">The name of the team. This can be null if there is no data for this attribute.</span>
+
+<span class="response-data-head">email</span>
+<span class="response-data-remarks">This is the team's main email address. This email address should be considered the email address the team would prefer to be contacted by.  This can be null if there is no data for this attribute.</span>
+
+<span class="response-data-head">address1</span>
+<span class="response-data-remarks">The street address of the team. This can be null if there is no data for this attribute.</span>
+
+<span class="response-data-head">address2</span>
+<span class="response-data-remarks">The suite or team number of the team. This can be null if there is no data for this attribute.</span>
+
+<span class="response-data-head">city</span>
+<span class="response-data-remarks">The city the team is in. This can be null if there is no data for this attribute.</span>
+
+<span class="response-data-head">zip_code</span>
+<span class="response-data-remarks">The postal code the team is in. This can be null if there is no data for this attribute.</span>
+
+<span class="response-data-head">state</span>
+<span class="response-data-remarks">The state or provice the team is in. This can be null if there is no data for this attribute.</span>
+
+<span class="response-data-head">phone</span>
+<span class="response-data-remarks">This is the team's main phone number.  This number should be considered the number the team would prefer to be contacted by. This can be null if there is no data for this attribute.</span>
+
+<span class="response-data-head">fax</span>
+<span class="response-data-remarks">This is the team's fax phone number.  This can be null if there is no data for this attribute.</span>
+
+<span class="response-data-head">logo_url</span>
+<span class="response-data-remarks">URL to an logo for the team. This can be null if there is no data for this attribute.</span>
+
+<span class="response-data-head">photo_url</span>
+<span class="response-data-remarks">URL to an image of the team. This can be null if there is no data for this attribute.</span>
+
+<span class="response-data-head">description</span>
+<span class="response-data-remarks">Description of the team. This can contain embedded HTML tags. This can be null if there is no data for this attribute.</span>
+
+<span class="response-data-head">alt_phone</span>
+<span class="response-data-remarks">Alternate phone number for the team. This should be considered second in priority to <span class='attribute-name'>phone_number</span>.  This can be null if there is no data for this attribute.</span>
+
+
+<span class="response-data-head">website_url</span>
+<span class="response-data-remarks">Team's  website url.  This can be null if there is no data for this attribute.</span>
+
+<span class="response-data-head">active</span>
+<span class="response-data-remarks">Whether this team is active.</span>

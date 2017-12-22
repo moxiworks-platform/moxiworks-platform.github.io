@@ -115,6 +115,7 @@ Attribute | Type | Length Limit |
 |<span class="multi-option-required-data">agent_uuid*</span>|<span class="multi-option-required-data"><span class="data-type">String</span></span>| <span class="multi-option-required-data">255</span>
 |<span class="multi-option-required-data">moxi_works_agent_id*</span>|<span class="multi-option-required-data"><span class="data-type">String</span></span>| <span class="multi-option-required-data">255</span>
 |<span class="required-data">moxi_works_company_id</span>|<span class="required-data"><span class="data-type">String</span></span>|<span class="required-data">255<span> |
+|<span class="optional-data">include_gci_goals</span>|<span class="data-type">Boolean</span>| 255 |
 
   <span class="multi-option-required-data">* **Either <span class='attribute-name'>moxi_works_agent_id</span> or <span class='attribute-name'>agent_uuid</span> must be supplied. For guidance on which Agent identifier better fits your use-case, see [Agent Identifiers](#agent-identifiers)**</span>
 
@@ -134,6 +135,10 @@ Attribute | Type | Length Limit |
 <span class="request-data-remarks">A valid Moxi Works <span class='entity-name'>Company</span> ID. Use [Company Endpoint](#company) to determine what <span class='attribute-name'>moxi_works_company_id</span> you can use.</span>
 
 <aside class="note">Use <a href='#company'>Company Endpoint</a> to determine the moxi_works_company_id to send.</aside>
+
+<span class="request-data-head">include_gci_goals</span>
+<span class="request-data-remarks">Whether to include agent's GCI goals and commissions data in the response data.</span>
+
 
 ##### <span class='entity-name'>Agent</span> <span class='action-name'>Show</span> Response Payload
 The following attributes make up the payload of the <span class='entity-name'>Agent</span> response for a <span class='action-name'>Show</span> request.
@@ -205,6 +210,77 @@ The following attributes make up the payload of the <span class='entity-name'>Ag
 }
 ```
 
+
+<blockquote><div class='highlight json' style="display: block">
+<span class='data-example-label'><span class='entity-name'>Agent</span> <span class='action-name'>Index</span> Response Payload Example when <span class='attribute-name'>include_gci_goals</span> is `true`
+</span></div></blockquote>
+
+```json
+{
+  "moxi_works_agent_id": "abc123",
+  "client_agent_id":"abc123",
+  "mls_agent_id":"MLS_ID",
+  "license":"abc123lic",
+  "mls_name":"Bob's Better MLS",
+  "mls_abbreviation":"BBM",
+  "moxi_works_office_id":"8c3f446c-aab9-11e6-9a0f-d0e1408e8026",
+  "office_id":"1234",
+  "client_office_id":"987123",
+  "company_id":"2345",
+  "client_company_id":"abc392",
+  "agent_id":"67890",
+  "office_address_street": "3456 Office Ln.",
+  "office_address_street2":"Suite 1234",
+  "office_address_city": "Officeville",
+  "office_address_state": "AG",
+  "office_address_zip": "12345",
+  "name": "Buckminster Fuller",
+  "first_name": "Buckminster",
+  "last_name": "Fuller",
+  "main_phone_number": "555) 9101112",
+  "mobile_phone_number": "555 333 4567",
+  "alt_phone_number": "(555) 567-8910",
+  "fax_phone_number": "5557891011",
+  "office_phone_number": "(234)456-7890",
+  "primary_email_address": "the_agent@agentdomain.com",
+  "secondary_email_address": "the_agent_alt@otherdomain.com",
+  "lead_routing_email_address":"leadrouter@thisdomain.com",
+  "title": "Broker",
+  "uuid":"8675309e9-1234-dead-beef-deadbeefdead",
+  "twitter": "@agentguy",
+  "google_plus": "https://plus.google.com/1234567891011121314/posts",
+  "facebook": "https://www.facebook.com/moxiworks/",
+  "home_page": "foo.com",
+  "profile_image_url": "http://picturererer.com/pics37/ImageStore.dll?id=852087C5D3A533DD&w=200",
+  "profile_thumb_url": "http://picturererer.com/pics37/ImageStore.dll?id=852087C5D3A533DD&w=75",
+  "alternate_offices": [
+  {
+    "moxi_works_office_id": "abc123",
+    "office_id": 1234,
+    "office_address_street": "2636 NW Office Street",
+    "office_address_street2": null,
+    "office_address_city": "Altville",
+    "office_address_state": "IN",
+    "office_address_zip": "23232",
+    "office_phone_number": "813.555.1221"
+    },
+      {
+    "moxi_works_office_id": "xyz789",
+    "office_id": 5678,
+    "office_address_street": "700 123rd Ave",
+    "office_address_street2": "Suite 1234",
+    "office_address_city": "Nextus",
+    "office_address_state": "AL",
+    "office_address_zip": "99899",
+    "office_phone_number": "66655544444"
+    }
+  ],
+  gci_goal: 122131,
+  buyer_commission_rate: 1.25,
+  seller_commission_rate: 1.25
+}
+```
+
 <blockquote><div class='highlight json' style="display: block">
 <span class="data-example-label"><span class='entity-name'>Agent</span> <span class='action-name'>Show</span>: Failure Response</span>
 </div> See <a href='#error-handling'>Error Handling</a> for details about individual error codes.</blockquote>
@@ -258,8 +334,10 @@ Attribute | Type |
 |<span class="response-data">home_page</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">profile_image_url</span>|<span class="data-type">String</span>|
 |<span class="response-data">profile_thumb_url</span>|<span class="data-type">String</span>|
+|<span class="response-data">gci_goal</span>|<span class="data-type">Integer</span>|
+|<span class="response-data">buyer_commission_rate</span>|<span class="data-type">Float</span>|
+|<span class="response-data">seller_commission_rate</span>|<span class="data-type">Float</span>|
 |<span class="response-data">alternate_offices</span>|<span class="data-type">Array</span>|
-
 
 
 <span class="response-data-head">moxi_works_agent_id</span>
@@ -377,6 +455,15 @@ Attribute | Type |
 
 <span class="response-data-head">profile_thumb_url</span>
 <span class="response-data-remarks">This is a valid URL for a thumbnail size image for the agent.  If no agent image has been uploaded for this agent a default image url will be provided.</span>
+
+<span class="response-data-head">gci_goal</span>
+<span class="response-data-remarks">The agent's  stated gross commission income goal.</span>
+
+<span class="response-data-head">buyer_commission_rate</span>
+<span class="response-data-remarks">Percentage commission rate for the agent when acting as a buyer's agent.</span>
+
+<span class="response-data-head">seller_commission_rate</span>
+<span class="response-data-remarks">Percentage commission rate for the agent when acting as a seller's agent.</span>
 
 ###### <span class='attribute-name'>alternate_offices</span> Object
 

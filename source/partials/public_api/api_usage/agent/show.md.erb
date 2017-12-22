@@ -146,6 +146,10 @@ The following attributes make up the payload of the <span class='entity-name'>Ag
 {
   "moxi_works_agent_id": "abc123",
   "client_agent_id":"abc123",
+  "mls_agent_id":"MLS_ID",
+  "license":"abc123lic",
+  "mls_name":"Bob's Better MLS",
+  "mls_abbreviation":"BBM",
   "moxi_works_office_id":"8c3f446c-aab9-11e6-9a0f-d0e1408e8026",
   "office_id":"1234",
   "client_office_id":"987123",
@@ -220,6 +224,10 @@ Attribute | Type |
 -----|-----|-----|-----|
 |<span class="response-data">moxi_works_agent_id</span>|<span class="data-type">String</span>|
 |<span class="response-data">client_agent_id</span>|<span class="data-type">String</span>|
+|<span class="response-data">mls_agent_id</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">license</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">mls_name</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">mls_abbreviation</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">agent_id</span>|<span class="data-type">String</span>|
 |<span class="response-data">moxi_works_office_id</span>|<span class="data-type">String</span>|
 |<span class="response-data">office_id</span>|<span class="data-type">String</span>|
@@ -259,6 +267,18 @@ Attribute | Type |
 
 <span class="response-data-head">client_agent_id</span>
 <span class="response-data-remarks">This is the  ID of the <span class='entity-name'>Agent</span> utilized by their company.</span>
+
+<span class="response-data-head">mls_agent_id</span>
+<span class="response-data-remarks">This is the  ID of the <span class='entity-name'>Agent</span> utilized by their primary MLS.</span>
+
+<span class="response-data-head">license</span>
+<span class="response-data-remarks">This is the number of the license granted to the agent.</span>
+
+<span class="response-data-head">mls_name</span>
+<span class="response-data-remarks">This is the  name of the primary MLS for the agent.</span>
+
+<span class="response-data-head">mls_abbreviation</span>
+<span class="response-data-remarks">This is the standard abbreviation of the primary MLS utilized by the agent.</span>
 
 <span class="response-data-head">agent_id</span>
 <span class="response-data-remarks">This is the ID of this <span class='entity-name'>Agent</span>. This will be an integer.</span>

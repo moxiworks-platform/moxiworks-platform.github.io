@@ -271,6 +271,13 @@ Attribute | Type | Length Limit |
         "AttributeName": "Destination"
     }
   ],
+  "OpenHouse":[
+    {
+      "Date":"2018-01-06T00:00:00.000-08:00",
+      "StartTime":"2018-01-06T13:00:00.000-08:00",
+      "EndTime":"2018-01-06T15:00:00.000-08:00"
+    }
+  ],
   "ListingImages":[
     {
       "FullURL":"http://images.moxiworks.com/static/images/br/imagoo/default_property_image_wre-326x250.png",
@@ -382,6 +389,7 @@ Attribute | Type |
 |<span class="response-data">VirtualTourURL</span>|<span class="response-data"><span class="data-type">String or null</span>
 |<span class="response-data">PropertyFeatures</span>|<span class="response-data"><span class="data-type">Array</span>
 |<span class="response-data">CompanyListingAttributes</span>|<span class="response-data"><span class="data-type">Array</span>
+|<span class="response-data">OpenHouse</span>|<span class="response-data"><span class="data-type">Array</span>
 |<span class="response-data">LisingImages</span>|<span class="response-data"><span class="data-type">Array</span>
 
 <span class="response-data-head">LotSizeAcres</span>
@@ -581,6 +589,10 @@ Attribute | Type |
 <span class="response-data-remarks">Company specific attributes associated with the listing. These will be defined by the company & should not be expected to be uniform across companies.</span>
 
 
+<span class="response-data-head">OpenHouse</span>
+<span class="response-data-remarks">Open house data.</span>
+
+
 <span class="response-data-head">ListingImages</span>
 <span class="response-data-remarks">Any images of the property.</span>
 
@@ -617,6 +629,23 @@ Attribute | Type |
 
 <span class="response-data-head">AttributeName</span>
 <span class="response-data-remarks">Human readable name of the company specific listing attribute.</span>
+
+
+###### <span class='attribute-name'>OpenHouse</span> Objects
+
+Each object in the <span class='attribute-name'>OpenHouse</span> array will have the following structure.
+
+Attribute | Type |
+-----|-----|-----|-----|
+|<span class="response-data">Date</span>|<span class="response-data"><span class="data-type">String</span>
+<span class="response-data-remarks">ISO 8601 formatted string representing the date on which the open house takes place.</span>
+
+<span class="response-data-head">StartTime</span>
+<span class="response-data-remarks">ISO 8601 formatted string representing the time at which the open house starts.</span>
+
+<span class="response-data-head">EndTime</span>
+<span class="response-data-remarks">ISO 8601 formatted string representing the time at which the open house ends.</span>
+
 
 
 

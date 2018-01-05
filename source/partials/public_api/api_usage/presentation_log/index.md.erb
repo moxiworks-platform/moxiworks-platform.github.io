@@ -156,7 +156,8 @@ Attribute | Type  | Length Limit |
       "pdf_requested": 12,
       "pres_requested": 34,
       "external_identifier": "123456",
-      "external_office_id": "678910"
+      "external_office_id": "678910",
+      "moxi_works_presentation_id":"8675309e9-dead-beef-1234-deadbeefabad"
       }
   ]
 }
@@ -203,6 +204,7 @@ Attribute | Type |
 |<span class="response-data">pres_requested</span>|<span class="data-type">Integer</span>|
 |<span class="response-data">external_identifier</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">external_office_id</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">moxi_works_presentation_id</span>|<span class="data-type">String or null</span>|
 
 <span class="response-data-head">agent_uuid</span>
 <span class="response-data-remarks">This is the Moxi Works Platform ID of the agent which an <span class='entity-name'>ActionLog</span> entry is associated with. This will be an [RFC 4122](https://tools.ietf.org/html/rfc4122) compliant UUID.</span>
@@ -243,5 +245,7 @@ Attribute | Type |
 <span class="response-data-head">external_office_id</span>
 <span class="response-data-remarks">This is the  ID of the office for this <span class='entity-name'>Agent</span> utilized by their company.</span>
 
+<span class="response-data-head">moxi_works_presentation_id</span>
+<span class="response-data-remarks">The unique UUID of the presentation. This will be an [RFC 4122](https://tools.ietf.org/html/rfc4122) compliant UUID.</span>
 
 

@@ -41,7 +41,7 @@
 <blockquote>
 <p><span class="data-example-label"><span class='entity-name'>Office</span> <span class='action-name'>Show</span> Example</span></p>
 
-<p>First page of all <span class='entity-name'>Office</span> objects for specified <span class='entity-name'>Company</span></p>
+<p>Requested <span class='entity-name'>Office</span> object</p>
 </blockquote>
 
 <pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/offices/deadbeef-deadbeef-feed-facedeadbeef</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
@@ -139,7 +139,8 @@
     </span><span class="nt">"google_plus"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="nt">"phone"</span><span class="p">:</span><span class="s2">"8185551213"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"timezone"</span><span class="p">:</span><span class="s2">"Pacific Time (US &amp; Canada)"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"twitter"</span><span class="p">:</span><span class="kc">null</span><span class="w">
+    </span><span class="nt">"twitter"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"office_website"</span><span class="p">:</span><span class="s2">"http://the.office.website"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 
 </span></code></pre>
@@ -229,6 +230,10 @@
 <td><span class="response-data">twitter</span></td>
 <td><span class="data-type">String or null</span></td>
 </tr>
+<tr>
+<td><span class="response-data">office_website</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
 </tbody></table>
 
 <p><span class="response-data-head">moxi_works_office_id</span>
@@ -281,6 +286,9 @@
 
 <p><span class="response-data-head">twitter</span>
 <span class="response-data-remarks">Office&rsquo;s Twitter account name. This can be null if there is no data available for this attribute.</span></p>
+
+<p><span class="response-data-head">office_website</span>
+<span class="response-data-remarks">Office&rsquo;s website URL. This can be null if there is no data available for this attribute.</span></p>
 
 
 <h4 id="office-index"><span class='entity-name'>Office</span> <span class='action-name'>Index</span></h4>
@@ -423,7 +431,8 @@
     </span><span class="nt">"google_plus"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="nt">"phone"</span><span class="p">:</span><span class="s2">"8185551213"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"timezone"</span><span class="p">:</span><span class="s2">"Pacific Time (US &amp; Canada)"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"twitter"</span><span class="p">:</span><span class="kc">null</span><span class="w">
+    </span><span class="nt">"twitter"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"office_website"</span><span class="p">:</span><span class="s2">"http://the.office.website"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -541,6 +550,10 @@
 <td><span class="response-data">twitter</span></td>
 <td><span class="data-type">String or null</span></td>
 </tr>
+<tr>
+<td><span class="response-data">office_website</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
 </tbody></table>
 
 <p><span class="response-data-head">moxi_works_office_id</span>
@@ -593,6 +606,9 @@
 
 <p><span class="response-data-head">twitter</span>
 <span class="response-data-remarks">Office&rsquo;s Twitter account name. This can be null if there is no data available for this attribute.</span></p>
+
+<p><span class="response-data-head">office_website</span>
+<span class="response-data-remarks">Office&rsquo;s website URL. This can be null if there is no data available for this attribute.</span></p>
 
       </div>
       <div class="dark-box">

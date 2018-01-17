@@ -121,26 +121,29 @@
 <blockquote><div class='highlight json' style="display: block">
 <span class='data-example-label'><span class='entity-name'>Brand</span> <span class='action-name'>Index</span> Response Payload Example</span>
 </div></blockquote>
-<pre class="highlight json"><code><span class="p">[</span><span class="w">
-  </span><span class="s2">"brands"</span><span class="err">:</span><span class="p">{</span><span class="w">
-  </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"brand name"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"image_logo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://image.url/image.png"</span><span class="p">,</span><span class="w">
-</span><span class="nt">"cma_authoring_color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#123456"</span><span class="p">,</span><span class="w">
-</span><span class="nt">"background_color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#123456"</span><span class="p">,</span><span class="w">
-</span><span class="nt">"background_font_color_primary"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#654321"</span><span class="p">,</span><span class="w">
-</span><span class="nt">"button_background_color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#123456"</span><span class="p">,</span><span class="w">
-</span><span class="nt">"button_font_color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#654321"</span><span class="p">,</span><span class="w">
-</span><span class="nt">"copyright"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&amp;copy; 2017 &lt;a href="</span><span class="err">http://embedded.href.url</span><span class="s2">" target="</span><span class="err">_blank</span><span class="s2">"&gt;Company Copyright Holder&lt;/a&gt; and Possibly another Company"</span><span class="p">,</span><span class="w">
-</span><span class="nt">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Company Display Name"</span><span class="p">,</span><span class="w">
-</span><span class="nt">"email_element_background_color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#654321"</span><span class="p">,</span><span class="w">
-</span><span class="nt">"email_background_font_color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#123456"</span><span class="p">,</span><span class="w">
-</span><span class="nt">"image_cma_pdf_logo_header"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://image.url/pdf_logo@341x110.png"</span><span class="p">,</span><span class="w">
-</span><span class="nt">"image_email_logo_alt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://image.url/email_logo@341x110.png"</span><span class="p">,</span><span class="w">
-</span><span class="nt">"image_favicon"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://favicon.url/favicon.ico"</span><span class="p">,</span><span class="w">
-</span><span class="nt">"image_pres_cover_logo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://image.url/pres_cover_logo@341x110.png"</span><span class="p">,</span><span class="w">
-</span><span class="nt">"pres_block_background_color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#654321"</span><span class="p">,</span><span class="w">
-</span><span class="nt">"pres_block_text_color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#123456"</span><span class="p">,</span><span class="w">
-</span><span class="err">}</span><span class="p">]</span><span class="w">
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"brands"</span><span class="p">:[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"brand name"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"image_logo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://image.url/image.png"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"cma_authoring_color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#123456"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"background_color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#123456"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"background_font_color_primary"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#654321"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"button_background_color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#123456"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"button_font_color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#654321"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"copyright"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&amp;copy; 2017 &lt;a href="</span><span class="err">http://embedded.href.url</span><span class="s2">" target="</span><span class="err">_blank</span><span class="s2">"&gt;Company Copyright Holder&lt;/a&gt; and Possibly another Company"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Company Display Name"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"email_element_background_color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#654321"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"email_background_font_color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#123456"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"image_cma_pdf_logo_header"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://image.url/pdf_logo@341x110.png"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"image_email_logo_alt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://image.url/email_logo@341x110.png"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"image_favicon"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://favicon.url/favicon.ico"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"image_pres_cover_logo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://image.url/pres_cover_logo@341x110.png"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"pres_block_background_color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#654321"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"pres_block_text_color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#123456"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre>
 
 <blockquote><div class='highlight json' style="display: block">

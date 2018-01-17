@@ -168,6 +168,7 @@
   </span><span class="nt">"Status"</span><span class="p">:</span><span class="s2">"active"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"MoxiWorksListingId"</span><span class="p">:</span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"AgentCreatedListing"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"VirtualTourURL"</span><span class="p">:</span><span class="s2">"http://the.virtual.tour.url"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"PropertyFeatures"</span><span class="p">:[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"PropertyFeatureName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kitchen Information"</span><span class="p">,</span><span class="w">
@@ -199,6 +200,13 @@
         </span><span class="s2">"Microwave"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"Oven/Range Freestanding"</span><span class="w">
       </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"OpenHouse"</span><span class="p">:[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"Date"</span><span class="p">:</span><span class="s2">"2018-01-06T00:00:00.000-08:00"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"StartTime"</span><span class="p">:</span><span class="s2">"2018-01-06T13:00:00.000-08:00"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"EndTime"</span><span class="p">:</span><span class="s2">"2018-01-06T15:00:00.000-08:00"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">
   </span><span class="nt">"ListingImages"</span><span class="p">:[</span><span class="w">
@@ -448,11 +456,19 @@
 <td><span class="response-data"><span class="data-type">Boolean</span></td>
 </tr>
 <tr>
+<td><span class="response-data">VirtualTourURL</span></td>
+<td><span class="response-data"><span class="data-type">Boolean</span></td>
+</tr>
+<tr>
 <td><span class="response-data">PropertyFeatures</span></td>
 <td><span class="response-data"><span class="data-type">Array</span></td>
 </tr>
 <tr>
 <td><span class="response-data">CompanyListingAttributes</span></td>
+<td><span class="response-data"><span class="data-type">Array</span></td>
+</tr>
+<tr>
+<td><span class="response-data">OpenHouse</span></td>
 <td><span class="response-data"><span class="data-type">Array</span></td>
 </tr>
 <tr>
@@ -608,11 +624,17 @@
 <p><span class="response-data-head">AgentCreatedListing</span>
 <span class="response-data-remarks">Whether the agent created this listing.</span></p>
 
+<p><span class="response-data-head">VirtualTourURL</span>
+<span class="response-data-remarks">Virtual tour URL for this listing.</span></p>
+
 <p><span class="response-data-head">PropertyFeatures</span>
 <span class="response-data-remarks">Any defined features about the property.</span></p>
 
 <p><span class="response-data-head">CompanyListingAttributes</span>
 <span class="response-data-remarks">Company specific attributes associated with the listing. These will be defined by the company &amp; should not be expected to be uniform across companies.</span></p>
+
+<p><span class="response-data-head">OpenHouse</span>
+<span class="response-data-remarks">Open house data.</span></p>
 
 <p><span class="response-data-head">ListingImages</span>
 <span class="response-data-remarks">Any images of the property.</span></p>
@@ -668,6 +690,39 @@
 
 <p><span class="response-data-head">AttributeName</span>
 <span class="response-data-remarks">Human readable name of the company specific listing attribute.</span></p>
+
+<h6 id="openhouse-objects"><span class='attribute-name'>OpenHouse</span> Objects</h6>
+
+<p>Each object in the <span class='attribute-name'>OpenHouse</span> array will have the following structure.</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span class="response-data">Date</span></td>
+<td><span class="response-data"><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">StartTime</span></td>
+<td><span class="response-data"><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">EndTime</span></td>
+<td><span class="response-data"><span class="data-type">String</span></td>
+</tr>
+</tbody></table>
+
+<p><span class="response-data-head">Date</span>
+<span class="response-data-remarks">ISO 8601 formatted string representing the date on which the open house takes place.</span></p>
+
+<p><span class="response-data-head">StartTime</span>
+<span class="response-data-remarks">ISO 8601 formatted string representing the time at which the open house starts.</span></p>
+
+<p><span class="response-data-head">EndTime</span>
+<span class="response-data-remarks">ISO 8601 formatted string representing the time at which the open house ends.</span></p>
 
 <h6 id="listingimages-objects"><span class='attribute-name'>ListingImages</span> Objects</h6>
 

@@ -28,7 +28,7 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id="moxi-works-api-1-13-0">Moxi Works API (1.13.0)</h1>
+        <h1 id="moxi-works-api-1-14-0">Moxi Works API (1.14.0)</h1>
 
 <h2 id="api-overview">API Overview</h2>
 
@@ -1463,6 +1463,11 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
 <td><span class="required-data"><span class="data-type">String</span></span></td>
 <td><span class="required-data">255<span></td>
 </tr>
+<tr>
+<td><span class="optional-data">include_gci_goals</span></td>
+<td><span class="data-type">Boolean</span></td>
+<td>255</td>
+</tr>
 </tbody></table>
 
 <p><span class="multi-option-required-data">* <strong>Either <span class='attribute-name'>moxi_works_agent_id</span> or <span class='attribute-name'>agent_uuid</span> must be supplied. For guidance on which Agent identifier better fits your use-case, see <a href="#agent-identifiers">Agent Identifiers</a></strong></span></p>
@@ -1480,6 +1485,9 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
 
 <aside class="note">Use <a href='#company'>Company Endpoint</a> to determine the moxi_works_company_id to send.</aside>
 
+<p><span class="request-data-head">include_gci_goals</span>
+<span class="request-data-remarks">Whether to include agent&rsquo;s GCI goals and commissions data in the response data.</span></p>
+
 <h5 id="agent-show-response-payload"><span class='entity-name'>Agent</span> <span class='action-name'>Show</span> Response Payload</h5>
 
 <p>The following attributes make up the payload of the <span class='entity-name'>Agent</span> response for a <span class='action-name'>Show</span> request.</p>
@@ -1490,6 +1498,10 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"moxi_works_agent_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"client_agent_id"</span><span class="p">:</span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"mls_agent_id"</span><span class="p">:</span><span class="s2">"MLS_ID"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"license"</span><span class="p">:</span><span class="s2">"abc123lic"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"mls_name"</span><span class="p">:</span><span class="s2">"Bob's Better MLS"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"mls_abbreviation"</span><span class="p">:</span><span class="s2">"BBM"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"moxi_works_office_id"</span><span class="p">:</span><span class="s2">"8c3f446c-aab9-11e6-9a0f-d0e1408e8026"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"office_id"</span><span class="p">:</span><span class="s2">"1234"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"client_office_id"</span><span class="p">:</span><span class="s2">"987123"</span><span class="p">,</span><span class="w">
@@ -1546,6 +1558,74 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
 </span></code></pre>
 
 <blockquote><div class='highlight json' style="display: block">
+<span class='data-example-label'><span class='entity-name'>Agent</span> <span class='action-name'>Index</span> Response Payload Example when <span class='attribute-name'>include_gci_goals</span> is `true`
+</span></div></blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"moxi_works_agent_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"client_agent_id"</span><span class="p">:</span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"mls_agent_id"</span><span class="p">:</span><span class="s2">"MLS_ID"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"license"</span><span class="p">:</span><span class="s2">"abc123lic"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"mls_name"</span><span class="p">:</span><span class="s2">"Bob's Better MLS"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"mls_abbreviation"</span><span class="p">:</span><span class="s2">"BBM"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"moxi_works_office_id"</span><span class="p">:</span><span class="s2">"8c3f446c-aab9-11e6-9a0f-d0e1408e8026"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"office_id"</span><span class="p">:</span><span class="s2">"1234"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"client_office_id"</span><span class="p">:</span><span class="s2">"987123"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"company_id"</span><span class="p">:</span><span class="s2">"2345"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"client_company_id"</span><span class="p">:</span><span class="s2">"abc392"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"agent_id"</span><span class="p">:</span><span class="s2">"67890"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"office_address_street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3456 Office Ln."</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"office_address_street2"</span><span class="p">:</span><span class="s2">"Suite 1234"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"office_address_city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Officeville"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"office_address_state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AG"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"office_address_zip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Buckminster Fuller"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Buckminster"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fuller"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"main_phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"555) 9101112"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"mobile_phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"555 333 4567"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"alt_phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"(555) 567-8910"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"fax_phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5557891011"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"office_phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"(234)456-7890"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"primary_email_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"the_agent@agentdomain.com"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"secondary_email_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"the_agent_alt@otherdomain.com"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"lead_routing_email_address"</span><span class="p">:</span><span class="s2">"leadrouter@thisdomain.com"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Broker"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"uuid"</span><span class="p">:</span><span class="s2">"8675309e9-1234-dead-beef-deadbeefdead"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"twitter"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@agentguy"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"google_plus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://plus.google.com/1234567891011121314/posts"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"facebook"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.facebook.com/moxiworks/"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"home_page"</span><span class="p">:</span><span class="w"> </span><span class="s2">"foo.com"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"profile_image_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://picturererer.com/pics37/ImageStore.dll?id=852087C5D3A533DD&amp;w=200"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"profile_thumb_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://picturererer.com/pics37/ImageStore.dll?id=852087C5D3A533DD&amp;w=75"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"alternate_offices"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"moxi_works_office_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"office_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1234</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"office_address_street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2636 NW Office Street"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"office_address_street2"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"office_address_city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Altville"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"office_address_state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IN"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"office_address_zip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"23232"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"office_phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"813.555.1221"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"moxi_works_office_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xyz789"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"office_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5678</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"office_address_street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"700 123rd Ave"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"office_address_street2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Suite 1234"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"office_address_city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nextus"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"office_address_state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AL"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"office_address_zip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"99899"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"office_phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"66655544444"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="err">gci_goal</span><span class="p">:</span><span class="w"> </span><span class="mi">122131</span><span class="p">,</span><span class="w">
+  </span><span class="err">buyer_commission_rate</span><span class="p">:</span><span class="w"> </span><span class="mf">1.25</span><span class="p">,</span><span class="w">
+  </span><span class="err">seller_commission_rate</span><span class="p">:</span><span class="w"> </span><span class="mf">1.25</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote><div class='highlight json' style="display: block">
 <span class="data-example-label"><span class='entity-name'>Agent</span> <span class='action-name'>Show</span>: Failure Response</span>
 </div> See <a href='#error-handling'>Error Handling</a> for details about individual error codes.</blockquote>
 <pre class="highlight json"><code><span class="w">
@@ -1572,6 +1652,22 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
 <tr>
 <td><span class="response-data">client_agent_id</span></td>
 <td><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">mls_agent_id</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">license</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">mls_name</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">mls_abbreviation</span></td>
+<td><span class="data-type">String or null</span></td>
 </tr>
 <tr>
 <td><span class="response-data">agent_id</span></td>
@@ -1694,6 +1790,18 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
 <td><span class="data-type">String</span></td>
 </tr>
 <tr>
+<td><span class="response-data">gci_goal</span></td>
+<td><span class="data-type">Integer</span></td>
+</tr>
+<tr>
+<td><span class="response-data">buyer_commission_rate</span></td>
+<td><span class="data-type">Float</span></td>
+</tr>
+<tr>
+<td><span class="response-data">seller_commission_rate</span></td>
+<td><span class="data-type">Float</span></td>
+</tr>
+<tr>
 <td><span class="response-data">alternate_offices</span></td>
 <td><span class="data-type">Array</span></td>
 </tr>
@@ -1704,6 +1812,18 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
 
 <p><span class="response-data-head">client_agent_id</span>
 <span class="response-data-remarks">This is the  ID of the <span class='entity-name'>Agent</span> utilized by their company.</span></p>
+
+<p><span class="response-data-head">mls_agent_id</span>
+<span class="response-data-remarks">This is the  ID of the <span class='entity-name'>Agent</span> utilized by their primary MLS.</span></p>
+
+<p><span class="response-data-head">license</span>
+<span class="response-data-remarks">This is the number of the license granted to the agent.</span></p>
+
+<p><span class="response-data-head">mls_name</span>
+<span class="response-data-remarks">This is the  name of the primary MLS for the agent.</span></p>
+
+<p><span class="response-data-head">mls_abbreviation</span>
+<span class="response-data-remarks">This is the standard abbreviation of the primary MLS utilized by the agent.</span></p>
 
 <p><span class="response-data-head">agent_id</span>
 <span class="response-data-remarks">This is the ID of this <span class='entity-name'>Agent</span>. This will be an integer.</span></p>
@@ -1797,6 +1917,15 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
 
 <p><span class="response-data-head">profile_thumb_url</span>
 <span class="response-data-remarks">This is a valid URL for a thumbnail size image for the agent.  If no agent image has been uploaded for this agent a default image url will be provided.</span></p>
+
+<p><span class="response-data-head">gci_goal</span>
+<span class="response-data-remarks">The agent&rsquo;s  stated gross commission income goal.</span></p>
+
+<p><span class="response-data-head">buyer_commission_rate</span>
+<span class="response-data-remarks">Percentage commission rate for the agent when acting as a buyer&rsquo;s agent.</span></p>
+
+<p><span class="response-data-head">seller_commission_rate</span>
+<span class="response-data-remarks">Percentage commission rate for the agent when acting as a seller&rsquo;s agent.</span></p>
 
 <h6 id="alternate_offices-object"><span class='attribute-name'>alternate_offices</span> Object</h6>
 
@@ -2048,6 +2177,10 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
 </span><span class="p">{</span><span class="w">
   </span><span class="nt">"moxi_works_agent_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"client_agent_id"</span><span class="p">:</span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"mls_agent_id"</span><span class="p">:</span><span class="s2">"MLS_ID"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"license"</span><span class="p">:</span><span class="s2">"abc123lic"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"mls_name"</span><span class="p">:</span><span class="s2">"Bob's Better MLS"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"mls_abbreviation"</span><span class="p">:</span><span class="s2">"BBM"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"moxi_works_office_id"</span><span class="p">:</span><span class="s2">"8c3f446c-aab9-11e6-9a0f-d0e1408e8026"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"office_id"</span><span class="p">:</span><span class="s2">"1234"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"client_office_id"</span><span class="p">:</span><span class="s2">"987123"</span><span class="p">,</span><span class="w">
@@ -2156,6 +2289,22 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
 <tr>
 <td><span class="response-data">client_agent_id</span></td>
 <td><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">mls_agent_id</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">license</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">mls_name</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">mls_abbreviation</span></td>
+<td><span class="data-type">String or null</span></td>
 </tr>
 <tr>
 <td><span class="response-data">agent_id</span></td>
@@ -2288,6 +2437,18 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
 
 <p><span class="response-data-head">client_agent_id</span>
 <span class="response-data-remarks">This is the  ID of the <span class='entity-name'>Agent</span> utilized by their company.</span></p>
+
+<p><span class="response-data-head">mls_agent_id</span>
+<span class="response-data-remarks">This is the  ID of the <span class='entity-name'>Agent</span> utilized by their primary MLS.</span></p>
+
+<p><span class="response-data-head">license</span>
+<span class="response-data-remarks">This is the number of the license granted to the agent.</span></p>
+
+<p><span class="response-data-head">mls_name</span>
+<span class="response-data-remarks">This is the  name of the primary MLS for the agent.</span></p>
+
+<p><span class="response-data-head">mls_abbreviation</span>
+<span class="response-data-remarks">This is the standard abbreviation of the primary MLS utilized by the agent.</span></p>
 
 <p><span class="response-data-head">agent_id</span>
 <span class="response-data-remarks">This is the ID of this <span class='entity-name'>Agent</span>. This will be an integer.</span></p>
@@ -2792,26 +2953,29 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
 <span class='data-example-label'><span class='entity-name'>Brand</span> <span class='action-name'>Index</span> Response Payload Example</span>
 </div></blockquote>
 
-<pre class="highlight json"><code><span class="p">[</span><span class="w">
-  </span><span class="s2">"brands"</span><span class="err">:</span><span class="p">{</span><span class="w">
-  </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"brand name"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"image_logo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://image.url/image.png"</span><span class="p">,</span><span class="w">
-</span><span class="nt">"cma_authoring_color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#123456"</span><span class="p">,</span><span class="w">
-</span><span class="nt">"background_color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#123456"</span><span class="p">,</span><span class="w">
-</span><span class="nt">"background_font_color_primary"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#654321"</span><span class="p">,</span><span class="w">
-</span><span class="nt">"button_background_color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#123456"</span><span class="p">,</span><span class="w">
-</span><span class="nt">"button_font_color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#654321"</span><span class="p">,</span><span class="w">
-</span><span class="nt">"copyright"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&amp;copy; 2017 &lt;a href="</span><span class="err">http://embedded.href.url</span><span class="s2">" target="</span><span class="err">_blank</span><span class="s2">"&gt;Company Copyright Holder&lt;/a&gt; and Possibly another Company"</span><span class="p">,</span><span class="w">
-</span><span class="nt">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Company Display Name"</span><span class="p">,</span><span class="w">
-</span><span class="nt">"email_element_background_color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#654321"</span><span class="p">,</span><span class="w">
-</span><span class="nt">"email_background_font_color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#123456"</span><span class="p">,</span><span class="w">
-</span><span class="nt">"image_cma_pdf_logo_header"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://image.url/pdf_logo@341x110.png"</span><span class="p">,</span><span class="w">
-</span><span class="nt">"image_email_logo_alt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://image.url/email_logo@341x110.png"</span><span class="p">,</span><span class="w">
-</span><span class="nt">"image_favicon"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://favicon.url/favicon.ico"</span><span class="p">,</span><span class="w">
-</span><span class="nt">"image_pres_cover_logo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://image.url/pres_cover_logo@341x110.png"</span><span class="p">,</span><span class="w">
-</span><span class="nt">"pres_block_background_color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#654321"</span><span class="p">,</span><span class="w">
-</span><span class="nt">"pres_block_text_color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#123456"</span><span class="p">,</span><span class="w">
-</span><span class="err">}</span><span class="p">]</span><span class="w">
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"brands"</span><span class="p">:[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"brand name"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"image_logo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://image.url/image.png"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"cma_authoring_color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#123456"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"background_color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#123456"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"background_font_color_primary"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#654321"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"button_background_color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#123456"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"button_font_color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#654321"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"copyright"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&amp;copy; 2017 &lt;a href="</span><span class="err">http://embedded.href.url</span><span class="s2">" target="</span><span class="err">_blank</span><span class="s2">"&gt;Company Copyright Holder&lt;/a&gt; and Possibly another Company"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Company Display Name"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"email_element_background_color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#654321"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"email_background_font_color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#123456"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"image_cma_pdf_logo_header"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://image.url/pdf_logo@341x110.png"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"image_email_logo_alt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://image.url/email_logo@341x110.png"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"image_favicon"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://favicon.url/favicon.ico"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"image_pres_cover_logo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://image.url/pres_cover_logo@341x110.png"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"pres_block_background_color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#654321"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"pres_block_text_color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#123456"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre>
 
 <blockquote><div class='highlight json' style="display: block">
@@ -13403,6 +13567,7 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
   </span><span class="nt">"Status"</span><span class="p">:</span><span class="s2">"active"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"MoxiWorksListingId"</span><span class="p">:</span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"AgentCreatedListing"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"VirtualTourURL"</span><span class="p">:</span><span class="s2">"http://the.virtual.tour.url"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"PropertyFeatures"</span><span class="p">:[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"PropertyFeatureName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kitchen Information"</span><span class="p">,</span><span class="w">
@@ -13434,6 +13599,13 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
         </span><span class="s2">"Microwave"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"Oven/Range Freestanding"</span><span class="w">
       </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"OpenHouse"</span><span class="p">:[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"Date"</span><span class="p">:</span><span class="s2">"2018-01-06T00:00:00.000-08:00"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"StartTime"</span><span class="p">:</span><span class="s2">"2018-01-06T13:00:00.000-08:00"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"EndTime"</span><span class="p">:</span><span class="s2">"2018-01-06T15:00:00.000-08:00"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">
   </span><span class="nt">"ListingImages"</span><span class="p">:[</span><span class="w">
@@ -13683,11 +13855,19 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <td><span class="response-data"><span class="data-type">Boolean</span></td>
 </tr>
 <tr>
+<td><span class="response-data">VirtualTourURL</span></td>
+<td><span class="response-data"><span class="data-type">Boolean</span></td>
+</tr>
+<tr>
 <td><span class="response-data">PropertyFeatures</span></td>
 <td><span class="response-data"><span class="data-type">Array</span></td>
 </tr>
 <tr>
 <td><span class="response-data">CompanyListingAttributes</span></td>
+<td><span class="response-data"><span class="data-type">Array</span></td>
+</tr>
+<tr>
+<td><span class="response-data">OpenHouse</span></td>
 <td><span class="response-data"><span class="data-type">Array</span></td>
 </tr>
 <tr>
@@ -13843,11 +14023,17 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <p><span class="response-data-head">AgentCreatedListing</span>
 <span class="response-data-remarks">Whether the agent created this listing.</span></p>
 
+<p><span class="response-data-head">VirtualTourURL</span>
+<span class="response-data-remarks">Virtual tour URL for this listing.</span></p>
+
 <p><span class="response-data-head">PropertyFeatures</span>
 <span class="response-data-remarks">Any defined features about the property.</span></p>
 
 <p><span class="response-data-head">CompanyListingAttributes</span>
 <span class="response-data-remarks">Company specific attributes associated with the listing. These will be defined by the company &amp; should not be expected to be uniform across companies.</span></p>
+
+<p><span class="response-data-head">OpenHouse</span>
+<span class="response-data-remarks">Open house data.</span></p>
 
 <p><span class="response-data-head">ListingImages</span>
 <span class="response-data-remarks">Any images of the property.</span></p>
@@ -13903,6 +14089,39 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 
 <p><span class="response-data-head">AttributeName</span>
 <span class="response-data-remarks">Human readable name of the company specific listing attribute.</span></p>
+
+<h6 id="openhouse-objects"><span class='attribute-name'>OpenHouse</span> Objects</h6>
+
+<p>Each object in the <span class='attribute-name'>OpenHouse</span> array will have the following structure.</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span class="response-data">Date</span></td>
+<td><span class="response-data"><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">StartTime</span></td>
+<td><span class="response-data"><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">EndTime</span></td>
+<td><span class="response-data"><span class="data-type">String</span></td>
+</tr>
+</tbody></table>
+
+<p><span class="response-data-head">Date</span>
+<span class="response-data-remarks">ISO 8601 formatted string representing the date on which the open house takes place.</span></p>
+
+<p><span class="response-data-head">StartTime</span>
+<span class="response-data-remarks">ISO 8601 formatted string representing the time at which the open house starts.</span></p>
+
+<p><span class="response-data-head">EndTime</span>
+<span class="response-data-remarks">ISO 8601 formatted string representing the time at which the open house ends.</span></p>
 
 <h6 id="listingimages-objects"><span class='attribute-name'>ListingImages</span> Objects</h6>
 
@@ -14241,6 +14460,7 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
   </span><span class="nt">"Status"</span><span class="p">:</span><span class="s2">"active"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"MoxiWorksListingId"</span><span class="p">:</span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"AgentCreatedListing"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"VirtualTourURL"</span><span class="p">:</span><span class="s2">"http://the.virtual.tour.url"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"PropertyFeatures"</span><span class="p">:[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"PropertyFeatureName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kitchen Information"</span><span class="p">,</span><span class="w">
@@ -14282,6 +14502,13 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
       </span><span class="p">{</span><span class="w">
         </span><span class="nt">"AttributeId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"destination"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"AttributeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Destination"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"OpenHouse"</span><span class="p">:[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"Date"</span><span class="p">:</span><span class="s2">"2018-01-06T00:00:00.000-08:00"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"StartTime"</span><span class="p">:</span><span class="s2">"2018-01-06T13:00:00.000-08:00"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"EndTime"</span><span class="p">:</span><span class="s2">"2018-01-06T15:00:00.000-08:00"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">
   </span><span class="nt">"ListingImages"</span><span class="p">:[</span><span class="w">
@@ -14559,11 +14786,19 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <td><span class="response-data"><span class="data-type">Boolean</span></td>
 </tr>
 <tr>
+<td><span class="response-data">VirtualTourURL</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+<tr>
 <td><span class="response-data">PropertyFeatures</span></td>
 <td><span class="response-data"><span class="data-type">Array</span></td>
 </tr>
 <tr>
 <td><span class="response-data">CompanyListingAttributes</span></td>
+<td><span class="response-data"><span class="data-type">Array</span></td>
+</tr>
+<tr>
+<td><span class="response-data">OpenHouse</span></td>
 <td><span class="response-data"><span class="data-type">Array</span></td>
 </tr>
 <tr>
@@ -14719,11 +14954,17 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <p><span class="response-data-head">AgentCreatedListing</span>
 <span class="response-data-remarks">Whether the agent created this listing.</span></p>
 
+<p><span class="response-data-head">VirtualTourURL</span>
+<span class="response-data-remarks">Virtual tour URL for this listing.</span></p>
+
 <p><span class="response-data-head">PropertyFeatures</span>
 <span class="response-data-remarks">Any defined features about the property.</span></p>
 
 <p><span class="response-data-head">CompanyListingAttributes</span>
 <span class="response-data-remarks">Company specific attributes associated with the listing. These will be defined by the company &amp; should not be expected to be uniform across companies.</span></p>
+
+<p><span class="response-data-head">OpenHouse</span>
+<span class="response-data-remarks">Open house data.</span></p>
 
 <p><span class="response-data-head">ListingImages</span>
 <span class="response-data-remarks">Any images of the property.</span></p>
@@ -14779,6 +15020,39 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 
 <p><span class="response-data-head">AttributeName</span>
 <span class="response-data-remarks">Human readable name of the company specific listing attribute.</span></p>
+
+<h6 id="openhouse-objects"><span class='attribute-name'>OpenHouse</span> Objects</h6>
+
+<p>Each object in the <span class='attribute-name'>OpenHouse</span> array will have the following structure.</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span class="response-data">Date</span></td>
+<td><span class="response-data"><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">StartTime</span></td>
+<td><span class="response-data"><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">EndTime</span></td>
+<td><span class="response-data"><span class="data-type">String</span></td>
+</tr>
+</tbody></table>
+
+<p><span class="response-data-head">Date</span>
+<span class="response-data-remarks">ISO 8601 formatted string representing the date on which the open house takes place.</span></p>
+
+<p><span class="response-data-head">StartTime</span>
+<span class="response-data-remarks">ISO 8601 formatted string representing the time at which the open house starts.</span></p>
+
+<p><span class="response-data-head">EndTime</span>
+<span class="response-data-remarks">ISO 8601 formatted string representing the time at which the open house ends.</span></p>
 
 <h6 id="listingimages-objects"><span class='attribute-name'>ListingImages</span> Objects</h6>
 
@@ -14890,7 +15164,7 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <blockquote>
 <p><span class="data-example-label"><span class='entity-name'>Office</span> <span class='action-name'>Show</span> Example</span></p>
 
-<p>First page of all <span class='entity-name'>Office</span> objects for specified <span class='entity-name'>Company</span></p>
+<p>Requested <span class='entity-name'>Office</span> object</p>
 </blockquote>
 
 <pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/offices/deadbeef-deadbeef-feed-facedeadbeef</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
@@ -14988,7 +15262,8 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
     </span><span class="nt">"google_plus"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="nt">"phone"</span><span class="p">:</span><span class="s2">"8185551213"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"timezone"</span><span class="p">:</span><span class="s2">"Pacific Time (US &amp; Canada)"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"twitter"</span><span class="p">:</span><span class="kc">null</span><span class="w">
+    </span><span class="nt">"twitter"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"office_website"</span><span class="p">:</span><span class="s2">"http://the.office.website"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 
 </span></code></pre>
@@ -15078,6 +15353,10 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <td><span class="response-data">twitter</span></td>
 <td><span class="data-type">String or null</span></td>
 </tr>
+<tr>
+<td><span class="response-data">office_website</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
 </tbody></table>
 
 <p><span class="response-data-head">moxi_works_office_id</span>
@@ -15130,6 +15409,9 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 
 <p><span class="response-data-head">twitter</span>
 <span class="response-data-remarks">Office&rsquo;s Twitter account name. This can be null if there is no data available for this attribute.</span></p>
+
+<p><span class="response-data-head">office_website</span>
+<span class="response-data-remarks">Office&rsquo;s website URL. This can be null if there is no data available for this attribute.</span></p>
 
 
 <h4 id="office-index"><span class='entity-name'>Office</span> <span class='action-name'>Index</span></h4>
@@ -15272,7 +15554,8 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
     </span><span class="nt">"google_plus"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="nt">"phone"</span><span class="p">:</span><span class="s2">"8185551213"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"timezone"</span><span class="p">:</span><span class="s2">"Pacific Time (US &amp; Canada)"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"twitter"</span><span class="p">:</span><span class="kc">null</span><span class="w">
+    </span><span class="nt">"twitter"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"office_website"</span><span class="p">:</span><span class="s2">"http://the.office.website"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -15390,6 +15673,10 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <td><span class="response-data">twitter</span></td>
 <td><span class="data-type">String or null</span></td>
 </tr>
+<tr>
+<td><span class="response-data">office_website</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
 </tbody></table>
 
 <p><span class="response-data-head">moxi_works_office_id</span>
@@ -15442,6 +15729,9 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 
 <p><span class="response-data-head">twitter</span>
 <span class="response-data-remarks">Office&rsquo;s Twitter account name. This can be null if there is no data available for this attribute.</span></p>
+
+<p><span class="response-data-head">office_website</span>
+<span class="response-data-remarks">Office&rsquo;s website URL. This can be null if there is no data available for this attribute.</span></p>
 
 
 <h3 id="presentationlog"><span class='entity-name'>PresentationLog</span></h3>
@@ -15625,7 +15915,8 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
       </span><span class="nt">"pdf_requested"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
       </span><span class="nt">"pres_requested"</span><span class="p">:</span><span class="w"> </span><span class="mi">34</span><span class="p">,</span><span class="w">
       </span><span class="nt">"external_identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"external_office_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"678910"</span><span class="w">
+      </span><span class="nt">"external_office_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"678910"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"moxi_works_presentation_id"</span><span class="p">:</span><span class="s2">"8675309e9-dead-beef-1234-deadbeefabad"</span><span class="w">
       </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -15727,6 +16018,10 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <td><span class="response-data">external_office_id</span></td>
 <td><span class="data-type">String or null</span></td>
 </tr>
+<tr>
+<td><span class="response-data">moxi_works_presentation_id</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
 </tbody></table>
 
 <p><span class="response-data-head">agent_uuid</span>
@@ -15767,6 +16062,9 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 
 <p><span class="response-data-head">external_office_id</span>
 <span class="response-data-remarks">This is the  ID of the office for this <span class='entity-name'>Agent</span> utilized by their company.</span></p>
+
+<p><span class="response-data-head">moxi_works_presentation_id</span>
+<span class="response-data-remarks">The unique UUID of the presentation. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID.</span></p>
 
 
 <h3 id="sellertransaction"><span class='entity-name'>SellerTransaction</span></h3>
@@ -18279,6 +18577,1678 @@ moxi_works_agent_id=abc123
 <span class="response-data-remarks">A Unix timestamp representing the point in time when the transaction for this <span class='entity-name'>SellerTransaction</span> object was completed. This should be <code class="prettyprint">null</code> if the <span class='entity-name'>SellerTransaction</span> is not yet in <code class="prettyprint">complete</code> state.</span></p>
 
 
+<h3 id="soldlisting"><span class='entity-name'>SoldListing</span></h3>
+
+<p>Moxi Works Platform <span class='entity-name'>SoldListing</span> entities represent a Brokerage&rsquo;s sold listings. </p>
+
+<h4 id="soldlisting-show"><span class='entity-name'>SoldListing</span> <span class='action-name'>Show  </span></h4>
+
+<div class='highlight ruby'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-ruby/MoxiworksPlatform/SoldListing.html#find-class_method'>Ruby Find Docs</a></span></blockquote></div>
+
+<div class='highlight php'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-php/classes/MoxiworksPlatform.SoldListing.html#method_find'>PHP Find Docs</a></span></blockquote></div>
+
+<blockquote>
+<p><span class="data-example-label"><span class='entity-name'>SoldListing</span> <span class='action-name'>Show</span> Example</span></p>
+</blockquote>
+
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"moxi_works_listing_id"</span><span class="p">:</span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"moxi_works_company_id"</span><span class="p">:</span><span class="s2">"bobs_better_houses"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/sold_listings/[moxi_works_listing_id]?moxi_works_company_id=bobs_better_houses</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">api.moxiworks.com</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.moxi-platform+json;version=1</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Basic XNNeXAAAUZaQlF0dA==</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/x-www-form-urlencoded</span>
+
+</code></pre>
+
+<pre class="highlight ruby"><code><span class="c1">##### set up prerequisites once</span>
+<span class="nb">require</span> <span class="s1">'moxiworks_platform'</span>
+
+<span class="n">platform_identifier</span> <span class="o">=</span> <span class="s1">'abc123'</span>
+
+<span class="n">platform_secret</span> <span class="o">=</span> <span class="s1">'secret'</span>
+
+<span class="no">MoxiworksPlatform</span><span class="o">::</span><span class="no">Credentials</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">platform_identifier</span><span class="p">,</span> <span class="n">platform_secret</span><span class="p">)</span>
+<span class="c1">##### end prerequisites</span>
+
+<span class="n">moxi_works_listing</span> <span class="o">=</span> <span class="no">MoxiworksPlatform</span><span class="o">::</span><span class="no">SoldListing</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span>
+        <span class="ss">moxi_works_listing_id: </span><span class="s2">"1234abcd"</span><span class="p">,</span>
+        <span class="ss">moxi_works_company_id: </span><span class="s2">"abc123"</span><span class="p">)</span>
+
+</code></pre>
+
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+<span class="nv">$platform_identifier</span> <span class="o">=</span> <span class="s1">'abc123'</span><span class="p">;</span> <span class="c1">// platorm_identifier provided by Moxi Works Platform Rep
+</span><span class="nv">$platform_secret</span> <span class="o">=</span> <span class="s1">'secret'</span><span class="p">;</span> <span class="c1">//platform_secret provided by Moxi Works Platform Rep
+</span>
+<span class="nv">$credentials</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MoxiworksPlatform\Credentials</span><span class="p">(</span><span class="nv">$platform_identifier</span><span class="p">,</span> <span class="nv">$platform_secret</span><span class="p">);</span>
+
+<span class="nv">$moxi_works_listing</span> <span class="o">=</span> <span class="nx">MoxiworksPlatform\SoldListing</span><span class="o">::</span><span class="na">find</span><span class="p">([</span>
+        <span class="s1">'moxi_works_listing_id'</span> <span class="o">=&gt;</span> <span class="s1">'1234abcd'</span><span class="p">,</span>
+        <span class="s1">'moxi_works_company_id'</span> <span class="o">=&gt;</span> <span class="s1">'abc123'</span><span class="p">]);</span>
+<span class="cp">?&gt;</span>
+</code></pre>
+
+<aside class="note">Send a <b>GET</b> request to https://api.moxiworks.com/api/sold_listings/[moxi_works_listing_id]</aside>
+
+<p>When showing <span class='entity-name'>SoldListing</span> objects using the Moxi Works platform API, format your data using the following parameters.</p>
+
+<h5 id="soldlisting-show-request-attributes"><span class='entity-name'>SoldListing</span> <span class='action-name'>Show</span> Request Attributes</h5>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Length Limit</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span class="required-data">moxi_works_listing_id</span></td>
+<td><span class="required-data"><span class="data-type">String</span></span></td>
+<td><span class="required-data">255</span></td>
+</tr>
+<tr>
+<td><span class="required-data">moxi_works_company_id</span></td>
+<td><span class="required-data"><span class="data-type">String</span></span></td>
+<td><span class="required-data">255<span></td>
+</tr>
+</tbody></table>
+
+<p><span class="required-data"><strong>Required Parameters Are In Red</strong></span></p>
+
+<p><span class="request-data-head">moxi_works_listing_id</span>
+<span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>SoldListing</span> which you are requesting to <span class='action-name'>Show</span>. This data is required and must reference a valid Moxi Works <span class='entity-name'>SoldListing</span> ID for your <span class='action-name'>Show</span>  request to be accepted.</span></p>
+
+<p><span class="request-data-head">moxi_works_company_id</span>
+<span class="request-data-remarks">A valid Moxi Works <span class='entity-name'>Company</span> ID. Use <a href="#company">Company Endpoint</a> to determine what <span class='attribute-name'>moxi_works_company_id</span> you can use.</span></p>
+
+<aside class="note">Use <a href='#company'>Company Endpoint</a> to determine the moxi_works_company_id to send.</aside>
+
+<blockquote><div class='highlight json' style="display: block">
+<span class='data-example-label'><span class='entity-name'>SoldListing</span> <span class='action-name'>Show</span> Response Payload Example
+</span></div></blockquote>
+<pre class="highlight json"><code><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="nt">"LotSizeAcres"</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"BathroomsFull"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"BathroomsHalf"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"BathroomsOneQuarter"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"BathroomsPartial"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"BathroomsThreeQuarter"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"BathroomsTotalInteger"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"BathroomsTotal"</span><span class="p">:</span><span class="mf">3.0</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"BedroomsTotal"</span><span class="p">:</span><span class="mi">8</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"PublicRemarks"</span><span class="p">:</span><span class="s2">"Publicalistically Remarkabalistically! REMARKABLE!!"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ModificationTimestamp"</span><span class="p">:</span><span class="s2">"11/01/2016"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"InternetAddressDisplayYN"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"DaysOnMarket"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ListingContractDate"</span><span class="p">:</span><span class="s2">"07/27/2016"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"CreatedDate"</span><span class="p">:</span><span class="s2">"11/01/2016"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ElementarySchool"</span><span class="p">:</span><span class="s2">"Elementary My Dear School"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"GarageSpaces"</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"WaterfrontYN"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"HighSchool"</span><span class="p">:</span><span class="s2">"Higher Than Junior"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"AssociationFee"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ListOfficeName"</span><span class="p">:</span><span class="s2">"Realty Valley United"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ListPrice"</span><span class="p">:</span><span class="mi">599000</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ListingID"</span><span class="p">:</span><span class="s2">"12323"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ListAgentFullName"</span><span class="p">:</span><span class="s2">"Bob Agentson"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ListAgentUUID"</span><span class="p">:</span><span class="s2">"8675309e9-1234-dead-beef-deadbeefdead"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"SecondaryListAgentFullName"</span><span class="p">:</span><span class="s2">"Richard Agent"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"SecondaryListAgentUUID"</span><span class="p">:</span><span class="s2">"8675309e9-2345-dead-beef-deadbeefdead"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Address"</span><span class="p">:</span><span class="s2">"97 Hilltop Road"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Address2"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"City"</span><span class="p">:</span><span class="s2">"Montecarlo"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"CountyOrParish"</span><span class="p">:</span><span class="s2">"Counting Parishes"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Latitude"</span><span class="p">:</span><span class="s2">"47.723251"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Longitude"</span><span class="p">:</span><span class="s2">"-122.171745"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"StateOrProvince"</span><span class="p">:</span><span class="s2">"NV"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"PostalCode"</span><span class="p">:</span><span class="s2">"87654"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"LotSizeSquareFeet"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"InternetEntireListingDisplayYN"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"MiddleOrJuniorSchool"</span><span class="p">:</span><span class="s2">"*The* Junior High"</span><span class="w"> </span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ListOfficeAOR"</span><span class="p">:</span><span class="s2">"WHATEVERS MLS"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"PoolYN"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"PropertyType"</span><span class="p">:</span><span class="s2">"Residential"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"TaxAnnualAmount"</span><span class="p">:</span><span class="mi">13652</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"TaxYear"</span><span class="p">:</span><span class="mi">2015</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"SingleStory"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"LivingArea"</span><span class="p">:</span><span class="mi">3640</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ViewYN"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"YearBuilt"</span><span class="p">:</span><span class="mi">1989</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"OnMarket"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Status"</span><span class="p">:</span><span class="s2">"active"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"MoxiWorksListingId"</span><span class="p">:</span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"AgentCreatedListing"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"VirtualTourURL"</span><span class="p">:</span><span class="s2">"http://the.virtual.tour.url"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"SoldDate"</span><span class="p">:</span><span class="s2">"11/04/2016"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"SoldPrice"</span><span class="p">:</span><span class="mi">192349</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"PropertyFeatures"</span><span class="p">:[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"PropertyFeatureName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kitchen Information"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"PropertyFeatureValues"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"Dishwasher"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Microwave"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Oven/Range Freestanding"</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"PropertyFeatureName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Roof Description"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"PropertyFeatureValues"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"Comp Shingle"</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"PropertyFeatureName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Number Of Stories"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"PropertyFeatureValues"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"Two Story"</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"PropertyFeatureName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Interior Features"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"PropertyFeatureValues"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"Bath Master"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Broadband Internet"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Cable/Satellite Tv"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Dishwasher"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Microwave"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Oven/Range Freestanding"</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"ListingImages"</span><span class="p">:[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"FullURL"</span><span class="p">:</span><span class="s2">"http://images.moxiworks.com/static/images/br/imagoo/default_property_image_wre-326x250.png"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"GalleryURL"</span><span class="p">:</span><span class="s2">"http://images.moxiworks.com/static/images/br/imagoo/default_property_image_wre-326x250.png"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"RawURL"</span><span class="p">:</span><span class="s2">"http://images.moxiworks.com/static/images/br/imagoo/default_property_image_wre-326x250.png"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"SmallURL"</span><span class="p">:</span><span class="s2">"http://images.moxiworks.com/static/images/br/imagoo/default_property_image_wre-326x250.png"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ThumbURL"</span><span class="p">:</span><span class="s2">"http://images.moxiworks.com/static/images/br/imagoo/default_property_image_wre-326x250.png"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Title"</span><span class="p">:</span><span class="s2">"Image Title"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"IsMainListingImage"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Caption"</span><span class="p">:</span><span class="s2">"Image Caption"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Description"</span><span class="p">:</span><span class="s2">"Image Description"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Width"</span><span class="p">:</span><span class="mi">1024</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Height"</span><span class="p">:</span><span class="mi">768</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"MimeType"</span><span class="p">:</span><span class="s2">"image/jpeg"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote><div class='highlight json' style="display: block">
+  <span class='data-example-label'><span class='entity-name'>SoldListing</span> <span class='action-name'>Show</span> Failure Response Example
+</div> See <a href='#error-handling'>Error Handling</a> for details about individual error codes.</blockquote>
+<pre class="highlight json"><code><span class="w">
+
+</span><span class="p">{</span><span class="w">
+  </span><span class="nt">"status"</span><span class="p">:</span><span class="s2">"fail"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"errorCode"</span><span class="p">:</span><span class="w"> </span><span class="err">xxx</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"messages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"messages"</span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+
+<h5 id="soldlisting-show-response-payload"><span class='entity-name'>SoldListing</span> <span class='action-name'>Show</span> Response Payload</h5>
+
+<p>The following attributes make up the payload of the <span class='entity-name'>SoldListing</span> response for a <span class='action-name'>Show</span> request.</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span class="response-data">LotSizeAcres</span></td>
+<td><span class="response-data"><span class="data-type">Float or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">BathroomsFull</span></td>
+<td><span class="response-data"><span class="data-type">Integer or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">BathroomsHalf</span></td>
+<td><span class="response-data"><span class="data-type">Integer or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">BathroomsOneQuarter</span></td>
+<td><span class="response-data"><span class="data-type">Integer or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">BathroomsPartial</span></td>
+<td><span class="response-data"><span class="data-type">Integer or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">BathroomsThreeQuarter</span></td>
+<td><span class="response-data"><span class="data-type">Integer or Null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">BathroomsTotalInteger</span></td>
+<td><span class="response-data"><span class="data-type">Integer or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">BathroomsTotal</span></td>
+<td><span class="response-data"><span class="data-type">Float or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">BedroomsTotal</span></td>
+<td><span class="response-data"><span class="data-type">Integer or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">PublicRemarks</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">ModificationTimestamp</span></td>
+<td><span class="response-data"><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">InternetAddressDisplayYN</span></td>
+<td><span class="response-data"><span class="data-type">Boolean or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">DaysOnMarket</span></td>
+<td><span class="response-data"><span class="data-type">Integer</span></td>
+</tr>
+<tr>
+<td><span class="response-data">SoldListingContractDate</span></td>
+<td><span class="response-data"><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">CreatedDate</span></td>
+<td><span class="response-data"><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">ElementarySchool</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">GarageSpaces</span></td>
+<td><span class="response-data"><span class="data-type">Integer or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">WaterfrontYN</span></td>
+<td><span class="response-data"><span class="data-type">Boolean or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">HighSchool</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">AssociationFee</span></td>
+<td><span class="response-data"><span class="data-type">Integer or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">ListOfficeName</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">ListPrice</span></td>
+<td><span class="response-data"><span class="data-type">Integer or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">SoldListingID</span></td>
+<td><span class="response-data"><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">ListAgentFullName</span></td>
+<td><span class="response-data"><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">ListAgentUUID</span></td>
+<td><span class="response-data"><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">SecondaryListAgentFullName</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">SecondaryListAgentUUID</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">Address</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">Address2</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">City</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">CountyOrParish</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">Latitude</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">Longitude</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">StateOrProvince</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">PostalCode</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">LotSizeSquareFeet</span></td>
+<td><span class="response-data"><span class="data-type">Integer or Null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">InternetEntireListingDisplayYN</span></td>
+<td><span class="response-data"><span class="data-type">Boolean</span></td>
+</tr>
+<tr>
+<td><span class="response-data">MiddleOrJuniorSchool</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">ListOfficeAOR</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">PoolYN</span></td>
+<td><span class="response-data"><span class="data-type">Boolean or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">PropertyType</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">TaxAnnualAmount</span></td>
+<td><span class="response-data"><span class="data-type">Integer or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">TaxYear</span></td>
+<td><span class="response-data"><span class="data-type">Integer or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">SingleStory</span></td>
+<td><span class="response-data"><span class="data-type">Boolean or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">LivingArea</span></td>
+<td><span class="response-data"><span class="data-type">Integer or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">ViewYN</span></td>
+<td><span class="response-data"><span class="data-type">Boolean or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">YearBuilt</span></td>
+<td><span class="response-data"><span class="data-type">Integer or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">OnMarket</span></td>
+<td><span class="response-data"><span class="data-type">Boolean or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">Status</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">MoxiWorksListingId</span></td>
+<td><span class="response-data"><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">AgentCreatedListing</span></td>
+<td><span class="response-data"><span class="data-type">Boolean</span></td>
+</tr>
+<tr>
+<td><span class="response-data">VirtualTourURL</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">SoldDate</span></td>
+<td><span class="response-data"><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">SoldPrice</span></td>
+<td><span class="response-data"><span class="data-type">Integer</span></td>
+</tr>
+<tr>
+<td><span class="response-data">PropertyFeatures</span></td>
+<td><span class="response-data"><span class="data-type">Array</span></td>
+</tr>
+<tr>
+<td><span class="response-data">CompanyListingAttributes</span></td>
+<td><span class="response-data"><span class="data-type">Array</span></td>
+</tr>
+<tr>
+<td><span class="response-data">ListingImages</span></td>
+<td><span class="response-data"><span class="data-type">Array</span></td>
+</tr>
+</tbody></table>
+
+<p><span class="response-data-head">LotSizeAcres</span>
+<span class="response-data-remarks">This is the property size of the listing land in acres. If no data is available for this attribute, it will be <code class="prettyprint">null</code>.</span></p>
+
+<p><span class="response-data-head">BathroomsFull</span>
+<span class="response-data-remarks">This is the number of full bathrooms in the property.  If no data is available for this attribute, it will be <code class="prettyprint">null</code>.</span></p>
+
+<p><span class="response-data-head">BathroomsHalf</span>
+<span class="response-data-remarks">This is the number of half bathrooms in the property.  If no data is available for this attribute, it will be <code class="prettyprint">null</code>.</span></p>
+
+<p><span class="response-data-head">BathroomsOneQuarter</span>
+<span class="response-data-remarks">This is the number of quarter-sized bathrooms in the property.  If no data is available for this attribute, it will be <code class="prettyprint">null</code>.</span></p>
+
+<p><span class="response-data-head">BathroomsPartial</span>
+<span class="response-data-remarks">This is the number of partial bathrooms in the property.  If no data is available for this attribute, it will be <code class="prettyprint">null</code>.</span></p>
+
+<p><span class="response-data-head">BathroomsThreeQuarter</span>
+<span class="response-data-remarks">This is the number of three-quarter bathrooms in the property.  If no data is available for this attribute, it will be <code class="prettyprint">null</code>.</span></p>
+
+<p><span class="response-data-head">BathroomsTotalInteger</span>
+<span class="response-data-remarks">This is the number of rooms that are bathrooms in the property. This is not a summary count of bathrooms by size.  If no data is available for this attribute, it will be <code class="prettyprint">null</code>.</span></p>
+
+<p><span class="response-data-head">BathroomsTotal</span>
+<span class="response-data-remarks">This is the summary count of bathrooms in the property. This will be the number of quarter-bathrooms plus half-bathrooms plus three-quarter bathrooms plus full bathrooms.  If no data is available for this attribute, it will be <code class="prettyprint">null</code>.</span></p>
+
+<p><span class="response-data-head">BedroomsTotal</span>
+<span class="response-data-remarks">This is the number of bedrooms in the property.  If no data is available for this attribute, it will be <code class="prettyprint">null</code>.</span></p>
+
+<p><span class="response-data-head">PublicRemarks</span>
+<span class="response-data-remarks">These are human-readable notes about the property generated by the property agent.  If no data is available for this attribute, it will be <code class="prettyprint">null</code>.</span></p>
+
+<p><span class="response-data-head">ModificationTimestamp</span>
+<span class="response-data-remarks">This is a string representing a date on which the listing data was last updated. The string format is <code class="prettyprint">MM/DD/YYYY</code>.  If no data is available for this attribute, it will be <code class="prettyprint">null</code>.</span></p>
+
+<p><span class="response-data-head">InternetAddressDisplayYN</span>
+<span class="response-data-remarks">This denotes whether the property should be displayed on a public facing website. If no data is available for this attribute, it will be <code class="prettyprint">null</code>.</span></p>
+
+<p><span class="response-data-head">DaysOnMarket</span>
+<span class="response-data-remarks">The number of days the listing has been on market.</span></p>
+
+<p><span class="response-data-head">SoldListingContractDate</span>
+<span class="response-data-remarks">This is a string representing a date on which the listing contract was initiated. The string format is <code class="prettyprint">MM/DD/YYYY</code>.</span></p>
+
+<p><span class="response-data-head">CreatedDate</span>
+<span class="response-data-remarks">This is a string representing a date on which the <span class='entity-name'>SoldListing</span> object was created. The string format is <code class="prettyprint">MM/DD/YYYY</code>.</span></p>
+
+<p><span class="response-data-head">ElementarySchool</span>
+<span class="response-data-remarks">The elementary school for the property.</span></p>
+
+<p><span class="response-data-head">GarageSpaces</span>
+<span class="response-data-remarks">The number of garage spaces that are available at the property.</span></p>
+
+<p><span class="response-data-head">WaterfrontYN</span>
+<span class="response-data-remarks">Whether the property is waterfront.</span></p>
+
+<p><span class="response-data-head">HighSchool</span>
+<span class="response-data-remarks">The high school for the property.</span></p>
+
+<p><span class="response-data-head">AssociationFee</span>
+<span class="response-data-remarks">The home owner&rsquo;s association fee for the property.</span></p>
+
+<p><span class="response-data-head">ListOfficeName</span>
+<span class="response-data-remarks">The name of the listing office.</span></p>
+
+<p><span class="response-data-head">ListPrice</span>
+<span class="response-data-remarks">The listed price for the listing.</span></p>
+
+<p><span class="response-data-head">SoldListingID</span>
+<span class="response-data-remarks">The MLS number for the listing.</span></p>
+
+<p><span class="response-data-head">ListAgentFullName</span>
+<span class="response-data-remarks">The name of the listing agent.</span></p>
+
+<p><span class="response-data-head">ListAgentUUID</span>
+<span class="response-data-remarks">A unique identifier for the listing agent. This will correspond to the uuid field of an <span class='entity-name'>Agent</span>.</span></p>
+
+<p><span class="response-data-head">SecondaryListAgentFullName</span>
+<span class="response-data-remarks">If there is a second listing agent, the name of the second listing agent.</span></p>
+
+<p><span class="response-data-head">SecondaryListAgentUUID</span>
+<span class="response-data-remarks">If there is a second listing agent, the unique identifier for the second listing agent. This will correspond to the uuid field of an <span class='entity-name'>Agent</span>.</span></p>
+
+<p><span class="response-data-head">Address</span>
+<span class="response-data-remarks">The street address of the property.</span></p>
+
+<p><span class="response-data-head">Address2</span>
+<span class="response-data-remarks">Additional street address information, for example, suite number.</span></p>
+
+<p><span class="response-data-head">City</span>
+<span class="response-data-remarks">City or township the property is located in.</span></p>
+
+<p><span class="response-data-head">State</span>
+<span class="response-data-remarks">State or province the property is located in.</span></p>
+
+<p><span class="response-data-head">PostalCode</span>
+<span class="response-data-remarks">The zip code or postal code the property is located in.</span></p>
+
+<p><span class="response-data-head">LotSizeSquareFeet</span>
+<span class="response-data-remarks">Total area of the lot.</span></p>
+
+<p><span class="response-data-head">InternetEntireListingDisplayYN</span>
+<span class="response-data-remarks">Whether to display information about this listing publicly. If this is false, then the information about this listing should not be visible to the Internet. </span></p>
+
+<p><span class="response-data-head">MiddleOrJuniorSchool</span>
+<span class="response-data-remarks">The middle school for the property.</span></p>
+
+<p><span class="response-data-head">ListOfficeAOR</span>
+<span class="response-data-remarks">The name of the MLS which this listing is listed with.</span></p>
+
+<p><span class="response-data-head">PoolYN</span>
+<span class="response-data-remarks">Whether the property has a pool.</span></p>
+
+<p><span class="response-data-head">PropertyType</span>
+<span class="response-data-remarks">The type of property being listed. This can be one of <code class="prettyprint">Residential</code>, <code class="prettyprint">Condo-Coop</code>, <code class="prettyprint">Townhouse</code>, <code class="prettyprint">Land</code>, <code class="prettyprint">Multifamily</code> </span></p>
+
+<p><span class="response-data-head">TaxAnnualAmount</span>
+<span class="response-data-remarks">The total annual property tax.</span></p>
+
+<p><span class="response-data-head">TaxYear</span>
+<span class="response-data-remarks">The tax year that the property tax in <span class='attribute-name'>TaxAnnualAmount</span> was assessed.</span></p>
+
+<p><span class="response-data-head">SingleStory</span>
+<span class="response-data-remarks">Whether the building has one story or is multi-story.</span></p>
+
+<p><span class="response-data-head">LivingArea</span>
+<span class="response-data-remarks">Total square footage of the building(s) on the property.</span></p>
+
+<p><span class="response-data-head">Title</span>
+<span class="response-data-remarks">A short description of the property.</span></p>
+
+<p><span class="response-data-head">ViewYN</span>
+<span class="response-data-remarks">Whether the property has a view.</span></p>
+
+<p><span class="response-data-head">YearBuilt</span>
+<span class="response-data-remarks">The year the living building(s) on the property were built.</span></p>
+
+<p><span class="response-data-head">OnMarket</span>
+<span class="response-data-remarks">Whether the listing is currently on-market.</span></p>
+
+<p><span class="response-data-head">Status</span>
+<span class="response-data-remarks">Detailed status of the listing</span></p>
+
+<p><span class="response-data-head">MoxiWorksListingID</span>
+<span class="response-data-remarks">The unique Identifier for the listing in The Moxi Works Platform.</span></p>
+
+<p><span class="response-data-head">AgentCreatedListing</span>
+<span class="response-data-remarks">Whether the agent created this listing.</span></p>
+
+<p><span class="response-data-head">VirtualTourURL</span>
+<span class="response-data-remarks">Virtual tour URL for this listing.</span></p>
+
+<p><span class="response-data-head">SoldDate</span>
+<span class="response-data-remarks">Date on which this listing was sold.</span></p>
+
+<p><span class="response-data-head">SoldPrice</span>
+<span class="response-data-remarks">Price for which this listing was sold.</span></p>
+
+<p><span class="response-data-head">PropertyFeatures</span>
+<span class="response-data-remarks">Any defined features about the property.</span></p>
+
+<p><span class="response-data-head">CompanyListingAttributes</span>
+<span class="response-data-remarks">Company specific attributes associated with the listing. These will be defined by the company &amp; should not be expected to be uniform across companies.</span></p>
+
+<p><span class="response-data-head">ListingImages</span>
+<span class="response-data-remarks">Any images of the property.</span></p>
+
+<h6 id="propertyfeature-objects"><span class='attribute-name'>PropertyFeature</span> Objects</h6>
+
+<p>Each object in the <span class='attribute-name'>PropertyFeatures</span> array will have the following structure.</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span class="response-data">PropertyFeatureName</span></td>
+<td><span class="response-data"><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">PropertyFeatureValues</span></td>
+<td><span class="response-data"><span class="data-type">Array</span></td>
+</tr>
+</tbody></table>
+
+<p><span class="response-data-head">PropertyFeatureName</span>
+<span class="response-data-remarks">Human readable name associated with the feature.</span></p>
+
+<p><span class="response-data-head">PropertyFeatureValues</span>
+<span class="response-data-remarks">An array of strings which are human readable values associated with the feature.</span></p>
+
+<h6 id="companylistingattributes-objects"><span class='attribute-name'>CompanyListingAttributes</span> Objects</h6>
+
+<p>Each object in the <span class='attribute-name'>CompanyListingAttributes</span> array will have the following structure.</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span class="response-data">AttributeId</span></td>
+<td><span class="response-data"><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">AttributeName</span></td>
+<td><span class="response-data"><span class="data-type">String</span></td>
+</tr>
+</tbody></table>
+
+<p><span class="response-data-head">AttributeId</span>
+<span class="response-data-remarks">Unique ID for the attribute.</span></p>
+
+<p><span class="response-data-head">AttributeName</span>
+<span class="response-data-remarks">Human readable name of the company specific listing attribute.</span></p>
+
+<h6 id="listingimages-objects"><span class='attribute-name'>ListingImages</span> Objects</h6>
+
+<p>Each object in the <span class='attribute-name'>ListingImages</span> array will have the following structure.</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span class="response-data">ThumbURL</span></td>
+<td><span class="response-data"><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">SmallURL</span></td>
+<td><span class="response-data"><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">FullURL</span></td>
+<td><span class="response-data"><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">GalleryURL</span></td>
+<td><span class="response-data"><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">RawURL</span></td>
+<td><span class="response-data"><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">Title</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">IsMainListingImage</span></td>
+<td><span class="response-data"><span class="data-type">Boolean</span></td>
+</tr>
+<tr>
+<td><span class="response-data">Caption</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">Description</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">Width</span></td>
+<td><span class="response-data"><span class="data-type">Integer or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">Height</span></td>
+<td><span class="response-data"><span class="data-type">Integer or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">MimeType</span></td>
+<td><span class="response-data"><span class="data-type">String</span></td>
+</tr>
+</tbody></table>
+
+<p><span class="response-data-head">ThumbURL</span>
+<span class="response-data-remarks">This is a valid URL that can be used for <code class="prettyprint">img src</code> to a thumbnail sized representation of the image. This is the smallest size image returned in each object in the <span class='attribute-name'>ListingImages</span> array.</span></p>
+
+<p><span class="response-data-head">SmallURL</span>
+<span class="response-data-remarks">This is a valid URL that can be used for <code class="prettyprint">img src</code> to a small sized representation of the image. This is the small size image returned in each object in the <span class='attribute-name'>ListingImages</span> array.</span></p>
+
+<p><span class="response-data-head">FullURL</span>
+<span class="response-data-remarks">This is a valid URL that can be used for <code class="prettyprint">img src</code> to a medium sized representation of the image. This is the medium size image returned in each object in the <span class='attribute-name'>ListingImages</span> array.</span></p>
+
+<p><span class="response-data-head">GalleryURL</span>
+<span class="response-data-remarks">This is a valid URL that can be used for <code class="prettyprint">img src</code> to a large sized representation of the image. This is the large size image returned in each object in the <span class='attribute-name'>ListingImages</span> array.</span></p>
+
+<p><span class="response-data-head">RawURL</span>
+<span class="response-data-remarks">This is a valid URL to the raw image as uploaded. This is the largest size image returned in each object in the <span class='attribute-name'>ListingImages</span> array. Due to variation in size, this image should not be considered for use when displaying images rendered in a browser.</span></p>
+
+<p><span class="response-data-head">Title</span>
+<span class="response-data-remarks">Human readable title of image.</span></p>
+
+<p><span class="response-data-head">IsMainListingImage</span>
+<span class="response-data-remarks">Whether this image is considered the primary image for the listing.</span></p>
+
+<p><span class="response-data-head">Caption</span>
+<span class="response-data-remarks">Human readable caption for the image.</span></p>
+
+<p><span class="response-data-head">Description</span>
+<span class="response-data-remarks">Human readable description of image.</span></p>
+
+<p><span class="response-data-head">Width</span>
+<span class="response-data-remarks">Width of the raw image.</span></p>
+
+<p><span class="response-data-head">Height</span>
+<span class="response-data-remarks">Height of the raw image.</span></p>
+
+<p><span class="response-data-head">MimeType</span>
+<span class="response-data-remarks">MIME or media type of the image.</span></p>
+
+
+<h4 id="soldlisting-index"><span class='entity-name'>SoldListing</span> <span class='action-name'>Index  </span></h4>
+
+<div class='highlight ruby'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-ruby/MoxiworksPlatform/SoldListing.html#search-class_method'>Ruby Search Docs</a></span></blockquote></div>
+
+<div class='highlight php'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-php/classes/MoxiworksPlatform.SoldListing.html#method_search'>PHP Search Docs</a></span></blockquote></div>
+
+<p>Index will return a paged response of sold listings that have been updated since a given timestamp for a specified company. For a list of company IDs that you can reques sold listings for, use the <a href="#company">Company Endpoint</a>.</p>
+
+<aside class="note">If no sold_since parameter is provided, listings that have been updated in the <b>last seven days</b> will be returned.</aside>
+
+<blockquote>
+<p><span class="data-example-label"><span class='entity-name'>SoldListing</span> <span class='action-name'>Index</span> Example</span></p>
+
+<p><span class="data-example-label"><span class='entity-name'>SoldListing</span> Objects Updated Since A Given Timestamp</span></p>
+</blockquote>
+
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"moxi_works_company_id"</span><span class="p">:</span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"sold_since"</span><span class="p">:</span><span class="s2">"1461108284"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/sold_listings?moxi_works_company_id=abc123&amp;sold_since=1461108284</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">api.moxiworks.com</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.moxi-platform+json;version=1</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Basic XNNeXAAAUZaQlF0dA==</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/x-www-form-urlencoded</span>
+
+</code></pre>
+
+<pre class="highlight ruby"><code>
+<span class="c1">##### set up prerequisites once</span>
+<span class="nb">require</span> <span class="s1">'moxiworks_platform'</span>
+
+<span class="n">platform_identifier</span> <span class="o">=</span> <span class="s1">'abc123'</span>
+
+<span class="n">platform_secret</span> <span class="o">=</span> <span class="s1">'secret'</span>
+
+<span class="no">MoxiworksPlatform</span><span class="o">::</span><span class="no">Credentials</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">platform_identifier</span><span class="p">,</span> <span class="n">platform_secret</span><span class="p">)</span>
+<span class="c1">##### end prerequisites</span>
+
+<span class="n">one_week</span> <span class="o">=</span>  <span class="n">defined?</span><span class="p">(</span><span class="no">Rails</span><span class="p">)</span> <span class="p">?</span> <span class="mi">1</span><span class="p">.</span><span class="nf">week</span> <span class="p">:</span> <span class="mi">604800</span>
+<span class="n">company_listings</span> <span class="o">=</span> <span class="no">MoxiworksPlatform</span><span class="o">::</span><span class="no">SoldListing</span><span class="p">.</span><span class="nf">search</span><span class="p">(</span><span class="ss">moxi_works_company_id: </span><span class="s2">"abc123"</span><span class="p">,</span> <span class="ss">sold_since: </span><span class="no">Time</span><span class="p">.</span><span class="nf">now</span> <span class="o">-</span> <span class="n">one_week</span><span class="p">)</span>
+
+</code></pre>
+
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+<span class="nv">$platform_identifier</span> <span class="o">=</span> <span class="s1">'abc123'</span><span class="p">;</span> <span class="c1">// platorm_identifier provided by Moxi Works Platform Rep
+</span><span class="nv">$platform_secret</span> <span class="o">=</span> <span class="s1">'secret'</span><span class="p">;</span> <span class="c1">//platform_secret provided by Moxi Works Platform Rep
+</span>
+<span class="nv">$credentials</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MoxiworksPlatform\Credentials</span><span class="p">(</span><span class="nv">$platform_identifier</span><span class="p">,</span> <span class="nv">$platform_secret</span><span class="p">);</span>
+
+<span class="nv">$one_week</span> <span class="o">=</span> <span class="mi">604800</span><span class="p">;</span>
+<span class="nv">$company_listings</span> <span class="o">=</span> <span class="nx">MoxiworksPlatform\SoldListing</span><span class="o">::</span><span class="na">search</span><span class="p">([</span><span class="s1">'moxi_works_company_id'</span> <span class="o">=&gt;</span> <span class="s1">'abc123'</span><span class="p">,</span> <span class="s1">'sold_since'</span> <span class="o">=&gt;</span> <span class="nb">time</span><span class="p">()</span> <span class="o">-</span> <span class="nv">$one_week</span><span class="p">]);</span>
+<span class="cp">?&gt;</span>
+</code></pre>
+
+<blockquote>
+<p><span class="data-example-label">Requesting Next Page of <span class='entity-name'>SoldListing</span> Objects Updated Since A Given Timestamp</span></p>
+</blockquote>
+
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"moxi_works_company_id"</span><span class="p">:</span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"sold_since"</span><span class="p">:</span><span class="s2">"1461108284"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"last_moxi_works_listing_id"</span><span class="p">:</span><span class="s2">"abc12345"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/sold_listings?moxi_works_company_id=abc123&amp;sold_since=1461108284&amp;last_moxi_works_listing_id=abc123</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">api.moxiworks.com</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.moxi-platform+json;version=1</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Basic XNNeXAAAUZaQlF0dA==</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/x-www-form-urlencoded</span>
+
+</code></pre>
+
+<pre class="highlight ruby"><code><span class="n">one_week</span> <span class="o">=</span>  <span class="n">defined?</span><span class="p">(</span><span class="no">Rails</span><span class="p">)</span> <span class="p">?</span> <span class="mi">1</span><span class="p">.</span><span class="nf">week</span> <span class="p">:</span> <span class="mi">604800</span>
+
+<span class="n">first_page</span> <span class="o">=</span> <span class="no">MoxiworksPlatform</span><span class="o">::</span><span class="no">SoldListing</span><span class="p">.</span><span class="nf">search</span><span class="p">(</span><span class="ss">moxi_works_company_id: </span><span class="s2">"abc123"</span><span class="p">,</span> <span class="ss">sold_since: </span><span class="no">Time</span><span class="p">.</span><span class="nf">now</span> <span class="o">-</span> <span class="n">one_week</span><span class="p">)</span>
+
+<span class="k">unless</span> <span class="n">first_page</span><span class="p">[</span><span class="s1">'final_page'</span><span class="p">]</span>
+  <span class="n">last_listing</span> <span class="o">=</span> <span class="n">first_page</span><span class="p">[</span><span class="s1">'listings'</span><span class="p">].</span><span class="nf">last</span>
+  <span class="n">last_listing_id</span> <span class="o">=</span> <span class="p">(</span><span class="n">last_listing</span><span class="p">.</span><span class="nf">nil?</span><span class="p">)</span> <span class="p">?</span> <span class="kp">nil</span> <span class="p">:</span> <span class="n">last_listing</span><span class="p">.</span><span class="nf">moxi_works_listing_id</span>
+
+  <span class="n">next_page</span> <span class="o">=</span> <span class="no">MoxiworksPlatform</span><span class="o">::</span><span class="no">SoldListing</span><span class="p">.</span><span class="nf">search</span><span class="p">(</span><span class="ss">moxi_works_company_id: </span><span class="s2">"abc123"</span><span class="p">,</span>
+    <span class="ss">sold_since: </span><span class="no">Time</span><span class="p">.</span><span class="nf">now</span> <span class="o">-</span> <span class="n">one_week</span><span class="p">,</span> <span class="ss">last_moxi_works_listing_id: </span><span class="n">last_listing_id</span><span class="p">)</span>
+<span class="k">end</span>
+
+
+<span class="c1"># or run a block on all pages of sold listings with a single call</span>
+
+<span class="no">MoxiworksPlatform</span><span class="o">::</span><span class="no">SoldListing</span><span class="p">.</span><span class="nf">search</span><span class="p">(</span>
+  <span class="ss">moxi_works_company_id: </span><span class="s1">'abc123'</span><span class="p">,</span>
+  <span class="ss">sold_since: </span><span class="no">Time</span><span class="p">.</span><span class="nf">now</span><span class="p">.</span><span class="nf">to_i</span> <span class="o">-</span> <span class="n">one_week</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="n">page_of_listings</span><span class="o">|</span> <span class="nb">puts</span> <span class="n">page_of_listings</span><span class="p">.</span><span class="nf">count</span> <span class="p">}</span>
+
+
+</code></pre>
+
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+<span class="nv">$one_week</span> <span class="o">=</span> <span class="mi">604800</span><span class="p">;</span>
+
+<span class="nv">$first_page</span> <span class="o">=</span> <span class="nx">MoxiworksPlatform\SoldListing</span><span class="o">::</span><span class="na">search</span><span class="p">([</span><span class="s1">'moxi_works_company_id'</span> <span class="o">=&gt;</span> <span class="s1">'abc123'</span><span class="p">,</span> <span class="s1">'sold_since'</span> <span class="o">=&gt;</span> <span class="nb">time</span><span class="p">()</span> <span class="o">-</span> <span class="nv">$one_week</span><span class="p">]);</span>
+
+<span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nv">$first_page</span><span class="p">[</span><span class="s1">'final_page'</span><span class="p">])</span> <span class="p">{</span>
+  <span class="nv">$last_listing</span> <span class="o">=</span> <span class="nb">end</span><span class="p">(</span><span class="nb">array_values</span><span class="p">(</span><span class="nv">$first_page</span><span class="p">[</span><span class="s1">'listings'</span><span class="p">]));</span>
+  <span class="nv">$last_listing_id</span> <span class="o">=</span> <span class="nv">$last_listing</span><span class="o">-&gt;</span><span class="nv">$moxi_works_listing_id</span><span class="p">;</span>
+  <span class="nx">MoxiworksPlatform\SoldListing</span><span class="o">::</span><span class="na">search</span><span class="p">([</span><span class="s1">'moxi_works_company_id'</span> <span class="o">=&gt;</span> <span class="s1">'abc123'</span><span class="p">,</span> <span class="s1">'sold_since'</span> <span class="o">=&gt;</span> <span class="nb">time</span><span class="p">()</span> <span class="o">-</span> <span class="nv">$one_week</span><span class="p">],</span> <span class="s1">'last_moxi_works_listing_id'</span> <span class="o">=&gt;</span> <span class="nv">$last_listing_id</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="cp">?&gt;</span>
+</code></pre>
+
+<aside class="note">Send a <b>GET</b> request to https://api.moxiworks.com/api/sold_listings</aside>
+
+<p>When searching for <span class='entity-name'>SoldListing</span> objects using the Moxi Works platform API, format your data using the following parameters.</p>
+
+<h5 id="soldlisting-index-request-attributes"><span class='entity-name'>SoldListing</span> <span class='action-name'>Index</span> Request Attributes</h5>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Length Limit</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span class="required-data">moxi_works_company_id</span></td>
+<td><span class="required-data"><span class="data-type">String</span></span></td>
+<td><span class="required-data">255<span></td>
+</tr>
+<tr>
+<td><span class="optional-data">sold_since</span></td>
+<td><span class="data-type">Integer</span></td>
+<td>255</td>
+</tr>
+<tr>
+<td><span class="optional-data">agent_uuid</span></td>
+<td><span class="data-type">String</span></td>
+<td>255</td>
+</tr>
+<tr>
+<td><span class="optional-data">moxi_works_agent_id</span></td>
+<td><span class="data-type">String</span></td>
+<td>255</td>
+</tr>
+<tr>
+<td><span class="optional-data">moxi_works_office_id</span></td>
+<td><span class="data-type">String</span></td>
+<td>255</td>
+</tr>
+<tr>
+<td><span class="optional-data">last_moxi_works_listing_id</span></td>
+<td><span class="data-type">String</span></td>
+<td>255</td>
+</tr>
+</tbody></table>
+
+<p><span class="required-data"><strong>Required Parameters Are In Red</strong></span></p>
+
+<p><span class="request-data-head">moxi_works_company_id</span>
+<span class="request-data-remarks">A valid Moxi Works <span class='entity-name'>Company</span> ID. Use <a href="#company">Company Endpoint</a> to determine what <span class='attribute-name'>moxi_works_company_id</span> you can use.</span></p>
+
+<aside class="note">Use <a href='#company'>Company Endpoint</a> to determine the moxi_works_company_id to send.</aside>
+
+<p><span class="request-data-head">sold_since</span>
+<span class="request-data-remarks">Paged responses of all <span class='entity-name'>SoldListing</span> objects updated after this Unix timestamp will be returned in the response. <strong>If no <span class='attribute-name'>sold_since</span> parameter is included in the request, only <span class='entity-name'>SoldListing</span> objects updated in the last seven days will be returned.</strong></span></p>
+
+<aside class="note"><span class='attribute-name'>sold_since</span> can be no more than 32 days ago.</aside>
+
+<p><span class="request-data-head">agent_uuid</span>
+<span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which  <span class='entity-name'>SoldListing</span> objects are associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID.</span></p>
+
+<p><span class="request-data-head">moxi_works_agent_id</span>
+<span class="request-data-remarks">Use this parameter when searching for <span class='entity-name'>SoldListing</span> objects associated with a specific <span class='entity-name'>Agent</span>.  This will be a string that may take the form of an email address, or a unique identification string. This data must reference a valid Moxi Works Agent ID for your <span class='entity-name'>SoldListing</span> <span class='action-name'>Index</span>  request to be accepted.</span></p>
+
+<p><span class="request-data-head">moxi_works_office_id</span>
+<span class="request-data-remarks">Use this parameter when searching for <span class='entity-name'>SoldListing</span> objects associated with a specific <span class='entity-name'>Office</span>.  This data must reference a valid Moxi Works Office ID for your <span class='entity-name'>SoldListing</span> <span class='action-name'>Index</span>  request to be accepted.</span></p>
+
+<p><span class="request-data-head">last_moxi_works_listing_id</span>
+<span class="request-data-remarks">If fetching a multi-page response, this should be the <span class='attribute-name'>MoxiWorksListingId</span> found in the last <span class='entity-name'>SoldListing</span> object of the previously fetched page.</span></p>
+
+<blockquote><div class='highlight json' style="display: block">
+<span class='data-example-label'><span class='entity-name'>SoldListing</span> <span class='action-name'>Index</span> Response Payload Example
+</span></div></blockquote>
+
+<pre class="highlight json"><code><span class="w">
+</span><span class="p">{</span><span class="w">
+</span><span class="nt">"FinalPage"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+</span><span class="nt">"Listings"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="nt">"LotSizeAcres"</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"BathroomsFull"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"BathroomsHalf"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"BathroomsOneQuarter"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"BathroomsPartial"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"BathroomsThreeQuarter"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"BathroomsTotalInteger"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"BathroomsTotal"</span><span class="p">:</span><span class="mf">3.0</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"BedroomsTotal"</span><span class="p">:</span><span class="mi">8</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"PublicRemarks"</span><span class="p">:</span><span class="s2">"Publicalistically Remarkabalistically! REMARKABLE!!"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ModificationTimestamp"</span><span class="p">:</span><span class="s2">"11/01/2016"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"InternetAddressDisplayYN"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"DaysOnMarket"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ListingContractDate"</span><span class="p">:</span><span class="s2">"07/27/2016"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"CreatedDate"</span><span class="p">:</span><span class="s2">"11/01/2016"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ElementarySchool"</span><span class="p">:</span><span class="s2">"Elementary My Dear School"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"GarageSpaces"</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"WaterfrontYN"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"HighSchool"</span><span class="p">:</span><span class="s2">"Higher Than Junior"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"AssociationFee"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ListOfficeName"</span><span class="p">:</span><span class="s2">"Realty Valley United"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ListPrice"</span><span class="p">:</span><span class="mi">599000</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ListingID"</span><span class="p">:</span><span class="s2">"12323"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ListAgentFullName"</span><span class="p">:</span><span class="s2">"Bob Agentson"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ListAgentUUID"</span><span class="p">:</span><span class="s2">"8675309e9-1234-dead-beef-deadbeefdead"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"SecondaryListAgentFullName"</span><span class="p">:</span><span class="s2">"Richard Agent"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"SecondaryListAgentUUID"</span><span class="p">:</span><span class="s2">"8675309e9-2345-dead-beef-deadbeefdead"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Address"</span><span class="p">:</span><span class="s2">"97 Hilltop Road"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Address2"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"City"</span><span class="p">:</span><span class="s2">"Montecarlo"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"CountyOrParish"</span><span class="p">:</span><span class="s2">"Counting Parishes"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Latitude"</span><span class="p">:</span><span class="s2">"47.723251"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Longitude"</span><span class="p">:</span><span class="s2">"-122.171745"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"StateOrProvince"</span><span class="p">:</span><span class="s2">"NV"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"PostalCode"</span><span class="p">:</span><span class="s2">"87654"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"LotSizeSquareFeet"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"InternetEntireListingDisplayYN"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"MiddleOrJuniorSchool"</span><span class="p">:</span><span class="s2">"*The* Junior High"</span><span class="w"> </span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ListOfficeAOR"</span><span class="p">:</span><span class="s2">"WHATEVERS MLS"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"PoolYN"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"PropertyType"</span><span class="p">:</span><span class="s2">"Residential"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"TaxAnnualAmount"</span><span class="p">:</span><span class="mi">13652</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"TaxYear"</span><span class="p">:</span><span class="mi">2015</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"SingleStory"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"LivingArea"</span><span class="p">:</span><span class="mi">3640</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ViewYN"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"YearBuilt"</span><span class="p">:</span><span class="mi">1989</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"OnMarket"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Status"</span><span class="p">:</span><span class="s2">"active"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"MoxiWorksListingId"</span><span class="p">:</span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"AgentCreatedListing"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"VirtualTourURL"</span><span class="p">:</span><span class="s2">"http://the.virtual.tour.url"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"SoldDate"</span><span class="p">:</span><span class="s2">"11/04/2016"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"SoldPrice"</span><span class="p">:</span><span class="mi">192349</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"PropertyFeatures"</span><span class="p">:[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"PropertyFeatureName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kitchen Information"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"PropertyFeatureValues"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"Dishwasher"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Microwave"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Oven/Range Freestanding"</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"PropertyFeatureName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Roof Description"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"PropertyFeatureValues"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"Comp Shingle"</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"PropertyFeatureName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Number Of Stories"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"PropertyFeatureValues"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"Two Story"</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"PropertyFeatureName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Interior Features"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"PropertyFeatureValues"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"Bath Master"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Broadband Internet"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Cable/Satellite Tv"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Dishwasher"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Microwave"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Oven/Range Freestanding"</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"CompanyListingAttributes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"AttributeId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"the collection"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"AttributeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The Collection"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"AttributeId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"destination"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"AttributeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Destination"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"ListingImages"</span><span class="p">:[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"FullURL"</span><span class="p">:</span><span class="s2">"http://images.moxiworks.com/static/images/br/imagoo/default_property_image_wre-326x250.png"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"GalleryURL"</span><span class="p">:</span><span class="s2">"http://images.moxiworks.com/static/images/br/imagoo/default_property_image_wre-326x250.png"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"RawURL"</span><span class="p">:</span><span class="s2">"http://images.moxiworks.com/static/images/br/imagoo/default_property_image_wre-326x250.png"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"SmallURL"</span><span class="p">:</span><span class="s2">"http://images.moxiworks.com/static/images/br/imagoo/default_property_image_wre-326x250.png"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ThumbURL"</span><span class="p">:</span><span class="s2">"http://images.moxiworks.com/static/images/br/imagoo/default_property_image_wre-326x250.png"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Title"</span><span class="p">:</span><span class="s2">"Image Title"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"IsMainListingImage"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Caption"</span><span class="p">:</span><span class="s2">"Image Caption"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Description"</span><span class="p">:</span><span class="s2">"Image Description"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Width"</span><span class="p">:</span><span class="mi">1024</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Height"</span><span class="p">:</span><span class="mi">768</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"MimeType"</span><span class="p">:</span><span class="s2">"image/jpeg"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote><div class='highlight json' style="display: block">
+  <span class='data-example-label'><span class='entity-name'>SoldListing</span> <span class='action-name'>Index</span> Failure Response Example
+</div> See <a href='#error-handling'>Error Handling</a> for details about individual error codes.</blockquote>
+
+<pre class="highlight json"><code><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="nt">"status"</span><span class="p">:</span><span class="s2">"fail"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"errorCode"</span><span class="p">:</span><span class="w"> </span><span class="err">xxx</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"messages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"messages"</span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+
+<h5 id="soldlisting-index-response-payload"><span class='entity-name'>SoldListing</span> <span class='action-name'>Index</span> Response Payload</h5>
+
+<p>The following attributes make up the payload of the <span class='entity-name'>SoldListing</span> response for a <span class='action-name'>Index</span> request.</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span class="response-data">FinalPage</span></td>
+<td><span class="response-data"><span class="data-type">Boolean</span></td>
+</tr>
+<tr>
+<td><span class="response-data">SoldListings</span></td>
+<td><span class="response-data"><span class="data-type">Array</span></td>
+</tr>
+</tbody></table>
+
+<p><span class="response-data-head">FinalPage</span>
+<span class="response-data-remarks">If there is another page of <span class='entity-name'>SoldListing</span> objects available, this will be false. If you are receiving the final page of <span class='entity-name'>SoldListing</span> objects for the query, <span class='entity-name'>FinalPage</span> will be <code class="prettyprint">true</code>.</span></p>
+
+<p><span class="response-data-head">SoldListings</span>
+<span class="response-data-remarks">This is the payload object for the query. Any <span class='entity-name'>SoldListing</span> object that matches the request query will be returned here.</span></p>
+
+<h6 id="soldlistings-objects"><span class='attribute-name'>SoldListings</span> Objects</h6>
+
+<p>Each object in the <span class='attribute-name'>SoldListings</span> array will have the following structure.</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span class="response-data">LotSizeAcres</span></td>
+<td><span class="response-data"><span class="data-type">Float or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">BathroomsFull</span></td>
+<td><span class="response-data"><span class="data-type">Integer or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">BathroomsHalf</span></td>
+<td><span class="response-data"><span class="data-type">Integer or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">BathroomsOneQuarter</span></td>
+<td><span class="response-data"><span class="data-type">Integer or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">BathroomsPartial</span></td>
+<td><span class="response-data"><span class="data-type">Integer or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">BathroomsThreeQuarter</span></td>
+<td><span class="response-data"><span class="data-type">Integer or Null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">BathroomsTotalInteger</span></td>
+<td><span class="response-data"><span class="data-type">Integer or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">BathroomsTotal</span></td>
+<td><span class="response-data"><span class="data-type">Float or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">BedroomsTotal</span></td>
+<td><span class="response-data"><span class="data-type">Integer or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">PublicRemarks</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">ModificationTimestamp</span></td>
+<td><span class="response-data"><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">InternetAddressDisplayYN</span></td>
+<td><span class="response-data"><span class="data-type">Boolean or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">DaysOnMarket</span></td>
+<td><span class="response-data"><span class="data-type">Integer</span></td>
+</tr>
+<tr>
+<td><span class="response-data">SoldListingContractDate</span></td>
+<td><span class="response-data"><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">CreatedDate</span></td>
+<td><span class="response-data"><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">ElementarySchool</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">GarageSpaces</span></td>
+<td><span class="response-data"><span class="data-type">Integer or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">WaterfrontYN</span></td>
+<td><span class="response-data"><span class="data-type">Boolean or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">HighSchool</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">AssociationFee</span></td>
+<td><span class="response-data"><span class="data-type">Integer or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">ListOfficeName</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">ListPrice</span></td>
+<td><span class="response-data"><span class="data-type">Integer or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">SoldListingID</span></td>
+<td><span class="response-data"><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">ListAgentFullName</span></td>
+<td><span class="response-data"><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">ListAgentUUID</span></td>
+<td><span class="response-data"><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">SecondaryListAgentFullName</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">SecondaryListAgentUUID</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">Address</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">Address2</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">City</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">CountyOrParish</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">Latitude</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">Longitude</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">StateOrProvince</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">PostalCode</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">LotSizeSquareFeet</span></td>
+<td><span class="response-data"><span class="data-type">Integer or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">InternetEntireListingDisplayYN</span></td>
+<td><span class="response-data"><span class="data-type">Boolean</span></td>
+</tr>
+<tr>
+<td><span class="response-data">MiddleOrJuniorSchool</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">ListOfficeAOR</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">PoolYN</span></td>
+<td><span class="response-data"><span class="data-type">Boolean or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">PropertyType</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">TaxAnnualAmount</span></td>
+<td><span class="response-data"><span class="data-type">Integer or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">TaxYear</span></td>
+<td><span class="response-data"><span class="data-type">Integer or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">SingleStory</span></td>
+<td><span class="response-data"><span class="data-type">Boolean or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">LivingArea</span></td>
+<td><span class="response-data"><span class="data-type">Integer or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">ViewYN</span></td>
+<td><span class="response-data"><span class="data-type">Boolean or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">YearBuilt</span></td>
+<td><span class="response-data"><span class="data-type">Integer or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">OnMarket</span></td>
+<td><span class="response-data"><span class="data-type">Boolean or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">Status</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">MoxiWorksListingId</span></td>
+<td><span class="response-data"><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">AgentCreatedListing</span></td>
+<td><span class="response-data"><span class="data-type">Boolean</span></td>
+</tr>
+<tr>
+<td><span class="response-data">VirtualTourURL</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">SoldDate</span></td>
+<td><span class="response-data"><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">SoldPrice</span></td>
+<td><span class="response-data"><span class="data-type">Integer</span></td>
+</tr>
+<tr>
+<td><span class="response-data">PropertyFeatures</span></td>
+<td><span class="response-data"><span class="data-type">Array</span></td>
+</tr>
+<tr>
+<td><span class="response-data">CompanyListingAttributes</span></td>
+<td><span class="response-data"><span class="data-type">Array</span></td>
+</tr>
+<tr>
+<td><span class="response-data">LisingImages</span></td>
+<td><span class="response-data"><span class="data-type">Array</span></td>
+</tr>
+</tbody></table>
+
+<p><span class="response-data-head">LotSizeAcres</span>
+<span class="response-data-remarks">This is the property size of the listing land in acres. If no data is available for this attribute, it will be <code class="prettyprint">null</code>.</span></p>
+
+<p><span class="response-data-head">BathroomsFull</span>
+<span class="response-data-remarks">This is the number of full bathrooms in the property.  If no data is available for this attribute, it will be <code class="prettyprint">null</code>.</span></p>
+
+<p><span class="response-data-head">BathroomsHalf</span>
+<span class="response-data-remarks">This is the number of half bathrooms in the property.  If no data is available for this attribute, it will be <code class="prettyprint">null</code>.</span></p>
+
+<p><span class="response-data-head">BathroomsOneQuarter</span>
+<span class="response-data-remarks">This is the number of quarter-sized bathrooms in the property.  If no data is available for this attribute, it will be <code class="prettyprint">null</code>.</span></p>
+
+<p><span class="response-data-head">BathroomsPartial</span>
+<span class="response-data-remarks">This is the number of partial bathrooms in the property.  If no data is available for this attribute, it will be <code class="prettyprint">null</code>.</span></p>
+
+<p><span class="response-data-head">BathroomsThreeQuarter</span>
+<span class="response-data-remarks">This is the number of three-quarter bathrooms in the property.  If no data is available for this attribute, it will be <code class="prettyprint">null</code>.</span></p>
+
+<p><span class="response-data-head">BathroomsTotalInteger</span>
+<span class="response-data-remarks">This is the number of rooms that are bathrooms in the property. This is not a summary count of bathrooms by size.  If no data is available for this attribute, it will be <code class="prettyprint">null</code>.</span></p>
+
+<p><span class="response-data-head">BathroomsTotal</span>
+<span class="response-data-remarks">This is the summary count of bathrooms in the property. This will be the number of quarter-bathrooms plus half-bathrooms plus three-quarter bathrooms plus full bathrooms.  If no data is available for this attribute, it will be <code class="prettyprint">null</code>.</span></p>
+
+<p><span class="response-data-head">BedroomsTotal</span>
+<span class="response-data-remarks">This is the number of bedrooms in the property.  If no data is available for this attribute, it will be <code class="prettyprint">null</code>.</span></p>
+
+<p><span class="response-data-head">PublicRemarks</span>
+<span class="response-data-remarks">These are human-readable notes about the property generated by the property agent.  If no data is available for this attribute, it will be <code class="prettyprint">null</code>.</span></p>
+
+<p><span class="response-data-head">ModificationTimestamp</span>
+<span class="response-data-remarks">This is a string representing a date on which the listing data was last updated. The string format is <code class="prettyprint">MM/DD/YYYY</code>.  If no data is available for this attribute, it will be <code class="prettyprint">null</code>.</span></p>
+
+<p><span class="response-data-head">InternetAddressDisplayYN</span>
+<span class="response-data-remarks">This denotes whether the property should be displayed on a public facing website. If no data is available for this attribute, it will be <code class="prettyprint">null</code>.</span></p>
+
+<p><span class="response-data-head">DaysOnMarket</span>
+<span class="response-data-remarks">The number of days the listing has been on market.</span></p>
+
+<p><span class="response-data-head">SoldListingContractDate</span>
+<span class="response-data-remarks">This is a string representing a date on which the listing contract was initiated. The string format is <code class="prettyprint">MM/DD/YYYY</code>.</span></p>
+
+<p><span class="response-data-head">CreatedDate</span>
+<span class="response-data-remarks">This is a string representing a date on which the <span class='entity-name'>SoldListing</span> object was created. The string format is <code class="prettyprint">MM/DD/YYYY</code>.</span></p>
+
+<p><span class="response-data-head">ElementarySchool</span>
+<span class="response-data-remarks">The elementary school for the property.</span></p>
+
+<p><span class="response-data-head">GarageSpaces</span>
+<span class="response-data-remarks">The number of garage spaces that are available at the property.</span></p>
+
+<p><span class="response-data-head">WaterfrontYN</span>
+<span class="response-data-remarks">Whether the property is waterfront.</span></p>
+
+<p><span class="response-data-head">HighSchool</span>
+<span class="response-data-remarks">The high school for the property.</span></p>
+
+<p><span class="response-data-head">AssociationFee</span>
+<span class="response-data-remarks">The home owner&rsquo;s association fee for the property.</span></p>
+
+<p><span class="response-data-head">ListOfficeName</span>
+<span class="response-data-remarks">The name of the listing office.</span></p>
+
+<p><span class="response-data-head">ListPrice</span>
+<span class="response-data-remarks">The listed price for the listing.</span></p>
+
+<p><span class="response-data-head">SoldListingID</span>
+<span class="response-data-remarks">The MLS number for the listing.</span></p>
+
+<p><span class="response-data-head">ListAgentFullName</span>
+<span class="response-data-remarks">The name of the listing agent.</span></p>
+
+<p><span class="response-data-head">ListAgentUUID</span>
+<span class="response-data-remarks">A unique identifier for the listing agent. This will correspond to the uuid field of an <span class='entity-name'>Agent</span>.</span></p>
+
+<p><span class="response-data-head">SecondaryListAgentFullName</span>
+<span class="response-data-remarks">If there is a second listing agent, the name of the second listing agent.</span></p>
+
+<p><span class="response-data-head">SecondaryListAgentUUID</span>
+<span class="response-data-remarks">If there is a second listing agent, the unique identifier for the second listing agent. This will correspond to the uuid field of an <span class='entity-name'>Agent</span>.</span></p>
+
+<p><span class="response-data-head">Address</span>
+<span class="response-data-remarks">The street address of the property.</span></p>
+
+<p><span class="response-data-head">Address2</span>
+<span class="response-data-remarks">Additional street address information, for example, suite number.</span></p>
+
+<p><span class="response-data-head">City</span>
+<span class="response-data-remarks">City or township the property is located in.</span></p>
+
+<p><span class="response-data-head">State</span>
+<span class="response-data-remarks">State or province the property is located in.</span></p>
+
+<p><span class="response-data-head">PostalCode</span>
+<span class="response-data-remarks">The zip code or postal code the property is located in.</span></p>
+
+<p><span class="response-data-head">LotSizeSquareFeet</span>
+<span class="response-data-remarks">Total area of the lot.</span></p>
+
+<p><span class="response-data-head">InternetEntireListingDisplayYN</span>
+<span class="response-data-remarks">Whether to display information about this listing publicly. If this is false, then the information about this listing should not be visible to the Internet. </span></p>
+
+<p><span class="response-data-head">MiddleOrJuniorSchool</span>
+<span class="response-data-remarks">The middle school for the property.</span></p>
+
+<p><span class="response-data-head">ListOfficeAOR</span>
+<span class="response-data-remarks">The name of the MLS which this listing is listed with.</span></p>
+
+<p><span class="response-data-head">PoolYN</span>
+<span class="response-data-remarks">Whether the property has a pool.</span></p>
+
+<p><span class="response-data-head">PropertyType</span>
+<span class="response-data-remarks">The type of property being listed. This can be one of <code class="prettyprint">Residential</code>, <code class="prettyprint">Condo-Coop</code>, <code class="prettyprint">Townhouse</code>, <code class="prettyprint">Land</code>, <code class="prettyprint">Multifamily</code> </span></p>
+
+<p><span class="response-data-head">TaxAnnualAmount</span>
+<span class="response-data-remarks">The total annual property tax.</span></p>
+
+<p><span class="response-data-head">TaxYear</span>
+<span class="response-data-remarks">The tax year that the property tax in <span class='attribute-name'>TaxAnnualAmount</span> was assessed.</span></p>
+
+<p><span class="response-data-head">SingleStory</span>
+<span class="response-data-remarks">Whether the building has one story or is multi-story.</span></p>
+
+<p><span class="response-data-head">LivingArea</span>
+<span class="response-data-remarks">Total square footage of the building(s) on the property.</span></p>
+
+<p><span class="response-data-head">Title</span>
+<span class="response-data-remarks">A short description of the property.</span></p>
+
+<p><span class="response-data-head">ViewYN</span>
+<span class="response-data-remarks">Whether the property has a view.</span></p>
+
+<p><span class="response-data-head">YearBuilt</span>
+<span class="response-data-remarks">The year the living building(s) on the property were built.</span></p>
+
+<p><span class="response-data-head">OnMarket</span>
+<span class="response-data-remarks">Whether the listing is currently on-market.</span></p>
+
+<p><span class="response-data-head">Status</span>
+<span class="response-data-remarks">Detailed status of the listing;</span></p>
+
+<p><span class="response-data-head">MoxiWorksListingID</span>
+<span class="response-data-remarks">The unique Identifier for the listing in The Moxi Works Platform.</span></p>
+
+<p><span class="response-data-head">AgentCreatedListing</span>
+<span class="response-data-remarks">Whether the agent created this listing.</span></p>
+
+<p><span class="response-data-head">VirtualTourURL</span>
+<span class="response-data-remarks">Virtual tour URL for this listing.</span></p>
+
+<p><span class="response-data-head">SoldDate</span>
+<span class="response-data-remarks">Date on which this listing was sold.</span></p>
+
+<p><span class="response-data-head">SoldPrice</span>
+<span class="response-data-remarks">Price for which this listing was sold.</span></p>
+
+<p><span class="response-data-head">PropertyFeatures</span>
+<span class="response-data-remarks">Any defined features about the property.</span></p>
+
+<p><span class="response-data-head">CompanyListingAttributes</span>
+<span class="response-data-remarks">Company specific attributes associated with the listing. These will be defined by the company &amp; should not be expected to be uniform across companies.</span></p>
+
+<p><span class="response-data-head">ListingImages</span>
+<span class="response-data-remarks">Any images of the property.</span></p>
+
+<h6 id="propertyfeature-objects"><span class='attribute-name'>PropertyFeature</span> Objects</h6>
+
+<p>Each object in the <span class='attribute-name'>PropertyFeatures</span> array will have the following structure.</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span class="response-data">PropertyFeatureName</span></td>
+<td><span class="response-data"><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">PropertyFeatureValues</span></td>
+<td><span class="response-data"><span class="data-type">Array</span></td>
+</tr>
+</tbody></table>
+
+<p><span class="response-data-head">PropertyFeatureName</span>
+<span class="response-data-remarks">Human readable name associated with the feature.</span></p>
+
+<p><span class="response-data-head">PropertyFeatureValues</span>
+<span class="response-data-remarks">An array of strings which are human readable values associated with the feature.</span></p>
+
+<h6 id="companylistingattributes-objects"><span class='attribute-name'>CompanyListingAttributes</span> Objects</h6>
+
+<p>Each object in the <span class='attribute-name'>CompanyListingAttributes</span> array will have the following structure.</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span class="response-data">AttributeId</span></td>
+<td><span class="response-data"><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">AttributeName</span></td>
+<td><span class="response-data"><span class="data-type">String</span></td>
+</tr>
+</tbody></table>
+
+<p><span class="response-data-head">AttributeId</span>
+<span class="response-data-remarks">Unique ID for the attribute.</span></p>
+
+<p><span class="response-data-head">AttributeName</span>
+<span class="response-data-remarks">Human readable name of the company specific listing attribute.</span></p>
+
+<h6 id="listingimages-objects"><span class='attribute-name'>ListingImages</span> Objects</h6>
+
+<p>Each object in the <span class='attribute-name'>ListingImages</span> array will have the following structure.</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span class="response-data">ThumbURL</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">SmallURL</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">FullURL</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">GalleryURL</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">RawURL</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">Title</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">IsMainListingImage</span></td>
+<td><span class="response-data"><span class="data-type">Boolean</span></td>
+</tr>
+<tr>
+<td><span class="response-data">Caption</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">Description</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">Width</span></td>
+<td><span class="response-data"><span class="data-type">Integer or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">Height</span></td>
+<td><span class="response-data"><span class="data-type">Integer or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">MimeType</span></td>
+<td><span class="response-data"><span class="data-type">String</span></td>
+</tr>
+</tbody></table>
+
+<p><span class="response-data-head">ThumbURL</span>
+<span class="response-data-remarks">This is a valid URL that can be used for <code class="prettyprint">img src</code> to a thumbnail sized representation of the image. This is the smallest size image returned in each object in the <span class='attribute-name'>ListingImages</span> array.</span></p>
+
+<p><span class="response-data-head">SmallURL</span>
+<span class="response-data-remarks">This is a valid URL that can be used for <code class="prettyprint">img src</code> to a small sized representation of the image. This is the small size image returned in each object in the <span class='attribute-name'>ListingImages</span> array.</span></p>
+
+<p><span class="response-data-head">FullURL</span>
+<span class="response-data-remarks">This is a valid URL that can be used for <code class="prettyprint">img src</code> to a medium sized representation of the image. This is the medium size image returned in each object in the <span class='attribute-name'>ListingImages</span> array.</span></p>
+
+<p><span class="response-data-head">GalleryURL</span>
+<span class="response-data-remarks">This is a valid URL that can be used for <code class="prettyprint">img src</code> to a large sized representation of the image. This is the large size image returned in each object in the <span class='attribute-name'>ListingImages</span> array.</span></p>
+
+<p><span class="response-data-head">RawURL</span>
+<span class="response-data-remarks">This is a valid URL to the raw image as uploaded. This is the largest size image returned in each object in the <span class='attribute-name'>ListingImages</span> array. Due to variation in size, this image should not be considered for use when displaying images rendered in a browser.</span></p>
+
+<p><span class="response-data-head">Title</span>
+<span class="response-data-remarks">Human readable title of image.</span></p>
+
+<p><span class="response-data-head">IsMainListingImage</span>
+<span class="response-data-remarks">Whether this image is considered the primary image for the listing.</span></p>
+
+<p><span class="response-data-head">Caption</span>
+<span class="response-data-remarks">Human readable caption for the image.</span></p>
+
+<p><span class="response-data-head">Description</span>
+<span class="response-data-remarks">Human readable description of image.</span></p>
+
+<p><span class="response-data-head">Width</span>
+<span class="response-data-remarks">Width of the raw image.</span></p>
+
+<p><span class="response-data-head">Height</span>
+<span class="response-data-remarks">Height of the raw image.</span></p>
+
+<p><span class="response-data-head">MimeType</span>
+<span class="response-data-remarks">MIME or media type of the image.</span></p>
+
+
 <h3 id="task"><span class='entity-name'>Task</span></h3>
 
 <p>Moxi Works Platform <span class='entity-name'>Task</span> entities represent tasks that agents need to perform on behalf of, or in relation to their contacts.</p>
@@ -19681,6 +21651,505 @@ moxi_works_agent_id=abc123&amp;description=talk+to+private+kane,%2C+e-one-thousa
 
 <p><span class="response-data-head">completed_at</span>
 <span class="response-data-remarks">A Unix timestamp representing the point in time when the task for this <span class='entity-name'>Task</span> object was completed. This should be <code class="prettyprint">null</code> if the task has not yet been completed.</span></p>
+
+
+<h3 id="team"><span class='entity-name'>Team</span></h3>
+
+<p>Moxi Works Platform <span class='entity-name'>Team</span> entities represent brokerage teams.</p>
+
+<h4 id="team-show"><span class='entity-name'>Team</span> <span class='action-name'>Show</span></h4>
+
+<div class='highlight ruby'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-ruby/MoxiworksPlatform/Team.html#find-class_method'>Ruby Search Docs</a></span></blockquote></div>
+
+<div class='highlight php'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-php/classes/MoxiworksPlatform.Team.html#method_find'>PHP Search Docs</a></span></blockquote></div>
+
+<blockquote>
+<p><span class="data-example-label"><span class='entity-name'>Team</span> <span class='action-name'>Show</span> Example</span></p>
+
+<p>Requested <span class='entity-name'>Team</span> object</p>
+</blockquote>
+
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/teams/deadbeef-deadbeef-feed-facedeadbeef</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">api.moxiworks.com</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.moxi-platform+json;version=1</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Basic XNNeXAAAUZaQlF0dA==</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/x-www-form-urlencoded</span>
+
+</code></pre>
+
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"moxi_works_team_id"</span><span class="p">:</span><span class="s2">"deadbeef-deadbeef-feed-facedeadbeef"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+
+<pre class="highlight ruby"><code>
+<span class="c1">##### set up prerequisites once</span>
+<span class="nb">require</span> <span class="s1">'moxiworks_platform'</span>
+
+<span class="n">platform_identifier</span> <span class="o">=</span> <span class="s1">'abc123'</span>
+
+<span class="n">platform_secret</span> <span class="o">=</span> <span class="s1">'secret'</span>
+
+<span class="no">MoxiworksPlatform</span><span class="o">::</span><span class="no">Credentials</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">platform_identifier</span><span class="p">,</span> <span class="n">platform_secret</span><span class="p">)</span>
+<span class="c1">##### end prerequisites</span>
+
+<span class="n">company_teams</span> <span class="o">=</span> <span class="no">MoxiworksPlatform</span><span class="o">::</span><span class="no">Team</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="ss">moxi_works_team_id: </span><span class="s2">"deadbeef-deadbeef-feed-facedeadbeef"</span><span class="p">)</span>
+
+</code></pre>
+
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+<span class="nv">$platform_identifier</span> <span class="o">=</span> <span class="s1">'abc123'</span><span class="p">;</span> <span class="c1">// platorm_identifier provided by Moxi Works Platform Rep
+</span><span class="nv">$platform_secret</span> <span class="o">=</span> <span class="s1">'secret'</span><span class="p">;</span> <span class="c1">//platform_secret provided by Moxi Works Platform Rep
+</span>
+<span class="nv">$credentials</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MoxiworksPlatform\Credentials</span><span class="p">(</span><span class="nv">$platform_identifier</span><span class="p">,</span> <span class="nv">$platform_secret</span><span class="p">);</span>
+
+<span class="nv">$company_teams</span> <span class="o">=</span> <span class="nx">MoxiworksPlatform\Team</span><span class="o">::</span><span class="na">find</span><span class="p">([</span><span class="s1">'moxi_works_team_id'</span> <span class="o">=&gt;</span> <span class="s1">'deadbeef-deadbeef-feed-facedeadbeef'</span><span class="p">]);</span>
+<span class="cp">?&gt;</span>
+</code></pre>
+
+<h5 id="team-show-request-attributes"><span class='entity-name'>Team</span> <span class='action-name'>Show</span> Request Attributes</h5>
+
+<aside class="note">Send a <b>GET</b> request to https://api.moxiworks.com/api/teams/[moxi_works_team_id]</aside>
+
+<p>When showing <span class='entity-name'>Team</span> entities using the Moxi Works platform API, format your data using the following parameters.</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Length Limit</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span class="required-data">moxi_works_team_id</span></td>
+<td><span class="required-data"><span class="data-type">String</span></span></td>
+<td><span class="required-data">255<span></td>
+</tr>
+<tr>
+<td><span class="required-data">moxi_works_company_id</span></td>
+<td><span class="required-data"><span class="data-type">String</span></span></td>
+<td><span class="required-data">255<span></td>
+</tr>
+</tbody></table>
+
+<p><span class="required-data"><strong>Required Parameters Are In Red</strong></span></p>
+
+<p><span class="request-data-head">moxi_works_team_id</span>
+<span class="request-data-remarks">A valid Moxi Works <span class='entity-name'>Team</span> ID. Use <a href="#team-index">Team Index Endpoint</a> for a list of all <span class='entity-name'>Team</span> objects associated with  a <span class='entity-name'>Company</span> or use the <span class='attribute-name'>moxi_works_team_id</span> attribute returned in an <span class='entity-name'>Agent</span> response.</span></p>
+
+<p><span class="request-data-head">moxi_works_company_id</span>
+<span class="request-data-remarks">A valid Moxi Works <span class='entity-name'>Company</span> ID. Use <a href="#company">Company Endpoint</a> to determine what <span class='attribute-name'>moxi_works_company_id</span> you can use.</span></p>
+
+<aside class="note">Use <a href='#company'>Company Endpoint</a> to determine the moxi_works_company_id to send.</aside>
+
+<blockquote><div class='highlight json' style="display: block">
+<span class="data-example-label">Team Show: Success Response</span>
+</div></blockquote>
+<pre class="highlight json"><code><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"uuid"</span><span class="p">:</span><span class="s2">"feedface-dead-beef-aadf-baddeedc645"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"New Team One"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"email@address"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"address1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234 Here St."</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"address2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Suite: 1234"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sweetville"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"zipcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"91820"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OR"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"666-555-1234"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fax"</span><span class="p">:</span><span class="w"> </span><span class="s2">"666-867-5309"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"logo_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://website.url/logo.png"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"photo_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://website.url/image.jpg"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;h1&gt;Heading 1&lt;/h1&gt;&lt;ol&gt;&lt;li&gt;a&lt;/li&gt;&lt;/ol&gt;&lt;h1&gt;&lt;br /&gt;This team is the &lt;em&gt;&lt;strong&gt;teamiest&lt;/strong&gt; &lt;/em&gt;of all the &lt;sub&gt;teams&lt;/sub&gt;, &lt;span style="</span><span class="err">text-decoration:</span><span class="w"> </span><span class="err">underline;</span><span class="s2">"&gt;hands&lt;/span&gt; down!&lt;/h1&gt;"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"social_media_urls"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"alt_phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"666-555-4444"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"alt_email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"alternate@email.address"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"website_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://the.team.website"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+
+<blockquote><div class='highlight json' style="display: block">
+<span class="data-example-label">Team Show: Failure Response</span>
+</div> See <a href='#error-handling'>Error Handling</a> for details about individual error codes.</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"status"</span><span class="p">:</span><span class="s2">"fail"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"errorCode"</span><span class="p">:</span><span class="w"> </span><span class="err">xxx</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"messages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"messages"</span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span class="response-data">uuid</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">name</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">email</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">address1</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">address2</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">city</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">zipcode</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">state</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">phone</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">fax</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">logo_url</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">photo_url</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">description</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">alt_phone</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">alt_email</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">website_url</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">active</span></td>
+<td><span class="data-type">Boolean</span></td>
+</tr>
+</tbody></table>
+
+<p><span class="response-data-head">uuid</span>
+<span class="response-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Team</span>. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID.</span></p>
+
+<p><span class="response-data-head">name</span>
+<span class="response-data-remarks">The name of the team. This can be null if there is no data for this attribute.</span></p>
+
+<p><span class="response-data-head">email</span>
+<span class="response-data-remarks">This is the team&rsquo;s main email address. This email address should be considered the email address the team would prefer to be contacted by.  This can be null if there is no data for this attribute.</span></p>
+
+<p><span class="response-data-head">address1</span>
+<span class="response-data-remarks">The street address of the team. This can be null if there is no data for this attribute.</span></p>
+
+<p><span class="response-data-head">address2</span>
+<span class="response-data-remarks">The suite or team number of the team. This can be null if there is no data for this attribute.</span></p>
+
+<p><span class="response-data-head">city</span>
+<span class="response-data-remarks">The city the team is in. This can be null if there is no data for this attribute.</span></p>
+
+<p><span class="response-data-head">zip_code</span>
+<span class="response-data-remarks">The postal code the team is in. This can be null if there is no data for this attribute.</span></p>
+
+<p><span class="response-data-head">state</span>
+<span class="response-data-remarks">The state or provice the team is in. This can be null if there is no data for this attribute.</span></p>
+
+<p><span class="response-data-head">phone</span>
+<span class="response-data-remarks">This is the team&rsquo;s main phone number.  This number should be considered the number the team would prefer to be contacted by. This can be null if there is no data for this attribute.</span></p>
+
+<p><span class="response-data-head">fax</span>
+<span class="response-data-remarks">This is the team&rsquo;s fax phone number.  This can be null if there is no data for this attribute.</span></p>
+
+<p><span class="response-data-head">logo_url</span>
+<span class="response-data-remarks">URL to an logo for the team. This can be null if there is no data for this attribute.</span></p>
+
+<p><span class="response-data-head">photo_url</span>
+<span class="response-data-remarks">URL to an image of the team. This can be null if there is no data for this attribute.</span></p>
+
+<p><span class="response-data-head">description</span>
+<span class="response-data-remarks">Description of the team. This can contain embedded HTML tags. This can be null if there is no data for this attribute.</span></p>
+
+<p><span class="response-data-head">alt_phone</span>
+<span class="response-data-remarks">Alternate phone number for the team. This should be considered second in priority to <span class='attribute-name'>phone_number</span>.  This can be null if there is no data for this attribute.</span></p>
+
+<p><span class="response-data-head">website_url</span>
+<span class="response-data-remarks">Team&rsquo;s  website url.  This can be null if there is no data for this attribute.</span></p>
+
+<p><span class="response-data-head">active</span>
+<span class="response-data-remarks">Whether this team is active.</span></p>
+
+
+<h4 id="team-index"><span class='entity-name'>Team</span> <span class='action-name'>Index</span></h4>
+
+<div class='highlight ruby'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-ruby/MoxiworksPlatform/Team.html#search-class_method'>Ruby Search Docs</a></span></blockquote></div>
+
+<div class='highlight php'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-php/classes/MoxiworksPlatform.Team.html#method_search'>PHP Search Docs</a></span></blockquote></div>
+
+<blockquote>
+<p><span class="data-example-label"><span class='entity-name'>Team</span> <span class='action-name'>Index</span> Example</span></p>
+
+<p>All <span class='entity-name'>Team</span> objects for specified <span class='entity-name'>Company</span></p>
+</blockquote>
+
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/teams?moxi_works_company_id=abc123</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">api.moxiworks.com</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.moxi-platform+json;version=1</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Basic XNNeXAAAUZaQlF0dA==</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/x-www-form-urlencoded</span>
+
+</code></pre>
+
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"moxi_works_company_id"</span><span class="p">:</span><span class="s2">"the_company"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+
+<pre class="highlight ruby"><code>
+<span class="c1">##### set up prerequisites once</span>
+<span class="nb">require</span> <span class="s1">'moxiworks_platform'</span>
+
+<span class="n">platform_identifier</span> <span class="o">=</span> <span class="s1">'abc123'</span>
+
+<span class="n">platform_secret</span> <span class="o">=</span> <span class="s1">'secret'</span>
+
+<span class="no">MoxiworksPlatform</span><span class="o">::</span><span class="no">Credentials</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">platform_identifier</span><span class="p">,</span> <span class="n">platform_secret</span><span class="p">)</span>
+<span class="c1">##### end prerequisites</span>
+
+<span class="n">company_teams</span> <span class="o">=</span> <span class="no">MoxiworksPlatform</span><span class="o">::</span><span class="no">Team</span><span class="p">.</span><span class="nf">search</span><span class="p">(</span><span class="ss">moxi_works_company_id: </span><span class="s2">"abc123"</span><span class="p">)</span>
+
+</code></pre>
+
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+<span class="nv">$platform_identifier</span> <span class="o">=</span> <span class="s1">'abc123'</span><span class="p">;</span> <span class="c1">// platorm_identifier provided by Moxi Works Platform Rep
+</span><span class="nv">$platform_secret</span> <span class="o">=</span> <span class="s1">'secret'</span><span class="p">;</span> <span class="c1">//platform_secret provided by Moxi Works Platform Rep
+</span>
+<span class="nv">$credentials</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MoxiworksPlatform\Credentials</span><span class="p">(</span><span class="nv">$platform_identifier</span><span class="p">,</span> <span class="nv">$platform_secret</span><span class="p">);</span>
+
+<span class="nv">$company_teams</span> <span class="o">=</span> <span class="nx">MoxiworksPlatform\Team</span><span class="o">::</span><span class="na">search</span><span class="p">([</span><span class="s1">'moxi_works_company_id'</span> <span class="o">=&gt;</span> <span class="s1">'abc123'</span><span class="p">]);</span>
+<span class="cp">?&gt;</span>
+</code></pre>
+
+<h5 id="team-index-request-attributes"><span class='entity-name'>Team</span> <span class='action-name'>Index</span> Request Attributes</h5>
+
+<aside class="note">Send a <b>GET</b> request to https://api.moxiworks.com/api/teams</aside>
+
+<p>When searching for <span class='entity-name'>Team</span> entities using the Moxi Works platform API, format your data using the following parameters.</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Length Limit</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span class="required-data">moxi_works_company_id</span></td>
+<td><span class="required-data"><span class="data-type">String</span></span></td>
+<td><span class="required-data">255<span></td>
+</tr>
+</tbody></table>
+
+<p><span class="required-data"><strong>Required Parameters Are In Red</strong></span></p>
+
+<p><span class="request-data-head">moxi_works_company_id</span>
+<span class="request-data-remarks">A valid Moxi Works <span class='entity-name'>Company</span> ID. Use <a href="#company">Company Endpoint</a> to determine what <span class='attribute-name'>moxi_works_company_id</span> you can use.</span></p>
+
+<aside class="note">Use <a href='#company'>Company Endpoint</a> to determine the moxi_works_company_id to send.</aside>
+
+<blockquote><div class='highlight json' style="display: block">
+<span class="data-example-label">Team Index: Success Response</span>
+</div></blockquote>
+
+<pre class="highlight json"><code><span class="w">
+</span><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+  </span><span class="nt">"uuid"</span><span class="p">:</span><span class="s2">"feedface-dead-beef-aadf-baddeedc645"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"New Team One"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"email@address"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"address1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234 Here St."</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"address2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Suite: 1234"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sweetville"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"zipcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"91820"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OR"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"666-555-1234"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"fax"</span><span class="p">:</span><span class="w"> </span><span class="s2">"666-867-5309"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"logo_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://website.url/logo.png"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"photo_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://website.url/image.jpg"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;h1&gt;Heading 1&lt;/h1&gt;&lt;ol&gt;&lt;li&gt;a&lt;/li&gt;&lt;/ol&gt;&lt;h1&gt;&lt;br /&gt;This team is the &lt;em&gt;&lt;strong&gt;teamiest&lt;/strong&gt; &lt;/em&gt;of all the &lt;sub&gt;teams&lt;/sub&gt;, &lt;span style="</span><span class="err">text-decoration:</span><span class="w"> </span><span class="err">underline;</span><span class="s2">"&gt;hands&lt;/span&gt; down!&lt;/h1&gt;"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"social_media_urls"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"alt_phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"666-555-4444"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"alt_email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"alternate@email.address"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"website_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://the.team.website"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<blockquote><div class='highlight json' style="display: block">
+<span class="data-example-label">Team Index: Failure Response</span>
+</div> See <a href='#error-handling'>Error Handling</a> for details about individual error codes.</blockquote>
+
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"status"</span><span class="p">:</span><span class="s2">"fail"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"errorCode"</span><span class="p">:</span><span class="w"> </span><span class="err">xxx</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"messages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"messages"</span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+
+<p><span class='entity-name'>Team</span>  <span class='action-name'>Index</span> responses are divided into pages of  <span class='entity-name'>Team</span> objects. Use response payload attributes <span class='attribute-name'>total_pages</span> and <span class='attribute-name'>page_number</span> to determine how many pages of  <span class='entity-name'>Team</span> objects there are and whether additional pages need to be requested.</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span class="response-data">uuid</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">name</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">email</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">address1</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">address2</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">city</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">zipcode</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">state</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">phone</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">fax</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">logo_url</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">photo_url</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">description</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">alt_phone</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">alt_email</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">website_url</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">active</span></td>
+<td><span class="data-type">Boolean</span></td>
+</tr>
+</tbody></table>
+
+<p><span class="response-data-head">uuid</span>
+<span class="response-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Team</span>. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID.</span></p>
+
+<p><span class="response-data-head">name</span>
+<span class="response-data-remarks">The name of the team. This can be null if there is no data for this attribute.</span></p>
+
+<p><span class="response-data-head">email</span>
+<span class="response-data-remarks">This is the team&rsquo;s main email address. This email address should be considered the email address the team would prefer to be contacted by.  This can be null if there is no data for this attribute.</span></p>
+
+<p><span class="response-data-head">address1</span>
+<span class="response-data-remarks">The street address of the team. This can be null if there is no data for this attribute.</span></p>
+
+<p><span class="response-data-head">address2</span>
+<span class="response-data-remarks">The suite or team number of the team. This can be null if there is no data for this attribute.</span></p>
+
+<p><span class="response-data-head">city</span>
+<span class="response-data-remarks">The city the team is in. This can be null if there is no data for this attribute.</span></p>
+
+<p><span class="response-data-head">zip_code</span>
+<span class="response-data-remarks">The postal code the team is in. This can be null if there is no data for this attribute.</span></p>
+
+<p><span class="response-data-head">state</span>
+<span class="response-data-remarks">The state or provice the team is in. This can be null if there is no data for this attribute.</span></p>
+
+<p><span class="response-data-head">phone</span>
+<span class="response-data-remarks">This is the team&rsquo;s main phone number.  This number should be considered the number the team would prefer to be contacted by. This can be null if there is no data for this attribute.</span></p>
+
+<p><span class="response-data-head">fax</span>
+<span class="response-data-remarks">This is the team&rsquo;s fax phone number.  This can be null if there is no data for this attribute.</span></p>
+
+<p><span class="response-data-head">logo_url</span>
+<span class="response-data-remarks">URL to an logo for the team. This can be null if there is no data for this attribute.</span></p>
+
+<p><span class="response-data-head">photo_url</span>
+<span class="response-data-remarks">URL to an image of the team. This can be null if there is no data for this attribute.</span></p>
+
+<p><span class="response-data-head">description</span>
+<span class="response-data-remarks">Description of the team. This can contain embedded HTML tags. This can be null if there is no data for this attribute.</span></p>
+
+<p><span class="response-data-head">alt_phone</span>
+<span class="response-data-remarks">Alternate phone number for the team. This should be considered second in priority to <span class='attribute-name'>phone_number</span>.  This can be null if there is no data for this attribute.</span></p>
+
+<p><span class="response-data-head">website_url</span>
+<span class="response-data-remarks">Team&rsquo;s  website url.  This can be null if there is no data for this attribute.</span></p>
+
+<p><span class="response-data-head">active</span>
+<span class="response-data-remarks">Whether this team is active.</span></p>
 
       </div>
       <div class="dark-box">

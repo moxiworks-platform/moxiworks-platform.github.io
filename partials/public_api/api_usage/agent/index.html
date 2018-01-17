@@ -196,6 +196,10 @@
 </span><span class="p">{</span><span class="w">
   </span><span class="nt">"moxi_works_agent_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"client_agent_id"</span><span class="p">:</span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"mls_agent_id"</span><span class="p">:</span><span class="s2">"MLS_ID"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"license"</span><span class="p">:</span><span class="s2">"abc123lic"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"mls_name"</span><span class="p">:</span><span class="s2">"Bob's Better MLS"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"mls_abbreviation"</span><span class="p">:</span><span class="s2">"BBM"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"moxi_works_office_id"</span><span class="p">:</span><span class="s2">"8c3f446c-aab9-11e6-9a0f-d0e1408e8026"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"office_id"</span><span class="p">:</span><span class="s2">"1234"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"client_office_id"</span><span class="p">:</span><span class="s2">"987123"</span><span class="p">,</span><span class="w">
@@ -303,6 +307,22 @@
 <tr>
 <td><span class="response-data">client_agent_id</span></td>
 <td><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">mls_agent_id</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">license</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">mls_name</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">mls_abbreviation</span></td>
+<td><span class="data-type">String or null</span></td>
 </tr>
 <tr>
 <td><span class="response-data">agent_id</span></td>
@@ -435,6 +455,18 @@
 
 <p><span class="response-data-head">client_agent_id</span>
 <span class="response-data-remarks">This is the  ID of the <span class='entity-name'>Agent</span> utilized by their company.</span></p>
+
+<p><span class="response-data-head">mls_agent_id</span>
+<span class="response-data-remarks">This is the  ID of the <span class='entity-name'>Agent</span> utilized by their primary MLS.</span></p>
+
+<p><span class="response-data-head">license</span>
+<span class="response-data-remarks">This is the number of the license granted to the agent.</span></p>
+
+<p><span class="response-data-head">mls_name</span>
+<span class="response-data-remarks">This is the  name of the primary MLS for the agent.</span></p>
+
+<p><span class="response-data-head">mls_abbreviation</span>
+<span class="response-data-remarks">This is the standard abbreviation of the primary MLS utilized by the agent.</span></p>
 
 <p><span class="response-data-head">agent_id</span>
 <span class="response-data-remarks">This is the ID of this <span class='entity-name'>Agent</span>. This will be an integer.</span></p>

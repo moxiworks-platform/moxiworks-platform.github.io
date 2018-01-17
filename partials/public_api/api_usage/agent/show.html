@@ -148,6 +148,11 @@
 <td><span class="required-data"><span class="data-type">String</span></span></td>
 <td><span class="required-data">255<span></td>
 </tr>
+<tr>
+<td><span class="optional-data">include_gci_goals</span></td>
+<td><span class="data-type">Boolean</span></td>
+<td>255</td>
+</tr>
 </tbody></table>
 
 <p><span class="multi-option-required-data">* <strong>Either <span class='attribute-name'>moxi_works_agent_id</span> or <span class='attribute-name'>agent_uuid</span> must be supplied. For guidance on which Agent identifier better fits your use-case, see <a href="#agent-identifiers">Agent Identifiers</a></strong></span></p>
@@ -165,6 +170,9 @@
 
 <aside class="note">Use <a href='#company'>Company Endpoint</a> to determine the moxi_works_company_id to send.</aside>
 
+<p><span class="request-data-head">include_gci_goals</span>
+<span class="request-data-remarks">Whether to include agent&rsquo;s GCI goals and commissions data in the response data.</span></p>
+
 <h5 id="agent-show-response-payload"><span class='entity-name'>Agent</span> <span class='action-name'>Show</span> Response Payload</h5>
 
 <p>The following attributes make up the payload of the <span class='entity-name'>Agent</span> response for a <span class='action-name'>Show</span> request.</p>
@@ -175,6 +183,10 @@
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"moxi_works_agent_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"client_agent_id"</span><span class="p">:</span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"mls_agent_id"</span><span class="p">:</span><span class="s2">"MLS_ID"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"license"</span><span class="p">:</span><span class="s2">"abc123lic"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"mls_name"</span><span class="p">:</span><span class="s2">"Bob's Better MLS"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"mls_abbreviation"</span><span class="p">:</span><span class="s2">"BBM"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"moxi_works_office_id"</span><span class="p">:</span><span class="s2">"8c3f446c-aab9-11e6-9a0f-d0e1408e8026"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"office_id"</span><span class="p">:</span><span class="s2">"1234"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"client_office_id"</span><span class="p">:</span><span class="s2">"987123"</span><span class="p">,</span><span class="w">
@@ -231,6 +243,74 @@
 </span></code></pre>
 
 <blockquote><div class='highlight json' style="display: block">
+<span class='data-example-label'><span class='entity-name'>Agent</span> <span class='action-name'>Index</span> Response Payload Example when <span class='attribute-name'>include_gci_goals</span> is `true`
+</span></div></blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"moxi_works_agent_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"client_agent_id"</span><span class="p">:</span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"mls_agent_id"</span><span class="p">:</span><span class="s2">"MLS_ID"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"license"</span><span class="p">:</span><span class="s2">"abc123lic"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"mls_name"</span><span class="p">:</span><span class="s2">"Bob's Better MLS"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"mls_abbreviation"</span><span class="p">:</span><span class="s2">"BBM"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"moxi_works_office_id"</span><span class="p">:</span><span class="s2">"8c3f446c-aab9-11e6-9a0f-d0e1408e8026"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"office_id"</span><span class="p">:</span><span class="s2">"1234"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"client_office_id"</span><span class="p">:</span><span class="s2">"987123"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"company_id"</span><span class="p">:</span><span class="s2">"2345"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"client_company_id"</span><span class="p">:</span><span class="s2">"abc392"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"agent_id"</span><span class="p">:</span><span class="s2">"67890"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"office_address_street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3456 Office Ln."</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"office_address_street2"</span><span class="p">:</span><span class="s2">"Suite 1234"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"office_address_city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Officeville"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"office_address_state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AG"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"office_address_zip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Buckminster Fuller"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Buckminster"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fuller"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"main_phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"555) 9101112"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"mobile_phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"555 333 4567"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"alt_phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"(555) 567-8910"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"fax_phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5557891011"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"office_phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"(234)456-7890"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"primary_email_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"the_agent@agentdomain.com"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"secondary_email_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"the_agent_alt@otherdomain.com"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"lead_routing_email_address"</span><span class="p">:</span><span class="s2">"leadrouter@thisdomain.com"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Broker"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"uuid"</span><span class="p">:</span><span class="s2">"8675309e9-1234-dead-beef-deadbeefdead"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"twitter"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@agentguy"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"google_plus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://plus.google.com/1234567891011121314/posts"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"facebook"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.facebook.com/moxiworks/"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"home_page"</span><span class="p">:</span><span class="w"> </span><span class="s2">"foo.com"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"profile_image_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://picturererer.com/pics37/ImageStore.dll?id=852087C5D3A533DD&amp;w=200"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"profile_thumb_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://picturererer.com/pics37/ImageStore.dll?id=852087C5D3A533DD&amp;w=75"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"alternate_offices"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"moxi_works_office_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"office_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1234</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"office_address_street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2636 NW Office Street"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"office_address_street2"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"office_address_city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Altville"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"office_address_state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IN"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"office_address_zip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"23232"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"office_phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"813.555.1221"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"moxi_works_office_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xyz789"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"office_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5678</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"office_address_street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"700 123rd Ave"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"office_address_street2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Suite 1234"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"office_address_city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nextus"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"office_address_state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AL"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"office_address_zip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"99899"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"office_phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"66655544444"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="err">gci_goal</span><span class="p">:</span><span class="w"> </span><span class="mi">122131</span><span class="p">,</span><span class="w">
+  </span><span class="err">buyer_commission_rate</span><span class="p">:</span><span class="w"> </span><span class="mf">1.25</span><span class="p">,</span><span class="w">
+  </span><span class="err">seller_commission_rate</span><span class="p">:</span><span class="w"> </span><span class="mf">1.25</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote><div class='highlight json' style="display: block">
 <span class="data-example-label"><span class='entity-name'>Agent</span> <span class='action-name'>Show</span>: Failure Response</span>
 </div> See <a href='#error-handling'>Error Handling</a> for details about individual error codes.</blockquote>
 <pre class="highlight json"><code><span class="w">
@@ -257,6 +337,22 @@
 <tr>
 <td><span class="response-data">client_agent_id</span></td>
 <td><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">mls_agent_id</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">license</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">mls_name</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">mls_abbreviation</span></td>
+<td><span class="data-type">String or null</span></td>
 </tr>
 <tr>
 <td><span class="response-data">agent_id</span></td>
@@ -379,6 +475,18 @@
 <td><span class="data-type">String</span></td>
 </tr>
 <tr>
+<td><span class="response-data">gci_goal</span></td>
+<td><span class="data-type">Integer</span></td>
+</tr>
+<tr>
+<td><span class="response-data">buyer_commission_rate</span></td>
+<td><span class="data-type">Float</span></td>
+</tr>
+<tr>
+<td><span class="response-data">seller_commission_rate</span></td>
+<td><span class="data-type">Float</span></td>
+</tr>
+<tr>
 <td><span class="response-data">alternate_offices</span></td>
 <td><span class="data-type">Array</span></td>
 </tr>
@@ -389,6 +497,18 @@
 
 <p><span class="response-data-head">client_agent_id</span>
 <span class="response-data-remarks">This is the  ID of the <span class='entity-name'>Agent</span> utilized by their company.</span></p>
+
+<p><span class="response-data-head">mls_agent_id</span>
+<span class="response-data-remarks">This is the  ID of the <span class='entity-name'>Agent</span> utilized by their primary MLS.</span></p>
+
+<p><span class="response-data-head">license</span>
+<span class="response-data-remarks">This is the number of the license granted to the agent.</span></p>
+
+<p><span class="response-data-head">mls_name</span>
+<span class="response-data-remarks">This is the  name of the primary MLS for the agent.</span></p>
+
+<p><span class="response-data-head">mls_abbreviation</span>
+<span class="response-data-remarks">This is the standard abbreviation of the primary MLS utilized by the agent.</span></p>
 
 <p><span class="response-data-head">agent_id</span>
 <span class="response-data-remarks">This is the ID of this <span class='entity-name'>Agent</span>. This will be an integer.</span></p>
@@ -482,6 +602,15 @@
 
 <p><span class="response-data-head">profile_thumb_url</span>
 <span class="response-data-remarks">This is a valid URL for a thumbnail size image for the agent.  If no agent image has been uploaded for this agent a default image url will be provided.</span></p>
+
+<p><span class="response-data-head">gci_goal</span>
+<span class="response-data-remarks">The agent&rsquo;s  stated gross commission income goal.</span></p>
+
+<p><span class="response-data-head">buyer_commission_rate</span>
+<span class="response-data-remarks">Percentage commission rate for the agent when acting as a buyer&rsquo;s agent.</span></p>
+
+<p><span class="response-data-head">seller_commission_rate</span>
+<span class="response-data-remarks">Percentage commission rate for the agent when acting as a seller&rsquo;s agent.</span></p>
 
 <h6 id="alternate_offices-object"><span class='attribute-name'>alternate_offices</span> Object</h6>
 

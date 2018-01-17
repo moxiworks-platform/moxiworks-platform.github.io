@@ -13,7 +13,7 @@
 
   </head>
 
-  <body class="partials partials_public_api partials_public_api_api_usage partials_public_api_api_usage_listing partials_public_api_api_usage_listing_index">
+  <body class="partials partials_public_api partials_public_api_api_usage partials_public_api_api_usage_sold_listing partials_public_api_api_usage_sold_listing_index">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -28,27 +28,27 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h4 id="listing-index"><span class='entity-name'>Listing</span> <span class='action-name'>Index  </span></h4>
+        <h4 id="soldlisting-index"><span class='entity-name'>SoldListing</span> <span class='action-name'>Index  </span></h4>
 
-<div class='highlight ruby'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-ruby/MoxiworksPlatform/Listing.html#search-class_method'>Ruby Search Docs</a></span></blockquote></div>
+<div class='highlight ruby'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-ruby/MoxiworksPlatform/SoldListing.html#search-class_method'>Ruby Search Docs</a></span></blockquote></div>
 
-<div class='highlight php'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-php/classes/MoxiworksPlatform.Listing.html#method_search'>PHP Search Docs</a></span></blockquote></div>
+<div class='highlight php'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-php/classes/MoxiworksPlatform.SoldListing.html#method_search'>PHP Search Docs</a></span></blockquote></div>
 
-<p>Index will return a paged response of listings that have been updated since a given timestamp for a specified company. For a list of company IDs that you can request listings for, use the <a href="#company">Company Endpoint</a>.</p>
+<p>Index will return a paged response of sold listings that have been updated since a given timestamp for a specified company. For a list of company IDs that you can reques sold listings for, use the <a href="#company">Company Endpoint</a>.</p>
 
-<aside class="note">If no updated_since parameter is provided, listings that have been updated in the <b>last seven days</b> will be returned.</aside>
+<aside class="note">If no sold_since parameter is provided, listings that have been updated in the <b>last seven days</b> will be returned.</aside>
 
 <blockquote>
-<p><span class="data-example-label"><span class='entity-name'>Listing</span> <span class='action-name'>Index</span> Example</span></p>
+<p><span class="data-example-label"><span class='entity-name'>SoldListing</span> <span class='action-name'>Index</span> Example</span></p>
 
-<p><span class="data-example-label"><span class='entity-name'>Listing</span> Objects Updated Since A Given Timestamp</span></p>
+<p><span class="data-example-label"><span class='entity-name'>SoldListing</span> Objects Updated Since A Given Timestamp</span></p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"moxi_works_company_id"</span><span class="p">:</span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"updated_since"</span><span class="p">:</span><span class="s2">"1461108284"</span><span class="w">
+  </span><span class="nt">"sold_since"</span><span class="p">:</span><span class="s2">"1461108284"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/listings?moxi_works_company_id=abc123&amp;updated_since=1461108284</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/sold_listings?moxi_works_company_id=abc123&amp;sold_since=1461108284</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">api.moxiworks.com</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.moxi-platform+json;version=1</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">Basic XNNeXAAAUZaQlF0dA==</span>
@@ -67,7 +67,7 @@
 <span class="c1">##### end prerequisites</span>
 
 <span class="n">one_week</span> <span class="o">=</span>  <span class="n">defined?</span><span class="p">(</span><span class="no">Rails</span><span class="p">)</span> <span class="p">?</span> <span class="mi">1</span><span class="p">.</span><span class="nf">week</span> <span class="p">:</span> <span class="mi">604800</span>
-<span class="n">company_listings</span> <span class="o">=</span> <span class="no">MoxiworksPlatform</span><span class="o">::</span><span class="no">Listing</span><span class="p">.</span><span class="nf">search</span><span class="p">(</span><span class="ss">moxi_works_company_id: </span><span class="s2">"abc123"</span><span class="p">,</span> <span class="ss">updated_since: </span><span class="no">Time</span><span class="p">.</span><span class="nf">now</span> <span class="o">-</span> <span class="n">one_week</span><span class="p">)</span>
+<span class="n">company_listings</span> <span class="o">=</span> <span class="no">MoxiworksPlatform</span><span class="o">::</span><span class="no">SoldListing</span><span class="p">.</span><span class="nf">search</span><span class="p">(</span><span class="ss">moxi_works_company_id: </span><span class="s2">"abc123"</span><span class="p">,</span> <span class="ss">sold_since: </span><span class="no">Time</span><span class="p">.</span><span class="nf">now</span> <span class="o">-</span> <span class="n">one_week</span><span class="p">)</span>
 
 </code></pre>
 <pre class="highlight php"><code><span class="cp">&lt;?php</span>
@@ -77,21 +77,21 @@
 <span class="nv">$credentials</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MoxiworksPlatform\Credentials</span><span class="p">(</span><span class="nv">$platform_identifier</span><span class="p">,</span> <span class="nv">$platform_secret</span><span class="p">);</span>
 
 <span class="nv">$one_week</span> <span class="o">=</span> <span class="mi">604800</span><span class="p">;</span>
-<span class="nv">$company_listings</span> <span class="o">=</span> <span class="nx">MoxiworksPlatform\Listing</span><span class="o">::</span><span class="na">search</span><span class="p">([</span><span class="s1">'moxi_works_company_id'</span> <span class="o">=&gt;</span> <span class="s1">'abc123'</span><span class="p">,</span> <span class="s1">'updated_since'</span> <span class="o">=&gt;</span> <span class="nb">time</span><span class="p">()</span> <span class="o">-</span> <span class="nv">$one_week</span><span class="p">]);</span>
+<span class="nv">$company_listings</span> <span class="o">=</span> <span class="nx">MoxiworksPlatform\SoldListing</span><span class="o">::</span><span class="na">search</span><span class="p">([</span><span class="s1">'moxi_works_company_id'</span> <span class="o">=&gt;</span> <span class="s1">'abc123'</span><span class="p">,</span> <span class="s1">'sold_since'</span> <span class="o">=&gt;</span> <span class="nb">time</span><span class="p">()</span> <span class="o">-</span> <span class="nv">$one_week</span><span class="p">]);</span>
 <span class="cp">?&gt;</span>
 </code></pre>
 
 <blockquote>
-<p><span class="data-example-label">Requesting Next Page of <span class='entity-name'>Listing</span> Objects Updated Since A Given Timestamp</span></p>
+<p><span class="data-example-label">Requesting Next Page of <span class='entity-name'>SoldListing</span> Objects Updated Since A Given Timestamp</span></p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"moxi_works_company_id"</span><span class="p">:</span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"updated_since"</span><span class="p">:</span><span class="s2">"1461108284"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"sold_since"</span><span class="p">:</span><span class="s2">"1461108284"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"last_moxi_works_listing_id"</span><span class="p">:</span><span class="s2">"abc12345"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
 </span></code></pre>
-<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/listings?moxi_works_company_id=abc123&amp;updated_since=1461108284&amp;last_moxi_works_listing_id=abc123</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/sold_listings?moxi_works_company_id=abc123&amp;sold_since=1461108284&amp;last_moxi_works_listing_id=abc123</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">api.moxiworks.com</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.moxi-platform+json;version=1</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">Basic XNNeXAAAUZaQlF0dA==</span>
@@ -100,44 +100,44 @@
 </code></pre>
 <pre class="highlight ruby"><code><span class="n">one_week</span> <span class="o">=</span>  <span class="n">defined?</span><span class="p">(</span><span class="no">Rails</span><span class="p">)</span> <span class="p">?</span> <span class="mi">1</span><span class="p">.</span><span class="nf">week</span> <span class="p">:</span> <span class="mi">604800</span>
 
-<span class="n">first_page</span> <span class="o">=</span> <span class="no">MoxiworksPlatform</span><span class="o">::</span><span class="no">Listing</span><span class="p">.</span><span class="nf">search</span><span class="p">(</span><span class="ss">moxi_works_company_id: </span><span class="s2">"abc123"</span><span class="p">,</span> <span class="ss">updated_since: </span><span class="no">Time</span><span class="p">.</span><span class="nf">now</span> <span class="o">-</span> <span class="n">one_week</span><span class="p">)</span>
+<span class="n">first_page</span> <span class="o">=</span> <span class="no">MoxiworksPlatform</span><span class="o">::</span><span class="no">SoldListing</span><span class="p">.</span><span class="nf">search</span><span class="p">(</span><span class="ss">moxi_works_company_id: </span><span class="s2">"abc123"</span><span class="p">,</span> <span class="ss">sold_since: </span><span class="no">Time</span><span class="p">.</span><span class="nf">now</span> <span class="o">-</span> <span class="n">one_week</span><span class="p">)</span>
 
 <span class="k">unless</span> <span class="n">first_page</span><span class="p">[</span><span class="s1">'final_page'</span><span class="p">]</span>
   <span class="n">last_listing</span> <span class="o">=</span> <span class="n">first_page</span><span class="p">[</span><span class="s1">'listings'</span><span class="p">].</span><span class="nf">last</span>
   <span class="n">last_listing_id</span> <span class="o">=</span> <span class="p">(</span><span class="n">last_listing</span><span class="p">.</span><span class="nf">nil?</span><span class="p">)</span> <span class="p">?</span> <span class="kp">nil</span> <span class="p">:</span> <span class="n">last_listing</span><span class="p">.</span><span class="nf">moxi_works_listing_id</span>
 
-  <span class="n">next_page</span> <span class="o">=</span> <span class="no">MoxiworksPlatform</span><span class="o">::</span><span class="no">Listing</span><span class="p">.</span><span class="nf">search</span><span class="p">(</span><span class="ss">moxi_works_company_id: </span><span class="s2">"abc123"</span><span class="p">,</span>
-    <span class="ss">updated_since: </span><span class="no">Time</span><span class="p">.</span><span class="nf">now</span> <span class="o">-</span> <span class="n">one_week</span><span class="p">,</span> <span class="ss">last_moxi_works_listing_id: </span><span class="n">last_listing_id</span><span class="p">)</span>
+  <span class="n">next_page</span> <span class="o">=</span> <span class="no">MoxiworksPlatform</span><span class="o">::</span><span class="no">SoldListing</span><span class="p">.</span><span class="nf">search</span><span class="p">(</span><span class="ss">moxi_works_company_id: </span><span class="s2">"abc123"</span><span class="p">,</span>
+    <span class="ss">sold_since: </span><span class="no">Time</span><span class="p">.</span><span class="nf">now</span> <span class="o">-</span> <span class="n">one_week</span><span class="p">,</span> <span class="ss">last_moxi_works_listing_id: </span><span class="n">last_listing_id</span><span class="p">)</span>
 <span class="k">end</span>
 
 
-<span class="c1"># or run a block on all pages of listings with a single call</span>
+<span class="c1"># or run a block on all pages of sold listings with a single call</span>
 
-<span class="no">MoxiworksPlatform</span><span class="o">::</span><span class="no">Listing</span><span class="p">.</span><span class="nf">search</span><span class="p">(</span>
+<span class="no">MoxiworksPlatform</span><span class="o">::</span><span class="no">SoldListing</span><span class="p">.</span><span class="nf">search</span><span class="p">(</span>
   <span class="ss">moxi_works_company_id: </span><span class="s1">'abc123'</span><span class="p">,</span>
-  <span class="ss">updated_since: </span><span class="no">Time</span><span class="p">.</span><span class="nf">now</span><span class="p">.</span><span class="nf">to_i</span> <span class="o">-</span> <span class="n">one_week</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="n">page_of_listings</span><span class="o">|</span> <span class="nb">puts</span> <span class="n">page_of_listings</span><span class="p">.</span><span class="nf">count</span> <span class="p">}</span>
+  <span class="ss">sold_since: </span><span class="no">Time</span><span class="p">.</span><span class="nf">now</span><span class="p">.</span><span class="nf">to_i</span> <span class="o">-</span> <span class="n">one_week</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="n">page_of_listings</span><span class="o">|</span> <span class="nb">puts</span> <span class="n">page_of_listings</span><span class="p">.</span><span class="nf">count</span> <span class="p">}</span>
 
 
 </code></pre>
 <pre class="highlight php"><code><span class="cp">&lt;?php</span>
 <span class="nv">$one_week</span> <span class="o">=</span> <span class="mi">604800</span><span class="p">;</span>
 
-<span class="nv">$first_page</span> <span class="o">=</span> <span class="nx">MoxiworksPlatform\Listing</span><span class="o">::</span><span class="na">search</span><span class="p">([</span><span class="s1">'moxi_works_company_id'</span> <span class="o">=&gt;</span> <span class="s1">'abc123'</span><span class="p">,</span> <span class="s1">'updated_since'</span> <span class="o">=&gt;</span> <span class="nb">time</span><span class="p">()</span> <span class="o">-</span> <span class="nv">$one_week</span><span class="p">]);</span>
+<span class="nv">$first_page</span> <span class="o">=</span> <span class="nx">MoxiworksPlatform\SoldListing</span><span class="o">::</span><span class="na">search</span><span class="p">([</span><span class="s1">'moxi_works_company_id'</span> <span class="o">=&gt;</span> <span class="s1">'abc123'</span><span class="p">,</span> <span class="s1">'sold_since'</span> <span class="o">=&gt;</span> <span class="nb">time</span><span class="p">()</span> <span class="o">-</span> <span class="nv">$one_week</span><span class="p">]);</span>
 
 <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nv">$first_page</span><span class="p">[</span><span class="s1">'final_page'</span><span class="p">])</span> <span class="p">{</span>
   <span class="nv">$last_listing</span> <span class="o">=</span> <span class="nb">end</span><span class="p">(</span><span class="nb">array_values</span><span class="p">(</span><span class="nv">$first_page</span><span class="p">[</span><span class="s1">'listings'</span><span class="p">]));</span>
   <span class="nv">$last_listing_id</span> <span class="o">=</span> <span class="nv">$last_listing</span><span class="o">-&gt;</span><span class="nv">$moxi_works_listing_id</span><span class="p">;</span>
-  <span class="nx">MoxiworksPlatform\Listing</span><span class="o">::</span><span class="na">search</span><span class="p">([</span><span class="s1">'moxi_works_company_id'</span> <span class="o">=&gt;</span> <span class="s1">'abc123'</span><span class="p">,</span> <span class="s1">'updated_since'</span> <span class="o">=&gt;</span> <span class="nb">time</span><span class="p">()</span> <span class="o">-</span> <span class="nv">$one_week</span><span class="p">],</span> <span class="s1">'last_moxi_works_listing_id'</span> <span class="o">=&gt;</span> <span class="nv">$last_listing_id</span><span class="p">);</span>
+  <span class="nx">MoxiworksPlatform\SoldListing</span><span class="o">::</span><span class="na">search</span><span class="p">([</span><span class="s1">'moxi_works_company_id'</span> <span class="o">=&gt;</span> <span class="s1">'abc123'</span><span class="p">,</span> <span class="s1">'sold_since'</span> <span class="o">=&gt;</span> <span class="nb">time</span><span class="p">()</span> <span class="o">-</span> <span class="nv">$one_week</span><span class="p">],</span> <span class="s1">'last_moxi_works_listing_id'</span> <span class="o">=&gt;</span> <span class="nv">$last_listing_id</span><span class="p">);</span>
 <span class="p">}</span>
 
 <span class="cp">?&gt;</span>
 </code></pre>
 
-<aside class="note">Send a <b>GET</b> request to https://api.moxiworks.com/api/listings</aside>
+<aside class="note">Send a <b>GET</b> request to https://api.moxiworks.com/api/sold_listings</aside>
 
-<p>When searching for <span class='entity-name'>Listing</span> objects using the Moxi Works platform API, format your data using the following parameters.</p>
+<p>When searching for <span class='entity-name'>SoldListing</span> objects using the Moxi Works platform API, format your data using the following parameters.</p>
 
-<h5 id="listing-index-request-attributes"><span class='entity-name'>Listing</span> <span class='action-name'>Index</span> Request Attributes</h5>
+<h5 id="soldlisting-index-request-attributes"><span class='entity-name'>SoldListing</span> <span class='action-name'>Index</span> Request Attributes</h5>
 
 <table><thead>
 <tr>
@@ -152,7 +152,7 @@
 <td><span class="required-data">255<span></td>
 </tr>
 <tr>
-<td><span class="optional-data">updated_since</span></td>
+<td><span class="optional-data">sold_since</span></td>
 <td><span class="data-type">Integer</span></td>
 <td>255</td>
 </tr>
@@ -185,23 +185,25 @@
 
 <aside class="note">Use <a href='#company'>Company Endpoint</a> to determine the moxi_works_company_id to send.</aside>
 
-<p><span class="request-data-head">updated_since</span>
-<span class="request-data-remarks">Paged responses of all <span class='entity-name'>Listing</span> objects updated after this Unix timestamp will be returned in the response. <strong>If no <span class='attribute-name'>updated_since</span> parameter is included in the request, only <span class='entity-name'>Listing</span> objects updated in the last seven days will be returned.</strong></span></p>
+<p><span class="request-data-head">sold_since</span>
+<span class="request-data-remarks">Paged responses of all <span class='entity-name'>SoldListing</span> objects updated after this Unix timestamp will be returned in the response. <strong>If no <span class='attribute-name'>sold_since</span> parameter is included in the request, only <span class='entity-name'>SoldListing</span> objects updated in the last seven days will be returned.</strong></span></p>
+
+<aside class="note"><span class='attribute-name'>sold_since</span> can be no more than 32 days ago.</aside>
 
 <p><span class="request-data-head">agent_uuid</span>
-<span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which  <span class='entity-name'>Listing</span> objects are associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID.</span></p>
+<span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which  <span class='entity-name'>SoldListing</span> objects are associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID.</span></p>
 
 <p><span class="request-data-head">moxi_works_agent_id</span>
-<span class="request-data-remarks">Use this parameter when searching for <span class='entity-name'>Listing</span> objects associated with a specific <span class='entity-name'>Agent</span>.  This will be a string that may take the form of an email address, or a unique identification string. This data must reference a valid Moxi Works Agent ID for your <span class='entity-name'>Listing</span> <span class='action-name'>Index</span>  request to be accepted.</span></p>
+<span class="request-data-remarks">Use this parameter when searching for <span class='entity-name'>SoldListing</span> objects associated with a specific <span class='entity-name'>Agent</span>.  This will be a string that may take the form of an email address, or a unique identification string. This data must reference a valid Moxi Works Agent ID for your <span class='entity-name'>SoldListing</span> <span class='action-name'>Index</span>  request to be accepted.</span></p>
 
 <p><span class="request-data-head">moxi_works_office_id</span>
-<span class="request-data-remarks">Use this parameter when searching for <span class='entity-name'>Listing</span> objects associated with a specific <span class='entity-name'>Office</span>.  This data must reference a valid Moxi Works Office ID for your <span class='entity-name'>Listing</span> <span class='action-name'>Index</span>  request to be accepted.</span></p>
+<span class="request-data-remarks">Use this parameter when searching for <span class='entity-name'>SoldListing</span> objects associated with a specific <span class='entity-name'>Office</span>.  This data must reference a valid Moxi Works Office ID for your <span class='entity-name'>SoldListing</span> <span class='action-name'>Index</span>  request to be accepted.</span></p>
 
 <p><span class="request-data-head">last_moxi_works_listing_id</span>
-<span class="request-data-remarks">If fetching a multi-page response, this should be the <span class='attribute-name'>MoxiWorksListingId</span> found in the last <span class='entity-name'>Listing</span> object of the previously fetched page.</span></p>
+<span class="request-data-remarks">If fetching a multi-page response, this should be the <span class='attribute-name'>MoxiWorksListingId</span> found in the last <span class='entity-name'>SoldListing</span> object of the previously fetched page.</span></p>
 
 <blockquote><div class='highlight json' style="display: block">
-<span class='data-example-label'><span class='entity-name'>Listing</span> <span class='action-name'>Index</span> Response Payload Example
+<span class='data-example-label'><span class='entity-name'>SoldListing</span> <span class='action-name'>Index</span> Response Payload Example
 </span></div></blockquote>
 <pre class="highlight json"><code><span class="w">
 </span><span class="p">{</span><span class="w">
@@ -260,6 +262,8 @@
   </span><span class="nt">"MoxiWorksListingId"</span><span class="p">:</span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"AgentCreatedListing"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="nt">"VirtualTourURL"</span><span class="p">:</span><span class="s2">"http://the.virtual.tour.url"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"SoldDate"</span><span class="p">:</span><span class="s2">"11/04/2016"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"SoldPrice"</span><span class="p">:</span><span class="mi">192349</span><span class="p">,</span><span class="w">
   </span><span class="nt">"PropertyFeatures"</span><span class="p">:[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"PropertyFeatureName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kitchen Information"</span><span class="p">,</span><span class="w">
@@ -303,13 +307,6 @@
         </span><span class="nt">"AttributeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Destination"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">
-  </span><span class="nt">"OpenHouse"</span><span class="p">:[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"Date"</span><span class="p">:</span><span class="s2">"2018-01-06T00:00:00.000-08:00"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"StartTime"</span><span class="p">:</span><span class="s2">"2018-01-06T13:00:00.000-08:00"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"EndTime"</span><span class="p">:</span><span class="s2">"2018-01-06T15:00:00.000-08:00"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">],</span><span class="w">
   </span><span class="nt">"ListingImages"</span><span class="p">:[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"FullURL"</span><span class="p">:</span><span class="s2">"http://images.moxiworks.com/static/images/br/imagoo/default_property_image_wre-326x250.png"</span><span class="p">,</span><span class="w">
@@ -332,7 +329,7 @@
 </span></code></pre>
 
 <blockquote><div class='highlight json' style="display: block">
-  <span class='data-example-label'><span class='entity-name'>Listing</span> <span class='action-name'>Index</span> Failure Response Example
+  <span class='data-example-label'><span class='entity-name'>SoldListing</span> <span class='action-name'>Index</span> Failure Response Example
 </div> See <a href='#error-handling'>Error Handling</a> for details about individual error codes.</blockquote>
 <pre class="highlight json"><code><span class="w">
 </span><span class="p">{</span><span class="w">
@@ -343,9 +340,9 @@
 
 </span></code></pre>
 
-<h5 id="listing-index-response-payload"><span class='entity-name'>Listing</span> <span class='action-name'>Index</span> Response Payload</h5>
+<h5 id="soldlisting-index-response-payload"><span class='entity-name'>SoldListing</span> <span class='action-name'>Index</span> Response Payload</h5>
 
-<p>The following attributes make up the payload of the <span class='entity-name'>Listing</span> response for a <span class='action-name'>Index</span> request.</p>
+<p>The following attributes make up the payload of the <span class='entity-name'>SoldListing</span> response for a <span class='action-name'>Index</span> request.</p>
 
 <table><thead>
 <tr>
@@ -358,20 +355,20 @@
 <td><span class="response-data"><span class="data-type">Boolean</span></td>
 </tr>
 <tr>
-<td><span class="response-data">Listings</span></td>
+<td><span class="response-data">SoldListings</span></td>
 <td><span class="response-data"><span class="data-type">Array</span></td>
 </tr>
 </tbody></table>
 
 <p><span class="response-data-head">FinalPage</span>
-<span class="response-data-remarks">If there is another page of <span class='entity-name'>Listing</span> objects available, this will be false. If you are receiving the final page of <span class='entity-name'>Listing</span> objects for the query, <span class='entity-name'>FinalPage</span> will be <code class="prettyprint">true</code>.</span></p>
+<span class="response-data-remarks">If there is another page of <span class='entity-name'>SoldListing</span> objects available, this will be false. If you are receiving the final page of <span class='entity-name'>SoldListing</span> objects for the query, <span class='entity-name'>FinalPage</span> will be <code class="prettyprint">true</code>.</span></p>
 
-<p><span class="response-data-head">Listings</span>
-<span class="response-data-remarks">This is the payload object for the query. Any <span class='entity-name'>Listing</span> object that matches the request query will be returned here.</span></p>
+<p><span class="response-data-head">SoldListings</span>
+<span class="response-data-remarks">This is the payload object for the query. Any <span class='entity-name'>SoldListing</span> object that matches the request query will be returned here.</span></p>
 
-<h6 id="listings-objects"><span class='attribute-name'>Listings</span> Objects</h6>
+<h6 id="soldlistings-objects"><span class='attribute-name'>SoldListings</span> Objects</h6>
 
-<p>Each object in the <span class='attribute-name'>Listings</span> array will have the following structure.</p>
+<p>Each object in the <span class='attribute-name'>SoldListings</span> array will have the following structure.</p>
 
 <table><thead>
 <tr>
@@ -432,7 +429,7 @@
 <td><span class="response-data"><span class="data-type">Integer</span></td>
 </tr>
 <tr>
-<td><span class="response-data">ListingContractDate</span></td>
+<td><span class="response-data">SoldListingContractDate</span></td>
 <td><span class="response-data"><span class="data-type">String</span></td>
 </tr>
 <tr>
@@ -468,7 +465,7 @@
 <td><span class="response-data"><span class="data-type">Integer or null</span></td>
 </tr>
 <tr>
-<td><span class="response-data">ListingID</span></td>
+<td><span class="response-data">SoldListingID</span></td>
 <td><span class="response-data"><span class="data-type">String</span></td>
 </tr>
 <tr>
@@ -588,15 +585,19 @@
 <td><span class="response-data"><span class="data-type">String or null</span></td>
 </tr>
 <tr>
+<td><span class="response-data">SoldDate</span></td>
+<td><span class="response-data"><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">SoldPrice</span></td>
+<td><span class="response-data"><span class="data-type">Integer</span></td>
+</tr>
+<tr>
 <td><span class="response-data">PropertyFeatures</span></td>
 <td><span class="response-data"><span class="data-type">Array</span></td>
 </tr>
 <tr>
 <td><span class="response-data">CompanyListingAttributes</span></td>
-<td><span class="response-data"><span class="data-type">Array</span></td>
-</tr>
-<tr>
-<td><span class="response-data">OpenHouse</span></td>
 <td><span class="response-data"><span class="data-type">Array</span></td>
 </tr>
 <tr>
@@ -644,11 +645,11 @@
 <p><span class="response-data-head">DaysOnMarket</span>
 <span class="response-data-remarks">The number of days the listing has been on market.</span></p>
 
-<p><span class="response-data-head">ListingContractDate</span>
+<p><span class="response-data-head">SoldListingContractDate</span>
 <span class="response-data-remarks">This is a string representing a date on which the listing contract was initiated. The string format is <code class="prettyprint">MM/DD/YYYY</code>.</span></p>
 
 <p><span class="response-data-head">CreatedDate</span>
-<span class="response-data-remarks">This is a string representing a date on which the <span class='entity-name'>Listing</span> object was created. The string format is <code class="prettyprint">MM/DD/YYYY</code>.</span></p>
+<span class="response-data-remarks">This is a string representing a date on which the <span class='entity-name'>SoldListing</span> object was created. The string format is <code class="prettyprint">MM/DD/YYYY</code>.</span></p>
 
 <p><span class="response-data-head">ElementarySchool</span>
 <span class="response-data-remarks">The elementary school for the property.</span></p>
@@ -671,7 +672,7 @@
 <p><span class="response-data-head">ListPrice</span>
 <span class="response-data-remarks">The listed price for the listing.</span></p>
 
-<p><span class="response-data-head">ListingID</span>
+<p><span class="response-data-head">SoldListingID</span>
 <span class="response-data-remarks">The MLS number for the listing.</span></p>
 
 <p><span class="response-data-head">ListAgentFullName</span>
@@ -744,7 +745,7 @@
 <span class="response-data-remarks">Whether the listing is currently on-market.</span></p>
 
 <p><span class="response-data-head">Status</span>
-<span class="response-data-remarks">Detailed status of the listing; whether it&rsquo;s <code class="prettyprint">active</code> <code class="prettyprint">pending</code></span></p>
+<span class="response-data-remarks">Detailed status of the listing;</span></p>
 
 <p><span class="response-data-head">MoxiWorksListingID</span>
 <span class="response-data-remarks">The unique Identifier for the listing in The Moxi Works Platform.</span></p>
@@ -755,14 +756,17 @@
 <p><span class="response-data-head">VirtualTourURL</span>
 <span class="response-data-remarks">Virtual tour URL for this listing.</span></p>
 
+<p><span class="response-data-head">SoldDate</span>
+<span class="response-data-remarks">Date on which this listing was sold.</span></p>
+
+<p><span class="response-data-head">SoldPrice</span>
+<span class="response-data-remarks">Price for which this listing was sold.</span></p>
+
 <p><span class="response-data-head">PropertyFeatures</span>
 <span class="response-data-remarks">Any defined features about the property.</span></p>
 
 <p><span class="response-data-head">CompanyListingAttributes</span>
 <span class="response-data-remarks">Company specific attributes associated with the listing. These will be defined by the company &amp; should not be expected to be uniform across companies.</span></p>
-
-<p><span class="response-data-head">OpenHouse</span>
-<span class="response-data-remarks">Open house data.</span></p>
 
 <p><span class="response-data-head">ListingImages</span>
 <span class="response-data-remarks">Any images of the property.</span></p>
@@ -818,39 +822,6 @@
 
 <p><span class="response-data-head">AttributeName</span>
 <span class="response-data-remarks">Human readable name of the company specific listing attribute.</span></p>
-
-<h6 id="openhouse-objects"><span class='attribute-name'>OpenHouse</span> Objects</h6>
-
-<p>Each object in the <span class='attribute-name'>OpenHouse</span> array will have the following structure.</p>
-
-<table><thead>
-<tr>
-<th>Attribute</th>
-<th>Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><span class="response-data">Date</span></td>
-<td><span class="response-data"><span class="data-type">String</span></td>
-</tr>
-<tr>
-<td><span class="response-data">StartTime</span></td>
-<td><span class="response-data"><span class="data-type">String</span></td>
-</tr>
-<tr>
-<td><span class="response-data">EndTime</span></td>
-<td><span class="response-data"><span class="data-type">String</span></td>
-</tr>
-</tbody></table>
-
-<p><span class="response-data-head">Date</span>
-<span class="response-data-remarks">ISO 8601 formatted string representing the date on which the open house takes place.</span></p>
-
-<p><span class="response-data-head">StartTime</span>
-<span class="response-data-remarks">ISO 8601 formatted string representing the time at which the open house starts.</span></p>
-
-<p><span class="response-data-head">EndTime</span>
-<span class="response-data-remarks">ISO 8601 formatted string representing the time at which the open house ends.</span></p>
 
 <h6 id="listingimages-objects"><span class='attribute-name'>ListingImages</span> Objects</h6>
 

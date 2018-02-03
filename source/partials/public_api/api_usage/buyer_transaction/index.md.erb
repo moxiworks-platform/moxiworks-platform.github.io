@@ -4,13 +4,13 @@
 
 <div class='highlight php'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-php/classes/MoxiworksPlatform.BuyerTransaction.html#method_find'>PHP Search Docs</a></span></blockquote></div>
 
+<div class='highlight dotnet'><blockquote><span class='data-example-label'><a href='https://moxiworks-platform.github.io/moxiworks-dotnet/class_moxi_works_1_1_platform_1_1_buyer_transaction_service.html#aaa47480c0eb12c25deb1eca986b92e37'>.Net <span class='action-name'>BuyerTransactionService.GetBuyerTransactionsAsync</span> Docs</a></span></blockquote></div>
 
 > <span class="data-example-label"><span class='entity-name'>BuyerTransaction</span> <span class='action-name'>Index</span> (using <span class='attribute-name'>agent_uuid</span>) Example</span>
 
 ```json
 {
   "agent_uuid":"12345678-1234-1234-1234-1234567890ab",
-  "moxi_works_transaction_id":"babebead-feed-face-dead-beefbad4babe"
 }
 
 
@@ -23,7 +23,21 @@ Accept: application/vnd.moxi-platform+json;version=1
 Authorization: Basic XNNeXAAAUZaQlF0dA==
 Content-Type: application/x-www-form-urlencoded
 
-moxi_works_agent_id=abc123
+agent_uuid=abc123
+
+```
+
+```csharp
+
+/* set up prerequisites once */
+ConfigurationManager.AppSettings["Secret"] = "secret";
+ConfigurationManager.AppSettings["Identifier"] = "abc123";
+
+
+var agentUuid = "12345678-1234-1234-1234-1234567890ab";
+
+var service = new ActionLogService(new MoxiWorksClient());
+var results = service.GetBuyerTransactionsAsync(agentId: agentUuid, agentIdType: AgentIdType.AgentUuid).Result;
 
 ```
 
@@ -39,8 +53,7 @@ MoxiworksPlatform::Credentials.new(platform_identifier, platform_secret)
 ##### end prerequisites
 
 moxi_works_transaction = MoxiworksPlatform::BuyerTransaction.search(
-      agent_uuid:"12345678-1234-1234-1234-1234567890ab",
-      moxi_works_transaction_id:"babebead-feed-face-dead-beefbad4babe"
+      agent_uuid:"12345678-1234-1234-1234-1234567890ab"
       )
 
 ```
@@ -53,8 +66,7 @@ $platform_secret = 'secret'; //platform_secret provided by Moxi Works Platform R
 $credentials = new MoxiworksPlatform\Credentials($platform_identifier, $platform_secret);
 
 $moxi_works_transaction = MoxiworksPlatform\BuyerTransaction::search([
-      "agent_uuid" => "12345678-1234-1234-1234-1234567890ab",
-      "moxi_works_transaction_id" => "babebead-feed-face-dead-beefbad4babe"
+      "agent_uuid" => "12345678-1234-1234-1234-1234567890ab"
        ]);
 ?>
 ```
@@ -64,8 +76,7 @@ $moxi_works_transaction = MoxiworksPlatform\BuyerTransaction::search([
 
 ```json
 {
-  "moxi_works_agent_id":"abc123",
-  "moxi_works_transaction_id":"babebead-feed-face-dead-beefbad4babe"
+  "moxi_works_agent_id":"abc123"
 }
 
 
@@ -82,6 +93,21 @@ moxi_works_agent_id=abc123
 
 ```
 
+```csharp
+
+/* set up prerequisites once */
+ConfigurationManager.AppSettings["Secret"] = "secret";
+ConfigurationManager.AppSettings["Identifier"] = "abc123";
+
+
+var moxiWorksAgentId = "abc123";
+
+var service = new ActionLogService(new MoxiWorksClient());
+var results = service.GetBuyerTransactionsAsync(agentId: moxiWorksAgentId, agentIdType: AgentIdType.MoxiWorksAgentId).Result;
+
+```
+
+
 ```ruby
 ##### set up prerequisites once
 require 'moxiworks_platform'
@@ -94,8 +120,7 @@ MoxiworksPlatform::Credentials.new(platform_identifier, platform_secret)
 ##### end prerequisites
 
 moxi_works_transaction = MoxiworksPlatform::BuyerTransaction.search(
-      moxi_works_agent_id:"abc123",
-      moxi_works_transaction_id:"babebead-feed-face-dead-beefbad4babe"
+      moxi_works_agent_id:"abc123"
       )
 
 ```
@@ -108,8 +133,7 @@ $platform_secret = 'secret'; //platform_secret provided by Moxi Works Platform R
 $credentials = new MoxiworksPlatform\Credentials($platform_identifier, $platform_secret);
 
 $moxi_works_transaction = MoxiworksPlatform\BuyerTransaction::search([
-      "moxi_works_agent_id" => "abc123",
-      "moxi_works_transaction_id" => "babebead-feed-face-dead-beefbad4babe"
+      "moxi_works_agent_id" => "abc123"
        ]);
 ?>
 ```
@@ -120,8 +144,7 @@ $moxi_works_transaction = MoxiworksPlatform\BuyerTransaction::search([
 
 ```json
 {
-  "moxi_works_agent_id":"abc123",
-  "moxi_works_transaction_id":"babebead-feed-face-dead-beefbad4babe"
+  "moxi_works_agent_id":"abc123"
 }
 
 
@@ -138,6 +161,21 @@ moxi_works_agent_id=abc123
 
 ```
 
+```csharp
+
+/* set up prerequisites once */
+ConfigurationManager.AppSettings["Secret"] = "secret";
+ConfigurationManager.AppSettings["Identifier"] = "abc123";
+
+
+var agentUuid = "12345678-1234-1234-1234-1234567890ab";
+
+var service = new ActionLogService(new MoxiWorksClient());
+var results = service.GetBuyerTransactionsAsync(agentId: agentUuid, agentIdType: AgentIdType.AgentUuid).Result;
+
+```
+
+
 ```ruby
 ##### set up prerequisites once
 require 'moxiworks_platform'
@@ -150,8 +188,7 @@ MoxiworksPlatform::Credentials.new(platform_identifier, platform_secret)
 ##### end prerequisites
 
 moxi_works_transaction = MoxiworksPlatform::BuyerTransaction.search(
-      moxi_works_agent_id:"abc123",
-      moxi_works_transaction_id:"babebead-feed-face-dead-beefbad4babe"
+      moxi_works_agent_id:"abc123"
       )
 
 ```
@@ -164,8 +201,7 @@ $platform_secret = 'secret'; //platform_secret provided by Moxi Works Platform R
 $credentials = new MoxiworksPlatform\Credentials($platform_identifier, $platform_secret);
 
 $moxi_works_transaction = MoxiworksPlatform\BuyerTransaction::search([
-      "moxi_works_agent_id" => "abc123",
-      "moxi_works_transaction_id" => "babebead-feed-face-dead-beefbad4babe"
+      "moxi_works_agent_id" => "abc123"
        ]);
 ?>
 ```

@@ -4,6 +4,8 @@
 
 <div class='highlight php'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-php/classes/MoxiworksPlatform.ActionLog.html#method_search'>PHP <span class='action-name'>Search</span> Docs</a></span></blockquote></div>
 
+<div class='highlight dotnet'><blockquote><span class='data-example-label'><a href='https://moxiworks-platform.github.io/moxiworks-dotnet/class_moxi_works_1_1_platform_1_1_action_log_service.html#a917074a99da1c657b0f0cbdc01ba9c43'>.Net <span class='action-name'>ActionLogService.GetActionLogsAsync</span> Docs</a></span></blockquote></div>
+
 <aside class="note">Send a <b>GET</b> request to https://api.moxiworks.com/api/action_logs</aside>
 
 
@@ -26,6 +28,20 @@ Host: api.moxiworks.com
 Accept: application/vnd.moxi-platform+json;version=1
 Authorization: Basic XNNeXAAAUZaQlF0dA==
 Content-Type: application/x-www-form-urlencoded
+
+```
+
+```csharp
+
+/* set up prerequisites once */
+ConfigurationManager.AppSettings["Secret"] = "secret";
+ConfigurationManager.AppSettings["Identifier"] = "abc123";
+
+
+var agentUuid = "12345678-1234-1234-1234-1234567890ab";
+
+var service = new ActionLogService(new MoxiWorksClient());
+var results = service.GetActionLogsAsync(agentId: agentUuid, agentIdType: AgentIdType.AgentUuid, partnerContactId: "mySystemsContactId").Result;
 
 ```
 
@@ -77,6 +93,20 @@ Host: api.moxiworks.com
 Accept: application/vnd.moxi-platform+json;version=1
 Authorization: Basic XNNeXAAAUZaQlF0dA==
 Content-Type: application/x-www-form-urlencoded
+
+```
+
+```csharp
+
+/* set up prerequisites once */
+ConfigurationManager.AppSettings["Secret"] = "secret";
+ConfigurationManager.AppSettings["Identifier"] = "abc123";
+
+
+var moxiWorksAgentId = "abcd1234";
+
+var service = new ActionLogService(new MoxiWorksClient());
+var results = service.GetActionLogsAsync(agentId: moxiWorksAgentId, agentIdType: AgentIdType.MoxiWorksAgentId, partnerContactId: "mySystemsContactId").Result;
 
 ```
 

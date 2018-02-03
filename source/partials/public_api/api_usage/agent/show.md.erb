@@ -4,6 +4,8 @@
 
 <div class='highlight php'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-php/classes/MoxiworksPlatform.Agent.html#method_find'>PHP Find Docs</a></span></blockquote></div>
 
+<div class='highlight dotnet'><blockquote><span class='data-example-label'><a href='https://moxiworks-platform.github.io/moxiworks-dotnet/class_moxi_works_1_1_platform_1_1_agent_service.html#ab0f1316db7ea0706780d2b63c614ea95'>.Net <span class='action-name'>AgentService.GetAgentAsync</span> Docs</a></span></blockquote></div>
+
 > <span class="data-example-label"><span class='entity-name'>Agent</span> <span class='action-name'>Show</span> (using <span class='attribute-name'>agent_uuid</span>) Example</span>
 
 ```http
@@ -22,6 +24,18 @@ Content-Type: application/x-www-form-urlencoded
 }
 
 ```
+
+```csharp
+
+/* set up prerequisites once */
+ConfigurationManager.AppSettings["Secret"] = "secret";
+ConfigurationManager.AppSettings["Identifier"] = "abc123";
+
+var service = new AgentService(new MoxiWorksClient());
+var result = service.GetAgentAsync(agentId: "12345678-1234-1234-1234-1234567890ab", moxiWorksCompanyId: "the_company").Result;
+
+```
+
 
 ```ruby
 ##### set up prerequisites once
@@ -72,6 +86,19 @@ Content-Type: application/x-www-form-urlencoded
 }
 
 ```
+
+
+```csharp
+
+/* set up prerequisites once */
+ConfigurationManager.AppSettings["Secret"] = "secret";
+ConfigurationManager.AppSettings["Identifier"] = "abc123";
+
+var service = new AgentService(new MoxiWorksClient());
+var result = service.GetAgentAsync(agentId: "abc123", moxiWorksCompanyId: "the_company").Result;
+
+```
+
 
 ```ruby
 ##### set up prerequisites once

@@ -4,7 +4,9 @@
 
 <div class='highlight php'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-php/classes/MoxiworksPlatform.Brand.html#method_search'>PHP Search Docs</a></span></blockquote></div>
 
-> <span class="data-example-label"><span class='entity-name'>Brand</span> <span class='action-name'>Index</span> (using <span class='attribute-name'>moxi_works_agent_id</span>) Example</span>
+<div class='highlight dotnet'><blockquote><span class='data-example-label'><a href='https://moxiworks-platform.github.io/moxiworks-dotnet/class_moxi_works_1_1_platform_1_1_brand_service.html#ad2a8c676ce1eae4d6ff80dd911d26cef'>.Net <span class='action-name'>Brand.GetBrandsAsync</span> Docs</a></span></blockquote></div>
+
+> <span class="data-example-label"><span class='entity-name'>Brand</span> <span class='action-name'>Index</span> Example</span>
 
 
 ```http
@@ -23,6 +25,19 @@ Content-Type: application/x-www-form-urlencoded
 }
 
 ```
+
+
+```csharp
+
+/* set up prerequisites once */
+ConfigurationManager.AppSettings["Secret"] = "secret";
+ConfigurationManager.AppSettings["Identifier"] = "abc123";
+
+var service = new BrandService(new MoxiWorksClient());
+var results = service.GetBrandsAsync(agentId: "xyz098", moxiWorksCompanyId: "abc123").Result;
+
+```
+
 
 ```ruby
 ##### set up prerequisites once

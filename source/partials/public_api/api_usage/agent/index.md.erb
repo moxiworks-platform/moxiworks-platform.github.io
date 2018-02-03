@@ -4,6 +4,9 @@
 
 <div class='highlight php'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-php/classes/MoxiworksPlatform.Agent.html#method_search'>PHP Search Docs</a></span></blockquote></div>
 
+<div class='highlight dotnet'><blockquote><span class='data-example-label'><a href='https://moxiworks-platform.github.io/moxiworks-dotnet/class_moxi_works_1_1_platform_1_1_agent_service.html#afa0add85754eb14c1936ddce60562d92'>.Net <span class='action-name'>AgentService.GetAgentsAsync</span> Docs</a></span></blockquote></div>
+
+
 > <span class="data-example-label"><span class='entity-name'>Agent</span> <span class='action-name'>Index</span> Example</span>
 
 
@@ -25,6 +28,18 @@ Content-Type: application/x-www-form-urlencoded
 }
 
 ```
+
+```csharp
+
+/* set up prerequisites once */
+ConfigurationManager.AppSettings["Secret"] = "secret";
+ConfigurationManager.AppSettings["Identifier"] = "abc123";
+
+var service = new AgentService(new MoxiWorksClient());
+var results = service.GetAgentsAsync(moxiWorksCompanyId: "the_company", updatedSince: 1461108284).Result;
+
+```
+
 
 ```ruby
 
@@ -75,6 +90,18 @@ Content-Type: application/x-www-form-urlencoded
 
 ```
 
+```csharp
+
+/* set up prerequisites once */
+ConfigurationManager.AppSettings["Secret"] = "secret";
+ConfigurationManager.AppSettings["Identifier"] = "abc123";
+
+var service = new AgentService(new MoxiWorksClient());
+var results = service.GetAgentsAsync(moxiWorksCompanyId: "the_company", updatedSince: 1461108284, pageNumber: 2).Result;
+
+```
+
+
 ```ruby
 one_week =  defined?(Rails) ? 1.week : 604800
 company_agents = MoxiworksPlatform::Agent.search(moxi_works_company_id: "abc123", updated_since: Time.now - one_week, page_number: 2)
@@ -107,6 +134,18 @@ Content-Type: application/x-www-form-urlencoded
 }
 
 ```
+
+```csharp
+
+/* set up prerequisites once */
+ConfigurationManager.AppSettings["Secret"] = "secret";
+ConfigurationManager.AppSettings["Identifier"] = "abc123";
+
+var service = new AgentService(new MoxiWorksClient());
+var results = service.GetAgentsAsync(moxiWorksCompanyId: "abc123", updatedSince: 1461108284, moxiWorksOfficeId: "8c3f446c-aab9-11e6-9a0f-d0e1408e8026").Result;
+
+```
+
 
 ```ruby
 one_week =  defined?(Rails) ? 1.week : 604800

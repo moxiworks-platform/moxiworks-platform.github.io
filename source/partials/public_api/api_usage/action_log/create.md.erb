@@ -4,6 +4,7 @@
 
 <div class='highlight php'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-php/classes/MoxiworksPlatform.ActionLog.html#method_create'>PHP <span class='action-name'>Create</span> Docs</a></span></blockquote></div>
 
+<div class='highlight dotnet'><blockquote><span class='data-example-label'><a href='https://moxiworks-platform.github.io/moxiworks-dotnet/class_moxi_works_1_1_platform_1_1_action_log_service.html#aacf0242063ee7000877c44d02134bd39'>.Net <span class='action-name'>ActionLogService.CreateActionLogAsync</span> Docs</a></span></blockquote></div>
 
 > <span class="data-example-label"><span class='entity-name'>ActionLog </span><span class='action-name'>Create</span> (using <span class='attribute-name'>agent_uuid</span>) Request Example</span>
 
@@ -27,6 +28,24 @@ Content-Type: application/x-www-form-urlencoded
 
 
 agent_uuid=12345678-1234-1234-1234-1234567890ab&partner_contact_id=mySystemsContactId&title=Contact%20Called&body=this%20contact%20called%20you
+
+```
+
+```csharp
+
+/* set up prerequisites once */
+ConfigurationManager.AppSettings["Secret"] = "secret";
+ConfigurationManager.AppSettings["Identifier"] = "abc123";
+
+
+var actionLog = new ActionLog;
+actionLog.AgentUuid = "12345678-1234-1234-1234-1234567890ab";
+actionLog.Title = "Contact Called";
+actionLog.Body = "this contact called you";
+actionLog.PartnerContactId = "mySystemsContactId";
+
+var service = new ActionLogService(new MoxiWorksClient());
+var result = service.CreateActionLogAsync(actionLog: actionLog).Result;
 
 ```
 
@@ -88,6 +107,24 @@ Content-Type: application/x-www-form-urlencoded
 
 
 moxi_works_agent_id=abc123&partner_contact_id=mySystemsContactId&title=Contact%20Called&body=this%20contact%20called%20you
+
+```
+
+```csharp
+
+/* set up prerequisites once */
+ConfigurationManager.AppSettings["Secret"] = "secret";
+ConfigurationManager.AppSettings["Identifier"] = "abc123";
+
+
+var actionLog = ActionLog.new();
+actionLog.MoxiWorksAgentId = "abc123";
+actionLog.Title = "Contact Called";
+actionLog.Body = "this contact called you";
+actionLog.PartnerContactId = "mySystemsContactId";
+
+var service = new ActionLogService(new MoxiWorksClient());
+var result = service.CreateActionLogAsync(actionLog: actionLog).Result;
 
 ```
 

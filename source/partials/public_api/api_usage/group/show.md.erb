@@ -4,6 +4,8 @@
 
 <div class='highlight php'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-php/classes/MoxiworksPlatform.Group.html#method_find'>PHP Find Docs</a></span></blockquote></div>
 
+<div class='highlight csharp'><blockquote><span class='data-example-label'><a href='https://moxiworks-platform.github.io/moxiworks-dotnet/class_moxi_works_1_1_platform_1_1_group_service.html#a1b3375d77ec17b04a38268e9e235b894'>.Net <span class='action-name'>GroupService.GetGroupAsync</span> Docs</a></span></blockquote></div>
+
 > <span class="data-example-label"><span class='entity-name'>Group</span> <span class='action-name'>Show</span> (using <span class='attribute-name'>agent_uuid</span>) Example</span>
 
 ```json
@@ -21,6 +23,23 @@ Authorization: Basic XNNeXAAAUZaQlF0dA==
 Content-Type: application/x-www-form-urlencoded
 
 ```
+
+
+
+```csharp
+
+/* set up prerequisites once */
+ConfigurationManager.AppSettings["Secret"] = "secret";
+ConfigurationManager.AppSettings["Identifier"] = "abc123";
+
+var agentUuid = "12345678-1234-1234-1234-1234567890ab";
+var moxiWorksGroupId = "booyuh";
+
+var service = new GroupService(new MoxiWorksClient());
+var results = service.GetGroupAsync(agentId: agentUuid, agentIdType: AgentIdType.AgentUuid, moxiWorksGroupId: moxiWorksGroupId).Result;
+
+```
+
 
 
 ```ruby
@@ -69,6 +88,20 @@ Host: api.moxiworks.com
 Accept: application/vnd.moxi-platform+json;version=1
 Authorization: Basic XNNeXAAAUZaQlF0dA==
 Content-Type: application/x-www-form-urlencoded
+
+```
+
+```csharp
+
+/* set up prerequisites once */
+ConfigurationManager.AppSettings["Secret"] = "secret";
+ConfigurationManager.AppSettings["Identifier"] = "abc123";
+
+var moxiWorksAgentId = "1234abcd";
+var moxiWorksGroupId = "booyuh";
+
+var service = new GroupService(new MoxiWorksClient());
+var results = service.GetGroupAsync(agentId: moxiWorksAgentId, agentIdType: AgentIdType.MoxiWorksAgentId, moxiWorksGroupId: moxiWorksGroupId).Result;
 
 ```
 

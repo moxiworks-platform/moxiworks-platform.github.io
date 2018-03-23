@@ -4,6 +4,8 @@
 
 <div class='highlight php'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-php/classes/MoxiworksPlatform.Company.html#method_find'>PHP Find Docs</a></span></blockquote></div>
 
+<div class='highlight csharp'><blockquote><span class='data-example-label'><a href='https://moxiworks-platform.github.io/moxiworks-dotnet/class_moxi_works_1_1_platform_1_1_company_service.html#a3f7e55f8deaf8bd1a8f07c08ef832669'>.Net <span class='action-name'>CompanyService.GetCompanyAsync</span> Docs</a></span></blockquote></div>
+
 > <span class="data-example-label"><span class='entity-name'>Company</span> <span class='action-name'>Show</span> Example</span>
 
 ```http
@@ -19,6 +21,20 @@ Content-Type: application/x-www-form-urlencoded
 {
   "moxi_works_company_id":"abc123"
 }
+
+```
+
+```csharp
+
+/* set up prerequisites once */
+ConfigurationManager.AppSettings["Secret"] = "secret";
+ConfigurationManager.AppSettings["Identifier"] = "abc123";
+
+
+var companyId = "company_id";
+
+var service = new CompanyService(new MoxiWorksClient());
+var results = service.GetCompanyAsync(moxiWorksCompanyId: companyId).Result;
 
 ```
 

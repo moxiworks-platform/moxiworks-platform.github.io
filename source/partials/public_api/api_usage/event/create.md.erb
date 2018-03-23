@@ -4,6 +4,7 @@
 
 <div class='highlight php'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-php/classes/MoxiworksPlatform.Event.html#method_create'>PHP Create Docs</a></span></blockquote></div>
 
+<div class='highlight csharp'><blockquote><span class='data-example-label'><a href='https://moxiworks-platform.github.io/moxiworks-dotnet/class_moxi_works_1_1_platform_1_1_event_service.html#a25fe57a6e0a8b7b080cb8ca9251fe16d'>.Net <span class='action-name'>EventService.CreateEventAsync</span> Docs</a></span></blockquote></div>
 
 > <span class="data-example-label"><span class='entity-name'>Event</span> <span class='action-name'>Create</span> (using <span class='attribute-name'>agent_uuid</span>) Example</span>
 
@@ -33,6 +34,34 @@ Content-Type: application/x-www-form-urlencoded
 
 
 agent_uuid=12345678-1234-1234-1234-1234567890ab&partner_event_id=abc98df345&event_subject=subject&event_location=a%20location&all_day=false&event_start=1462234227&event_end=1462241468&attendees=&note=here%20is%20the%20note
+
+```
+
+
+```csharp
+
+/* set up prerequisites once */
+ConfigurationManager.AppSettings["Secret"] = "secret";
+ConfigurationManager.AppSettings["Identifier"] = "abc123";
+
+
+var event = new Event;
+List<string> attendees = new List<string>(new string[] {"contact1ID", "contact2ID"});
+
+event.AgentUuid = "12345678-1234-1234-1234-1234567890ab";
+event.PartnerEventId = "booyuh";
+event.EventSubject = "the subject";
+event.EventLocation = "the location";
+event.AllDay = false;
+event.SendReminder = true;
+event.RemindMinutesBefore = 15;
+event.EventStart = 1462234227;
+event.EventEnd = 1462241468;
+event.Attendees = attendees;
+event.Note = "notable stuff";
+
+var service = new EventService(new MoxiWorksClient());
+var results = service.CreateEventAsync(event: event).Result;
 
 ```
 

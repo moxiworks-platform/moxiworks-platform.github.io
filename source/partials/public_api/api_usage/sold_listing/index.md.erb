@@ -5,6 +5,10 @@
 
 <div class='highlight php'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-php/classes/MoxiworksPlatform.SoldListing.html#method_search'>PHP Search Docs</a></span></blockquote></div>
 
+
+<div class='highlight csharp'><blockquote><span class='data-example-label'><a href='https://moxiworks-platform.github.io/moxiworks-dotnet/class_moxi_works_1_1_platform_1_1_sold_listing_service.html#a1c94abc505dfc385a55fd5cad4eabba5'>.Net <span class='action-name'>SoldListingService.GetSoldListingsUpdatedSinceAsync</span> Docs</a></span></blockquote></div>
+
+
 Index will return a paged response of sold listings that have been updated since a given timestamp for a specified company. For a list of company IDs that you can reques sold listings for, use the [Company Endpoint](#company).
 
 <aside class="note">If no sold_since parameter is provided, listings that have been updated in the <b>last seven days</b> will be returned.</aside>
@@ -31,6 +35,22 @@ Authorization: Basic XNNeXAAAUZaQlF0dA==
 Content-Type: application/x-www-form-urlencoded
 
 ```
+
+```csharp
+
+/* set up prerequisites once */
+ConfigurationManager.AppSettings["Secret"] = "secret";
+ConfigurationManager.AppSettings["Identifier"] = "abc123";
+
+var agentUuid = "12345678-1234-1234-1234-1234567890ab";
+var moxiWorksCompanyId = "abc123";
+
+var service = new SoldListingService(new MoxiWorksClient());
+var results = service.GetSoldListingsUpdatedSinceAsync(agentId: agentUuid, agentIdType: AgentIdType.AgentUuid, moxiWorksCompanyId: moxiWorksCompanyId, updatedSince: 1462317907).Result;
+
+```
+
+
 
 ```ruby
 
@@ -80,6 +100,21 @@ Authorization: Basic XNNeXAAAUZaQlF0dA==
 Content-Type: application/x-www-form-urlencoded
 
 ```
+
+```csharp
+
+/* set up prerequisites once */
+ConfigurationManager.AppSettings["Secret"] = "secret";
+ConfigurationManager.AppSettings["Identifier"] = "abc123";
+
+var moxiWorksAgentID = "1234bcd;
+var moxiWorksCompanyId = "abc123";
+
+var service = new SoldListingService(new MoxiWorksClient());
+var results = service.GetSoldListingsUpdatedSinceAsync(agentId: moxiWorksAgentID, agentIdType: AgentIdType.MoxiWorksAgentId, moxiWorksCompanyId: moxiWorksCompanyId, updatedSince: 1462317907).Result;
+
+```
+
 
 ```ruby
 one_week =  defined?(Rails) ? 1.week : 604800

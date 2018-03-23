@@ -5,6 +5,8 @@
 
 <div class='highlight php'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-php/classes/MoxiworksPlatform.Event.html#method_delete'>PHP Delete Docs</a></span></blockquote></div>
 
+<div class='highlight csharp'><blockquote><span class='data-example-label'><a href='https://moxiworks-platform.github.io/moxiworks-dotnet/class_moxi_works_1_1_platform_1_1_event_service.html#ad5199734942e61ac2ea7095cf34db955'>.Net <span class='action-name'>EventService.DeleteEventAsync</span> Docs</a></span></blockquote></div>
+
 > <span class="data-example-label"><span class='entity-name'>Event</span> <span class='action-name'>Delete</span> (using <span class='attribute-name'>agent_uuid</span>) Example</span>
 
 ```json
@@ -25,6 +27,19 @@ Content-Type: application/x-www-form-urlencoded
 
 ```
 
+```csharp
+
+/* set up prerequisites once */
+ConfigurationManager.AppSettings["Secret"] = "secret";
+ConfigurationManager.AppSettings["Identifier"] = "abc123";
+
+var eventID = "abc123";
+var agentUuid = "12345678-1234-1234-1234-1234567890ab";
+
+var service = new EventService(new MoxiWorksClient());
+var results = service.DeleteEventAsync(agentId: agentUuid, agentIdType: AgentIdType.AgentUuid, eventId: eventID).Result;
+
+```
 
 ```ruby
 ##### set up prerequisites once
@@ -77,6 +92,19 @@ Content-Type: application/x-www-form-urlencoded
 
 ```
 
+```csharp
+
+/* set up prerequisites once */
+ConfigurationManager.AppSettings["Secret"] = "secret";
+ConfigurationManager.AppSettings["Identifier"] = "abc123";
+
+var eventID = "abc123";
+var moxiWorksAgentID = "1234abcd";
+
+var service = new EventService(new MoxiWorksClient());
+var results = service.DeleteEventAsync(agentId: agentUuid, agentIdType: AgentIdType.MoxiWorksAgentId, eventId: eventID).Result;
+
+```
 
 ```ruby
 ##### set up prerequisites once

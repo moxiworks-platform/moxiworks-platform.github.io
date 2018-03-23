@@ -4,8 +4,7 @@
 
 <div class='highlight php'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-php/classes/MoxiworksPlatform.BuyerTransaction.html#method_find'>PHP Find Docs</a></span></blockquote></div>
 
-<div class='highlight dotnet'><blockquote><span class='data-example-label'><a href='https://moxiworks-platform.github.io/moxiworks-dotnet/class_moxi_works_1_1_platform_1_1_buyer_transaction_service.html#aa504964e9b02dd6b0945c8ae9f32f57c'>.Net <span class='action-name'>BuyerTransactionService.GetBuyerTransactionAsync</span> Docs</a></span></blockquote></div>
-
+<div class='highlight csharp'><blockquote><span class='data-example-label'><a href='https://moxiworks-platform.github.io/moxiworks-dotnet/class_moxi_works_1_1_platform_1_1_buyer_transaction_service.html#aa504964e9b02dd6b0945c8ae9f32f57c'>.Net <span class='action-name'>BuyerTransactionService.GetBuyerTransactionAsync</span> Docs</a></span></blockquote></div>
 
 > <span class="data-example-label"><span class='entity-name'>BuyerTransaction</span> <span class='action-name'>Show</span> (using <span class='attribute-name'>agent_uuid</span>) Example</span>
 
@@ -39,7 +38,7 @@ ConfigurationManager.AppSettings["Identifier"] = "abc123";
 var agentUuid = "12345678-1234-1234-1234-1234567890ab";
 var moxiWorksTransactionId = "babebead-feed-face-dead-beefbad4babe";
 
-var service = new ActionLogService(new MoxiWorksClient());
+var service = new BuyerTransactionService(new MoxiWorksClient());
 var results = service.GetBuyerTransactionAsync(agentId: agentUuid, agentIdType: AgentIdType.AgentUuid, moxiworksTransactionId: moxiWorksTransactionId).Result;
 
 ```
@@ -109,7 +108,7 @@ ConfigurationManager.AppSettings["Identifier"] = "abc123";
 var moxiWorksAgentId = "abc123";
 var moxiWorksTransactionId = "babebead-feed-face-dead-beefbad4babe";
 
-var service = new ActionLogService(new MoxiWorksClient());
+var service = new BuyerTransactionService(new MoxiWorksClient());
 var results = service.GetBuyerTransactionAsync(agentId: moxiWorksAgentId, agentIdType: AgentIdType.MoxiWorksAgentId, moxiworksTransactionId: moxiWorksTransactionId).Result;
 
 ```

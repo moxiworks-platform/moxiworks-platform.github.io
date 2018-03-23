@@ -4,6 +4,8 @@
 
 <div class='highlight php'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-php/classes/MoxiworksPlatform.Company.html#method_search'>PHP Search Docs</a></span></blockquote></div>
 
+<div class='highlight csharp'><blockquote><span class='data-example-label'><a href='https://moxiworks-platform.github.io/moxiworks-dotnet/class_moxi_works_1_1_platform_1_1_company_service.html'>.Net <span class='action-name'>CompanyService.GetCompaniesAsync</span> Docs</a></span></blockquote></div>
+
 <aside class="note">Send a <b>GET</b> request to https://api.moxiworks.com/api/companies</aside>
 
 The <span class='entity-name'>Company</span> <span class='action-name'>Index</span> endpoint will return all <span class='entity-name'>Company</span> entities your organization is associated with. When searching for <span class='entity-name'>Company</span> entities using the Moxi Works platform API, format your request using the following parameters.
@@ -22,6 +24,18 @@ Content-Type: application/x-www-form-urlencoded
 
 ```json
 {}
+
+```
+
+```csharp
+
+/* set up prerequisites once */
+ConfigurationManager.AppSettings["Secret"] = "secret";
+ConfigurationManager.AppSettings["Identifier"] = "abc123";
+
+
+var service = new CompanyService(new MoxiWorksClient());
+var results = service.GetCompaniesAsync().Result;
 
 ```
 

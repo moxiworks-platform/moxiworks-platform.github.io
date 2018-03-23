@@ -4,6 +4,7 @@
 
 <div class='highlight php'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-php/classes/MoxiworksPlatform.Event.html#method_find'>PHP Find Docs</a></span></blockquote></div>
 
+<div class='highlight csharp'><blockquote><span class='data-example-label'><a href='https://moxiworks-platform.github.io/moxiworks-dotnet/class_moxi_works_1_1_platform_1_1_event_service.html#a77c68ca6aa686bb91fd0c91bc4f7b6dc'>.Net <span class='action-name'>EventService.GetEventAsync</span> Docs</a></span></blockquote></div>
 
 > <span class="data-example-label"><span class='entity-name'>Event</span> <span class='action-name'>Show</span> (using <span class='attribute-name'>agent_uuid</span>) Example</span>
 
@@ -22,6 +23,20 @@ Host: api.moxiworks.com
 Accept: application/vnd.moxi-platform+json;version=1
 Authorization: Basic XNNeXAAAUZaQlF0dA==
 Content-Type: application/x-www-form-urlencoded
+
+```
+
+```csharp
+
+/* set up prerequisites once */
+ConfigurationManager.AppSettings["Secret"] = "secret";
+ConfigurationManager.AppSettings["Identifier"] = "abc123";
+
+var agentUuid = "12345678-1234-1234-1234-1234567890ab";
+var partnerEventId = "booyuh";
+
+var service = new EventService(new MoxiWorksClient());
+var results = service.GetEventAsync(agentId: agentUuid, agentIdType: AgentIdType.AgentUuid, parnterEventId: partnerEventId).Result;
 
 ```
 
@@ -74,6 +89,20 @@ Host: api.moxiworks.com
 Accept: application/vnd.moxi-platform+json;version=1
 Authorization: Basic XNNeXAAAUZaQlF0dA==
 Content-Type: application/x-www-form-urlencoded
+
+```
+
+```csharp
+
+/* set up prerequisites once */
+ConfigurationManager.AppSettings["Secret"] = "secret";
+ConfigurationManager.AppSettings["Identifier"] = "abc123";
+
+var moxiWorksAgentId = "1234abcd";
+var partnerEventId = "booyuh";
+
+var service = new EventService(new MoxiWorksClient());
+var results = service.GetEventAsync(agentId: moxiWorksAgentId, agentIdType: AgentIdType.MoxiWorksAgentId, parnterEventId: partnerEventId).Result;
 
 ```
 

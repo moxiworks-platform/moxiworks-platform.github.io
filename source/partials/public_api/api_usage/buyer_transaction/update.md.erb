@@ -4,7 +4,7 @@
 
 <div class='highlight php'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-php/classes/MoxiworksPlatform.BuyerTransaction.html#method_update'>PHP Update Docs</a></span></blockquote></div>
 
-<div class='highlight dotnet'><blockquote><span class='data-example-label'><a href='https://moxiworks-platform.github.io/moxiworks-dotnet/class_moxi_works_1_1_platform_1_1_buyer_transaction_service.html#a0093d025cfad39e79bb4fdaf9fb564ac'>.Net <span class='action-name'>BuyerTransactionService.UpdateBuyerTransactionAsync</span> Docs</a></span></blockquote></div>
+<div class='highlight csharp'><blockquote><span class='data-example-label'><a href='https://moxiworks-platform.github.io/moxiworks-dotnet/class_moxi_works_1_1_platform_1_1_buyer_transaction_service.html#a0093d025cfad39e79bb4fdaf9fb564ac'>.Net <span class='action-name'>BuyerTransactionService.UpdateBuyerTransactionAsync</span> Docs</a></span></blockquote></div>
 
 
 > <span class="data-example-label"><span class='entity-name'>BuyerTransaction</span> <span class='action-name'>Update</span> (using <span class='attribute-name'>agent_uuid</span>) Example</span>
@@ -59,6 +59,7 @@ ConfigurationManager.AppSettings["Identifier"] = "abc123";
 var agentUuid = "12345678-1234-1234-1234-1234567890ab";
 var moxiWorksTransactionId = "babebead-feed-face-dead-beefbad4babe";
 
+var service = new BuyerTransactionService(new MoxiWorksClient());
 var transaction = service.GetBuyerTransactionAsync(agentId: agentUuid, agentIdType: AgentIdType.AgentUuid, moxiworksTransactionId: moxiWorksTransactionId).Result;
 
 transaction.TransactionName = "Bob And Linda Tonkanaka";
@@ -82,7 +83,6 @@ transaction.TargetPrice = null;
 transaction.MinPrice = 292929;
 transaction.MaxPrice = 2323223;
 
-var service = new BuyerTransactionService(new MoxiWorksClient());
 var result = service.UpdateBuyerTransactionAsync(buyerTransaction: buyerTransaction).Result;
 
 ```

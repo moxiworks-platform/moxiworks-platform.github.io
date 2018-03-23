@@ -4,6 +4,7 @@
 
 <div class='highlight php'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-php/classes/MoxiworksPlatform.SellerTransaction.html#method_find'>PHP Search Docs</a></span></blockquote></div>
 
+<div class='highlight csharp'><blockquote><span class='data-example-label'><a href='https://moxiworks-platform.github.io/moxiworks-dotnet/class_moxi_works_1_1_platform_1_1_seller_transaction_service.html#a9a2074071fc53b32845ab13c5995577c'>.Net <span class='action-name'>SellerTransactionService.GetSellerTransactionsAsync</span> Docs</a></span></blockquote></div>
 
 > <span class="data-example-label"><span class='entity-name'>SellerTransaction</span> <span class='action-name'>Index</span> (using <span class='attribute-name'>agent_uuid</span>) Example</span>
 
@@ -25,6 +26,22 @@ Content-Type: application/x-www-form-urlencoded
 agent_uuid=12345678-1234-1234-1234-1234567890ab
 
 ```
+
+
+```csharp
+
+/* set up prerequisites once */
+ConfigurationManager.AppSettings["Secret"] = "secret";
+ConfigurationManager.AppSettings["Identifier"] = "abc123";
+
+
+var agentUuid = "12345678-1234-1234-1234-1234567890ab";
+
+var service = new SellerTransactionService(new MoxiWorksClient());
+var results = service.GetSellerTransactionsAsync(agentId: agentUuid, agentIdType: AgentIdType.AgentUuid).Result;
+
+```
+
 
 ```ruby
 ##### set up prerequisites once
@@ -77,6 +94,21 @@ Content-Type: application/x-www-form-urlencoded
 moxi_works_agent_id=abc123
 
 ```
+
+```csharp
+
+/* set up prerequisites once */
+ConfigurationManager.AppSettings["Secret"] = "secret";
+ConfigurationManager.AppSettings["Identifier"] = "abc123";
+
+
+var moxiWorksAgentId = "abc123";
+
+var service = new SellerTransactionService(new MoxiWorksClient());
+var results = service.GetSellerTransactionsAsync(agentId: moxiWorksAgentId, agentIdType: AgentIdType.MoxiWorksAgentId).Result;
+
+```
+
 
 ```ruby
 ##### set up prerequisites once

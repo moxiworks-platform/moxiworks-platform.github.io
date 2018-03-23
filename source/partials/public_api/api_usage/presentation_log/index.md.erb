@@ -4,6 +4,8 @@
 
 <div class='highlight php'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-php/classes/MoxiworksPlatform.PresentationLog.html#method_search'>PHP Search Docs</a></span></blockquote></div>
 
+<div class='highlight csharp'><blockquote><span class='data-example-label'><a href='https://moxiworks-platform.github.io/moxiworks-dotnet/class_moxi_works_1_1_platform_1_1_presentation_log_service.html#a8bbf87684e752d3471c0eb007e1fd564'>.Net <span class='action-name'>PresentationLog.GetPresentationLogsAsync</span> Docs</a></span></blockquote></div>
+
 > <span class="data-example-label"><span class='entity-name'>PresentationLog</span> <span class='action-name'>Index</span> Example</span>
 
 
@@ -24,6 +26,21 @@ Content-Type: application/x-www-form-urlencoded
 }
 
 ```
+
+```csharp
+
+/* set up prerequisites once */
+ConfigurationManager.AppSettings["Secret"] = "secret";
+ConfigurationManager.AppSettings["Identifier"] = "abc123";
+
+var moxiWorksCompanyId = "abc123";
+
+var service = new PresentationLogService(new MoxiWorksClient());
+var results = service.GetPresentationLogsAsync(moxiWorksCompanyId: moxiWorksCompanyId).Result;
+
+```
+
+
 
 ```ruby
 

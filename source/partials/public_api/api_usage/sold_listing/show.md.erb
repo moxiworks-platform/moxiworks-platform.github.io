@@ -4,6 +4,9 @@
 
 <div class='highlight php'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-php/classes/MoxiworksPlatform.SoldListing.html#method_find'>PHP Find Docs</a></span></blockquote></div>
 
+<div class='highlight csharp'><blockquote><span class='data-example-label'><a href='https://moxiworks-platform.github.io/moxiworks-dotnet/class_moxi_works_1_1_platform_1_1_sold_listing_service.html#a5706a6c146a93f0c933a2b6589fd4c6a'>.Net <span class='action-name'>SoldListingService.GetSoldListingAsync</span> Docs</a></span></blockquote></div>
+
+
 > <span class="data-example-label"><span class='entity-name'>SoldListing</span> <span class='action-name'>Show</span> Example</span>
 
 ```json
@@ -22,6 +25,21 @@ Authorization: Basic XNNeXAAAUZaQlF0dA==
 Content-Type: application/x-www-form-urlencoded
 
 ```
+
+```csharp
+
+/* set up prerequisites once */
+ConfigurationManager.AppSettings["Secret"] = "secret";
+ConfigurationManager.AppSettings["Identifier"] = "abc123";
+
+var moxiWorksListingId = "12345678-1234-1234-1234-1234567890ab";
+var moxiWorksCompanyId = "abc123";
+
+var service = new SoldListingService(new MoxiWorksClient());
+var results = service.GetSoldListingAsync(moxiWorksListingId: moxiWorksListingId, moxiWorksCompanyId: moxiWorksCompanyId).Result;
+
+```
+
 
 ```ruby
 ##### set up prerequisites once

@@ -4,6 +4,7 @@
 
 <div class='highlight php'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-php/classes/MoxiworksPlatform.Event.html#method_update'>PHP Update Docs</a></span></blockquote></div>
 
+<div class='highlight csharp'><blockquote><span class='data-example-label'><a href='https://moxiworks-platform.github.io/moxiworks-dotnet/class_moxi_works_1_1_platform_1_1_event_service.html#a88fc43e748c52e6d7f586b20b6dc1ca6'>.Net <span class='action-name'>EventService.UpdateEventAsync</span> Docs</a></span></blockquote></div>
 
 > <span class="data-example-label"><span class='entity-name'>Event</span> <span class='action-name'>Update</span> (using <span class='attribute-name'>agent_uuid</span>) Example</span>
 
@@ -36,6 +37,37 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&partner_event_id=abc98df345&
 event_subject=subject&event_location=a%20location&all_day=false&
 event_start=1462234227&event_end=1462241468&required_attendees=&optional_attendees=&
 note=here%20is%20the%20note
+
+```
+
+```csharp
+
+/* set up prerequisites once */
+ConfigurationManager.AppSettings["Secret"] = "secret";
+ConfigurationManager.AppSettings["Identifier"] = "abc123";
+
+
+var agentUuid = "12345678-1234-1234-1234-1234567890ab";
+var partnerEventId = "booyuh";
+
+var service = new EventService(new MoxiWorksClient());
+var event = service.GetEventAsync(agentId: agentUuid, agentIdType: AgentIdType.AgentUuid, parnterEventId: partnerEventId).Result;
+
+List<string> attendees = new List<string>(new string[] {"contact1ID", "contact2ID"});
+
+
+event.EventSubject = "the subject";
+event.EventLocation = "the location";
+event.AllDay = false;
+event.SendReminder = true;
+event.RemindMinutesBefore = 15;
+event.EventStart = 1462234227;
+event.EventEnd = 1462241468;
+event.Attendees = attendees;
+event.Note = "notable stuff";
+
+var service = new EventService(new MoxiWorksClient());
+var results = service.UpdateEventAsync(updateEvent: event).Result;
 
 ```
 
@@ -122,6 +154,37 @@ moxi_works_agent_id=abc123&partner_event_id=abc98df345&event_subject=subject&
 event_location=a%20location&
 all_day=false&event_start=1462234227&event_end=1462241468&
 required_attendees=&optional_attendees=&note=here%20is%20the%20note
+
+```
+
+```csharp
+
+/* set up prerequisites once */
+ConfigurationManager.AppSettings["Secret"] = "secret";
+ConfigurationManager.AppSettings["Identifier"] = "abc123";
+
+
+var moxiWorksAgentID = "1234abcd";
+var partnerEventId = "booyuh";
+
+var service = new EventService(new MoxiWorksClient());
+var event = service.GetEventAsync(agentId: moxiWorksAgentID, agentIdType: AgentIdType.MoxiWorksAgentId, parnterEventId: partnerEventId).Result;
+
+List<string> attendees = new List<string>(new string[] {"contact1ID", "contact2ID"});
+
+
+event.EventSubject = "the subject";
+event.EventLocation = "the location";
+event.AllDay = false;
+event.SendReminder = true;
+event.RemindMinutesBefore = 15;
+event.EventStart = 1462234227;
+event.EventEnd = 1462241468;
+event.Attendees = attendees;
+event.Note = "notable stuff";
+
+var service = new EventService(new MoxiWorksClient());
+var results = service.UpdateEventAsync(updateEvent: event).Result;
 
 ```
 

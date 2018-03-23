@@ -5,6 +5,9 @@
 
 <div class='highlight php'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-php/classes/MoxiworksPlatform.Listing.html#method_search'>PHP Search Docs</a></span></blockquote></div>
 
+<div class='highlight csharp'><blockquote><span class='data-example-label'><a href='https://moxiworks-platform.github.io/moxiworks-dotnet/class_moxi_works_1_1_platform_1_1_listing_service.html#ab4c3ed18dfc7b700cdf4332e9e4d1c5e'>.Net <span class='action-name'>ListingService.GetListingsUpdatedSinceAsync</span> Docs</a></span></blockquote></div>
+
+
 Index will return a paged response of listings that have been updated since a given timestamp for a specified company. For a list of company IDs that you can request listings for, use the [Company Endpoint](#company).
 
 <aside class="note">If no updated_since parameter is provided, listings that have been updated in the <b>last seven days</b> will be returned.</aside>
@@ -31,6 +34,22 @@ Authorization: Basic XNNeXAAAUZaQlF0dA==
 Content-Type: application/x-www-form-urlencoded
 
 ```
+
+```csharp
+
+/* set up prerequisites once */
+ConfigurationManager.AppSettings["Secret"] = "secret";
+ConfigurationManager.AppSettings["Identifier"] = "abc123";
+
+var agentUuid = "12345678-1234-1234-1234-1234567890ab";
+var moxiWorksCompanyId = "abc123";
+
+var service = new ListingService(new MoxiWorksClient());
+var results = service.GetListingsUpdatedSinceAsync(agentId: agentUuid, agentIdType: AgentIdType.AgentUuid, moxiWorksCompanyId: moxiWorksCompanyId, updatedSince: 1462317907).Result;
+
+```
+
+
 
 ```ruby
 
@@ -80,6 +99,21 @@ Authorization: Basic XNNeXAAAUZaQlF0dA==
 Content-Type: application/x-www-form-urlencoded
 
 ```
+
+```csharp
+
+/* set up prerequisites once */
+ConfigurationManager.AppSettings["Secret"] = "secret";
+ConfigurationManager.AppSettings["Identifier"] = "abc123";
+
+var moxiWorksAgentID = "1234bcd;
+var moxiWorksCompanyId = "abc123";
+
+var service = new ListingService(new MoxiWorksClient());
+var results = service.GetListingsUpdatedSinceAsync(agentId: moxiWorksAgentID, agentIdType: AgentIdType.MoxiWorksAgentId, moxiWorksCompanyId: moxiWorksCompanyId, updatedSince: 1462317907).Result;
+
+```
+
 
 ```ruby
 one_week =  defined?(Rails) ? 1.week : 604800

@@ -4,6 +4,7 @@
 
 <div class='highlight php'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-php/classes/MoxiworksPlatform.SellerTransaction.html#method_update'>PHP Update Docs</a></span></blockquote></div>
 
+<div class='highlight csharp'><blockquote><span class='data-example-label'><a href='https://moxiworks-platform.github.io/moxiworks-dotnet/class_moxi_works_1_1_platform_1_1_seller_transaction_service.html#a48fc598c548e09f44b9bf6b936afb774'>.Net <span class='action-name'>SellerTransactionService.UpdateSellerTransactionAsync</span> Docs</a></span></blockquote></div>
 
 > <span class="data-example-label"><span class='entity-name'>SellerTransaction</span> <span class='action-name'>Update</span> (using <span class='attribute-name'>agent_uuid</span>) Example</span>
 
@@ -41,6 +42,38 @@ Authorization: Basic XNNeXAAAUZaQlF0dA==
 Content-Type: application/x-www-form-urlencoded
 
 agent_uuid=12345678-1234-1234-1234-1234567890ab&beds=12&baths=34.5&notes=take%20care%20to%20write%20notes%20that%20are%20descriptive%20and%20helpful&transaction_name=Bob%20And%20Linda%20Tonkanaka&address=1234%20memory%20lane&city=hereville&state=provinceland&zip_code=18292&sqft=2345&is_mls_transaction=true&commission_flat_fee=12345&target_price=&max_price=2323223&min_price=232323&mls_number=abc123&promote_transaction=true
+
+```
+
+
+```csharp
+
+/* set up prerequisites once */
+ConfigurationManager.AppSettings["Secret"] = "secret";
+ConfigurationManager.AppSettings["Identifier"] = "abc123";
+
+var agentUuid = "12345678-1234-1234-1234-1234567890ab";
+var moxiWorksTransactionId = "babebead-feed-face-dead-beefbad4babe";
+
+var service = new SellerTransactionService(new MoxiWorksClient());
+var transaction = service.GetSellerTransactionAsync(agentId: agentUuid, agentIdType: AgentIdType.AgentUuid, moxiworksTransactionId: moxiWorksTransactionId).Result;
+transaction.TransactionName = "Bob And Linda Tonkanaka";
+transaction.Notes = "take care to write notes that are descriptive and helpful";
+transaction.Address = "1234 memory lane";
+transaction.City = "hereville";
+transaction.State = "provinceland";
+transaction.ZipCode = "18292";
+transaction.SQFT = 1234;
+transaction.MaxSqft = 2345;
+transaction.Beds = 3;
+transaction.Baths = 12;
+transaction.IsMlsTransaction = false;
+transaction.CommissionPercentage = null;
+transaction.CommissionFlatFee = 12345;
+transaction.MinPrice = 292929;
+transaction.MaxPrice = 2323223;
+
+var result = service.UpdateSellerTransactionAsync(sellerTransaction: sellerTransaction).Result;
 
 ```
 
@@ -146,6 +179,41 @@ moxi_works_agent_id=abc123&beds=12&baths=34.5&notes=take%20care%20to%20write%20n
 
 ```
 
+
+```csharp
+
+/* set up prerequisites once */
+ConfigurationManager.AppSettings["Secret"] = "secret";
+ConfigurationManager.AppSettings["Identifier"] = "abc123";
+
+var moxiWorksAgentId = "abc123";
+var moxiWorksTransactionId = "babebead-feed-face-dead-beefbad4babe";
+
+var service = new SellerTransactionService(new MoxiWorksClient());
+var transaction = service.GetSellerTransactionAsync(agentId: moxiWorksAgentId, agentIdType: AgentIdType.MoxiWorksAgentId, moxiworksTransactionId: moxiWorksTransactionId).Result;
+transaction.TransactionName = "Bob And Linda Tonkanaka";
+transaction.Notes = "take care to write notes that are descriptive and helpful";
+transaction.Address = "1234 memory lane";
+transaction.City = "hereville";
+transaction.State = "provinceland";
+transaction.ZipCode = "18292";
+transaction.SQFT = 1234;
+transaction.MaxSqft = 2345;
+transaction.Beds = 3;
+transaction.Baths = 12;
+transaction.IsMlsTransaction = true;
+transaction.mlsNumber = "abc123";
+transaction.CommissionPercentage = null;
+transaction.CommissionFlatFee = 12345;
+transaction.MinPrice = 292929;
+transaction.MaxPrice = 2323223;
+
+var result = service.UpdateSellerTransactionAsync(sellerTransaction: sellerTransaction).Result;
+
+```
+
+
+
 ```ruby
 ##### set up prerequisites once
 require 'moxiworks_platform'
@@ -247,6 +315,39 @@ Content-Type: application/x-www-form-urlencoded
 agent_uuid=12345678-1234-1234-1234-1234567890ab&beds=12&baths=34.5&notes=take%20care%20to%20write%20notes%20that%20are%20descriptive%20and%20helpful&transaction_name=Bob%20And%20Linda%20Tonkanaka&address=1234%20memory%20lane&city=hereville&state=provinceland&zip_code=18292&sqft=2345&is_mls_transaction=false&commission_flat_fee=12345&target_price=&max_price=2323223&min_price=232323
 
 ```
+
+
+```csharp
+
+/* set up prerequisites once */
+ConfigurationManager.AppSettings["Secret"] = "secret";
+ConfigurationManager.AppSettings["Identifier"] = "abc123";
+
+var moxiWorksAgentId = "abc123";
+var moxiWorksTransactionId = "babebead-feed-face-dead-beefbad4babe";
+
+var service = new SellerTransactionService(new MoxiWorksClient());
+var transaction = service.GetSellerTransactionAsync(agentId: moxiWorksAgentId, agentIdType: AgentIdType.MoxiWorksAgentId, moxiworksTransactionId: moxiWorksTransactionId).Result;
+transaction.TransactionName = "Bob And Linda Tonkanaka";
+transaction.Notes = "take care to write notes that are descriptive and helpful";
+transaction.Address = "1234 memory lane";
+transaction.City = "hereville";
+transaction.State = "provinceland";
+transaction.ZipCode = "18292";
+transaction.SQFT = 1234;
+transaction.MaxSqft = 2345;
+transaction.Beds = 3;
+transaction.Baths = 12;
+transaction.IsMlsTransaction = false;
+transaction.CommissionPercentage = null;
+transaction.CommissionFlatFee = 12345;
+transaction.MinPrice = 292929;
+transaction.MaxPrice = 2323223;
+
+var result = service.UpdateSellerTransactionAsync(sellerTransaction: sellerTransaction).Result;
+
+```
+
 
 ```ruby
 ##### set up prerequisites once

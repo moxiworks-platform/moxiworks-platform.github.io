@@ -4,6 +4,8 @@
 
 <div class='highlight php'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-php/classes/MoxiworksPlatform.Event.html#method_search'>PHP Search Docs</a></span></blockquote></div>
 
+<div class='highlight csharp'><blockquote><span class='data-example-label'><a href='https://moxiworks-platform.github.io/moxiworks-dotnet/class_moxi_works_1_1_platform_1_1_event_service.html#a6693e69f5b59e120b3815281878a76b7'>.Net <span class='action-name'>EventService.GetEventsByDateAsync</span> Docs</a></span></blockquote></div>
+
 > <span class="data-example-label"><span class='entity-name'>Event</span> <span class='action-name'>Index</span> (using <span class='attribute-name'>agent_uuid</span>) Example</span>
 
 ```json
@@ -23,6 +25,20 @@ Authorization: Basic XNNeXAAAUZaQlF0dA==
 Content-Type: application/x-www-form-urlencoded
 
 ```
+
+```csharp
+
+/* set up prerequisites once */
+ConfigurationManager.AppSettings["Secret"] = "secret";
+ConfigurationManager.AppSettings["Identifier"] = "abc123";
+
+var agentUuid = "12345678-1234-1234-1234-1234567890ab";
+
+var service = new EventService(new MoxiWorksClient());
+var results = service.GetEventsByDateAsync(agentId: agentUuid, agentIdType: AgentIdType.AgentUuid, eventStart: 1462317907, eventEnd: 1461108284).Result;
+
+```
+
 
 ```ruby
 ##### set up prerequisites once
@@ -76,6 +92,20 @@ Authorization: Basic XNNeXAAAUZaQlF0dA==
 Content-Type: application/x-www-form-urlencoded
 
 ```
+
+```csharp
+
+/* set up prerequisites once */
+ConfigurationManager.AppSettings["Secret"] = "secret";
+ConfigurationManager.AppSettings["Identifier"] = "abc123";
+
+var moxiWorksAgentID = "1234bcd;
+
+var service = new EventService(new MoxiWorksClient());
+var results = service.GetEventsByDateAsync(agentId: moxiWorksAgentID, agentIdType: AgentIdType.MoxiWorksAgentId, eventStart: 1462317907, eventEnd: 1461108284).Result;
+
+```
+
 
 ```ruby
 ##### set up prerequisites once

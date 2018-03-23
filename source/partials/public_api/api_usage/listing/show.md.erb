@@ -4,6 +4,9 @@
 
 <div class='highlight php'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-php/classes/MoxiworksPlatform.Listing.html#method_find'>PHP Find Docs</a></span></blockquote></div>
 
+<div class='highlight csharp'><blockquote><span class='data-example-label'><a href='https://moxiworks-platform.github.io/moxiworks-dotnet/class_moxi_works_1_1_platform_1_1_listing_service.html#a0394a73e1e76fb5c2bc09414fbf8db9a'>.Net <span class='action-name'>ListingService.GetListingAsync</span> Docs</a></span></blockquote></div>
+
+
 > <span class="data-example-label"><span class='entity-name'>Listing</span> <span class='action-name'>Show</span> Example</span>
 
 ```json
@@ -22,6 +25,22 @@ Authorization: Basic XNNeXAAAUZaQlF0dA==
 Content-Type: application/x-www-form-urlencoded
 
 ```
+
+
+```csharp
+
+/* set up prerequisites once */
+ConfigurationManager.AppSettings["Secret"] = "secret";
+ConfigurationManager.AppSettings["Identifier"] = "abc123";
+
+var moxiWorksListingId = "12345678-1234-1234-1234-1234567890ab";
+var moxiWorksCompanyId = "abc123";
+
+var service = new ListingService(new MoxiWorksClient());
+var results = service.GetListingAsync(moxiWorksListingId: moxiWorksListingId, moxiWorksCompanyId: moxiWorksCompanyId).Result;
+
+```
+
 
 ```ruby
 ##### set up prerequisites once

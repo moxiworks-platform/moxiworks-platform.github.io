@@ -38,6 +38,8 @@
 
 <div class='highlight php'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-php/classes/MoxiworksPlatform.Event.html#method_create'>PHP Create Docs</a></span></blockquote></div>
 
+<div class='highlight csharp'><blockquote><span class='data-example-label'><a href='https://moxiworks-platform.github.io/moxiworks-dotnet/class_moxi_works_1_1_platform_1_1_event_service.html#a25fe57a6e0a8b7b080cb8ca9251fe16d'>.Net <span class='action-name'>EventService.CreateEventAsync</span> Docs</a></span></blockquote></div>
+
 <blockquote>
 <p><span class="data-example-label"><span class='entity-name'>Event</span> <span class='action-name'>Create</span> (using <span class='attribute-name'>agent_uuid</span>) Example</span></p>
 </blockquote>
@@ -66,6 +68,32 @@
 
 
 agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;partner_event_id=abc98df345&amp;event_subject=subject&amp;event_location=a%20location&amp;all_day=false&amp;event_start=1462234227&amp;event_end=1462241468&amp;attendees=&amp;note=here%20is%20the%20note
+
+</code></pre>
+
+<pre class="highlight csharp"><code>
+<span class="cm">/* set up prerequisites once */</span>
+<span class="n">ConfigurationManager</span><span class="p">.</span><span class="n">AppSettings</span><span class="p">[</span><span class="s">"Secret"</span><span class="p">]</span> <span class="p">=</span> <span class="s">"secret"</span><span class="p">;</span>
+<span class="n">ConfigurationManager</span><span class="p">.</span><span class="n">AppSettings</span><span class="p">[</span><span class="s">"Identifier"</span><span class="p">]</span> <span class="p">=</span> <span class="s">"abc123"</span><span class="p">;</span>
+
+
+<span class="n">var</span> <span class="k">event</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Event</span><span class="p">;</span>
+<span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;</span> <span class="n">attendees</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;(</span><span class="k">new</span> <span class="kt">string</span><span class="p">[]</span> <span class="p">{</span><span class="s">"contact1ID"</span><span class="p">,</span> <span class="s">"contact2ID"</span><span class="p">});</span>
+
+<span class="k">event</span><span class="p">.</span><span class="n">AgentUuid</span> <span class="p">=</span> <span class="s">"12345678-1234-1234-1234-1234567890ab"</span><span class="p">;</span>
+<span class="k">event</span><span class="p">.</span><span class="n">PartnerEventId</span> <span class="p">=</span> <span class="s">"booyuh"</span><span class="p">;</span>
+<span class="k">event</span><span class="p">.</span><span class="n">EventSubject</span> <span class="p">=</span> <span class="s">"the subject"</span><span class="p">;</span>
+<span class="k">event</span><span class="p">.</span><span class="n">EventLocation</span> <span class="p">=</span> <span class="s">"the location"</span><span class="p">;</span>
+<span class="k">event</span><span class="p">.</span><span class="n">AllDay</span> <span class="p">=</span> <span class="k">false</span><span class="p">;</span>
+<span class="k">event</span><span class="p">.</span><span class="n">SendReminder</span> <span class="p">=</span> <span class="k">true</span><span class="p">;</span>
+<span class="k">event</span><span class="p">.</span><span class="n">RemindMinutesBefore</span> <span class="p">=</span> <span class="m">15</span><span class="p">;</span>
+<span class="k">event</span><span class="p">.</span><span class="n">EventStart</span> <span class="p">=</span> <span class="m">1462234227</span><span class="p">;</span>
+<span class="k">event</span><span class="p">.</span><span class="n">EventEnd</span> <span class="p">=</span> <span class="m">1462241468</span><span class="p">;</span>
+<span class="k">event</span><span class="p">.</span><span class="n">Attendees</span> <span class="p">=</span> <span class="n">attendees</span><span class="p">;</span>
+<span class="k">event</span><span class="p">.</span><span class="n">Note</span> <span class="p">=</span> <span class="s">"notable stuff"</span><span class="p">;</span>
+
+<span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">EventService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
+<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">CreateEventAsync</span><span class="p">(</span><span class="k">event</span><span class="p">:</span> <span class="k">event</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 
@@ -472,6 +500,8 @@ attendees=&amp;note=here%20is%20the%20note
 
 <div class='highlight php'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-php/classes/MoxiworksPlatform.Event.html#method_update'>PHP Update Docs</a></span></blockquote></div>
 
+<div class='highlight csharp'><blockquote><span class='data-example-label'><a href='https://moxiworks-platform.github.io/moxiworks-dotnet/class_moxi_works_1_1_platform_1_1_event_service.html#a88fc43e748c52e6d7f586b20b6dc1ca6'>.Net <span class='action-name'>EventService.UpdateEventAsync</span> Docs</a></span></blockquote></div>
+
 <blockquote>
 <p><span class="data-example-label"><span class='entity-name'>Event</span> <span class='action-name'>Update</span> (using <span class='attribute-name'>agent_uuid</span>) Example</span></p>
 </blockquote>
@@ -503,6 +533,36 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;partner_event_id=abc98df345&
 event_subject=subject&amp;event_location=a%20location&amp;all_day=false&amp;
 event_start=1462234227&amp;event_end=1462241468&amp;required_attendees=&amp;optional_attendees=&amp;
 note=here%20is%20the%20note
+
+</code></pre>
+
+<pre class="highlight csharp"><code>
+<span class="cm">/* set up prerequisites once */</span>
+<span class="n">ConfigurationManager</span><span class="p">.</span><span class="n">AppSettings</span><span class="p">[</span><span class="s">"Secret"</span><span class="p">]</span> <span class="p">=</span> <span class="s">"secret"</span><span class="p">;</span>
+<span class="n">ConfigurationManager</span><span class="p">.</span><span class="n">AppSettings</span><span class="p">[</span><span class="s">"Identifier"</span><span class="p">]</span> <span class="p">=</span> <span class="s">"abc123"</span><span class="p">;</span>
+
+
+<span class="n">var</span> <span class="n">agentUuid</span> <span class="p">=</span> <span class="s">"12345678-1234-1234-1234-1234567890ab"</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">partnerEventId</span> <span class="p">=</span> <span class="s">"booyuh"</span><span class="p">;</span>
+
+<span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">EventService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
+<span class="n">var</span> <span class="k">event</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetEventAsync</span><span class="p">(</span><span class="n">agentId</span><span class="p">:</span> <span class="n">agentUuid</span><span class="p">,</span> <span class="n">agentIdType</span><span class="p">:</span> <span class="n">AgentIdType</span><span class="p">.</span><span class="n">AgentUuid</span><span class="p">,</span> <span class="n">parnterEventId</span><span class="p">:</span> <span class="n">partnerEventId</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+
+<span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;</span> <span class="n">attendees</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;(</span><span class="k">new</span> <span class="kt">string</span><span class="p">[]</span> <span class="p">{</span><span class="s">"contact1ID"</span><span class="p">,</span> <span class="s">"contact2ID"</span><span class="p">});</span>
+
+
+<span class="k">event</span><span class="p">.</span><span class="n">EventSubject</span> <span class="p">=</span> <span class="s">"the subject"</span><span class="p">;</span>
+<span class="k">event</span><span class="p">.</span><span class="n">EventLocation</span> <span class="p">=</span> <span class="s">"the location"</span><span class="p">;</span>
+<span class="k">event</span><span class="p">.</span><span class="n">AllDay</span> <span class="p">=</span> <span class="k">false</span><span class="p">;</span>
+<span class="k">event</span><span class="p">.</span><span class="n">SendReminder</span> <span class="p">=</span> <span class="k">true</span><span class="p">;</span>
+<span class="k">event</span><span class="p">.</span><span class="n">RemindMinutesBefore</span> <span class="p">=</span> <span class="m">15</span><span class="p">;</span>
+<span class="k">event</span><span class="p">.</span><span class="n">EventStart</span> <span class="p">=</span> <span class="m">1462234227</span><span class="p">;</span>
+<span class="k">event</span><span class="p">.</span><span class="n">EventEnd</span> <span class="p">=</span> <span class="m">1462241468</span><span class="p">;</span>
+<span class="k">event</span><span class="p">.</span><span class="n">Attendees</span> <span class="p">=</span> <span class="n">attendees</span><span class="p">;</span>
+<span class="k">event</span><span class="p">.</span><span class="n">Note</span> <span class="p">=</span> <span class="s">"notable stuff"</span><span class="p">;</span>
+
+<span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">EventService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
+<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">UpdateEventAsync</span><span class="p">(</span><span class="n">updateEvent</span><span class="p">:</span> <span class="k">event</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 
@@ -586,6 +646,36 @@ moxi_works_agent_id=abc123&amp;partner_event_id=abc98df345&amp;event_subject=sub
 event_location=a%20location&amp;
 all_day=false&amp;event_start=1462234227&amp;event_end=1462241468&amp;
 required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
+
+</code></pre>
+
+<pre class="highlight csharp"><code>
+<span class="cm">/* set up prerequisites once */</span>
+<span class="n">ConfigurationManager</span><span class="p">.</span><span class="n">AppSettings</span><span class="p">[</span><span class="s">"Secret"</span><span class="p">]</span> <span class="p">=</span> <span class="s">"secret"</span><span class="p">;</span>
+<span class="n">ConfigurationManager</span><span class="p">.</span><span class="n">AppSettings</span><span class="p">[</span><span class="s">"Identifier"</span><span class="p">]</span> <span class="p">=</span> <span class="s">"abc123"</span><span class="p">;</span>
+
+
+<span class="n">var</span> <span class="n">moxiWorksAgentID</span> <span class="p">=</span> <span class="s">"1234abcd"</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">partnerEventId</span> <span class="p">=</span> <span class="s">"booyuh"</span><span class="p">;</span>
+
+<span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">EventService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
+<span class="n">var</span> <span class="k">event</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetEventAsync</span><span class="p">(</span><span class="n">agentId</span><span class="p">:</span> <span class="n">moxiWorksAgentID</span><span class="p">,</span> <span class="n">agentIdType</span><span class="p">:</span> <span class="n">AgentIdType</span><span class="p">.</span><span class="n">MoxiWorksAgentId</span><span class="p">,</span> <span class="n">parnterEventId</span><span class="p">:</span> <span class="n">partnerEventId</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+
+<span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;</span> <span class="n">attendees</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;(</span><span class="k">new</span> <span class="kt">string</span><span class="p">[]</span> <span class="p">{</span><span class="s">"contact1ID"</span><span class="p">,</span> <span class="s">"contact2ID"</span><span class="p">});</span>
+
+
+<span class="k">event</span><span class="p">.</span><span class="n">EventSubject</span> <span class="p">=</span> <span class="s">"the subject"</span><span class="p">;</span>
+<span class="k">event</span><span class="p">.</span><span class="n">EventLocation</span> <span class="p">=</span> <span class="s">"the location"</span><span class="p">;</span>
+<span class="k">event</span><span class="p">.</span><span class="n">AllDay</span> <span class="p">=</span> <span class="k">false</span><span class="p">;</span>
+<span class="k">event</span><span class="p">.</span><span class="n">SendReminder</span> <span class="p">=</span> <span class="k">true</span><span class="p">;</span>
+<span class="k">event</span><span class="p">.</span><span class="n">RemindMinutesBefore</span> <span class="p">=</span> <span class="m">15</span><span class="p">;</span>
+<span class="k">event</span><span class="p">.</span><span class="n">EventStart</span> <span class="p">=</span> <span class="m">1462234227</span><span class="p">;</span>
+<span class="k">event</span><span class="p">.</span><span class="n">EventEnd</span> <span class="p">=</span> <span class="m">1462241468</span><span class="p">;</span>
+<span class="k">event</span><span class="p">.</span><span class="n">Attendees</span> <span class="p">=</span> <span class="n">attendees</span><span class="p">;</span>
+<span class="k">event</span><span class="p">.</span><span class="n">Note</span> <span class="p">=</span> <span class="s">"notable stuff"</span><span class="p">;</span>
+
+<span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">EventService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
+<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">UpdateEventAsync</span><span class="p">(</span><span class="n">updateEvent</span><span class="p">:</span> <span class="k">event</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 
@@ -915,6 +1005,8 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 
 <div class='highlight php'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-php/classes/MoxiworksPlatform.Event.html#method_find'>PHP Find Docs</a></span></blockquote></div>
 
+<div class='highlight csharp'><blockquote><span class='data-example-label'><a href='https://moxiworks-platform.github.io/moxiworks-dotnet/class_moxi_works_1_1_platform_1_1_event_service.html#a77c68ca6aa686bb91fd0c91bc4f7b6dc'>.Net <span class='action-name'>EventService.GetEventAsync</span> Docs</a></span></blockquote></div>
+
 <blockquote>
 <p><span class="data-example-label"><span class='entity-name'>Event</span> <span class='action-name'>Show</span> (using <span class='attribute-name'>agent_uuid</span>) Example</span></p>
 </blockquote>
@@ -931,6 +1023,19 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.moxi-platform+json;version=1</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">Basic XNNeXAAAUZaQlF0dA==</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/x-www-form-urlencoded</span>
+
+</code></pre>
+
+<pre class="highlight csharp"><code>
+<span class="cm">/* set up prerequisites once */</span>
+<span class="n">ConfigurationManager</span><span class="p">.</span><span class="n">AppSettings</span><span class="p">[</span><span class="s">"Secret"</span><span class="p">]</span> <span class="p">=</span> <span class="s">"secret"</span><span class="p">;</span>
+<span class="n">ConfigurationManager</span><span class="p">.</span><span class="n">AppSettings</span><span class="p">[</span><span class="s">"Identifier"</span><span class="p">]</span> <span class="p">=</span> <span class="s">"abc123"</span><span class="p">;</span>
+
+<span class="n">var</span> <span class="n">agentUuid</span> <span class="p">=</span> <span class="s">"12345678-1234-1234-1234-1234567890ab"</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">partnerEventId</span> <span class="p">=</span> <span class="s">"booyuh"</span><span class="p">;</span>
+
+<span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">EventService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
+<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetEventAsync</span><span class="p">(</span><span class="n">agentId</span><span class="p">:</span> <span class="n">agentUuid</span><span class="p">,</span> <span class="n">agentIdType</span><span class="p">:</span> <span class="n">AgentIdType</span><span class="p">.</span><span class="n">AgentUuid</span><span class="p">,</span> <span class="n">parnterEventId</span><span class="p">:</span> <span class="n">partnerEventId</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 
@@ -978,6 +1083,19 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.moxi-platform+json;version=1</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">Basic XNNeXAAAUZaQlF0dA==</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/x-www-form-urlencoded</span>
+
+</code></pre>
+
+<pre class="highlight csharp"><code>
+<span class="cm">/* set up prerequisites once */</span>
+<span class="n">ConfigurationManager</span><span class="p">.</span><span class="n">AppSettings</span><span class="p">[</span><span class="s">"Secret"</span><span class="p">]</span> <span class="p">=</span> <span class="s">"secret"</span><span class="p">;</span>
+<span class="n">ConfigurationManager</span><span class="p">.</span><span class="n">AppSettings</span><span class="p">[</span><span class="s">"Identifier"</span><span class="p">]</span> <span class="p">=</span> <span class="s">"abc123"</span><span class="p">;</span>
+
+<span class="n">var</span> <span class="n">moxiWorksAgentId</span> <span class="p">=</span> <span class="s">"1234abcd"</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">partnerEventId</span> <span class="p">=</span> <span class="s">"booyuh"</span><span class="p">;</span>
+
+<span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">EventService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
+<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetEventAsync</span><span class="p">(</span><span class="n">agentId</span><span class="p">:</span> <span class="n">moxiWorksAgentId</span><span class="p">,</span> <span class="n">agentIdType</span><span class="p">:</span> <span class="n">AgentIdType</span><span class="p">.</span><span class="n">MoxiWorksAgentId</span><span class="p">,</span> <span class="n">parnterEventId</span><span class="p">:</span> <span class="n">partnerEventId</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 
@@ -1208,6 +1326,8 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 
 <div class='highlight php'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-php/classes/MoxiworksPlatform.Event.html#method_search'>PHP Search Docs</a></span></blockquote></div>
 
+<div class='highlight csharp'><blockquote><span class='data-example-label'><a href='https://moxiworks-platform.github.io/moxiworks-dotnet/class_moxi_works_1_1_platform_1_1_event_service.html#a6693e69f5b59e120b3815281878a76b7'>.Net <span class='action-name'>EventService.GetEventsByDateAsync</span> Docs</a></span></blockquote></div>
+
 <blockquote>
 <p><span class="data-example-label"><span class='entity-name'>Event</span> <span class='action-name'>Index</span> (using <span class='attribute-name'>agent_uuid</span>) Example</span></p>
 </blockquote>
@@ -1225,6 +1345,18 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.moxi-platform+json;version=1</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">Basic XNNeXAAAUZaQlF0dA==</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/x-www-form-urlencoded</span>
+
+</code></pre>
+
+<pre class="highlight csharp"><code>
+<span class="cm">/* set up prerequisites once */</span>
+<span class="n">ConfigurationManager</span><span class="p">.</span><span class="n">AppSettings</span><span class="p">[</span><span class="s">"Secret"</span><span class="p">]</span> <span class="p">=</span> <span class="s">"secret"</span><span class="p">;</span>
+<span class="n">ConfigurationManager</span><span class="p">.</span><span class="n">AppSettings</span><span class="p">[</span><span class="s">"Identifier"</span><span class="p">]</span> <span class="p">=</span> <span class="s">"abc123"</span><span class="p">;</span>
+
+<span class="n">var</span> <span class="n">agentUuid</span> <span class="p">=</span> <span class="s">"12345678-1234-1234-1234-1234567890ab"</span><span class="p">;</span>
+
+<span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">EventService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
+<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetEventsByDateAsync</span><span class="p">(</span><span class="n">agentId</span><span class="p">:</span> <span class="n">agentUuid</span><span class="p">,</span> <span class="n">agentIdType</span><span class="p">:</span> <span class="n">AgentIdType</span><span class="p">.</span><span class="n">AgentUuid</span><span class="p">,</span> <span class="n">eventStart</span><span class="p">:</span> <span class="m">1462317907</span><span class="p">,</span> <span class="n">eventEnd</span><span class="p">:</span> <span class="m">1461108284</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 
@@ -1275,6 +1407,18 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.moxi-platform+json;version=1</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">Basic XNNeXAAAUZaQlF0dA==</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/x-www-form-urlencoded</span>
+
+</code></pre>
+
+<pre class="highlight csharp"><code>
+<span class="cm">/* set up prerequisites once */</span>
+<span class="n">ConfigurationManager</span><span class="p">.</span><span class="n">AppSettings</span><span class="p">[</span><span class="s">"Secret"</span><span class="p">]</span> <span class="p">=</span> <span class="s">"secret"</span><span class="p">;</span>
+<span class="n">ConfigurationManager</span><span class="p">.</span><span class="n">AppSettings</span><span class="p">[</span><span class="s">"Identifier"</span><span class="p">]</span> <span class="p">=</span> <span class="s">"abc123"</span><span class="p">;</span>
+
+<span class="n">var</span> <span class="n">moxiWorksAgentID</span> <span class="p">=</span> <span class="s">"1234bcd;
+</span>
+<span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">EventService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
+<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetEventsByDateAsync</span><span class="p">(</span><span class="n">agentId</span><span class="p">:</span> <span class="n">moxiWorksAgentID</span><span class="p">,</span> <span class="n">agentIdType</span><span class="p">:</span> <span class="n">AgentIdType</span><span class="p">.</span><span class="n">MoxiWorksAgentId</span><span class="p">,</span> <span class="n">eventStart</span><span class="p">:</span> <span class="m">1462317907</span><span class="p">,</span> <span class="n">eventEnd</span><span class="p">:</span> <span class="m">1461108284</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 
@@ -1609,6 +1753,8 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 
 <div class='highlight php'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-php/classes/MoxiworksPlatform.Event.html#method_delete'>PHP Delete Docs</a></span></blockquote></div>
 
+<div class='highlight csharp'><blockquote><span class='data-example-label'><a href='https://moxiworks-platform.github.io/moxiworks-dotnet/class_moxi_works_1_1_platform_1_1_event_service.html#ad5199734942e61ac2ea7095cf34db955'>.Net <span class='action-name'>EventService.DeleteEventAsync</span> Docs</a></span></blockquote></div>
+
 <blockquote>
 <p><span class="data-example-label"><span class='entity-name'>Event</span> <span class='action-name'>Delete</span> (using <span class='attribute-name'>agent_uuid</span>) Example</span></p>
 </blockquote>
@@ -1625,6 +1771,19 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.moxi-platform+json;version=1</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">Basic XNNeXAAAUZaQlF0dA==</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/x-www-form-urlencoded</span>
+
+</code></pre>
+
+<pre class="highlight csharp"><code>
+<span class="cm">/* set up prerequisites once */</span>
+<span class="n">ConfigurationManager</span><span class="p">.</span><span class="n">AppSettings</span><span class="p">[</span><span class="s">"Secret"</span><span class="p">]</span> <span class="p">=</span> <span class="s">"secret"</span><span class="p">;</span>
+<span class="n">ConfigurationManager</span><span class="p">.</span><span class="n">AppSettings</span><span class="p">[</span><span class="s">"Identifier"</span><span class="p">]</span> <span class="p">=</span> <span class="s">"abc123"</span><span class="p">;</span>
+
+<span class="n">var</span> <span class="n">eventID</span> <span class="p">=</span> <span class="s">"abc123"</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">agentUuid</span> <span class="p">=</span> <span class="s">"12345678-1234-1234-1234-1234567890ab"</span><span class="p">;</span>
+
+<span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">EventService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
+<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">DeleteEventAsync</span><span class="p">(</span><span class="n">agentId</span><span class="p">:</span> <span class="n">agentUuid</span><span class="p">,</span> <span class="n">agentIdType</span><span class="p">:</span> <span class="n">AgentIdType</span><span class="p">.</span><span class="n">AgentUuid</span><span class="p">,</span> <span class="n">eventId</span><span class="p">:</span> <span class="n">eventID</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 
@@ -1672,6 +1831,19 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.moxi-platform+json;version=1</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">Basic XNNeXAAAUZaQlF0dA==</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/x-www-form-urlencoded</span>
+
+</code></pre>
+
+<pre class="highlight csharp"><code>
+<span class="cm">/* set up prerequisites once */</span>
+<span class="n">ConfigurationManager</span><span class="p">.</span><span class="n">AppSettings</span><span class="p">[</span><span class="s">"Secret"</span><span class="p">]</span> <span class="p">=</span> <span class="s">"secret"</span><span class="p">;</span>
+<span class="n">ConfigurationManager</span><span class="p">.</span><span class="n">AppSettings</span><span class="p">[</span><span class="s">"Identifier"</span><span class="p">]</span> <span class="p">=</span> <span class="s">"abc123"</span><span class="p">;</span>
+
+<span class="n">var</span> <span class="n">eventID</span> <span class="p">=</span> <span class="s">"abc123"</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">moxiWorksAgentID</span> <span class="p">=</span> <span class="s">"1234abcd"</span><span class="p">;</span>
+
+<span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">EventService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
+<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">DeleteEventAsync</span><span class="p">(</span><span class="n">agentId</span><span class="p">:</span> <span class="n">agentUuid</span><span class="p">,</span> <span class="n">agentIdType</span><span class="p">:</span> <span class="n">AgentIdType</span><span class="p">.</span><span class="n">MoxiWorksAgentId</span><span class="p">,</span> <span class="n">eventId</span><span class="p">:</span> <span class="n">eventID</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 

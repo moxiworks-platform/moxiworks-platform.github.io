@@ -34,6 +34,8 @@
 
 <div class='highlight php'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-php/classes/MoxiworksPlatform.Contact.html#method_find'>PHP Find Docs</a></span></blockquote></div>
 
+<div class='highlight csharp'><blockquote><span class='data-example-label'><a href='https://moxiworks-platform.github.io/moxiworks-dotnet/class_moxi_works_1_1_platform_1_1_contact_service.html#acdf4f44cc877c34e4d55c0f8576729e5'>.Net <span class='action-name'>ContactService.GetContactAsync</span> Docs</a></span></blockquote></div>
+
 <blockquote>
 <p><span class="data-example-label"><span class='entity-name'>Contact</span> <span class='action-name'>Show</span> (using <span class='attribute-name'>agent_uuid</span>) Example</span></p>
 </blockquote>
@@ -48,6 +50,17 @@
   </span><span class="nt">"agent_uuid"</span><span class="p">:</span><span class="s2">"12345678-1234-1234-1234-1234567890ab"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+<pre class="highlight csharp"><code>
+<span class="cm">/* set up prerequisites once */</span>
+<span class="n">ConfigurationManager</span><span class="p">.</span><span class="n">AppSettings</span><span class="p">[</span><span class="s">"Secret"</span><span class="p">]</span> <span class="p">=</span> <span class="s">"secret"</span><span class="p">;</span>
+<span class="n">ConfigurationManager</span><span class="p">.</span><span class="n">AppSettings</span><span class="p">[</span><span class="s">"Identifier"</span><span class="p">]</span> <span class="p">=</span> <span class="s">"abc123"</span><span class="p">;</span>
+
+<span class="n">var</span> <span class="n">agentUuid</span> <span class="p">=</span> <span class="s">"12345678-1234-1234-1234-1234567890ab"</span><span class="p">;</span>
+
+<span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">ContactService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
+<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetContactAsync</span><span class="p">(</span><span class="n">agentId</span><span class="p">:</span> <span class="n">agentUuid</span><span class="p">,</span> <span class="n">agentIdType</span><span class="p">:</span> <span class="n">AgentIdType</span><span class="p">.</span><span class="n">AgentUuid</span><span class="p">,</span> <span class="n">partnerContactId</span><span class="p">:</span> <span class="s">"booyuh"</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+
+</code></pre>
 <pre class="highlight ruby"><code><span class="c1">##### set up prerequisites once</span>
 <span class="nb">require</span> <span class="s1">'moxiworks_platform'</span>
 
@@ -89,6 +102,17 @@
   </span><span class="nt">"moxi_works_agent_id"</span><span class="p">:</span><span class="s2">"abc123"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+<pre class="highlight csharp"><code>
+<span class="cm">/* set up prerequisites once */</span>
+<span class="n">ConfigurationManager</span><span class="p">.</span><span class="n">AppSettings</span><span class="p">[</span><span class="s">"Secret"</span><span class="p">]</span> <span class="p">=</span> <span class="s">"secret"</span><span class="p">;</span>
+<span class="n">ConfigurationManager</span><span class="p">.</span><span class="n">AppSettings</span><span class="p">[</span><span class="s">"Identifier"</span><span class="p">]</span> <span class="p">=</span> <span class="s">"abc123"</span><span class="p">;</span>
+
+<span class="n">var</span> <span class="n">moxiWorksAgentId</span> <span class="p">=</span> <span class="s">"1234abcd"</span><span class="p">;</span>
+
+<span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">ContactService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
+<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetContactAsync</span><span class="p">(</span><span class="n">agentId</span><span class="p">:</span> <span class="n">moxiWorksAgentId</span><span class="p">,</span> <span class="n">agentIdType</span><span class="p">:</span> <span class="n">AgentIdType</span><span class="p">.</span><span class="n">MoxiWorksAgentId</span><span class="p">,</span> <span class="n">partnerContactId</span><span class="p">:</span> <span class="s">"booyuh"</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+
+</code></pre>
 <pre class="highlight ruby"><code><span class="c1">##### set up prerequisites once</span>
 <span class="nb">require</span> <span class="s1">'moxiworks_platform'</span>
 

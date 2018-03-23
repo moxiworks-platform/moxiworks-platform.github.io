@@ -38,6 +38,8 @@
 
 <div class='highlight php'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-php/classes/MoxiworksPlatform.SoldListing.html#method_find'>PHP Find Docs</a></span></blockquote></div>
 
+<div class='highlight csharp'><blockquote><span class='data-example-label'><a href='https://moxiworks-platform.github.io/moxiworks-dotnet/class_moxi_works_1_1_platform_1_1_sold_listing_service.html#a5706a6c146a93f0c933a2b6589fd4c6a'>.Net <span class='action-name'>SoldListingService.GetSoldListingAsync</span> Docs</a></span></blockquote></div>
+
 <blockquote>
 <p><span class="data-example-label"><span class='entity-name'>SoldListing</span> <span class='action-name'>Show</span> Example</span></p>
 </blockquote>
@@ -54,6 +56,19 @@
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.moxi-platform+json;version=1</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">Basic XNNeXAAAUZaQlF0dA==</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/x-www-form-urlencoded</span>
+
+</code></pre>
+
+<pre class="highlight csharp"><code>
+<span class="cm">/* set up prerequisites once */</span>
+<span class="n">ConfigurationManager</span><span class="p">.</span><span class="n">AppSettings</span><span class="p">[</span><span class="s">"Secret"</span><span class="p">]</span> <span class="p">=</span> <span class="s">"secret"</span><span class="p">;</span>
+<span class="n">ConfigurationManager</span><span class="p">.</span><span class="n">AppSettings</span><span class="p">[</span><span class="s">"Identifier"</span><span class="p">]</span> <span class="p">=</span> <span class="s">"abc123"</span><span class="p">;</span>
+
+<span class="n">var</span> <span class="n">moxiWorksListingId</span> <span class="p">=</span> <span class="s">"12345678-1234-1234-1234-1234567890ab"</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">moxiWorksCompanyId</span> <span class="p">=</span> <span class="s">"abc123"</span><span class="p">;</span>
+
+<span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">SoldListingService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
+<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetSoldListingAsync</span><span class="p">(</span><span class="n">moxiWorksListingId</span><span class="p">:</span> <span class="n">moxiWorksListingId</span><span class="p">,</span> <span class="n">moxiWorksCompanyId</span><span class="p">:</span> <span class="n">moxiWorksCompanyId</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 
@@ -804,6 +819,8 @@
 
 <div class='highlight php'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-php/classes/MoxiworksPlatform.SoldListing.html#method_search'>PHP Search Docs</a></span></blockquote></div>
 
+<div class='highlight csharp'><blockquote><span class='data-example-label'><a href='https://moxiworks-platform.github.io/moxiworks-dotnet/class_moxi_works_1_1_platform_1_1_sold_listing_service.html#a1c94abc505dfc385a55fd5cad4eabba5'>.Net <span class='action-name'>SoldListingService.GetSoldListingsUpdatedSinceAsync</span> Docs</a></span></blockquote></div>
+
 <p>Index will return a paged response of sold listings that have been updated since a given timestamp for a specified company. For a list of company IDs that you can reques sold listings for, use the <a href="#company">Company Endpoint</a>.</p>
 
 <aside class="note">If no sold_since parameter is provided, listings that have been updated in the <b>last seven days</b> will be returned.</aside>
@@ -825,6 +842,19 @@
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.moxi-platform+json;version=1</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">Basic XNNeXAAAUZaQlF0dA==</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/x-www-form-urlencoded</span>
+
+</code></pre>
+
+<pre class="highlight csharp"><code>
+<span class="cm">/* set up prerequisites once */</span>
+<span class="n">ConfigurationManager</span><span class="p">.</span><span class="n">AppSettings</span><span class="p">[</span><span class="s">"Secret"</span><span class="p">]</span> <span class="p">=</span> <span class="s">"secret"</span><span class="p">;</span>
+<span class="n">ConfigurationManager</span><span class="p">.</span><span class="n">AppSettings</span><span class="p">[</span><span class="s">"Identifier"</span><span class="p">]</span> <span class="p">=</span> <span class="s">"abc123"</span><span class="p">;</span>
+
+<span class="n">var</span> <span class="n">agentUuid</span> <span class="p">=</span> <span class="s">"12345678-1234-1234-1234-1234567890ab"</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">moxiWorksCompanyId</span> <span class="p">=</span> <span class="s">"abc123"</span><span class="p">;</span>
+
+<span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">SoldListingService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
+<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetSoldListingsUpdatedSinceAsync</span><span class="p">(</span><span class="n">agentId</span><span class="p">:</span> <span class="n">agentUuid</span><span class="p">,</span> <span class="n">agentIdType</span><span class="p">:</span> <span class="n">AgentIdType</span><span class="p">.</span><span class="n">AgentUuid</span><span class="p">,</span> <span class="n">moxiWorksCompanyId</span><span class="p">:</span> <span class="n">moxiWorksCompanyId</span><span class="p">,</span> <span class="n">updatedSince</span><span class="p">:</span> <span class="m">1462317907</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 
@@ -872,6 +902,19 @@
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.moxi-platform+json;version=1</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">Basic XNNeXAAAUZaQlF0dA==</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/x-www-form-urlencoded</span>
+
+</code></pre>
+
+<pre class="highlight csharp"><code>
+<span class="cm">/* set up prerequisites once */</span>
+<span class="n">ConfigurationManager</span><span class="p">.</span><span class="n">AppSettings</span><span class="p">[</span><span class="s">"Secret"</span><span class="p">]</span> <span class="p">=</span> <span class="s">"secret"</span><span class="p">;</span>
+<span class="n">ConfigurationManager</span><span class="p">.</span><span class="n">AppSettings</span><span class="p">[</span><span class="s">"Identifier"</span><span class="p">]</span> <span class="p">=</span> <span class="s">"abc123"</span><span class="p">;</span>
+
+<span class="n">var</span> <span class="n">moxiWorksAgentID</span> <span class="p">=</span> <span class="s">"1234bcd;
+</span><span class="n">var</span> <span class="n">moxiWorksCompanyId</span> <span class="p">=</span> <span class="s">"abc123"</span><span class="p">;</span>
+
+<span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">SoldListingService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
+<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetSoldListingsUpdatedSinceAsync</span><span class="p">(</span><span class="n">agentId</span><span class="p">:</span> <span class="n">moxiWorksAgentID</span><span class="p">,</span> <span class="n">agentIdType</span><span class="p">:</span> <span class="n">AgentIdType</span><span class="p">.</span><span class="n">MoxiWorksAgentId</span><span class="p">,</span> <span class="n">moxiWorksCompanyId</span><span class="p">:</span> <span class="n">moxiWorksCompanyId</span><span class="p">,</span> <span class="n">updatedSince</span><span class="p">:</span> <span class="m">1462317907</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 

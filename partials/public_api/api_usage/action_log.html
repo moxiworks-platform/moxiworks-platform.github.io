@@ -38,6 +38,8 @@
 
 <div class='highlight php'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-php/classes/MoxiworksPlatform.ActionLog.html#method_create'>PHP <span class='action-name'>Create</span> Docs</a></span></blockquote></div>
 
+<div class='highlight csharp'><blockquote><span class='data-example-label'><a href='https://moxiworks-platform.github.io/moxiworks-dotnet/class_moxi_works_1_1_platform_1_1_action_log_service.html#aacf0242063ee7000877c44d02134bd39'>.Net <span class='action-name'>ActionLogService.CreateActionLogAsync</span> Docs</a></span></blockquote></div>
+
 <blockquote>
 <p><span class="data-example-label"><span class='entity-name'>ActionLog </span><span class='action-name'>Create</span> (using <span class='attribute-name'>agent_uuid</span>) Request Example</span></p>
 </blockquote>
@@ -59,6 +61,23 @@
 
 
 agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;partner_contact_id=mySystemsContactId&amp;title=Contact%20Called&amp;body=this%20contact%20called%20you
+
+</code></pre>
+
+<pre class="highlight csharp"><code>
+<span class="cm">/* set up prerequisites once */</span>
+<span class="n">ConfigurationManager</span><span class="p">.</span><span class="n">AppSettings</span><span class="p">[</span><span class="s">"Secret"</span><span class="p">]</span> <span class="p">=</span> <span class="s">"secret"</span><span class="p">;</span>
+<span class="n">ConfigurationManager</span><span class="p">.</span><span class="n">AppSettings</span><span class="p">[</span><span class="s">"Identifier"</span><span class="p">]</span> <span class="p">=</span> <span class="s">"abc123"</span><span class="p">;</span>
+
+
+<span class="n">var</span> <span class="n">actionLog</span> <span class="p">=</span> <span class="k">new</span> <span class="n">ActionLog</span><span class="p">;</span>
+<span class="n">actionLog</span><span class="p">.</span><span class="n">AgentUuid</span> <span class="p">=</span> <span class="s">"12345678-1234-1234-1234-1234567890ab"</span><span class="p">;</span>
+<span class="n">actionLog</span><span class="p">.</span><span class="n">Title</span> <span class="p">=</span> <span class="s">"Contact Called"</span><span class="p">;</span>
+<span class="n">actionLog</span><span class="p">.</span><span class="n">Body</span> <span class="p">=</span> <span class="s">"this contact called you"</span><span class="p">;</span>
+<span class="n">actionLog</span><span class="p">.</span><span class="n">PartnerContactId</span> <span class="p">=</span> <span class="s">"mySystemsContactId"</span><span class="p">;</span>
+
+<span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">ActionLogService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
+<span class="n">var</span> <span class="n">result</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">CreateActionLogAsync</span><span class="p">(</span><span class="n">actionLog</span><span class="p">:</span> <span class="n">actionLog</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 
@@ -117,6 +136,23 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;partner_contact_id=mySystems
 
 
 moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=Contact%20Called&amp;body=this%20contact%20called%20you
+
+</code></pre>
+
+<pre class="highlight csharp"><code>
+<span class="cm">/* set up prerequisites once */</span>
+<span class="n">ConfigurationManager</span><span class="p">.</span><span class="n">AppSettings</span><span class="p">[</span><span class="s">"Secret"</span><span class="p">]</span> <span class="p">=</span> <span class="s">"secret"</span><span class="p">;</span>
+<span class="n">ConfigurationManager</span><span class="p">.</span><span class="n">AppSettings</span><span class="p">[</span><span class="s">"Identifier"</span><span class="p">]</span> <span class="p">=</span> <span class="s">"abc123"</span><span class="p">;</span>
+
+
+<span class="n">var</span> <span class="n">actionLog</span> <span class="p">=</span> <span class="n">ActionLog</span><span class="p">.</span><span class="k">new</span><span class="p">();</span>
+<span class="n">actionLog</span><span class="p">.</span><span class="n">MoxiWorksAgentId</span> <span class="p">=</span> <span class="s">"abc123"</span><span class="p">;</span>
+<span class="n">actionLog</span><span class="p">.</span><span class="n">Title</span> <span class="p">=</span> <span class="s">"Contact Called"</span><span class="p">;</span>
+<span class="n">actionLog</span><span class="p">.</span><span class="n">Body</span> <span class="p">=</span> <span class="s">"this contact called you"</span><span class="p">;</span>
+<span class="n">actionLog</span><span class="p">.</span><span class="n">PartnerContactId</span> <span class="p">=</span> <span class="s">"mySystemsContactId"</span><span class="p">;</span>
+
+<span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">ActionLogService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
+<span class="n">var</span> <span class="n">result</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">CreateActionLogAsync</span><span class="p">(</span><span class="n">actionLog</span><span class="p">:</span> <span class="n">actionLog</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 
@@ -335,6 +371,8 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
 
 <div class='highlight php'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-php/classes/MoxiworksPlatform.ActionLog.html#method_search'>PHP <span class='action-name'>Search</span> Docs</a></span></blockquote></div>
 
+<div class='highlight csharp'><blockquote><span class='data-example-label'><a href='https://moxiworks-platform.github.io/moxiworks-dotnet/class_moxi_works_1_1_platform_1_1_action_log_service.html#a917074a99da1c657b0f0cbdc01ba9c43'>.Net <span class='action-name'>ActionLogService.GetActionLogsAsync</span> Docs</a></span></blockquote></div>
+
 <aside class="note">Send a <b>GET</b> request to https://api.moxiworks.com/api/action_logs</aside>
 
 <p>When searching for <span class='entity-name'>ActionLog</span> entities using the Moxi Works platform API, format your request using the following parameters.</p>
@@ -355,6 +393,19 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.moxi-platform+json;version=1</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">Basic XNNeXAAAUZaQlF0dA==</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/x-www-form-urlencoded</span>
+
+</code></pre>
+
+<pre class="highlight csharp"><code>
+<span class="cm">/* set up prerequisites once */</span>
+<span class="n">ConfigurationManager</span><span class="p">.</span><span class="n">AppSettings</span><span class="p">[</span><span class="s">"Secret"</span><span class="p">]</span> <span class="p">=</span> <span class="s">"secret"</span><span class="p">;</span>
+<span class="n">ConfigurationManager</span><span class="p">.</span><span class="n">AppSettings</span><span class="p">[</span><span class="s">"Identifier"</span><span class="p">]</span> <span class="p">=</span> <span class="s">"abc123"</span><span class="p">;</span>
+
+
+<span class="n">var</span> <span class="n">agentUuid</span> <span class="p">=</span> <span class="s">"12345678-1234-1234-1234-1234567890ab"</span><span class="p">;</span>
+
+<span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">ActionLogService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
+<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetActionLogsAsync</span><span class="p">(</span><span class="n">agentId</span><span class="p">:</span> <span class="n">agentUuid</span><span class="p">,</span> <span class="n">agentIdType</span><span class="p">:</span> <span class="n">AgentIdType</span><span class="p">.</span><span class="n">AgentUuid</span><span class="p">,</span> <span class="n">partnerContactId</span><span class="p">:</span> <span class="s">"mySystemsContactId"</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 
@@ -404,6 +455,19 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.moxi-platform+json;version=1</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">Basic XNNeXAAAUZaQlF0dA==</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/x-www-form-urlencoded</span>
+
+</code></pre>
+
+<pre class="highlight csharp"><code>
+<span class="cm">/* set up prerequisites once */</span>
+<span class="n">ConfigurationManager</span><span class="p">.</span><span class="n">AppSettings</span><span class="p">[</span><span class="s">"Secret"</span><span class="p">]</span> <span class="p">=</span> <span class="s">"secret"</span><span class="p">;</span>
+<span class="n">ConfigurationManager</span><span class="p">.</span><span class="n">AppSettings</span><span class="p">[</span><span class="s">"Identifier"</span><span class="p">]</span> <span class="p">=</span> <span class="s">"abc123"</span><span class="p">;</span>
+
+
+<span class="n">var</span> <span class="n">moxiWorksAgentId</span> <span class="p">=</span> <span class="s">"abcd1234"</span><span class="p">;</span>
+
+<span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">ActionLogService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
+<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetActionLogsAsync</span><span class="p">(</span><span class="n">agentId</span><span class="p">:</span> <span class="n">moxiWorksAgentId</span><span class="p">,</span> <span class="n">agentIdType</span><span class="p">:</span> <span class="n">AgentIdType</span><span class="p">.</span><span class="n">MoxiWorksAgentId</span><span class="p">,</span> <span class="n">partnerContactId</span><span class="p">:</span> <span class="s">"mySystemsContactId"</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 

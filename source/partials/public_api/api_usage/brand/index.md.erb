@@ -79,16 +79,23 @@ When finding an <span class='entity-name'>Brand</span> using the Moxi Works plat
 Attribute | Type | Length Limit |
 -----|-----|-----|-----|
 |<span class="required-data">moxi_works_company_id</span>|<span class="required-data"><span class="data-type">String</span></span>|<span class="required-data">255<span> |
-|<span class="optional-data">moxi_works_agent_id</span>|<span class="optional-data"><span class="data-type">String</span></span>|<span class="optional-data">255<span> |
+|<span class="multi-option-optional-data">agent_uuid*</span>|<span class="multi-option-optional-data"><span class="data-type">String</span></span>| <span class="multi-option-optional-data">255</span>
+|<span class="multi-option-optional-data">moxi_works_agent_id*</span>|<span class="multi-option-optional-data"><span class="data-type">String</span></span>| <span class="multi-option-optional-data">255</span>
 
 <span class="required-data">**Required Parameters Are In Red**</span>
 
 <span class="request-data-head">moxi_works_company_id</span>
 <span class="request-data-remarks">A valid Moxi Works <span class='entity-name'>Company</span> ID. Use [Company Endpoint](#company) to determine what <span class='attribute-name'>moxi_works_company_id</span> you can use.</span>
 
+<span class="request-data-head">agent_uuid</span>
+<span class="request-data-remarks">This is the Moxi Works Platform ID of the agent. This will be an [RFC 4122](https://tools.ietf.org/html/rfc4122) compliant UUID. <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> can be used and should reference a valid Moxi Works Agent ID for your <span class='entity-name'>Brand</span> request to be accepted.</span>
 
 <span class="request-data-head">moxi_works_agent_id</span>
+<span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span>. This will be a string that may take the form of an email address, or a unique identification string. <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> can be used and should reference a valid Moxi Works Agent ID for your <span class='entity-name'>Brand</span> request to be accepted.</span>
+
+<span class="request-data-head">agent_uuid</span>
 <span class="request-data-remarks">A valid Moxi Works <span class='entity-name'>Agent</span> ID. Use [Agent Endpoint](#agent) to determine what <span class='attribute-name'>moxi_works_agent_id</span> you can use.</span>
+
 
 <aside class="note">Use <a href='#company'>Company Endpoint</a> to determine the moxi_works_company_id to send.</aside>
 

@@ -77,8 +77,8 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;partner_event_id=abc98df345&
 <span class="n">ConfigurationManager</span><span class="p">.</span><span class="n">AppSettings</span><span class="p">[</span><span class="s">"Identifier"</span><span class="p">]</span> <span class="p">=</span> <span class="s">"abc123"</span><span class="p">;</span>
 
 
-<span class="n">var</span> <span class="k">event</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Event</span><span class="p">;</span>
-<span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;</span> <span class="n">attendees</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;(</span><span class="k">new</span> <span class="kt">string</span><span class="p">[]</span> <span class="p">{</span><span class="s">"contact1ID"</span><span class="p">,</span> <span class="s">"contact2ID"</span><span class="p">});</span>
+<span class="n">var</span> <span class="k">event</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Event</span><span class="p">();</span>
+<span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;</span> <span class="n">attendees</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;(){</span><span class="s">"contact1ID"</span><span class="p">,</span> <span class="s">"contact2ID"</span><span class="p">};</span>
 
 <span class="k">event</span><span class="p">.</span><span class="n">AgentUuid</span> <span class="p">=</span> <span class="s">"12345678-1234-1234-1234-1234567890ab"</span><span class="p">;</span>
 <span class="k">event</span><span class="p">.</span><span class="n">PartnerEventId</span> <span class="p">=</span> <span class="s">"booyuh"</span><span class="p">;</span>
@@ -93,7 +93,7 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;partner_event_id=abc98df345&
 <span class="k">event</span><span class="p">.</span><span class="n">Note</span> <span class="p">=</span> <span class="s">"notable stuff"</span><span class="p">;</span>
 
 <span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">EventService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
-<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">CreateEventAsync</span><span class="p">(</span><span class="k">event</span><span class="p">:</span> <span class="k">event</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">CreateEventAsync</span><span class="p">(</span><span class="k">event</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 
@@ -546,9 +546,9 @@ note=here%20is%20the%20note
 <span class="n">var</span> <span class="n">partnerEventId</span> <span class="p">=</span> <span class="s">"booyuh"</span><span class="p">;</span>
 
 <span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">EventService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
-<span class="n">var</span> <span class="k">event</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetEventAsync</span><span class="p">(</span><span class="n">agentId</span><span class="p">:</span> <span class="n">agentUuid</span><span class="p">,</span> <span class="n">agentIdType</span><span class="p">:</span> <span class="n">AgentIdType</span><span class="p">.</span><span class="n">AgentUuid</span><span class="p">,</span> <span class="n">parnterEventId</span><span class="p">:</span> <span class="n">partnerEventId</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="k">event</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetEventAsync</span><span class="p">(</span> <span class="n">agentUuid</span><span class="p">,</span>  <span class="n">AgentIdType</span><span class="p">.</span><span class="n">AgentUuid</span><span class="p">,</span> <span class="p">:</span> <span class="n">partnerEventId</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
-<span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;</span> <span class="n">attendees</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;(</span><span class="k">new</span> <span class="kt">string</span><span class="p">[]</span> <span class="p">{</span><span class="s">"contact1ID"</span><span class="p">,</span> <span class="s">"contact2ID"</span><span class="p">});</span>
+<span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;</span> <span class="n">attendees</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;()</span> <span class="p">{</span><span class="s">"contact1ID"</span><span class="p">,</span> <span class="s">"contact2ID"</span><span class="p">};</span>
 
 
 <span class="k">event</span><span class="p">.</span><span class="n">EventSubject</span> <span class="p">=</span> <span class="s">"the subject"</span><span class="p">;</span>
@@ -562,7 +562,7 @@ note=here%20is%20the%20note
 <span class="k">event</span><span class="p">.</span><span class="n">Note</span> <span class="p">=</span> <span class="s">"notable stuff"</span><span class="p">;</span>
 
 <span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">EventService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
-<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">UpdateEventAsync</span><span class="p">(</span><span class="n">updateEvent</span><span class="p">:</span> <span class="k">event</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">UpdateEventAsync</span><span class="p">(</span><span class="k">event</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 
@@ -659,9 +659,9 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <span class="n">var</span> <span class="n">partnerEventId</span> <span class="p">=</span> <span class="s">"booyuh"</span><span class="p">;</span>
 
 <span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">EventService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
-<span class="n">var</span> <span class="k">event</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetEventAsync</span><span class="p">(</span><span class="n">agentId</span><span class="p">:</span> <span class="n">moxiWorksAgentID</span><span class="p">,</span> <span class="n">agentIdType</span><span class="p">:</span> <span class="n">AgentIdType</span><span class="p">.</span><span class="n">MoxiWorksAgentId</span><span class="p">,</span> <span class="n">parnterEventId</span><span class="p">:</span> <span class="n">partnerEventId</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="k">event</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetEventAsync</span><span class="p">(</span> <span class="n">moxiWorksAgentID</span><span class="p">,</span> <span class="n">AgentIdType</span><span class="p">.</span><span class="n">MoxiWorksAgentId</span><span class="p">,</span> <span class="n">partnerEventId</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
-<span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;</span> <span class="n">attendees</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;(</span><span class="k">new</span> <span class="kt">string</span><span class="p">[]</span> <span class="p">{</span><span class="s">"contact1ID"</span><span class="p">,</span> <span class="s">"contact2ID"</span><span class="p">});</span>
+<span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;</span> <span class="n">attendees</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;()</span> <span class="p">{</span><span class="s">"contact1ID"</span><span class="p">,</span> <span class="s">"contact2ID"</span><span class="p">};</span>
 
 
 <span class="k">event</span><span class="p">.</span><span class="n">EventSubject</span> <span class="p">=</span> <span class="s">"the subject"</span><span class="p">;</span>
@@ -675,7 +675,7 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <span class="k">event</span><span class="p">.</span><span class="n">Note</span> <span class="p">=</span> <span class="s">"notable stuff"</span><span class="p">;</span>
 
 <span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">EventService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
-<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">UpdateEventAsync</span><span class="p">(</span><span class="n">updateEvent</span><span class="p">:</span> <span class="k">event</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">UpdateEventAsync</span><span class="p">(</span><span class="k">event</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 
@@ -1035,7 +1035,7 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <span class="n">var</span> <span class="n">partnerEventId</span> <span class="p">=</span> <span class="s">"booyuh"</span><span class="p">;</span>
 
 <span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">EventService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
-<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetEventAsync</span><span class="p">(</span><span class="n">agentId</span><span class="p">:</span> <span class="n">agentUuid</span><span class="p">,</span> <span class="n">agentIdType</span><span class="p">:</span> <span class="n">AgentIdType</span><span class="p">.</span><span class="n">AgentUuid</span><span class="p">,</span> <span class="n">parnterEventId</span><span class="p">:</span> <span class="n">partnerEventId</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetEventAsync</span><span class="p">(</span> <span class="n">agentUuid</span><span class="p">,</span>  <span class="n">AgentIdType</span><span class="p">.</span><span class="n">AgentUuid</span><span class="p">,</span> <span class="n">partnerEventId</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 
@@ -1095,7 +1095,7 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <span class="n">var</span> <span class="n">partnerEventId</span> <span class="p">=</span> <span class="s">"booyuh"</span><span class="p">;</span>
 
 <span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">EventService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
-<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetEventAsync</span><span class="p">(</span><span class="n">agentId</span><span class="p">:</span> <span class="n">moxiWorksAgentId</span><span class="p">,</span> <span class="n">agentIdType</span><span class="p">:</span> <span class="n">AgentIdType</span><span class="p">.</span><span class="n">MoxiWorksAgentId</span><span class="p">,</span> <span class="n">parnterEventId</span><span class="p">:</span> <span class="n">partnerEventId</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetEventAsync</span><span class="p">(</span> <span class="n">moxiWorksAgentId</span><span class="p">,</span> <span class="n">AgentIdType</span><span class="p">.</span><span class="n">MoxiWorksAgentId</span><span class="p">,</span> <span class="n">partnerEventId</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 
@@ -1356,7 +1356,7 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <span class="n">var</span> <span class="n">agentUuid</span> <span class="p">=</span> <span class="s">"12345678-1234-1234-1234-1234567890ab"</span><span class="p">;</span>
 
 <span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">EventService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
-<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetEventsByDateAsync</span><span class="p">(</span><span class="n">agentId</span><span class="p">:</span> <span class="n">agentUuid</span><span class="p">,</span> <span class="n">agentIdType</span><span class="p">:</span> <span class="n">AgentIdType</span><span class="p">.</span><span class="n">AgentUuid</span><span class="p">,</span> <span class="n">eventStart</span><span class="p">:</span> <span class="m">1462317907</span><span class="p">,</span> <span class="n">eventEnd</span><span class="p">:</span> <span class="m">1461108284</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetEventsByDateAsync</span><span class="p">(</span><span class="n">agentUuid</span><span class="p">,</span><span class="n">AgentIdType</span><span class="p">.</span><span class="n">AgentUuid</span><span class="p">,</span> <span class="m">1462317907</span><span class="p">,</span><span class="m">1461108284</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 
@@ -1418,7 +1418,7 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <span class="n">var</span> <span class="n">moxiWorksAgentID</span> <span class="p">=</span> <span class="s">"1234bcd;
 </span>
 <span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">EventService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
-<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetEventsByDateAsync</span><span class="p">(</span><span class="n">agentId</span><span class="p">:</span> <span class="n">moxiWorksAgentID</span><span class="p">,</span> <span class="n">agentIdType</span><span class="p">:</span> <span class="n">AgentIdType</span><span class="p">.</span><span class="n">MoxiWorksAgentId</span><span class="p">,</span> <span class="n">eventStart</span><span class="p">:</span> <span class="m">1462317907</span><span class="p">,</span> <span class="n">eventEnd</span><span class="p">:</span> <span class="m">1461108284</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetEventsByDateAsync</span><span class="p">(</span><span class="n">moxiWorksAgentID</span><span class="p">,</span> <span class="n">AgentIdType</span><span class="p">.</span><span class="n">MoxiWorksAgentId</span><span class="p">,</span> <span class="m">1462317907</span><span class="p">,</span> <span class="m">1461108284</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 
@@ -1783,7 +1783,7 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <span class="n">var</span> <span class="n">agentUuid</span> <span class="p">=</span> <span class="s">"12345678-1234-1234-1234-1234567890ab"</span><span class="p">;</span>
 
 <span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">EventService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
-<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">DeleteEventAsync</span><span class="p">(</span><span class="n">agentId</span><span class="p">:</span> <span class="n">agentUuid</span><span class="p">,</span> <span class="n">agentIdType</span><span class="p">:</span> <span class="n">AgentIdType</span><span class="p">.</span><span class="n">AgentUuid</span><span class="p">,</span> <span class="n">eventId</span><span class="p">:</span> <span class="n">eventID</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">DeleteEventAsync</span><span class="p">(</span> <span class="n">agentUuid</span><span class="p">,</span> <span class="n">AgentIdType</span><span class="p">.</span><span class="n">AgentUuid</span><span class="p">,</span> <span class="n">eventID</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 
@@ -1843,7 +1843,7 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <span class="n">var</span> <span class="n">moxiWorksAgentID</span> <span class="p">=</span> <span class="s">"1234abcd"</span><span class="p">;</span>
 
 <span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">EventService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
-<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">DeleteEventAsync</span><span class="p">(</span><span class="n">agentId</span><span class="p">:</span> <span class="n">agentUuid</span><span class="p">,</span> <span class="n">agentIdType</span><span class="p">:</span> <span class="n">AgentIdType</span><span class="p">.</span><span class="n">MoxiWorksAgentId</span><span class="p">,</span> <span class="n">eventId</span><span class="p">:</span> <span class="n">eventID</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">DeleteEventAsync</span><span class="p">(</span> <span class="n">agentUuid</span><span class="p">,</span>  <span class="n">AgentIdType</span><span class="p">.</span><span class="n">MoxiWorksAgentId</span><span class="p">,</span> <span class="n">eventId</span><span class="p">:</span> <span class="n">eventID</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 

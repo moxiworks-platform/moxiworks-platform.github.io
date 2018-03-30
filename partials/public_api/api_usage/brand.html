@@ -64,7 +64,7 @@
 <span class="n">ConfigurationManager</span><span class="p">.</span><span class="n">AppSettings</span><span class="p">[</span><span class="s">"Identifier"</span><span class="p">]</span> <span class="p">=</span> <span class="s">"abc123"</span><span class="p">;</span>
 
 <span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">BrandService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
-<span class="n">var</span> <span class="n">result</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetCompanyBrandAsync</span><span class="p">(</span><span class="n">moxiWorksCompanyId</span><span class="p">:</span> <span class="s">"abc123"</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">result</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetCompanyBrandAsync</span><span class="p">(</span><span class="s">"some_company_id"</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 
@@ -316,7 +316,7 @@
 <span class="n">ConfigurationManager</span><span class="p">.</span><span class="n">AppSettings</span><span class="p">[</span><span class="s">"Identifier"</span><span class="p">]</span> <span class="p">=</span> <span class="s">"abc123"</span><span class="p">;</span>
 
 <span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">BrandService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
-<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetBrandsAsync</span><span class="p">(</span><span class="n">agentId</span><span class="p">:</span> <span class="s">"xyz098"</span><span class="p">,</span> <span class="n">moxiWorksCompanyId</span><span class="p">:</span> <span class="s">"abc123"</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetBrandsAsync</span><span class="p">(</span><span class="s">"some_agent_id"</span><span class="p">,</span> <span class="s">"abc123"</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 

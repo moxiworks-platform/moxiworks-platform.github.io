@@ -70,14 +70,14 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;partner_contact_id=mySystems
 <span class="n">ConfigurationManager</span><span class="p">.</span><span class="n">AppSettings</span><span class="p">[</span><span class="s">"Identifier"</span><span class="p">]</span> <span class="p">=</span> <span class="s">"abc123"</span><span class="p">;</span>
 
 
-<span class="n">var</span> <span class="n">actionLog</span> <span class="p">=</span> <span class="k">new</span> <span class="n">ActionLog</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">actionLog</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">ActionLog</span><span class="p">();</span>
 <span class="n">actionLog</span><span class="p">.</span><span class="n">AgentUuid</span> <span class="p">=</span> <span class="s">"12345678-1234-1234-1234-1234567890ab"</span><span class="p">;</span>
 <span class="n">actionLog</span><span class="p">.</span><span class="n">Title</span> <span class="p">=</span> <span class="s">"Contact Called"</span><span class="p">;</span>
 <span class="n">actionLog</span><span class="p">.</span><span class="n">Body</span> <span class="p">=</span> <span class="s">"this contact called you"</span><span class="p">;</span>
 <span class="n">actionLog</span><span class="p">.</span><span class="n">PartnerContactId</span> <span class="p">=</span> <span class="s">"mySystemsContactId"</span><span class="p">;</span>
 
 <span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">ActionLogService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
-<span class="n">var</span> <span class="n">result</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">CreateActionLogAsync</span><span class="p">(</span><span class="n">actionLog</span><span class="p">:</span> <span class="n">actionLog</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">result</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">CreateActionLogAsync</span><span class="p">(</span><span class="n">actionLog</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 
@@ -152,7 +152,7 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
 <span class="n">actionLog</span><span class="p">.</span><span class="n">PartnerContactId</span> <span class="p">=</span> <span class="s">"mySystemsContactId"</span><span class="p">;</span>
 
 <span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">ActionLogService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
-<span class="n">var</span> <span class="n">result</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">CreateActionLogAsync</span><span class="p">(</span><span class="n">actionLog</span><span class="p">:</span> <span class="n">actionLog</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">result</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">CreateActionLogAsync</span><span class="p">(</span><span class="n">actionLog</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 
@@ -405,7 +405,7 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
 <span class="n">var</span> <span class="n">agentUuid</span> <span class="p">=</span> <span class="s">"12345678-1234-1234-1234-1234567890ab"</span><span class="p">;</span>
 
 <span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">ActionLogService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
-<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetActionLogsAsync</span><span class="p">(</span><span class="n">agentId</span><span class="p">:</span> <span class="n">agentUuid</span><span class="p">,</span> <span class="n">agentIdType</span><span class="p">:</span> <span class="n">AgentIdType</span><span class="p">.</span><span class="n">AgentUuid</span><span class="p">,</span> <span class="n">partnerContactId</span><span class="p">:</span> <span class="s">"mySystemsContactId"</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetActionLogsAsync</span><span class="p">(</span><span class="n">agentUuid</span><span class="p">,</span> <span class="n">AgentIdType</span><span class="p">.</span><span class="n">AgentUuid</span><span class="p">,</span> <span class="s">"mySystemsContactId"</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 
@@ -467,7 +467,7 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
 <span class="n">var</span> <span class="n">moxiWorksAgentId</span> <span class="p">=</span> <span class="s">"abcd1234"</span><span class="p">;</span>
 
 <span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">ActionLogService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
-<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetActionLogsAsync</span><span class="p">(</span><span class="n">agentId</span><span class="p">:</span> <span class="n">moxiWorksAgentId</span><span class="p">,</span> <span class="n">agentIdType</span><span class="p">:</span> <span class="n">AgentIdType</span><span class="p">.</span><span class="n">MoxiWorksAgentId</span><span class="p">,</span> <span class="n">partnerContactId</span><span class="p">:</span> <span class="s">"mySystemsContactId"</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetActionLogsAsync</span><span class="p">(</span> <span class="n">moxiWorksAgentId</span><span class="p">,</span>  <span class="n">AgentIdType</span><span class="p">.</span><span class="n">MoxiWorksAgentId</span><span class="p">,</span>  <span class="s">"mySystemsContactId"</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 

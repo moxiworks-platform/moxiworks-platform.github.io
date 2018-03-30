@@ -65,7 +65,7 @@
 <span class="n">ConfigurationManager</span><span class="p">.</span><span class="n">AppSettings</span><span class="p">[</span><span class="s">"Identifier"</span><span class="p">]</span> <span class="p">=</span> <span class="s">"abc123"</span><span class="p">;</span>
 
 <span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">AgentService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
-<span class="n">var</span> <span class="n">result</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetAgentAsync</span><span class="p">(</span><span class="n">agentId</span><span class="p">:</span> <span class="s">"12345678-1234-1234-1234-1234567890ab"</span><span class="p">,</span> <span class="n">moxiWorksCompanyId</span><span class="p">:</span> <span class="s">"the_company"</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">result</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetAgentAsync</span><span class="p">(</span> <span class="s">"12345678-1234-1234-1234-1234567890ab"</span><span class="p">,</span>  <span class="s">"the_company"</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 
@@ -122,7 +122,7 @@
 <span class="n">ConfigurationManager</span><span class="p">.</span><span class="n">AppSettings</span><span class="p">[</span><span class="s">"Identifier"</span><span class="p">]</span> <span class="p">=</span> <span class="s">"abc123"</span><span class="p">;</span>
 
 <span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">AgentService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
-<span class="n">var</span> <span class="n">result</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetAgentAsync</span><span class="p">(</span><span class="n">agentId</span><span class="p">:</span> <span class="s">"abc123"</span><span class="p">,</span> <span class="n">moxiWorksCompanyId</span><span class="p">:</span> <span class="s">"the_company"</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">result</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetAgentAsync</span><span class="p">(</span><span class="s">"some_agent_id"</span><span class="p">,</span><span class="s">"some_company_id"</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 
@@ -750,7 +750,7 @@
 <span class="n">ConfigurationManager</span><span class="p">.</span><span class="n">AppSettings</span><span class="p">[</span><span class="s">"Identifier"</span><span class="p">]</span> <span class="p">=</span> <span class="s">"abc123"</span><span class="p">;</span>
 
 <span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">AgentService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
-<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetAgentsAsync</span><span class="p">(</span><span class="n">moxiWorksCompanyId</span><span class="p">:</span> <span class="s">"the_company"</span><span class="p">,</span> <span class="n">updatedSince</span><span class="p">:</span> <span class="m">1461108284</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetAgentsAsync</span><span class="p">(</span> <span class="s">"the_company"</span><span class="p">,</span>  <span class="m">1461108284</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 
@@ -807,7 +807,7 @@
 <span class="n">ConfigurationManager</span><span class="p">.</span><span class="n">AppSettings</span><span class="p">[</span><span class="s">"Identifier"</span><span class="p">]</span> <span class="p">=</span> <span class="s">"abc123"</span><span class="p">;</span>
 
 <span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">AgentService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
-<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetAgentsAsync</span><span class="p">(</span><span class="n">moxiWorksCompanyId</span><span class="p">:</span> <span class="s">"the_company"</span><span class="p">,</span> <span class="n">updatedSince</span><span class="p">:</span> <span class="m">1461108284</span><span class="p">,</span> <span class="n">pageNumber</span><span class="p">:</span> <span class="m">2</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetAgentsAsync</span><span class="p">(</span><span class="s">"some_cmpany_id"</span><span class="p">,</span><span class="m">1461108284</span><span class="p">,</span> <span class="m">2</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 
@@ -848,7 +848,7 @@
 <span class="n">ConfigurationManager</span><span class="p">.</span><span class="n">AppSettings</span><span class="p">[</span><span class="s">"Identifier"</span><span class="p">]</span> <span class="p">=</span> <span class="s">"abc123"</span><span class="p">;</span>
 
 <span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">AgentService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
-<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetAgentsAsync</span><span class="p">(</span><span class="n">moxiWorksCompanyId</span><span class="p">:</span> <span class="s">"abc123"</span><span class="p">,</span> <span class="n">updatedSince</span><span class="p">:</span> <span class="m">1461108284</span><span class="p">,</span> <span class="n">moxiWorksOfficeId</span><span class="p">:</span> <span class="s">"8c3f446c-aab9-11e6-9a0f-d0e1408e8026"</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetAgentsAsync</span><span class="p">(</span><span class="s">"some_company_id"</span><span class="p">,</span> <span class="m">1461108284</span><span class="p">,</span> <span class="s">"some_office_id"</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 

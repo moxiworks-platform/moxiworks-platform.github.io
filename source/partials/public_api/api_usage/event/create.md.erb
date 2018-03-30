@@ -45,8 +45,8 @@ ConfigurationManager.AppSettings["Secret"] = "secret";
 ConfigurationManager.AppSettings["Identifier"] = "abc123";
 
 
-var event = new Event;
-List<string> attendees = new List<string>(new string[] {"contact1ID", "contact2ID"});
+var event = new Event();
+List<string> attendees = new List<string>(){"contact1ID", "contact2ID"};
 
 event.AgentUuid = "12345678-1234-1234-1234-1234567890ab";
 event.PartnerEventId = "booyuh";
@@ -61,7 +61,7 @@ event.Attendees = attendees;
 event.Note = "notable stuff";
 
 var service = new EventService(new MoxiWorksClient());
-var results = service.CreateEventAsync(event: event).Result;
+var results = service.CreateEventAsync(event).Result;
 
 ```
 

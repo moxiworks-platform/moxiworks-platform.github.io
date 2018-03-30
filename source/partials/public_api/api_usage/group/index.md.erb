@@ -34,7 +34,7 @@ var agentUuid = "12345678-1234-1234-1234-1234567890ab";
 var groupName = "group abc123";
 
 var service = new GroupsService(new MoxiWorksClient());
-var results = service.GetGroupsAsync(agentId: agentUuid, agentIdType: AgentIdType.AgentUuid, name: groupName).Result;
+var results = service.GetGroupsAsync(agentUuid, AgentIdType.AgentUuid, groupName).Result;
 
 ```
 
@@ -108,7 +108,7 @@ var moxiWorksAgentID = "1234bcd;
 var groupName = "group abc123";
 
 var service = new GroupsService(new MoxiWorksClient());
-var results = service.GetGroupsAsync(agentId: moxiWorksAgentID, agentIdType: AgentIdType.MoxiWorksAgentId, name: groupName).Result;
+var results = service.GetGroupsAsync(moxiWorksAgentID, AgentIdType.MoxiWorksAgentId, groupName).Result;
 
 
 ```

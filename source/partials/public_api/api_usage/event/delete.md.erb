@@ -37,7 +37,7 @@ var eventID = "abc123";
 var agentUuid = "12345678-1234-1234-1234-1234567890ab";
 
 var service = new EventService(new MoxiWorksClient());
-var results = service.DeleteEventAsync(agentId: agentUuid, agentIdType: AgentIdType.AgentUuid, eventId: eventID).Result;
+var results = service.DeleteEventAsync( agentUuid, AgentIdType.AgentUuid, eventID).Result;
 
 ```
 
@@ -102,7 +102,7 @@ var eventID = "abc123";
 var moxiWorksAgentID = "1234abcd";
 
 var service = new EventService(new MoxiWorksClient());
-var results = service.DeleteEventAsync(agentId: agentUuid, agentIdType: AgentIdType.MoxiWorksAgentId, eventId: eventID).Result;
+var results = service.DeleteEventAsync( agentUuid,  AgentIdType.MoxiWorksAgentId, eventId: eventID).Result;
 
 ```
 

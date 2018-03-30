@@ -60,7 +60,7 @@ var agentUuid = "12345678-1234-1234-1234-1234567890ab";
 var moxiWorksTransactionId = "babebead-feed-face-dead-beefbad4babe";
 
 var service = new BuyerTransactionService(new MoxiWorksClient());
-var transaction = service.GetBuyerTransactionAsync(agentId: agentUuid, agentIdType: AgentIdType.AgentUuid, moxiworksTransactionId: moxiWorksTransactionId).Result;
+var transaction = service.GetBuyerTransactionAsync( agentUuid, AgentIdType.AgentUuid,moxiWorksTransactionId).Result;
 
 transaction.TransactionName = "Bob And Linda Tonkanaka";
 transaction.Notes = "take care to write notes that are descriptive and helpful";
@@ -83,7 +83,7 @@ transaction.TargetPrice = null;
 transaction.MinPrice = 292929;
 transaction.MaxPrice = 2323223;
 
-var result = service.UpdateBuyerTransactionAsync(buyerTransaction: buyerTransaction).Result;
+var result = service.UpdateBuyerTransactionAsync(buyerTransaction).Result;
 
 ```
 
@@ -209,7 +209,7 @@ ConfigurationManager.AppSettings["Identifier"] = "abc123";
 var moxiWorksAgentId = "abc123";
 var moxiWorksTransactionId = "babebead-feed-face-dead-beefbad4babe";
 
-var transaction = service.GetBuyerTransactionAsync(agentId: moxiWorksAgentId, agentIdType: AgentIdType.MoxiWorksAgentId, moxiworksTransactionId: moxiWorksTransactionId).Result;
+var transaction = service.GetBuyerTransactionAsync( moxiWorksAgentId,  AgentIdType.MoxiWorksAgentId,  moxiWorksTransactionId).Result;
 
 transaction.TransactionName = "Bob And Linda Tonkanaka";
 transaction.Notes = "take care to write notes that are descriptive and helpful";
@@ -233,7 +233,7 @@ transaction.MinPrice = 292929;
 transaction.MaxPrice = 2323223;
 
 var service = new BuyerTransactionService(new MoxiWorksClient());
-var result = service.UpdateBuyerTransactionAsync(buyerTransaction: buyerTransaction).Result;
+var result = service.UpdateBuyerTransactionAsync( buyerTransaction).Result;
 
 ```
 
@@ -361,7 +361,7 @@ ConfigurationManager.AppSettings["Identifier"] = "abc123";
 var agentUuid = "12345678-1234-1234-1234-1234567890ab";
 var moxiWorksTransactionId = "babebead-feed-face-dead-beefbad4babe";
 
-var transaction = service.GetBuyerTransactionAsync(agentId: agentUuid, agentIdType: AgentIdType.AgentUuid, moxiworksTransactionId: moxiWorksTransactionId).Result;
+var transaction = service.GetBuyerTransactionAsync( agentUuid,  AgentIdType.AgentUuid,  moxiWorksTransactionId).Result;
 
 transaction.TransactionName = "Bob And Linda Tonkanaka";
 transaction.Notes = "take care to write notes that are descriptive and helpful";
@@ -384,7 +384,7 @@ transaction.MinPrice = 292929;
 transaction.MaxPrice = 2323223;
 
 var service = new BuyerTransactionService(new MoxiWorksClient());
-var result = service.UpdateBuyerTransactionAsync(buyerTransaction: buyerTransaction).Result;
+var result = service.UpdateBuyerTransactionAsync( buyerTransaction).Result;
 
 ```
 

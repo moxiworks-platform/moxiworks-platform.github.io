@@ -51,7 +51,7 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&moxi_works_contact_id=babebead-f
 ConfigurationManager.AppSettings["Secret"] = "secret";
 ConfigurationManager.AppSettings["Identifier"] = "abc123";
 
-var transaction = new SellerTransaction;
+var transaction = new SellerTransaction();
 transaction.AgentUuid = "12345678-1234-1234-1234-1234567890ab";
 transaction.MoxiWorksContactId = "babebead-feed-face-dead-beefbad4babe";
 transaction.TransactionName = "Bob And Linda Tonkanaka";
@@ -72,7 +72,7 @@ transaction.MinPrice = 292929;
 transaction.MaxPrice = 2323223;
 
 var service = new SellerTransactionService(new MoxiWorksClient());
-var result = service.CreateSellerTransactionAsync(sellerTransaction: sellerTransaction).Result;
+var result = service.CreateSellerTransactionAsync(sellerTransaction).Result;
 
 ```
 
@@ -183,7 +183,7 @@ moxi_works_agent_id=abc123&moxi_works_contact_id=babebead-feed-face-dead-beefbad
 ConfigurationManager.AppSettings["Secret"] = "secret";
 ConfigurationManager.AppSettings["Identifier"] = "abc123";
 
-var transaction = new SellerTransaction;
+var transaction = new SellerTransaction();
 transaction.MoxiWorksAgentId = "abc123";
 transaction.MoxiWorksContactId = "babebead-feed-face-dead-beefbad4babe";
 transaction.TransactionName = "Bob And Linda Tonkanaka";
@@ -204,7 +204,7 @@ transaction.MinPrice = 292929;
 transaction.MaxPrice = 2323223;
 
 var service = new SellerTransactionService(new MoxiWorksClient());
-var result = service.CreateSellerTransactionAsync(sellerTransaction: sellerTransaction).Result;
+var result = service.CreateSellerTransactionAsync( sellerTransaction).Result;
 
 ```
 
@@ -335,7 +335,7 @@ transaction.MinPrice = 292929;
 transaction.MaxPrice = 2323223;
 
 var service = new SellerTransactionService(new MoxiWorksClient());
-var result = service.CreateSellerTransactionAsync(sellerTransaction: sellerTransaction).Result;
+var result = service.CreateSellerTransactionAsync( sellerTransaction).Result;
 
 ```
 

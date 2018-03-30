@@ -36,7 +36,7 @@ ConfigurationManager.AppSettings["Identifier"] = "abc123";
 var moxiWorksCompanyId = "abc123";
 
 var service = new PresentationLogService(new MoxiWorksClient());
-var results = service.GetPresentationLogsAsync(moxiWorksCompanyId: moxiWorksCompanyId).Result;
+var results = service.GetPresentationLogsAsync( moxiWorksCompanyId).Result;
 
 ```
 

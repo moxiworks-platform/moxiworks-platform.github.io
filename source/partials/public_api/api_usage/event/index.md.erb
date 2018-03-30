@@ -35,7 +35,7 @@ ConfigurationManager.AppSettings["Identifier"] = "abc123";
 var agentUuid = "12345678-1234-1234-1234-1234567890ab";
 
 var service = new EventService(new MoxiWorksClient());
-var results = service.GetEventsByDateAsync(agentId: agentUuid, agentIdType: AgentIdType.AgentUuid, eventStart: 1462317907, eventEnd: 1461108284).Result;
+var results = service.GetEventsByDateAsync(agentUuid,AgentIdType.AgentUuid, 1462317907,1461108284).Result;
 
 ```
 
@@ -102,7 +102,7 @@ ConfigurationManager.AppSettings["Identifier"] = "abc123";
 var moxiWorksAgentID = "1234bcd;
 
 var service = new EventService(new MoxiWorksClient());
-var results = service.GetEventsByDateAsync(agentId: moxiWorksAgentID, agentIdType: AgentIdType.MoxiWorksAgentId, eventStart: 1462317907, eventEnd: 1461108284).Result;
+var results = service.GetEventsByDateAsync(moxiWorksAgentID, AgentIdType.MoxiWorksAgentId, 1462317907, 1461108284).Result;
 
 ```
 

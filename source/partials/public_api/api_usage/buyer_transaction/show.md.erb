@@ -39,7 +39,7 @@ var agentUuid = "12345678-1234-1234-1234-1234567890ab";
 var moxiWorksTransactionId = "babebead-feed-face-dead-beefbad4babe";
 
 var service = new BuyerTransactionService(new MoxiWorksClient());
-var results = service.GetBuyerTransactionAsync(agentId: agentUuid, agentIdType: AgentIdType.AgentUuid, moxiworksTransactionId: moxiWorksTransactionId).Result;
+var results = service.GetBuyerTransactionAsync(agentUuid,AgentIdType.AgentUuid,moxiWorksTransactionId).Result;
 
 ```
 
@@ -109,7 +109,7 @@ var moxiWorksAgentId = "abc123";
 var moxiWorksTransactionId = "babebead-feed-face-dead-beefbad4babe";
 
 var service = new BuyerTransactionService(new MoxiWorksClient());
-var results = service.GetBuyerTransactionAsync(agentId: moxiWorksAgentId, agentIdType: AgentIdType.MoxiWorksAgentId, moxiworksTransactionId: moxiWorksTransactionId).Result;
+var results = service.GetBuyerTransactionAsync( moxiWorksAgentId,  AgentIdType.MoxiWorksAgentId,  moxiWorksTransactionId).Result;
 
 ```
 
@@ -180,7 +180,7 @@ var agentUuid = "12345678-1234-1234-1234-1234567890ab";
 var moxiWorksTransactionId = "babebead-feed-face-dead-beefbad4babe";
 
 var service = new ActionLogService(new MoxiWorksClient());
-var results = service.GetBuyerTransactionAsync(agentId: agentUuid, agentIdType: AgentIdType.AgentUuid, moxiworksTransactionId: moxiWorksTransactionId).Result;
+var results = service.GetBuyerTransactionAsync( agentUuid,  AgentIdType.AgentUuid,  moxiWorksTransactionId).Result;
 
 ```
 

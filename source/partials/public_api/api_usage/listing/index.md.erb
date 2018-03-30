@@ -43,9 +43,10 @@ ConfigurationManager.AppSettings["Identifier"] = "abc123";
 
 var agentUuid = "12345678-1234-1234-1234-1234567890ab";
 var moxiWorksCompanyId = "abc123";
+var updatedSince = 1462317907;
 
 var service = new ListingService(new MoxiWorksClient());
-var results = service.GetListingsUpdatedSinceAsync(agentId: agentUuid, agentIdType: AgentIdType.AgentUuid, moxiWorksCompanyId: moxiWorksCompanyId, updatedSince: 1462317907).Result;
+var results = service.GetListingsUpdatedSinceAsync( agentUuid, AgentIdType.AgentUuid, moxiWorksCompanyId, updatedSince ).Result;
 
 ```
 
@@ -108,9 +109,10 @@ ConfigurationManager.AppSettings["Identifier"] = "abc123";
 
 var moxiWorksAgentID = "1234bcd;
 var moxiWorksCompanyId = "abc123";
+var updatedSince = 1462317907;
 
 var service = new ListingService(new MoxiWorksClient());
-var results = service.GetListingsUpdatedSinceAsync(agentId: moxiWorksAgentID, agentIdType: AgentIdType.MoxiWorksAgentId, moxiWorksCompanyId: moxiWorksCompanyId, updatedSince: 1462317907).Result;
+var results = service.GetListingsUpdatedSinceAsync(moxiWorksAgentID, AgentIdType.MoxiWorksAgentId,  moxiWorksCompanyId, updatedSince).Result;
 
 ```
 

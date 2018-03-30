@@ -36,7 +36,7 @@ var agentUuid = "12345678-1234-1234-1234-1234567890ab";
 var moxiWorksGroupId = "booyuh";
 
 var service = new GroupService(new MoxiWorksClient());
-var results = service.GetGroupAsync(agentId: agentUuid, agentIdType: AgentIdType.AgentUuid, moxiWorksGroupId: moxiWorksGroupId).Result;
+var results = service.GetGroupAsync(agentUuid,  AgentIdType.AgentUuid, moxiWorksGroupId).Result;
 
 ```
 
@@ -101,7 +101,7 @@ var moxiWorksAgentId = "1234abcd";
 var moxiWorksGroupId = "booyuh";
 
 var service = new GroupService(new MoxiWorksClient());
-var results = service.GetGroupAsync(agentId: moxiWorksAgentId, agentIdType: AgentIdType.MoxiWorksAgentId, moxiWorksGroupId: moxiWorksGroupId).Result;
+var results = service.GetGroupAsync( moxiWorksAgentId,  AgentIdType.MoxiWorksAgentId, moxiWorksGroupId).Result;
 
 ```
 

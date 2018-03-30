@@ -73,7 +73,7 @@ ConfigurationManager.AppSettings["Identifier"] = "abc123";
 var agentUuid = "12345678-1234-1234-1234-1234567890ab";
 
 var service = new ContactService(new MoxiWorksClient());
-var contact = service.GetContactAsync(agentId: agentUuid, agentIdType: AgentIdType.AgentUuid, partnerContactId: "booyuh").Result;
+var contact = service.GetContactAsync(agentUuid, AgentIdType.AgentUuid, "booyuh").Result;
 
 contact.ContactName = "Firstname Middlenyme Larstnam";
 contact.Gender = "m";
@@ -116,7 +116,7 @@ contact.SearchPropertyTypes = "Condo, Single Family, Townhouse";
 contact.Note = "whatevers2009";
 
 
-var results = service.UpdateContactAsync(contact: contact).Result;
+var results = service.UpdateContactAsync(contact).Result;
 
 ```
 
@@ -298,7 +298,7 @@ ConfigurationManager.AppSettings["Identifier"] = "abc123";
 var moxiWorksAgentId = "1234abcd";
 
 var service = new ContactService(new MoxiWorksClient());
-var contact = service.GetContactAsync(agentId: moxiWorksAgentId, agentIdType: AgentIdType.MoxiWorksAgentId, partnerContactId: "booyuh").Result;
+var contact = service.GetContactAsync( moxiWorksAgentId,  AgentIdType.MoxiWorksAgentId,  "booyuh").Result;
 
 
 contact.ContactName = "Firstname Middlenyme Larstnam";

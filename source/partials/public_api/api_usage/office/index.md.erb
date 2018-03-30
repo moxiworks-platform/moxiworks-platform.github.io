@@ -37,7 +37,7 @@ ConfigurationManager.AppSettings["Identifier"] = "abc123";
 var moxiWorksCompanyId = "abc123";
 
 var service = new OfficeService(new MoxiWorksClient());
-var results = service.GetCompanyOfficesAsync(moxiWorksCompanyId: moxiWorksCompanyId).Result;
+var results = service.GetCompanyOfficesAsync( moxiWorksCompanyId).Result;
 
 ```
 

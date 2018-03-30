@@ -23,3 +23,6 @@
 
 # Ignore RubyMine files
 .idea
+
+
+.versions.conf

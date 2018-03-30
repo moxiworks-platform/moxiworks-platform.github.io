@@ -36,7 +36,7 @@ ConfigurationManager.AppSettings["Secret"] = "secret";
 ConfigurationManager.AppSettings["Identifier"] = "abc123";
 
 var service = new AgentService(new MoxiWorksClient());
-var results = service.GetAgentsAsync(moxiWorksCompanyId: "the_company", updatedSince: 1461108284).Result;
+var results = service.GetAgentsAsync( "the_company",  1461108284).Result;
 
 ```
 
@@ -97,7 +97,7 @@ ConfigurationManager.AppSettings["Secret"] = "secret";
 ConfigurationManager.AppSettings["Identifier"] = "abc123";
 
 var service = new AgentService(new MoxiWorksClient());
-var results = service.GetAgentsAsync(moxiWorksCompanyId: "the_company", updatedSince: 1461108284, pageNumber: 2).Result;
+var results = service.GetAgentsAsync("some_cmpany_id",1461108284, 2).Result;
 
 ```
 
@@ -142,7 +142,7 @@ ConfigurationManager.AppSettings["Secret"] = "secret";
 ConfigurationManager.AppSettings["Identifier"] = "abc123";
 
 var service = new AgentService(new MoxiWorksClient());
-var results = service.GetAgentsAsync(moxiWorksCompanyId: "abc123", updatedSince: 1461108284, moxiWorksOfficeId: "8c3f446c-aab9-11e6-9a0f-d0e1408e8026").Result;
+var results = service.GetAgentsAsync("some_company_id", 1461108284, "some_office_id").Result;
 
 ```
 

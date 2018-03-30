@@ -46,7 +46,7 @@ var agentUuid = "12345678-1234-1234-1234-1234567890ab";
 var moxiWorksCompanyId = "abc123";
 
 var service = new SoldListingService(new MoxiWorksClient());
-var results = service.GetSoldListingsUpdatedSinceAsync(agentId: agentUuid, agentIdType: AgentIdType.AgentUuid, moxiWorksCompanyId: moxiWorksCompanyId, updatedSince: 1462317907).Result;
+var results = service.GetSoldListingsUpdatedSinceAsync(agentUuid, AgentIdType.AgentUuid, moxiWorksCompanyId, 1462317907).Result;
 
 ```
 
@@ -111,7 +111,7 @@ var moxiWorksAgentID = "1234bcd;
 var moxiWorksCompanyId = "abc123";
 
 var service = new SoldListingService(new MoxiWorksClient());
-var results = service.GetSoldListingsUpdatedSinceAsync(agentId: moxiWorksAgentID, agentIdType: AgentIdType.MoxiWorksAgentId, moxiWorksCompanyId: moxiWorksCompanyId, updatedSince: 1462317907).Result;
+var results = service.GetSoldListingsUpdatedSinceAsync( moxiWorksAgentID,  AgentIdType.MoxiWorksAgentId,  moxiWorksCompanyId,  1462317907).Result;
 
 ```
 

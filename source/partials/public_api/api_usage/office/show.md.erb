@@ -36,7 +36,7 @@ ConfigurationManager.AppSettings["Identifier"] = "abc123";
 var moxiWorksOfficeId = "deadbeef-deadbeef-feed-facedeadbeef";
 
 var service = new OfficeService(new MoxiWorksClient());
-var results = service.GetOfficeAsync(moxiWorksOfficeId: moxiWorksOfficeId).Result;
+var results = service.GetOfficeAsync(moxiWorksOfficeId).Result;
 
 ```
 

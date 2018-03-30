@@ -36,7 +36,7 @@ var agentUuid = "12345678-1234-1234-1234-1234567890ab";
 var partnerEventId = "booyuh";
 
 var service = new EventService(new MoxiWorksClient());
-var results = service.GetEventAsync(agentId: agentUuid, agentIdType: AgentIdType.AgentUuid, parnterEventId: partnerEventId).Result;
+var results = service.GetEventAsync( agentUuid,  AgentIdType.AgentUuid, partnerEventId).Result;
 
 ```
 
@@ -102,7 +102,7 @@ var moxiWorksAgentId = "1234abcd";
 var partnerEventId = "booyuh";
 
 var service = new EventService(new MoxiWorksClient());
-var results = service.GetEventAsync(agentId: moxiWorksAgentId, agentIdType: AgentIdType.MoxiWorksAgentId, parnterEventId: partnerEventId).Result;
+var results = service.GetEventAsync( moxiWorksAgentId, AgentIdType.MoxiWorksAgentId, partnerEventId).Result;
 
 ```
 

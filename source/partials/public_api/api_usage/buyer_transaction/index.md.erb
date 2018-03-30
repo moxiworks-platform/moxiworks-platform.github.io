@@ -37,7 +37,7 @@ ConfigurationManager.AppSettings["Identifier"] = "abc123";
 var agentUuid = "12345678-1234-1234-1234-1234567890ab";
 
 var service = new BuyerTransactionService(new MoxiWorksClient());
-var results = service.GetBuyerTransactionsAsync(agentId: agentUuid, agentIdType: AgentIdType.AgentUuid).Result;
+var results = service.GetBuyerTransactionsAsync( agentUuid,  AgentIdType.AgentUuid).Result;
 
 ```
 
@@ -103,7 +103,7 @@ ConfigurationManager.AppSettings["Identifier"] = "abc123";
 var moxiWorksAgentId = "abc123";
 
 var service = new BuyerTransactionService(new MoxiWorksClient());
-var results = service.GetBuyerTransactionsAsync(agentId: moxiWorksAgentId, agentIdType: AgentIdType.MoxiWorksAgentId).Result;
+var results = service.GetBuyerTransactionsAsync(moxiWorksAgentId,AgentIdType.MoxiWorksAgentId).Result;
 
 ```
 
@@ -171,7 +171,7 @@ ConfigurationManager.AppSettings["Identifier"] = "abc123";
 var agentUuid = "12345678-1234-1234-1234-1234567890ab";
 
 var service = new ActionLogService(new MoxiWorksClient());
-var results = service.GetBuyerTransactionsAsync(agentId: agentUuid, agentIdType: AgentIdType.AgentUuid).Result;
+var results = service.GetBuyerTransactionsAsync( agentUuid,  AgentIdType.AgentUuid).Result;
 
 ```
 

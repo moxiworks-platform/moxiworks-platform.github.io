@@ -72,7 +72,7 @@ ConfigurationManager.AppSettings["Secret"] = "secret";
 ConfigurationManager.AppSettings["Identifier"] = "abc123";
 
 
-var contact = new Contact;
+var contact = new Contact();
 contact.AgentUuid = "12345678-1234-1234-1234-1234567890ab";
 contact.PartnerContactId = "booyuh";
 contact.ContactName = "Firstname Middlenyme Larstnam";
@@ -117,7 +117,7 @@ contact.Note = "whatevers2009";
 
 
 var service = new ContactService(new MoxiWorksClient());
-var results = service.CreateContactAsync(contact: contact).Result;
+var results = service.CreateContactAsync(contact).Result;
 
 ```
 

@@ -32,7 +32,7 @@ ConfigurationManager.AppSettings["Secret"] = "secret";
 ConfigurationManager.AppSettings["Identifier"] = "abc123";
 
 var service = new AgentService(new MoxiWorksClient());
-var result = service.GetAgentAsync(agentId: "12345678-1234-1234-1234-1234567890ab", moxiWorksCompanyId: "the_company").Result;
+var result = service.GetAgentAsync( "12345678-1234-1234-1234-1234567890ab",  "the_company").Result;
 
 ```
 
@@ -95,7 +95,7 @@ ConfigurationManager.AppSettings["Secret"] = "secret";
 ConfigurationManager.AppSettings["Identifier"] = "abc123";
 
 var service = new AgentService(new MoxiWorksClient());
-var result = service.GetAgentAsync(agentId: "abc123", moxiWorksCompanyId: "the_company").Result;
+var result = service.GetAgentAsync("some_agent_id","some_company_id").Result;
 
 ```
 

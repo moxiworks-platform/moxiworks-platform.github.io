@@ -40,7 +40,7 @@ var partnerTaskId = "babebead-feed-face-dead-beefbad4babe";
 var partnerContactId = "booyuh";
 
 var service = new TaskService(new MoxiWorksClient());
-var results = service.GetTaskAsync(agentId: agentUuid, agentIdType: AgentIdType.AgentUuid, partnerContactId: partnerContactId,  partnerTaskId: partnerTaskId).Result;
+var results = service.GetTaskAsync( agentUuid,  AgentIdType.AgentUuid,  partnerContactId, partnerTaskId).Result;
 
 ```
 
@@ -112,7 +112,7 @@ var partnerTaskId = "babebead-feed-face-dead-beefbad4babe";
 var partnerContactId = "booyuh";
 
 var service = new TaskService(new MoxiWorksClient());
-var results = service.GetTaskAsync(agentId: moxiWorksAgentId, agentIdType: AgentIdType.MoxiWorksAgentId, partnerContactId: partnerContactId,  partnerTaskId: partnerTaskId).Result;
+var results = service.GetTaskAsync( moxiWorksAgentId,  AgentIdType.MoxiWorksAgentId,  partnerContactId, partnerTaskId).Result;
 
 ```
 

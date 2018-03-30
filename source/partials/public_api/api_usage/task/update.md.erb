@@ -47,12 +47,12 @@ var partnerTaskId = "babebead-feed-face-dead-beefbad4babe";
 var partnerContactId = "booyuh";
 
 var service = new TaskService(new MoxiWorksClient());
-var task = service.GetTaskAsync(agentId: agentUuid, agentIdType: AgentIdType.AgentUuid, partnerContactId: partnerContactId,  partnerTaskId: partnerTaskId).Result;
+var task = service.GetTaskAsync( agentUuid,  AgentIdType.AgentUuid,  partnerContactId,  partnerTaskId: partnerTaskId).Result;
 task.description = "talk to private kane, e-one-thousand about stuff";
 task.dueAt = 1466208866;
 task.duration = 10;
 task.name = "Do This Please";
-var result = service.UpdateTaskAsync(task: task).Result;
+var result = service.UpdateTaskAsync( task).Result;
 
 ```
 
@@ -143,12 +143,12 @@ var partnerTaskId = "babebead-feed-face-dead-beefbad4babe";
 var partnerContactId = "booyuh";
 
 var service = new TaskService(new MoxiWorksClient());
-var task = service.GetTaskAsync(agentId: moxiWorksAgentId, agentIdType: AgentIdType.MoxiWorksAgentId, partnerContactId: partnerContactId,  partnerTaskId: partnerTaskId).Result;
+var task = service.GetTaskAsync( moxiWorksAgentId,  AgentIdType.MoxiWorksAgentId,  partnerContactId,  partnerTaskId: partnerTaskId).Result;
 task.description = "talk to private kane, e-one-thousand about stuff";
 task.dueAt = 1466208866;
 task.duration = 10;
 task.name = "Do This Please";
-var result = service.UpdateTaskAsync(task: task).Result;
+var result = service.UpdateTaskAsync( task).Result;
 
 ```
 

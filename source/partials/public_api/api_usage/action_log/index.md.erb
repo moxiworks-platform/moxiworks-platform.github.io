@@ -41,7 +41,7 @@ ConfigurationManager.AppSettings["Identifier"] = "abc123";
 var agentUuid = "12345678-1234-1234-1234-1234567890ab";
 
 var service = new ActionLogService(new MoxiWorksClient());
-var results = service.GetActionLogsAsync(agentId: agentUuid, agentIdType: AgentIdType.AgentUuid, partnerContactId: "mySystemsContactId").Result;
+var results = service.GetActionLogsAsync(agentUuid, AgentIdType.AgentUuid, "mySystemsContactId").Result;
 
 ```
 
@@ -106,7 +106,7 @@ ConfigurationManager.AppSettings["Identifier"] = "abc123";
 var moxiWorksAgentId = "abcd1234";
 
 var service = new ActionLogService(new MoxiWorksClient());
-var results = service.GetActionLogsAsync(agentId: moxiWorksAgentId, agentIdType: AgentIdType.MoxiWorksAgentId, partnerContactId: "mySystemsContactId").Result;
+var results = service.GetActionLogsAsync( moxiWorksAgentId,  AgentIdType.MoxiWorksAgentId,  "mySystemsContactId").Result;
 
 ```
 

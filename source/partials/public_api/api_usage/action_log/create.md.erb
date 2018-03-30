@@ -38,14 +38,14 @@ ConfigurationManager.AppSettings["Secret"] = "secret";
 ConfigurationManager.AppSettings["Identifier"] = "abc123";
 
 
-var actionLog = new ActionLog;
+var actionLog = new ActionLog();
 actionLog.AgentUuid = "12345678-1234-1234-1234-1234567890ab";
 actionLog.Title = "Contact Called";
 actionLog.Body = "this contact called you";
 actionLog.PartnerContactId = "mySystemsContactId";
 
 var service = new ActionLogService(new MoxiWorksClient());
-var result = service.CreateActionLogAsync(actionLog: actionLog).Result;
+var result = service.CreateActionLogAsync(actionLog).Result;
 
 ```
 
@@ -124,7 +124,7 @@ actionLog.Body = "this contact called you";
 actionLog.PartnerContactId = "mySystemsContactId";
 
 var service = new ActionLogService(new MoxiWorksClient());
-var result = service.CreateActionLogAsync(actionLog: actionLog).Result;
+var result = service.CreateActionLogAsync(actionLog).Result;
 
 ```
 

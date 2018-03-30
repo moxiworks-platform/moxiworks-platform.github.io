@@ -37,7 +37,7 @@ var moxiWorksListingId = "12345678-1234-1234-1234-1234567890ab";
 var moxiWorksCompanyId = "abc123";
 
 var service = new ListingService(new MoxiWorksClient());
-var results = service.GetListingAsync(moxiWorksListingId: moxiWorksListingId, moxiWorksCompanyId: moxiWorksCompanyId).Result;
+var results = service.GetListingAsync(moxiWorksListingId, moxiWorksCompanyId).Result;
 
 ```
 

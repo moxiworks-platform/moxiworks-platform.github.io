@@ -40,7 +40,7 @@ ConfigurationManager.AppSettings["Secret"] = "secret";
 ConfigurationManager.AppSettings["Identifier"] = "abc123";
 
 
-var task = new Task;
+var task = new Task();
 task.AgentUuid = "12345678-1234-1234-1234-1234567890ab";
 task.description = "talk to private kane, e-one-thousand about stuff";
 task.dueAt = 1466208866;
@@ -51,7 +51,7 @@ task.partnerTaskId = mySystemsTaskID";
 
 
 var service = new TaskService(new MoxiWorksClient());
-var result = service.CreateTaskAsync(task: task).Result;
+var result = service.CreateTaskAsync(task).Result;
 
 ```
 
@@ -133,7 +133,7 @@ ConfigurationManager.AppSettings["Secret"] = "secret";
 ConfigurationManager.AppSettings["Identifier"] = "abc123";
 
 
-var task = new Task;
+var task = new Task();
 task.moxiWorksAgentId = "abc123";
 task.description = "talk to private kane, e-one-thousand about stuff";
 task.dueAt = 1466208866;
@@ -144,7 +144,7 @@ task.partnerTaskId = mySystemsTaskID";
 
 
 var service = new TaskService(new MoxiWorksClient());
-var result = service.CreateTaskAsync(task: task).Result;
+var result = service.CreateTaskAsync(task).Result;
 
 ```
 

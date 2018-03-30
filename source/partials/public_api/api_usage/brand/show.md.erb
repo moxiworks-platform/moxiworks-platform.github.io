@@ -32,7 +32,7 @@ ConfigurationManager.AppSettings["Secret"] = "secret";
 ConfigurationManager.AppSettings["Identifier"] = "abc123";
 
 var service = new BrandService(new MoxiWorksClient());
-var result = service.GetCompanyBrandAsync(moxiWorksCompanyId: "abc123").Result;
+var result = service.GetCompanyBrandAsync("some_company_id").Result;
 
 ```
 

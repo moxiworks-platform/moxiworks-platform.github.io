@@ -34,7 +34,7 @@ var agentUuid = "12345678-1234-1234-1234-1234567890ab";
 var moxiWorksCompanyId = "abc123";
 
 var service = new GalleryService(new MoxiWorksClient());
-var results = service.GetGalleryAsync(agentId: agentUuid, agentIdType: AgentIdType.AgentUuid, moxiWorksCompanyId: moxiWorksCompanyId).Result;
+var results = service.GetGalleryAsync(agentUuid, AgentIdType.AgentUuid, moxiWorksCompanyId).Result;
 
 ```
 
@@ -99,7 +99,7 @@ var agentId = "1234abcd";
 var moxiWorksCompanyId = "abc123";
 
 var service = new GalleryService(new MoxiWorksClient());
-var results = service.GetGalleryAsync(agentId: agentId, agentIdType: AgentIdType.MoxiWorksAgentId, moxiWorksCompanyId: moxiWorksCompanyId).Result;
+var results = service.GetGalleryAsync(agentId, AgentIdType.MoxiWorksAgentId, moxiWorksCompanyId).Result;
 
 ```
 

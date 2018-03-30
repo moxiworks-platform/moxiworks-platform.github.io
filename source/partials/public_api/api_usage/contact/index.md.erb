@@ -35,7 +35,7 @@ ConfigurationManager.AppSettings["Identifier"] = "abc123";
 var agentUuid = "12345678-1234-1234-1234-1234567890ab";
 
 var service = new ContactService(new MoxiWorksClient());
-var results = service.GetContactsAsync(agentId: agentUuid, agentIdType: AgentIdType.AgentUuid, contactName: "buckminster fuller").Result;
+var results = service.GetContactsAsync(agentUuid, AgentIdType.AgentUuid, "buckminster fuller").Result;
 
 ```
 
@@ -99,7 +99,7 @@ ConfigurationManager.AppSettings["Identifier"] = "abc123";
 var moxi = "abc123";
 
 var service = new ContactService(new MoxiWorksClient());
-var results = service.GetContactsAsync(agentId: agentUuid, agentIdType: AgentIdType.MoxiWorksAgentId, contactName: "buckminster fuller").Result;
+var results = service.GetContactsAsync( agentUuid,  AgentIdType.MoxiWorksAgentId,  "buckminster fuller").Result;
 
 ```
 

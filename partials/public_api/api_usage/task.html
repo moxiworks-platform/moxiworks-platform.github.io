@@ -72,7 +72,7 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;description=talk+to+private+
 <span class="n">ConfigurationManager</span><span class="p">.</span><span class="n">AppSettings</span><span class="p">[</span><span class="s">"Identifier"</span><span class="p">]</span> <span class="p">=</span> <span class="s">"abc123"</span><span class="p">;</span>
 
 
-<span class="n">var</span> <span class="n">task</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Task</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">task</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Task</span><span class="p">();</span>
 <span class="n">task</span><span class="p">.</span><span class="n">AgentUuid</span> <span class="p">=</span> <span class="s">"12345678-1234-1234-1234-1234567890ab"</span><span class="p">;</span>
 <span class="n">task</span><span class="p">.</span><span class="n">description</span> <span class="p">=</span> <span class="s">"talk to private kane, e-one-thousand about stuff"</span><span class="p">;</span>
 <span class="n">task</span><span class="p">.</span><span class="n">dueAt</span> <span class="p">=</span> <span class="m">1466208866</span><span class="p">;</span>
@@ -83,7 +83,7 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;description=talk+to+private+
 </span>
 
 <span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">TaskService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
-<span class="n">var</span> <span class="n">result</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">CreateTaskAsync</span><span class="p">(</span><span class="n">task</span><span class="p">:</span> <span class="n">task</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">result</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">CreateTaskAsync</span><span class="p">(</span><span class="n">task</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 
@@ -159,7 +159,7 @@ moxi_works_agent_id=abc123&amp;description=talk+to+private+kane,%2C+e-one-thousa
 <span class="n">ConfigurationManager</span><span class="p">.</span><span class="n">AppSettings</span><span class="p">[</span><span class="s">"Identifier"</span><span class="p">]</span> <span class="p">=</span> <span class="s">"abc123"</span><span class="p">;</span>
 
 
-<span class="n">var</span> <span class="n">task</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Task</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">task</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Task</span><span class="p">();</span>
 <span class="n">task</span><span class="p">.</span><span class="n">moxiWorksAgentId</span> <span class="p">=</span> <span class="s">"abc123"</span><span class="p">;</span>
 <span class="n">task</span><span class="p">.</span><span class="n">description</span> <span class="p">=</span> <span class="s">"talk to private kane, e-one-thousand about stuff"</span><span class="p">;</span>
 <span class="n">task</span><span class="p">.</span><span class="n">dueAt</span> <span class="p">=</span> <span class="m">1466208866</span><span class="p">;</span>
@@ -170,7 +170,7 @@ moxi_works_agent_id=abc123&amp;description=talk+to+private+kane,%2C+e-one-thousa
 </span>
 
 <span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">TaskService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
-<span class="n">var</span> <span class="n">result</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">CreateTaskAsync</span><span class="p">(</span><span class="n">task</span><span class="p">:</span> <span class="n">task</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">result</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">CreateTaskAsync</span><span class="p">(</span><span class="n">task</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 
@@ -468,12 +468,12 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;description=talk+to+private+
 <span class="n">var</span> <span class="n">partnerContactId</span> <span class="p">=</span> <span class="s">"booyuh"</span><span class="p">;</span>
 
 <span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">TaskService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
-<span class="n">var</span> <span class="n">task</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetTaskAsync</span><span class="p">(</span><span class="n">agentId</span><span class="p">:</span> <span class="n">agentUuid</span><span class="p">,</span> <span class="n">agentIdType</span><span class="p">:</span> <span class="n">AgentIdType</span><span class="p">.</span><span class="n">AgentUuid</span><span class="p">,</span> <span class="n">partnerContactId</span><span class="p">:</span> <span class="n">partnerContactId</span><span class="p">,</span>  <span class="n">partnerTaskId</span><span class="p">:</span> <span class="n">partnerTaskId</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">task</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetTaskAsync</span><span class="p">(</span> <span class="n">agentUuid</span><span class="p">,</span>  <span class="n">AgentIdType</span><span class="p">.</span><span class="n">AgentUuid</span><span class="p">,</span>  <span class="n">partnerContactId</span><span class="p">,</span>  <span class="n">partnerTaskId</span><span class="p">:</span> <span class="n">partnerTaskId</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 <span class="n">task</span><span class="p">.</span><span class="n">description</span> <span class="p">=</span> <span class="s">"talk to private kane, e-one-thousand about stuff"</span><span class="p">;</span>
 <span class="n">task</span><span class="p">.</span><span class="n">dueAt</span> <span class="p">=</span> <span class="m">1466208866</span><span class="p">;</span>
 <span class="n">task</span><span class="p">.</span><span class="n">duration</span> <span class="p">=</span> <span class="m">10</span><span class="p">;</span>
 <span class="n">task</span><span class="p">.</span><span class="n">name</span> <span class="p">=</span> <span class="s">"Do This Please"</span><span class="p">;</span>
-<span class="n">var</span> <span class="n">result</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">UpdateTaskAsync</span><span class="p">(</span><span class="n">task</span><span class="p">:</span> <span class="n">task</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">result</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">UpdateTaskAsync</span><span class="p">(</span> <span class="n">task</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 
@@ -557,12 +557,12 @@ moxi_works_agent_id=abc123&amp;description=talk+to+private+kane,%2C+e-one-thousa
 <span class="n">var</span> <span class="n">partnerContactId</span> <span class="p">=</span> <span class="s">"booyuh"</span><span class="p">;</span>
 
 <span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">TaskService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
-<span class="n">var</span> <span class="n">task</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetTaskAsync</span><span class="p">(</span><span class="n">agentId</span><span class="p">:</span> <span class="n">moxiWorksAgentId</span><span class="p">,</span> <span class="n">agentIdType</span><span class="p">:</span> <span class="n">AgentIdType</span><span class="p">.</span><span class="n">MoxiWorksAgentId</span><span class="p">,</span> <span class="n">partnerContactId</span><span class="p">:</span> <span class="n">partnerContactId</span><span class="p">,</span>  <span class="n">partnerTaskId</span><span class="p">:</span> <span class="n">partnerTaskId</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">task</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetTaskAsync</span><span class="p">(</span> <span class="n">moxiWorksAgentId</span><span class="p">,</span>  <span class="n">AgentIdType</span><span class="p">.</span><span class="n">MoxiWorksAgentId</span><span class="p">,</span>  <span class="n">partnerContactId</span><span class="p">,</span>  <span class="n">partnerTaskId</span><span class="p">:</span> <span class="n">partnerTaskId</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 <span class="n">task</span><span class="p">.</span><span class="n">description</span> <span class="p">=</span> <span class="s">"talk to private kane, e-one-thousand about stuff"</span><span class="p">;</span>
 <span class="n">task</span><span class="p">.</span><span class="n">dueAt</span> <span class="p">=</span> <span class="m">1466208866</span><span class="p">;</span>
 <span class="n">task</span><span class="p">.</span><span class="n">duration</span> <span class="p">=</span> <span class="m">10</span><span class="p">;</span>
 <span class="n">task</span><span class="p">.</span><span class="n">name</span> <span class="p">=</span> <span class="s">"Do This Please"</span><span class="p">;</span>
-<span class="n">var</span> <span class="n">result</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">UpdateTaskAsync</span><span class="p">(</span><span class="n">task</span><span class="p">:</span> <span class="n">task</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">result</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">UpdateTaskAsync</span><span class="p">(</span> <span class="n">task</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 
@@ -861,7 +861,7 @@ moxi_works_agent_id=abc123&amp;description=talk+to+private+kane,%2C+e-one-thousa
 <span class="n">var</span> <span class="n">partnerContactId</span> <span class="p">=</span> <span class="s">"booyuh"</span><span class="p">;</span>
 
 <span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">TaskService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
-<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetTaskAsync</span><span class="p">(</span><span class="n">agentId</span><span class="p">:</span> <span class="n">agentUuid</span><span class="p">,</span> <span class="n">agentIdType</span><span class="p">:</span> <span class="n">AgentIdType</span><span class="p">.</span><span class="n">AgentUuid</span><span class="p">,</span> <span class="n">partnerContactId</span><span class="p">:</span> <span class="n">partnerContactId</span><span class="p">,</span>  <span class="n">partnerTaskId</span><span class="p">:</span> <span class="n">partnerTaskId</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetTaskAsync</span><span class="p">(</span> <span class="n">agentUuid</span><span class="p">,</span>  <span class="n">AgentIdType</span><span class="p">.</span><span class="n">AgentUuid</span><span class="p">,</span>  <span class="n">partnerContactId</span><span class="p">,</span> <span class="n">partnerTaskId</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 
@@ -927,7 +927,7 @@ moxi_works_agent_id=abc123&amp;description=talk+to+private+kane,%2C+e-one-thousa
 <span class="n">var</span> <span class="n">partnerContactId</span> <span class="p">=</span> <span class="s">"booyuh"</span><span class="p">;</span>
 
 <span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">TaskService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
-<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetTaskAsync</span><span class="p">(</span><span class="n">agentId</span><span class="p">:</span> <span class="n">moxiWorksAgentId</span><span class="p">,</span> <span class="n">agentIdType</span><span class="p">:</span> <span class="n">AgentIdType</span><span class="p">.</span><span class="n">MoxiWorksAgentId</span><span class="p">,</span> <span class="n">partnerContactId</span><span class="p">:</span> <span class="n">partnerContactId</span><span class="p">,</span>  <span class="n">partnerTaskId</span><span class="p">:</span> <span class="n">partnerTaskId</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetTaskAsync</span><span class="p">(</span> <span class="n">moxiWorksAgentId</span><span class="p">,</span>  <span class="n">AgentIdType</span><span class="p">.</span><span class="n">MoxiWorksAgentId</span><span class="p">,</span>  <span class="n">partnerContactId</span><span class="p">,</span> <span class="n">partnerTaskId</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 

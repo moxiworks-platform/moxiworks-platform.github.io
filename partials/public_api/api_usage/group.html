@@ -67,7 +67,7 @@
 <span class="n">var</span> <span class="n">moxiWorksGroupId</span> <span class="p">=</span> <span class="s">"booyuh"</span><span class="p">;</span>
 
 <span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">GroupService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
-<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetGroupAsync</span><span class="p">(</span><span class="n">agentId</span><span class="p">:</span> <span class="n">agentUuid</span><span class="p">,</span> <span class="n">agentIdType</span><span class="p">:</span> <span class="n">AgentIdType</span><span class="p">.</span><span class="n">AgentUuid</span><span class="p">,</span> <span class="n">moxiWorksGroupId</span><span class="p">:</span> <span class="n">moxiWorksGroupId</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetGroupAsync</span><span class="p">(</span><span class="n">agentUuid</span><span class="p">,</span>  <span class="n">AgentIdType</span><span class="p">.</span><span class="n">AgentUuid</span><span class="p">,</span> <span class="n">moxiWorksGroupId</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 
@@ -126,7 +126,7 @@
 <span class="n">var</span> <span class="n">moxiWorksGroupId</span> <span class="p">=</span> <span class="s">"booyuh"</span><span class="p">;</span>
 
 <span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">GroupService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
-<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetGroupAsync</span><span class="p">(</span><span class="n">agentId</span><span class="p">:</span> <span class="n">moxiWorksAgentId</span><span class="p">,</span> <span class="n">agentIdType</span><span class="p">:</span> <span class="n">AgentIdType</span><span class="p">.</span><span class="n">MoxiWorksAgentId</span><span class="p">,</span> <span class="n">moxiWorksGroupId</span><span class="p">:</span> <span class="n">moxiWorksGroupId</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetGroupAsync</span><span class="p">(</span> <span class="n">moxiWorksAgentId</span><span class="p">,</span>  <span class="n">AgentIdType</span><span class="p">.</span><span class="n">MoxiWorksAgentId</span><span class="p">,</span> <span class="n">moxiWorksGroupId</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 
@@ -538,7 +538,7 @@
 <span class="n">var</span> <span class="n">groupName</span> <span class="p">=</span> <span class="s">"group abc123"</span><span class="p">;</span>
 
 <span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">GroupsService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
-<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetGroupsAsync</span><span class="p">(</span><span class="n">agentId</span><span class="p">:</span> <span class="n">agentUuid</span><span class="p">,</span> <span class="n">agentIdType</span><span class="p">:</span> <span class="n">AgentIdType</span><span class="p">.</span><span class="n">AgentUuid</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="n">groupName</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetGroupsAsync</span><span class="p">(</span><span class="n">agentUuid</span><span class="p">,</span> <span class="n">AgentIdType</span><span class="p">.</span><span class="n">AgentUuid</span><span class="p">,</span> <span class="n">groupName</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 
@@ -606,7 +606,7 @@
 </span><span class="n">var</span> <span class="n">groupName</span> <span class="p">=</span> <span class="s">"group abc123"</span><span class="p">;</span>
 
 <span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">GroupsService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
-<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetGroupsAsync</span><span class="p">(</span><span class="n">agentId</span><span class="p">:</span> <span class="n">moxiWorksAgentID</span><span class="p">,</span> <span class="n">agentIdType</span><span class="p">:</span> <span class="n">AgentIdType</span><span class="p">.</span><span class="n">MoxiWorksAgentId</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="n">groupName</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetGroupsAsync</span><span class="p">(</span><span class="n">moxiWorksAgentID</span><span class="p">,</span> <span class="n">AgentIdType</span><span class="p">.</span><span class="n">MoxiWorksAgentId</span><span class="p">,</span> <span class="n">groupName</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 
 </code></pre>

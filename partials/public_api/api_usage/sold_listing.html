@@ -68,7 +68,7 @@
 <span class="n">var</span> <span class="n">moxiWorksCompanyId</span> <span class="p">=</span> <span class="s">"abc123"</span><span class="p">;</span>
 
 <span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">SoldListingService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
-<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetSoldListingAsync</span><span class="p">(</span><span class="n">moxiWorksListingId</span><span class="p">:</span> <span class="n">moxiWorksListingId</span><span class="p">,</span> <span class="n">moxiWorksCompanyId</span><span class="p">:</span> <span class="n">moxiWorksCompanyId</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetSoldListingAsync</span><span class="p">(</span> <span class="n">moxiWorksListingId</span><span class="p">,</span>  <span class="n">moxiWorksCompanyId</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 
@@ -859,7 +859,7 @@
 <span class="n">var</span> <span class="n">moxiWorksCompanyId</span> <span class="p">=</span> <span class="s">"abc123"</span><span class="p">;</span>
 
 <span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">SoldListingService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
-<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetSoldListingsUpdatedSinceAsync</span><span class="p">(</span><span class="n">agentId</span><span class="p">:</span> <span class="n">agentUuid</span><span class="p">,</span> <span class="n">agentIdType</span><span class="p">:</span> <span class="n">AgentIdType</span><span class="p">.</span><span class="n">AgentUuid</span><span class="p">,</span> <span class="n">moxiWorksCompanyId</span><span class="p">:</span> <span class="n">moxiWorksCompanyId</span><span class="p">,</span> <span class="n">updatedSince</span><span class="p">:</span> <span class="m">1462317907</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetSoldListingsUpdatedSinceAsync</span><span class="p">(</span><span class="n">agentUuid</span><span class="p">,</span> <span class="n">AgentIdType</span><span class="p">.</span><span class="n">AgentUuid</span><span class="p">,</span> <span class="n">moxiWorksCompanyId</span><span class="p">,</span> <span class="m">1462317907</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 
@@ -919,7 +919,7 @@
 </span><span class="n">var</span> <span class="n">moxiWorksCompanyId</span> <span class="p">=</span> <span class="s">"abc123"</span><span class="p">;</span>
 
 <span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">SoldListingService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
-<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetSoldListingsUpdatedSinceAsync</span><span class="p">(</span><span class="n">agentId</span><span class="p">:</span> <span class="n">moxiWorksAgentID</span><span class="p">,</span> <span class="n">agentIdType</span><span class="p">:</span> <span class="n">AgentIdType</span><span class="p">.</span><span class="n">MoxiWorksAgentId</span><span class="p">,</span> <span class="n">moxiWorksCompanyId</span><span class="p">:</span> <span class="n">moxiWorksCompanyId</span><span class="p">,</span> <span class="n">updatedSince</span><span class="p">:</span> <span class="m">1462317907</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetSoldListingsUpdatedSinceAsync</span><span class="p">(</span> <span class="n">moxiWorksAgentID</span><span class="p">,</span>  <span class="n">AgentIdType</span><span class="p">.</span><span class="n">MoxiWorksAgentId</span><span class="p">,</span>  <span class="n">moxiWorksCompanyId</span><span class="p">,</span>  <span class="m">1462317907</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 

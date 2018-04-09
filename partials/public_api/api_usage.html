@@ -74,14 +74,14 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;partner_contact_id=mySystems
 <span class="n">ConfigurationManager</span><span class="p">.</span><span class="n">AppSettings</span><span class="p">[</span><span class="s">"Identifier"</span><span class="p">]</span> <span class="p">=</span> <span class="s">"abc123"</span><span class="p">;</span>
 
 
-<span class="n">var</span> <span class="n">actionLog</span> <span class="p">=</span> <span class="k">new</span> <span class="n">ActionLog</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">actionLog</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">ActionLog</span><span class="p">();</span>
 <span class="n">actionLog</span><span class="p">.</span><span class="n">AgentUuid</span> <span class="p">=</span> <span class="s">"12345678-1234-1234-1234-1234567890ab"</span><span class="p">;</span>
 <span class="n">actionLog</span><span class="p">.</span><span class="n">Title</span> <span class="p">=</span> <span class="s">"Contact Called"</span><span class="p">;</span>
 <span class="n">actionLog</span><span class="p">.</span><span class="n">Body</span> <span class="p">=</span> <span class="s">"this contact called you"</span><span class="p">;</span>
 <span class="n">actionLog</span><span class="p">.</span><span class="n">PartnerContactId</span> <span class="p">=</span> <span class="s">"mySystemsContactId"</span><span class="p">;</span>
 
 <span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">ActionLogService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
-<span class="n">var</span> <span class="n">result</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">CreateActionLogAsync</span><span class="p">(</span><span class="n">actionLog</span><span class="p">:</span> <span class="n">actionLog</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">result</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">CreateActionLogAsync</span><span class="p">(</span><span class="n">actionLog</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 
@@ -156,7 +156,7 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
 <span class="n">actionLog</span><span class="p">.</span><span class="n">PartnerContactId</span> <span class="p">=</span> <span class="s">"mySystemsContactId"</span><span class="p">;</span>
 
 <span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">ActionLogService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
-<span class="n">var</span> <span class="n">result</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">CreateActionLogAsync</span><span class="p">(</span><span class="n">actionLog</span><span class="p">:</span> <span class="n">actionLog</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">result</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">CreateActionLogAsync</span><span class="p">(</span><span class="n">actionLog</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 
@@ -409,7 +409,7 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
 <span class="n">var</span> <span class="n">agentUuid</span> <span class="p">=</span> <span class="s">"12345678-1234-1234-1234-1234567890ab"</span><span class="p">;</span>
 
 <span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">ActionLogService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
-<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetActionLogsAsync</span><span class="p">(</span><span class="n">agentId</span><span class="p">:</span> <span class="n">agentUuid</span><span class="p">,</span> <span class="n">agentIdType</span><span class="p">:</span> <span class="n">AgentIdType</span><span class="p">.</span><span class="n">AgentUuid</span><span class="p">,</span> <span class="n">partnerContactId</span><span class="p">:</span> <span class="s">"mySystemsContactId"</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetActionLogsAsync</span><span class="p">(</span><span class="n">agentUuid</span><span class="p">,</span> <span class="n">AgentIdType</span><span class="p">.</span><span class="n">AgentUuid</span><span class="p">,</span> <span class="s">"mySystemsContactId"</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 
@@ -471,7 +471,7 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
 <span class="n">var</span> <span class="n">moxiWorksAgentId</span> <span class="p">=</span> <span class="s">"abcd1234"</span><span class="p">;</span>
 
 <span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">ActionLogService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
-<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetActionLogsAsync</span><span class="p">(</span><span class="n">agentId</span><span class="p">:</span> <span class="n">moxiWorksAgentId</span><span class="p">,</span> <span class="n">agentIdType</span><span class="p">:</span> <span class="n">AgentIdType</span><span class="p">.</span><span class="n">MoxiWorksAgentId</span><span class="p">,</span> <span class="n">partnerContactId</span><span class="p">:</span> <span class="s">"mySystemsContactId"</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetActionLogsAsync</span><span class="p">(</span> <span class="n">moxiWorksAgentId</span><span class="p">,</span>  <span class="n">AgentIdType</span><span class="p">.</span><span class="n">MoxiWorksAgentId</span><span class="p">,</span>  <span class="s">"mySystemsContactId"</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 
@@ -814,7 +814,7 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
 <span class="n">ConfigurationManager</span><span class="p">.</span><span class="n">AppSettings</span><span class="p">[</span><span class="s">"Identifier"</span><span class="p">]</span> <span class="p">=</span> <span class="s">"abc123"</span><span class="p">;</span>
 
 <span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">AgentService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
-<span class="n">var</span> <span class="n">result</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetAgentAsync</span><span class="p">(</span><span class="n">agentId</span><span class="p">:</span> <span class="s">"12345678-1234-1234-1234-1234567890ab"</span><span class="p">,</span> <span class="n">moxiWorksCompanyId</span><span class="p">:</span> <span class="s">"the_company"</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">result</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetAgentAsync</span><span class="p">(</span> <span class="s">"12345678-1234-1234-1234-1234567890ab"</span><span class="p">,</span>  <span class="s">"the_company"</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 
@@ -871,7 +871,7 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
 <span class="n">ConfigurationManager</span><span class="p">.</span><span class="n">AppSettings</span><span class="p">[</span><span class="s">"Identifier"</span><span class="p">]</span> <span class="p">=</span> <span class="s">"abc123"</span><span class="p">;</span>
 
 <span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">AgentService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
-<span class="n">var</span> <span class="n">result</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetAgentAsync</span><span class="p">(</span><span class="n">agentId</span><span class="p">:</span> <span class="s">"abc123"</span><span class="p">,</span> <span class="n">moxiWorksCompanyId</span><span class="p">:</span> <span class="s">"the_company"</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">result</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetAgentAsync</span><span class="p">(</span><span class="s">"some_agent_id"</span><span class="p">,</span><span class="s">"some_company_id"</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 
@@ -1499,7 +1499,7 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
 <span class="n">ConfigurationManager</span><span class="p">.</span><span class="n">AppSettings</span><span class="p">[</span><span class="s">"Identifier"</span><span class="p">]</span> <span class="p">=</span> <span class="s">"abc123"</span><span class="p">;</span>
 
 <span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">AgentService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
-<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetAgentsAsync</span><span class="p">(</span><span class="n">moxiWorksCompanyId</span><span class="p">:</span> <span class="s">"the_company"</span><span class="p">,</span> <span class="n">updatedSince</span><span class="p">:</span> <span class="m">1461108284</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetAgentsAsync</span><span class="p">(</span> <span class="s">"the_company"</span><span class="p">,</span>  <span class="m">1461108284</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 
@@ -1556,7 +1556,7 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
 <span class="n">ConfigurationManager</span><span class="p">.</span><span class="n">AppSettings</span><span class="p">[</span><span class="s">"Identifier"</span><span class="p">]</span> <span class="p">=</span> <span class="s">"abc123"</span><span class="p">;</span>
 
 <span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">AgentService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
-<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetAgentsAsync</span><span class="p">(</span><span class="n">moxiWorksCompanyId</span><span class="p">:</span> <span class="s">"the_company"</span><span class="p">,</span> <span class="n">updatedSince</span><span class="p">:</span> <span class="m">1461108284</span><span class="p">,</span> <span class="n">pageNumber</span><span class="p">:</span> <span class="m">2</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetAgentsAsync</span><span class="p">(</span><span class="s">"some_cmpany_id"</span><span class="p">,</span><span class="m">1461108284</span><span class="p">,</span> <span class="m">2</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 
@@ -1597,7 +1597,7 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
 <span class="n">ConfigurationManager</span><span class="p">.</span><span class="n">AppSettings</span><span class="p">[</span><span class="s">"Identifier"</span><span class="p">]</span> <span class="p">=</span> <span class="s">"abc123"</span><span class="p">;</span>
 
 <span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">AgentService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
-<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetAgentsAsync</span><span class="p">(</span><span class="n">moxiWorksCompanyId</span><span class="p">:</span> <span class="s">"abc123"</span><span class="p">,</span> <span class="n">updatedSince</span><span class="p">:</span> <span class="m">1461108284</span><span class="p">,</span> <span class="n">moxiWorksOfficeId</span><span class="p">:</span> <span class="s">"8c3f446c-aab9-11e6-9a0f-d0e1408e8026"</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetAgentsAsync</span><span class="p">(</span><span class="s">"some_company_id"</span><span class="p">,</span> <span class="m">1461108284</span><span class="p">,</span> <span class="s">"some_office_id"</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 
@@ -2148,7 +2148,7 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
 <span class="n">ConfigurationManager</span><span class="p">.</span><span class="n">AppSettings</span><span class="p">[</span><span class="s">"Identifier"</span><span class="p">]</span> <span class="p">=</span> <span class="s">"abc123"</span><span class="p">;</span>
 
 <span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">BrandService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
-<span class="n">var</span> <span class="n">result</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetCompanyBrandAsync</span><span class="p">(</span><span class="n">moxiWorksCompanyId</span><span class="p">:</span> <span class="s">"abc123"</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">result</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetCompanyBrandAsync</span><span class="p">(</span><span class="s">"some_company_id"</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 
@@ -2400,7 +2400,7 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
 <span class="n">ConfigurationManager</span><span class="p">.</span><span class="n">AppSettings</span><span class="p">[</span><span class="s">"Identifier"</span><span class="p">]</span> <span class="p">=</span> <span class="s">"abc123"</span><span class="p">;</span>
 
 <span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">BrandService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
-<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetBrandsAsync</span><span class="p">(</span><span class="n">agentId</span><span class="p">:</span> <span class="s">"xyz098"</span><span class="p">,</span> <span class="n">moxiWorksCompanyId</span><span class="p">:</span> <span class="s">"abc123"</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetBrandsAsync</span><span class="p">(</span><span class="s">"some_agent_id"</span><span class="p">,</span> <span class="s">"abc123"</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 
@@ -2759,7 +2759,7 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;moxi_works_contact_id=babebe
 <span class="n">ConfigurationManager</span><span class="p">.</span><span class="n">AppSettings</span><span class="p">[</span><span class="s">"Secret"</span><span class="p">]</span> <span class="p">=</span> <span class="s">"secret"</span><span class="p">;</span>
 <span class="n">ConfigurationManager</span><span class="p">.</span><span class="n">AppSettings</span><span class="p">[</span><span class="s">"Identifier"</span><span class="p">]</span> <span class="p">=</span> <span class="s">"abc123"</span><span class="p">;</span>
 
-<span class="n">var</span> <span class="n">transaction</span> <span class="p">=</span> <span class="k">new</span> <span class="n">BuyerTransaction</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">transaction</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">BuyerTransaction</span><span class="p">();</span>
 <span class="n">transaction</span><span class="p">.</span><span class="n">AgentUuid</span> <span class="p">=</span> <span class="s">"12345678-1234-1234-1234-1234567890ab"</span><span class="p">;</span>
 <span class="n">transaction</span><span class="p">.</span><span class="n">MoxiWorksContactId</span> <span class="p">=</span> <span class="s">"babebead-feed-face-dead-beefbad4babe"</span><span class="p">;</span>
 <span class="n">transaction</span><span class="p">.</span><span class="n">TransactionName</span> <span class="p">=</span> <span class="s">"Bob And Linda Tonkanaka"</span><span class="p">;</span>
@@ -2784,7 +2784,7 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;moxi_works_contact_id=babebe
 <span class="n">transaction</span><span class="p">.</span><span class="n">MaxPrice</span> <span class="p">=</span> <span class="m">2323223</span><span class="p">;</span>
 
 <span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">BuyerTransactionService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
-<span class="n">var</span> <span class="n">result</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">CreateBuyerTransactionAsync</span><span class="p">(</span><span class="n">buyerTransaction</span><span class="p">:</span> <span class="n">buyerTransaction</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">result</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">CreateBuyerTransactionAsync</span><span class="p">(</span><span class="n">buyerTransaction</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 
@@ -2926,7 +2926,7 @@ moxi_works_agent_id=abc123&amp;moxi_works_contact_id=babebead-feed-face-dead-bee
 <span class="n">transaction</span><span class="p">.</span><span class="n">MaxPrice</span> <span class="p">=</span> <span class="m">2323223</span><span class="p">;</span>
 
 <span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">BuyerTransactionService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
-<span class="n">var</span> <span class="n">result</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">CreateBuyerTransactionAsync</span><span class="p">(</span><span class="n">buyerTransaction</span><span class="p">:</span> <span class="n">buyerTransaction</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">result</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">CreateBuyerTransactionAsync</span><span class="p">(</span> <span class="n">buyerTransaction</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 
@@ -3067,7 +3067,7 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;moxi_works_contact_id=babebe
 <span class="n">transaction</span><span class="p">.</span><span class="n">MaxPrice</span> <span class="p">=</span> <span class="m">2323223</span><span class="p">;</span>
 
 <span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">BuyerTransactionService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
-<span class="n">var</span> <span class="n">result</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">CreateBuyerTransactionAsync</span><span class="p">(</span><span class="n">buyerTransaction</span><span class="p">:</span> <span class="n">buyerTransaction</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">result</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">CreateBuyerTransactionAsync</span><span class="p">(</span> <span class="n">buyerTransaction</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 
@@ -3730,7 +3730,7 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;min_beds=12&amp;max_beds=34&
 <span class="n">var</span> <span class="n">moxiWorksTransactionId</span> <span class="p">=</span> <span class="s">"babebead-feed-face-dead-beefbad4babe"</span><span class="p">;</span>
 
 <span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">BuyerTransactionService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
-<span class="n">var</span> <span class="n">transaction</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetBuyerTransactionAsync</span><span class="p">(</span><span class="n">agentId</span><span class="p">:</span> <span class="n">agentUuid</span><span class="p">,</span> <span class="n">agentIdType</span><span class="p">:</span> <span class="n">AgentIdType</span><span class="p">.</span><span class="n">AgentUuid</span><span class="p">,</span> <span class="n">moxiworksTransactionId</span><span class="p">:</span> <span class="n">moxiWorksTransactionId</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">transaction</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetBuyerTransactionAsync</span><span class="p">(</span> <span class="n">agentUuid</span><span class="p">,</span> <span class="n">AgentIdType</span><span class="p">.</span><span class="n">AgentUuid</span><span class="p">,</span><span class="n">moxiWorksTransactionId</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 <span class="n">transaction</span><span class="p">.</span><span class="n">TransactionName</span> <span class="p">=</span> <span class="s">"Bob And Linda Tonkanaka"</span><span class="p">;</span>
 <span class="n">transaction</span><span class="p">.</span><span class="n">Notes</span> <span class="p">=</span> <span class="s">"take care to write notes that are descriptive and helpful"</span><span class="p">;</span>
@@ -3753,7 +3753,7 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;min_beds=12&amp;max_beds=34&
 <span class="n">transaction</span><span class="p">.</span><span class="n">MinPrice</span> <span class="p">=</span> <span class="m">292929</span><span class="p">;</span>
 <span class="n">transaction</span><span class="p">.</span><span class="n">MaxPrice</span> <span class="p">=</span> <span class="m">2323223</span><span class="p">;</span>
 
-<span class="n">var</span> <span class="n">result</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">UpdateBuyerTransactionAsync</span><span class="p">(</span><span class="n">buyerTransaction</span><span class="p">:</span> <span class="n">buyerTransaction</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">result</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">UpdateBuyerTransactionAsync</span><span class="p">(</span><span class="n">buyerTransaction</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 
@@ -3876,7 +3876,7 @@ moxi_works_agent_id=abc123&amp;min_beds=12&amp;max_beds=34&amp;min_baths=1.75&am
 <span class="n">var</span> <span class="n">moxiWorksAgentId</span> <span class="p">=</span> <span class="s">"abc123"</span><span class="p">;</span>
 <span class="n">var</span> <span class="n">moxiWorksTransactionId</span> <span class="p">=</span> <span class="s">"babebead-feed-face-dead-beefbad4babe"</span><span class="p">;</span>
 
-<span class="n">var</span> <span class="n">transaction</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetBuyerTransactionAsync</span><span class="p">(</span><span class="n">agentId</span><span class="p">:</span> <span class="n">moxiWorksAgentId</span><span class="p">,</span> <span class="n">agentIdType</span><span class="p">:</span> <span class="n">AgentIdType</span><span class="p">.</span><span class="n">MoxiWorksAgentId</span><span class="p">,</span> <span class="n">moxiworksTransactionId</span><span class="p">:</span> <span class="n">moxiWorksTransactionId</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">transaction</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetBuyerTransactionAsync</span><span class="p">(</span> <span class="n">moxiWorksAgentId</span><span class="p">,</span>  <span class="n">AgentIdType</span><span class="p">.</span><span class="n">MoxiWorksAgentId</span><span class="p">,</span>  <span class="n">moxiWorksTransactionId</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 <span class="n">transaction</span><span class="p">.</span><span class="n">TransactionName</span> <span class="p">=</span> <span class="s">"Bob And Linda Tonkanaka"</span><span class="p">;</span>
 <span class="n">transaction</span><span class="p">.</span><span class="n">Notes</span> <span class="p">=</span> <span class="s">"take care to write notes that are descriptive and helpful"</span><span class="p">;</span>
@@ -3900,7 +3900,7 @@ moxi_works_agent_id=abc123&amp;min_beds=12&amp;max_beds=34&amp;min_baths=1.75&am
 <span class="n">transaction</span><span class="p">.</span><span class="n">MaxPrice</span> <span class="p">=</span> <span class="m">2323223</span><span class="p">;</span>
 
 <span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">BuyerTransactionService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
-<span class="n">var</span> <span class="n">result</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">UpdateBuyerTransactionAsync</span><span class="p">(</span><span class="n">buyerTransaction</span><span class="p">:</span> <span class="n">buyerTransaction</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">result</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">UpdateBuyerTransactionAsync</span><span class="p">(</span> <span class="n">buyerTransaction</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 
@@ -4023,7 +4023,7 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;min_beds=12&amp;max_beds=34&
 <span class="n">var</span> <span class="n">agentUuid</span> <span class="p">=</span> <span class="s">"12345678-1234-1234-1234-1234567890ab"</span><span class="p">;</span>
 <span class="n">var</span> <span class="n">moxiWorksTransactionId</span> <span class="p">=</span> <span class="s">"babebead-feed-face-dead-beefbad4babe"</span><span class="p">;</span>
 
-<span class="n">var</span> <span class="n">transaction</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetBuyerTransactionAsync</span><span class="p">(</span><span class="n">agentId</span><span class="p">:</span> <span class="n">agentUuid</span><span class="p">,</span> <span class="n">agentIdType</span><span class="p">:</span> <span class="n">AgentIdType</span><span class="p">.</span><span class="n">AgentUuid</span><span class="p">,</span> <span class="n">moxiworksTransactionId</span><span class="p">:</span> <span class="n">moxiWorksTransactionId</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">transaction</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetBuyerTransactionAsync</span><span class="p">(</span> <span class="n">agentUuid</span><span class="p">,</span>  <span class="n">AgentIdType</span><span class="p">.</span><span class="n">AgentUuid</span><span class="p">,</span>  <span class="n">moxiWorksTransactionId</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 <span class="n">transaction</span><span class="p">.</span><span class="n">TransactionName</span> <span class="p">=</span> <span class="s">"Bob And Linda Tonkanaka"</span><span class="p">;</span>
 <span class="n">transaction</span><span class="p">.</span><span class="n">Notes</span> <span class="p">=</span> <span class="s">"take care to write notes that are descriptive and helpful"</span><span class="p">;</span>
@@ -4046,7 +4046,7 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;min_beds=12&amp;max_beds=34&
 <span class="n">transaction</span><span class="p">.</span><span class="n">MaxPrice</span> <span class="p">=</span> <span class="m">2323223</span><span class="p">;</span>
 
 <span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">BuyerTransactionService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
-<span class="n">var</span> <span class="n">result</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">UpdateBuyerTransactionAsync</span><span class="p">(</span><span class="n">buyerTransaction</span><span class="p">:</span> <span class="n">buyerTransaction</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">result</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">UpdateBuyerTransactionAsync</span><span class="p">(</span> <span class="n">buyerTransaction</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 
@@ -4711,7 +4711,7 @@ moxi_works_agent_id=abc123
 <span class="n">var</span> <span class="n">moxiWorksTransactionId</span> <span class="p">=</span> <span class="s">"babebead-feed-face-dead-beefbad4babe"</span><span class="p">;</span>
 
 <span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">BuyerTransactionService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
-<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetBuyerTransactionAsync</span><span class="p">(</span><span class="n">agentId</span><span class="p">:</span> <span class="n">agentUuid</span><span class="p">,</span> <span class="n">agentIdType</span><span class="p">:</span> <span class="n">AgentIdType</span><span class="p">.</span><span class="n">AgentUuid</span><span class="p">,</span> <span class="n">moxiworksTransactionId</span><span class="p">:</span> <span class="n">moxiWorksTransactionId</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetBuyerTransactionAsync</span><span class="p">(</span><span class="n">agentUuid</span><span class="p">,</span><span class="n">AgentIdType</span><span class="p">.</span><span class="n">AgentUuid</span><span class="p">,</span><span class="n">moxiWorksTransactionId</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 
@@ -4777,7 +4777,7 @@ moxi_works_agent_id=abc123
 <span class="n">var</span> <span class="n">moxiWorksTransactionId</span> <span class="p">=</span> <span class="s">"babebead-feed-face-dead-beefbad4babe"</span><span class="p">;</span>
 
 <span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">BuyerTransactionService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
-<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetBuyerTransactionAsync</span><span class="p">(</span><span class="n">agentId</span><span class="p">:</span> <span class="n">moxiWorksAgentId</span><span class="p">,</span> <span class="n">agentIdType</span><span class="p">:</span> <span class="n">AgentIdType</span><span class="p">.</span><span class="n">MoxiWorksAgentId</span><span class="p">,</span> <span class="n">moxiworksTransactionId</span><span class="p">:</span> <span class="n">moxiWorksTransactionId</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetBuyerTransactionAsync</span><span class="p">(</span> <span class="n">moxiWorksAgentId</span><span class="p">,</span>  <span class="n">AgentIdType</span><span class="p">.</span><span class="n">MoxiWorksAgentId</span><span class="p">,</span>  <span class="n">moxiWorksTransactionId</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 
@@ -4843,7 +4843,7 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab
 <span class="n">var</span> <span class="n">moxiWorksTransactionId</span> <span class="p">=</span> <span class="s">"babebead-feed-face-dead-beefbad4babe"</span><span class="p">;</span>
 
 <span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">ActionLogService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
-<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetBuyerTransactionAsync</span><span class="p">(</span><span class="n">agentId</span><span class="p">:</span> <span class="n">agentUuid</span><span class="p">,</span> <span class="n">agentIdType</span><span class="p">:</span> <span class="n">AgentIdType</span><span class="p">.</span><span class="n">AgentUuid</span><span class="p">,</span> <span class="n">moxiworksTransactionId</span><span class="p">:</span> <span class="n">moxiWorksTransactionId</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetBuyerTransactionAsync</span><span class="p">(</span> <span class="n">agentUuid</span><span class="p">,</span>  <span class="n">AgentIdType</span><span class="p">.</span><span class="n">AgentUuid</span><span class="p">,</span>  <span class="n">moxiWorksTransactionId</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 
@@ -5266,7 +5266,7 @@ agent_uuid=abc123
 <span class="n">var</span> <span class="n">agentUuid</span> <span class="p">=</span> <span class="s">"12345678-1234-1234-1234-1234567890ab"</span><span class="p">;</span>
 
 <span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">BuyerTransactionService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
-<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetBuyerTransactionsAsync</span><span class="p">(</span><span class="n">agentId</span><span class="p">:</span> <span class="n">agentUuid</span><span class="p">,</span> <span class="n">agentIdType</span><span class="p">:</span> <span class="n">AgentIdType</span><span class="p">.</span><span class="n">AgentUuid</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetBuyerTransactionsAsync</span><span class="p">(</span> <span class="n">agentUuid</span><span class="p">,</span>  <span class="n">AgentIdType</span><span class="p">.</span><span class="n">AgentUuid</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 
@@ -5328,7 +5328,7 @@ moxi_works_agent_id=abc123
 <span class="n">var</span> <span class="n">moxiWorksAgentId</span> <span class="p">=</span> <span class="s">"abc123"</span><span class="p">;</span>
 
 <span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">BuyerTransactionService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
-<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetBuyerTransactionsAsync</span><span class="p">(</span><span class="n">agentId</span><span class="p">:</span> <span class="n">moxiWorksAgentId</span><span class="p">,</span> <span class="n">agentIdType</span><span class="p">:</span> <span class="n">AgentIdType</span><span class="p">.</span><span class="n">MoxiWorksAgentId</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetBuyerTransactionsAsync</span><span class="p">(</span><span class="n">moxiWorksAgentId</span><span class="p">,</span><span class="n">AgentIdType</span><span class="p">.</span><span class="n">MoxiWorksAgentId</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 
@@ -5390,7 +5390,7 @@ moxi_works_agent_id=abc123
 <span class="n">var</span> <span class="n">agentUuid</span> <span class="p">=</span> <span class="s">"12345678-1234-1234-1234-1234567890ab"</span><span class="p">;</span>
 
 <span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">ActionLogService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
-<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetBuyerTransactionsAsync</span><span class="p">(</span><span class="n">agentId</span><span class="p">:</span> <span class="n">agentUuid</span><span class="p">,</span> <span class="n">agentIdType</span><span class="p">:</span> <span class="n">AgentIdType</span><span class="p">.</span><span class="n">AgentUuid</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetBuyerTransactionsAsync</span><span class="p">(</span> <span class="n">agentUuid</span><span class="p">,</span>  <span class="n">AgentIdType</span><span class="p">.</span><span class="n">AgentUuid</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 
@@ -5874,7 +5874,7 @@ moxi_works_agent_id=abc123
 <span class="n">var</span> <span class="n">companyId</span> <span class="p">=</span> <span class="s">"company_id"</span><span class="p">;</span>
 
 <span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">CompanyService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
-<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetCompanyAsync</span><span class="p">(</span><span class="n">moxiWorksCompanyId</span><span class="p">:</span> <span class="n">companyId</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetCompanyAsync</span><span class="p">(</span><span class="n">companyId</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 
@@ -6177,7 +6177,7 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;partner_contact_id=abc982cdf
 <span class="n">ConfigurationManager</span><span class="p">.</span><span class="n">AppSettings</span><span class="p">[</span><span class="s">"Identifier"</span><span class="p">]</span> <span class="p">=</span> <span class="s">"abc123"</span><span class="p">;</span>
 
 
-<span class="n">var</span> <span class="n">contact</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Contact</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">contact</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Contact</span><span class="p">();</span>
 <span class="n">contact</span><span class="p">.</span><span class="n">AgentUuid</span> <span class="p">=</span> <span class="s">"12345678-1234-1234-1234-1234567890ab"</span><span class="p">;</span>
 <span class="n">contact</span><span class="p">.</span><span class="n">PartnerContactId</span> <span class="p">=</span> <span class="s">"booyuh"</span><span class="p">;</span>
 <span class="n">contact</span><span class="p">.</span><span class="n">ContactName</span> <span class="p">=</span> <span class="s">"Firstname Middlenyme Larstnam"</span><span class="p">;</span>
@@ -6222,7 +6222,7 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;partner_contact_id=abc982cdf
 
 
 <span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">ContactService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
-<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">CreateContactAsync</span><span class="p">(</span><span class="n">contact</span><span class="p">:</span> <span class="n">contact</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">CreateContactAsync</span><span class="p">(</span><span class="n">contact</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 
@@ -7538,7 +7538,7 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;partner_contact_id=abc982cdf
 <span class="n">var</span> <span class="n">agentUuid</span> <span class="p">=</span> <span class="s">"12345678-1234-1234-1234-1234567890ab"</span><span class="p">;</span>
 
 <span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">ContactService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
-<span class="n">var</span> <span class="n">contact</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetContactAsync</span><span class="p">(</span><span class="n">agentId</span><span class="p">:</span> <span class="n">agentUuid</span><span class="p">,</span> <span class="n">agentIdType</span><span class="p">:</span> <span class="n">AgentIdType</span><span class="p">.</span><span class="n">AgentUuid</span><span class="p">,</span> <span class="n">partnerContactId</span><span class="p">:</span> <span class="s">"booyuh"</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">contact</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetContactAsync</span><span class="p">(</span><span class="n">agentUuid</span><span class="p">,</span> <span class="n">AgentIdType</span><span class="p">.</span><span class="n">AgentUuid</span><span class="p">,</span> <span class="s">"booyuh"</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 <span class="n">contact</span><span class="p">.</span><span class="n">ContactName</span> <span class="p">=</span> <span class="s">"Firstname Middlenyme Larstnam"</span><span class="p">;</span>
 <span class="n">contact</span><span class="p">.</span><span class="n">Gender</span> <span class="p">=</span> <span class="s">"m"</span><span class="p">;</span>
@@ -7581,7 +7581,7 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;partner_contact_id=abc982cdf
 <span class="n">contact</span><span class="p">.</span><span class="n">Note</span> <span class="p">=</span> <span class="s">"whatevers2009"</span><span class="p">;</span>
 
 
-<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">UpdateContactAsync</span><span class="p">(</span><span class="n">contact</span><span class="p">:</span> <span class="n">contact</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">UpdateContactAsync</span><span class="p">(</span><span class="n">contact</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 
@@ -7758,7 +7758,7 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 <span class="n">var</span> <span class="n">moxiWorksAgentId</span> <span class="p">=</span> <span class="s">"1234abcd"</span><span class="p">;</span>
 
 <span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">ContactService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
-<span class="n">var</span> <span class="n">contact</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetContactAsync</span><span class="p">(</span><span class="n">agentId</span><span class="p">:</span> <span class="n">moxiWorksAgentId</span><span class="p">,</span> <span class="n">agentIdType</span><span class="p">:</span> <span class="n">AgentIdType</span><span class="p">.</span><span class="n">MoxiWorksAgentId</span><span class="p">,</span> <span class="n">partnerContactId</span><span class="p">:</span> <span class="s">"booyuh"</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">contact</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetContactAsync</span><span class="p">(</span> <span class="n">moxiWorksAgentId</span><span class="p">,</span>  <span class="n">AgentIdType</span><span class="p">.</span><span class="n">MoxiWorksAgentId</span><span class="p">,</span>  <span class="s">"booyuh"</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 
 <span class="n">contact</span><span class="p">.</span><span class="n">ContactName</span> <span class="p">=</span> <span class="s">"Firstname Middlenyme Larstnam"</span><span class="p">;</span>
@@ -8846,7 +8846,7 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 <span class="n">var</span> <span class="n">agentUuid</span> <span class="p">=</span> <span class="s">"12345678-1234-1234-1234-1234567890ab"</span><span class="p">;</span>
 
 <span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">ContactService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
-<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetContactAsync</span><span class="p">(</span><span class="n">agentId</span><span class="p">:</span> <span class="n">agentUuid</span><span class="p">,</span> <span class="n">agentIdType</span><span class="p">:</span> <span class="n">AgentIdType</span><span class="p">.</span><span class="n">AgentUuid</span><span class="p">,</span> <span class="n">partnerContactId</span><span class="p">:</span> <span class="s">"booyuh"</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetContactAsync</span><span class="p">(</span><span class="n">agentUuid</span><span class="p">,</span> <span class="n">AgentIdType</span><span class="p">.</span><span class="n">AgentUuid</span><span class="p">,</span> <span class="s">"booyuh"</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 
@@ -8903,7 +8903,7 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 <span class="n">var</span> <span class="n">moxiWorksAgentId</span> <span class="p">=</span> <span class="s">"1234abcd"</span><span class="p">;</span>
 
 <span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">ContactService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
-<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetContactAsync</span><span class="p">(</span><span class="n">agentId</span><span class="p">:</span> <span class="n">moxiWorksAgentId</span><span class="p">,</span> <span class="n">agentIdType</span><span class="p">:</span> <span class="n">AgentIdType</span><span class="p">.</span><span class="n">MoxiWorksAgentId</span><span class="p">,</span> <span class="n">partnerContactId</span><span class="p">:</span> <span class="s">"booyuh"</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetContactAsync</span><span class="p">(</span> <span class="n">moxiWorksAgentId</span><span class="p">,</span>  <span class="n">AgentIdType</span><span class="p">.</span><span class="n">MoxiWorksAgentId</span><span class="p">,</span>  <span class="s">"booyuh"</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 
@@ -9564,7 +9564,7 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 <span class="n">var</span> <span class="n">agentUuid</span> <span class="p">=</span> <span class="s">"12345678-1234-1234-1234-1234567890ab"</span><span class="p">;</span>
 
 <span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">ContactService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
-<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetContactsAsync</span><span class="p">(</span><span class="n">agentId</span><span class="p">:</span> <span class="n">agentUuid</span><span class="p">,</span> <span class="n">agentIdType</span><span class="p">:</span> <span class="n">AgentIdType</span><span class="p">.</span><span class="n">AgentUuid</span><span class="p">,</span> <span class="n">contactName</span><span class="p">:</span> <span class="s">"buckminster fuller"</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetContactsAsync</span><span class="p">(</span><span class="n">agentUuid</span><span class="p">,</span> <span class="n">AgentIdType</span><span class="p">.</span><span class="n">AgentUuid</span><span class="p">,</span> <span class="s">"buckminster fuller"</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 
@@ -9623,7 +9623,7 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 <span class="n">var</span> <span class="n">moxi</span> <span class="p">=</span> <span class="s">"abc123"</span><span class="p">;</span>
 
 <span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">ContactService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
-<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetContactsAsync</span><span class="p">(</span><span class="n">agentId</span><span class="p">:</span> <span class="n">agentUuid</span><span class="p">,</span> <span class="n">agentIdType</span><span class="p">:</span> <span class="n">AgentIdType</span><span class="p">.</span><span class="n">MoxiWorksAgentId</span><span class="p">,</span> <span class="n">contactName</span><span class="p">:</span> <span class="s">"buckminster fuller"</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetContactsAsync</span><span class="p">(</span> <span class="n">agentUuid</span><span class="p">,</span>  <span class="n">AgentIdType</span><span class="p">.</span><span class="n">MoxiWorksAgentId</span><span class="p">,</span>  <span class="s">"buckminster fuller"</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 
@@ -10506,7 +10506,7 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 <span class="n">var</span> <span class="n">agentUuid</span> <span class="p">=</span> <span class="s">"12345678-1234-1234-1234-1234567890ab"</span><span class="p">;</span>
 
 <span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">EmailCampaignService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
-<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetEmailCampaignsAsync</span><span class="p">(</span><span class="n">agentId</span><span class="p">:</span> <span class="n">agentUuid</span><span class="p">,</span> <span class="n">agentIdType</span><span class="p">:</span> <span class="n">AgentIdType</span><span class="p">.</span><span class="n">AgentUuid</span><span class="p">,</span> <span class="n">partnerContactId</span><span class="p">:</span> <span class="n">partnerContactID</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetEmailCampaignsAsync</span><span class="p">(</span><span class="n">agentUuid</span><span class="p">,</span> <span class="n">AgentIdType</span><span class="p">.</span><span class="n">AgentUuid</span><span class="p">,</span><span class="n">partnerContactID</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 
@@ -10835,8 +10835,8 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;partner_event_id=abc98df345&
 <span class="n">ConfigurationManager</span><span class="p">.</span><span class="n">AppSettings</span><span class="p">[</span><span class="s">"Identifier"</span><span class="p">]</span> <span class="p">=</span> <span class="s">"abc123"</span><span class="p">;</span>
 
 
-<span class="n">var</span> <span class="k">event</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Event</span><span class="p">;</span>
-<span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;</span> <span class="n">attendees</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;(</span><span class="k">new</span> <span class="kt">string</span><span class="p">[]</span> <span class="p">{</span><span class="s">"contact1ID"</span><span class="p">,</span> <span class="s">"contact2ID"</span><span class="p">});</span>
+<span class="n">var</span> <span class="k">event</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Event</span><span class="p">();</span>
+<span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;</span> <span class="n">attendees</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;(){</span><span class="s">"contact1ID"</span><span class="p">,</span> <span class="s">"contact2ID"</span><span class="p">};</span>
 
 <span class="k">event</span><span class="p">.</span><span class="n">AgentUuid</span> <span class="p">=</span> <span class="s">"12345678-1234-1234-1234-1234567890ab"</span><span class="p">;</span>
 <span class="k">event</span><span class="p">.</span><span class="n">PartnerEventId</span> <span class="p">=</span> <span class="s">"booyuh"</span><span class="p">;</span>
@@ -10851,7 +10851,7 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;partner_event_id=abc98df345&
 <span class="k">event</span><span class="p">.</span><span class="n">Note</span> <span class="p">=</span> <span class="s">"notable stuff"</span><span class="p">;</span>
 
 <span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">EventService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
-<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">CreateEventAsync</span><span class="p">(</span><span class="k">event</span><span class="p">:</span> <span class="k">event</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">CreateEventAsync</span><span class="p">(</span><span class="k">event</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 
@@ -11304,9 +11304,9 @@ note=here%20is%20the%20note
 <span class="n">var</span> <span class="n">partnerEventId</span> <span class="p">=</span> <span class="s">"booyuh"</span><span class="p">;</span>
 
 <span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">EventService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
-<span class="n">var</span> <span class="k">event</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetEventAsync</span><span class="p">(</span><span class="n">agentId</span><span class="p">:</span> <span class="n">agentUuid</span><span class="p">,</span> <span class="n">agentIdType</span><span class="p">:</span> <span class="n">AgentIdType</span><span class="p">.</span><span class="n">AgentUuid</span><span class="p">,</span> <span class="n">parnterEventId</span><span class="p">:</span> <span class="n">partnerEventId</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="k">event</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetEventAsync</span><span class="p">(</span> <span class="n">agentUuid</span><span class="p">,</span>  <span class="n">AgentIdType</span><span class="p">.</span><span class="n">AgentUuid</span><span class="p">,</span> <span class="p">:</span> <span class="n">partnerEventId</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
-<span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;</span> <span class="n">attendees</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;(</span><span class="k">new</span> <span class="kt">string</span><span class="p">[]</span> <span class="p">{</span><span class="s">"contact1ID"</span><span class="p">,</span> <span class="s">"contact2ID"</span><span class="p">});</span>
+<span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;</span> <span class="n">attendees</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;()</span> <span class="p">{</span><span class="s">"contact1ID"</span><span class="p">,</span> <span class="s">"contact2ID"</span><span class="p">};</span>
 
 
 <span class="k">event</span><span class="p">.</span><span class="n">EventSubject</span> <span class="p">=</span> <span class="s">"the subject"</span><span class="p">;</span>
@@ -11320,7 +11320,7 @@ note=here%20is%20the%20note
 <span class="k">event</span><span class="p">.</span><span class="n">Note</span> <span class="p">=</span> <span class="s">"notable stuff"</span><span class="p">;</span>
 
 <span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">EventService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
-<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">UpdateEventAsync</span><span class="p">(</span><span class="n">updateEvent</span><span class="p">:</span> <span class="k">event</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">UpdateEventAsync</span><span class="p">(</span><span class="k">event</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 
@@ -11417,9 +11417,9 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <span class="n">var</span> <span class="n">partnerEventId</span> <span class="p">=</span> <span class="s">"booyuh"</span><span class="p">;</span>
 
 <span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">EventService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
-<span class="n">var</span> <span class="k">event</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetEventAsync</span><span class="p">(</span><span class="n">agentId</span><span class="p">:</span> <span class="n">moxiWorksAgentID</span><span class="p">,</span> <span class="n">agentIdType</span><span class="p">:</span> <span class="n">AgentIdType</span><span class="p">.</span><span class="n">MoxiWorksAgentId</span><span class="p">,</span> <span class="n">parnterEventId</span><span class="p">:</span> <span class="n">partnerEventId</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="k">event</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetEventAsync</span><span class="p">(</span> <span class="n">moxiWorksAgentID</span><span class="p">,</span> <span class="n">AgentIdType</span><span class="p">.</span><span class="n">MoxiWorksAgentId</span><span class="p">,</span> <span class="n">partnerEventId</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
-<span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;</span> <span class="n">attendees</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;(</span><span class="k">new</span> <span class="kt">string</span><span class="p">[]</span> <span class="p">{</span><span class="s">"contact1ID"</span><span class="p">,</span> <span class="s">"contact2ID"</span><span class="p">});</span>
+<span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;</span> <span class="n">attendees</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;()</span> <span class="p">{</span><span class="s">"contact1ID"</span><span class="p">,</span> <span class="s">"contact2ID"</span><span class="p">};</span>
 
 
 <span class="k">event</span><span class="p">.</span><span class="n">EventSubject</span> <span class="p">=</span> <span class="s">"the subject"</span><span class="p">;</span>
@@ -11433,7 +11433,7 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <span class="k">event</span><span class="p">.</span><span class="n">Note</span> <span class="p">=</span> <span class="s">"notable stuff"</span><span class="p">;</span>
 
 <span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">EventService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
-<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">UpdateEventAsync</span><span class="p">(</span><span class="n">updateEvent</span><span class="p">:</span> <span class="k">event</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">UpdateEventAsync</span><span class="p">(</span><span class="k">event</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 
@@ -11793,7 +11793,7 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <span class="n">var</span> <span class="n">partnerEventId</span> <span class="p">=</span> <span class="s">"booyuh"</span><span class="p">;</span>
 
 <span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">EventService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
-<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetEventAsync</span><span class="p">(</span><span class="n">agentId</span><span class="p">:</span> <span class="n">agentUuid</span><span class="p">,</span> <span class="n">agentIdType</span><span class="p">:</span> <span class="n">AgentIdType</span><span class="p">.</span><span class="n">AgentUuid</span><span class="p">,</span> <span class="n">parnterEventId</span><span class="p">:</span> <span class="n">partnerEventId</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetEventAsync</span><span class="p">(</span> <span class="n">agentUuid</span><span class="p">,</span>  <span class="n">AgentIdType</span><span class="p">.</span><span class="n">AgentUuid</span><span class="p">,</span> <span class="n">partnerEventId</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 
@@ -11853,7 +11853,7 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <span class="n">var</span> <span class="n">partnerEventId</span> <span class="p">=</span> <span class="s">"booyuh"</span><span class="p">;</span>
 
 <span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">EventService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
-<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetEventAsync</span><span class="p">(</span><span class="n">agentId</span><span class="p">:</span> <span class="n">moxiWorksAgentId</span><span class="p">,</span> <span class="n">agentIdType</span><span class="p">:</span> <span class="n">AgentIdType</span><span class="p">.</span><span class="n">MoxiWorksAgentId</span><span class="p">,</span> <span class="n">parnterEventId</span><span class="p">:</span> <span class="n">partnerEventId</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetEventAsync</span><span class="p">(</span> <span class="n">moxiWorksAgentId</span><span class="p">,</span> <span class="n">AgentIdType</span><span class="p">.</span><span class="n">MoxiWorksAgentId</span><span class="p">,</span> <span class="n">partnerEventId</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 
@@ -12114,7 +12114,7 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <span class="n">var</span> <span class="n">agentUuid</span> <span class="p">=</span> <span class="s">"12345678-1234-1234-1234-1234567890ab"</span><span class="p">;</span>
 
 <span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">EventService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
-<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetEventsByDateAsync</span><span class="p">(</span><span class="n">agentId</span><span class="p">:</span> <span class="n">agentUuid</span><span class="p">,</span> <span class="n">agentIdType</span><span class="p">:</span> <span class="n">AgentIdType</span><span class="p">.</span><span class="n">AgentUuid</span><span class="p">,</span> <span class="n">eventStart</span><span class="p">:</span> <span class="m">1462317907</span><span class="p">,</span> <span class="n">eventEnd</span><span class="p">:</span> <span class="m">1461108284</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetEventsByDateAsync</span><span class="p">(</span><span class="n">agentUuid</span><span class="p">,</span><span class="n">AgentIdType</span><span class="p">.</span><span class="n">AgentUuid</span><span class="p">,</span> <span class="m">1462317907</span><span class="p">,</span><span class="m">1461108284</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 
@@ -12176,7 +12176,7 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <span class="n">var</span> <span class="n">moxiWorksAgentID</span> <span class="p">=</span> <span class="s">"1234bcd;
 </span>
 <span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">EventService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
-<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetEventsByDateAsync</span><span class="p">(</span><span class="n">agentId</span><span class="p">:</span> <span class="n">moxiWorksAgentID</span><span class="p">,</span> <span class="n">agentIdType</span><span class="p">:</span> <span class="n">AgentIdType</span><span class="p">.</span><span class="n">MoxiWorksAgentId</span><span class="p">,</span> <span class="n">eventStart</span><span class="p">:</span> <span class="m">1462317907</span><span class="p">,</span> <span class="n">eventEnd</span><span class="p">:</span> <span class="m">1461108284</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetEventsByDateAsync</span><span class="p">(</span><span class="n">moxiWorksAgentID</span><span class="p">,</span> <span class="n">AgentIdType</span><span class="p">.</span><span class="n">MoxiWorksAgentId</span><span class="p">,</span> <span class="m">1462317907</span><span class="p">,</span> <span class="m">1461108284</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 
@@ -12541,7 +12541,7 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <span class="n">var</span> <span class="n">agentUuid</span> <span class="p">=</span> <span class="s">"12345678-1234-1234-1234-1234567890ab"</span><span class="p">;</span>
 
 <span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">EventService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
-<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">DeleteEventAsync</span><span class="p">(</span><span class="n">agentId</span><span class="p">:</span> <span class="n">agentUuid</span><span class="p">,</span> <span class="n">agentIdType</span><span class="p">:</span> <span class="n">AgentIdType</span><span class="p">.</span><span class="n">AgentUuid</span><span class="p">,</span> <span class="n">eventId</span><span class="p">:</span> <span class="n">eventID</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">DeleteEventAsync</span><span class="p">(</span> <span class="n">agentUuid</span><span class="p">,</span> <span class="n">AgentIdType</span><span class="p">.</span><span class="n">AgentUuid</span><span class="p">,</span> <span class="n">eventID</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 
@@ -12601,7 +12601,7 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <span class="n">var</span> <span class="n">moxiWorksAgentID</span> <span class="p">=</span> <span class="s">"1234abcd"</span><span class="p">;</span>
 
 <span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">EventService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
-<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">DeleteEventAsync</span><span class="p">(</span><span class="n">agentId</span><span class="p">:</span> <span class="n">agentUuid</span><span class="p">,</span> <span class="n">agentIdType</span><span class="p">:</span> <span class="n">AgentIdType</span><span class="p">.</span><span class="n">MoxiWorksAgentId</span><span class="p">,</span> <span class="n">eventId</span><span class="p">:</span> <span class="n">eventID</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">DeleteEventAsync</span><span class="p">(</span> <span class="n">agentUuid</span><span class="p">,</span>  <span class="n">AgentIdType</span><span class="p">.</span><span class="n">MoxiWorksAgentId</span><span class="p">,</span> <span class="n">eventId</span><span class="p">:</span> <span class="n">eventID</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 
@@ -12765,7 +12765,7 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <span class="n">var</span> <span class="n">moxiWorksCompanyId</span> <span class="p">=</span> <span class="s">"abc123"</span><span class="p">;</span>
 
 <span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">GalleryService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
-<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetGalleryAsync</span><span class="p">(</span><span class="n">agentId</span><span class="p">:</span> <span class="n">agentUuid</span><span class="p">,</span> <span class="n">agentIdType</span><span class="p">:</span> <span class="n">AgentIdType</span><span class="p">.</span><span class="n">AgentUuid</span><span class="p">,</span> <span class="n">moxiWorksCompanyId</span><span class="p">:</span> <span class="n">moxiWorksCompanyId</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetGalleryAsync</span><span class="p">(</span><span class="n">agentUuid</span><span class="p">,</span> <span class="n">AgentIdType</span><span class="p">.</span><span class="n">AgentUuid</span><span class="p">,</span> <span class="n">moxiWorksCompanyId</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 
@@ -12824,7 +12824,7 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <span class="n">var</span> <span class="n">moxiWorksCompanyId</span> <span class="p">=</span> <span class="s">"abc123"</span><span class="p">;</span>
 
 <span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">GalleryService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
-<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetGalleryAsync</span><span class="p">(</span><span class="n">agentId</span><span class="p">:</span> <span class="n">agentId</span><span class="p">,</span> <span class="n">agentIdType</span><span class="p">:</span> <span class="n">AgentIdType</span><span class="p">.</span><span class="n">MoxiWorksAgentId</span><span class="p">,</span> <span class="n">moxiWorksCompanyId</span><span class="p">:</span> <span class="n">moxiWorksCompanyId</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetGalleryAsync</span><span class="p">(</span><span class="n">agentId</span><span class="p">,</span> <span class="n">AgentIdType</span><span class="p">.</span><span class="n">MoxiWorksAgentId</span><span class="p">,</span> <span class="n">moxiWorksCompanyId</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 
@@ -13115,7 +13115,7 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <span class="n">var</span> <span class="n">moxiWorksGroupId</span> <span class="p">=</span> <span class="s">"booyuh"</span><span class="p">;</span>
 
 <span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">GroupService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
-<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetGroupAsync</span><span class="p">(</span><span class="n">agentId</span><span class="p">:</span> <span class="n">agentUuid</span><span class="p">,</span> <span class="n">agentIdType</span><span class="p">:</span> <span class="n">AgentIdType</span><span class="p">.</span><span class="n">AgentUuid</span><span class="p">,</span> <span class="n">moxiWorksGroupId</span><span class="p">:</span> <span class="n">moxiWorksGroupId</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetGroupAsync</span><span class="p">(</span><span class="n">agentUuid</span><span class="p">,</span>  <span class="n">AgentIdType</span><span class="p">.</span><span class="n">AgentUuid</span><span class="p">,</span> <span class="n">moxiWorksGroupId</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 
@@ -13174,7 +13174,7 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <span class="n">var</span> <span class="n">moxiWorksGroupId</span> <span class="p">=</span> <span class="s">"booyuh"</span><span class="p">;</span>
 
 <span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">GroupService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
-<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetGroupAsync</span><span class="p">(</span><span class="n">agentId</span><span class="p">:</span> <span class="n">moxiWorksAgentId</span><span class="p">,</span> <span class="n">agentIdType</span><span class="p">:</span> <span class="n">AgentIdType</span><span class="p">.</span><span class="n">MoxiWorksAgentId</span><span class="p">,</span> <span class="n">moxiWorksGroupId</span><span class="p">:</span> <span class="n">moxiWorksGroupId</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetGroupAsync</span><span class="p">(</span> <span class="n">moxiWorksAgentId</span><span class="p">,</span>  <span class="n">AgentIdType</span><span class="p">.</span><span class="n">MoxiWorksAgentId</span><span class="p">,</span> <span class="n">moxiWorksGroupId</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 
@@ -13586,7 +13586,7 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <span class="n">var</span> <span class="n">groupName</span> <span class="p">=</span> <span class="s">"group abc123"</span><span class="p">;</span>
 
 <span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">GroupsService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
-<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetGroupsAsync</span><span class="p">(</span><span class="n">agentId</span><span class="p">:</span> <span class="n">agentUuid</span><span class="p">,</span> <span class="n">agentIdType</span><span class="p">:</span> <span class="n">AgentIdType</span><span class="p">.</span><span class="n">AgentUuid</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="n">groupName</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetGroupsAsync</span><span class="p">(</span><span class="n">agentUuid</span><span class="p">,</span> <span class="n">AgentIdType</span><span class="p">.</span><span class="n">AgentUuid</span><span class="p">,</span> <span class="n">groupName</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 
@@ -13654,7 +13654,7 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 </span><span class="n">var</span> <span class="n">groupName</span> <span class="p">=</span> <span class="s">"group abc123"</span><span class="p">;</span>
 
 <span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">GroupsService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
-<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetGroupsAsync</span><span class="p">(</span><span class="n">agentId</span><span class="p">:</span> <span class="n">moxiWorksAgentID</span><span class="p">,</span> <span class="n">agentIdType</span><span class="p">:</span> <span class="n">AgentIdType</span><span class="p">.</span><span class="n">MoxiWorksAgentId</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="n">groupName</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetGroupsAsync</span><span class="p">(</span><span class="n">moxiWorksAgentID</span><span class="p">,</span> <span class="n">AgentIdType</span><span class="p">.</span><span class="n">MoxiWorksAgentId</span><span class="p">,</span> <span class="n">groupName</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 
 </code></pre>
@@ -13936,7 +13936,7 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
   </span><span class="nt">"BathroomsTotal"</span><span class="p">:</span><span class="mf">3.0</span><span class="p">,</span><span class="w">
   </span><span class="nt">"BedroomsTotal"</span><span class="p">:</span><span class="mi">8</span><span class="p">,</span><span class="w">
   </span><span class="nt">"PublicRemarks"</span><span class="p">:</span><span class="s2">"Publicalistically Remarkabalistically! REMARKABLE!!"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"ModificationTimestamp"</span><span class="p">:</span><span class="s2">"11/01/2016"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ModificationTimestamp"</span><span class="p">:</span><span class="s2">"2018-03-20T11:04:55.659-07:00"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"InternetAddressDisplayYN"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
   </span><span class="nt">"DaysOnMarket"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
   </span><span class="nt">"ListingContractDate"</span><span class="p">:</span><span class="s2">"07/27/2016"</span><span class="p">,</span><span class="w">
@@ -14327,7 +14327,7 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <span class="response-data-remarks">These are human-readable notes about the property generated by the property agent.  If no data is available for this attribute, it will be <code class="prettyprint">null</code>.</span></p>
 
 <p><span class="response-data-head">ModificationTimestamp</span>
-<span class="response-data-remarks">This is a string representing a date on which the listing data was last updated. The string format is <code class="prettyprint">MM/DD/YYYY</code>.  If no data is available for this attribute, it will be <code class="prettyprint">null</code>.</span></p>
+<span class="response-data-remarks">This is a string representing a date on which the listing data was last updated in ISO 8601 format.  If no data is available for this attribute, it will be <code class="prettyprint">null</code>.</span></p>
 
 <p><span class="response-data-head">InternetAddressDisplayYN</span>
 <span class="response-data-remarks">This denotes whether the property should be displayed on a public facing website. If no data is available for this attribute, it will be <code class="prettyprint">null</code>.</span></p>
@@ -14679,7 +14679,7 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <span class="n">var</span> <span class="n">moxiWorksCompanyId</span> <span class="p">=</span> <span class="s">"abc123"</span><span class="p">;</span>
 
 <span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">ListingService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
-<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetListingAsync</span><span class="p">(</span><span class="n">moxiWorksListingId</span><span class="p">:</span> <span class="n">moxiWorksListingId</span><span class="p">,</span> <span class="n">moxiWorksCompanyId</span><span class="p">:</span> <span class="n">moxiWorksCompanyId</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetListingAsync</span><span class="p">(</span><span class="n">moxiWorksListingId</span><span class="p">,</span> <span class="n">moxiWorksCompanyId</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 
@@ -14761,7 +14761,7 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
   </span><span class="nt">"BathroomsTotal"</span><span class="p">:</span><span class="mf">3.0</span><span class="p">,</span><span class="w">
   </span><span class="nt">"BedroomsTotal"</span><span class="p">:</span><span class="mi">8</span><span class="p">,</span><span class="w">
   </span><span class="nt">"PublicRemarks"</span><span class="p">:</span><span class="s2">"Publicalistically Remarkabalistically! REMARKABLE!!"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"ModificationTimestamp"</span><span class="p">:</span><span class="s2">"11/01/2016"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ModificationTimestamp"</span><span class="p">:</span><span class="s2">"2018-03-20T11:04:55.659-07:00"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"InternetAddressDisplayYN"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
   </span><span class="nt">"DaysOnMarket"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
   </span><span class="nt">"ListingContractDate"</span><span class="p">:</span><span class="s2">"07/27/2016"</span><span class="p">,</span><span class="w">
@@ -15152,7 +15152,7 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <span class="response-data-remarks">These are human-readable notes about the property generated by the property agent.  If no data is available for this attribute, it will be <code class="prettyprint">null</code>.</span></p>
 
 <p><span class="response-data-head">ModificationTimestamp</span>
-<span class="response-data-remarks">This is a string representing a date on which the listing data was last updated. The string format is <code class="prettyprint">MM/DD/YYYY</code>.  If no data is available for this attribute, it will be <code class="prettyprint">null</code>.</span></p>
+<span class="response-data-remarks">This is a string representing a date on which the listing data was last updated in ISO 8601 format.  If no data is available for this attribute, it will be <code class="prettyprint">null</code>.</span></p>
 
 <p><span class="response-data-head">InternetAddressDisplayYN</span>
 <span class="response-data-remarks">This denotes whether the property should be displayed on a public facing website. If no data is available for this attribute, it will be <code class="prettyprint">null</code>.</span></p>
@@ -15507,9 +15507,10 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 
 <span class="n">var</span> <span class="n">agentUuid</span> <span class="p">=</span> <span class="s">"12345678-1234-1234-1234-1234567890ab"</span><span class="p">;</span>
 <span class="n">var</span> <span class="n">moxiWorksCompanyId</span> <span class="p">=</span> <span class="s">"abc123"</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">updatedSince</span> <span class="p">=</span> <span class="m">1462317907</span><span class="p">;</span>
 
 <span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">ListingService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
-<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetListingsUpdatedSinceAsync</span><span class="p">(</span><span class="n">agentId</span><span class="p">:</span> <span class="n">agentUuid</span><span class="p">,</span> <span class="n">agentIdType</span><span class="p">:</span> <span class="n">AgentIdType</span><span class="p">.</span><span class="n">AgentUuid</span><span class="p">,</span> <span class="n">moxiWorksCompanyId</span><span class="p">:</span> <span class="n">moxiWorksCompanyId</span><span class="p">,</span> <span class="n">updatedSince</span><span class="p">:</span> <span class="m">1462317907</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetListingsUpdatedSinceAsync</span><span class="p">(</span> <span class="n">agentUuid</span><span class="p">,</span> <span class="n">AgentIdType</span><span class="p">.</span><span class="n">AgentUuid</span><span class="p">,</span> <span class="n">moxiWorksCompanyId</span><span class="p">,</span> <span class="n">updatedSince</span> <span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 
@@ -15567,9 +15568,10 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 
 <span class="n">var</span> <span class="n">moxiWorksAgentID</span> <span class="p">=</span> <span class="s">"1234bcd;
 </span><span class="n">var</span> <span class="n">moxiWorksCompanyId</span> <span class="p">=</span> <span class="s">"abc123"</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">updatedSince</span> <span class="p">=</span> <span class="m">1462317907</span><span class="p">;</span>
 
 <span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">ListingService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
-<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetListingsUpdatedSinceAsync</span><span class="p">(</span><span class="n">agentId</span><span class="p">:</span> <span class="n">moxiWorksAgentID</span><span class="p">,</span> <span class="n">agentIdType</span><span class="p">:</span> <span class="n">AgentIdType</span><span class="p">.</span><span class="n">MoxiWorksAgentId</span><span class="p">,</span> <span class="n">moxiWorksCompanyId</span><span class="p">:</span> <span class="n">moxiWorksCompanyId</span><span class="p">,</span> <span class="n">updatedSince</span><span class="p">:</span> <span class="m">1462317907</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetListingsUpdatedSinceAsync</span><span class="p">(</span><span class="n">moxiWorksAgentID</span><span class="p">,</span> <span class="n">AgentIdType</span><span class="p">.</span><span class="n">MoxiWorksAgentId</span><span class="p">,</span>  <span class="n">moxiWorksCompanyId</span><span class="p">,</span> <span class="n">updatedSince</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 
@@ -15695,7 +15697,7 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
   </span><span class="nt">"BathroomsTotal"</span><span class="p">:</span><span class="mf">3.0</span><span class="p">,</span><span class="w">
   </span><span class="nt">"BedroomsTotal"</span><span class="p">:</span><span class="mi">8</span><span class="p">,</span><span class="w">
   </span><span class="nt">"PublicRemarks"</span><span class="p">:</span><span class="s2">"Publicalistically Remarkabalistically! REMARKABLE!!"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"ModificationTimestamp"</span><span class="p">:</span><span class="s2">"11/01/2016"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ModificationTimestamp"</span><span class="p">:</span><span class="s2">"2018-03-20T11:04:55.659-07:00"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"InternetAddressDisplayYN"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
   </span><span class="nt">"DaysOnMarket"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
   </span><span class="nt">"ListingContractDate"</span><span class="p">:</span><span class="s2">"07/27/2016"</span><span class="p">,</span><span class="w">
@@ -16124,7 +16126,7 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <span class="response-data-remarks">These are human-readable notes about the property generated by the property agent.  If no data is available for this attribute, it will be <code class="prettyprint">null</code>.</span></p>
 
 <p><span class="response-data-head">ModificationTimestamp</span>
-<span class="response-data-remarks">This is a string representing a date on which the listing data was last updated. The string format is <code class="prettyprint">MM/DD/YYYY</code>.  If no data is available for this attribute, it will be <code class="prettyprint">null</code>.</span></p>
+<span class="response-data-remarks">This is a string representing a date on which the listing data was last updated in ISO 8601 format.  If no data is available for this attribute, it will be <code class="prettyprint">null</code>.</span></p>
 
 <p><span class="response-data-head">InternetAddressDisplayYN</span>
 <span class="response-data-remarks">This denotes whether the property should be displayed on a public facing website. If no data is available for this attribute, it will be <code class="prettyprint">null</code>.</span></p>
@@ -16480,7 +16482,7 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <span class="n">var</span> <span class="n">moxiWorksOfficeId</span> <span class="p">=</span> <span class="s">"deadbeef-deadbeef-feed-facedeadbeef"</span><span class="p">;</span>
 
 <span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">OfficeService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
-<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetOfficeAsync</span><span class="p">(</span><span class="n">moxiWorksOfficeId</span><span class="p">:</span> <span class="n">moxiWorksOfficeId</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetOfficeAsync</span><span class="p">(</span><span class="n">moxiWorksOfficeId</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 
@@ -16755,7 +16757,7 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <span class="n">var</span> <span class="n">moxiWorksCompanyId</span> <span class="p">=</span> <span class="s">"abc123"</span><span class="p">;</span>
 
 <span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">OfficeService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
-<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetCompanyOfficesAsync</span><span class="p">(</span><span class="n">moxiWorksCompanyId</span><span class="p">:</span> <span class="n">moxiWorksCompanyId</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetCompanyOfficesAsync</span><span class="p">(</span> <span class="n">moxiWorksCompanyId</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 
@@ -17093,7 +17095,7 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <span class="n">var</span> <span class="n">moxiWorksCompanyId</span> <span class="p">=</span> <span class="s">"abc123"</span><span class="p">;</span>
 
 <span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">PresentationLogService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
-<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetPresentationLogsAsync</span><span class="p">(</span><span class="n">moxiWorksCompanyId</span><span class="p">:</span> <span class="n">moxiWorksCompanyId</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetPresentationLogsAsync</span><span class="p">(</span> <span class="n">moxiWorksCompanyId</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 
@@ -17497,7 +17499,7 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;moxi_works_contact_id=babebe
 <span class="n">ConfigurationManager</span><span class="p">.</span><span class="n">AppSettings</span><span class="p">[</span><span class="s">"Secret"</span><span class="p">]</span> <span class="p">=</span> <span class="s">"secret"</span><span class="p">;</span>
 <span class="n">ConfigurationManager</span><span class="p">.</span><span class="n">AppSettings</span><span class="p">[</span><span class="s">"Identifier"</span><span class="p">]</span> <span class="p">=</span> <span class="s">"abc123"</span><span class="p">;</span>
 
-<span class="n">var</span> <span class="n">transaction</span> <span class="p">=</span> <span class="k">new</span> <span class="n">SellerTransaction</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">transaction</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">SellerTransaction</span><span class="p">();</span>
 <span class="n">transaction</span><span class="p">.</span><span class="n">AgentUuid</span> <span class="p">=</span> <span class="s">"12345678-1234-1234-1234-1234567890ab"</span><span class="p">;</span>
 <span class="n">transaction</span><span class="p">.</span><span class="n">MoxiWorksContactId</span> <span class="p">=</span> <span class="s">"babebead-feed-face-dead-beefbad4babe"</span><span class="p">;</span>
 <span class="n">transaction</span><span class="p">.</span><span class="n">TransactionName</span> <span class="p">=</span> <span class="s">"Bob And Linda Tonkanaka"</span><span class="p">;</span>
@@ -17518,7 +17520,7 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;moxi_works_contact_id=babebe
 <span class="n">transaction</span><span class="p">.</span><span class="n">MaxPrice</span> <span class="p">=</span> <span class="m">2323223</span><span class="p">;</span>
 
 <span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">SellerTransactionService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
-<span class="n">var</span> <span class="n">result</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">CreateSellerTransactionAsync</span><span class="p">(</span><span class="n">sellerTransaction</span><span class="p">:</span> <span class="n">sellerTransaction</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">result</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">CreateSellerTransactionAsync</span><span class="p">(</span><span class="n">sellerTransaction</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 
@@ -17623,7 +17625,7 @@ moxi_works_agent_id=abc123&amp;moxi_works_contact_id=babebead-feed-face-dead-bee
 <span class="n">ConfigurationManager</span><span class="p">.</span><span class="n">AppSettings</span><span class="p">[</span><span class="s">"Secret"</span><span class="p">]</span> <span class="p">=</span> <span class="s">"secret"</span><span class="p">;</span>
 <span class="n">ConfigurationManager</span><span class="p">.</span><span class="n">AppSettings</span><span class="p">[</span><span class="s">"Identifier"</span><span class="p">]</span> <span class="p">=</span> <span class="s">"abc123"</span><span class="p">;</span>
 
-<span class="n">var</span> <span class="n">transaction</span> <span class="p">=</span> <span class="k">new</span> <span class="n">SellerTransaction</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">transaction</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">SellerTransaction</span><span class="p">();</span>
 <span class="n">transaction</span><span class="p">.</span><span class="n">MoxiWorksAgentId</span> <span class="p">=</span> <span class="s">"abc123"</span><span class="p">;</span>
 <span class="n">transaction</span><span class="p">.</span><span class="n">MoxiWorksContactId</span> <span class="p">=</span> <span class="s">"babebead-feed-face-dead-beefbad4babe"</span><span class="p">;</span>
 <span class="n">transaction</span><span class="p">.</span><span class="n">TransactionName</span> <span class="p">=</span> <span class="s">"Bob And Linda Tonkanaka"</span><span class="p">;</span>
@@ -17644,7 +17646,7 @@ moxi_works_agent_id=abc123&amp;moxi_works_contact_id=babebead-feed-face-dead-bee
 <span class="n">transaction</span><span class="p">.</span><span class="n">MaxPrice</span> <span class="p">=</span> <span class="m">2323223</span><span class="p">;</span>
 
 <span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">SellerTransactionService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
-<span class="n">var</span> <span class="n">result</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">CreateSellerTransactionAsync</span><span class="p">(</span><span class="n">sellerTransaction</span><span class="p">:</span> <span class="n">sellerTransaction</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">result</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">CreateSellerTransactionAsync</span><span class="p">(</span> <span class="n">sellerTransaction</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 
@@ -17769,7 +17771,7 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;moxi_works_contact_id=babebe
 <span class="n">transaction</span><span class="p">.</span><span class="n">MaxPrice</span> <span class="p">=</span> <span class="m">2323223</span><span class="p">;</span>
 
 <span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">SellerTransactionService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
-<span class="n">var</span> <span class="n">result</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">CreateSellerTransactionAsync</span><span class="p">(</span><span class="n">sellerTransaction</span><span class="p">:</span> <span class="n">sellerTransaction</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">result</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">CreateSellerTransactionAsync</span><span class="p">(</span> <span class="n">sellerTransaction</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 
@@ -18358,7 +18360,7 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;beds=12&amp;baths=34.5&amp;n
 <span class="n">var</span> <span class="n">moxiWorksTransactionId</span> <span class="p">=</span> <span class="s">"babebead-feed-face-dead-beefbad4babe"</span><span class="p">;</span>
 
 <span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">SellerTransactionService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
-<span class="n">var</span> <span class="n">transaction</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetSellerTransactionAsync</span><span class="p">(</span><span class="n">agentId</span><span class="p">:</span> <span class="n">agentUuid</span><span class="p">,</span> <span class="n">agentIdType</span><span class="p">:</span> <span class="n">AgentIdType</span><span class="p">.</span><span class="n">AgentUuid</span><span class="p">,</span> <span class="n">moxiworksTransactionId</span><span class="p">:</span> <span class="n">moxiWorksTransactionId</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">transaction</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetSellerTransactionAsync</span><span class="p">(</span> <span class="n">agentUuid</span><span class="p">,</span> <span class="n">AgentIdType</span><span class="p">.</span><span class="n">AgentUuid</span><span class="p">,</span> <span class="n">moxiWorksTransactionId</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 <span class="n">transaction</span><span class="p">.</span><span class="n">TransactionName</span> <span class="p">=</span> <span class="s">"Bob And Linda Tonkanaka"</span><span class="p">;</span>
 <span class="n">transaction</span><span class="p">.</span><span class="n">Notes</span> <span class="p">=</span> <span class="s">"take care to write notes that are descriptive and helpful"</span><span class="p">;</span>
 <span class="n">transaction</span><span class="p">.</span><span class="n">Address</span> <span class="p">=</span> <span class="s">"1234 memory lane"</span><span class="p">;</span>
@@ -18375,7 +18377,7 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;beds=12&amp;baths=34.5&amp;n
 <span class="n">transaction</span><span class="p">.</span><span class="n">MinPrice</span> <span class="p">=</span> <span class="m">292929</span><span class="p">;</span>
 <span class="n">transaction</span><span class="p">.</span><span class="n">MaxPrice</span> <span class="p">=</span> <span class="m">2323223</span><span class="p">;</span>
 
-<span class="n">var</span> <span class="n">result</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">UpdateSellerTransactionAsync</span><span class="p">(</span><span class="n">sellerTransaction</span><span class="p">:</span> <span class="n">sellerTransaction</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">result</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">UpdateSellerTransactionAsync</span><span class="p">(</span><span class="n">sellerTransaction</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 
@@ -18487,7 +18489,7 @@ moxi_works_agent_id=abc123&amp;beds=12&amp;baths=34.5&amp;notes=take%20care%20to
 <span class="n">var</span> <span class="n">moxiWorksTransactionId</span> <span class="p">=</span> <span class="s">"babebead-feed-face-dead-beefbad4babe"</span><span class="p">;</span>
 
 <span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">SellerTransactionService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
-<span class="n">var</span> <span class="n">transaction</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetSellerTransactionAsync</span><span class="p">(</span><span class="n">agentId</span><span class="p">:</span> <span class="n">moxiWorksAgentId</span><span class="p">,</span> <span class="n">agentIdType</span><span class="p">:</span> <span class="n">AgentIdType</span><span class="p">.</span><span class="n">MoxiWorksAgentId</span><span class="p">,</span> <span class="n">moxiworksTransactionId</span><span class="p">:</span> <span class="n">moxiWorksTransactionId</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">transaction</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetSellerTransactionAsync</span><span class="p">(</span> <span class="n">moxiWorksAgentId</span><span class="p">,</span> <span class="n">AgentIdType</span><span class="p">.</span><span class="n">MoxiWorksAgentId</span><span class="p">,</span> <span class="n">moxiWorksTransactionId</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 <span class="n">transaction</span><span class="p">.</span><span class="n">TransactionName</span> <span class="p">=</span> <span class="s">"Bob And Linda Tonkanaka"</span><span class="p">;</span>
 <span class="n">transaction</span><span class="p">.</span><span class="n">Notes</span> <span class="p">=</span> <span class="s">"take care to write notes that are descriptive and helpful"</span><span class="p">;</span>
 <span class="n">transaction</span><span class="p">.</span><span class="n">Address</span> <span class="p">=</span> <span class="s">"1234 memory lane"</span><span class="p">;</span>
@@ -18505,7 +18507,7 @@ moxi_works_agent_id=abc123&amp;beds=12&amp;baths=34.5&amp;notes=take%20care%20to
 <span class="n">transaction</span><span class="p">.</span><span class="n">MinPrice</span> <span class="p">=</span> <span class="m">292929</span><span class="p">;</span>
 <span class="n">transaction</span><span class="p">.</span><span class="n">MaxPrice</span> <span class="p">=</span> <span class="m">2323223</span><span class="p">;</span>
 
-<span class="n">var</span> <span class="n">result</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">UpdateSellerTransactionAsync</span><span class="p">(</span><span class="n">sellerTransaction</span><span class="p">:</span> <span class="n">sellerTransaction</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">result</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">UpdateSellerTransactionAsync</span><span class="p">(</span><span class="n">sellerTransaction</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 
@@ -18616,7 +18618,7 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;beds=12&amp;baths=34.5&amp;n
 <span class="n">var</span> <span class="n">moxiWorksTransactionId</span> <span class="p">=</span> <span class="s">"babebead-feed-face-dead-beefbad4babe"</span><span class="p">;</span>
 
 <span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">SellerTransactionService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
-<span class="n">var</span> <span class="n">transaction</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetSellerTransactionAsync</span><span class="p">(</span><span class="n">agentId</span><span class="p">:</span> <span class="n">moxiWorksAgentId</span><span class="p">,</span> <span class="n">agentIdType</span><span class="p">:</span> <span class="n">AgentIdType</span><span class="p">.</span><span class="n">MoxiWorksAgentId</span><span class="p">,</span> <span class="n">moxiworksTransactionId</span><span class="p">:</span> <span class="n">moxiWorksTransactionId</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">transaction</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetSellerTransactionAsync</span><span class="p">(</span><span class="n">moxiWorksAgentId</span><span class="p">,</span> <span class="n">AgentIdType</span><span class="p">.</span><span class="n">MoxiWorksAgentId</span><span class="p">,</span> <span class="n">moxiWorksTransactionId</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 <span class="n">transaction</span><span class="p">.</span><span class="n">TransactionName</span> <span class="p">=</span> <span class="s">"Bob And Linda Tonkanaka"</span><span class="p">;</span>
 <span class="n">transaction</span><span class="p">.</span><span class="n">Notes</span> <span class="p">=</span> <span class="s">"take care to write notes that are descriptive and helpful"</span><span class="p">;</span>
 <span class="n">transaction</span><span class="p">.</span><span class="n">Address</span> <span class="p">=</span> <span class="s">"1234 memory lane"</span><span class="p">;</span>
@@ -18633,7 +18635,7 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;beds=12&amp;baths=34.5&amp;n
 <span class="n">transaction</span><span class="p">.</span><span class="n">MinPrice</span> <span class="p">=</span> <span class="m">292929</span><span class="p">;</span>
 <span class="n">transaction</span><span class="p">.</span><span class="n">MaxPrice</span> <span class="p">=</span> <span class="m">2323223</span><span class="p">;</span>
 
-<span class="n">var</span> <span class="n">result</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">UpdateSellerTransactionAsync</span><span class="p">(</span><span class="n">sellerTransaction</span><span class="p">:</span> <span class="n">sellerTransaction</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">result</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">UpdateSellerTransactionAsync</span><span class="p">(</span><span class="n">sellerTransaction</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 
@@ -19224,7 +19226,7 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab
 <span class="n">var</span> <span class="n">moxiWorksTransactionId</span> <span class="p">=</span> <span class="s">"babebead-feed-face-dead-beefbad4babe"</span><span class="p">;</span>
 
 <span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">SellerTransactionService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
-<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetSellerTransactionAsync</span><span class="p">(</span><span class="n">agentId</span><span class="p">:</span> <span class="n">agentUuid</span><span class="p">,</span> <span class="n">agentIdType</span><span class="p">:</span> <span class="n">AgentIdType</span><span class="p">.</span><span class="n">AgentUuid</span><span class="p">,</span> <span class="n">moxiworksTransactionId</span><span class="p">:</span> <span class="n">moxiWorksTransactionId</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetSellerTransactionAsync</span><span class="p">(</span><span class="n">agentUuid</span><span class="p">,</span> <span class="n">AgentIdType</span><span class="p">.</span><span class="n">AgentUuid</span><span class="p">,</span> <span class="n">moxiWorksTransactionId</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 
@@ -19290,7 +19292,7 @@ moxi_works_agent_id=abc123
 <span class="n">var</span> <span class="n">moxiWorksTransactionId</span> <span class="p">=</span> <span class="s">"babebead-feed-face-dead-beefbad4babe"</span><span class="p">;</span>
 
 <span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">SellerTransactionService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
-<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetSellerTransactionAsync</span><span class="p">(</span><span class="n">agentId</span><span class="p">:</span> <span class="n">moxiWorksAgentId</span><span class="p">,</span> <span class="n">agentIdType</span><span class="p">:</span> <span class="n">AgentIdType</span><span class="p">.</span><span class="n">MoxiWorksAgentId</span><span class="p">,</span> <span class="n">moxiworksTransactionId</span><span class="p">:</span> <span class="n">moxiWorksTransactionId</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetSellerTransactionAsync</span><span class="p">(</span><span class="n">moxiWorksAgentId</span><span class="p">,</span> <span class="n">AgentIdType</span><span class="p">.</span><span class="n">MoxiWorksAgentId</span><span class="p">,</span> <span class="n">moxiWorksTransactionId</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 
@@ -19679,7 +19681,7 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab
 <span class="n">var</span> <span class="n">agentUuid</span> <span class="p">=</span> <span class="s">"12345678-1234-1234-1234-1234567890ab"</span><span class="p">;</span>
 
 <span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">SellerTransactionService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
-<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetSellerTransactionsAsync</span><span class="p">(</span><span class="n">agentId</span><span class="p">:</span> <span class="n">agentUuid</span><span class="p">,</span> <span class="n">agentIdType</span><span class="p">:</span> <span class="n">AgentIdType</span><span class="p">.</span><span class="n">AgentUuid</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetSellerTransactionsAsync</span><span class="p">(</span><span class="n">agentUuid</span><span class="p">,</span> <span class="n">AgentIdType</span><span class="p">.</span><span class="n">AgentUuid</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 
@@ -19741,7 +19743,7 @@ moxi_works_agent_id=abc123
 <span class="n">var</span> <span class="n">moxiWorksAgentId</span> <span class="p">=</span> <span class="s">"abc123"</span><span class="p">;</span>
 
 <span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">SellerTransactionService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
-<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetSellerTransactionsAsync</span><span class="p">(</span><span class="n">agentId</span><span class="p">:</span> <span class="n">moxiWorksAgentId</span><span class="p">,</span> <span class="n">agentIdType</span><span class="p">:</span> <span class="n">AgentIdType</span><span class="p">.</span><span class="n">MoxiWorksAgentId</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetSellerTransactionsAsync</span><span class="p">(</span> <span class="n">moxiWorksAgentId</span><span class="p">,</span>  <span class="n">AgentIdType</span><span class="p">.</span><span class="n">MoxiWorksAgentId</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 
@@ -20192,7 +20194,7 @@ moxi_works_agent_id=abc123
 <span class="n">var</span> <span class="n">moxiWorksCompanyId</span> <span class="p">=</span> <span class="s">"abc123"</span><span class="p">;</span>
 
 <span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">SoldListingService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
-<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetSoldListingAsync</span><span class="p">(</span><span class="n">moxiWorksListingId</span><span class="p">:</span> <span class="n">moxiWorksListingId</span><span class="p">,</span> <span class="n">moxiWorksCompanyId</span><span class="p">:</span> <span class="n">moxiWorksCompanyId</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetSoldListingAsync</span><span class="p">(</span> <span class="n">moxiWorksListingId</span><span class="p">,</span>  <span class="n">moxiWorksCompanyId</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 
@@ -20983,7 +20985,7 @@ moxi_works_agent_id=abc123
 <span class="n">var</span> <span class="n">moxiWorksCompanyId</span> <span class="p">=</span> <span class="s">"abc123"</span><span class="p">;</span>
 
 <span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">SoldListingService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
-<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetSoldListingsUpdatedSinceAsync</span><span class="p">(</span><span class="n">agentId</span><span class="p">:</span> <span class="n">agentUuid</span><span class="p">,</span> <span class="n">agentIdType</span><span class="p">:</span> <span class="n">AgentIdType</span><span class="p">.</span><span class="n">AgentUuid</span><span class="p">,</span> <span class="n">moxiWorksCompanyId</span><span class="p">:</span> <span class="n">moxiWorksCompanyId</span><span class="p">,</span> <span class="n">updatedSince</span><span class="p">:</span> <span class="m">1462317907</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetSoldListingsUpdatedSinceAsync</span><span class="p">(</span><span class="n">agentUuid</span><span class="p">,</span> <span class="n">AgentIdType</span><span class="p">.</span><span class="n">AgentUuid</span><span class="p">,</span> <span class="n">moxiWorksCompanyId</span><span class="p">,</span> <span class="m">1462317907</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 
@@ -21043,7 +21045,7 @@ moxi_works_agent_id=abc123
 </span><span class="n">var</span> <span class="n">moxiWorksCompanyId</span> <span class="p">=</span> <span class="s">"abc123"</span><span class="p">;</span>
 
 <span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">SoldListingService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
-<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetSoldListingsUpdatedSinceAsync</span><span class="p">(</span><span class="n">agentId</span><span class="p">:</span> <span class="n">moxiWorksAgentID</span><span class="p">,</span> <span class="n">agentIdType</span><span class="p">:</span> <span class="n">AgentIdType</span><span class="p">.</span><span class="n">MoxiWorksAgentId</span><span class="p">,</span> <span class="n">moxiWorksCompanyId</span><span class="p">:</span> <span class="n">moxiWorksCompanyId</span><span class="p">,</span> <span class="n">updatedSince</span><span class="p">:</span> <span class="m">1462317907</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetSoldListingsUpdatedSinceAsync</span><span class="p">(</span> <span class="n">moxiWorksAgentID</span><span class="p">,</span>  <span class="n">AgentIdType</span><span class="p">.</span><span class="n">MoxiWorksAgentId</span><span class="p">,</span>  <span class="n">moxiWorksCompanyId</span><span class="p">,</span>  <span class="m">1462317907</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 
@@ -21921,7 +21923,7 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;description=talk+to+private+
 <span class="n">ConfigurationManager</span><span class="p">.</span><span class="n">AppSettings</span><span class="p">[</span><span class="s">"Identifier"</span><span class="p">]</span> <span class="p">=</span> <span class="s">"abc123"</span><span class="p">;</span>
 
 
-<span class="n">var</span> <span class="n">task</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Task</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">task</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Task</span><span class="p">();</span>
 <span class="n">task</span><span class="p">.</span><span class="n">AgentUuid</span> <span class="p">=</span> <span class="s">"12345678-1234-1234-1234-1234567890ab"</span><span class="p">;</span>
 <span class="n">task</span><span class="p">.</span><span class="n">description</span> <span class="p">=</span> <span class="s">"talk to private kane, e-one-thousand about stuff"</span><span class="p">;</span>
 <span class="n">task</span><span class="p">.</span><span class="n">dueAt</span> <span class="p">=</span> <span class="m">1466208866</span><span class="p">;</span>
@@ -21932,7 +21934,7 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;description=talk+to+private+
 </span>
 
 <span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">TaskService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
-<span class="n">var</span> <span class="n">result</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">CreateTaskAsync</span><span class="p">(</span><span class="n">task</span><span class="p">:</span> <span class="n">task</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">result</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">CreateTaskAsync</span><span class="p">(</span><span class="n">task</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 
@@ -22008,7 +22010,7 @@ moxi_works_agent_id=abc123&amp;description=talk+to+private+kane,%2C+e-one-thousa
 <span class="n">ConfigurationManager</span><span class="p">.</span><span class="n">AppSettings</span><span class="p">[</span><span class="s">"Identifier"</span><span class="p">]</span> <span class="p">=</span> <span class="s">"abc123"</span><span class="p">;</span>
 
 
-<span class="n">var</span> <span class="n">task</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Task</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">task</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Task</span><span class="p">();</span>
 <span class="n">task</span><span class="p">.</span><span class="n">moxiWorksAgentId</span> <span class="p">=</span> <span class="s">"abc123"</span><span class="p">;</span>
 <span class="n">task</span><span class="p">.</span><span class="n">description</span> <span class="p">=</span> <span class="s">"talk to private kane, e-one-thousand about stuff"</span><span class="p">;</span>
 <span class="n">task</span><span class="p">.</span><span class="n">dueAt</span> <span class="p">=</span> <span class="m">1466208866</span><span class="p">;</span>
@@ -22019,7 +22021,7 @@ moxi_works_agent_id=abc123&amp;description=talk+to+private+kane,%2C+e-one-thousa
 </span>
 
 <span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">TaskService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
-<span class="n">var</span> <span class="n">result</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">CreateTaskAsync</span><span class="p">(</span><span class="n">task</span><span class="p">:</span> <span class="n">task</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">result</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">CreateTaskAsync</span><span class="p">(</span><span class="n">task</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 
@@ -22317,12 +22319,12 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;description=talk+to+private+
 <span class="n">var</span> <span class="n">partnerContactId</span> <span class="p">=</span> <span class="s">"booyuh"</span><span class="p">;</span>
 
 <span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">TaskService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
-<span class="n">var</span> <span class="n">task</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetTaskAsync</span><span class="p">(</span><span class="n">agentId</span><span class="p">:</span> <span class="n">agentUuid</span><span class="p">,</span> <span class="n">agentIdType</span><span class="p">:</span> <span class="n">AgentIdType</span><span class="p">.</span><span class="n">AgentUuid</span><span class="p">,</span> <span class="n">partnerContactId</span><span class="p">:</span> <span class="n">partnerContactId</span><span class="p">,</span>  <span class="n">partnerTaskId</span><span class="p">:</span> <span class="n">partnerTaskId</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">task</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetTaskAsync</span><span class="p">(</span> <span class="n">agentUuid</span><span class="p">,</span>  <span class="n">AgentIdType</span><span class="p">.</span><span class="n">AgentUuid</span><span class="p">,</span>  <span class="n">partnerContactId</span><span class="p">,</span>  <span class="n">partnerTaskId</span><span class="p">:</span> <span class="n">partnerTaskId</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 <span class="n">task</span><span class="p">.</span><span class="n">description</span> <span class="p">=</span> <span class="s">"talk to private kane, e-one-thousand about stuff"</span><span class="p">;</span>
 <span class="n">task</span><span class="p">.</span><span class="n">dueAt</span> <span class="p">=</span> <span class="m">1466208866</span><span class="p">;</span>
 <span class="n">task</span><span class="p">.</span><span class="n">duration</span> <span class="p">=</span> <span class="m">10</span><span class="p">;</span>
 <span class="n">task</span><span class="p">.</span><span class="n">name</span> <span class="p">=</span> <span class="s">"Do This Please"</span><span class="p">;</span>
-<span class="n">var</span> <span class="n">result</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">UpdateTaskAsync</span><span class="p">(</span><span class="n">task</span><span class="p">:</span> <span class="n">task</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">result</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">UpdateTaskAsync</span><span class="p">(</span> <span class="n">task</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 
@@ -22406,12 +22408,12 @@ moxi_works_agent_id=abc123&amp;description=talk+to+private+kane,%2C+e-one-thousa
 <span class="n">var</span> <span class="n">partnerContactId</span> <span class="p">=</span> <span class="s">"booyuh"</span><span class="p">;</span>
 
 <span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">TaskService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
-<span class="n">var</span> <span class="n">task</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetTaskAsync</span><span class="p">(</span><span class="n">agentId</span><span class="p">:</span> <span class="n">moxiWorksAgentId</span><span class="p">,</span> <span class="n">agentIdType</span><span class="p">:</span> <span class="n">AgentIdType</span><span class="p">.</span><span class="n">MoxiWorksAgentId</span><span class="p">,</span> <span class="n">partnerContactId</span><span class="p">:</span> <span class="n">partnerContactId</span><span class="p">,</span>  <span class="n">partnerTaskId</span><span class="p">:</span> <span class="n">partnerTaskId</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">task</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetTaskAsync</span><span class="p">(</span> <span class="n">moxiWorksAgentId</span><span class="p">,</span>  <span class="n">AgentIdType</span><span class="p">.</span><span class="n">MoxiWorksAgentId</span><span class="p">,</span>  <span class="n">partnerContactId</span><span class="p">,</span>  <span class="n">partnerTaskId</span><span class="p">:</span> <span class="n">partnerTaskId</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 <span class="n">task</span><span class="p">.</span><span class="n">description</span> <span class="p">=</span> <span class="s">"talk to private kane, e-one-thousand about stuff"</span><span class="p">;</span>
 <span class="n">task</span><span class="p">.</span><span class="n">dueAt</span> <span class="p">=</span> <span class="m">1466208866</span><span class="p">;</span>
 <span class="n">task</span><span class="p">.</span><span class="n">duration</span> <span class="p">=</span> <span class="m">10</span><span class="p">;</span>
 <span class="n">task</span><span class="p">.</span><span class="n">name</span> <span class="p">=</span> <span class="s">"Do This Please"</span><span class="p">;</span>
-<span class="n">var</span> <span class="n">result</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">UpdateTaskAsync</span><span class="p">(</span><span class="n">task</span><span class="p">:</span> <span class="n">task</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">result</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">UpdateTaskAsync</span><span class="p">(</span> <span class="n">task</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 
@@ -22710,7 +22712,7 @@ moxi_works_agent_id=abc123&amp;description=talk+to+private+kane,%2C+e-one-thousa
 <span class="n">var</span> <span class="n">partnerContactId</span> <span class="p">=</span> <span class="s">"booyuh"</span><span class="p">;</span>
 
 <span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">TaskService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
-<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetTaskAsync</span><span class="p">(</span><span class="n">agentId</span><span class="p">:</span> <span class="n">agentUuid</span><span class="p">,</span> <span class="n">agentIdType</span><span class="p">:</span> <span class="n">AgentIdType</span><span class="p">.</span><span class="n">AgentUuid</span><span class="p">,</span> <span class="n">partnerContactId</span><span class="p">:</span> <span class="n">partnerContactId</span><span class="p">,</span>  <span class="n">partnerTaskId</span><span class="p">:</span> <span class="n">partnerTaskId</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetTaskAsync</span><span class="p">(</span> <span class="n">agentUuid</span><span class="p">,</span>  <span class="n">AgentIdType</span><span class="p">.</span><span class="n">AgentUuid</span><span class="p">,</span>  <span class="n">partnerContactId</span><span class="p">,</span> <span class="n">partnerTaskId</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 
@@ -22776,7 +22778,7 @@ moxi_works_agent_id=abc123&amp;description=talk+to+private+kane,%2C+e-one-thousa
 <span class="n">var</span> <span class="n">partnerContactId</span> <span class="p">=</span> <span class="s">"booyuh"</span><span class="p">;</span>
 
 <span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">TaskService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
-<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetTaskAsync</span><span class="p">(</span><span class="n">agentId</span><span class="p">:</span> <span class="n">moxiWorksAgentId</span><span class="p">,</span> <span class="n">agentIdType</span><span class="p">:</span> <span class="n">AgentIdType</span><span class="p">.</span><span class="n">MoxiWorksAgentId</span><span class="p">,</span> <span class="n">partnerContactId</span><span class="p">:</span> <span class="n">partnerContactId</span><span class="p">,</span>  <span class="n">partnerTaskId</span><span class="p">:</span> <span class="n">partnerTaskId</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetTaskAsync</span><span class="p">(</span> <span class="n">moxiWorksAgentId</span><span class="p">,</span>  <span class="n">AgentIdType</span><span class="p">.</span><span class="n">MoxiWorksAgentId</span><span class="p">,</span>  <span class="n">partnerContactId</span><span class="p">,</span> <span class="n">partnerTaskId</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 

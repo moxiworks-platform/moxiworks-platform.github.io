@@ -253,6 +253,7 @@
   </span><span class="nt">"lead_routing_email_address"</span><span class="p">:</span><span class="s2">"leadrouter@thisdomain.com"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Broker"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"uuid"</span><span class="p">:</span><span class="s2">"8675309e9-1234-dead-beef-deadbeefdead"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"has_engage_access"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
   </span><span class="nt">"twitter"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://twitter.com/agentguy"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"google_plus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://plus.google.com/1234567891011121314/posts"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"facebook"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.facebook.com/moxiworks/"</span><span class="p">,</span><span class="w">
@@ -450,6 +451,10 @@
 <td><span class="data-type">String</span></td>
 </tr>
 <tr>
+<td><span class="response-data">has_engage_access</span></td>
+<td><span class="data-type">Boolean</span></td>
+</tr>
+<tr>
 <td><span class="response-data">twitter</span></td>
 <td><span class="data-type">String or null</span></td>
 </tr>
@@ -571,6 +576,9 @@
 
 <p><span class="response-data-head">uuid</span>
 <span class="response-data-remarks">This is  an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID associated with the agent. This UUID can be used as a unique identifier in determining associations between  <span class='entity-name'>Agent</span> objects and  <span class='entity-name'>Listing</span> objects.</span></p>
+
+<p><span class="response-data-head">has_engage_access</span>
+<span class="response-data-remarks">Indicates whether the agent has access to Moxiworks Engage.</span></p>
 
 <p><span class="response-data-head">twitter</span>
 <span class="response-data-remarks">Agent&rsquo;s Twitter URL. This can be null if there is no data available for this attribute.</span></p>

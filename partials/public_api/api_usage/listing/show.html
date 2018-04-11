@@ -156,6 +156,8 @@
   </span><span class="nt">"ListingID"</span><span class="p">:</span><span class="s2">"12323"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"ListAgentFullName"</span><span class="p">:</span><span class="s2">"Bob Agentson"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"ListAgentUUID"</span><span class="p">:</span><span class="s2">"8675309e9-1234-dead-beef-deadbeefdead"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ListAgentOfficeID"</span><span class="p">:</span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ListAgentMoxiWorksOfficeID"</span><span class="p">:</span><span class="s2">"abcd1234"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"SecondaryListAgentFullName"</span><span class="p">:</span><span class="s2">"Richard Agent"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"SecondaryListAgentUUID"</span><span class="p">:</span><span class="s2">"8675309e9-2345-dead-beef-deadbeefdead"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"Address"</span><span class="p">:</span><span class="s2">"97 Hilltop Road"</span><span class="p">,</span><span class="w">
@@ -368,6 +370,14 @@
 <td><span class="response-data"><span class="data-type">String</span></td>
 </tr>
 <tr>
+<td><span class="response-data">ListAgentOfficeID</span></td>
+<td><span class="response-data"><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">ListAgentMoxiWorksOfficeID</span></td>
+<td><span class="response-data"><span class="data-type">String</span></td>
+</tr>
+<tr>
 <td><span class="response-data">SecondaryListAgentFullName</span></td>
 <td><span class="response-data"><span class="data-type">String or null</span></td>
 </tr>
@@ -575,6 +585,12 @@
 
 <p><span class="response-data-head">ListAgentUUID</span>
 <span class="response-data-remarks">A unique identifier for the listing agent. This will correspond to the uuid field of an <span class='entity-name'>Agent</span>.</span></p>
+
+<p><span class="response-data-head">ListAgentOfficeID</span>
+<span class="response-data-remarks">A unique identifier for the listing agent&rsquo;s office. This will correspond to the office_id field of an <span class='entity-name'>Office</span>.</span></p>
+
+<p><span class="response-data-head">ListAgentMoxiWorksOfficeID</span>
+<span class="response-data-remarks">A unique identifier for the listing agent&rsquo;s office. This will correspond to the moxi_works_office_id field of an <span class='entity-name'>Office</span>.</span></p>
 
 <p><span class="response-data-head">SecondaryListAgentFullName</span>
 <span class="response-data-remarks">If there is a second listing agent, the name of the second listing agent.</span></p>

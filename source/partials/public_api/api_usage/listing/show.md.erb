@@ -133,6 +133,8 @@ Attribute | Type | Length Limit |
   "ListingID":"12323",
   "ListAgentFullName":"Bob Agentson",
   "ListAgentUUID":"8675309e9-1234-dead-beef-deadbeefdead",
+  "ListAgentOfficeID":"abc123",
+  "ListAgentMoxiWorksOfficeID":"abcd1234",
   "SecondaryListAgentFullName":"Richard Agent",
   "SecondaryListAgentUUID":"8675309e9-2345-dead-beef-deadbeefdead",
   "Address":"97 Hilltop Road",
@@ -268,6 +270,8 @@ Attribute | Type |
 |<span class="response-data">ListingID</span>|<span class="response-data"><span class="data-type">String</span>
 |<span class="response-data">ListAgentFullName</span>|<span class="response-data"><span class="data-type">String</span>
 |<span class="response-data">ListAgentUUID</span>|<span class="response-data"><span class="data-type">String</span>
+|<span class="response-data">ListAgentOfficeID</span>|<span class="response-data"><span class="data-type">String</span>
+|<span class="response-data">ListAgentMoxiWorksOfficeID</span>|<span class="response-data"><span class="data-type">String</span>
 |<span class="response-data">SecondaryListAgentFullName</span>|<span class="response-data"><span class="data-type">String or null</span>
 |<span class="response-data">SecondaryListAgentUUID</span>|<span class="response-data"><span class="data-type">String or null</span>
 |<span class="response-data">Address</span>|<span class="response-data"><span class="data-type">String or null</span>
@@ -393,6 +397,12 @@ Attribute | Type |
 
 <span class="response-data-head">ListAgentUUID</span>
 <span class="response-data-remarks">A unique identifier for the listing agent. This will correspond to the uuid field of an <span class='entity-name'>Agent</span>.</span>
+
+<span class="response-data-head">ListAgentOfficeID</span>
+<span class="response-data-remarks">A unique identifier for the listing agent's office. This will correspond to the office_id field of an <span class='entity-name'>Office</span>.</span>
+
+<span class="response-data-head">ListAgentMoxiWorksOfficeID</span>
+<span class="response-data-remarks">A unique identifier for the listing agent's office. This will correspond to the moxi_works_office_id field of an <span class='entity-name'>Office</span>.</span>
 
 
 <span class="response-data-head">SecondaryListAgentFullName</span>

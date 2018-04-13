@@ -130,3 +130,35 @@ Attribute | Type |
 
 <span class="response-data-head">name</span>
 <span class="response-data-remarks">This is a human readable name of the company which this <span class='entity-name'>Company</span> object represents.</span>
+
+<span class="response-data-head">partners</span>
+<span class="response-data-remarks">Partner data associated with this company</span>
+
+
+
+###### <span class='attribute-name'>partners</span> Objects
+
+Exstence of objects in the `partners` data structure is dependent upon external relationships existing between the company represented by this <span class='entity-name'>Company</span> and the partner. 
+
+<aside class="note">Documented entities in the `partners` data structure may or may not be returned based on company relationship. Your logic should be engineered to handle cases where the entity you are interested in is returned and where an empty data structure is returned.</aside>
+
+
+###### <span class='attribute-name'>leading_re</span> partner Objects
+
+Attribute | Type |
+-----|-----|-----|-----|
+|<span class="response-data">id</span>|<span class="response-data"><span class="data-type">String or null</span>
+
+
+<span class="response-data-head">id</span>
+<span class="response-data-remarks">This is the unique ID of this company in the LeadingRE system. </span>
+
+###### <span class='attribute-name'>salesforce</span> partner Objects
+
+Attribute | Type |
+-----|-----|-----|-----|
+|<span class="response-data">id</span>|<span class="response-data"><span class="data-type">String or null</span>
+
+
+<span class="response-data-head">salesforce_id</span>
+<span class="response-data-remarks">This is the unique ID of the company in the Salesforce system.</span>

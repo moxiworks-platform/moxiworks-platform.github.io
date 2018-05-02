@@ -132,6 +132,8 @@ Attribute | Type | Length Limit |
   "ListingID":"12323",
   "ListAgentFullName":"Bob Agentson",
   "ListAgentUUID":"8675309e9-1234-dead-beef-deadbeefdead",
+  "ListAgentOfficeID":"abc123",
+  "ListAgentMoxiWorksOfficeID":"abcd1234",
   "SecondaryListAgentFullName":"Richard Agent",
   "SecondaryListAgentUUID":"8675309e9-2345-dead-beef-deadbeefdead",
   "Address":"97 Hilltop Road",
@@ -160,6 +162,7 @@ Attribute | Type | Length Limit |
   "MoxiWorksListingId":"abc123",
   "AgentCreatedListing":false,
   "VirtualTourURL":"http://the.virtual.tour.url",
+  "ListingURL":"http://the.listing.url",
   "SoldDate":"11/04/2016",
   "SoldPrice":192349,
   "PropertyFeatures":[
@@ -193,6 +196,23 @@ Attribute | Type | Length Limit |
         "Microwave",
         "Oven/Range Freestanding"
       ]
+    }
+  ],
+  "CompanyListingAttributes": [
+    {
+      "AttributeId": "the collection",
+      "AttributeName": "The Collection"
+    },
+      {
+        "AttributeId": "destination",
+        "AttributeName": "Destination"
+    }
+  ],
+  "OpenHouse":[
+    {
+      "Date":"2018-01-06",
+      "StartTime":"13:00:00",
+      "EndTime":"15:00:00"
     }
   ],
   "ListingImages":[

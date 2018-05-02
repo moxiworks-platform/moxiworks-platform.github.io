@@ -175,9 +175,14 @@
 <td><span class="multi-option-required-data">255</span></td>
 </tr>
 <tr>
-<td><span class="required-data">partner_contact_id</span></td>
-<td><span class="required-data"><span class="data-type">String</span></span></td>
-<td><span class="required-data">255</span></td>
+<td><span class="optional-data">moxi_works_contact_id</span></td>
+<td><span class="optional-data"><span class="data-type">String</span></span></td>
+<td><span class="optional-data">255</span></td>
+</tr>
+<tr>
+<td><span class="optional-data">partner_contact_id</span></td>
+<td><span class="optional-data"><span class="data-type">String</span></span></td>
+<td><span class="optional-data">255</span></td>
 </tr>
 </tbody></table>
 
@@ -191,8 +196,11 @@
 <p><span class="request-data-head">moxi_works_agent_id</span>
 <span class="request-data-remarks">This is the Moxi Works Platform ID of the agent which an <span class='entity-name'>EmailCampaign</span> entry is associated with. This will be a string that may take the form of an email address, or a unique identification string. This data is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>EmailCampaign</span> request to be accepted.</span></p>
 
+<p><span class="request-data-head">moxi_works_contact_id</span>
+<span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Contact</span> which this <span class='entity-name'>EmailCompaign</span> object is to be associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID. This data must reference a valid Moxi Works <span class='entity-name'>Contact</span> ID for your <span class='entity-name'>EmailCampaign</span> <span class='action-name'>Index</span>  request to be accepted. This is the same as the <span class='attribute-name'>moxi_works_contact_id</span> attribute of the  <span class='entity-name'>Contact</span> response.</span></p>
+
 <p><span class="request-data-head">partner_contact_id</span>
-<span class="request-data-remarks">This is the unique identifer you use in your system that has been associated with the <span class='entity-name'>w</span> that you are creating an <span class='entity-name'>EmailCampaign</span> entry about. You should have already created the <span class='entity-name'>Contact</span> record on the Moxi Works Platform using <a href="/#contact-create">Contact Create</a> before attempting to use your system&rsquo;s contact ID to show <span class='entity-name'>EmailCampaign</span> entries for the <span class='entity-name'>Contact</span>. Your request will be rejected if the <span class='entity-name'>Contact</span> record does not exist.</span></p>
+<span class="request-data-remarks">This is the unique identifer you use in your system that has been associated with the <span class='entity-name'>Contact</span> that you are searching for an <span class='entity-name'>EmailCampaign</span> about. You should have already created the <span class='entity-name'>Contact</span> record on the Moxi Works Platform using <a href="/#contact-create">Contact Create</a> before attempting to use your system&rsquo;s contact ID to show <span class='entity-name'>EmailCampaign</span> entries for the <span class='entity-name'>Contact</span>. Your request will be rejected if the <span class='entity-name'>Contact</span> record does not exist.</span></p>
 
 <h5 id="emailcampaign-index-response-payload"><span class='entity-name'>EmailCampaign</span> <span class='action-name'>Index</span> Response Payload</h5>
 

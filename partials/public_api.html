@@ -28,7 +28,7 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id="moxi-works-api-1-15-5">Moxi Works API (1.15.5)</h1>
+        <h1 id="moxi-works-api-1-15-6">Moxi Works API (1.15.6)</h1>
 
 <h2 id="api-overview">API Overview</h2>
 
@@ -6619,6 +6619,10 @@ moxi_works_agent_id=abc123
 <td><span class="response-data">name</span></td>
 <td><span class="data-type">String</span></td>
 </tr>
+<tr>
+<td><span class="response-data">partners</span></td>
+<td><span class="data-type">Array</span></td>
+</tr>
 </tbody></table>
 
 <p><span class="response-data-head">moxi_works_company_id</span>
@@ -6626,6 +6630,49 @@ moxi_works_agent_id=abc123
 
 <p><span class="response-data-head">name</span>
 <span class="response-data-remarks">This is a human readable name of the company which this <span class='entity-name'>Company</span> object represents.</span></p>
+
+<p><span class="response-data-head">partners</span>
+<span class="response-data-remarks">Partner data associated with this company</span></p>
+
+<h6 id="partners-objects"><span class='attribute-name'>partners</span> Objects</h6>
+
+<p>Exstence of objects in the <code class="prettyprint">partners</code> data structure is dependent upon external relationships existing between the company represented by this <span class='entity-name'>Company</span> and the partner. </p>
+
+<aside class="note">Documented entities in the `partners` data structure may or may not be returned based on company relationship. Your logic should be engineered to handle cases where the entity you are interested in is returned and where an empty data structure is returned.</aside>
+
+<h6 id="leading_re-partner-objects"><span class='attribute-name'>leading_re</span> partner Objects</h6>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span class="response-data">id</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+</tbody></table>
+
+<p><span class="response-data-head">id</span>
+<span class="response-data-remarks">This is the unique ID of this company in the LeadingRE system. </span></p>
+
+<h6 id="salesforce-partner-objects"><span class='attribute-name'>salesforce</span> partner Objects</h6>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span class="response-data">id</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+</tbody></table>
+
+<p><span class="response-data-head">salesforce_id</span>
+<span class="response-data-remarks">This is the unique ID of the company in the Salesforce system.</span></p>
 
 
 <h4 id="company-index"><span class='entity-name'>Company</span> <span class='action-name'>Index</span></h4>
@@ -11256,9 +11303,14 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 <td><span class="multi-option-required-data">255</span></td>
 </tr>
 <tr>
-<td><span class="required-data">partner_contact_id</span></td>
-<td><span class="required-data"><span class="data-type">String</span></span></td>
-<td><span class="required-data">255</span></td>
+<td><span class="optional-data">moxi_works_contact_id</span></td>
+<td><span class="optional-data"><span class="data-type">String</span></span></td>
+<td><span class="optional-data">255</span></td>
+</tr>
+<tr>
+<td><span class="optional-data">partner_contact_id</span></td>
+<td><span class="optional-data"><span class="data-type">String</span></span></td>
+<td><span class="optional-data">255</span></td>
 </tr>
 </tbody></table>
 
@@ -11272,8 +11324,11 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 <p><span class="request-data-head">moxi_works_agent_id</span>
 <span class="request-data-remarks">This is the Moxi Works Platform ID of the agent which an <span class='entity-name'>EmailCampaign</span> entry is associated with. This will be a string that may take the form of an email address, or a unique identification string. This data is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>EmailCampaign</span> request to be accepted.</span></p>
 
+<p><span class="request-data-head">moxi_works_contact_id</span>
+<span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Contact</span> which this <span class='entity-name'>EmailCompaign</span> object is to be associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID. This data must reference a valid Moxi Works <span class='entity-name'>Contact</span> ID for your <span class='entity-name'>EmailCampaign</span> <span class='action-name'>Index</span>  request to be accepted. This is the same as the <span class='attribute-name'>moxi_works_contact_id</span> attribute of the  <span class='entity-name'>Contact</span> response.</span></p>
+
 <p><span class="request-data-head">partner_contact_id</span>
-<span class="request-data-remarks">This is the unique identifer you use in your system that has been associated with the <span class='entity-name'>w</span> that you are creating an <span class='entity-name'>EmailCampaign</span> entry about. You should have already created the <span class='entity-name'>Contact</span> record on the Moxi Works Platform using <a href="/#contact-create">Contact Create</a> before attempting to use your system&rsquo;s contact ID to show <span class='entity-name'>EmailCampaign</span> entries for the <span class='entity-name'>Contact</span>. Your request will be rejected if the <span class='entity-name'>Contact</span> record does not exist.</span></p>
+<span class="request-data-remarks">This is the unique identifer you use in your system that has been associated with the <span class='entity-name'>Contact</span> that you are searching for an <span class='entity-name'>EmailCampaign</span> about. You should have already created the <span class='entity-name'>Contact</span> record on the Moxi Works Platform using <a href="/#contact-create">Contact Create</a> before attempting to use your system&rsquo;s contact ID to show <span class='entity-name'>EmailCampaign</span> entries for the <span class='entity-name'>Contact</span>. Your request will be rejected if the <span class='entity-name'>Contact</span> record does not exist.</span></p>
 
 <h5 id="emailcampaign-index-response-payload"><span class='entity-name'>EmailCampaign</span> <span class='action-name'>Index</span> Response Payload</h5>
 
@@ -14662,6 +14717,16 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
       </span><span class="p">]</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"CompanyListingAttributes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"AttributeId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"the collection"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"AttributeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The Collection"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"AttributeId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"destination"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"AttributeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Destination"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
   </span><span class="nt">"OpenHouse"</span><span class="p">:[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"Date"</span><span class="p">:</span><span class="s2">"2018-01-06"</span><span class="p">,</span><span class="w">
@@ -15501,6 +15566,16 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
         </span><span class="s2">"Microwave"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"Oven/Range Freestanding"</span><span class="w">
       </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"CompanyListingAttributes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"AttributeId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"the collection"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"AttributeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The Collection"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"AttributeId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"destination"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"AttributeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Destination"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">
   </span><span class="nt">"OpenHouse"</span><span class="p">:[</span><span class="w">
@@ -20986,6 +21061,8 @@ moxi_works_agent_id=abc123
   </span><span class="nt">"ListingID"</span><span class="p">:</span><span class="s2">"12323"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"ListAgentFullName"</span><span class="p">:</span><span class="s2">"Bob Agentson"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"ListAgentUUID"</span><span class="p">:</span><span class="s2">"8675309e9-1234-dead-beef-deadbeefdead"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ListAgentOfficeID"</span><span class="p">:</span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ListAgentMoxiWorksOfficeID"</span><span class="p">:</span><span class="s2">"abcd1234"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"SecondaryListAgentFullName"</span><span class="p">:</span><span class="s2">"Richard Agent"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"SecondaryListAgentUUID"</span><span class="p">:</span><span class="s2">"8675309e9-2345-dead-beef-deadbeefdead"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"Address"</span><span class="p">:</span><span class="s2">"97 Hilltop Road"</span><span class="p">,</span><span class="w">
@@ -21014,6 +21091,7 @@ moxi_works_agent_id=abc123
   </span><span class="nt">"MoxiWorksListingId"</span><span class="p">:</span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"AgentCreatedListing"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="nt">"VirtualTourURL"</span><span class="p">:</span><span class="s2">"http://the.virtual.tour.url"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ListingURL"</span><span class="p">:</span><span class="s2">"http://the.listing.url"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"SoldDate"</span><span class="p">:</span><span class="s2">"11/04/2016"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"SoldPrice"</span><span class="p">:</span><span class="mi">192349</span><span class="p">,</span><span class="w">
   </span><span class="nt">"PropertyFeatures"</span><span class="p">:[</span><span class="w">
@@ -21047,6 +21125,23 @@ moxi_works_agent_id=abc123
         </span><span class="s2">"Microwave"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"Oven/Range Freestanding"</span><span class="w">
       </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"CompanyListingAttributes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"AttributeId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"the collection"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"AttributeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The Collection"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"AttributeId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"destination"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"AttributeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Destination"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"OpenHouse"</span><span class="p">:[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"Date"</span><span class="p">:</span><span class="s2">"2018-01-06"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"StartTime"</span><span class="p">:</span><span class="s2">"13:00:00"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"EndTime"</span><span class="p">:</span><span class="s2">"15:00:00"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">
   </span><span class="nt">"ListingImages"</span><span class="p">:[</span><span class="w">
@@ -21911,6 +22006,7 @@ moxi_works_agent_id=abc123
   </span><span class="nt">"MoxiWorksListingId"</span><span class="p">:</span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"AgentCreatedListing"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="nt">"VirtualTourURL"</span><span class="p">:</span><span class="s2">"http://the.virtual.tour.url"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ListingURL"</span><span class="p">:</span><span class="s2">"http://the.listing.url"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"SoldDate"</span><span class="p">:</span><span class="s2">"11/04/2016"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"SoldPrice"</span><span class="p">:</span><span class="mi">192349</span><span class="p">,</span><span class="w">
   </span><span class="nt">"PropertyFeatures"</span><span class="p">:[</span><span class="w">

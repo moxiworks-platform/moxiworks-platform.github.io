@@ -170,6 +170,7 @@ Attribute | Type | Length Limit |
 |<span class="optional-data">moxi_works_agent_id</span>|<span class="data-type">String</span>| 255 |
 |<span class="optional-data">moxi_works_office_id</span>|<span class="data-type">String</span>| 255 |
 |<span class="optional-data">last_moxi_works_listing_id</span>|<span class="data-type">String</span>| 255 |
+|<span class="optional-data">include_buyer_listings</span>|<span class="data-type">String</span>| 255 |
 
 
 <span class="required-data">**Required Parameters Are In Red**</span>
@@ -200,7 +201,11 @@ Attribute | Type | Length Limit |
 <span class="request-data-head">last_moxi_works_listing_id</span>
 <span class="request-data-remarks">If fetching a multi-page response, this should be the <span class='attribute-name'>MoxiWorksListingId</span> found in the last <span class='entity-name'>SoldListing</span> object of the previously fetched page.</span>
 
+<span class="request-data-head">include_buyer_listings</span>
+<span class="request-data-remarks">Listings for buyer agents will be included when this parameter is `true`.</span>
 
+
+<aside class="note">`include_buyer_listings` is only available by special arrangement with MoxiWorks. If you require access to buyer agent data, talk to your Platform representative.</aside>
 
 <blockquote><div class='highlight json' style="display: block">
 <span class='data-example-label'><span class='entity-name'>SoldListing</span> <span class='action-name'>Index</span> Response Payload Example

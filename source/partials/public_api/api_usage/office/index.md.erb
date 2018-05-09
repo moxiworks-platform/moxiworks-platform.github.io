@@ -153,8 +153,9 @@ Attribute | Type  | Length Limit |
     "phone":"8185551213",
     "timezone":"Pacific Time (US & Canada)",
     "twitter":null,
-    "office_website":"http://the.office.website"
-    }
+    "office_website":"http://the.office.website",
+    "region":"WESTERN WASHINGTON"
+  }
   ]
 }
 ```
@@ -205,6 +206,7 @@ Attribute | Type |
 |<span class="response-data">timezone</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">twitter</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">office_website</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">region</span>|<span class="data-type">String or null</span>|
 
 <span class="response-data-head">moxi_works_office_id</span>
 <span class="response-data-remarks">This is the Moxi Works Platform ID of the office for this <span class='entity-name'>Office</span>. This will be an [RFC 4122](https://tools.ietf.org/html/rfc4122) compliant UUID.</span>
@@ -266,3 +268,7 @@ Attribute | Type |
 
 <span class="response-data-head">office_website</span>
 <span class="response-data-remarks">Office's website URL. This can be null if there is no data available for this attribute.</span>
+
+<span class="response-data-head">region</span>
+<span class="response-data-remarks">The region the agent's office is in. This can be null if there is no data for this attribute.</span>
+

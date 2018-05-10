@@ -210,6 +210,8 @@ Attribute | Type | Length Limit |
       "mls_number":"abc123",
       "commission_percentage":null,
       "commission_flat_fee":12345,
+      "sales_volume_percentage":null,
+      "sales_volume_flat_fee":null,    
       "target_price":null,
       "min_price":292929,
       "max_price":2323223,
@@ -251,6 +253,8 @@ Attribute | Type | Length Limit |
       "mls_number":"abc123",
       "commission_percentage":null,
       "commission_flat_fee":12345,
+      "sales_volume_percentage":null,
+      "sales_volume_flat_fee":null,    
       "target_price":null,
       "min_price":292929,
       "max_price":2323223,
@@ -325,6 +329,8 @@ Attribute | Type |
 |<span class="response-data">start_timestamp</span>|<span class="data-type">Integer or null</span>|
 |<span class="response-data">commission_percentage</span>|<span class="data-type">Float or null</span>|
 |<span class="response-data">commission_flat_fee</span>|<span class="data-type">Integer or null</span>|
+|<span class="response-data">sales_volume_percentage</span>|<span class="data-type">Float or null</span>|
+|<span class="response-data">sales_volume_flat_fee</span>|<span class="data-type">Integer or null</span>|
 |<span class="response-data">target_price</span>|<span class="data-type">Integer or null</span>|
 |<span class="response-data">min_price</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">max_price</span>|<span class="data-type">Integer or null</span>|
@@ -399,11 +405,18 @@ Attribute | Type |
 <span class="response-data-remarks">For non-MLS transactions, this is the Unix timestamp representing the date that the agent initiated transaction discussions with the client. This should be `null` if the <span class='entity-name'>SellerTransaction</span> is an MLS sale.</span>
 
 <span class="response-data-head">commission_percentage</span>
-<span class="response-data-remarks">If the agent is to receive commission based on percentage of sale price for the property associated with this <span class='entity-name'>SellerTransaction</span>, then this will represent the commission that the agent is to receive.This should be `null` if the <span class='entity-name'>SellerTransaction</span> uses <span class='attribute-name'>commission_flat_fee</span>.</span>
-
+<span class="response-data-remarks">If the agent is to receive commission based on percentage of purchase price for the transaction associated with this <span class='entity-name'>SellerTransaction</span>, then this will represent the commission that the agent is to receive.This should be `null` if the <span class='entity-name'>SellerTransaction</span> uses <span class='attribute-name'>commission_flat_fee</span>, <span class='attribute-name'>sales_volume_percentage</span> or <span class='attribute-name'>sales_volume_flat_fee</span>.</span>
 
 <span class="response-data-head">commission_flat_fee</span>
-<span class="response-data-remarks">If the agent is to receive a flat-rate commission upon sale of the property associated with this <span class='entity-name'>SellerTransaction</span>, then this will represent the commission that the agent is to receive. This should be `null` if the <span class='entity-name'>SellerTransaction</span> uses <span class='attribute-name'>commission_percentage</span>.</span>
+<span class="response-data-remarks">If the agent is to receive a flat-rate commission for the transaction associated with this <span class='entity-name'>SellerTransaction</span>, then this will represent the commission that the agent is to receive. This should be `null` if the <span class='entity-name'>SellerTransaction</span> uses <span class='attribute-name'>commission_percentage</span>, <span class='attribute-name'>sales_volume_percentage</span> or <span class='attribute-name'>sales_volume_flat_fee</span>.</span>
+
+<span class="response-data-head">sales_volume_percentage</span>
+<span class="response-data-remarks">If the agent is to receive compensation based on percentage of sales volume <span class='entity-name'>SellerTransaction</span>, then this will represent the percentage that the agent is to receive.This should be `null` if the <span class='entity-name'>SellerTransaction</span> uses <span class='attribute-name'>commission_flat_fee</span>, <span class='attribute-name'>commission_percentage</span> or <span class='attribute-name'>sales_volume_flat_fee</span>.</span>
+
+<span class="response-data-head">sales_volume_flat_fee</span>
+<span class="response-data-remarks">If the agent is to receive flat-rate compensation for the transaction associated with this <span class='entity-name'>SellerTransaction</span>.This should be `null` if the <span class='entity-name'>SellerTransaction</span> uses <span class='attribute-name'>commission_flat_fee</span>, <span class='attribute-name'>commission_percentage</span> or <span class='attribute-name'>sales_volume_percentage</span>.</span>
+
+<aside class="note">A <span class='entity-name'>SellerTransaction</span> can only have <span class='attribute-name'>commission_percentage</span> <b>or</b> <span class='attribute-name'>commission_flat_fee</span> <b>or</b> <span class='attribute-name'>sales_volume_flat_fee</span> <b>or</b> <span class='attribute-name'>sales_volume_percentage</span> populated. More than one can not be populated.</aside>
 
 
 <span class="response-data-head">target_price</span>

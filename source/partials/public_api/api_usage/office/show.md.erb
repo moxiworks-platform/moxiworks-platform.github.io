@@ -105,6 +105,7 @@ Attribute | Type  | Length Limit |
     "id":"1234",
     "image_url":"http://the.office.image/image.png",
     "name":"Bob's Better Brokerage",
+    "common_name":"Bob's Salsburry Hill Branch",
     "address":"101 South Southerly Street",
     "address2":null,
     "city":"Townseville",
@@ -143,6 +144,7 @@ Attribute | Type |
 |<span class="response-data">moxi_works_office_id</span>|<span class="data-type">String</span>|
 |<span class="response-data">id</span>|<span class="data-type">String</span>|
 |<span class="response-data">name</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">common_name</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">image_url</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">address</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">address2</span>|<span class="data-type">String or null</span>|
@@ -172,7 +174,11 @@ Attribute | Type |
 
 
 <span class="response-data-head">name</span>
-<span class="response-data-remarks">The name of the office. This can be null if there is no data for this attribute.</span>
+<span class="response-data-remarks">The legal name of the office. This can be null if there is no data for this attribute.</span>
+
+
+<span class="response-data-head">common_name</span>
+<span class="response-data-remarks">The commonly known name of the office. This can be null if there is no data for this attribute.</span>
 
 
 <span class="response-data-head">address</span>

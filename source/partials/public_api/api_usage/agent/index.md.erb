@@ -173,6 +173,7 @@ Attribute | Type  | Length Limit |
 |<span class="optional-data">moxi_works_office_id</span>|<span class="data-type">String</span>| 255 |
 |<span class="optional-data">updated_since</span>|<span class="data-type">Integer</span>| 255 |
 |<span class="optional-data">page_number</span>|<span class="data-type">Integer</span>| 255 |
+|<span class="optional-data">include_access_level</span>|<span class="data-type">Boolean</span>| 255 |
 
 
 <span class="required-data">**Required Parameters Are In Red**</span>
@@ -194,6 +195,11 @@ Attribute | Type  | Length Limit |
 
 <span class="request-data-head">page_number</span>
 <span class="request-data-remarks">For queries with multi-page responses, use the <span class='attribute-name'>page_number</span> parameter to return data for specific pages. Data for page 1 is returned if this parameter is not included. Use this parameter if **total_pages** indicates that there is more than one page of data available.</span>
+
+
+<span class="request-data-head">include_access_level</span>
+<span class="request-data-remarks">To include access level information for the agent in the response, pass `true`</span>
+
 
 
 
@@ -240,6 +246,7 @@ Attribute | Type  | Length Limit |
   "uuid":"8675309e9-1234-dead-beef-deadbeefdead",
   "has_product_access":true,
   "has_engage_access":true,
+  "access_level":"user",
   "twitter": "https://twitter.com/agentguy",
   "google_plus": "https://plus.google.com/1234567891011121314/posts",
   "facebook": "https://www.facebook.com/moxiworks/",
@@ -333,6 +340,7 @@ Attribute | Type |
 |<span class="response-data">uuid</span>|<span class="data-type">String</span>|
 |<span class="response-data">has_product_access</span>|<span class="data-type">Boolean</span>|
 |<span class="response-data">has_engage_access</span>|<span class="data-type">Boolean</span>|
+|<span class="response-data">access_level</span>|<span class="data-type">String</span>|
 |<span class="response-data">twitter</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">google_plus</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">facebook</span>|<span class="data-type">String or null</span>|
@@ -442,6 +450,9 @@ Attribute | Type |
 
 <span class="response-data-head">has_engage_access</span>
 <span class="response-data-remarks">Indicates whether the agent has access to MoxiWorks Engage.</span>
+
+<span class="response-data-head">access_level</span>
+<span class="response-data-remarks">The access level of the agent.</span>
 
 
 <span class="response-data-head">twitter</span>

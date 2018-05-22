@@ -1691,12 +1691,15 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
   </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Broker"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"uuid"</span><span class="p">:</span><span class="s2">"8675309e9-1234-dead-beef-deadbeefdead"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"has_engage_access"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"access_level"</span><span class="p">:</span><span class="s2">"user"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"has_product_access"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
   </span><span class="nt">"twitter"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://twitter.com/agentguy"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"google_plus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://plus.google.com/1234567891011121314/posts"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"facebook"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.facebook.com/moxiworks/"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"home_page"</span><span class="p">:</span><span class="w"> </span><span class="s2">"foo.com"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"profile_image_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://picturererer.com/pics37/ImageStore.dll?id=852087C5D3A533DD&amp;w=200"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"profile_thumb_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://picturererer.com/pics37/ImageStore.dll?id=852087C5D3A533DD&amp;w=75"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"region"</span><span class="p">:</span><span class="s2">"WESTERN WASHINGTON"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"alternate_offices"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="nt">"moxi_works_office_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
@@ -1866,8 +1869,16 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
 <td><span class="data-type">String</span></td>
 </tr>
 <tr>
+<td><span class="response-data">has_product_access</span></td>
+<td><span class="data-type">Boolean</span></td>
+</tr>
+<tr>
 <td><span class="response-data">has_engage_access</span></td>
 <td><span class="data-type">Boolean</span></td>
+</tr>
+<tr>
+<td><span class="response-data">access_level</span></td>
+<td><span class="data-type">String</span></td>
 </tr>
 <tr>
 <td><span class="response-data">twitter</span></td>
@@ -1892,6 +1903,10 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
 <tr>
 <td><span class="response-data">profile_thumb_url</span></td>
 <td><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">region</span></td>
+<td><span class="data-type">String or null</span></td>
 </tr>
 <tr>
 <td><span class="response-data">gci_goal</span></td>
@@ -2004,8 +2019,14 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
 <p><span class="response-data-head">uuid</span>
 <span class="response-data-remarks">This is  an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID associated with the agent. This UUID can be used as a unique identifier in determining associations between  <span class='entity-name'>Agent</span> objects and  <span class='entity-name'>Listing</span> objects.</span></p>
 
+<p><span class="response-data-head">has_product_access</span>
+<span class="response-data-remarks">Indicates whether the agent has access to MoxiWorks Products.</span></p>
+
 <p><span class="response-data-head">has_engage_access</span>
-<span class="response-data-remarks">Indicates whether the agent has access to Moxiworks Engage.</span></p>
+<span class="response-data-remarks">Indicates whether the agent has access to MoxiWorks Engage.</span></p>
+
+<p><span class="response-data-head">access_level</span>
+<span class="response-data-remarks">The access level of the agent.</span></p>
 
 <p><span class="response-data-head">twitter</span>
 <span class="response-data-remarks">Agent&rsquo;s Twitter URL. This can be null if there is no data available for this attribute.</span></p>
@@ -2024,6 +2045,9 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
 
 <p><span class="response-data-head">profile_thumb_url</span>
 <span class="response-data-remarks">This is a valid URL for a thumbnail size image for the agent.  If no agent image has been uploaded for this agent a default image url will be provided.</span></p>
+
+<p><span class="response-data-head">region</span>
+<span class="response-data-remarks">The region the agent&rsquo;s office is in. This can be null if there is no data for this attribute.</span></p>
 
 <p><span class="response-data-head">gci_goal</span>
 <span class="response-data-remarks">The agent&rsquo;s  stated gross commission income goal.</span></p>
@@ -2284,6 +2308,11 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
 <td><span class="data-type">Integer</span></td>
 <td>255</td>
 </tr>
+<tr>
+<td><span class="optional-data">include_access_level</span></td>
+<td><span class="data-type">Boolean</span></td>
+<td>255</td>
+</tr>
 </tbody></table>
 
 <p><span class="required-data"><strong>Required Parameters Are In Red</strong></span></p>
@@ -2303,6 +2332,9 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
 
 <p><span class="request-data-head">page_number</span>
 <span class="request-data-remarks">For queries with multi-page responses, use the <span class='attribute-name'>page_number</span> parameter to return data for specific pages. Data for page 1 is returned if this parameter is not included. Use this parameter if <strong>total_pages</strong> indicates that there is more than one page of data available.</span></p>
+
+<p><span class="request-data-head">include_access_level</span>
+<span class="request-data-remarks">To include access level information for the agent in the response, pass <code class="prettyprint">true</code></span></p>
 
 <blockquote><div class='highlight json' style="display: block">
 <span class="data-example-label">Agent Index: Success Response</span>
@@ -2344,13 +2376,16 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
   </span><span class="nt">"lead_routing_email_address"</span><span class="p">:</span><span class="s2">"leadrouter@thisdomain.com"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Broker"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"uuid"</span><span class="p">:</span><span class="s2">"8675309e9-1234-dead-beef-deadbeefdead"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"has_product_access"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
   </span><span class="nt">"has_engage_access"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"access_level"</span><span class="p">:</span><span class="s2">"user"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"twitter"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://twitter.com/agentguy"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"google_plus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://plus.google.com/1234567891011121314/posts"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"facebook"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.facebook.com/moxiworks/"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"home_page"</span><span class="p">:</span><span class="w"> </span><span class="s2">"foo.com"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"profile_image_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://picturererer.com/pics37/ImageStore.dll?id=852087C5D3A533DD&amp;w=200"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"profile_thumb_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://picturererer.com/pics37/ImageStore.dll?id=852087C5D3A533DD&amp;w=75"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"region"</span><span class="p">:</span><span class="s2">"WESTERN WASHINGTON"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"alternate_offices"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="nt">"moxi_works_office_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
@@ -2543,8 +2578,16 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
 <td><span class="data-type">String</span></td>
 </tr>
 <tr>
+<td><span class="response-data">has_product_access</span></td>
+<td><span class="data-type">Boolean</span></td>
+</tr>
+<tr>
 <td><span class="response-data">has_engage_access</span></td>
 <td><span class="data-type">Boolean</span></td>
+</tr>
+<tr>
+<td><span class="response-data">access_level</span></td>
+<td><span class="data-type">String</span></td>
 </tr>
 <tr>
 <td><span class="response-data">twitter</span></td>
@@ -2569,6 +2612,10 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
 <tr>
 <td><span class="response-data">profile_thumb_url</span></td>
 <td><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">region</span></td>
+<td><span class="data-type">String or null</span></td>
 </tr>
 <tr>
 <td><span class="response-data">alternate_offices</span></td>
@@ -2669,8 +2716,14 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
 <p><span class="response-data-head">uuid</span>
 <span class="response-data-remarks">This is  an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID associated with the agent. This UUID can be used as a unique identifier in determining associations between  <span class='entity-name'>Agent</span> objects and  <span class='entity-name'>Listing</span> objects.</span></p>
 
+<p><span class="response-data-head">has_product_access</span>
+<span class="response-data-remarks">Indicates whether the agent has access to MoxiWorks Products.</span></p>
+
 <p><span class="response-data-head">has_engage_access</span>
-<span class="response-data-remarks">Indicates whether the agent has access to Moxiworks Engage.</span></p>
+<span class="response-data-remarks">Indicates whether the agent has access to MoxiWorks Engage.</span></p>
+
+<p><span class="response-data-head">access_level</span>
+<span class="response-data-remarks">The access level of the agent.</span></p>
 
 <p><span class="response-data-head">twitter</span>
 <span class="response-data-remarks">Agent&rsquo;s Twitter URL. This can be null if there is no data available for this attribute.</span></p>
@@ -2689,6 +2742,9 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
 
 <p><span class="response-data-head">profile_thumb_url</span>
 <span class="response-data-remarks">This is a valid URL for a thumbnail size image for the agent. If no agent image has been uploaded for this agent a default image url will be provided.</span></p>
+
+<p><span class="response-data-head">region</span>
+<span class="response-data-remarks">The region the agent&rsquo;s office is in. This can be null if there is no data for this attribute.</span></p>
 
 <h6 id="alternate_offices-object"><span class='attribute-name'>alternate_offices</span> Object</h6>
 
@@ -14637,6 +14693,7 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
   </span><span class="nt">"BathroomsTotalInteger"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
   </span><span class="nt">"BathroomsTotal"</span><span class="p">:</span><span class="mf">3.0</span><span class="p">,</span><span class="w">
   </span><span class="nt">"BedroomsTotal"</span><span class="p">:</span><span class="mi">8</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"PublicTitle"</span><span class="p">:</span><span class="s2">"Amazingly Remarkable!"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"PublicRemarks"</span><span class="p">:</span><span class="s2">"Publicalistically Remarkabalistically! REMARKABLE!!"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"ModificationTimestamp"</span><span class="p">:</span><span class="s2">"2018-03-20T11:04:55.659-07:00"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"InternetAddressDisplayYN"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
@@ -14665,10 +14722,12 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
   </span><span class="nt">"Longitude"</span><span class="p">:</span><span class="s2">"-122.171745"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"StateOrProvince"</span><span class="p">:</span><span class="s2">"NV"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"PostalCode"</span><span class="p">:</span><span class="s2">"87654"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Community"</span><span class="p">:</span><span class="s2">"Shady Acres"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"LotSizeSquareFeet"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"InternetEntireListingDisplayYN"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
   </span><span class="nt">"MiddleOrJuniorSchool"</span><span class="p">:</span><span class="s2">"*The* Junior High"</span><span class="w"> </span><span class="p">,</span><span class="w">
   </span><span class="nt">"ListOfficeAOR"</span><span class="p">:</span><span class="s2">"WHATEVERS MLS"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ListOfficeAORArea"</span><span class="p">:</span><span class="s2">"Area 51"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"PoolYN"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="nt">"PropertyType"</span><span class="p">:</span><span class="s2">"Residential"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"TaxAnnualAmount"</span><span class="p">:</span><span class="mi">13652</span><span class="p">,</span><span class="w">
@@ -14813,6 +14872,10 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <td><span class="response-data"><span class="data-type">Integer or null</span></td>
 </tr>
 <tr>
+<td><span class="response-data">PublicTitle</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+<tr>
 <td><span class="response-data">PublicRemarks</span></td>
 <td><span class="response-data"><span class="data-type">String or null</span></td>
 </tr>
@@ -14925,6 +14988,10 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <td><span class="response-data"><span class="data-type">String or null</span></td>
 </tr>
 <tr>
+<td><span class="response-data">Community</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+<tr>
 <td><span class="response-data">LotSizeSquareFeet</span></td>
 <td><span class="response-data"><span class="data-type">Integer or Null</span></td>
 </tr>
@@ -14938,6 +15005,10 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 </tr>
 <tr>
 <td><span class="response-data">ListOfficeAOR</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">ListOfficeAORArea</span></td>
 <td><span class="response-data"><span class="data-type">String or null</span></td>
 </tr>
 <tr>
@@ -15045,6 +15116,9 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <p><span class="response-data-head">BedroomsTotal</span>
 <span class="response-data-remarks">This is the number of bedrooms in the property.  If no data is available for this attribute, it will be <code class="prettyprint">null</code>.</span></p>
 
+<p><span class="response-data-head">PublicTitle</span>
+<span class="response-data-remarks">The human-readable title for the listing generated by the property agent.  If no data is available for this attribute, it will be <code class="prettyprint">null</code>.</span></p>
+
 <p><span class="response-data-head">PublicRemarks</span>
 <span class="response-data-remarks">These are human-readable notes about the property generated by the property agent.  If no data is available for this attribute, it will be <code class="prettyprint">null</code>.</span></p>
 
@@ -15120,6 +15194,9 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <p><span class="response-data-head">PostalCode</span>
 <span class="response-data-remarks">The zip code or postal code the property is located in.</span></p>
 
+<p><span class="response-data-head">Community</span>
+<span class="response-data-remarks">The communitythe property is located in.</span></p>
+
 <p><span class="response-data-head">LotSizeSquareFeet</span>
 <span class="response-data-remarks">Total area of the lot.</span></p>
 
@@ -15131,6 +15208,9 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 
 <p><span class="response-data-head">ListOfficeAOR</span>
 <span class="response-data-remarks">The name of the MLS which this listing is listed with.</span></p>
+
+<p><span class="response-data-head">ListOfficeAORArea</span>
+<span class="response-data-remarks">The MLS Area which this listing is in.</span></p>
 
 <p><span class="response-data-head">PoolYN</span>
 <span class="response-data-remarks">Whether the property has a pool.</span></p>
@@ -15488,6 +15568,7 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
   </span><span class="nt">"BathroomsTotalInteger"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
   </span><span class="nt">"BathroomsTotal"</span><span class="p">:</span><span class="mf">3.0</span><span class="p">,</span><span class="w">
   </span><span class="nt">"BedroomsTotal"</span><span class="p">:</span><span class="mi">8</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"PublicTitle"</span><span class="p">:</span><span class="s2">"Amazingly Remarkable!"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"PublicRemarks"</span><span class="p">:</span><span class="s2">"Publicalistically Remarkabalistically! REMARKABLE!!"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"ModificationTimestamp"</span><span class="p">:</span><span class="s2">"2018-03-20T11:04:55.659-07:00"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"InternetAddressDisplayYN"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
@@ -15516,10 +15597,12 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
   </span><span class="nt">"Longitude"</span><span class="p">:</span><span class="s2">"-122.171745"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"StateOrProvince"</span><span class="p">:</span><span class="s2">"NV"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"PostalCode"</span><span class="p">:</span><span class="s2">"87654"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Community"</span><span class="p">:</span><span class="s2">"Shady Acres"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"LotSizeSquareFeet"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"InternetEntireListingDisplayYN"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
   </span><span class="nt">"MiddleOrJuniorSchool"</span><span class="p">:</span><span class="s2">"*The* Junior High"</span><span class="w"> </span><span class="p">,</span><span class="w">
   </span><span class="nt">"ListOfficeAOR"</span><span class="p">:</span><span class="s2">"WHATEVERS MLS"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ListOfficeAORArea"</span><span class="p">:</span><span class="s2">"Area 51"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"PoolYN"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="nt">"PropertyType"</span><span class="p">:</span><span class="s2">"Residential"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"TaxAnnualAmount"</span><span class="p">:</span><span class="mi">13652</span><span class="p">,</span><span class="w">
@@ -15664,6 +15747,10 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <td><span class="response-data"><span class="data-type">Integer or null</span></td>
 </tr>
 <tr>
+<td><span class="response-data">PublicTitle</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+<tr>
 <td><span class="response-data">PublicRemarks</span></td>
 <td><span class="response-data"><span class="data-type">String or null</span></td>
 </tr>
@@ -15776,6 +15863,10 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <td><span class="response-data"><span class="data-type">String or null</span></td>
 </tr>
 <tr>
+<td><span class="response-data">Community</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+<tr>
 <td><span class="response-data">LotSizeSquareFeet</span></td>
 <td><span class="response-data"><span class="data-type">Integer or Null</span></td>
 </tr>
@@ -15789,6 +15880,10 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 </tr>
 <tr>
 <td><span class="response-data">ListOfficeAOR</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">ListOfficeAORArea</span></td>
 <td><span class="response-data"><span class="data-type">String or null</span></td>
 </tr>
 <tr>
@@ -15896,6 +15991,9 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <p><span class="response-data-head">BedroomsTotal</span>
 <span class="response-data-remarks">This is the number of bedrooms in the property.  If no data is available for this attribute, it will be <code class="prettyprint">null</code>.</span></p>
 
+<p><span class="response-data-head">PublicTitle</span>
+<span class="response-data-remarks">The human-readable title for the listing generated by the property agent.  If no data is available for this attribute, it will be <code class="prettyprint">null</code>.</span></p>
+
 <p><span class="response-data-head">PublicRemarks</span>
 <span class="response-data-remarks">These are human-readable notes about the property generated by the property agent.  If no data is available for this attribute, it will be <code class="prettyprint">null</code>.</span></p>
 
@@ -15971,6 +16069,9 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <p><span class="response-data-head">PostalCode</span>
 <span class="response-data-remarks">The zip code or postal code the property is located in.</span></p>
 
+<p><span class="response-data-head">Community</span>
+<span class="response-data-remarks">The communitythe property is located in.</span></p>
+
 <p><span class="response-data-head">LotSizeSquareFeet</span>
 <span class="response-data-remarks">Total area of the lot.</span></p>
 
@@ -15982,6 +16083,9 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 
 <p><span class="response-data-head">ListOfficeAOR</span>
 <span class="response-data-remarks">The name of the MLS which this listing is listed with.</span></p>
+
+<p><span class="response-data-head">ListOfficeAORArea</span>
+<span class="response-data-remarks">The MLS Area which this listing is in.</span></p>
 
 <p><span class="response-data-head">PoolYN</span>
 <span class="response-data-remarks">Whether the property has a pool.</span></p>
@@ -16450,6 +16554,7 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
   </span><span class="nt">"BathroomsTotalInteger"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
   </span><span class="nt">"BathroomsTotal"</span><span class="p">:</span><span class="mf">3.0</span><span class="p">,</span><span class="w">
   </span><span class="nt">"BedroomsTotal"</span><span class="p">:</span><span class="mi">8</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"PublicTitle"</span><span class="p">:</span><span class="s2">"Amazingly Remarkable!"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"PublicRemarks"</span><span class="p">:</span><span class="s2">"Publicalistically Remarkabalistically! REMARKABLE!!"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"ModificationTimestamp"</span><span class="p">:</span><span class="s2">"2018-03-20T11:04:55.659-07:00"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"InternetAddressDisplayYN"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
@@ -16478,10 +16583,12 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
   </span><span class="nt">"Longitude"</span><span class="p">:</span><span class="s2">"-122.171745"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"StateOrProvince"</span><span class="p">:</span><span class="s2">"NV"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"PostalCode"</span><span class="p">:</span><span class="s2">"87654"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Community"</span><span class="p">:</span><span class="s2">"Shady Acres"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"LotSizeSquareFeet"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"InternetEntireListingDisplayYN"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
   </span><span class="nt">"MiddleOrJuniorSchool"</span><span class="p">:</span><span class="s2">"*The* Junior High"</span><span class="w"> </span><span class="p">,</span><span class="w">
   </span><span class="nt">"ListOfficeAOR"</span><span class="p">:</span><span class="s2">"WHATEVERS MLS"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ListOfficeAORArea"</span><span class="p">:</span><span class="s2">"Area 51"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"PoolYN"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="nt">"PropertyType"</span><span class="p">:</span><span class="s2">"Residential"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"TaxAnnualAmount"</span><span class="p">:</span><span class="mi">13652</span><span class="p">,</span><span class="w">
@@ -16654,6 +16761,10 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <td><span class="response-data"><span class="data-type">Integer or null</span></td>
 </tr>
 <tr>
+<td><span class="response-data">PublicTitle</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+<tr>
 <td><span class="response-data">PublicRemarks</span></td>
 <td><span class="response-data"><span class="data-type">String or null</span></td>
 </tr>
@@ -16766,6 +16877,10 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <td><span class="response-data"><span class="data-type">String or null</span></td>
 </tr>
 <tr>
+<td><span class="response-data">Community</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+<tr>
 <td><span class="response-data">LotSizeSquareFeet</span></td>
 <td><span class="response-data"><span class="data-type">Integer or null</span></td>
 </tr>
@@ -16779,6 +16894,10 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 </tr>
 <tr>
 <td><span class="response-data">ListOfficeAOR</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">ListOfficeAORArea</span></td>
 <td><span class="response-data"><span class="data-type">String or null</span></td>
 </tr>
 <tr>
@@ -16886,6 +17005,9 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <p><span class="response-data-head">BedroomsTotal</span>
 <span class="response-data-remarks">This is the number of bedrooms in the property.  If no data is available for this attribute, it will be <code class="prettyprint">null</code>.</span></p>
 
+<p><span class="response-data-head">PublicTitle</span>
+<span class="response-data-remarks">The human-readable title for the listing generated by the property agent.  If no data is available for this attribute, it will be <code class="prettyprint">null</code>.</span></p>
+
 <p><span class="response-data-head">PublicRemarks</span>
 <span class="response-data-remarks">These are human-readable notes about the property generated by the property agent.  If no data is available for this attribute, it will be <code class="prettyprint">null</code>.</span></p>
 
@@ -16961,6 +17083,9 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <p><span class="response-data-head">PostalCode</span>
 <span class="response-data-remarks">The zip code or postal code the property is located in.</span></p>
 
+<p><span class="response-data-head">Community</span>
+<span class="response-data-remarks">The communitythe property is located in.</span></p>
+
 <p><span class="response-data-head">LotSizeSquareFeet</span>
 <span class="response-data-remarks">Total area of the lot.</span></p>
 
@@ -16972,6 +17097,9 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 
 <p><span class="response-data-head">ListOfficeAOR</span>
 <span class="response-data-remarks">The name of the MLS which this listing is listed with.</span></p>
+
+<p><span class="response-data-head">ListOfficeAORArea</span>
+<span class="response-data-remarks">The MLS Area which this listing is in.</span></p>
 
 <p><span class="response-data-head">PoolYN</span>
 <span class="response-data-remarks">Whether the property has a pool.</span></p>
@@ -17325,6 +17453,7 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
     </span><span class="nt">"id"</span><span class="p">:</span><span class="s2">"1234"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"image_url"</span><span class="p">:</span><span class="s2">"http://the.office.image/image.png"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"Bob's Better Brokerage"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"common_name"</span><span class="p">:</span><span class="s2">"Bob's Salsburry Hill Branch"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"address"</span><span class="p">:</span><span class="s2">"101 South Southerly Street"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"address2"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="nt">"city"</span><span class="p">:</span><span class="s2">"Townseville"</span><span class="p">,</span><span class="w">
@@ -17338,7 +17467,8 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
     </span><span class="nt">"phone"</span><span class="p">:</span><span class="s2">"8185551213"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"timezone"</span><span class="p">:</span><span class="s2">"Pacific Time (US &amp; Canada)"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"twitter"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"office_website"</span><span class="p">:</span><span class="s2">"http://the.office.website"</span><span class="w">
+    </span><span class="nt">"office_website"</span><span class="p">:</span><span class="s2">"http://the.office.website"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"region"</span><span class="p">:</span><span class="s2">"WESTERN WASHINGTON"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 
 </span></code></pre>
@@ -17370,6 +17500,10 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 </tr>
 <tr>
 <td><span class="response-data">name</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">common_name</span></td>
 <td><span class="data-type">String or null</span></td>
 </tr>
 <tr>
@@ -17432,6 +17566,10 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <td><span class="response-data">office_website</span></td>
 <td><span class="data-type">String or null</span></td>
 </tr>
+<tr>
+<td><span class="response-data">region</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
 </tbody></table>
 
 <p><span class="response-data-head">moxi_works_office_id</span>
@@ -17444,7 +17582,10 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <span class="response-data-remarks">URL to an image of the office. This can be null if there is no data for this attribute.</span></p>
 
 <p><span class="response-data-head">name</span>
-<span class="response-data-remarks">The name of the office. This can be null if there is no data for this attribute.</span></p>
+<span class="response-data-remarks">The legal name of the office. This can be null if there is no data for this attribute.</span></p>
+
+<p><span class="response-data-head">common_name</span>
+<span class="response-data-remarks">The commonly known name of the office. This can be null if there is no data for this attribute.</span></p>
 
 <p><span class="response-data-head">address</span>
 <span class="response-data-remarks">The street address of the office. This can be null if there is no data for this attribute.</span></p>
@@ -17487,6 +17628,9 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 
 <p><span class="response-data-head">office_website</span>
 <span class="response-data-remarks">Office&rsquo;s website URL. This can be null if there is no data available for this attribute.</span></p>
+
+<p><span class="response-data-head">region</span>
+<span class="response-data-remarks">The region the agent&rsquo;s office is in. This can be null if there is no data for this attribute.</span></p>
 
 
 <h4 id="office-index"><span class='entity-name'>Office</span> <span class='action-name'>Index</span></h4>
@@ -17633,6 +17777,7 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
     </span><span class="nt">"id"</span><span class="p">:</span><span class="s2">"1234"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"image_url"</span><span class="p">:</span><span class="s2">"http://the.office.image/image.png"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"Bob's Better Brokerage"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"common_name"</span><span class="p">:</span><span class="s2">"Bob's Salsburry Hill Branch"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"address"</span><span class="p">:</span><span class="s2">"101 South Southerly Street"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"address2"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="nt">"city"</span><span class="p">:</span><span class="s2">"Townseville"</span><span class="p">,</span><span class="w">
@@ -17646,8 +17791,9 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
     </span><span class="nt">"phone"</span><span class="p">:</span><span class="s2">"8185551213"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"timezone"</span><span class="p">:</span><span class="s2">"Pacific Time (US &amp; Canada)"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"twitter"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"office_website"</span><span class="p">:</span><span class="s2">"http://the.office.website"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+    </span><span class="nt">"office_website"</span><span class="p">:</span><span class="s2">"http://the.office.website"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"region"</span><span class="p">:</span><span class="s2">"WESTERN WASHINGTON"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -17713,6 +17859,10 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <td><span class="data-type">String or null</span></td>
 </tr>
 <tr>
+<td><span class="response-data">common_name</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
 <td><span class="response-data">address</span></td>
 <td><span class="data-type">String or null</span></td>
 </tr>
@@ -17768,6 +17918,10 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <td><span class="response-data">office_website</span></td>
 <td><span class="data-type">String or null</span></td>
 </tr>
+<tr>
+<td><span class="response-data">region</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
 </tbody></table>
 
 <p><span class="response-data-head">moxi_works_office_id</span>
@@ -17780,7 +17934,10 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <span class="response-data-remarks">URL to an image of the office. This can be null if there is no data for this attribute.</span></p>
 
 <p><span class="response-data-head">name</span>
-<span class="response-data-remarks">The name of the office. This can be null if there is no data for this attribute.</span></p>
+<span class="response-data-remarks">The legal name of the office. This can be null if there is no data for this attribute.</span></p>
+
+<p><span class="response-data-head">common_name</span>
+<span class="response-data-remarks">The commonly known name of the office. This can be null if there is no data for this attribute.</span></p>
 
 <p><span class="response-data-head">address</span>
 <span class="response-data-remarks">The street address of the office. This can be null if there is no data for this attribute.</span></p>
@@ -17823,6 +17980,9 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 
 <p><span class="response-data-head">office_website</span>
 <span class="response-data-remarks">Office&rsquo;s website URL. This can be null if there is no data available for this attribute.</span></p>
+
+<p><span class="response-data-head">region</span>
+<span class="response-data-remarks">The region the agent&rsquo;s office is in. This can be null if there is no data for this attribute.</span></p>
 
 
 <h3 id="presentationlog"><span class='entity-name'>PresentationLog</span></h3>
@@ -21045,6 +21205,7 @@ moxi_works_agent_id=abc123
   </span><span class="nt">"BathroomsTotalInteger"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
   </span><span class="nt">"BathroomsTotal"</span><span class="p">:</span><span class="mf">3.0</span><span class="p">,</span><span class="w">
   </span><span class="nt">"BedroomsTotal"</span><span class="p">:</span><span class="mi">8</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"PublicTitle"</span><span class="p">:</span><span class="s2">"Amazingly Remarkable!"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"PublicRemarks"</span><span class="p">:</span><span class="s2">"Publicalistically Remarkabalistically! REMARKABLE!!"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"ModificationTimestamp"</span><span class="p">:</span><span class="s2">"2018-03-20T11:04:55.659-07:00"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"InternetAddressDisplayYN"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
@@ -21073,10 +21234,12 @@ moxi_works_agent_id=abc123
   </span><span class="nt">"Longitude"</span><span class="p">:</span><span class="s2">"-122.171745"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"StateOrProvince"</span><span class="p">:</span><span class="s2">"NV"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"PostalCode"</span><span class="p">:</span><span class="s2">"87654"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Community"</span><span class="p">:</span><span class="s2">"Shady Acres"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"LotSizeSquareFeet"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"InternetEntireListingDisplayYN"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
   </span><span class="nt">"MiddleOrJuniorSchool"</span><span class="p">:</span><span class="s2">"*The* Junior High"</span><span class="w"> </span><span class="p">,</span><span class="w">
   </span><span class="nt">"ListOfficeAOR"</span><span class="p">:</span><span class="s2">"WHATEVERS MLS"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ListOfficeAORArea"</span><span class="p">:</span><span class="s2">"Area 51"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"PoolYN"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="nt">"PropertyType"</span><span class="p">:</span><span class="s2">"Residential"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"TaxAnnualAmount"</span><span class="p">:</span><span class="mi">13652</span><span class="p">,</span><span class="w">
@@ -21223,6 +21386,10 @@ moxi_works_agent_id=abc123
 <td><span class="response-data"><span class="data-type">Integer or null</span></td>
 </tr>
 <tr>
+<td><span class="response-data">PublicTitle</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+<tr>
 <td><span class="response-data">PublicRemarks</span></td>
 <td><span class="response-data"><span class="data-type">String or null</span></td>
 </tr>
@@ -21327,6 +21494,10 @@ moxi_works_agent_id=abc123
 <td><span class="response-data"><span class="data-type">String or null</span></td>
 </tr>
 <tr>
+<td><span class="response-data">Community</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+<tr>
 <td><span class="response-data">LotSizeSquareFeet</span></td>
 <td><span class="response-data"><span class="data-type">Integer or Null</span></td>
 </tr>
@@ -21340,6 +21511,10 @@ moxi_works_agent_id=abc123
 </tr>
 <tr>
 <td><span class="response-data">ListOfficeAOR</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">ListOfficeAORArea</span></td>
 <td><span class="response-data"><span class="data-type">String or null</span></td>
 </tr>
 <tr>
@@ -21447,6 +21622,9 @@ moxi_works_agent_id=abc123
 <p><span class="response-data-head">BedroomsTotal</span>
 <span class="response-data-remarks">This is the number of bedrooms in the property.  If no data is available for this attribute, it will be <code class="prettyprint">null</code>.</span></p>
 
+<p><span class="response-data-head">PublicTitle</span>
+<span class="response-data-remarks">The human-readable title for the listing generated by the property agent.  If no data is available for this attribute, it will be <code class="prettyprint">null</code>.</span></p>
+
 <p><span class="response-data-head">PublicRemarks</span>
 <span class="response-data-remarks">These are human-readable notes about the property generated by the property agent.  If no data is available for this attribute, it will be <code class="prettyprint">null</code>.</span></p>
 
@@ -21516,6 +21694,9 @@ moxi_works_agent_id=abc123
 <p><span class="response-data-head">PostalCode</span>
 <span class="response-data-remarks">The zip code or postal code the property is located in.</span></p>
 
+<p><span class="response-data-head">Community</span>
+<span class="response-data-remarks">The communitythe property is located in.</span></p>
+
 <p><span class="response-data-head">LotSizeSquareFeet</span>
 <span class="response-data-remarks">Total area of the lot.</span></p>
 
@@ -21527,6 +21708,9 @@ moxi_works_agent_id=abc123
 
 <p><span class="response-data-head">ListOfficeAOR</span>
 <span class="response-data-remarks">The name of the MLS which this listing is listed with.</span></p>
+
+<p><span class="response-data-head">ListOfficeAORArea</span>
+<span class="response-data-remarks">The MLS Area which this listing is in.</span></p>
 
 <p><span class="response-data-head">PoolYN</span>
 <span class="response-data-remarks">Whether the property has a pool.</span></p>
@@ -21918,6 +22102,11 @@ moxi_works_agent_id=abc123
 <td><span class="data-type">String</span></td>
 <td>255</td>
 </tr>
+<tr>
+<td><span class="optional-data">include_buyer_listings</span></td>
+<td><span class="data-type">String</span></td>
+<td>255</td>
+</tr>
 </tbody></table>
 
 <p><span class="required-data"><strong>Required Parameters Are In Red</strong></span></p>
@@ -21944,6 +22133,11 @@ moxi_works_agent_id=abc123
 <p><span class="request-data-head">last_moxi_works_listing_id</span>
 <span class="request-data-remarks">If fetching a multi-page response, this should be the <span class='attribute-name'>MoxiWorksListingId</span> found in the last <span class='entity-name'>SoldListing</span> object of the previously fetched page.</span></p>
 
+<p><span class="request-data-head">include_buyer_listings</span>
+<span class="request-data-remarks">Listings for buyer agents will be included when this parameter is <code class="prettyprint">true</code>.</span></p>
+
+<aside class="note">`include_buyer_listings` is only available by special arrangement with MoxiWorks. If you require access to buyer agent data, talk to your Platform representative.</aside>
+
 <blockquote><div class='highlight json' style="display: block">
 <span class='data-example-label'><span class='entity-name'>SoldListing</span> <span class='action-name'>Index</span> Response Payload Example
 </span></div></blockquote>
@@ -21962,6 +22156,7 @@ moxi_works_agent_id=abc123
   </span><span class="nt">"BathroomsTotalInteger"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
   </span><span class="nt">"BathroomsTotal"</span><span class="p">:</span><span class="mf">3.0</span><span class="p">,</span><span class="w">
   </span><span class="nt">"BedroomsTotal"</span><span class="p">:</span><span class="mi">8</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"PublicTitle"</span><span class="p">:</span><span class="s2">"Amazingly Remarkable!"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"PublicRemarks"</span><span class="p">:</span><span class="s2">"Publicalistically Remarkabalistically! REMARKABLE!!"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"ModificationTimestamp"</span><span class="p">:</span><span class="s2">"2018-03-20T11:04:55.659-07:00"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"InternetAddressDisplayYN"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
@@ -21988,10 +22183,12 @@ moxi_works_agent_id=abc123
   </span><span class="nt">"Longitude"</span><span class="p">:</span><span class="s2">"-122.171745"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"StateOrProvince"</span><span class="p">:</span><span class="s2">"NV"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"PostalCode"</span><span class="p">:</span><span class="s2">"87654"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Community"</span><span class="p">:</span><span class="s2">"Shady Acres"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"LotSizeSquareFeet"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"InternetEntireListingDisplayYN"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
   </span><span class="nt">"MiddleOrJuniorSchool"</span><span class="p">:</span><span class="s2">"*The* Junior High"</span><span class="w"> </span><span class="p">,</span><span class="w">
   </span><span class="nt">"ListOfficeAOR"</span><span class="p">:</span><span class="s2">"WHATEVERS MLS"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ListOfficeAORArea"</span><span class="p">:</span><span class="s2">"Area 51"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"PoolYN"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="nt">"PropertyType"</span><span class="p">:</span><span class="s2">"Residential"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"TaxAnnualAmount"</span><span class="p">:</span><span class="mi">13652</span><span class="p">,</span><span class="w">
@@ -22159,6 +22356,10 @@ moxi_works_agent_id=abc123
 <td><span class="response-data"><span class="data-type">Integer or null</span></td>
 </tr>
 <tr>
+<td><span class="response-data">PublicTitle</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+<tr>
 <td><span class="response-data">PublicRemarks</span></td>
 <td><span class="response-data"><span class="data-type">String or null</span></td>
 </tr>
@@ -22263,6 +22464,10 @@ moxi_works_agent_id=abc123
 <td><span class="response-data"><span class="data-type">String or null</span></td>
 </tr>
 <tr>
+<td><span class="response-data">Community</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+<tr>
 <td><span class="response-data">LotSizeSquareFeet</span></td>
 <td><span class="response-data"><span class="data-type">Integer or null</span></td>
 </tr>
@@ -22276,6 +22481,10 @@ moxi_works_agent_id=abc123
 </tr>
 <tr>
 <td><span class="response-data">ListOfficeAOR</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">ListOfficeAORArea</span></td>
 <td><span class="response-data"><span class="data-type">String or null</span></td>
 </tr>
 <tr>
@@ -22383,6 +22592,9 @@ moxi_works_agent_id=abc123
 <p><span class="response-data-head">BedroomsTotal</span>
 <span class="response-data-remarks">This is the number of bedrooms in the property.  If no data is available for this attribute, it will be <code class="prettyprint">null</code>.</span></p>
 
+<p><span class="response-data-head">PublicTitle</span>
+<span class="response-data-remarks">The human-readable title for the listing generated by the property agent.  If no data is available for this attribute, it will be <code class="prettyprint">null</code>.</span></p>
+
 <p><span class="response-data-head">PublicRemarks</span>
 <span class="response-data-remarks">These are human-readable notes about the property generated by the property agent.  If no data is available for this attribute, it will be <code class="prettyprint">null</code>.</span></p>
 
@@ -22452,6 +22664,9 @@ moxi_works_agent_id=abc123
 <p><span class="response-data-head">PostalCode</span>
 <span class="response-data-remarks">The zip code or postal code the property is located in.</span></p>
 
+<p><span class="response-data-head">Community</span>
+<span class="response-data-remarks">The communitythe property is located in.</span></p>
+
 <p><span class="response-data-head">LotSizeSquareFeet</span>
 <span class="response-data-remarks">Total area of the lot.</span></p>
 
@@ -22463,6 +22678,9 @@ moxi_works_agent_id=abc123
 
 <p><span class="response-data-head">ListOfficeAOR</span>
 <span class="response-data-remarks">The name of the MLS which this listing is listed with.</span></p>
+
+<p><span class="response-data-head">ListOfficeAORArea</span>
+<span class="response-data-remarks">The MLS Area which this listing is in.</span></p>
 
 <p><span class="response-data-head">PoolYN</span>
 <span class="response-data-remarks">Whether the property has a pool.</span></p>

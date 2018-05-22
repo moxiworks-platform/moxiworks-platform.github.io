@@ -312,12 +312,15 @@
   </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Broker"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"uuid"</span><span class="p">:</span><span class="s2">"8675309e9-1234-dead-beef-deadbeefdead"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"has_engage_access"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"access_level"</span><span class="p">:</span><span class="s2">"user"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"has_product_access"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
   </span><span class="nt">"twitter"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://twitter.com/agentguy"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"google_plus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://plus.google.com/1234567891011121314/posts"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"facebook"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.facebook.com/moxiworks/"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"home_page"</span><span class="p">:</span><span class="w"> </span><span class="s2">"foo.com"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"profile_image_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://picturererer.com/pics37/ImageStore.dll?id=852087C5D3A533DD&amp;w=200"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"profile_thumb_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://picturererer.com/pics37/ImageStore.dll?id=852087C5D3A533DD&amp;w=75"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"region"</span><span class="p">:</span><span class="s2">"WESTERN WASHINGTON"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"alternate_offices"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="nt">"moxi_works_office_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
@@ -487,8 +490,16 @@
 <td><span class="data-type">String</span></td>
 </tr>
 <tr>
+<td><span class="response-data">has_product_access</span></td>
+<td><span class="data-type">Boolean</span></td>
+</tr>
+<tr>
 <td><span class="response-data">has_engage_access</span></td>
 <td><span class="data-type">Boolean</span></td>
+</tr>
+<tr>
+<td><span class="response-data">access_level</span></td>
+<td><span class="data-type">String</span></td>
 </tr>
 <tr>
 <td><span class="response-data">twitter</span></td>
@@ -513,6 +524,10 @@
 <tr>
 <td><span class="response-data">profile_thumb_url</span></td>
 <td><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">region</span></td>
+<td><span class="data-type">String or null</span></td>
 </tr>
 <tr>
 <td><span class="response-data">gci_goal</span></td>
@@ -625,8 +640,14 @@
 <p><span class="response-data-head">uuid</span>
 <span class="response-data-remarks">This is  an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID associated with the agent. This UUID can be used as a unique identifier in determining associations between  <span class='entity-name'>Agent</span> objects and  <span class='entity-name'>Listing</span> objects.</span></p>
 
+<p><span class="response-data-head">has_product_access</span>
+<span class="response-data-remarks">Indicates whether the agent has access to MoxiWorks Products.</span></p>
+
 <p><span class="response-data-head">has_engage_access</span>
-<span class="response-data-remarks">Indicates whether the agent has access to Moxiworks Engage.</span></p>
+<span class="response-data-remarks">Indicates whether the agent has access to MoxiWorks Engage.</span></p>
+
+<p><span class="response-data-head">access_level</span>
+<span class="response-data-remarks">The access level of the agent.</span></p>
 
 <p><span class="response-data-head">twitter</span>
 <span class="response-data-remarks">Agent&rsquo;s Twitter URL. This can be null if there is no data available for this attribute.</span></p>
@@ -645,6 +666,9 @@
 
 <p><span class="response-data-head">profile_thumb_url</span>
 <span class="response-data-remarks">This is a valid URL for a thumbnail size image for the agent.  If no agent image has been uploaded for this agent a default image url will be provided.</span></p>
+
+<p><span class="response-data-head">region</span>
+<span class="response-data-remarks">The region the agent&rsquo;s office is in. This can be null if there is no data for this attribute.</span></p>
 
 <p><span class="response-data-head">gci_goal</span>
 <span class="response-data-remarks">The agent&rsquo;s  stated gross commission income goal.</span></p>
@@ -905,6 +929,11 @@
 <td><span class="data-type">Integer</span></td>
 <td>255</td>
 </tr>
+<tr>
+<td><span class="optional-data">include_access_level</span></td>
+<td><span class="data-type">Boolean</span></td>
+<td>255</td>
+</tr>
 </tbody></table>
 
 <p><span class="required-data"><strong>Required Parameters Are In Red</strong></span></p>
@@ -924,6 +953,9 @@
 
 <p><span class="request-data-head">page_number</span>
 <span class="request-data-remarks">For queries with multi-page responses, use the <span class='attribute-name'>page_number</span> parameter to return data for specific pages. Data for page 1 is returned if this parameter is not included. Use this parameter if <strong>total_pages</strong> indicates that there is more than one page of data available.</span></p>
+
+<p><span class="request-data-head">include_access_level</span>
+<span class="request-data-remarks">To include access level information for the agent in the response, pass <code class="prettyprint">true</code></span></p>
 
 <blockquote><div class='highlight json' style="display: block">
 <span class="data-example-label">Agent Index: Success Response</span>
@@ -965,13 +997,16 @@
   </span><span class="nt">"lead_routing_email_address"</span><span class="p">:</span><span class="s2">"leadrouter@thisdomain.com"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Broker"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"uuid"</span><span class="p">:</span><span class="s2">"8675309e9-1234-dead-beef-deadbeefdead"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"has_product_access"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
   </span><span class="nt">"has_engage_access"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"access_level"</span><span class="p">:</span><span class="s2">"user"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"twitter"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://twitter.com/agentguy"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"google_plus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://plus.google.com/1234567891011121314/posts"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"facebook"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.facebook.com/moxiworks/"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"home_page"</span><span class="p">:</span><span class="w"> </span><span class="s2">"foo.com"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"profile_image_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://picturererer.com/pics37/ImageStore.dll?id=852087C5D3A533DD&amp;w=200"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"profile_thumb_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://picturererer.com/pics37/ImageStore.dll?id=852087C5D3A533DD&amp;w=75"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"region"</span><span class="p">:</span><span class="s2">"WESTERN WASHINGTON"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"alternate_offices"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="nt">"moxi_works_office_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
@@ -1164,8 +1199,16 @@
 <td><span class="data-type">String</span></td>
 </tr>
 <tr>
+<td><span class="response-data">has_product_access</span></td>
+<td><span class="data-type">Boolean</span></td>
+</tr>
+<tr>
 <td><span class="response-data">has_engage_access</span></td>
 <td><span class="data-type">Boolean</span></td>
+</tr>
+<tr>
+<td><span class="response-data">access_level</span></td>
+<td><span class="data-type">String</span></td>
 </tr>
 <tr>
 <td><span class="response-data">twitter</span></td>
@@ -1190,6 +1233,10 @@
 <tr>
 <td><span class="response-data">profile_thumb_url</span></td>
 <td><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">region</span></td>
+<td><span class="data-type">String or null</span></td>
 </tr>
 <tr>
 <td><span class="response-data">alternate_offices</span></td>
@@ -1290,8 +1337,14 @@
 <p><span class="response-data-head">uuid</span>
 <span class="response-data-remarks">This is  an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID associated with the agent. This UUID can be used as a unique identifier in determining associations between  <span class='entity-name'>Agent</span> objects and  <span class='entity-name'>Listing</span> objects.</span></p>
 
+<p><span class="response-data-head">has_product_access</span>
+<span class="response-data-remarks">Indicates whether the agent has access to MoxiWorks Products.</span></p>
+
 <p><span class="response-data-head">has_engage_access</span>
-<span class="response-data-remarks">Indicates whether the agent has access to Moxiworks Engage.</span></p>
+<span class="response-data-remarks">Indicates whether the agent has access to MoxiWorks Engage.</span></p>
+
+<p><span class="response-data-head">access_level</span>
+<span class="response-data-remarks">The access level of the agent.</span></p>
 
 <p><span class="response-data-head">twitter</span>
 <span class="response-data-remarks">Agent&rsquo;s Twitter URL. This can be null if there is no data available for this attribute.</span></p>
@@ -1310,6 +1363,9 @@
 
 <p><span class="response-data-head">profile_thumb_url</span>
 <span class="response-data-remarks">This is a valid URL for a thumbnail size image for the agent. If no agent image has been uploaded for this agent a default image url will be provided.</span></p>
+
+<p><span class="response-data-head">region</span>
+<span class="response-data-remarks">The region the agent&rsquo;s office is in. This can be null if there is no data for this attribute.</span></p>
 
 <h6 id="alternate_offices-object"><span class='attribute-name'>alternate_offices</span> Object</h6>
 

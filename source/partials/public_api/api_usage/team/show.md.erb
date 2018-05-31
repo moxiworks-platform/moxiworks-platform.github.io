@@ -51,7 +51,20 @@ $credentials = new MoxiworksPlatform\Credentials($platform_identifier, $platform
 $company_teams = MoxiworksPlatform\Team::find(['moxi_works_team_id' => 'deadbeef-deadbeef-feed-facedeadbeef']);
 ?>
 ```
+```csharp
 
+/* set up prerequisites once */
+ConfigurationManager.AppSettings["Secret"] = "secret";
+ConfigurationManager.AppSettings["Identifier"] = "abc123";
+
+var moxiWorksCompanyId = "1234bcd";
+var moxiWorksTeamId = "1234567";
+
+var service = new TeamService(new MoxiWorksClient());
+var results = service.GetTeamAsync(moxiWorksTeamId,moxiWorksCompanyId).Result;
+var team = results.Item
+
+```
 ##### <span class='entity-name'>Team</span> <span class='action-name'>Show</span> Request Attributes
 
 <aside class="note">Send a <b>GET</b> request to https://api.moxiworks.com/api/teams/[moxi_works_team_id]</aside>

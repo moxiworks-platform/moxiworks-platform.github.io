@@ -25,6 +25,20 @@ Content-Type: application/x-www-form-urlencoded
 
 ```
 
+```csharp
+
+/* set up prerequisites once */
+ConfigurationManager.AppSettings["Secret"] = "secret";
+ConfigurationManager.AppSettings["Identifier"] = "abc123";
+
+var someCompanyId = "1234bcd;
+
+var service = new TeamService(new MoxiWorksClient());
+var results = service.GetCompanyTeamsAync(someCompanyId).Result;
+var teams = results.Item
+
+```
+
 ```ruby
 
 ##### set up prerequisites once

@@ -21,6 +21,7 @@ If the access token was valid, a JSON object is returned:
 | <span class="required-data">user_id</span> | <span class="data-type">String</span> | <span class="data-remarks">A unique (immutable) identifier for the end user</span> |
 | <span class="required-data">email</span> | <span class="data-type">String</span> | <span class="data-remarks">The end user's email address</span> |
 | <span class="required-data">company_name</span> | <span class="data-type">String</span> | <span class="data-remarks">The name of the company the end user works at</span> |
+| <span class="required-data">external_id</span> | <span class="data-type">String</span> | <span class="data-remarks">A unique identifier for the end user provided by the user's company</span> |
 
 More fields may be added to this in the future.
 Consumers of this data should not fail if more fields are present in the result.

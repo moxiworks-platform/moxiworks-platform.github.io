@@ -1,7 +1,0 @@
-### Agent Identifiers
-
-The Moxi Works Platform provides two different primary keys for Agents to allow maximum flexibility for differing use-cases.
-
-If you have already existing Agent data, agent accounts **and your own user interface that Agents can use to integrate your account with their Moxi Works Platform account** then you should use <span class='attribute-name'>moxi_works_agent_id</span>. This identifier guaranteed to be unique, but may be either an alphanumeric string or an email address. It is intended for use cases where integration is managed by end-user interaction.
-
-If you are pulling Agent data from The Moxi Works Platform and integrating with your own system in a managed or automated fashion, then using <span class='attribute-name'>agent_uuid</span> is preferable. <span class='attribute-name'>agent_uuid</span>  is guaranteed to be unique, uniformly formatted and to never change for the lifetime of the account.

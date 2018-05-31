@@ -112,7 +112,7 @@ var moxiWorksCompanyId = "abc123";
 var updatedSince = 1462317907;
 
 var service = new ListingService(new MoxiWorksClient());
-var results = service.GetListingsUpdatedSinceAsync(moxiWorksAgentID, AgentIdType.MoxiWorksAgentId,  moxiWorksCompanyId, updatedSince).Result;
+var results = service.GetListingsUpdatedSinceAsync(moxiWorksAgentID, AgentIdType.MoxiWorksAgentId,  moxiWorksCompanyId, updatedSince, idOfLastListingReturned).Result;
 
 ```
 

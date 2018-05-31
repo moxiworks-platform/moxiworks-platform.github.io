@@ -32,6 +32,17 @@ agent_moxi_works_tasks = MoxiworksPlatform::Agent.search(agent_uuid: "12345678-1
 $agent_moxi_works_tasks = MoxiworksPlatform\Task::search(['agent_uuid' => "12345678-1234-1234-1234-1234567890ab"]);
 ?>
 ```
+```csharp
+/* set up prerequisites once */
+ConfigurationManager.AppSettings["Secret"] = "secret";
+ConfigurationManager.AppSettings["Identifier"] = "abc123";
+
+var service = new MoxiWorks.Platform.TaskService(new MoxiWorksClient());
+var tasksResponse = service.GetTasksAsync("60d6f848-38d7-4cdb-adf2-4aaea5e1028",
+    AgentIdType.AgentUuid,
+    DateTime.Now.AddDays(-100), DateTime.Now, "20171013T124223529").Result;
+var tasks = tasksResponse.Item.Tasks;
+```
 
 
 > <span class="data-example-label"><span class='entity-name'>Task</span> <span class='action-name'>Index</span> (using <span class='attribute-name'>moxi_works_agent_id</span>) Example</span>
@@ -40,6 +51,19 @@ $agent_moxi_works_tasks = MoxiworksPlatform\Task::search(['agent_uuid' => "12345
 {
   "moxi_works_agent_id":"abc123"
 }
+
+```
+
+```csharp
+
+/* set up prerequisites once */
+ConfigurationManager.AppSettings["Secret"] = "secret";
+ConfigurationManager.AppSettings["Identifier"] = "abc123";
+
+var service = new MoxiWorks.Platform.TaskService(new MoxiWorksClient());
+var tasksResponse = service.GetTasksAsync("60d6f848-38d7-4cdb-adf2-4aaea5e1028",
+    AgentIdType.MoxiWorksagentId,null,null,null).Result;
+var tasks = tasksResponse.Item.Tasks;
 
 ```
 
@@ -81,6 +105,16 @@ Authorization: Basic XNNeXAAAUZaQlF0dA==
 Content-Type: application/x-www-form-urlencoded
 
 ```
+```csharp
+/* set up prerequisites once */
+ConfigurationManager.AppSettings["Secret"] = "secret";
+ConfigurationManager.AppSettings["Identifier"] = "abc123";
+
+var service = new MoxiWorks.Platform.TaskService(new MoxiWorksClient());
+var tasksResponse = service.GetTasksAsync("60d6f848-38d7-4cdb-adf2-4aaea5e1028",
+    AgentIdType.AgentUuid,null,null,someContactID).Result;
+var tasks = tasksResponse.Item.Tasks;
+```
 
 ```ruby
 agent_moxi_works_tasks_for_contact = MoxiworksPlatform::Task.search(
@@ -115,6 +149,17 @@ Accept: application/vnd.moxi-platform+json;version=1
 Authorization: Basic XNNeXAAAUZaQlF0dA==
 Content-Type: application/x-www-form-urlencoded
 
+```
+
+```csharp
+/* set up prerequisites once */
+ConfigurationManager.AppSettings["Secret"] = "secret";
+ConfigurationManager.AppSettings["Identifier"] = "abc123";
+
+var service = new MoxiWorks.Platform.TaskService(new MoxiWorksClient());
+var tasksResponse = service.GetTasksAsync("60d6f848-38d7-4cdb-adf2-4aaea5e1028",
+AgentIdType.AgentUuid,DateTime.Now.AddDays(-100), DateTime.Now,null).Result;
+var tasks = tasksResponse.Item.Tasks;
 ```
 
 ```ruby
@@ -153,6 +198,16 @@ Accept: application/vnd.moxi-platform+json;version=1
 Authorization: Basic XNNeXAAAUZaQlF0dA==
 Content-Type: application/x-www-form-urlencoded
 
+```
+```csharp
+/* set up prerequisites once */
+ConfigurationManager.AppSettings["Secret"] = "secret";
+ConfigurationManager.AppSettings["Identifier"] = "abc123";
+
+var service = new MoxiWorks.Platform.TaskService(new MoxiWorksClient());
+var tasksResponse = service.GetTasksAsync("60d6f848-38d7-4cdb-adf2-4aaea5e1028",
+    AgentIdType.AgentUuid,DateTime.Now.AddDays(-100), DateTime.Now, "20171013T124223529").Result;
+var tasks = tasksResponse.Item.Tasks;
 ```
 
 ```ruby

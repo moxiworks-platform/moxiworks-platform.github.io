@@ -26,6 +26,7 @@ Content-Type: application/x-www-form-urlencoded
 
 ```
 
+
 ```ruby
 ##### set up prerequisites once
 require 'moxiworks_platform'
@@ -44,6 +45,31 @@ moxi_works_listing = MoxiworksPlatform::Listing.update(
           VirtualTourURL: "http://virtualtourdomainurlthing.com"
         }
         )
+
+```
+
+```csharp
+
+/* set up prerequisites once */
+ConfigurationManager.AppSettings["Secret"] = "secret";
+ConfigurationManager.AppSettings["Identifier"] = "abc123";
+
+var service = new Platform.ListingService(new MoxiWorksClient());
+
+var updatable = new ListingUpdatableData
+{
+    VirtualTourURL = "http://tour.example.com"
+};
+
+var update = new ListingUpdate
+{
+    MoxiWorksCompanyId = "foo",
+    MoxWorksListingId = "bar",
+    Listing = updatable
+};
+
+var result = service.UpdateListingDataAsync(update).Result;
+var listing = result.Item.Listings[0];
 
 ```
 
@@ -288,7 +314,7 @@ Attribute | Type |
 |<span class="response-data">Status</span>|<span class="response-data"><span class="data-type">String or null</span>
 |<span class="response-data">MoxiWorksListingId</span>|<span class="response-data"><span class="data-type">String</span>
 |<span class="response-data">AgentCreatedListing</span>|<span class="response-data"><span class="data-type">Boolean</span>
-|<span class="response-data">VirtualTourURL</span>|<span class="response-data"><span class="data-type">Boolean</span>
+|<span class="response-data">VirtualTourURL</span>|<span class="response-data"><span class="data-type">String or null</span>
 |<span class="response-data">ListingURL</span>|<span class="response-data"><span class="data-type">String or null</span>
 |<span class="response-data">PropertyFeatures</span>|<span class="response-data"><span class="data-type">Array</span>
 |<span class="response-data">CompanyListingAttributes</span>|<span class="response-data"><span class="data-type">Array</span>

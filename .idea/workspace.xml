@@ -1,0 +1,1038 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="211e5303-9f2e-4329-b0be-548de4840169" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/Gemfile" afterPath="$PROJECT_DIR$/Gemfile" />
+      <change beforePath="$PROJECT_DIR$/Gemfile.lock" afterPath="$PROJECT_DIR$/Gemfile.lock" />
+      <change beforePath="$PROJECT_DIR$/source/partials/public_api/api_usage/listing/index.md.erb" afterPath="$PROJECT_DIR$/source/partials/public_api/api_usage/listing/index.md.erb" />
+      <change beforePath="$PROJECT_DIR$/source/partials/public_api/api_usage/listing/update.md.erb" afterPath="$PROJECT_DIR$/source/partials/public_api/api_usage/listing/update.md.erb" />
+      <change beforePath="$PROJECT_DIR$/source/partials/public_api/api_usage/task/index.md.erb" afterPath="$PROJECT_DIR$/source/partials/public_api/api_usage/task/index.md.erb" />
+      <change beforePath="$PROJECT_DIR$/source/partials/public_api/api_usage/team/index.md.erb" afterPath="$PROJECT_DIR$/source/partials/public_api/api_usage/team/index.md.erb" />
+      <change beforePath="$PROJECT_DIR$/source/partials/public_api/api_usage/team/show.md.erb" afterPath="$PROJECT_DIR$/source/partials/public_api/api_usage/team/show.md.erb" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="index.md.erb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/partials/public_api/api_usage/team/index.md.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+              <folding>
+                <marker date="1527719732822" expanded="true" signature="1020:1063" ph="{&quot;moxi_works_company_id&quot;: &quot;the_company&quot;...}" />
+                <marker date="1527719732822" expanded="true" signature="3328:4085" ph="[...]" />
+                <marker date="1527719732822" expanded="true" signature="3332:4083" ph="{&quot;name&quot;: &quot;New Team One&quot;...}" />
+                <marker date="1527719732822" expanded="true" signature="4344:4413" ph="{&quot;status&quot;: &quot;fail&quot;...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="show.md.erb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/partials/public_api/api_usage/team/show.md.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="206">
+              <caret line="70" column="0" lean-forward="true" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
+              <folding>
+                <marker date="1527785078885" expanded="true" signature="971:1035" ph="{&quot;moxi_works_team_id&quot;: &quot;deadbeef-deadbeef-feed-facedeadbeef&quot;...}" />
+                <marker date="1527785078885" expanded="true" signature="4047:4834" ph="{&quot;name&quot;: &quot;New Team One&quot;...}" />
+                <marker date="1527785078885" expanded="true" signature="5093:5162" ph="{&quot;status&quot;: &quot;fail&quot;...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.md.erb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/partials/public_api/api_usage/listing/index.md.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="340">
+              <caret line="118" column="0" lean-forward="true" selection-start-line="118" selection-start-column="0" selection-end-line="118" selection-end-column="0" />
+              <folding>
+                <marker date="1527785935387" expanded="true" signature="1538:1608" ph="{&quot;moxi_works_company_id&quot;: &quot;abc123&quot;...}" />
+                <marker date="1527785935387" expanded="true" signature="3349:3462" ph="{&quot;moxi_works_company_id&quot;: &quot;abc123&quot;...}" />
+                <marker date="1527785935387" expanded="true" signature="4425:4755" ph="unless ... end" />
+                <marker date="1527785935387" expanded="true" signature="4933:4983" ph="{ ... }" />
+                <marker date="1527785935387" expanded="true" signature="9337:12957" ph="{&quot;FinalPage&quot;: true...}" />
+                <marker date="1527785935387" expanded="true" signature="9369:12955" ph="[...]" />
+                <marker date="1527785935387" expanded="true" signature="9371:12953" ph="{&quot;LotSizeAcres&quot;: 0.0...}" />
+                <marker date="1527785935387" expanded="true" signature="11098:11817" ph="[...]" />
+                <marker date="1527785935387" expanded="true" signature="11104:11283" ph="{&quot;PropertyFeatureName&quot;: &quot;Kitchen Information&quot;...}" />
+                <marker date="1527785935387" expanded="true" signature="11189:11275" ph="[...]" />
+                <marker date="1527785935387" expanded="true" signature="11293:11415" ph="{&quot;PropertyFeatureName&quot;: &quot;Roof Description&quot;...}" />
+                <marker date="1527785935387" expanded="true" signature="11375:11407" ph="[...]" />
+                <marker date="1527785935387" expanded="true" signature="11425:11545" ph="{&quot;PropertyFeatureName&quot;: &quot;Number Of Stories&quot;...}" />
+                <marker date="1527785935387" expanded="true" signature="11508:11537" ph="[...]" />
+                <marker date="1527785935387" expanded="true" signature="11555:11813" ph="{&quot;PropertyFeatureName&quot;: &quot;Interior Features&quot;...}" />
+                <marker date="1527785935387" expanded="true" signature="11638:11807" ph="[...]" />
+                <marker date="1527785935387" expanded="true" signature="11849:12037" ph="[...]" />
+                <marker date="1527785935387" expanded="true" signature="11855:11941" ph="{&quot;AttributeId&quot;: &quot;the collection&quot;...}" />
+                <marker date="1527785935387" expanded="true" signature="11949:12033" ph="{&quot;AttributeId&quot;: &quot;destination&quot;...}" />
+                <marker date="1527785935387" expanded="true" signature="12053:12154" ph="[...]" />
+                <marker date="1527785935387" expanded="true" signature="12059:12150" ph="{&quot;Date&quot;: &quot;2018-01-06&quot;...}" />
+                <marker date="1527785935387" expanded="true" signature="12174:12951" ph="[...]" />
+                <marker date="1527785935387" expanded="true" signature="12180:12947" ph="{&quot;FullURL&quot;: &quot;http://images.moxiworks.com/static/images/br/imagoo/default_property_image_wre-326x250.png&quot;...}" />
+                <marker date="1527785935387" expanded="true" signature="13288:13357" ph="{&quot;status&quot;: &quot;fail&quot;...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="update.md.erb" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/source/partials/public_api/api_usage/listing/update.md.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="351">
+              <caret line="327" column="1" lean-forward="true" selection-start-line="327" selection-start-column="1" selection-end-line="327" selection-end-column="1" />
+              <folding>
+                <marker date="1527788487894" expanded="true" signature="690:834" ph="{&quot;moxi_works_listing_id&quot;: &quot;abc123&quot;...}" />
+                <marker date="1527788487894" expanded="true" signature="788:832" ph="{&quot;VirtualTourURL&quot;: &quot;http://here.com&quot;...}" />
+                <marker date="1527788487894" expanded="true" signature="1499:1575" ph="{ ... }" />
+                <marker date="1527788487894" expanded="true" signature="4786:8146" ph="{&quot;LotSizeAcres&quot;: 0.0...}" />
+                <marker date="1527788487894" expanded="true" signature="6513:7228" ph="[...]" />
+                <marker date="1527788487894" expanded="true" signature="6519:6698" ph="{&quot;PropertyFeatureName&quot;: &quot;Kitchen Information&quot;...}" />
+                <marker date="1527788487894" expanded="true" signature="6604:6690" ph="[...]" />
+                <marker date="1527788487894" expanded="true" signature="6706:6828" ph="{&quot;PropertyFeatureName&quot;: &quot;Roof Description&quot;...}" />
+                <marker date="1527788487894" expanded="true" signature="6788:6820" ph="[...]" />
+                <marker date="1527788487894" expanded="true" signature="6836:6956" ph="{&quot;PropertyFeatureName&quot;: &quot;Number Of Stories&quot;...}" />
+                <marker date="1527788487894" expanded="true" signature="6919:6948" ph="[...]" />
+                <marker date="1527788487894" expanded="true" signature="6966:7224" ph="{&quot;PropertyFeatureName&quot;: &quot;Interior Features&quot;...}" />
+                <marker date="1527788487894" expanded="true" signature="7049:7218" ph="[...]" />
+                <marker date="1527788487894" expanded="true" signature="7244:7345" ph="[...]" />
+                <marker date="1527788487894" expanded="true" signature="7250:7341" ph="{&quot;Date&quot;: &quot;2018-01-06&quot;...}" />
+                <marker date="1527788487894" expanded="true" signature="7365:8144" ph="[...]" />
+                <marker date="1527788487894" expanded="true" signature="7371:8140" ph="{&quot;FullURL&quot;: &quot;http://images.moxiworks.com/static/images/br/imagoo/default_property_image_wre-326x250.png&quot;...}" />
+                <marker date="1527788487894" expanded="true" signature="8480:8549" ph="{&quot;status&quot;: &quot;fail&quot;...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="show.md.erb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/partials/public_api/api_usage/listing/show.md.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="262">
+              <caret line="33" column="36" lean-forward="true" selection-start-line="33" selection-start-column="36" selection-end-line="33" selection-end-column="36" />
+              <folding>
+                <marker date="1527785844040" expanded="true" signature="1016:1102" ph="{&quot;moxi_works_listing_id&quot;: &quot;abc123&quot;...}" />
+                <marker date="1527785844040" expanded="true" signature="4535:7895" ph="{&quot;LotSizeAcres&quot;: 0.0...}" />
+                <marker date="1527785844040" expanded="true" signature="6262:6977" ph="[...]" />
+                <marker date="1527785844040" expanded="true" signature="6268:6447" ph="{&quot;PropertyFeatureName&quot;: &quot;Kitchen Information&quot;...}" />
+                <marker date="1527785844040" expanded="true" signature="6353:6439" ph="[...]" />
+                <marker date="1527785844040" expanded="true" signature="6455:6577" ph="{&quot;PropertyFeatureName&quot;: &quot;Roof Description&quot;...}" />
+                <marker date="1527785844040" expanded="true" signature="6537:6569" ph="[...]" />
+                <marker date="1527785844040" expanded="true" signature="6585:6705" ph="{&quot;PropertyFeatureName&quot;: &quot;Number Of Stories&quot;...}" />
+                <marker date="1527785844040" expanded="true" signature="6668:6697" ph="[...]" />
+                <marker date="1527785844040" expanded="true" signature="6715:6973" ph="{&quot;PropertyFeatureName&quot;: &quot;Interior Features&quot;...}" />
+                <marker date="1527785844040" expanded="true" signature="6798:6967" ph="[...]" />
+                <marker date="1527785844040" expanded="true" signature="6993:7094" ph="[...]" />
+                <marker date="1527785844040" expanded="true" signature="6999:7090" ph="{&quot;Date&quot;: &quot;2018-01-06&quot;...}" />
+                <marker date="1527785844040" expanded="true" signature="7114:7893" ph="[...]" />
+                <marker date="1527785844040" expanded="true" signature="7120:7889" ph="{&quot;FullURL&quot;: &quot;http://images.moxiworks.com/static/images/br/imagoo/default_property_image_wre-326x250.png&quot;...}" />
+                <marker date="1527785844040" expanded="true" signature="8227:8296" ph="{&quot;status&quot;: &quot;fail&quot;...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="540">
+                <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+                <folding />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Gemfile" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Gemfile">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="126">
+              <caret line="7" column="23" lean-forward="false" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.md.erb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/partials/public_api/api_usage/task/index.md.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="337" column="25" lean-forward="true" selection-start-line="337" selection-start-column="25" selection-end-line="337" selection-end-column="25" />
+              <folding>
+                <marker date="1527785021566" expanded="true" signature="733:790" ph="{&quot;agent_uuid&quot;: &quot;12345678-1234-1234-1234-1234567890ab&quot;...}" />
+                <marker date="1527785021566" expanded="true" signature="1966:2002" ph="{&quot;moxi_works_agent_id&quot;: &quot;abc123&quot;...}" />
+                <marker date="1527785021566" expanded="true" signature="3116:3199" ph="{&quot;moxi_works_agent_id&quot;: &quot;abc123&quot;...}" />
+                <marker date="1527785021566" expanded="true" signature="4476:4572" ph="{&quot;moxi_works_agent_id&quot;: &quot;abc123&quot;...}" />
+                <marker date="1527785021566" expanded="true" signature="6051:6194" ph="{&quot;moxi_works_agent_id&quot;: &quot;abc123&quot;...}" />
+                <marker date="1527785021566" expanded="true" signature="12051:12457" ph="{&quot;page_number&quot;: 6...}" />
+                <marker date="1527785021566" expanded="true" signature="12102:12455" ph="[...]" />
+                <marker date="1527785021566" expanded="true" signature="12108:12451" ph="{&quot;name&quot;: &quot;Reach Out to this person!&quot;...}" />
+                <marker date="1527785021566" expanded="true" signature="12765:13150" ph="{&quot;page_number&quot;: 6...}" />
+                <marker date="1527785021566" expanded="true" signature="12816:13148" ph="[...]" />
+                <marker date="1527785021566" expanded="true" signature="12822:13144" ph="{&quot;name&quot;: &quot;Reach Out to this person!&quot;...}" />
+                <marker date="1527785021566" expanded="true" signature="13478:13547" ph="{&quot;status&quot;: &quot;fail&quot;...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.md.erb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/partials/public_api/api_usage/event/index.md.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1710">
+              <caret line="95" column="0" lean-forward="false" selection-start-line="95" selection-start-column="0" selection-end-line="106" selection-end-column="3" />
+              <folding>
+                <marker date="1522452323491" expanded="true" signature="1071:1180" ph="{&quot;agent_uuid&quot;: &quot;12345678-1234-1234-1234-1234567890ab&quot;...}" />
+                <marker date="1522452323491" expanded="true" signature="11090:11159" ph="{&quot;status&quot;: &quot;fail&quot;...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="create.md.erb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/partials/public_api/api_usage/task/create.md.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="216">
+              <caret line="89" column="30" lean-forward="false" selection-start-line="89" selection-start-column="30" selection-end-line="89" selection-end-column="30" />
+              <folding>
+                <marker date="1522452323505" expanded="true" signature="1103:1379" ph="{&quot;name&quot;: &quot;Do This Please&quot;...}" />
+                <marker date="1522452323505" expanded="true" signature="3921:4176" ph="{&quot;name&quot;: &quot;Do This Please&quot;...}" />
+                <marker date="1522452323505" expanded="true" signature="11535:11855" ph="{&quot;name&quot;: &quot;Meet And Greet&quot;...}" />
+                <marker date="1522452323505" expanded="true" signature="12162:12463" ph="{&quot;name&quot;: &quot;Meet And Greet&quot;...}" />
+                <marker date="1522452323505" expanded="true" signature="12791:12860" ph="{&quot;status&quot;: &quot;fail&quot;...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>agentIdType:</find>
+      <find>agentId:</find>
+      <find>moxiWorksListingId:</find>
+      <find>moxiWorksCompanyId:</find>
+      <find>updatedSince:</find>
+      <find>partnerContactId:</find>
+      <find>moxiworksTransactionId:</find>
+      <find>buyerTransaction:</find>
+      <find>parnter-EventId</find>
+      <find>sellerTransaction:</find>
+      <find>task:</find>
+      <find>Contact</find>
+      <find>All</find>
+      <find>Next</find>
+      <find>VirtualTourURL</find>
+    </findStrings>
+    <replaceStrings>
+      <replace />
+    </replaceStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/source/partials/public_api/api_usage/action_log/index.md.erb" />
+        <option value="$PROJECT_DIR$/source/partials/public_api/api_usage/agent/index.md.erb" />
+        <option value="$PROJECT_DIR$/source/partials/public_api/api_usage/agent/show.md.erb" />
+        <option value="$PROJECT_DIR$/source/partials/public_api/api_usage/brand/index.md.erb" />
+        <option value="$PROJECT_DIR$/source/partials/public_api/api_usage/brand/show.md.erb" />
+        <option value="$PROJECT_DIR$/source/partials/public_api/api_usage/buyer_transaction/create.md.erb" />
+        <option value="$PROJECT_DIR$/source/partials/public_api/api_usage/buyer_transaction/index.md.erb" />
+        <option value="$PROJECT_DIR$/source/partials/public_api/api_usage/buyer_transaction/show.md.erb" />
+        <option value="$PROJECT_DIR$/source/partials/public_api/api_usage/buyer_transaction/update.md.erb" />
+        <option value="$PROJECT_DIR$/source/partials/public_api/api_usage/company/show.md.erb" />
+        <option value="$PROJECT_DIR$/source/partials/public_api/api_usage/contact/create.md.erb" />
+        <option value="$PROJECT_DIR$/source/partials/public_api/api_usage/contact/index.md.erb" />
+        <option value="$PROJECT_DIR$/source/partials/public_api/api_usage/contact/show.md.erb" />
+        <option value="$PROJECT_DIR$/source/partials/public_api/api_usage/contact/update.md.erb" />
+        <option value="$PROJECT_DIR$/source/partials/public_api/api_usage/email_campaign/index.md.erb" />
+        <option value="$PROJECT_DIR$/source/partials/public_api/api_usage/event/create.md.erb" />
+        <option value="$PROJECT_DIR$/source/partials/public_api/api_usage/event/delete.md.erb" />
+        <option value="$PROJECT_DIR$/source/partials/public_api/api_usage/event/index.md.erb" />
+        <option value="$PROJECT_DIR$/source/partials/public_api/api_usage/event/update.md.erb" />
+        <option value="$PROJECT_DIR$/source/partials/public_api/api_usage/gallery/show.md.erb" />
+        <option value="$PROJECT_DIR$/source/partials/public_api/api_usage/group/index.md.erb" />
+        <option value="$PROJECT_DIR$/source/partials/public_api/api_usage/group/show.md.erb" />
+        <option value="$PROJECT_DIR$/source/partials/public_api/api_usage/office/index.md.erb" />
+        <option value="$PROJECT_DIR$/source/partials/public_api/api_usage/office/show.md.erb" />
+        <option value="$PROJECT_DIR$/source/partials/public_api/api_usage/presentation_log/index.md.erb" />
+        <option value="$PROJECT_DIR$/source/partials/public_api/api_usage/seller_transaction/show.md.erb" />
+        <option value="$PROJECT_DIR$/source/partials/public_api/api_usage/seller_transaction/update.md.erb" />
+        <option value="$PROJECT_DIR$/source/partials/public_api/api_usage/seller_transaction/index.md.erb" />
+        <option value="$PROJECT_DIR$/source/partials/public_api/api_usage/sold_listing/show.md.erb" />
+        <option value="$PROJECT_DIR$/source/partials/public_api/api_usage/sold_listing/index.md.erb" />
+        <option value="$PROJECT_DIR$/source/partials/public_api/api_usage/task/create.md.erb" />
+        <option value="$PROJECT_DIR$/source/partials/public_api/api_usage/action_log/create.md.erb" />
+        <option value="$PROJECT_DIR$/source/partials/public_api/api_usage/event/show.md.erb" />
+        <option value="$PROJECT_DIR$/source/partials/public_api/api_usage/seller_transaction/create.md.erb" />
+        <option value="$PROJECT_DIR$/source/partials/public_api/api_usage/task/show.md.erb" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/source/partials/public_api/api_usage/team/index.md.erb" />
+        <option value="$PROJECT_DIR$/Gemfile" />
+        <option value="$PROJECT_DIR$/source/partials/public_api/api_usage/task/index.md.erb" />
+        <option value="$PROJECT_DIR$/source/partials/public_api/api_usage/team/show.md.erb" />
+        <option value="$PROJECT_DIR$/source/partials/public_api/api_usage/listing/show.md.erb" />
+        <option value="$PROJECT_DIR$/source/partials/public_api/api_usage/listing/index.md.erb" />
+        <option value="$PROJECT_DIR$/source/partials/public_api/api_usage/listing/update.md.erb" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
+    <option name="width" value="1440" />
+    <option name="height" value="900" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id />
+          </State>
+          <State>
+            <id>ECMAScript 6 migration aidsJavaScript</id>
+          </State>
+          <State>
+            <id>General</id>
+          </State>
+          <State>
+            <id>GeneralJavaScript</id>
+          </State>
+          <State>
+            <id>JavaScript</id>
+          </State>
+          <State>
+            <id>Naming conventionsRuby</id>
+          </State>
+          <State>
+            <id>Ruby</id>
+          </State>
+          <State>
+            <id>TypeScript</id>
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>General</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scratches" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="moxiworks-platform.github.io" type="b2602c69:ProjectViewProjectNode" />
+              <item name="moxiworks-platform.github.io" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="moxiworks-platform.github.io" type="b2602c69:ProjectViewProjectNode" />
+              <item name="moxiworks-platform.github.io" type="462c0819:PsiDirectoryNode" />
+              <item name="source" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="moxiworks-platform.github.io" type="b2602c69:ProjectViewProjectNode" />
+              <item name="moxiworks-platform.github.io" type="462c0819:PsiDirectoryNode" />
+              <item name="source" type="462c0819:PsiDirectoryNode" />
+              <item name="partials" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="moxiworks-platform.github.io" type="b2602c69:ProjectViewProjectNode" />
+              <item name="moxiworks-platform.github.io" type="462c0819:PsiDirectoryNode" />
+              <item name="source" type="462c0819:PsiDirectoryNode" />
+              <item name="partials" type="462c0819:PsiDirectoryNode" />
+              <item name="public_api" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="moxiworks-platform.github.io" type="b2602c69:ProjectViewProjectNode" />
+              <item name="moxiworks-platform.github.io" type="462c0819:PsiDirectoryNode" />
+              <item name="source" type="462c0819:PsiDirectoryNode" />
+              <item name="partials" type="462c0819:PsiDirectoryNode" />
+              <item name="public_api" type="462c0819:PsiDirectoryNode" />
+              <item name="api_usage" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="moxiworks-platform.github.io" type="b2602c69:ProjectViewProjectNode" />
+              <item name="moxiworks-platform.github.io" type="462c0819:PsiDirectoryNode" />
+              <item name="source" type="462c0819:PsiDirectoryNode" />
+              <item name="partials" type="462c0819:PsiDirectoryNode" />
+              <item name="public_api" type="462c0819:PsiDirectoryNode" />
+              <item name="api_usage" type="462c0819:PsiDirectoryNode" />
+              <item name="listing" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="moxiworks-platform.github.io" type="b2602c69:ProjectViewProjectNode" />
+              <item name="moxiworks-platform.github.io" type="462c0819:PsiDirectoryNode" />
+              <item name="source" type="462c0819:PsiDirectoryNode" />
+              <item name="partials" type="462c0819:PsiDirectoryNode" />
+              <item name="public_api" type="462c0819:PsiDirectoryNode" />
+              <item name="api_usage" type="462c0819:PsiDirectoryNode" />
+              <item name="task" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="moxiworks-platform.github.io" type="b2602c69:ProjectViewProjectNode" />
+              <item name="moxiworks-platform.github.io" type="462c0819:PsiDirectoryNode" />
+              <item name="source" type="462c0819:PsiDirectoryNode" />
+              <item name="partials" type="462c0819:PsiDirectoryNode" />
+              <item name="public_api" type="462c0819:PsiDirectoryNode" />
+              <item name="api_usage" type="462c0819:PsiDirectoryNode" />
+              <item name="team" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.ruby.settings.RubyActiveModuleSdkConfigurable" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="/usr/local/bin/node" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///Users/anthony.hatch/projects/moxiworks-platform.github.io/source/partials/public_api/api_usage/task/update.md.erb" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SpringUtil" SPRING_PRE_LOADER_OPTION="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="211e5303-9f2e-4329-b0be-548de4840169" name="Default" comment="" />
+      <created>1522443715349</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1522443715349</updated>
+      <workItem from="1522443716629" duration="147000" />
+      <workItem from="1522443871345" duration="7354000" />
+      <workItem from="1527718857139" duration="72000" />
+      <workItem from="1527718947583" duration="3891000" />
+      <workItem from="1527781682258" duration="4545000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="16009000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="0" width="1440" height="900" extended-state="6" />
+    <layout>
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26752505" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3555018" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32963374" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/source/partials/public_api/api_usage/action_log/index.md.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="615">
+          <caret line="47" column="7" lean-forward="true" selection-start-line="47" selection-start-column="7" selection-end-line="47" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/partials/public_api/api_usage/agent/index.md.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="930">
+          <caret line="147" column="0" lean-forward="true" selection-start-line="147" selection-start-column="0" selection-end-line="147" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/partials/public_api/api_usage/agent/show.md.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="994">
+          <caret line="116" column="0" lean-forward="true" selection-start-line="116" selection-start-column="0" selection-end-line="116" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/partials/public_api/api_usage/brand/index.md.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="594">
+          <caret line="33" column="33" lean-forward="false" selection-start-line="33" selection-start-column="33" selection-end-line="33" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/partials/public_api/api_usage/brand/show.md.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="31" column="20" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/partials/public_api/api_usage/buyer_transaction/create.md.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="346">
+          <caret line="55" column="45" lean-forward="false" selection-start-line="55" selection-start-column="45" selection-end-line="55" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/partials/public_api/api_usage/buyer_transaction/index.md.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="680">
+          <caret line="108" column="0" lean-forward="true" selection-start-line="108" selection-start-column="0" selection-end-line="108" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/partials/public_api/api_usage/buyer_transaction/show.md.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="499">
+          <caret line="43" column="3" lean-forward="true" selection-start-line="43" selection-start-column="3" selection-end-line="43" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/partials/public_api/api_usage/buyer_transaction/update.md.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="778">
+          <caret line="61" column="32" lean-forward="true" selection-start-line="61" selection-start-column="32" selection-end-line="61" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/partials/public_api/api_usage/company/index.md.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="702">
+          <caret line="39" column="3" lean-forward="true" selection-start-line="39" selection-start-column="3" selection-end-line="39" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/partials/public_api/api_usage/company/show.md.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="612">
+          <caret line="34" column="0" lean-forward="true" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/partials/public_api/api_usage/contact/index.md.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="591">
+          <caret line="38" column="0" lean-forward="true" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/partials/public_api/api_usage/contact/show.md.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="607">
+          <caret line="34" column="71" lean-forward="false" selection-start-line="34" selection-start-column="71" selection-end-line="34" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/partials/public_api/api_usage/contact/update.md.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1176">
+          <caret line="101" column="34" lean-forward="true" selection-start-line="101" selection-start-column="34" selection-end-line="101" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/partials/public_api/api_usage/email_campaign/index.md.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="601">
+          <caret line="40" column="0" lean-forward="true" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/partials/public_api/api_usage/event/create.md.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="416">
+          <caret line="59" column="15" lean-forward="false" selection-start-line="59" selection-start-column="6" selection-end-line="59" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/partials/public_api/api_usage/event/delete.md.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="362">
+          <caret line="38" column="34" lean-forward="false" selection-start-line="38" selection-start-column="34" selection-end-line="38" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/partials/public_api/api_usage/event/update.md.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3051">
+          <caret line="174" column="0" lean-forward="true" selection-start-line="174" selection-start-column="0" selection-end-line="174" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/partials/public_api/api_usage/group/index.md.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="123">
+          <caret line="115" column="0" lean-forward="true" selection-start-line="115" selection-start-column="0" selection-end-line="115" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/partials/public_api/api_usage/group/show.md.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="852">
+          <caret line="100" column="32" lean-forward="true" selection-start-line="100" selection-start-column="32" selection-end-line="100" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/partials/public_api/api_usage/office/index.md.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="594">
+          <caret line="33" column="41" lean-forward="false" selection-start-line="33" selection-start-column="41" selection-end-line="33" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/partials/public_api/api_usage/presentation_log/index.md.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="612">
+          <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/partials/public_api/api_usage/seller_transaction.md.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/partials/public_api/api_usage/contact/create.md.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-5294">
+          <caret line="80" column="35" lean-forward="true" selection-start-line="80" selection-start-column="35" selection-end-line="80" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/partials/public_api/api_usage/sold_listing/index.md.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-816">
+          <caret line="102" column="0" lean-forward="true" selection-start-line="102" selection-start-column="0" selection-end-line="102" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/partials/public_api/api_usage/sold_listing/show.md.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2394">
+          <caret line="55" column="42" lean-forward="true" selection-start-line="55" selection-start-column="42" selection-end-line="55" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/partials/public_api/api_usage/action_log.md.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/partials/public_api/api_usage/email_campaign.md.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/partials/public_api/api_usage/gallery/show.md.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="532">
+          <caret line="93" column="31" lean-forward="true" selection-start-line="93" selection-start-column="31" selection-end-line="93" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/partials/public_api/api_usage/action_log/create.md.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="549">
+          <caret line="238" column="36" lean-forward="true" selection-start-line="238" selection-start-column="36" selection-end-line="238" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/partials/public_api/api_usage/event/show.md.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="30" column="31" lean-forward="false" selection-start-line="30" selection-start-column="31" selection-end-line="30" selection-end-column="31" />
+          <folding>
+            <marker date="1522452323491" expanded="true" signature="1054:1145" ph="{&quot;agent_uuid&quot;: &quot;12345678-1234-1234-1234-1234567890ab&quot;...}" />
+            <marker date="1522452323491" expanded="true" signature="2846:2916" ph="{&quot;moxi_works_agent_id&quot;: &quot;abc123&quot;...}" />
+            <marker date="1522452323491" expanded="true" signature="7524:7887" ph="{&quot;partner_event_id&quot;: &quot;booyuh&quot;...}" />
+            <marker date="1522452323491" expanded="true" signature="8195:8539" ph="{&quot;partner_event_id&quot;: &quot;booyuh&quot;...}" />
+            <marker date="1522452323491" expanded="true" signature="8859:8928" ph="{&quot;status&quot;: &quot;fail&quot;...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/partials/public_api/api_usage/office/show.md.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="18" column="25" lean-forward="false" selection-start-line="18" selection-start-column="14" selection-end-line="18" selection-end-column="25" />
+          <folding>
+            <marker date="1522452323498" expanded="true" signature="1313:1380" ph="{&quot;moxi_works_office_id&quot;: &quot;deadbeef-sdeadbeef-feed-facedeadbeef&quot;...}" />
+            <marker date="1522452323498" expanded="true" signature="4388:4991" ph="{&quot;id&quot;: &quot;1234&quot;...}" />
+            <marker date="1522452323498" expanded="true" signature="5252:5321" ph="{&quot;status&quot;: &quot;fail&quot;...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/partials/public_api/api_usage/seller_transaction/create.md.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1224">
+          <caret line="68" column="40" lean-forward="false" selection-start-line="68" selection-start-column="40" selection-end-line="68" selection-end-column="40" />
+          <folding>
+            <marker date="1522452323500" expanded="true" signature="1155:1728" ph="{&quot;agent_uuid&quot;: &quot;12345678-1234-1234-1234-1234567890ab&quot;...}" />
+            <marker date="1522452323500" expanded="true" signature="5557:6109" ph="{&quot;moxi_works_agent_id&quot;: &quot;abc123&quot;...}" />
+            <marker date="1522452323500" expanded="true" signature="9853:10434" ph="{&quot;agent_uuid&quot;: &quot;12345678-1234-1234-1234-1234567890ab&quot;...}" />
+            <marker date="1522452323500" expanded="true" signature="26486:27344" ph="{&quot;agent_uuid&quot;: &quot;12345678-1234-1234-1234-1234567890ab&quot;...}" />
+            <marker date="1522452323500" expanded="true" signature="27663:28500" ph="{&quot;moxi_works_agent_id&quot;: &quot;abc123&quot;...}" />
+            <marker date="1522452323500" expanded="true" signature="28841:28910" ph="{&quot;status&quot;: &quot;fail&quot;...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/partials/public_api/api_usage/seller_transaction/show.md.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2016">
+          <caret line="112" column="47" lean-forward="false" selection-start-line="112" selection-start-column="22" selection-end-line="112" selection-end-column="47" />
+          <folding>
+            <marker date="1522452323501" expanded="true" signature="1139:1266" ph="{&quot;agent_uuid&quot;: &quot;12345678-1234-1234-1234-1234567890ab&quot;...}" />
+            <marker date="1522452323501" expanded="true" signature="3199:3305" ph="{&quot;moxi_works_agent_id&quot;: &quot;abc123&quot;...}" />
+            <marker date="1522452323501" expanded="true" signature="8180:9038" ph="{&quot;agent_uuid&quot;: &quot;12345678-1234-1234-1234-1234567890ab&quot;...}" />
+            <marker date="1522452323501" expanded="true" signature="9355:10192" ph="{&quot;moxi_works_agent_id&quot;: &quot;abc123&quot;...}" />
+            <marker date="1522452323501" expanded="true" signature="10532:10601" ph="{&quot;status&quot;: &quot;fail&quot;...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/partials/public_api/api_usage/seller_transaction/update.md.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3654">
+          <caret line="203" column="36" lean-forward="false" selection-start-line="203" selection-start-column="36" selection-end-line="203" selection-end-column="36" />
+          <folding>
+            <marker date="1522452323502" expanded="true" signature="1154:1761" ph="{&quot;agent_uuid&quot;: &quot;12345678-1234-1234-1234-1234567890ab&quot;...}" />
+            <marker date="1522452323502" expanded="true" signature="5692:6278" ph="{&quot;moxi_works_agent_id&quot;: &quot;abc123&quot;...}" />
+            <marker date="1522452323502" expanded="true" signature="10172:10757" ph="{&quot;agent_uuid&quot;: &quot;12345678-1234-1234-1234-1234567890ab&quot;...}" />
+            <marker date="1522452323502" expanded="true" signature="27362:28217" ph="{&quot;agent_uuid&quot;: &quot;12345678-1234-1234-1234-1234567890ab&quot;...}" />
+            <marker date="1522452323502" expanded="true" signature="28537:29371" ph="{&quot;moxi_works_agent_id&quot;: &quot;abc123&quot;...}" />
+            <marker date="1522452323502" expanded="true" signature="29712:29781" ph="{&quot;status&quot;: &quot;fail&quot;...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/partials/public_api/api_usage/task/show.md.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4050">
+          <caret line="225" column="17" lean-forward="false" selection-start-line="225" selection-start-column="17" selection-end-line="225" selection-end-column="17" />
+          <folding>
+            <marker date="1522452323509" expanded="true" signature="1048:1178" ph="{&quot;partner_task_id&quot;: &quot;mySystemsTaskID&quot;...}" />
+            <marker date="1522452323509" expanded="true" signature="3033:3142" ph="{&quot;partner_task_id&quot;: &quot;mySystemsTaskID&quot;...}" />
+            <marker date="1522452323509" expanded="true" signature="8204:8560" ph="{&quot;name&quot;: &quot;pick up keys for home&quot;...}" />
+            <marker date="1522452323509" expanded="true" signature="8864:9201" ph="{&quot;name&quot;: &quot;pick up keys for home&quot;...}" />
+            <marker date="1522452323509" expanded="true" signature="9528:9597" ph="{&quot;status&quot;: &quot;fail&quot;...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.versions.conf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/partials/public_api/api_usage/seller_transaction/index.md.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="774">
+          <caret line="43" column="0" lean-forward="false" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+          <folding>
+            <marker date="1522452323501" expanded="true" signature="1146:1203" ph="{&quot;agent_uuid&quot;: &quot;12345678-1234-1234-1234-1234567890ab&quot;...}" />
+            <marker date="1522452323501" expanded="true" signature="2856:2892" ph="{&quot;moxi_works_agent_id&quot;: &quot;abc123&quot;...}" />
+            <marker date="1522452323501" expanded="true" signature="8828:9859" ph="{&quot;page_number&quot;: 1...}" />
+            <marker date="1522452323501" expanded="true" signature="8885:9857" ph="[...]" />
+            <marker date="1522452323501" expanded="true" signature="8891:9853" ph="{&quot;agent_uuid&quot;: &quot;12345678-1234-1234-1234-1234567890ab&quot;...}" />
+            <marker date="1522452323501" expanded="true" signature="10178:11188" ph="{&quot;page_number&quot;: 1...}" />
+            <marker date="1522452323501" expanded="true" signature="10235:11186" ph="[...]" />
+            <marker date="1522452323501" expanded="true" signature="10241:11182" ph="{&quot;moxi_works_agent_id&quot;: &quot;abc123&quot;...}" />
+            <marker date="1522452323501" expanded="true" signature="11528:11597" ph="{&quot;status&quot;: &quot;fail&quot;...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/partials/public_api/api_usage/task.md.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="11" column="44" lean-forward="false" selection-start-line="11" selection-start-column="44" selection-end-line="11" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/partials/public_api/api_usage/task/update.md.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1522452323510" expanded="true" signature="1063:1339" ph="{&quot;name&quot;: &quot;Do This Please&quot;...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/partials/public_api/api_usage/event/index.md.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1710">
+          <caret line="95" column="0" lean-forward="false" selection-start-line="95" selection-start-column="0" selection-end-line="106" selection-end-column="3" />
+          <folding>
+            <marker date="1522452323491" expanded="true" signature="1071:1180" ph="{&quot;agent_uuid&quot;: &quot;12345678-1234-1234-1234-1234567890ab&quot;...}" />
+            <marker date="1522452323491" expanded="true" signature="11090:11159" ph="{&quot;status&quot;: &quot;fail&quot;...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="540">
+            <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Gemfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="7" column="23" lean-forward="false" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/partials/public_api/api_usage/team/index.md.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding>
+            <marker date="1527719732822" expanded="true" signature="1020:1063" ph="{&quot;moxi_works_company_id&quot;: &quot;the_company&quot;...}" />
+            <marker date="1527719732822" expanded="true" signature="3328:4085" ph="[...]" />
+            <marker date="1527719732822" expanded="true" signature="3332:4083" ph="{&quot;name&quot;: &quot;New Team One&quot;...}" />
+            <marker date="1527719732822" expanded="true" signature="4344:4413" ph="{&quot;status&quot;: &quot;fail&quot;...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/partials/public_api/api_usage/task/index.md.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="337" column="25" lean-forward="true" selection-start-line="337" selection-start-column="25" selection-end-line="337" selection-end-column="25" />
+          <folding>
+            <marker date="1527785021566" expanded="true" signature="733:790" ph="{&quot;agent_uuid&quot;: &quot;12345678-1234-1234-1234-1234567890ab&quot;...}" />
+            <marker date="1527785021566" expanded="true" signature="1966:2002" ph="{&quot;moxi_works_agent_id&quot;: &quot;abc123&quot;...}" />
+            <marker date="1527785021566" expanded="true" signature="3116:3199" ph="{&quot;moxi_works_agent_id&quot;: &quot;abc123&quot;...}" />
+            <marker date="1527785021566" expanded="true" signature="4476:4572" ph="{&quot;moxi_works_agent_id&quot;: &quot;abc123&quot;...}" />
+            <marker date="1527785021566" expanded="true" signature="6051:6194" ph="{&quot;moxi_works_agent_id&quot;: &quot;abc123&quot;...}" />
+            <marker date="1527785021566" expanded="true" signature="12051:12457" ph="{&quot;page_number&quot;: 6...}" />
+            <marker date="1527785021566" expanded="true" signature="12102:12455" ph="[...]" />
+            <marker date="1527785021566" expanded="true" signature="12108:12451" ph="{&quot;name&quot;: &quot;Reach Out to this person!&quot;...}" />
+            <marker date="1527785021566" expanded="true" signature="12765:13150" ph="{&quot;page_number&quot;: 6...}" />
+            <marker date="1527785021566" expanded="true" signature="12816:13148" ph="[...]" />
+            <marker date="1527785021566" expanded="true" signature="12822:13144" ph="{&quot;name&quot;: &quot;Reach Out to this person!&quot;...}" />
+            <marker date="1527785021566" expanded="true" signature="13478:13547" ph="{&quot;status&quot;: &quot;fail&quot;...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/partials/public_api/api_usage/team/show.md.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="206">
+          <caret line="70" column="0" lean-forward="true" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
+          <folding>
+            <marker date="1527785078885" expanded="true" signature="971:1035" ph="{&quot;moxi_works_team_id&quot;: &quot;deadbeef-deadbeef-feed-facedeadbeef&quot;...}" />
+            <marker date="1527785078885" expanded="true" signature="4047:4834" ph="{&quot;name&quot;: &quot;New Team One&quot;...}" />
+            <marker date="1527785078885" expanded="true" signature="5093:5162" ph="{&quot;status&quot;: &quot;fail&quot;...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/partials/public_api/api_usage/listing/show.md.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="262">
+          <caret line="33" column="36" lean-forward="true" selection-start-line="33" selection-start-column="36" selection-end-line="33" selection-end-column="36" />
+          <folding>
+            <marker date="1527785844040" expanded="true" signature="1016:1102" ph="{&quot;moxi_works_listing_id&quot;: &quot;abc123&quot;...}" />
+            <marker date="1527785844040" expanded="true" signature="4535:7895" ph="{&quot;LotSizeAcres&quot;: 0.0...}" />
+            <marker date="1527785844040" expanded="true" signature="6262:6977" ph="[...]" />
+            <marker date="1527785844040" expanded="true" signature="6268:6447" ph="{&quot;PropertyFeatureName&quot;: &quot;Kitchen Information&quot;...}" />
+            <marker date="1527785844040" expanded="true" signature="6353:6439" ph="[...]" />
+            <marker date="1527785844040" expanded="true" signature="6455:6577" ph="{&quot;PropertyFeatureName&quot;: &quot;Roof Description&quot;...}" />
+            <marker date="1527785844040" expanded="true" signature="6537:6569" ph="[...]" />
+            <marker date="1527785844040" expanded="true" signature="6585:6705" ph="{&quot;PropertyFeatureName&quot;: &quot;Number Of Stories&quot;...}" />
+            <marker date="1527785844040" expanded="true" signature="6668:6697" ph="[...]" />
+            <marker date="1527785844040" expanded="true" signature="6715:6973" ph="{&quot;PropertyFeatureName&quot;: &quot;Interior Features&quot;...}" />
+            <marker date="1527785844040" expanded="true" signature="6798:6967" ph="[...]" />
+            <marker date="1527785844040" expanded="true" signature="6993:7094" ph="[...]" />
+            <marker date="1527785844040" expanded="true" signature="6999:7090" ph="{&quot;Date&quot;: &quot;2018-01-06&quot;...}" />
+            <marker date="1527785844040" expanded="true" signature="7114:7893" ph="[...]" />
+            <marker date="1527785844040" expanded="true" signature="7120:7889" ph="{&quot;FullURL&quot;: &quot;http://images.moxiworks.com/static/images/br/imagoo/default_property_image_wre-326x250.png&quot;...}" />
+            <marker date="1527785844040" expanded="true" signature="8227:8296" ph="{&quot;status&quot;: &quot;fail&quot;...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/partials/public_api/api_usage/listing/index.md.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="118" column="0" lean-forward="true" selection-start-line="118" selection-start-column="0" selection-end-line="118" selection-end-column="0" />
+          <folding>
+            <marker date="1527785935387" expanded="true" signature="1538:1608" ph="{&quot;moxi_works_company_id&quot;: &quot;abc123&quot;...}" />
+            <marker date="1527785935387" expanded="true" signature="3349:3462" ph="{&quot;moxi_works_company_id&quot;: &quot;abc123&quot;...}" />
+            <marker date="1527785935387" expanded="true" signature="4425:4755" ph="unless ... end" />
+            <marker date="1527785935387" expanded="true" signature="4933:4983" ph="{ ... }" />
+            <marker date="1527785935387" expanded="true" signature="9337:12957" ph="{&quot;FinalPage&quot;: true...}" />
+            <marker date="1527785935387" expanded="true" signature="9369:12955" ph="[...]" />
+            <marker date="1527785935387" expanded="true" signature="9371:12953" ph="{&quot;LotSizeAcres&quot;: 0.0...}" />
+            <marker date="1527785935387" expanded="true" signature="11098:11817" ph="[...]" />
+            <marker date="1527785935387" expanded="true" signature="11104:11283" ph="{&quot;PropertyFeatureName&quot;: &quot;Kitchen Information&quot;...}" />
+            <marker date="1527785935387" expanded="true" signature="11189:11275" ph="[...]" />
+            <marker date="1527785935387" expanded="true" signature="11293:11415" ph="{&quot;PropertyFeatureName&quot;: &quot;Roof Description&quot;...}" />
+            <marker date="1527785935387" expanded="true" signature="11375:11407" ph="[...]" />
+            <marker date="1527785935387" expanded="true" signature="11425:11545" ph="{&quot;PropertyFeatureName&quot;: &quot;Number Of Stories&quot;...}" />
+            <marker date="1527785935387" expanded="true" signature="11508:11537" ph="[...]" />
+            <marker date="1527785935387" expanded="true" signature="11555:11813" ph="{&quot;PropertyFeatureName&quot;: &quot;Interior Features&quot;...}" />
+            <marker date="1527785935387" expanded="true" signature="11638:11807" ph="[...]" />
+            <marker date="1527785935387" expanded="true" signature="11849:12037" ph="[...]" />
+            <marker date="1527785935387" expanded="true" signature="11855:11941" ph="{&quot;AttributeId&quot;: &quot;the collection&quot;...}" />
+            <marker date="1527785935387" expanded="true" signature="11949:12033" ph="{&quot;AttributeId&quot;: &quot;destination&quot;...}" />
+            <marker date="1527785935387" expanded="true" signature="12053:12154" ph="[...]" />
+            <marker date="1527785935387" expanded="true" signature="12059:12150" ph="{&quot;Date&quot;: &quot;2018-01-06&quot;...}" />
+            <marker date="1527785935387" expanded="true" signature="12174:12951" ph="[...]" />
+            <marker date="1527785935387" expanded="true" signature="12180:12947" ph="{&quot;FullURL&quot;: &quot;http://images.moxiworks.com/static/images/br/imagoo/default_property_image_wre-326x250.png&quot;...}" />
+            <marker date="1527785935387" expanded="true" signature="13288:13357" ph="{&quot;status&quot;: &quot;fail&quot;...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/partials/public_api/api_usage/task/create.md.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="89" column="30" lean-forward="false" selection-start-line="89" selection-start-column="30" selection-end-line="89" selection-end-column="30" />
+          <folding>
+            <marker date="1522452323505" expanded="true" signature="1103:1379" ph="{&quot;name&quot;: &quot;Do This Please&quot;...}" />
+            <marker date="1522452323505" expanded="true" signature="3921:4176" ph="{&quot;name&quot;: &quot;Do This Please&quot;...}" />
+            <marker date="1522452323505" expanded="true" signature="11535:11855" ph="{&quot;name&quot;: &quot;Meet And Greet&quot;...}" />
+            <marker date="1522452323505" expanded="true" signature="12162:12463" ph="{&quot;name&quot;: &quot;Meet And Greet&quot;...}" />
+            <marker date="1522452323505" expanded="true" signature="12791:12860" ph="{&quot;status&quot;: &quot;fail&quot;...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/partials/public_api/api_usage/listing/update.md.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="351">
+          <caret line="327" column="1" lean-forward="true" selection-start-line="327" selection-start-column="1" selection-end-line="327" selection-end-column="1" />
+          <folding>
+            <marker date="1527788487894" expanded="true" signature="690:834" ph="{&quot;moxi_works_listing_id&quot;: &quot;abc123&quot;...}" />
+            <marker date="1527788487894" expanded="true" signature="788:832" ph="{&quot;VirtualTourURL&quot;: &quot;http://here.com&quot;...}" />
+            <marker date="1527788487894" expanded="true" signature="1499:1575" ph="{ ... }" />
+            <marker date="1527788487894" expanded="true" signature="4786:8146" ph="{&quot;LotSizeAcres&quot;: 0.0...}" />
+            <marker date="1527788487894" expanded="true" signature="6513:7228" ph="[...]" />
+            <marker date="1527788487894" expanded="true" signature="6519:6698" ph="{&quot;PropertyFeatureName&quot;: &quot;Kitchen Information&quot;...}" />
+            <marker date="1527788487894" expanded="true" signature="6604:6690" ph="[...]" />
+            <marker date="1527788487894" expanded="true" signature="6706:6828" ph="{&quot;PropertyFeatureName&quot;: &quot;Roof Description&quot;...}" />
+            <marker date="1527788487894" expanded="true" signature="6788:6820" ph="[...]" />
+            <marker date="1527788487894" expanded="true" signature="6836:6956" ph="{&quot;PropertyFeatureName&quot;: &quot;Number Of Stories&quot;...}" />
+            <marker date="1527788487894" expanded="true" signature="6919:6948" ph="[...]" />
+            <marker date="1527788487894" expanded="true" signature="6966:7224" ph="{&quot;PropertyFeatureName&quot;: &quot;Interior Features&quot;...}" />
+            <marker date="1527788487894" expanded="true" signature="7049:7218" ph="[...]" />
+            <marker date="1527788487894" expanded="true" signature="7244:7345" ph="[...]" />
+            <marker date="1527788487894" expanded="true" signature="7250:7341" ph="{&quot;Date&quot;: &quot;2018-01-06&quot;...}" />
+            <marker date="1527788487894" expanded="true" signature="7365:8144" ph="[...]" />
+            <marker date="1527788487894" expanded="true" signature="7371:8140" ph="{&quot;FullURL&quot;: &quot;http://images.moxiworks.com/static/images/br/imagoo/default_property_image_wre-326x250.png&quot;...}" />
+            <marker date="1527788487894" expanded="true" signature="8480:8549" ph="{&quot;status&quot;: &quot;fail&quot;...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ScopeChooserConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

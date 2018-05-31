@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="RUBY_MODULE" version="4">
+  <component name="CompassSettings">
+    <option name="compassExecutableFilePath" value="$USER_HOME$/.rvm/gems/ruby-2.2.4@moxiworks-platform.github.io/gems/compass-1.0.3/bin/compass" />
+    <option name="compassSupportEnabled" value="true" />
+    <option name="importPaths">
+      <list>
+        <option value="$USER_HOME$/.rvm/gems/ruby-2.2.4@moxiworks-platform.github.io/gems/compass-core-1.0.3/stylesheets" />
+      </list>
+    </option>
+  </component>
+  <component name="ModuleRunConfigurationManager">
+    <shared />
+  </component>
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$" />
+    <orderEntry type="jdk" jdkName="RVM: ruby-2.2.4 [moxiworks-platform.github.io]" jdkType="RUBY_SDK" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" scope="PROVIDED" name="activesupport (v4.1.15, RVM: ruby-2.2.4 [moxiworks-platform.github.io]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="autoprefixer-rails (v6.3.6, RVM: ruby-2.2.4 [moxiworks-platform.github.io]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="bundler (v1.16.1, RVM: ruby-2.2.4 [moxiworks-platform.github.io]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="celluloid (v0.16.0, RVM: ruby-2.2.4 [moxiworks-platform.github.io]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="chunky_png (v1.3.5, RVM: ruby-2.2.4 [moxiworks-platform.github.io]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="coffee-script (v2.4.1, RVM: ruby-2.2.4 [moxiworks-platform.github.io]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="coffee-script-source (v1.10.0, RVM: ruby-2.2.4 [moxiworks-platform.github.io]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="compass (v1.0.3, RVM: ruby-2.2.4 [moxiworks-platform.github.io]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="compass-core (v1.0.3, RVM: ruby-2.2.4 [moxiworks-platform.github.io]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="compass-import-once (v1.0.5, RVM: ruby-2.2.4 [moxiworks-platform.github.io]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="erubis (v2.7.0, RVM: ruby-2.2.4 [moxiworks-platform.github.io]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="execjs (v2.6.0, RVM: ruby-2.2.4 [moxiworks-platform.github.io]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="ffi (v1.9.10, RVM: ruby-2.2.4 [moxiworks-platform.github.io]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="haml (v4.0.7, RVM: ruby-2.2.4 [moxiworks-platform.github.io]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="hike (v1.2.3, RVM: ruby-2.2.4 [moxiworks-platform.github.io]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="hitimes (v1.2.3, RVM: ruby-2.2.4 [moxiworks-platform.github.io]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="hooks (v0.4.1, RVM: ruby-2.2.4 [moxiworks-platform.github.io]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="i18n (v0.7.0, RVM: ruby-2.2.4 [moxiworks-platform.github.io]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="json (v1.8.3, RVM: ruby-2.2.4 [moxiworks-platform.github.io]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="kramdown (v1.10.0, RVM: ruby-2.2.4 [moxiworks-platform.github.io]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="libv8 (v3.16.14.15, RVM: ruby-2.2.4 [moxiworks-platform.github.io]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="listen (v2.10.1, RVM: ruby-2.2.4 [moxiworks-platform.github.io]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="middleman (v3.3.12, RVM: ruby-2.2.4 [moxiworks-platform.github.io]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="middleman-autoprefixer (v2.7.0, RVM: ruby-2.2.4 [moxiworks-platform.github.io]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="middleman-core (v3.3.12, RVM: ruby-2.2.4 [moxiworks-platform.github.io]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="middleman-gh-pages (v0.3.0, RVM: ruby-2.2.4 [moxiworks-platform.github.io]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="middleman-sprockets (v3.4.2, RVM: ruby-2.2.4 [moxiworks-platform.github.io]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="middleman-syntax (v2.1.0, RVM: ruby-2.2.4 [moxiworks-platform.github.io]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="minitest (v5.8.4, RVM: ruby-2.2.4 [moxiworks-platform.github.io]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="multi_json (v1.11.2, RVM: ruby-2.2.4 [moxiworks-platform.github.io]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="padrino-helpers (v0.12.5, RVM: ruby-2.2.4 [moxiworks-platform.github.io]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="padrino-support (v0.12.5, RVM: ruby-2.2.4 [moxiworks-platform.github.io]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rack (v1.6.4, RVM: ruby-2.2.4 [moxiworks-platform.github.io]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rack-test (v0.6.3, RVM: ruby-2.2.4 [moxiworks-platform.github.io]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rake (v10.4.2, RVM: ruby-2.2.4 [moxiworks-platform.github.io]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rb-fsevent (v0.9.7, RVM: ruby-2.2.4 [moxiworks-platform.github.io]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rb-inotify (v0.9.7, RVM: ruby-2.2.4 [moxiworks-platform.github.io]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="redcarpet (v3.3.2, RVM: ruby-2.2.4 [moxiworks-platform.github.io]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="ref (v2.0.0, RVM: ruby-2.2.4 [moxiworks-platform.github.io]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rouge (v1.9.1, RVM: ruby-2.2.4 [moxiworks-platform.github.io]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="sass (v3.4.22, RVM: ruby-2.2.4 [moxiworks-platform.github.io]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="sprockets (v2.12.4, RVM: ruby-2.2.4 [moxiworks-platform.github.io]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="sprockets-helpers (v1.1.0, RVM: ruby-2.2.4 [moxiworks-platform.github.io]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="sprockets-sass (v1.3.1, RVM: ruby-2.2.4 [moxiworks-platform.github.io]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="therubyracer (v0.12.2, RVM: ruby-2.2.4 [moxiworks-platform.github.io]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="thor (v0.19.1, RVM: ruby-2.2.4 [moxiworks-platform.github.io]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="thread_safe (v0.3.5, RVM: ruby-2.2.4 [moxiworks-platform.github.io]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="tilt (v1.4.1, RVM: ruby-2.2.4 [moxiworks-platform.github.io]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="timers (v4.0.4, RVM: ruby-2.2.4 [moxiworks-platform.github.io]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="tzinfo (v1.2.2, RVM: ruby-2.2.4 [moxiworks-platform.github.io]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="uber (v0.0.15, RVM: ruby-2.2.4 [moxiworks-platform.github.io]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="uglifier (v2.7.2, RVM: ruby-2.2.4 [moxiworks-platform.github.io]) [gem]" level="application" />
+  </component>
+</module>

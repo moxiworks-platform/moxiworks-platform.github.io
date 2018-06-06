@@ -4278,6 +4278,10 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;moxi_works_contact_id=babebe
 <td><span class="response-data">closing_timestamp</span></td>
 <td><span class="data-type">Integer or null</span></td>
 </tr>
+<tr>
+<td><span class="response-data">state_changed_at</span></td>
+<td><span class="data-type">Integer or null</span></td>
+</tr>
 </tbody></table>
 
 <p><span class='multi-option-response-data'>* Either <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> will be returned depending on whether it is used in the request. The response payload object&rsquo;s agent identifier key will match the passed parameter.</span></p>
@@ -4371,6 +4375,9 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;moxi_works_contact_id=babebe
 
 <p><span class="response-data-head">closing_timestamp</span>
 <span class="response-data-remarks">A Unix timestamp representing the point in time when the transaction for this <span class='entity-name'>BuyerTransaction</span> object was completed. This should be <code class="prettyprint">null</code> if the <span class='entity-name'>BuyerTransaction</span> is not yet in <code class="prettyprint">complete</code> state.</span></p>
+
+<p><span class="response-data-head">state_changed_at</span>
+<span class="response-data-remarks">A Unix timestamp representing the point in time when the transaction for this <span class='entity-name'>BuyerTransaction</span> object entered into its current state.</span></p>
 
 
 <h4 id="buyertransaction-update"><span class='entity-name'>BuyerTransaction</span> <span class='action-name'>Update</span></h4>
@@ -5279,6 +5286,10 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;min_beds=12&amp;max_beds=34&
 <td><span class="response-data">closing_timestamp</span></td>
 <td><span class="data-type">Integer or null</span></td>
 </tr>
+<tr>
+<td><span class="response-data">state_changed_at</span></td>
+<td><span class="data-type">Integer or null</span></td>
+</tr>
 </tbody></table>
 
 <p><span class='multi-option-response-data'>* Either <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> will be returned depending on whether it is used in the request. The response payload object&rsquo;s agent identifier key will match the passed parameter.</span></p>
@@ -5372,6 +5383,9 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;min_beds=12&amp;max_beds=34&
 
 <p><span class="response-data-head">closing_timestamp</span>
 <span class="response-data-remarks">A Unix timestamp representing the point in time when the transaction for this <span class='entity-name'>BuyerTransaction</span> object was completed. This should be <code class="prettyprint">null</code> if the <span class='entity-name'>BuyerTransaction</span> is not yet in <code class="prettyprint">complete</code> state.</span></p>
+
+<p><span class="response-data-head">state_changed_at</span>
+<span class="response-data-remarks">A Unix timestamp representing the point in time when the transaction for this <span class='entity-name'>BuyerTransaction</span> object entered into its current state.</span></p>
 
 
 <h4 id="buyertransaction-show"><span class='entity-name'>BuyerTransaction</span> <span class='action-name'>Show</span></h4>
@@ -5836,6 +5850,10 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab
 <td><span class="response-data">closing_timestamp</span></td>
 <td><span class="data-type">Integer or null</span></td>
 </tr>
+<tr>
+<td><span class="response-data">state_changed_at</span></td>
+<td><span class="data-type">Integer or null</span></td>
+</tr>
 </tbody></table>
 
 <p><span class='multi-option-response-data'>* Either <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> will be returned depending on whether it is used in the request. The response payload object&rsquo;s agent identifier key will match the passed parameter.</span></p>
@@ -5929,6 +5947,9 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab
 
 <p><span class="response-data-head">closing_timestamp</span>
 <span class="response-data-remarks">A Unix timestamp representing the point in time when the transaction for this <span class='entity-name'>BuyerTransaction</span> object was completed. This should be <code class="prettyprint">null</code> if the <span class='entity-name'>BuyerTransaction</span> is not yet in <code class="prettyprint">complete</code> state.</span></p>
+
+<p><span class="response-data-head">state_changed_at</span>
+<span class="response-data-remarks">A Unix timestamp representing the point in time when the transaction for this <span class='entity-name'>BuyerTransaction</span> object entered into its current state.</span></p>
 
 
 <h4 id="buyertransaction-index"><span class='entity-name'>BuyerTransaction</span> <span class='action-name'>Index</span></h4>
@@ -6443,6 +6464,10 @@ moxi_works_agent_id=abc123
 <td><span class="response-data">closing_timestamp</span></td>
 <td><span class="data-type">Integer or null</span></td>
 </tr>
+<tr>
+<td><span class="response-data">state_changed_at</span></td>
+<td><span class="data-type">Integer or null</span></td>
+</tr>
 </tbody></table>
 
 <p><span class='multi-option-response-data'>* Either <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> will be returned depending on whether it is used in the request. The response payload object&rsquo;s agent identifier key will match the passed parameter.</span></p>
@@ -6536,6 +6561,9 @@ moxi_works_agent_id=abc123
 
 <p><span class="response-data-head">closing_timestamp</span>
 <span class="response-data-remarks">A Unix timestamp representing the point in time when the transaction for this <span class='entity-name'>BuyerTransaction</span> object was completed. This should be <code class="prettyprint">null</code> if the <span class='entity-name'>BuyerTransaction</span> is not yet in <code class="prettyprint">complete</code> state.</span></p>
+
+<p><span class="response-data-head">state_changed_at</span>
+<span class="response-data-remarks">A Unix timestamp representing the point in time when the transaction for this <span class='entity-name'>BuyerTransaction</span> object entered into its current state.</span></p>
 
 
 <h3 id="company"><span class='entity-name'>Company</span></h3>
@@ -19173,6 +19201,10 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;moxi_works_contact_id=babebe
 <td><span class="response-data">closing_timestamp</span></td>
 <td><span class="data-type">Integer or null</span></td>
 </tr>
+<tr>
+<td><span class="response-data">state_changed_at</span></td>
+<td><span class="data-type">Integer or null</span></td>
+</tr>
 </tbody></table>
 
 <p><span class='multi-option-response-data'>* Either <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> will be returned depending on whether it is used in the request. The response payload object&rsquo;s agent identifier key will match the passed parameter.</span></p>
@@ -19256,6 +19288,9 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;moxi_works_contact_id=babebe
 
 <p><span class="response-data-head">closing_timestamp</span>
 <span class="response-data-remarks">A Unix timestamp representing the point in time when the transaction for this <span class='entity-name'>SellerTransaction</span> object was completed. This should be <code class="prettyprint">null</code> if the <span class='entity-name'>SellerTransaction</span> is not yet in <code class="prettyprint">complete</code> state.</span></p>
+
+<p><span class="response-data-head">state_changed_at</span>
+<span class="response-data-remarks">A Unix timestamp representing the point in time when the transaction for this <span class='entity-name'>SellerTransaction</span> object entered into its current state.</span></p>
 
 
 <h4 id="sellertransaction-update"><span class='entity-name'>SellerTransaction</span> <span class='action-name'>Update</span></h4>
@@ -20055,6 +20090,10 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;beds=12&amp;baths=34.5&amp;n
 <td><span class="response-data">closing_timestamp</span></td>
 <td><span class="data-type">Integer or null</span></td>
 </tr>
+<tr>
+<td><span class="response-data">state_changed_at</span></td>
+<td><span class="data-type">Integer or null</span></td>
+</tr>
 </tbody></table>
 
 <p><span class='multi-option-response-data'>* Either <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> will be returned depending on whether it is used in the request. The response payload object&rsquo;s agent identifier key will match the passed parameter.</span></p>
@@ -20138,6 +20177,9 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;beds=12&amp;baths=34.5&amp;n
 
 <p><span class="response-data-head">closing_timestamp</span>
 <span class="response-data-remarks">A Unix timestamp representing the point in time when the transaction for this <span class='entity-name'>SellerTransaction</span> object was completed. This should be <code class="prettyprint">null</code> if the <span class='entity-name'>SellerTransaction</span> is not yet in <code class="prettyprint">complete</code> state.</span></p>
+
+<p><span class="response-data-head">state_changed_at</span>
+<span class="response-data-remarks">A Unix timestamp representing the point in time when the transaction for this <span class='entity-name'>SellerTransaction</span> object entered into its current state.</span></p>
 
 
 <h4 id="sellertransaction-show"><span class='entity-name'>SellerTransaction</span> <span class='action-name'>Show</span></h4>
@@ -20512,6 +20554,10 @@ moxi_works_agent_id=abc123
 <td><span class="response-data">closing_timestamp</span></td>
 <td><span class="data-type">Integer or null</span></td>
 </tr>
+<tr>
+<td><span class="response-data">state_changed_at</span></td>
+<td><span class="data-type">Integer or null</span></td>
+</tr>
 </tbody></table>
 
 <p><span class='multi-option-response-data'>* Either <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> will be returned depending on whether it is used in the request. The response payload object&rsquo;s agent identifier key will match the passed parameter.</span></p>
@@ -20595,6 +20641,9 @@ moxi_works_agent_id=abc123
 
 <p><span class="response-data-head">closing_timestamp</span>
 <span class="response-data-remarks">A Unix timestamp representing the point in time when the transaction for this <span class='entity-name'>SellerTransaction</span> object was completed. This should be <code class="prettyprint">null</code> if the <span class='entity-name'>SellerTransaction</span> is not yet in <code class="prettyprint">complete</code> state.</span></p>
+
+<p><span class="response-data-head">state_changed_at</span>
+<span class="response-data-remarks">A Unix timestamp representing the point in time when the transaction for this <span class='entity-name'>SellerTransaction</span> object entered into its current state.</span></p>
 
 
 <h4 id="sellertransaction-index"><span class='entity-name'>SellerTransaction</span> <span class='action-name'>Index</span></h4>
@@ -21023,6 +21072,10 @@ moxi_works_agent_id=abc123
 <td><span class="response-data">closing_timestamp</span></td>
 <td><span class="data-type">Integer or null</span></td>
 </tr>
+<tr>
+<td><span class="response-data">state_changed_at</span></td>
+<td><span class="data-type">Integer or null</span></td>
+</tr>
 </tbody></table>
 
 <p><span class='multi-option-response-data'>* Either <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> will be returned depending on whether it is used in the request. The response payload object&rsquo;s agent identifier key will match the passed parameter.</span></p>
@@ -21106,6 +21159,9 @@ moxi_works_agent_id=abc123
 
 <p><span class="response-data-head">closing_timestamp</span>
 <span class="response-data-remarks">A Unix timestamp representing the point in time when the transaction for this <span class='entity-name'>SellerTransaction</span> object was completed. This should be <code class="prettyprint">null</code> if the <span class='entity-name'>SellerTransaction</span> is not yet in <code class="prettyprint">complete</code> state.</span></p>
+
+<p><span class="response-data-head">state_changed_at</span>
+<span class="response-data-remarks">A Unix timestamp representing the point in time when the transaction for this <span class='entity-name'>SellerTransaction</span> object entered into its current state.</span></p>
 
 
 <h3 id="soldlisting"><span class='entity-name'>SoldListing</span></h3>

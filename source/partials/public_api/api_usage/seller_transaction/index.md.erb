@@ -330,6 +330,7 @@ Attribute | Type |
 |<span class="response-data">max_price</span>|<span class="data-type">Integer or null</span>|
 |<span class="response-data">closing_price</span>|<span class="data-type">Integer or null</span>|
 |<span class="response-data">closing_timestamp</span>|<span class="data-type">Integer or null</span>|
+|<span class="response-data">state_changed_at</span>|<span class="data-type">Integer or null</span>|
 
 <span class='multi-option-response-data'>* Either <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> will be returned depending on whether it is used in the request. The response payload object's agent identifier key will match the passed parameter.</span>
 
@@ -422,3 +423,6 @@ Attribute | Type |
 
 <span class="response-data-head">closing_timestamp</span>
 <span class="response-data-remarks">A Unix timestamp representing the point in time when the transaction for this <span class='entity-name'>SellerTransaction</span> object was completed. This should be `null` if the <span class='entity-name'>SellerTransaction</span> is not yet in `complete` state.</span>
+
+<span class="response-data-head">state_changed_at</span>
+<span class="response-data-remarks">A Unix timestamp representing the point in time when the transaction for this <span class='entity-name'>SellerTransaction</span> object entered into its current state.</span>

@@ -234,7 +234,7 @@
 <span class="request-data-remarks">If fetching a multi-page response, this should be the <span class='attribute-name'>MoxiWorksListingId</span> found in the last <span class='entity-name'>SoldListing</span> object of the previously fetched page.</span></p>
 
 <p><span class="request-data-head">include_buyer_listings</span>
-<span class="request-data-remarks">Listings for buyer agents will be included when this parameter is <code class="prettyprint">true</code>.</span></p>
+<span class="request-data-remarks">Only listing data for buyer agents will be returned when this parameter is <code class="prettyprint">true</code>.</span></p>
 
 <aside class="note">`include_buyer_listings` is only available by special arrangement with MoxiWorks. If you require access to buyer agent data, talk to your Platform representative.</aside>
 
@@ -294,7 +294,6 @@
   </span><span class="nt">"TaxYear"</span><span class="p">:</span><span class="mi">2015</span><span class="p">,</span><span class="w">
   </span><span class="nt">"SingleStory"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="nt">"LivingArea"</span><span class="p">:</span><span class="mi">3640</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"Title"</span><span class="p">:</span><span class="s2">"World Heavyweight Titleholder"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"ViewYN"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="nt">"YearBuilt"</span><span class="p">:</span><span class="mi">1989</span><span class="p">,</span><span class="w">
   </span><span class="nt">"OnMarket"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
@@ -610,10 +609,6 @@
 <td><span class="response-data"><span class="data-type">Integer or null</span></td>
 </tr>
 <tr>
-<td><span class="response-data">Title</span></td>
-<td><span class="response-data"><span class="data-type">String or null</span></td>
-</tr>
-<tr>
 <td><span class="response-data">ViewYN</span></td>
 <td><span class="response-data"><span class="data-type">Boolean or null</span></td>
 </tr>
@@ -797,9 +792,6 @@
 
 <p><span class="response-data-head">LivingArea</span>
 <span class="response-data-remarks">Total square footage of the building(s) on the property.</span></p>
-
-<p><span class="response-data-head">Title</span>
-<span class="response-data-remarks">A short description of the property.</span></p>
 
 <p><span class="response-data-head">ViewYN</span>
 <span class="response-data-remarks">Whether the property has a view.</span></p>

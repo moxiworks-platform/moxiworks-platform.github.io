@@ -934,6 +934,16 @@
 <td><span class="data-type">Boolean</span></td>
 <td>255</td>
 </tr>
+<tr>
+<td><span class="optional-data">deactivated</span></td>
+<td><span class="data-type">Boolean</span></td>
+<td>255</td>
+</tr>
+<tr>
+<td><span class="optional-data">deactivated_since</span></td>
+<td><span class="data-type">Integer</span></td>
+<td>255</td>
+</tr>
 </tbody></table>
 
 <p><span class="required-data"><strong>Required Parameters Are In Red</strong></span></p>
@@ -956,6 +966,14 @@
 
 <p><span class="request-data-head">include_access_level</span>
 <span class="request-data-remarks">To include access level information for the agent in the response, pass <code class="prettyprint">true</code></span></p>
+
+<p><span class="request-data-head">deactivated</span>
+<span class="request-data-remarks">To find Agent accounts deactivated within the specified timeframe, pass <code class="prettyprint">true</code> for this boolean parameter.</span></p>
+
+<p><span class="request-data-head">deactivated_since</span>
+<span class="request-data-remarks">any <span class='entity-name'>Agent</span> objects deactivated after this Unix timestamp will be returned in the response. <strong>If no <span class='attribute-name'>deactivated_since</span> parameter is included in the request, only <span class='entity-name'>Agent</span> objects deactivated in the last seven days will be returned.</strong></span></p>
+
+<aside class="note">By default only <span class='entity-name'>Agent</span> objects deactivated in the last seven days will be returned.</aside>
 
 <blockquote><div class='highlight json' style="display: block">
 <span class="data-example-label">Agent Index: Success Response</span>

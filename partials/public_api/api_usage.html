@@ -1683,6 +1683,16 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
 <td><span class="data-type">Boolean</span></td>
 <td>255</td>
 </tr>
+<tr>
+<td><span class="optional-data">deactivated</span></td>
+<td><span class="data-type">Boolean</span></td>
+<td>255</td>
+</tr>
+<tr>
+<td><span class="optional-data">deactivated_since</span></td>
+<td><span class="data-type">Integer</span></td>
+<td>255</td>
+</tr>
 </tbody></table>
 
 <p><span class="required-data"><strong>Required Parameters Are In Red</strong></span></p>
@@ -1705,6 +1715,14 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
 
 <p><span class="request-data-head">include_access_level</span>
 <span class="request-data-remarks">To include access level information for the agent in the response, pass <code class="prettyprint">true</code></span></p>
+
+<p><span class="request-data-head">deactivated</span>
+<span class="request-data-remarks">To find Agent accounts deactivated within the specified timeframe, pass <code class="prettyprint">true</code> for this boolean parameter.</span></p>
+
+<p><span class="request-data-head">deactivated_since</span>
+<span class="request-data-remarks">any <span class='entity-name'>Agent</span> objects deactivated after this Unix timestamp will be returned in the response. <strong>If no <span class='attribute-name'>deactivated_since</span> parameter is included in the request, only <span class='entity-name'>Agent</span> objects deactivated in the last seven days will be returned.</strong></span></p>
+
+<aside class="note">By default only <span class='entity-name'>Agent</span> objects deactivated in the last seven days will be returned.</aside>
 
 <blockquote><div class='highlight json' style="display: block">
 <span class="data-example-label">Agent Index: Success Response</span>
@@ -2809,6 +2827,8 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
   </span><span class="nt">"mls_number"</span><span class="p">:</span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"commission_percentage"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"commission_flat_fee"</span><span class="p">:</span><span class="mi">12345</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"sales_volume_percentage"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"sales_volume_flat_fee"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"target_price"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"min_price"</span><span class="p">:</span><span class="mi">292929</span><span class="p">,</span><span class="w">
   </span><span class="nt">"max_price"</span><span class="p">:</span><span class="mi">2323223</span><span class="w">
@@ -2951,6 +2971,8 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;moxi_works_contact_id=babebe
   </span><span class="nt">"mls_number"</span><span class="p">:</span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"commission_percentage"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"commission_flat_fee"</span><span class="p">:</span><span class="mi">12345</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"sales_volume_percentage"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"sales_volume_flat_fee"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"target_price"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"min_price"</span><span class="p">:</span><span class="mi">292929</span><span class="p">,</span><span class="w">
   </span><span class="nt">"max_price"</span><span class="p">:</span><span class="mi">2323223</span><span class="w">
@@ -3093,6 +3115,8 @@ moxi_works_agent_id=abc123&amp;moxi_works_contact_id=babebead-feed-face-dead-bee
   </span><span class="nt">"start_timestamp"</span><span class="p">:</span><span class="mi">1480536319</span><span class="p">,</span><span class="w">
   </span><span class="nt">"commission_percentage"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"commission_flat_fee"</span><span class="p">:</span><span class="mi">12345</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"sales_volume_percentage"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"sales_volume_flat_fee"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"target_price"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"min_price"</span><span class="p">:</span><span class="mi">292929</span><span class="p">,</span><span class="w">
   </span><span class="nt">"max_price"</span><span class="p">:</span><span class="mi">2323223</span><span class="w">
@@ -3332,6 +3356,16 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;moxi_works_contact_id=babebe
 <td><span class="optional-data">255</span></td>
 </tr>
 <tr>
+<td><span class="optional-data">sales_volume_percentage</span></td>
+<td><span class="optional-data"><span class="data-type">Float</span></span></td>
+<td><span class="optional-data">255</span></td>
+</tr>
+<tr>
+<td><span class="optional-data">sales_volume_flat_fee</span></td>
+<td><span class="optional-data"><span class="data-type">Integer</span></span></td>
+<td><span class="optional-data">255</span></td>
+</tr>
+<tr>
 <td><span class="optional-data">target_price</span></td>
 <td><span class="optional-data"><span class="data-type">Integer</span></span></td>
 <td><span class="optional-data">255</span></td>
@@ -3422,7 +3456,13 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;moxi_works_contact_id=babebe
 <p><span class="request-data-head">commission_flat_fee</span>
 <span class="request-data-remarks">Commission for the transaction. If the commission for the transaction is based on a flat dollar amount, use this attribute.</span></p>
 
-<aside class="note">A <span class='entity-name'>BuyerTransaction</span> can only have either <span class='attribute-name'>commission_percentage</span> <b>or</b> <span class='attribute-name'>commission_flat_fee</span> populated. Both can not be populated.</aside>
+<p><span class="request-data-head">sales_volume_percentage</span>
+<span class="request-data-remarks">If the payment for the transaction is based on percentage of sales volume, use this attribute.</span></p>
+
+<p><span class="request-data-head">sales_volume_flat_fee</span>
+<span class="request-data-remarks">If payment for the transaction is based on a flat fee derived from sales volume, use this attribute.</span></p>
+
+<aside class="note">A <span class='entity-name'>BuyerTransaction</span> can only have either <span class='attribute-name'>commission_percentage</span>  <b>or</b>  <span class='attribute-name'>sales_volume_percentage</span>  <b>or</b> <span class='attribute-name'>sales_volume_flat_fee</span> <b>or</b> <span class='attribute-name'>commission_flat_fee</span> populated. More than one can not be populated.</aside>
 
 <p><span class="request-data-head">target_price</span>
 <span class="request-data-remarks">The desired purchase price for a property if using target rather than range.</span></p>
@@ -3462,6 +3502,8 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;moxi_works_contact_id=babebe
   </span><span class="nt">"mls_number"</span><span class="p">:</span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"commission_percentage"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"commission_flat_fee"</span><span class="p">:</span><span class="mi">12345</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"sales_volume_percentage"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"sales_volume_flat_fee"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"target_price"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"min_price"</span><span class="p">:</span><span class="mi">292929</span><span class="p">,</span><span class="w">
   </span><span class="nt">"max_price"</span><span class="p">:</span><span class="mi">2323223</span><span class="p">,</span><span class="w">
@@ -3498,6 +3540,8 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;moxi_works_contact_id=babebe
   </span><span class="nt">"mls_number"</span><span class="p">:</span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"commission_percentage"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"commission_flat_fee"</span><span class="p">:</span><span class="mi">12345</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"sales_volume_percentage"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"sales_volume_flat_fee"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"target_price"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"min_price"</span><span class="p">:</span><span class="mi">292929</span><span class="p">,</span><span class="w">
   </span><span class="nt">"max_price"</span><span class="p">:</span><span class="mi">2323223</span><span class="p">,</span><span class="w">
@@ -3629,6 +3673,14 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;moxi_works_contact_id=babebe
 <td><span class="data-type">Integer or null</span></td>
 </tr>
 <tr>
+<td><span class="response-data">sales_volume_percentage</span></td>
+<td><span class="data-type">Float or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">sales_volume_flat_fee</span></td>
+<td><span class="data-type">Integer or null</span></td>
+</tr>
+<tr>
 <td><span class="response-data">target_price</span></td>
 <td><span class="data-type">Integer or null</span></td>
 </tr>
@@ -3726,10 +3778,16 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;moxi_works_contact_id=babebe
 <span class="response-data-remarks">For non-MLS transactions, this is the Unix timestamp representing the date that the property search began. This should be <code class="prettyprint">null</code> if the <span class='entity-name'>BuyerTransaction</span> is an MLS sale.</span></p>
 
 <p><span class="response-data-head">commission_percentage</span>
-<span class="response-data-remarks">If the agent is to receive commission based on percentage of purchase price for the transaction associated with this <span class='entity-name'>BuyerTransaction</span>, then this will represent the commission that the agent is to receive.This should be <code class="prettyprint">null</code> if the <span class='entity-name'>BuyerTransaction</span> uses <span class='attribute-name'>commission_flat_fee</span>.</span></p>
+<span class="response-data-remarks">If the agent is to receive commission based on percentage of purchase price for the transaction associated with this <span class='entity-name'>BuyerTransaction</span>, then this will represent the commission that the agent is to receive.This should be <code class="prettyprint">null</code> if the <span class='entity-name'>BuyerTransaction</span> uses <span class='attribute-name'>commission_flat_fee</span> or <span class='attribute-name'>sales_volume_flat_fee</span> or <span class='attribute-name'>sales_volume_commission</span>.</span></p>
 
 <p><span class="response-data-head">commission_flat_fee</span>
-<span class="response-data-remarks">If the agent is to receive a flat-rate commission for the transaction associated with this <span class='entity-name'>BuyerTransaction</span>, then this will represent the commission that the agent is to receive. This should be <code class="prettyprint">null</code> if the <span class='entity-name'>BuyerTransaction</span> uses <span class='attribute-name'>commission_percentage</span>.</span></p>
+<span class="response-data-remarks">If the agent is to receive a flat-rate commission for the transaction associated with this <span class='entity-name'>BuyerTransaction</span>, then this will represent the commission that the agent is to receive. This should be <code class="prettyprint">null</code> if the <span class='entity-name'>BuyerTransaction</span> uses <span class='attribute-name'>commission_percentage</span> or <span class='attribute-name'>sales_volume_flat_fee</span> or <span class='attribute-name'>sales_volume_percentage</span>.</span></p>
+
+<p><span class="response-data-head">sales_volume_percentage</span>
+<span class="response-data-remarks">If the agent is to receive compensation based on percentage of sales volume, then this will represent the percentage that the agent is to receive.This should be <code class="prettyprint">null</code> if the <span class='entity-name'>BuyerTransaction</span> uses <span class='attribute-name'>commission_flat_fee</span> or <span class='attribute-name'>sales_volume_flat_fee</span> or <span class='attribute-name'>commission_percentage</span>.</span></p>
+
+<p><span class="response-data-head">sales_volume_flat_fee</span>
+<span class="response-data-remarks">If the agent is to receive a flat-rate compensation based on sales volume, then this will represent the compensation that the agent is to receive. This should be <code class="prettyprint">null</code> if the <span class='entity-name'>BuyerTransaction</span> uses <span class='attribute-name'>commission_percentage</span> or <span class='attribute-name'>commission_flat_fee</span> or <span class='attribute-name'>sales_volume_commission</span>.</span></p>
 
 <p><span class="response-data-head">target_price</span>
 <span class="response-data-remarks">The desired purchase price for a property if using target rather than range.</span></p>
@@ -3782,6 +3840,8 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;moxi_works_contact_id=babebe
   </span><span class="nt">"mls_number"</span><span class="p">:</span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"commission_percentage"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"commission_flat_fee"</span><span class="p">:</span><span class="mi">12345</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"sales_volume_percentage"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"sales_volume_flat_fee"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"target_price"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"min_price"</span><span class="p">:</span><span class="mi">292929</span><span class="p">,</span><span class="w">
   </span><span class="nt">"max_price"</span><span class="p">:</span><span class="mi">2323223</span><span class="p">,</span><span class="w">
@@ -3929,6 +3989,8 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;min_beds=12&amp;max_beds=34&
   </span><span class="nt">"mls_number"</span><span class="p">:</span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"commission_percentage"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"commission_flat_fee"</span><span class="p">:</span><span class="mi">12345</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"sales_volume_percentage"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"sales_volume_flat_fee"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"target_price"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"min_price"</span><span class="p">:</span><span class="mi">292929</span><span class="p">,</span><span class="w">
   </span><span class="nt">"max_price"</span><span class="p">:</span><span class="mi">2323223</span><span class="p">,</span><span class="w">
@@ -4076,6 +4138,8 @@ moxi_works_agent_id=abc123&amp;min_beds=12&amp;max_beds=34&amp;min_baths=1.75&am
   </span><span class="nt">"start_timestamp"</span><span class="p">:</span><span class="mi">1480536319</span><span class="p">,</span><span class="w">
   </span><span class="nt">"commission_percentage"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"commission_flat_fee"</span><span class="p">:</span><span class="mi">12345</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"sales_volume_percentage"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"sales_volume_flat_fee"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"target_price"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"min_price"</span><span class="p">:</span><span class="mi">292929</span><span class="p">,</span><span class="w">
   </span><span class="nt">"max_price"</span><span class="p">:</span><span class="mi">2323223</span><span class="w">
@@ -4317,6 +4381,16 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;min_beds=12&amp;max_beds=34&
 <td><span class="optional-data">255</span></td>
 </tr>
 <tr>
+<td><span class="optional-data">sales_volume_percentage</span></td>
+<td><span class="optional-data"><span class="data-type">Float</span></span></td>
+<td><span class="optional-data">255</span></td>
+</tr>
+<tr>
+<td><span class="optional-data">sales_volume_flat_fee</span></td>
+<td><span class="optional-data"><span class="data-type">Integer</span></span></td>
+<td><span class="optional-data">255</span></td>
+</tr>
+<tr>
 <td><span class="optional-data">target_price</span></td>
 <td><span class="optional-data"><span class="data-type">Integer</span></span></td>
 <td><span class="optional-data">255</span></td>
@@ -4417,7 +4491,13 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;min_beds=12&amp;max_beds=34&
 <p><span class="request-data-head">commission_flat_fee</span>
 <span class="request-data-remarks">Commission for the transaction. If the commission for the transaction is based on a flat dollar amount, use this attribute.</span></p>
 
-<aside class="note">A <span class='entity-name'>BuyerTransaction</span> can only have either <span class='attribute-name'>commission_percentage</span> <b>or</b> <span class='attribute-name'>commission_flat_fee</span> populated. Both can not be populated.</aside>
+<p><span class="request-data-head">sales_volume_percentage</span>
+<span class="request-data-remarks">If the payment for the transaction is based on percentage of sales volume, use this attribute.</span></p>
+
+<p><span class="request-data-head">sales_volume_flat_fee</span>
+<span class="request-data-remarks">If payment for the transaction is based on a flat fee derived from sales volume, use this attribute.</span></p>
+
+<aside class="note">A <span class='entity-name'>BuyerTransaction</span> can only have either <span class='attribute-name'>commission_percentage</span>  <b>or</b>  <span class='attribute-name'>sales_volume_percentage</span>  <b>or</b> <span class='attribute-name'>sales_volume_flat_fee</span> <b>or</b> <span class='attribute-name'>commission_flat_fee</span> populated. More than one can not be populated.</aside>
 
 <p><span class="request-data-head">target_price</span>
 <span class="request-data-remarks">The desired purchase price for a property if using target rather than range.</span></p>
@@ -4734,10 +4814,16 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;min_beds=12&amp;max_beds=34&
 <span class="response-data-remarks">For non-MLS transactions, this is the Unix timestamp representing the date that the agent initiated transaction discussions with the client. This should be <code class="prettyprint">null</code> if the <span class='entity-name'>BuyerTransaction</span> is an MLS sale.</span></p>
 
 <p><span class="response-data-head">commission_percentage</span>
-<span class="response-data-remarks">If the agent is to receive commission based on percentage of purchase price for the transaction associated with this <span class='entity-name'>BuyerTransaction</span>, then this will represent the commission that the agent is to receive.This should be <code class="prettyprint">null</code> if the <span class='entity-name'>BuyerTransaction</span> uses <span class='attribute-name'>commission_flat_fee</span>.</span></p>
+<span class="response-data-remarks">If the agent is to receive commission based on percentage of purchase price for the transaction associated with this <span class='entity-name'>BuyerTransaction</span>, then this will represent the commission that the agent is to receive.This should be <code class="prettyprint">null</code> if the <span class='entity-name'>BuyerTransaction</span> uses <span class='attribute-name'>commission_flat_fee</span> or <span class='attribute-name'>sales_volume_flat_fee</span> or <span class='attribute-name'>sales_volume_commission</span>.</span></p>
 
 <p><span class="response-data-head">commission_flat_fee</span>
-<span class="response-data-remarks">If the agent is to receive a flat-rate commission for the transaction associated with this <span class='entity-name'>BuyerTransaction</span>, then this will represent the commission that the agent is to receive. This should be <code class="prettyprint">null</code> if the <span class='entity-name'>BuyerTransaction</span> uses <span class='attribute-name'>commission_percentage</span>.</span></p>
+<span class="response-data-remarks">If the agent is to receive a flat-rate commission for the transaction associated with this <span class='entity-name'>BuyerTransaction</span>, then this will represent the commission that the agent is to receive. This should be <code class="prettyprint">null</code> if the <span class='entity-name'>BuyerTransaction</span> uses <span class='attribute-name'>commission_percentage</span> or <span class='attribute-name'>sales_volume_flat_fee</span> or <span class='attribute-name'>sales_volume_percentage</span>.</span></p>
+
+<p><span class="response-data-head">sales_volume_percentage</span>
+<span class="response-data-remarks">If the agent is to receive compensation based on percentage of sales volume, then this will represent the percentage that the agent is to receive.This should be <code class="prettyprint">null</code> if the <span class='entity-name'>BuyerTransaction</span> uses <span class='attribute-name'>commission_flat_fee</span> or <span class='attribute-name'>sales_volume_flat_fee</span> or <span class='attribute-name'>commission_percentage</span>.</span></p>
+
+<p><span class="response-data-head">sales_volume_flat_fee</span>
+<span class="response-data-remarks">If the agent is to receive a flat-rate compensation based on sales volume, then this will represent the compensation that the agent is to receive. This should be <code class="prettyprint">null</code> if the <span class='entity-name'>BuyerTransaction</span> uses <span class='attribute-name'>commission_percentage</span> or <span class='attribute-name'>commission_flat_fee</span> or <span class='attribute-name'>sales_volume_commission</span>.</span></p>
 
 <p><span class="response-data-head">target_price</span>
 <span class="response-data-remarks">The desired purchase price for a property if using target rather than range.</span></p>
@@ -5034,6 +5120,8 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab
   </span><span class="nt">"mls_number"</span><span class="p">:</span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"commission_percentage"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"commission_flat_fee"</span><span class="p">:</span><span class="mi">12345</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"sales_volume_percentage"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"sales_volume_flat_fee"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"target_price"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"min_price"</span><span class="p">:</span><span class="mi">292929</span><span class="p">,</span><span class="w">
   </span><span class="nt">"max_price"</span><span class="p">:</span><span class="mi">2323223</span><span class="p">,</span><span class="w">
@@ -5070,6 +5158,8 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab
   </span><span class="nt">"mls_number"</span><span class="p">:</span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"commission_percentage"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"commission_flat_fee"</span><span class="p">:</span><span class="mi">12345</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"sales_volume_percentage"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"sales_volume_flat_fee"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"target_price"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"min_price"</span><span class="p">:</span><span class="mi">292929</span><span class="p">,</span><span class="w">
   </span><span class="nt">"max_price"</span><span class="p">:</span><span class="mi">2323223</span><span class="p">,</span><span class="w">
@@ -5201,6 +5291,14 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab
 <td><span class="data-type">Integer or null</span></td>
 </tr>
 <tr>
+<td><span class="response-data">sales_volume_percentage</span></td>
+<td><span class="data-type">Float or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">sales_volume_flat_fee</span></td>
+<td><span class="data-type">Integer or null</span></td>
+</tr>
+<tr>
 <td><span class="response-data">target_price</span></td>
 <td><span class="data-type">Integer or null</span></td>
 </tr>
@@ -5298,10 +5396,16 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab
 <span class="response-data-remarks">For non-MLS transactions, this is the Unix timestamp representing the date that the agent initiated transaction discussions with the client. This should be <code class="prettyprint">null</code> if the <span class='entity-name'>BuyerTransaction</span> is an MLS sale.</span></p>
 
 <p><span class="response-data-head">commission_percentage</span>
-<span class="response-data-remarks">If the agent is to receive commission based on percentage of purchase price for the transaction associated with this <span class='entity-name'>BuyerTransaction</span>, then this will represent the commission that the agent is to receive.This should be <code class="prettyprint">null</code> if the <span class='entity-name'>BuyerTransaction</span> uses <span class='attribute-name'>commission_flat_fee</span>.</span></p>
+<span class="response-data-remarks">If the agent is to receive commission based on percentage of purchase price for the transaction associated with this <span class='entity-name'>BuyerTransaction</span>, then this will represent the commission that the agent is to receive.This should be <code class="prettyprint">null</code> if the <span class='entity-name'>BuyerTransaction</span> uses <span class='attribute-name'>commission_flat_fee</span> or <span class='attribute-name'>sales_volume_flat_fee</span> or <span class='attribute-name'>sales_volume_commission</span>.</span></p>
 
 <p><span class="response-data-head">commission_flat_fee</span>
-<span class="response-data-remarks">If the agent is to receive a flat-rate commission for the transaction associated with this <span class='entity-name'>BuyerTransaction</span>, then this will represent the commission that the agent is to receive. This should be <code class="prettyprint">null</code> if the <span class='entity-name'>BuyerTransaction</span> uses <span class='attribute-name'>commission_percentage</span>.</span></p>
+<span class="response-data-remarks">If the agent is to receive a flat-rate commission for the transaction associated with this <span class='entity-name'>BuyerTransaction</span>, then this will represent the commission that the agent is to receive. This should be <code class="prettyprint">null</code> if the <span class='entity-name'>BuyerTransaction</span> uses <span class='attribute-name'>commission_percentage</span> or <span class='attribute-name'>sales_volume_flat_fee</span> or <span class='attribute-name'>sales_volume_percentage</span>.</span></p>
+
+<p><span class="response-data-head">sales_volume_percentage</span>
+<span class="response-data-remarks">If the agent is to receive compensation based on percentage of sales volume, then this will represent the percentage that the agent is to receive.This should be <code class="prettyprint">null</code> if the <span class='entity-name'>BuyerTransaction</span> uses <span class='attribute-name'>commission_flat_fee</span> or <span class='attribute-name'>sales_volume_flat_fee</span> or <span class='attribute-name'>commission_percentage</span>.</span></p>
+
+<p><span class="response-data-head">sales_volume_flat_fee</span>
+<span class="response-data-remarks">If the agent is to receive a flat-rate compensation based on sales volume, then this will represent the compensation that the agent is to receive. This should be <code class="prettyprint">null</code> if the <span class='entity-name'>BuyerTransaction</span> uses <span class='attribute-name'>commission_percentage</span> or <span class='attribute-name'>commission_flat_fee</span> or <span class='attribute-name'>sales_volume_commission</span>.</span></p>
 
 <p><span class="response-data-head">target_price</span>
 <span class="response-data-remarks">The desired purchase price for a property if using target rather than range.</span></p>
@@ -5607,6 +5711,8 @@ moxi_works_agent_id=abc123
       </span><span class="nt">"mls_number"</span><span class="p">:</span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"commission_percentage"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="nt">"commission_flat_fee"</span><span class="p">:</span><span class="mi">12345</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"sales_volume_percentage"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"sales_volume_flat_fee"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="nt">"target_price"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="nt">"min_price"</span><span class="p">:</span><span class="mi">292929</span><span class="p">,</span><span class="w">
       </span><span class="nt">"max_price"</span><span class="p">:</span><span class="mi">2323223</span><span class="p">,</span><span class="w">
@@ -5650,6 +5756,8 @@ moxi_works_agent_id=abc123
       </span><span class="nt">"mls_number"</span><span class="p">:</span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"commission_percentage"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="nt">"commission_flat_fee"</span><span class="p">:</span><span class="mi">12345</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"sales_volume_percentage"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"sales_volume_flat_fee"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="nt">"target_price"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="nt">"min_price"</span><span class="p">:</span><span class="mi">292929</span><span class="p">,</span><span class="w">
       </span><span class="nt">"max_price"</span><span class="p">:</span><span class="mi">2323223</span><span class="p">,</span><span class="w">
@@ -5815,6 +5923,14 @@ moxi_works_agent_id=abc123
 <td><span class="data-type">Integer or null</span></td>
 </tr>
 <tr>
+<td><span class="response-data">sales_volume_percentage</span></td>
+<td><span class="data-type">Float or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">sales_volume_flat_fee</span></td>
+<td><span class="data-type">Integer or null</span></td>
+</tr>
+<tr>
 <td><span class="response-data">target_price</span></td>
 <td><span class="data-type">Integer or null</span></td>
 </tr>
@@ -5912,10 +6028,16 @@ moxi_works_agent_id=abc123
 <span class="response-data-remarks">For non-MLS transactions, this is the Unix timestamp representing the date that the agent initiated transaction discussions with the client. This should be <code class="prettyprint">null</code> if the <span class='entity-name'>BuyerTransaction</span> is an MLS sale.</span></p>
 
 <p><span class="response-data-head">commission_percentage</span>
-<span class="response-data-remarks">If the agent is to receive commission based on percentage of purchase price for the transaction associated with this <span class='entity-name'>BuyerTransaction</span>, then this will represent the commission that the agent is to receive.This should be <code class="prettyprint">null</code> if the <span class='entity-name'>BuyerTransaction</span> uses <span class='attribute-name'>commission_flat_fee</span>.</span></p>
+<span class="response-data-remarks">If the agent is to receive commission based on percentage of purchase price for the transaction associated with this <span class='entity-name'>BuyerTransaction</span>, then this will represent the commission that the agent is to receive.This should be <code class="prettyprint">null</code> if the <span class='entity-name'>BuyerTransaction</span> uses <span class='attribute-name'>commission_flat_fee</span> or <span class='attribute-name'>sales_volume_flat_fee</span> or <span class='attribute-name'>sales_volume_commission</span>.</span></p>
 
 <p><span class="response-data-head">commission_flat_fee</span>
-<span class="response-data-remarks">If the agent is to receive a flat-rate commission for the transaction associated with this <span class='entity-name'>BuyerTransaction</span>, then this will represent the commission that the agent is to receive. This should be <code class="prettyprint">null</code> if the <span class='entity-name'>BuyerTransaction</span> uses <span class='attribute-name'>commission_percentage</span>.</span></p>
+<span class="response-data-remarks">If the agent is to receive a flat-rate commission for the transaction associated with this <span class='entity-name'>BuyerTransaction</span>, then this will represent the commission that the agent is to receive. This should be <code class="prettyprint">null</code> if the <span class='entity-name'>BuyerTransaction</span> uses <span class='attribute-name'>commission_percentage</span> or <span class='attribute-name'>sales_volume_flat_fee</span> or <span class='attribute-name'>sales_volume_percentage</span>.</span></p>
+
+<p><span class="response-data-head">sales_volume_percentage</span>
+<span class="response-data-remarks">If the agent is to receive compensation based on percentage of sales volume, then this will represent the percentage that the agent is to receive.This should be <code class="prettyprint">null</code> if the <span class='entity-name'>BuyerTransaction</span> uses <span class='attribute-name'>commission_flat_fee</span> or <span class='attribute-name'>sales_volume_flat_fee</span> or <span class='attribute-name'>commission_percentage</span>.</span></p>
+
+<p><span class="response-data-head">sales_volume_flat_fee</span>
+<span class="response-data-remarks">If the agent is to receive a flat-rate compensation based on sales volume, then this will represent the compensation that the agent is to receive. This should be <code class="prettyprint">null</code> if the <span class='entity-name'>BuyerTransaction</span> uses <span class='attribute-name'>commission_percentage</span> or <span class='attribute-name'>commission_flat_fee</span> or <span class='attribute-name'>sales_volume_commission</span>.</span></p>
 
 <p><span class="response-data-head">target_price</span>
 <span class="response-data-remarks">The desired purchase price for a property if using target rather than range.</span></p>
@@ -14156,7 +14278,6 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
   </span><span class="nt">"TaxYear"</span><span class="p">:</span><span class="mi">2015</span><span class="p">,</span><span class="w">
   </span><span class="nt">"SingleStory"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="nt">"LivingArea"</span><span class="p">:</span><span class="mi">3640</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"Title"</span><span class="p">:</span><span class="s2">"World Heavyweight Titleholder"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"ViewYN"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="nt">"YearBuilt"</span><span class="p">:</span><span class="mi">1989</span><span class="p">,</span><span class="w">
   </span><span class="nt">"OnMarket"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
@@ -14454,10 +14575,6 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <td><span class="response-data"><span class="data-type">Boolean or null</span></td>
 </tr>
 <tr>
-<td><span class="response-data">Title</span></td>
-<td><span class="response-data"><span class="data-type">String or null</span></td>
-</tr>
-<tr>
 <td><span class="response-data">LivingArea</span></td>
 <td><span class="response-data"><span class="data-type">Integer or null</span></td>
 </tr>
@@ -14651,9 +14768,6 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 
 <p><span class="response-data-head">LivingArea</span>
 <span class="response-data-remarks">Total square footage of the building(s) on the property.</span></p>
-
-<p><span class="response-data-head">Title</span>
-<span class="response-data-remarks">A short description of the property.</span></p>
 
 <p><span class="response-data-head">ViewYN</span>
 <span class="response-data-remarks">Whether the property has a view.</span></p>
@@ -15031,7 +15145,6 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
   </span><span class="nt">"TaxYear"</span><span class="p">:</span><span class="mi">2015</span><span class="p">,</span><span class="w">
   </span><span class="nt">"SingleStory"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="nt">"LivingArea"</span><span class="p">:</span><span class="mi">3640</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"Title"</span><span class="p">:</span><span class="s2">"World Heavyweight Titleholder"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"ViewYN"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="nt">"YearBuilt"</span><span class="p">:</span><span class="mi">1989</span><span class="p">,</span><span class="w">
   </span><span class="nt">"OnMarket"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
@@ -15333,10 +15446,6 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <td><span class="response-data"><span class="data-type">Integer or null</span></td>
 </tr>
 <tr>
-<td><span class="response-data">Title</span></td>
-<td><span class="response-data"><span class="data-type">String or null</span></td>
-</tr>
-<tr>
 <td><span class="response-data">ViewYN</span></td>
 <td><span class="response-data"><span class="data-type">Boolean or null</span></td>
 </tr>
@@ -15526,9 +15635,6 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 
 <p><span class="response-data-head">LivingArea</span>
 <span class="response-data-remarks">Total square footage of the building(s) on the property.</span></p>
-
-<p><span class="response-data-head">Title</span>
-<span class="response-data-remarks">A short description of the property.</span></p>
 
 <p><span class="response-data-head">ViewYN</span>
 <span class="response-data-remarks">Whether the property has a view.</span></p>
@@ -16015,7 +16121,6 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
   </span><span class="nt">"PropertyType"</span><span class="p">:</span><span class="s2">"Residential"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"TaxAnnualAmount"</span><span class="p">:</span><span class="mi">13652</span><span class="p">,</span><span class="w">
   </span><span class="nt">"TaxYear"</span><span class="p">:</span><span class="mi">2015</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"Title"</span><span class="p">:</span><span class="s2">"World Heavyweight Titleholder"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"SingleStory"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="nt">"LivingArea"</span><span class="p">:</span><span class="mi">3640</span><span class="p">,</span><span class="w">
   </span><span class="nt">"ViewYN"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
@@ -16347,10 +16452,6 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <td><span class="response-data"><span class="data-type">Integer or null</span></td>
 </tr>
 <tr>
-<td><span class="response-data">Title</span></td>
-<td><span class="response-data"><span class="data-type">String or null</span></td>
-</tr>
-<tr>
 <td><span class="response-data">ViewYN</span></td>
 <td><span class="response-data"><span class="data-type">Boolean or null</span></td>
 </tr>
@@ -16540,9 +16641,6 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 
 <p><span class="response-data-head">LivingArea</span>
 <span class="response-data-remarks">Total square footage of the building(s) on the property.</span></p>
-
-<p><span class="response-data-head">Title</span>
-<span class="response-data-remarks">A short description of the property.</span></p>
 
 <p><span class="response-data-head">ViewYN</span>
 <span class="response-data-remarks">Whether the property has a view.</span></p>
@@ -17169,7 +17267,17 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <td><span class="required-data">255<span></td>
 </tr>
 <tr>
+<td><span class="optional-data">deactivated</span></td>
+<td><span class="data-type">Boolean</span></td>
+<td>255</td>
+</tr>
+<tr>
 <td><span class="optional-data">page_number</span></td>
+<td><span class="data-type">Integer</span></td>
+<td>255</td>
+</tr>
+<tr>
+<td><span class="optional-data">deactivated_since</span></td>
 <td><span class="data-type">Integer</span></td>
 <td>255</td>
 </tr>
@@ -17182,8 +17290,16 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 
 <aside class="note">Use <a href='#company'>Company Endpoint</a> to determine the moxi_works_company_id to send.</aside>
 
+<p><span class="request-data-head">deactivated</span>
+<span class="request-data-remarks">To find offices deactivated within the specified timeframe, pass <code class="prettyprint">true</code> for this boolean parameter.</span></p>
+
 <p><span class="request-data-head">page_number</span>
 <span class="request-data-remarks">For queries with multi-page responses, use the <span class='attribute-name'>page_number</span> parameter to return data for specific pages. Data for page 1 is returned if this parameter is not included. Use this parameter if <strong>total_pages</strong> indicates that there is more than one page of data available.</span></p>
+
+<p><span class="request-data-head">deactivated_since</span>
+<span class="request-data-remarks">any <span class='entity-name'>Office</span> objects deactivated after this Unix timestamp will be returned in the response. <strong>If no <span class='attribute-name'>deactivated_since</span> parameter is included in the request, only <span class='entity-name'>Office</span> objects deactivated in the last seven days will be returned.</strong></span></p>
+
+<aside class="note">By default only <span class='entity-name'>Office</span> objects deactivated in the last seven days will be returned.</aside>
 
 <blockquote><div class='highlight json' style="display: block">
 <span class="data-example-label">Office Index: Success Response</span>
@@ -17828,6 +17944,8 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
   </span><span class="nt">"mls_number"</span><span class="p">:</span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"commission_percentage"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"commission_flat_fee"</span><span class="p">:</span><span class="mi">12345</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"sales_volume_percentage"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"sales_volume_flat_fee"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"target_price"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"min_price"</span><span class="p">:</span><span class="mi">292929</span><span class="p">,</span><span class="w">
   </span><span class="nt">"max_price"</span><span class="p">:</span><span class="mi">2323223</span><span class="w">
@@ -17954,6 +18072,8 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;moxi_works_contact_id=babebe
   </span><span class="nt">"mls_number"</span><span class="p">:</span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"commission_percentage"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"commission_flat_fee"</span><span class="p">:</span><span class="mi">12345</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"sales_volume_percentage"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"sales_volume_flat_fee"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"target_price"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"min_price"</span><span class="p">:</span><span class="mi">292929</span><span class="p">,</span><span class="w">
   </span><span class="nt">"max_price"</span><span class="p">:</span><span class="mi">2323223</span><span class="w">
@@ -18080,6 +18200,8 @@ moxi_works_agent_id=abc123&amp;moxi_works_contact_id=babebead-feed-face-dead-bee
   </span><span class="nt">"start_timestamp"</span><span class="p">:</span><span class="mi">1480536319</span><span class="p">,</span><span class="w">
   </span><span class="nt">"commission_percentage"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"commission_flat_fee"</span><span class="p">:</span><span class="mi">12345</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"sales_volume_percentage"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"sales_volume_flat_fee"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"target_price"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"min_price"</span><span class="p">:</span><span class="mi">292929</span><span class="p">,</span><span class="w">
   </span><span class="nt">"max_price"</span><span class="p">:</span><span class="mi">2323223</span><span class="w">
@@ -18152,6 +18274,8 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;moxi_works_contact_id=babebe
       <span class="n">is_mls_transaction</span><span class="ss">:false</span><span class="p">,</span>
       <span class="n">start_timestamp</span><span class="p">:</span><span class="mi">1480536319</span><span class="p">,</span>
       <span class="n">commission_flat_fee</span><span class="p">:</span><span class="mi">12345</span><span class="p">,</span>
+      <span class="s2">"sales_volume_percentage"</span><span class="ss">:null</span><span class="p">,</span>
+      <span class="s2">"sales_volume_flat_fee"</span><span class="ss">:null</span><span class="p">,</span>
       <span class="n">min_price</span><span class="p">:</span><span class="mi">292929</span><span class="p">,</span>
       <span class="n">max_price</span><span class="p">:</span><span class="mi">2323223</span>
       <span class="p">)</span>
@@ -18289,6 +18413,16 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;moxi_works_contact_id=babebe
 <td><span class="optional-data">255</span></td>
 </tr>
 <tr>
+<td><span class="optional-data">sales_volume_percentage</span></td>
+<td><span class="optional-data"><span class="data-type">Float</span></span></td>
+<td><span class="optional-data">255</span></td>
+</tr>
+<tr>
+<td><span class="optional-data">sales_volume_flat_fee</span></td>
+<td><span class="optional-data"><span class="data-type">Integer</span></span></td>
+<td><span class="optional-data">255</span></td>
+</tr>
+<tr>
 <td><span class="optional-data">target_price</span></td>
 <td><span class="optional-data"><span class="data-type">Integer</span></span></td>
 <td><span class="optional-data">255</span></td>
@@ -18369,7 +18503,13 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;moxi_works_contact_id=babebe
 <p><span class="request-data-head">commission_flat_fee</span>
 <span class="request-data-remarks">Commission for the transaction. If the commission for the transaction is based on a flat dollar amount, use this attribute.</span></p>
 
-<aside class="note">A <span class='entity-name'>SellerTransaction</span> can only have either <span class='attribute-name'>commission_percentage</span> <b>or</b> <span class='attribute-name'>commission_flat_fee</span> populated. Both can not be populated.</aside>
+<p><span class="request-data-head">sales_volume_percentage</span>
+<span class="request-data-remarks">If the payment for the transaction is based on percentage of sales volume, use this attribute.</span></p>
+
+<p><span class="request-data-head">sales_volume_flat_fee</span>
+<span class="request-data-remarks">If payment for the transaction is based on a flat fee derived from sales volume, use this attribute.</span></p>
+
+<aside class="note">A <span class='entity-name'>SellerTransaction</span> can only have either <span class='attribute-name'>commission_percentage</span>  <b>or</b>  <span class='attribute-name'>sales_volume_percentage</span>  <b>or</b> <span class='attribute-name'>sales_volume_flat_fee</span> <b>or</b> <span class='attribute-name'>commission_flat_fee</span> populated. More than one can not be populated.</aside>
 
 <p><span class="request-data-head">target_price</span>
 <span class="request-data-remarks">The desired selling price for the property if using target rather than range.</span></p>
@@ -18437,6 +18577,8 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;moxi_works_contact_id=babebe
   </span><span class="nt">"mls_number"</span><span class="p">:</span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"commission_percentage"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"commission_flat_fee"</span><span class="p">:</span><span class="mi">12345</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"sales_volume_percentage"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"sales_volume_flat_fee"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"target_price"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"min_price"</span><span class="p">:</span><span class="mi">292929</span><span class="p">,</span><span class="w">
   </span><span class="nt">"max_price"</span><span class="p">:</span><span class="mi">2323223</span><span class="p">,</span><span class="w">
@@ -18552,6 +18694,14 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;moxi_works_contact_id=babebe
 <td><span class="data-type">Integer or null</span></td>
 </tr>
 <tr>
+<td><span class="response-data">sales_volume_percentage</span></td>
+<td><span class="data-type">Float or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">sales_volume_flat_fee</span></td>
+<td><span class="data-type">Integer or null</span></td>
+</tr>
+<tr>
 <td><span class="response-data">target_price</span></td>
 <td><span class="data-type">Integer or null</span></td>
 </tr>
@@ -18639,10 +18789,16 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;moxi_works_contact_id=babebe
 <span class="response-data-remarks">For non-MLS transactions, this is the Unix timestamp representing the date that the agent initiated transaction discussions with the client. This should be <code class="prettyprint">null</code> if the <span class='entity-name'>SellerTransaction</span> is an MLS sale.</span></p>
 
 <p><span class="response-data-head">commission_percentage</span>
-<span class="response-data-remarks">If the agent is to receive commission based on percentage of sale price for the property associated with this <span class='entity-name'>SellerTransaction</span>, then this will represent the commission that the agent is to receive.This should be <code class="prettyprint">null</code> if the <span class='entity-name'>SellerTransaction</span> uses <span class='attribute-name'>commission_flat_fee</span>.</span></p>
+<span class="response-data-remarks">If the agent is to receive commission based on percentage of purchase price for the transaction associated with this <span class='entity-name'>SellerTransaction</span>, then this will represent the commission that the agent is to receive.This should be <code class="prettyprint">null</code> if the <span class='entity-name'>SellerTransaction</span> uses <span class='attribute-name'>commission_flat_fee</span> or <span class='attribute-name'>sales_volume_flat_fee</span> or <span class='attribute-name'>sales_volume_commission</span>.</span></p>
 
 <p><span class="response-data-head">commission_flat_fee</span>
-<span class="response-data-remarks">If the agent is to receive a flat-rate commission upon sale of the property associated with this <span class='entity-name'>SellerTransaction</span>, then this will represent the commission that the agent is to receive. This should be <code class="prettyprint">null</code> if the <span class='entity-name'>SellerTransaction</span> uses <span class='attribute-name'>commission_percentage</span>.</span></p>
+<span class="response-data-remarks">If the agent is to receive a flat-rate commission for the transaction associated with this <span class='entity-name'>SellerTransaction</span>, then this will represent the commission that the agent is to receive. This should be <code class="prettyprint">null</code> if the <span class='entity-name'>SellerTransaction</span> uses <span class='attribute-name'>commission_percentage</span> or <span class='attribute-name'>sales_volume_flat_fee</span> or <span class='attribute-name'>sales_volume_percentage</span>.</span></p>
+
+<p><span class="response-data-head">sales_volume_percentage</span>
+<span class="response-data-remarks">If the agent is to receive compensation based on percentage of sales volume, then this will represent the percentage that the agent is to receive.This should be <code class="prettyprint">null</code> if the <span class='entity-name'>SellerTransaction</span> uses <span class='attribute-name'>commission_flat_fee</span> or <span class='attribute-name'>sales_volume_flat_fee</span> or <span class='attribute-name'>commission_percentage</span>.</span></p>
+
+<p><span class="response-data-head">sales_volume_flat_fee</span>
+<span class="response-data-remarks">If the agent is to receive a flat-rate compensation based on sales volume, then this will represent the compensation that the agent is to receive. This should be <code class="prettyprint">null</code> if the <span class='entity-name'>SellerTransaction</span> uses <span class='attribute-name'>commission_percentage</span> or <span class='attribute-name'>commission_flat_fee</span> or <span class='attribute-name'>sales_volume_commission</span>.</span></p>
 
 <p><span class="response-data-head">target_price</span>
 <span class="response-data-remarks">The desired selling price for the property if using target rather than range.</span></p>
@@ -19245,7 +19401,13 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;beds=12&amp;baths=34.5&amp;n
 <p><span class="request-data-head">commission_flat_fee</span>
 <span class="request-data-remarks">Commission for the transaction. If the commission for the transaction is based on a flat dollar amount, use this attribute.</span></p>
 
-<aside class="note">A <span class='entity-name'>SellerTransaction</span> can only have either <span class='attribute-name'>commission_percentage</span> <b>or</b> <span class='attribute-name'>commission_flat_fee</span> populated. Both can not be populated.</aside>
+<p><span class="request-data-head">sales_volume_percentage</span>
+<span class="request-data-remarks">If the payment for the transaction is based on percentage of sales volume, use this attribute.</span></p>
+
+<p><span class="request-data-head">sales_volume_flat_fee</span>
+<span class="request-data-remarks">If payment for the transaction is based on a flat fee derived from sales volume, use this attribute.</span></p>
+
+<aside class="note">A <span class='entity-name'>SellerTransaction</span> can only have either <span class='attribute-name'>commission_percentage</span>  <b>or</b>  <span class='attribute-name'>sales_volume_percentage</span>  <b>or</b> <span class='attribute-name'>sales_volume_flat_fee</span> <b>or</b> <span class='attribute-name'>commission_flat_fee</span> populated. More than one can not be populated.</aside>
 
 <p><span class="request-data-head">target_price</span>
 <span class="request-data-remarks">The desired selling price for the property if using target rather than range.</span></p>
@@ -19294,6 +19456,8 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;beds=12&amp;baths=34.5&amp;n
   </span><span class="nt">"mls_number"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"commission_percentage"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"commission_flat_fee"</span><span class="p">:</span><span class="mi">12345</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"sales_volume_percentage"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"sales_volume_flat_fee"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"target_price"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"min_price"</span><span class="p">:</span><span class="mi">292929</span><span class="p">,</span><span class="w">
   </span><span class="nt">"max_price"</span><span class="p">:</span><span class="mi">2323223</span><span class="p">,</span><span class="w">
@@ -19326,6 +19490,8 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;beds=12&amp;baths=34.5&amp;n
   </span><span class="nt">"mls_number"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"commission_percentage"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"commission_flat_fee"</span><span class="p">:</span><span class="mi">12345</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"sales_volume_percentage"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"sales_volume_flat_fee"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"target_price"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"min_price"</span><span class="p">:</span><span class="mi">292929</span><span class="p">,</span><span class="w">
   </span><span class="nt">"max_price"</span><span class="p">:</span><span class="mi">2323223</span><span class="p">,</span><span class="w">
@@ -19441,6 +19607,14 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;beds=12&amp;baths=34.5&amp;n
 <td><span class="data-type">Integer or null</span></td>
 </tr>
 <tr>
+<td><span class="response-data">sales_volume_percentage</span></td>
+<td><span class="data-type">Float or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">sales_volume_flat_fee</span></td>
+<td><span class="data-type">Integer or null</span></td>
+</tr>
+<tr>
 <td><span class="response-data">target_price</span></td>
 <td><span class="data-type">Integer or null</span></td>
 </tr>
@@ -19528,10 +19702,16 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;beds=12&amp;baths=34.5&amp;n
 <span class="response-data-remarks">For non-MLS transactions, this is the Unix timestamp representing the date that the agent initiated transaction discussions with the client. This should be <code class="prettyprint">null</code> if the <span class='entity-name'>SellerTransaction</span> is an MLS sale.</span></p>
 
 <p><span class="response-data-head">commission_percentage</span>
-<span class="response-data-remarks">If the agent is to receive commission based on percentage of sale price for the property associated with this <span class='entity-name'>SellerTransaction</span>, then this will represent the commission that the agent is to receive.This should be <code class="prettyprint">null</code> if the <span class='entity-name'>SellerTransaction</span> uses <span class='attribute-name'>commission_flat_fee</span>.</span></p>
+<span class="response-data-remarks">If the agent is to receive commission based on percentage of purchase price for the transaction associated with this <span class='entity-name'>SellerTransaction</span>, then this will represent the commission that the agent is to receive.This should be <code class="prettyprint">null</code> if the <span class='entity-name'>SellerTransaction</span> uses <span class='attribute-name'>commission_flat_fee</span> or <span class='attribute-name'>sales_volume_flat_fee</span> or <span class='attribute-name'>sales_volume_commission</span>.</span></p>
 
 <p><span class="response-data-head">commission_flat_fee</span>
-<span class="response-data-remarks">If the agent is to receive a flat-rate commission upon sale of the property associated with this <span class='entity-name'>SellerTransaction</span>, then this will represent the commission that the agent is to receive. This should be <code class="prettyprint">null</code> if the <span class='entity-name'>SellerTransaction</span> uses <span class='attribute-name'>commission_percentage</span>.</span></p>
+<span class="response-data-remarks">If the agent is to receive a flat-rate commission for the transaction associated with this <span class='entity-name'>SellerTransaction</span>, then this will represent the commission that the agent is to receive. This should be <code class="prettyprint">null</code> if the <span class='entity-name'>SellerTransaction</span> uses <span class='attribute-name'>commission_percentage</span> or <span class='attribute-name'>sales_volume_flat_fee</span> or <span class='attribute-name'>sales_volume_percentage</span>.</span></p>
+
+<p><span class="response-data-head">sales_volume_percentage</span>
+<span class="response-data-remarks">If the agent is to receive compensation based on percentage of sales volume, then this will represent the percentage that the agent is to receive.This should be <code class="prettyprint">null</code> if the <span class='entity-name'>SellerTransaction</span> uses <span class='attribute-name'>commission_flat_fee</span> or <span class='attribute-name'>sales_volume_flat_fee</span> or <span class='attribute-name'>commission_percentage</span>.</span></p>
+
+<p><span class="response-data-head">sales_volume_flat_fee</span>
+<span class="response-data-remarks">If the agent is to receive a flat-rate compensation based on sales volume, then this will represent the compensation that the agent is to receive. This should be <code class="prettyprint">null</code> if the <span class='entity-name'>SellerTransaction</span> uses <span class='attribute-name'>commission_percentage</span> or <span class='attribute-name'>commission_flat_fee</span> or <span class='attribute-name'>sales_volume_commission</span>.</span></p>
 
 <p><span class="response-data-head">target_price</span>
 <span class="response-data-remarks">The desired selling price for the property if using target rather than range.</span></p>
@@ -19727,7 +19907,7 @@ moxi_works_agent_id=abc123
 <p><span class="required-data"><strong>Required Parameters Are In Red</strong></span></p>
 
 <p><span class="request-data-head">agent_uuid</span>
-<span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which an  <span class='entity-name'>BuyerTransaction</span> entry is associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID. <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>SellerTransaction</span> <span class='action-name'>Show</span> request to be accepted.</span></p>
+<span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which a  <span class='entity-name'>SellerTransaction</span> entry is associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID. <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>SellerTransaction</span> <span class='action-name'>Show</span> request to be accepted.</span></p>
 
 <p><span class="request-data-head">moxi_works_agent_id</span>
 <span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>SellerTransaction</span> object is associated with. This will be a string that may take the form of an email address, or a unique identification string. This data is required and must reference a valid Moxi Works <span class='entity-name'>Agent</span> ID for your <span class='entity-name'>SellerTransaction</span> <span class='action-name'>Show</span>  request to be accepted.</span></p>
@@ -19758,6 +19938,8 @@ moxi_works_agent_id=abc123
   </span><span class="nt">"mls_number"</span><span class="p">:</span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"commission_percentage"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"commission_flat_fee"</span><span class="p">:</span><span class="mi">12345</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"sales_volume_percentage"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"sales_volume_flat_fee"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"target_price"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"min_price"</span><span class="p">:</span><span class="mi">292929</span><span class="p">,</span><span class="w">
   </span><span class="nt">"max_price"</span><span class="p">:</span><span class="mi">2323223</span><span class="p">,</span><span class="w">
@@ -19790,6 +19972,8 @@ moxi_works_agent_id=abc123
   </span><span class="nt">"mls_number"</span><span class="p">:</span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"commission_percentage"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"commission_flat_fee"</span><span class="p">:</span><span class="mi">12345</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"sales_volume_percentage"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"sales_volume_flat_fee"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"target_price"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"min_price"</span><span class="p">:</span><span class="mi">292929</span><span class="p">,</span><span class="w">
   </span><span class="nt">"max_price"</span><span class="p">:</span><span class="mi">2323223</span><span class="p">,</span><span class="w">
@@ -19905,6 +20089,14 @@ moxi_works_agent_id=abc123
 <td><span class="data-type">Integer or null</span></td>
 </tr>
 <tr>
+<td><span class="response-data">sales_volume_percentage</span></td>
+<td><span class="data-type">Float or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">sales_volume_flat_fee</span></td>
+<td><span class="data-type">Integer or null</span></td>
+</tr>
+<tr>
 <td><span class="response-data">target_price</span></td>
 <td><span class="data-type">Integer or null</span></td>
 </tr>
@@ -19992,10 +20184,16 @@ moxi_works_agent_id=abc123
 <span class="response-data-remarks">For non-MLS transactions, this is the Unix timestamp representing the date that the agent initiated transaction discussions with the client. This should be <code class="prettyprint">null</code> if the <span class='entity-name'>SellerTransaction</span> is an MLS sale.</span></p>
 
 <p><span class="response-data-head">commission_percentage</span>
-<span class="response-data-remarks">If the agent is to receive commission based on percentage of sale price for the property associated with this <span class='entity-name'>SellerTransaction</span>, then this will represent the commission that the agent is to receive.This should be <code class="prettyprint">null</code> if the <span class='entity-name'>SellerTransaction</span> uses <span class='attribute-name'>commission_flat_fee</span>.</span></p>
+<span class="response-data-remarks">If the agent is to receive commission based on percentage of purchase price for the transaction associated with this <span class='entity-name'>SellerTransaction</span>, then this will represent the commission that the agent is to receive.This should be <code class="prettyprint">null</code> if the <span class='entity-name'>SellerTransaction</span> uses <span class='attribute-name'>commission_flat_fee</span> or <span class='attribute-name'>sales_volume_flat_fee</span> or <span class='attribute-name'>sales_volume_commission</span>.</span></p>
 
 <p><span class="response-data-head">commission_flat_fee</span>
-<span class="response-data-remarks">If the agent is to receive a flat-rate commission upon sale of the property associated with this <span class='entity-name'>SellerTransaction</span>, then this will represent the commission that the agent is to receive. This should be <code class="prettyprint">null</code> if the <span class='entity-name'>SellerTransaction</span> uses <span class='attribute-name'>commission_percentage</span>.</span></p>
+<span class="response-data-remarks">If the agent is to receive a flat-rate commission for the transaction associated with this <span class='entity-name'>SellerTransaction</span>, then this will represent the commission that the agent is to receive. This should be <code class="prettyprint">null</code> if the <span class='entity-name'>SellerTransaction</span> uses <span class='attribute-name'>commission_percentage</span> or <span class='attribute-name'>sales_volume_flat_fee</span> or <span class='attribute-name'>sales_volume_percentage</span>.</span></p>
+
+<p><span class="response-data-head">sales_volume_percentage</span>
+<span class="response-data-remarks">If the agent is to receive compensation based on percentage of sales volume, then this will represent the percentage that the agent is to receive.This should be <code class="prettyprint">null</code> if the <span class='entity-name'>SellerTransaction</span> uses <span class='attribute-name'>commission_flat_fee</span> or <span class='attribute-name'>sales_volume_flat_fee</span> or <span class='attribute-name'>commission_percentage</span>.</span></p>
+
+<p><span class="response-data-head">sales_volume_flat_fee</span>
+<span class="response-data-remarks">If the agent is to receive a flat-rate compensation based on sales volume, then this will represent the compensation that the agent is to receive. This should be <code class="prettyprint">null</code> if the <span class='entity-name'>SellerTransaction</span> uses <span class='attribute-name'>commission_percentage</span> or <span class='attribute-name'>commission_flat_fee</span> or <span class='attribute-name'>sales_volume_commission</span>.</span></p>
 
 <p><span class="response-data-head">target_price</span>
 <span class="response-data-remarks">The desired selling price for the property if using target rather than range.</span></p>
@@ -20235,6 +20433,8 @@ moxi_works_agent_id=abc123
       </span><span class="nt">"mls_number"</span><span class="p">:</span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"commission_percentage"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="nt">"commission_flat_fee"</span><span class="p">:</span><span class="mi">12345</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"sales_volume_percentage"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"sales_volume_flat_fee"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="nt">"target_price"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="nt">"min_price"</span><span class="p">:</span><span class="mi">292929</span><span class="p">,</span><span class="w">
       </span><span class="nt">"max_price"</span><span class="p">:</span><span class="mi">2323223</span><span class="p">,</span><span class="w">
@@ -20274,6 +20474,8 @@ moxi_works_agent_id=abc123
       </span><span class="nt">"mls_number"</span><span class="p">:</span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"commission_percentage"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="nt">"commission_flat_fee"</span><span class="p">:</span><span class="mi">12345</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"sales_volume_percentage"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"sales_volume_flat_fee"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="nt">"target_price"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="nt">"min_price"</span><span class="p">:</span><span class="mi">292929</span><span class="p">,</span><span class="w">
       </span><span class="nt">"max_price"</span><span class="p">:</span><span class="mi">2323223</span><span class="p">,</span><span class="w">
@@ -20423,6 +20625,14 @@ moxi_works_agent_id=abc123
 <td><span class="data-type">Integer or null</span></td>
 </tr>
 <tr>
+<td><span class="response-data">sales_volume_percentage</span></td>
+<td><span class="data-type">Float or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">sales_volume_flat_fee</span></td>
+<td><span class="data-type">Integer or null</span></td>
+</tr>
+<tr>
 <td><span class="response-data">target_price</span></td>
 <td><span class="data-type">Integer or null</span></td>
 </tr>
@@ -20510,10 +20720,16 @@ moxi_works_agent_id=abc123
 <span class="response-data-remarks">For non-MLS transactions, this is the Unix timestamp representing the date that the agent initiated transaction discussions with the client. This should be <code class="prettyprint">null</code> if the <span class='entity-name'>SellerTransaction</span> is an MLS sale.</span></p>
 
 <p><span class="response-data-head">commission_percentage</span>
-<span class="response-data-remarks">If the agent is to receive commission based on percentage of sale price for the property associated with this <span class='entity-name'>SellerTransaction</span>, then this will represent the commission that the agent is to receive.This should be <code class="prettyprint">null</code> if the <span class='entity-name'>SellerTransaction</span> uses <span class='attribute-name'>commission_flat_fee</span>.</span></p>
+<span class="response-data-remarks">If the agent is to receive commission based on percentage of purchase price for the transaction associated with this <span class='entity-name'>SellerTransaction</span>, then this will represent the commission that the agent is to receive.This should be <code class="prettyprint">null</code> if the <span class='entity-name'>SellerTransaction</span> uses <span class='attribute-name'>commission_flat_fee</span> or <span class='attribute-name'>sales_volume_flat_fee</span> or <span class='attribute-name'>sales_volume_commission</span>.</span></p>
 
 <p><span class="response-data-head">commission_flat_fee</span>
-<span class="response-data-remarks">If the agent is to receive a flat-rate commission upon sale of the property associated with this <span class='entity-name'>SellerTransaction</span>, then this will represent the commission that the agent is to receive. This should be <code class="prettyprint">null</code> if the <span class='entity-name'>SellerTransaction</span> uses <span class='attribute-name'>commission_percentage</span>.</span></p>
+<span class="response-data-remarks">If the agent is to receive a flat-rate commission for the transaction associated with this <span class='entity-name'>SellerTransaction</span>, then this will represent the commission that the agent is to receive. This should be <code class="prettyprint">null</code> if the <span class='entity-name'>SellerTransaction</span> uses <span class='attribute-name'>commission_percentage</span> or <span class='attribute-name'>sales_volume_flat_fee</span> or <span class='attribute-name'>sales_volume_percentage</span>.</span></p>
+
+<p><span class="response-data-head">sales_volume_percentage</span>
+<span class="response-data-remarks">If the agent is to receive compensation based on percentage of sales volume, then this will represent the percentage that the agent is to receive.This should be <code class="prettyprint">null</code> if the <span class='entity-name'>SellerTransaction</span> uses <span class='attribute-name'>commission_flat_fee</span> or <span class='attribute-name'>sales_volume_flat_fee</span> or <span class='attribute-name'>commission_percentage</span>.</span></p>
+
+<p><span class="response-data-head">sales_volume_flat_fee</span>
+<span class="response-data-remarks">If the agent is to receive a flat-rate compensation based on sales volume, then this will represent the compensation that the agent is to receive. This should be <code class="prettyprint">null</code> if the <span class='entity-name'>SellerTransaction</span> uses <span class='attribute-name'>commission_percentage</span> or <span class='attribute-name'>commission_flat_fee</span> or <span class='attribute-name'>sales_volume_commission</span>.</span></p>
 
 <p><span class="response-data-head">target_price</span>
 <span class="response-data-remarks">The desired selling price for the property if using target rather than range.</span></p>
@@ -20696,7 +20912,6 @@ moxi_works_agent_id=abc123
   </span><span class="nt">"TaxYear"</span><span class="p">:</span><span class="mi">2015</span><span class="p">,</span><span class="w">
   </span><span class="nt">"SingleStory"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="nt">"LivingArea"</span><span class="p">:</span><span class="mi">3640</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"Title"</span><span class="p">:</span><span class="s2">"World Heavyweight Titleholder"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"ViewYN"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="nt">"YearBuilt"</span><span class="p">:</span><span class="mi">1989</span><span class="p">,</span><span class="w">
   </span><span class="nt">"OnMarket"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
@@ -20992,10 +21207,6 @@ moxi_works_agent_id=abc123
 <td><span class="response-data"><span class="data-type">Integer or null</span></td>
 </tr>
 <tr>
-<td><span class="response-data">Title</span></td>
-<td><span class="response-data"><span class="data-type">String or null</span></td>
-</tr>
-<tr>
 <td><span class="response-data">ViewYN</span></td>
 <td><span class="response-data"><span class="data-type">Boolean or null</span></td>
 </tr>
@@ -21179,9 +21390,6 @@ moxi_works_agent_id=abc123
 
 <p><span class="response-data-head">LivingArea</span>
 <span class="response-data-remarks">Total square footage of the building(s) on the property.</span></p>
-
-<p><span class="response-data-head">Title</span>
-<span class="response-data-remarks">A short description of the property.</span></p>
 
 <p><span class="response-data-head">ViewYN</span>
 <span class="response-data-remarks">Whether the property has a view.</span></p>
@@ -21584,7 +21792,7 @@ moxi_works_agent_id=abc123
 <span class="request-data-remarks">If fetching a multi-page response, this should be the <span class='attribute-name'>MoxiWorksListingId</span> found in the last <span class='entity-name'>SoldListing</span> object of the previously fetched page.</span></p>
 
 <p><span class="request-data-head">include_buyer_listings</span>
-<span class="request-data-remarks">Listings for buyer agents will be included when this parameter is <code class="prettyprint">true</code>.</span></p>
+<span class="request-data-remarks">Only listing data for buyer agents will be returned when this parameter is <code class="prettyprint">true</code>.</span></p>
 
 <aside class="note">`include_buyer_listings` is only available by special arrangement with MoxiWorks. If you require access to buyer agent data, talk to your Platform representative.</aside>
 
@@ -21645,7 +21853,6 @@ moxi_works_agent_id=abc123
   </span><span class="nt">"TaxYear"</span><span class="p">:</span><span class="mi">2015</span><span class="p">,</span><span class="w">
   </span><span class="nt">"SingleStory"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="nt">"LivingArea"</span><span class="p">:</span><span class="mi">3640</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"Title"</span><span class="p">:</span><span class="s2">"World Heavyweight Titleholder"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"ViewYN"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="nt">"YearBuilt"</span><span class="p">:</span><span class="mi">1989</span><span class="p">,</span><span class="w">
   </span><span class="nt">"OnMarket"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
@@ -21962,10 +22169,6 @@ moxi_works_agent_id=abc123
 <td><span class="response-data"><span class="data-type">Integer or null</span></td>
 </tr>
 <tr>
-<td><span class="response-data">Title</span></td>
-<td><span class="response-data"><span class="data-type">String or null</span></td>
-</tr>
-<tr>
 <td><span class="response-data">ViewYN</span></td>
 <td><span class="response-data"><span class="data-type">Boolean or null</span></td>
 </tr>
@@ -22149,9 +22352,6 @@ moxi_works_agent_id=abc123
 
 <p><span class="response-data-head">LivingArea</span>
 <span class="response-data-remarks">Total square footage of the building(s) on the property.</span></p>
-
-<p><span class="response-data-head">Title</span>
-<span class="response-data-remarks">A short description of the property.</span></p>
 
 <p><span class="response-data-head">ViewYN</span>
 <span class="response-data-remarks">Whether the property has a view.</span></p>

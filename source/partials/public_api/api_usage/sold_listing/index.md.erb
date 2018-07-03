@@ -202,7 +202,7 @@ Attribute | Type | Length Limit |
 <span class="request-data-remarks">If fetching a multi-page response, this should be the <span class='attribute-name'>MoxiWorksListingId</span> found in the last <span class='entity-name'>SoldListing</span> object of the previously fetched page.</span>
 
 <span class="request-data-head">include_buyer_listings</span>
-<span class="request-data-remarks">Listings for buyer agents will be included when this parameter is `true`.</span>
+<span class="request-data-remarks">Only listing data for buyer agents will be returned when this parameter is `true`.</span>
 
 
 <aside class="note">`include_buyer_listings` is only available by special arrangement with MoxiWorks. If you require access to buyer agent data, talk to your Platform representative.</aside>
@@ -266,7 +266,6 @@ Attribute | Type | Length Limit |
   "TaxYear":2015,
   "SingleStory":false,
   "LivingArea":3640,
-  "Title":"World Heavyweight Titleholder",
   "ViewYN":false,
   "YearBuilt":1989,
   "OnMarket":true,
@@ -425,7 +424,6 @@ Attribute | Type |
 |<span class="response-data">TaxYear</span>|<span class="response-data"><span class="data-type">Integer or null</span>
 |<span class="response-data">SingleStory</span>|<span class="response-data"><span class="data-type">Boolean or null</span>
 |<span class="response-data">LivingArea</span>|<span class="response-data"><span class="data-type">Integer or null</span>
-|<span class="response-data">Title</span>|<span class="response-data"><span class="data-type">String or null</span>
 |<span class="response-data">ViewYN</span>|<span class="response-data"><span class="data-type">Boolean or null</span>
 |<span class="response-data">YearBuilt</span>|<span class="response-data"><span class="data-type">Integer or null</span>
 |<span class="response-data">OnMarket</span>|<span class="response-data"><span class="data-type">Boolean or null</span>
@@ -609,11 +607,6 @@ Attribute | Type |
 
 <span class="response-data-head">LivingArea</span>
 <span class="response-data-remarks">Total square footage of the building(s) on the property.</span>
-
-
-<span class="response-data-head">Title</span>
-<span class="response-data-remarks">A short description of the property.</span>
-
 
 <span class="response-data-head">ViewYN</span>
 <span class="response-data-remarks">Whether the property has a view.</span>

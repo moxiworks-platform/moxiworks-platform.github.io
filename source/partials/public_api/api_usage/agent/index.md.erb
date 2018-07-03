@@ -174,6 +174,8 @@ Attribute | Type  | Length Limit |
 |<span class="optional-data">updated_since</span>|<span class="data-type">Integer</span>| 255 |
 |<span class="optional-data">page_number</span>|<span class="data-type">Integer</span>| 255 |
 |<span class="optional-data">include_access_level</span>|<span class="data-type">Boolean</span>| 255 |
+|<span class="optional-data">deactivated</span>|<span class="data-type">Boolean</span>| 255 |
+|<span class="optional-data">deactivated_since</span>|<span class="data-type">Integer</span>| 255 |
 
 
 <span class="required-data">**Required Parameters Are In Red**</span>
@@ -199,6 +201,15 @@ Attribute | Type  | Length Limit |
 
 <span class="request-data-head">include_access_level</span>
 <span class="request-data-remarks">To include access level information for the agent in the response, pass `true`</span>
+
+
+<span class="request-data-head">deactivated</span>
+<span class="request-data-remarks">To find Agent accounts deactivated within the specified timeframe, pass `true` for this boolean parameter.</span>
+
+<span class="request-data-head">deactivated_since</span>
+<span class="request-data-remarks">any <span class='entity-name'>Agent</span> objects deactivated after this Unix timestamp will be returned in the response. **If no <span class='attribute-name'>deactivated_since</span> parameter is included in the request, only <span class='entity-name'>Agent</span> objects deactivated in the last seven days will be returned.**</span>
+
+<aside class="note">By default only <span class='entity-name'>Agent</span> objects deactivated in the last seven days will be returned.</aside>
 
 
 

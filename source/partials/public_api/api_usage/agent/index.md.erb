@@ -360,6 +360,7 @@ Attribute | Type |
 |<span class="response-data">profile_thumb_url</span>|<span class="data-type">String</span>|
 |<span class="response-data">region</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">alternate_offices</span>|<span class="data-type">Array</span>|
+|<span class="response-data">available_mls</span>|<span class="data-type">Array</span>|
 
 <span class="response-data-head">moxi_works_agent_id</span>
 <span class="response-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span>. This will be a string that may take the form of an email address, or a unique alphanumeric identification string.</span>
@@ -538,3 +539,28 @@ Attribute | Type |
 
 <span class="response-data-head">office_phone_number</span>
 <span class="response-data-remarks">The phone number of the office represented by this <span class='entity-name'>AlternateOffice</span> entry.</span>
+
+
+###### <span class='attribute-name'>available_mls</span> Object
+
+The <span class='attribute-name'>available_mls</span> Array contains Dictionary objects representing <span class='entity-name'>MLS</span> entries. The structure of each <span class='entity-name'>MLS</span> entry is shown below.
+
+Attribute | Type |
+-----|-----|-----|-----|
+|<span class="response-data">name</span>|<span class="data-type">String</span>|
+|<span class="response-data">display_name</span>|<span class="data-type">String</span>|
+|<span class="response-data">mls_abbreviation</span>|<span class="data-type">String</span>|
+
+
+
+<span class="response-data-head">name</span>
+<span class="response-data-remarks">The Moxi Works internal unique name for the MLS.</span>
+
+
+<span class="response-data-head">display_name</span>
+<span class="response-data-remarks">The name of the MLS as it is to be displayed to users.</span>
+
+
+<span class="response-data-head">mls_abbreviation</span>
+<span class="response-data-remarks">The abbreviation of the MLS.</span>
+

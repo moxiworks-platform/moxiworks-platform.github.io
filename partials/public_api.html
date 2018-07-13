@@ -28,7 +28,7 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id="moxi-works-api-1-15-6">Moxi Works API (1.15.6)</h1>
+        <h1 id="moxi-works-api-1-15-7">Moxi Works API (1.15.7)</h1>
 
 <h2 id="api-overview">API Overview</h2>
 
@@ -1924,6 +1924,10 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
 <td><span class="response-data">alternate_offices</span></td>
 <td><span class="data-type">Array</span></td>
 </tr>
+<tr>
+<td><span class="response-data">available_mls</span></td>
+<td><span class="data-type">Array</span></td>
+</tr>
 </tbody></table>
 
 <p><span class="response-data-head">moxi_works_agent_id</span>
@@ -2125,6 +2129,39 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
 
 <p><span class="response-data-head">office_phone_number</span>
 <span class="response-data-remarks">The phone number of the office represented by this <span class='entity-name'>AlternateOffice</span> entry.</span></p>
+
+<h6 id="available_mls-object"><span class='attribute-name'>available_mls</span> Object</h6>
+
+<p>The <span class='attribute-name'>available_mls</span> Array contains Dictionary objects representing <span class='entity-name'>MLS</span> entries. The structure of each <span class='entity-name'>MLS</span> entry is shown below.</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span class="response-data">name</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">display_name</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">mls_abbreviation</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
+</tbody></table>
+
+<p><span class="response-data-head">name</span>
+<span class="response-data-remarks">The Moxi Works internal unique name for the MLS.</span></p>
+
+<p><span class="response-data-head">display_name</span>
+<span class="response-data-remarks">The name of the MLS as it is to be displayed to users.</span></p>
+
+<p><span class="response-data-head">mls_abbreviation</span>
+<span class="response-data-remarks">The abbreviation of the MLS.</span></p>
 
 
 <h4 id="agent-index"><span class='entity-name'>Agent</span> <span class='action-name'>Index</span></h4>
@@ -2639,6 +2676,10 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
 <td><span class="response-data">alternate_offices</span></td>
 <td><span class="data-type">Array</span></td>
 </tr>
+<tr>
+<td><span class="response-data">available_mls</span></td>
+<td><span class="data-type">Array</span></td>
+</tr>
 </tbody></table>
 
 <p><span class="response-data-head">moxi_works_agent_id</span>
@@ -2831,6 +2872,39 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
 
 <p><span class="response-data-head">office_phone_number</span>
 <span class="response-data-remarks">The phone number of the office represented by this <span class='entity-name'>AlternateOffice</span> entry.</span></p>
+
+<h6 id="available_mls-object"><span class='attribute-name'>available_mls</span> Object</h6>
+
+<p>The <span class='attribute-name'>available_mls</span> Array contains Dictionary objects representing <span class='entity-name'>MLS</span> entries. The structure of each <span class='entity-name'>MLS</span> entry is shown below.</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span class="response-data">name</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">display_name</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">mls_abbreviation</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
+</tbody></table>
+
+<p><span class="response-data-head">name</span>
+<span class="response-data-remarks">The Moxi Works internal unique name for the MLS.</span></p>
+
+<p><span class="response-data-head">display_name</span>
+<span class="response-data-remarks">The name of the MLS as it is to be displayed to users.</span></p>
+
+<p><span class="response-data-head">mls_abbreviation</span>
+<span class="response-data-remarks">The abbreviation of the MLS.</span></p>
 
 
 <h3 id="brand"><span class='entity-name'>Brand</span></h3>

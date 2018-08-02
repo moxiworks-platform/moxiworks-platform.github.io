@@ -137,6 +137,7 @@ Attribute | Type | Length Limit |
   "ListAgentMoxiWorksOfficeID":"abcd1234",
   "SecondaryListAgentFullName":"Richard Agent",
   "SecondaryListAgentUUID":"8675309e9-2345-dead-beef-deadbeefdead",
+  "SchoolDistrict":"Hilltop District",
   "Address":"97 Hilltop Road",
   "Address2":null,
   "City":"Montecarlo",
@@ -164,9 +165,16 @@ Attribute | Type | Length Limit |
   "MoxiWorksListingId":"abc123",
   "AgentCreatedListing":false,
   "VirtualTourURL":"http://the.virtual.tour.url",
-  "ListingURL":"http://the.listing.url",
-  "SoldDate":"11/04/2016",
-  "SoldPrice":192349,
+  "CompanyListingAttributes": [
+    {
+      "AttributeId": "the collection",
+      "AttributeName": "The Collection"
+    },
+      {
+        "AttributeId": "destination",
+        "AttributeName": "Destination"
+    }
+  ],
   "PropertyFeatures":[
     {
       "PropertyFeatureName": "Kitchen Information",
@@ -176,13 +184,13 @@ Attribute | Type | Length Limit |
         "Oven/Range Freestanding"
       ]
       },
-      {
+        {
       "PropertyFeatureName": "Roof Description",
       "PropertyFeatureValues": [
         "Comp Shingle"
       ]
       },
-      {
+        {
       "PropertyFeatureName": "Number Of Stories",
       "PropertyFeatureValues": [
         "Two Story"
@@ -198,17 +206,7 @@ Attribute | Type | Length Limit |
         "Microwave",
         "Oven/Range Freestanding"
       ]
-    }
-  ],
-  "CompanyListingAttributes": [
-    {
-      "AttributeId": "the collection",
-      "AttributeName": "The Collection"
     },
-      {
-        "AttributeId": "destination",
-        "AttributeName": "Destination"
-    }
   ],
   "OpenHouse":[
     {
@@ -231,8 +229,15 @@ Attribute | Type | Length Limit |
       "Width":1024,
       "Height":768,
       "MimeType":"image/jpeg"
-      }
-  ]
+    }
+  ],
+  "SoldDate":"11/04/2016",
+  "SoldPrice":192349,
+  "BuyerAgentFullName":"Fred Agentguy", 
+  "BuyerAgentUUID":"deadbeef-dead-beef-dead-beefdeadbeef", 
+  "BuyerAgentOfficeName":"Super BuyerOffice", 
+  "BuyerAgentOfficeID":"abc123", 
+  "BuyerAgentMoxiWorksOfficeID":"deadbeef-dead-beef-deaddeaddead"
 }
 ```
 
@@ -272,7 +277,7 @@ Attribute | Type |
 |<span class="response-data">ModificationTimestamp</span>|<span class="response-data"><span class="data-type">String</span>
 |<span class="response-data">InternetAddressDisplayYN</span>|<span class="response-data"><span class="data-type">Boolean or null</span>
 |<span class="response-data">DaysOnMarket</span>|<span class="response-data"><span class="data-type">Integer</span>
-|<span class="response-data">SoldListingContractDate</span>|<span class="response-data"><span class="data-type">String</span>
+|<span class="response-data">ListingContractDate</span>|<span class="response-data"><span class="data-type">String</span>
 |<span class="response-data">CreatedDate</span>|<span class="response-data"><span class="data-type">String</span>
 |<span class="response-data">ElementarySchool</span>|<span class="response-data"><span class="data-type">String or null</span>
 |<span class="response-data">GarageSpaces</span>|<span class="response-data"><span class="data-type">Integer or null</span>
@@ -281,11 +286,12 @@ Attribute | Type |
 |<span class="response-data">AssociationFee</span>|<span class="response-data"><span class="data-type">Integer or null</span>
 |<span class="response-data">ListOfficeName</span>|<span class="response-data"><span class="data-type">String or null</span>
 |<span class="response-data">ListPrice</span>|<span class="response-data"><span class="data-type">Integer or null</span>
-|<span class="response-data">SoldListingID</span>|<span class="response-data"><span class="data-type">String</span>
+|<span class="response-data">ListingID</span>|<span class="response-data"><span class="data-type">String</span>
 |<span class="response-data">ListAgentFullName</span>|<span class="response-data"><span class="data-type">String</span>
 |<span class="response-data">ListAgentUUID</span>|<span class="response-data"><span class="data-type">String</span>
 |<span class="response-data">SecondaryListAgentFullName</span>|<span class="response-data"><span class="data-type">String or null</span>
 |<span class="response-data">SecondaryListAgentUUID</span>|<span class="response-data"><span class="data-type">String or null</span>
+|<span class="response-data">SchoolDistrict</span>|<span class="response-data"><span class="data-type">String or null</span>
 |<span class="response-data">Address</span>|<span class="response-data"><span class="data-type">String or null</span>
 |<span class="response-data">Address2</span>|<span class="response-data"><span class="data-type">String or null</span>
 |<span class="response-data">City</span>|<span class="response-data"><span class="data-type">String or null</span>
@@ -295,7 +301,7 @@ Attribute | Type |
 |<span class="response-data">StateOrProvince</span>|<span class="response-data"><span class="data-type">String or null</span>
 |<span class="response-data">PostalCode</span>|<span class="response-data"><span class="data-type">String or null</span>
 |<span class="response-data">Community</span>|<span class="response-data"><span class="data-type">String or null</span>
-|<span class="response-data">LotSizeSquareFeet</span>|<span class="response-data"><span class="data-type">Integer or Null</span>
+|<span class="response-data">LotSizeSquareFeet</span>|<span class="response-data"><span class="data-type">Integer or null</span>
 |<span class="response-data">InternetEntireListingDisplayYN</span>|<span class="response-data"><span class="data-type">Boolean</span>
 |<span class="response-data">MiddleOrJuniorSchool</span>|<span class="response-data"><span class="data-type">String or null</span>
 |<span class="response-data">ListOfficeAOR</span>|<span class="response-data"><span class="data-type">String or null</span>
@@ -313,11 +319,18 @@ Attribute | Type |
 |<span class="response-data">MoxiWorksListingId</span>|<span class="response-data"><span class="data-type">String</span>
 |<span class="response-data">AgentCreatedListing</span>|<span class="response-data"><span class="data-type">Boolean</span>
 |<span class="response-data">VirtualTourURL</span>|<span class="response-data"><span class="data-type">String or null</span>
+|<span class="response-data">ListingURL</span>|<span class="response-data"><span class="data-type">String</span>
+|<span class="response-data">CompanyListingAttributes</span>|<span class="response-data"><span class="data-type">Array</span>
+|<span class="response-data">PropertyFeatures</span>|<span class="response-data"><span class="data-type">Array</span>
+|<span class="response-data">OpenHouse</span>|<span class="response-data"><span class="data-type">Array</span>
+|<span class="response-data">LisingImages</span>|<span class="response-data"><span class="data-type">Array</span>
 |<span class="response-data">SoldDate</span>|<span class="response-data"><span class="data-type">String</span>
 |<span class="response-data">SoldPrice</span>|<span class="response-data"><span class="data-type">Integer</span>
-|<span class="response-data">PropertyFeatures</span>|<span class="response-data"><span class="data-type">Array</span>
-|<span class="response-data">CompanyListingAttributes</span>|<span class="response-data"><span class="data-type">Array</span>
-|<span class="response-data">ListingImages</span>|<span class="response-data"><span class="data-type">Array</span>
+|<span class="response-data">BuyerAgentFullName</span>|<span class="response-data"><span class="data-type">String</span>
+|<span class="response-data">BuyerAgentUUID</span>|<span class="response-data"><span class="data-type">String</span>
+|<span class="response-data">BuyerAgentOfficeName</span>|<span class="response-data"><span class="data-type">String</span>
+|<span class="response-data">BuyerAgentOfficeID</span>|<span class="response-data"><span class="data-type">String</span>
+|<span class="response-data">BuyerAgentMoxiWorksOfficeID</span>|<span class="response-data"><span class="data-type">String</span>
 
 <span class="response-data-head">LotSizeAcres</span>
 <span class="response-data-remarks">This is the property size of the listing land in acres. If no data is available for this attribute, it will be `null`.</span>
@@ -366,7 +379,7 @@ Attribute | Type |
 <span class="response-data-remarks">The number of days the listing has been on market.</span>
 
 
-<span class="response-data-head">SoldListingContractDate</span>
+<span class="response-data-head">ListingContractDate</span>
 <span class="response-data-remarks">This is a string representing a date on which the listing contract was initiated. The string format is `MM/DD/YYYY`.</span>
 
 
@@ -403,7 +416,7 @@ Attribute | Type |
 <span class="response-data-remarks">The listed price for the listing.</span>
 
 
-<span class="response-data-head">SoldListingID</span>
+<span class="response-data-head">ListingID</span>
 <span class="response-data-remarks">The MLS number for the listing.</span>
 
 
@@ -421,6 +434,10 @@ Attribute | Type |
 
 <span class="response-data-head">SecondaryListAgentUUID</span>
 <span class="response-data-remarks">If there is a second listing agent, the unique identifier for the second listing agent. This will correspond to the uuid field of an <span class='entity-name'>Agent</span>.</span>
+
+
+<span class="response-data-head">SchoolDistrict</span>
+<span class="response-data-remarks">The school district the listing property is in.</span>
 
 
 <span class="response-data-head">Address</span>
@@ -462,7 +479,6 @@ Attribute | Type |
 <span class="response-data-remarks">The name of the MLS which this listing is listed with.</span>
 
 
-
 <span class="response-data-head">ListOfficeAORArea</span>
 <span class="response-data-remarks">The MLS Area which this listing is in.</span>
 
@@ -490,7 +506,6 @@ Attribute | Type |
 <span class="response-data-head">LivingArea</span>
 <span class="response-data-remarks">Total square footage of the building(s) on the property.</span>
 
-
 <span class="response-data-head">ViewYN</span>
 <span class="response-data-remarks">Whether the property has a view.</span>
 
@@ -505,16 +520,28 @@ Attribute | Type |
 <span class="response-data-head">Status</span>
 <span class="response-data-remarks">Detailed status of the listing</span>
 
-
 <span class="response-data-head">MoxiWorksListingID</span>
 <span class="response-data-remarks">The unique Identifier for the listing in The Moxi Works Platform.</span>
-
 
 <span class="response-data-head">AgentCreatedListing</span>
 <span class="response-data-remarks">Whether the agent created this listing.</span>
 
 <span class="response-data-head">VirtualTourURL</span>
 <span class="response-data-remarks">Virtual tour URL for this listing.</span>
+
+<span class="response-data-head">ListingURL</span>
+<span class="response-data-remarks">Details URL for this listing.</span>
+
+<span class="response-data-head">CompanyListingAttributes</span>
+<span class="response-data-remarks">Company specific attributes associated with the listing. These will be defined by the company & should not be expected to be uniform across companies.</span>
+
+
+<span class="response-data-head">PropertyFeatures</span>
+<span class="response-data-remarks">Any defined features about the property.</span>
+
+
+<span class="response-data-head">ListingImages</span>
+<span class="response-data-remarks">Any images of the property.</span>
 
 
 <span class="response-data-head">SoldDate</span>
@@ -524,34 +551,21 @@ Attribute | Type |
 <span class="response-data-remarks">Price for which this listing was sold.</span>
 
 
-<span class="response-data-head">PropertyFeatures</span>
-<span class="response-data-remarks">Any defined features about the property.</span>
-
-<span class="response-data-head">CompanyListingAttributes</span>
-<span class="response-data-remarks">Company specific attributes associated with the listing. These will be defined by the company & should not be expected to be uniform across companies.</span>
+<span class="response-data-head">BuyerAgentFullName</span>
+<span class="response-data-remarks">Full name of the buyer's agent</span>
 
 
+<span class="response-data-head">BuyerAgentUUID</span>
+<span class="response-data-remarks">A unique identifier for the buyer's agent. This will correspond to the uuid field of an <span class='entity-name'>Agent</span>.</span>
 
-<span class="response-data-head">ListingImages</span>
-<span class="response-data-remarks">Any images of the property.</span>
+<span class="response-data-head">BuyerAgentOfficeName</span>
+<span class="response-data-remarks">The name of the buyer agent's office.</span>
 
+<span class="response-data-head">BuyerAgentOfficeID</span>
+<span class="response-data-remarks">The ID of the buyer agent's office.</span>
 
-###### <span class='attribute-name'>PropertyFeature</span> Objects
-
-Each object in the <span class='attribute-name'>PropertyFeatures</span> array will have the following structure.
-
-Attribute | Type |
------|-----|-----|-----|
-|<span class="response-data">PropertyFeatureName</span>|<span class="response-data"><span class="data-type">String</span>
-|<span class="response-data">PropertyFeatureValues</span>|<span class="response-data"><span class="data-type">Array</span>
-
-<span class="response-data-head">PropertyFeatureName</span>
-<span class="response-data-remarks">Human readable name associated with the feature.</span>
-
-<span class="response-data-head">PropertyFeatureValues</span>
-<span class="response-data-remarks">An array of strings which are human readable values associated with the feature.</span>
-
-
+<span class="response-data-head">BuyerAgentMoxiWorksOfficeID</span>
+<span class="response-data-remarks">The MoxiWorks ID of the buyer agent's office.</span>
 
 
 ###### <span class='attribute-name'>CompanyListingAttributes</span> Objects
@@ -571,17 +585,55 @@ Attribute | Type |
 
 
 
+###### <span class='attribute-name'>PropertyFeature</span> Objects
+
+Each object in the <span class='attribute-name'>PropertyFeatures</span> array will have the following structure.
+
+Attribute | Type |
+-----|-----|-----|-----|
+|<span class="response-data">PropertyFeatureName</span>|<span class="response-data"><span class="data-type">String</span>
+|<span class="response-data">PropertyFeatureValues</span>|<span class="response-data"><span class="data-type">Array</span>
+
+<span class="response-data-head">PropertyFeatureName</span>
+<span class="response-data-remarks">Human readable name associated with the feature.</span>
+
+<span class="response-data-head">PropertyFeatureValues</span>
+<span class="response-data-remarks">An array of strings which are human readable values associated with the feature.</span>
+
+
+
+###### <span class='attribute-name'>OpenHouse</span> Objects
+
+Each object in the <span class='attribute-name'>OpenHouse</span> array will have the following structure.
+
+Attribute | Type |
+-----|-----|-----|-----|
+|<span class="response-data">Date</span>|<span class="response-data"><span class="data-type">String</span>
+|<span class="response-data">StartTime</span>|<span class="response-data"><span class="data-type">String</span>
+|<span class="response-data">EndTime</span>|<span class="response-data"><span class="data-type">String</span>
+
+<span class="response-data-head">Date</span>
+<span class="response-data-remarks">YYYY-MM-DD formatted string representing the date of the open house</span>
+
+<span class="response-data-head">StartTime</span>
+<span class="response-data-remarks">HH:MM:SS formatted string representing the time when the open house starts. This is expressed in the local time where the listing is located.</span>
+
+<span class="response-data-head">EndTime</span>
+<span class="response-data-remarks">HH:MM:SS formatted string representing the time when the open house ends. This is expressed in the local time where the listing is located.</span>
+
+
+
 ###### <span class='attribute-name'>ListingImages</span> Objects
 
 Each object in the <span class='attribute-name'>ListingImages</span> array will have the following structure.
 
 Attribute | Type |
 -----|-----|-----|-----|
-|<span class="response-data">ThumbURL</span>|<span class="response-data"><span class="data-type">String</span>
-|<span class="response-data">SmallURL</span>|<span class="response-data"><span class="data-type">String</span>
-|<span class="response-data">FullURL</span>|<span class="response-data"><span class="data-type">String</span>
-|<span class="response-data">GalleryURL</span>|<span class="response-data"><span class="data-type">String</span>
-|<span class="response-data">RawURL</span>|<span class="response-data"><span class="data-type">String</span>
+|<span class="response-data">ThumbURL</span>|<span class="response-data"><span class="data-type">String or null</span>
+|<span class="response-data">SmallURL</span>|<span class="response-data"><span class="data-type">String or null</span>
+|<span class="response-data">FullURL</span>|<span class="response-data"><span class="data-type">String or null</span>
+|<span class="response-data">GalleryURL</span>|<span class="response-data"><span class="data-type">String or null</span>
+|<span class="response-data">RawURL</span>|<span class="response-data"><span class="data-type">String or null</span>
 |<span class="response-data">Title</span>|<span class="response-data"><span class="data-type">String or null</span>
 |<span class="response-data">IsMainListingImage</span>|<span class="response-data"><span class="data-type">Boolean</span>
 |<span class="response-data">Caption</span>|<span class="response-data"><span class="data-type">String or null</span>
@@ -589,7 +641,6 @@ Attribute | Type |
 |<span class="response-data">Width</span>|<span class="response-data"><span class="data-type">Integer or null</span>
 |<span class="response-data">Height</span>|<span class="response-data"><span class="data-type">Integer or null</span>
 |<span class="response-data">MimeType</span>|<span class="response-data"><span class="data-type">String</span>
-
 
 
 
@@ -629,6 +680,4 @@ Attribute | Type |
 <span class="response-data-head">MimeType</span>
 <span class="response-data-remarks">MIME or media type of the image.</span>
 
-  
-    
   

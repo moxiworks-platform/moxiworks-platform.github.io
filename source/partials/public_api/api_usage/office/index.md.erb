@@ -152,6 +152,7 @@ Attribute | Type  | Length Limit |
     {
     "moxi_works_office_id":"feedface-dead-beef-aadf-baddeedc645",
     "id":"1234",
+    "client_office_id":"abc123",
     "image_url":"http://the.office.image/image.png",
     "name":"Bob's Better Brokerage",
     "common_name":"Bob's Salsburry Hill Branch",
@@ -205,6 +206,7 @@ Attribute | Type |
 -----|-----|-----|-----|
 |<span class="response-data">moxi_works_office_id</span>|<span class="data-type">String</span>|
 |<span class="response-data">id</span>|<span class="data-type">String</span>|
+|<span class="response-data">client_office_id</span>|<span class="data-type">String</span>|
 |<span class="response-data">image_url</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">name</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">common_name</span>|<span class="data-type">String or null</span>|
@@ -230,6 +232,9 @@ Attribute | Type |
 
 <span class="response-data-head">id</span>
 <span class="response-data-remarks">An alternate integer ID of the office. If you are integrating with Moxi Works Authentication services, you should use this ID.</span>
+
+<span class="response-data-head">client_office_id</span>
+<span class="response-data-remarks">This is the  ID of the office utilized by the company.</span>
 
 
 <span class="response-data-head">image_url</span>

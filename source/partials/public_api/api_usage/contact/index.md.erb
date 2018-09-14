@@ -205,6 +205,7 @@ Attribute | Type | Length Limit |
   "last_name":"Larstnam",
   "suffix":null,
   "gender": "m",
+  "label_name": "Mr. and Mrs. Oo-De-Lally Golly What a Day",
   "primary_email_address": "me@justabout.right.here",
   "secondary_email_address": "me.too@justabout.right.here",
   "primary_phone_number": "9995551212",
@@ -274,6 +275,7 @@ Attribute | Type | Length Limit |
   "last_name":"fuller",
   "suffix":null,
   "gender": "m",
+  "label_name": "Mr. and Mrs. Oo-De-Lally Golly What a Day",
   "primary_email_address": "whatever@whatevers.right.here",
   "secondary_email_address": "me.2009@2009.whatevers.here",
   "primary_phone_number": "202 123-4567",
@@ -355,6 +357,7 @@ Attribute | Type | Length Limit |
   "last_name":"Larstnam",
   "suffix":null,
   "gender": "m",
+  "label_name": "Mr. and Mrs. Oo-De-Lally Golly What a Day",
   "primary_email_address": "me@justabout.right.here",
   "secondary_email_address": "me.too@justabout.right.here",
   "primary_phone_number": "9995551212",
@@ -424,6 +427,7 @@ Attribute | Type | Length Limit |
   "last_name":"fuller",
   "suffix":null,
   "gender": "m",
+  "label_name": "Mr. and Mrs. Oo-De-Lally Golly What a Day",
   "primary_email_address": "whatever@whatevers.right.here",
   "secondary_email_address": "me.2009@2009.whatevers.here",
   "primary_phone_number": "202 123-4567",
@@ -535,6 +539,7 @@ Attribute | Type |
 |<span class="response-data">last_name</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">suffix</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">gender</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">label_name</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">primary_email_address</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">secondary_email_address</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">primary_phone_number</span>|<span class="data-type">String or null</span>|
@@ -614,6 +619,8 @@ Attribute | Type |
 <span class="response-data-head">gender</span>
 <span class="response-data-remarks">The gender of the contact. This can be `male`, `female`, `m` or `f`. No matter what is provided in the request, the response payload will return `m` or `f`.  This value will be null if no data is available for this attribute. </span>
 
+<span class="response-data-head">label_name</span>
+<span class="response-data-remarks">This is the name used to address the contact when creating mailing labels for the contact associated with this <span class='entity-name'>Contact</span> record. This value will be null if no data is available for this attribute. </span>
 
 <span class="response-data-head">primary_email_address</span>
 <span class="response-data-remarks">This is the email address that should be used first. If provided, the address must conform to [RFC 3696](https://tools.ietf.org/html/rfc3696#section-3). This value will be null if no data is available for this attribute. </span>

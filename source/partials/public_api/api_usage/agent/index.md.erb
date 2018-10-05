@@ -176,7 +176,7 @@ Attribute | Type  | Length Limit |
 |<span class="optional-data">include_access_level</span>|<span class="data-type">Boolean</span>| 255 |
 |<span class="optional-data">deactivated</span>|<span class="data-type">Boolean</span>| 255 |
 |<span class="optional-data">deactivated_since</span>|<span class="data-type">Integer</span>| 255 |
-
+|<span class="optional-data">include_partners</span>|<span class="data-type">Boolean</span>| 255 |
 
 <span class="required-data">**Required Parameters Are In Red**</span>
 
@@ -211,7 +211,8 @@ Attribute | Type  | Length Limit |
 
 <aside class="note">By default only <span class='entity-name'>Agent</span> objects deactivated in the last seven days will be returned.</aside>
 
-
+<span class="request-data-head">include_partners</span>
+<span class="request-data-remarks">To include affiliate data associated with the agent in the response, pass `true`.</span>
 
 
 <blockquote><div class='highlight json' style="display: block">
@@ -361,6 +362,9 @@ Attribute | Type |
 |<span class="response-data">region</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">alternate_offices</span>|<span class="data-type">Array</span>|
 |<span class="response-data">available_mls</span>|<span class="data-type">Array</span>|
+|<span class="response-data">partners</span>|<span class="data-type">Array</span>|
+|<span class="response-data">created_timestamp</span>|<span class="data-type">Integer</span>|
+|<span class="response-data">deactivated_timestamp</span>|<span class="data-type">Integer or null</span>|
 
 <span class="response-data-head">moxi_works_agent_id</span>
 <span class="response-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span>. This will be a string that may take the form of an email address, or a unique alphanumeric identification string.</span>
@@ -492,6 +496,11 @@ Attribute | Type |
 <span class="response-data-head">region</span>
 <span class="response-data-remarks">The region the agent's office is in. This can be null if there is no data for this attribute.</span>
 
+<span class="response-data-head">created_timestamp</span>
+<span class="response-data-remarks">This is the Unix timestamp representing the date that this <span class='entity-name'>Agent</span> was created in the MoxiWorks system.</span>
+
+<span class="response-data-head">deactivated_timestamp</span>
+<span class="response-data-remarks">This is the Unix timestamp representing the date that this <span class='entity-name'>Agent</span> was deactivated in the MoxiWorks system. This will be returned null if the agent is still active.</span>
 
 ###### <span class='attribute-name'>alternate_offices</span> Object
 
@@ -564,3 +573,22 @@ Attribute | Type |
 <span class="response-data-head">mls_abbreviation</span>
 <span class="response-data-remarks">The abbreviation of the MLS.</span>
 
+###### <span class='attribute-name'>partners</span> Objects
+
+Exstence of objects in the `partners` data structure is dependent upon external relationships existing between the agent represented by this <span class='entity-name'>Agent</span> and the affiliate.
+
+<aside class="note">Documented entities in the `partners` data structure may or may not be returned based on agent relationship. Your logic should be engineered to handle cases where the entity you are interested in is returned and where an empty data structure is returned.</aside>
+
+
+###### <span class='attribute-name'>leading_re</span> partner Objects
+
+Attribute | Type |
+-----|-----|-----|-----|
+|<span class="response-data">salesforce_id</span>|<span class="response-data"><span class="data-type">String or null</span>
+|<span class="response-data">luxury_portfolio</span>|<span class="response-data"><span class="data-type">Boolean</span>
+
+<span class="response-data-head">salesforce_id</span>
+<span class="response-data-remarks">This is the unique salesforce ID of the company in the LeadingRE system.</span>
+
+<span class="response-data-head">luxury_portfolio</span>
+<span class="response-data-remarks">Indicates whether or not this agent has luxury portfolio association in the LeadingRE system.</span>

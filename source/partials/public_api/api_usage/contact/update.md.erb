@@ -74,8 +74,8 @@ ConfigurationManager.AppSettings["Identifier"] = "abc123";
 var agentUuid = "12345678-1234-1234-1234-1234567890ab";
 
 var service = new ContactService(new MoxiWorksClient());
-var contact = service.GetContactAsync(agentUuid, AgentIdType.AgentUuid, "booyuh").Result;
-
+var result = service.GetContactAsync(agentUuid, AgentIdType.AgentUuid, "booyuh").Result;
+var contact = result.Item
 contact.ContactName = "Firstname Middlenyme Larstnam";
 contact.Gender = "m";
 contact.LabelName = "Mr. and Mrs. Oo-De-Lally Golly What a Day";
@@ -303,8 +303,8 @@ ConfigurationManager.AppSettings["Identifier"] = "abc123";
 var moxiWorksAgentId = "1234abcd";
 
 var service = new ContactService(new MoxiWorksClient());
-var contact = service.GetContactAsync( moxiWorksAgentId,  AgentIdType.MoxiWorksAgentId,  "booyuh").Result;
-
+var result = service.GetContactAsync( moxiWorksAgentId,  AgentIdType.MoxiWorksAgentId,  "booyuh").Result;
+var contact = result.Item 
 
 contact.ContactName = "Firstname Middlenyme Larstnam";
 contact.Gender = "m";

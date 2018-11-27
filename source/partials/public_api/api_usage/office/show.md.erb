@@ -22,7 +22,8 @@ Content-Type: application/x-www-form-urlencoded
 
 ```json
 {
-  "moxi_works_office_id":"deadbeef-sdeadbeef-feed-facedeadbeef"
+  "moxi_works_office_id":"deadbeef-sdeadbeef-feed-facedeadbeef",
+  "moxi_works_company_id":"some_moxi_works_company_id"
 }
 
 ```
@@ -163,6 +164,8 @@ Attribute | Type |
 |<span class="response-data">twitter</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">office_website</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">region</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">created_timestamp</span>|<span class="data-type">Integer</span>|
+|<span class="response-data">deactivated_timestamp</span>|<span class="data-type">Integer or null</span>|
 
 <span class="response-data-head">moxi_works_office_id</span>
 <span class="response-data-remarks">This is the Moxi Works Platform ID of the office for this <span class='entity-name'>Office</span>. This will be an [RFC 4122](https://tools.ietf.org/html/rfc4122) compliant UUID.</span>
@@ -233,3 +236,8 @@ Attribute | Type |
 <span class="response-data-head">region</span>
 <span class="response-data-remarks">The region the agent's office is in. This can be null if there is no data for this attribute.</span>
 
+<span class="response-data-head">created_timestamp</span>
+<span class="response-data-remarks">This is the Unix timestamp representing the date that this <span class='entity-name'>Office</span> was created in the MoxiWorks system.</span>
+
+<span class="response-data-head">deactivated_timestamp</span>
+<span class="response-data-remarks">This is the Unix timestamp representing the date that this <span class='entity-name'>Office</span> was deactivated in the MoxiWorks system. This will be returned null if the office is still active.</span>

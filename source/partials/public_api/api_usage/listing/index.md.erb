@@ -171,7 +171,7 @@ Attribute | Type | Length Limit |
 |<span class="optional-data">moxi_works_agent_id</span>|<span class="data-type">String</span>| 255 |
 |<span class="optional-data">moxi_works_office_id</span>|<span class="data-type">String</span>| 255 |
 |<span class="optional-data">last_moxi_works_listing_id</span>|<span class="data-type">String</span>| 255 |
-
+|<span class="optional-data">shared_partner_data_updated_since</span>|<span class="data-type">Integer</span>| 255 |
 
 <span class="required-data">**Required Parameters Are In Red**</span>
 
@@ -201,7 +201,8 @@ Attribute | Type | Length Limit |
 <span class="request-data-head">last_moxi_works_listing_id</span>
 <span class="request-data-remarks">If fetching a multi-page response, this should be the <span class='attribute-name'>MoxiWorksListingId</span> found in the last <span class='entity-name'>Listing</span> object of the previously fetched page.</span>
 
-
+<span class="request-data-head">shared_partner_data_updated_since</span>
+<span class="request-data-remarks">Filter listings by the date since partner data has been updated.</span>
 
 <blockquote><div class='highlight json' style="display: block">
 <span class='data-example-label'><span class='entity-name'>Listing</span> <span class='action-name'>Index</span> Response Payload Example
@@ -272,6 +273,10 @@ Attribute | Type | Length Limit |
   "MoxiWorksListingId":"abc123",
   "AgentCreatedListing":false,
   "VirtualTourURL":"http://the.virtual.tour.url",
+  "SharedPartnerData":{
+     "attribute_1": "value_1",
+     "attribute_2": "value_2"
+  },
   "ListingURL":"http://the.listing.url",
   "PropertyFeatures":[
     {
@@ -438,6 +443,7 @@ Attribute | Type |
 |<span class="response-data">MoxiWorksListingId</span>|<span class="response-data"><span class="data-type">String</span>
 |<span class="response-data">AgentCreatedListing</span>|<span class="response-data"><span class="data-type">Boolean</span>
 |<span class="response-data">VirtualTourURL</span>|<span class="response-data"><span class="data-type">String or null</span>
+|<span class="response-data">SharedPartnerData</span>|<span class="response-data"><span class="data-type">Hash</span>
 |<span class="response-data">ListingURL</span>|<span class="response-data"><span class="data-type">String or null</span>
 |<span class="response-data">PropertyFeatures</span>|<span class="response-data"><span class="data-type">Array</span>
 |<span class="response-data">CompanyListingAttributes</span>|<span class="response-data"><span class="data-type">Array</span>
@@ -650,6 +656,8 @@ Attribute | Type |
 <span class="response-data-head">VirtualTourURL</span>
 <span class="response-data-remarks">Virtual tour URL for this listing.</span>
 
+<span class="response-data-head">SharedPartnerData</span>
+<span class="response-data-remarks">A hash containing data shared between MoxiWorks affiliates.</span>
 
 <span class="response-data-head">ListingURL</span>
 <span class="response-data-remarks">Details URL for this listing.</span>

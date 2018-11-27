@@ -12,6 +12,10 @@
   "moxi_works_company_id":"bobs_better_houses",
   "listing":{
     "VirtualTourURL":"http://here.com"
+  },
+  "SharedPartnerData":{
+    "attribute_1":"value_1",
+    "attribute_2":"value_2"
   }
 }
 
@@ -43,8 +47,12 @@ moxi_works_listing = MoxiworksPlatform::Listing.update(
         moxi_works_company_id: "abc123",
         listing: {
           VirtualTourURL: "http://virtualtourdomainurlthing.com"
+        },
+        SharedPartnerData: {
+          attribute_1: "value_1",
+          attribute_2: "value_2"
         }
-        )
+      )
 
 ```
 
@@ -185,6 +193,10 @@ Attribute | Type | Length Limit |
   "MoxiWorksListingId":"abc123",
   "AgentCreatedListing":false,
   "VirtualTourURL":"http://the.virtual.tour.url",
+  "SharedPartnerData":{
+     "attribute_1": "value_1",
+     "attribute_2": "value_2"
+  },
   "ListingURL":"http://the.listing.url",
   "PropertyFeatures":[
     {
@@ -335,6 +347,7 @@ Attribute | Type |
 |<span class="response-data">MoxiWorksListingId</span>|<span class="response-data"><span class="data-type">String</span>
 |<span class="response-data">AgentCreatedListing</span>|<span class="response-data"><span class="data-type">Boolean</span>
 |<span class="response-data">VirtualTourURL</span>|<span class="response-data"><span class="data-type">String or null</span>
+|<span class="response-data">SharedPartnerData</span>|<span class="response-data"><span class="data-type">Hash</span>
 |<span class="response-data">ListingURL</span>|<span class="response-data"><span class="data-type">String or null</span>
 |<span class="response-data">PropertyFeatures</span>|<span class="response-data"><span class="data-type">Array</span>
 |<span class="response-data">CompanyListingAttributes</span>|<span class="response-data"><span class="data-type">Array</span>
@@ -398,7 +411,6 @@ Attribute | Type |
 
 <span class="response-data-head">ElementarySchool</span>
 <span class="response-data-remarks">The elementary school for the property.</span>
-
 
 
 <span class="response-data-head">GarageSpaces</span>
@@ -528,16 +540,17 @@ Attribute | Type |
 <span class="response-data-head">Status</span>
 <span class="response-data-remarks">Detailed status of the listing; whether it's `active` `pending`</span>
 
-
 <span class="response-data-head">MoxiWorksListingID</span>
 <span class="response-data-remarks">The unique Identifier for the listing in The Moxi Works Platform.</span>
-
 
 <span class="response-data-head">AgentCreatedListing</span>
 <span class="response-data-remarks">Whether the agent created this listing.</span>
 
 <span class="response-data-head">VirtualTourURL</span>
 <span class="response-data-remarks">Virtual tour URL for this listing.</span>
+
+<span class="response-data-head">SharedPartnerData</span>
+<span class="response-data-remarks">A hash containing data shared between MoxiWorks affiliates.</span>
 
 <span class="response-data-head">ListingURL</span>
 <span class="response-data-remarks">Details URL for this listing.</span>

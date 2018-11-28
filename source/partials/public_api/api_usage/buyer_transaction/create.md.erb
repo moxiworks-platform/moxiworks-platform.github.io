@@ -462,8 +462,8 @@ Attribute | Type | Length Limit |
 -----|-----|-----|-----|
 |<span class="multi-option-required-data">agent_uuid*</span>|<span class="multi-option-required-data"><span class="data-type">String</span></span>| <span class="multi-option-required-data">255</span>
 |<span class="multi-option-required-data">moxi_works_agent_id*</span>|<span class="multi-option-required-data"><span class="data-type">String</span></span>| <span class="multi-option-required-data">255</span>
-|<span class="required-data">moxi_works_contact_id</span>|<span class="required-data"><span class="data-type">String</span></span>|<span class="required-data">255</span>
-|<span class="required-data">partner_contact_id</span>|<span class="required-data"><span class="data-type">String</span></span>|<span class="required-data">255</span>
+|<span class="multi-option-required-data">moxi_works_contact_id †</span>|<span class="multi-option-required-data><span class="data-type">String</span></span>|<span class="multi-option-required-data">255</span>
+|<span class="multi-option-required-data">partner_contact_id †</span>|<span class="multi-option-required-data"><span class="data-type">String</span></span>|<span class="multi-option-required-data">255</span>
 |<span class="required-data">transaction_name</span>|<span class="required-data"><span class="data-type">String</span></span>| <span class="required-data">255</span> |
 |<span class="optional-data">notes</span>|<span class="optional-data"><span class="data-type">String</span></span>|  |
 |<span class="optional-data">address</span>|<span class="optional-data"><span class="data-type">String</span></span>| <span class="optional-data">255</span> |
@@ -490,6 +490,7 @@ Attribute | Type | Length Limit |
 
 <span class="multi-option-required-data">* **Either <span class='attribute-name'>moxi_works_agent_id</span> or <span class='attribute-name'>agent_uuid</span> must be supplied. For guidance on which Agent identifier better fits your use-case, see [Agent Identifiers](#agent-identifiers)**</span>
 
+<span class="multi-option-required-data"> † Either <span class='attribute-name'>moxi_works_contact_id</span> or <span class='attribute-name'>partner_contact_id</span> must be supplied.</span>
 
 <span class="required-data">**Required Parameters Are In Red**</span>
 

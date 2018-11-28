@@ -202,7 +202,7 @@ Attribute | Type | Length Limit |
 <span class="request-data-remarks">If fetching a multi-page response, this should be the <span class='attribute-name'>MoxiWorksListingId</span> found in the last <span class='entity-name'>Listing</span> object of the previously fetched page.</span>
 
 <span class="request-data-head">shared_partner_data_updated_since</span>
-<span class="request-data-remarks">Filter listings by the date since partner data has been updated.</span>
+<span class="request-data-remarks">Filter listings using this unix timestamp representing the date since partner data has been updated. This attribute should be used in conjuncion with the <span class='attribute-name'>updated_since</span> attribute.</span>
 
 <blockquote><div class='highlight json' style="display: block">
 <span class='data-example-label'><span class='entity-name'>Listing</span> <span class='action-name'>Index</span> Response Payload Example

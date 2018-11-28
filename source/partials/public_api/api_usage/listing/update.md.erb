@@ -99,7 +99,7 @@ $moxi_works_listing = MoxiworksPlatform\Listing::update([
 
 <aside class="note">Send a <b>PUT</b> request to https://api.moxiworks.com/api/listings/[moxi_works_listing_id]</aside>
 
-
+<aside class="warning">MoxiWorks API will override all existing data for updatable attributes passed into this update request. As such, any data that is not intended to be removed should be included in the attribute value in your update request.</aside>
 When updating <span class='entity-name'>Listing</span> objects using the Moxi Works platform API, format your data using the following parameters.
 
 ##### <span class='entity-name'>Listing</span> <span class='action-name'>Update</span> Request Attributes

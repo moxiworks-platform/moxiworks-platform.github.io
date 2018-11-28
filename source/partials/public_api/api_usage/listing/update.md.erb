@@ -12,6 +12,10 @@
   "moxi_works_company_id":"bobs_better_houses",
   "listing":{
     "VirtualTourURL":"http://here.com"
+  },
+  "SharedPartnerData":{
+    "attribute_1":"value_1",
+    "attribute_2":"value_2"
   }
 }
 
@@ -43,8 +47,12 @@ moxi_works_listing = MoxiworksPlatform::Listing.update(
         moxi_works_company_id: "abc123",
         listing: {
           VirtualTourURL: "http://virtualtourdomainurlthing.com"
+        },
+        SharedPartnerData: {
+          attribute_1: "value_1",
+          attribute_2: "value_2"
         }
-        )
+      )
 
 ```
 
@@ -91,7 +99,7 @@ $moxi_works_listing = MoxiworksPlatform\Listing::update([
 
 <aside class="note">Send a <b>PUT</b> request to https://api.moxiworks.com/api/listings/[moxi_works_listing_id]</aside>
 
-
+<aside class="warning">MoxiWorks API will override all existing data for updatable attributes passed into this update request. As such, any data that is not intended to be removed should be included in the attribute value in your update request.</aside>
 When updating <span class='entity-name'>Listing</span> objects using the Moxi Works platform API, format your data using the following parameters.
 
 ##### <span class='entity-name'>Listing</span> <span class='action-name'>Update</span> Request Attributes
@@ -185,6 +193,10 @@ Attribute | Type | Length Limit |
   "MoxiWorksListingId":"abc123",
   "AgentCreatedListing":false,
   "VirtualTourURL":"http://the.virtual.tour.url",
+  "SharedPartnerData":{
+     "attribute_1": "value_1",
+     "attribute_2": "value_2"
+  },
   "ListingURL":"http://the.listing.url",
   "PropertyFeatures":[
     {
@@ -335,6 +347,7 @@ Attribute | Type |
 |<span class="response-data">MoxiWorksListingId</span>|<span class="response-data"><span class="data-type">String</span>
 |<span class="response-data">AgentCreatedListing</span>|<span class="response-data"><span class="data-type">Boolean</span>
 |<span class="response-data">VirtualTourURL</span>|<span class="response-data"><span class="data-type">String or null</span>
+|<span class="response-data">SharedPartnerData</span>|<span class="response-data"><span class="data-type">Hash</span>
 |<span class="response-data">ListingURL</span>|<span class="response-data"><span class="data-type">String or null</span>
 |<span class="response-data">PropertyFeatures</span>|<span class="response-data"><span class="data-type">Array</span>
 |<span class="response-data">CompanyListingAttributes</span>|<span class="response-data"><span class="data-type">Array</span>
@@ -398,7 +411,6 @@ Attribute | Type |
 
 <span class="response-data-head">ElementarySchool</span>
 <span class="response-data-remarks">The elementary school for the property.</span>
-
 
 
 <span class="response-data-head">GarageSpaces</span>
@@ -528,16 +540,17 @@ Attribute | Type |
 <span class="response-data-head">Status</span>
 <span class="response-data-remarks">Detailed status of the listing; whether it's `active` `pending`</span>
 
-
 <span class="response-data-head">MoxiWorksListingID</span>
 <span class="response-data-remarks">The unique Identifier for the listing in The Moxi Works Platform.</span>
-
 
 <span class="response-data-head">AgentCreatedListing</span>
 <span class="response-data-remarks">Whether the agent created this listing.</span>
 
 <span class="response-data-head">VirtualTourURL</span>
 <span class="response-data-remarks">Virtual tour URL for this listing.</span>
+
+<span class="response-data-head">SharedPartnerData</span>
+<span class="response-data-remarks">A hash containing data shared between MoxiWorks affiliates.</span>
 
 <span class="response-data-head">ListingURL</span>
 <span class="response-data-remarks">Details URL for this listing.</span>
@@ -616,11 +629,11 @@ Each object in the <span class='attribute-name'>ListingImages</span> array will 
 
 Attribute | Type |
 -----|-----|-----|-----|
-|<span class="response-data">ThumbURL</span>|<span class="response-data"><span class="data-type">String</span>
-|<span class="response-data">SmallURL</span>|<span class="response-data"><span class="data-type">String</span>
-|<span class="response-data">FullURL</span>|<span class="response-data"><span class="data-type">String</span>
-|<span class="response-data">GalleryURL</span>|<span class="response-data"><span class="data-type">String</span>
-|<span class="response-data">RawURL</span>|<span class="response-data"><span class="data-type">String</span>
+|<span class="response-data">FullURL</span>|<span class="response-data"><span class="data-type">String or null</span>
+|<span class="response-data">GalleryURL</span>|<span class="response-data"><span class="data-type">String or null</span>
+|<span class="response-data">RawURL</span>|<span class="response-data"><span class="data-type">String or null</span>
+|<span class="response-data">SmallURL</span>|<span class="response-data"><span class="data-type">String or null</span>
+|<span class="response-data">ThumbURL</span>|<span class="response-data"><span class="data-type">String or null</span>
 |<span class="response-data">Title</span>|<span class="response-data"><span class="data-type">String or null</span>
 |<span class="response-data">IsMainListingImage</span>|<span class="response-data"><span class="data-type">Boolean</span>
 |<span class="response-data">Caption</span>|<span class="response-data"><span class="data-type">String or null</span>
@@ -628,15 +641,8 @@ Attribute | Type |
 |<span class="response-data">Width</span>|<span class="response-data"><span class="data-type">Integer or null</span>
 |<span class="response-data">Height</span>|<span class="response-data"><span class="data-type">Integer or null</span>
 |<span class="response-data">MimeType</span>|<span class="response-data"><span class="data-type">String</span>
+|<span class="response-data">EmbededHTMLContent</span>|<span class="response-data"><span class="data-type">String</span>
 
-
-
-
-<span class="response-data-head">ThumbURL</span>
-<span class="response-data-remarks">This is a valid URL that can be used for `img src` to a thumbnail sized representation of the image. This is the smallest size image returned in each object in the <span class='attribute-name'>ListingImages</span> array.</span>
-
-<span class="response-data-head">SmallURL</span>
-<span class="response-data-remarks">This is a valid URL that can be used for `img src` to a small sized representation of the image. This is the small size image returned in each object in the <span class='attribute-name'>ListingImages</span> array.</span>
 
 <span class="response-data-head">FullURL</span>
 <span class="response-data-remarks">This is a valid URL that can be used for `img src` to a medium sized representation of the image. This is the medium size image returned in each object in the <span class='attribute-name'>ListingImages</span> array.</span>
@@ -646,6 +652,12 @@ Attribute | Type |
 
 <span class="response-data-head">RawURL</span>
 <span class="response-data-remarks">This is a valid URL to the raw image as uploaded. This is the largest size image returned in each object in the <span class='attribute-name'>ListingImages</span> array. Due to variation in size, this image should not be considered for use when displaying images rendered in a browser.</span>
+
+<span class="response-data-head">SmallURL</span>
+<span class="response-data-remarks">This is a valid URL that can be used for `img src` to a small sized representation of the image. This is the small size image returned in each object in the <span class='attribute-name'>ListingImages</span> array.</span>
+
+<span class="response-data-head">ThumbURL</span>
+<span class="response-data-remarks">This is a valid URL that can be used for `img src` to a thumbnail sized representation of the image. This is the smallest size image returned in each object in the <span class='attribute-name'>ListingImages</span> array.</span>
 
 <span class="response-data-head">Title</span>
 <span class="response-data-remarks">Human readable title of image.</span>
@@ -668,6 +680,8 @@ Attribute | Type |
 <span class="response-data-head">MimeType</span>
 <span class="response-data-remarks">MIME or media type of the image.</span>
 
-  
+<span class="response-data-head">EmbededHTMLContent</span>
+<span class="response-data-remarks">Embedded HTML that can be placed into a webpage -- this will be used for embedded movies.</span>
+
     
   

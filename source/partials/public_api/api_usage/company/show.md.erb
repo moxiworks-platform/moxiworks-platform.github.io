@@ -139,7 +139,7 @@ Attribute | Type |
 
 ###### <span class='attribute-name'>partners</span> Objects
 
-Exstence of objects in the `partners` data structure is dependent upon external relationships existing between the company represented by this <span class='entity-name'>Company</span> and the partner. 
+Exstence of objects in the `partners` data structure is dependent upon external relationships existing between the company represented by this <span class='entity-name'>Company</span> and the affiliate.
 
 <aside class="note">Documented entities in the `partners` data structure may or may not be returned based on company relationship. Your logic should be engineered to handle cases where the entity you are interested in is returned and where an empty data structure is returned.</aside>
 
@@ -149,17 +149,10 @@ Exstence of objects in the `partners` data structure is dependent upon external 
 Attribute | Type |
 -----|-----|-----|-----|
 |<span class="response-data">id</span>|<span class="response-data"><span class="data-type">String or null</span>
-
+|<span class="response-data">salesforce_id</span>|<span class="response-data"><span class="data-type">String or null</span>
 
 <span class="response-data-head">id</span>
 <span class="response-data-remarks">This is the unique ID of this company in the LeadingRE system. </span>
 
-###### <span class='attribute-name'>salesforce</span> partner Objects
-
-Attribute | Type |
------|-----|-----|-----|
-|<span class="response-data">id</span>|<span class="response-data"><span class="data-type">String or null</span>
-
-
 <span class="response-data-head">salesforce_id</span>
-<span class="response-data-remarks">This is the unique ID of the company in the Salesforce system.</span>
+<span class="response-data-remarks">This is the unique salesforce ID of the company in the LeadingRE system.</span>

@@ -484,13 +484,13 @@ Attribute | Type | Length Limit |
 |<span class="multi-option-required-data">agent_uuid*</span>|<span class="multi-option-required-data"><span class="data-type">String</span></span>| <span class="multi-option-required-data">255</span>
 |<span class="multi-option-required-data">moxi_works_agent_id*</span>|<span class="multi-option-required-data"><span class="data-type">String</span></span>| <span class="multi-option-required-data">255</span>
 |<span class="required-data">partner_contact_id</span>|<span class="required-data"><span class="data-type">String</span></span>| <span class="required-data">255</span>
-|<span class="optional-data">contact_name</span>|<span class="data-type">String</span>| 255 |
+|<span class="multi-option-required-data">contact_name †</span>|<span class="multi-option-required-data"><span class="data-type">String</span></span>| <span class="multi-option-required-data">255</span>
+|<span class="multi-option-required-data">primary_email_address †</span>|<span class="multi-option-required-data"><span class="data-type">String</span></span>| <span class="multi-option-required-data">255</span>
+|<span class="multi-option-required-data">secondary_email_address †</span>|<span class="multi-option-required-data"><span class="data-type">String</span></span>| <span class="multi-option-required-data">255</span>
+|<span class="multi-option-required-data">primary_phone_number †</span>|<span class="multi-option-required-data"><span class="data-type">String</span></span>| <span class="multi-option-required-data">255</span>
+|<span class="multi-option-required-data">secondary_phone_number †</span>|<span class="multi-option-required-data"><span class="data-type">String</span></span>| <span class="multi-option-required-data">255</span>
 |<span class="optional-data">gender</span>|<span class="data-type">String</span>| 255 |
 |<span class="optional-data">label_name</span>|<span class="data-type">String</span>| 255 |
-|<span class="optional-data">primary_email_address</span>|<span class="data-type">String</span>| 255 |
-|<span class="optional-data">secondary_email_address</span>|<span class="data-type">String</span>| 255 |
-|<span class="optional-data">primary_phone_number</span>|<span class="data-type">String</span>| 255 |
-|<span class="optional-data">secondary_phone_number</span>|<span class="data-type">String</span>| 255 |
 |<span class="optional-data">home_street_address</span>|<span class="data-type">String</span>| 255 |
 |<span class="optional-data">home_city</span>|<span class="data-type">String</span>| 255 |
 |<span class="optional-data">home_state</span>|<span class="data-type">String</span>| 255 |
@@ -528,7 +528,7 @@ Attribute | Type | Length Limit |
 
 <span class="multi-option-required-data">* **Either <span class='attribute-name'>moxi_works_agent_id</span> or <span class='attribute-name'>agent_uuid</span> must be supplied. For guidance on which Agent identifier better fits your use-case, see [Agent Identifiers](#agent-identifiers)**</span>
 
-
+<span class="multi-option-required-data"> † One of these pieces of contact data must be submitted in order to create a contact on the MoxiWorks Platform.</span>
 
 <span class="required-data">**Required Parameters Are In Red**</span>
 

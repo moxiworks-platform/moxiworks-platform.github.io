@@ -114,10 +114,12 @@ Attribute | Type  | Length Limit |
 |<span class="optional-data">updated_after</span>|<span class="data-type">Integer</span>| 255 |
 |<span class="optional-data">updated_before</span>|<span class="data-type">Integer</span>| 255 |
 |<span class="optional-data">page_number</span>|<span class="data-type">Integer</span>| 255 |
-
+|<span class="optional-data">moxi_works_agent_id †</span>|<span class="optional-data"><span class="data-type">String</span></span>| <span class="optional-data">255</span>
+|<span class="optional-data">agent_uuid †</span>|<span class="optional-data"><span class="data-type">String</span></span>| <span class="optional-data">255</span>
 
 <span class="required-data">**Required Parameters Are In Red**</span>
 
+<span class="multi-option-required-data"> † Either <span class='attribute-name'>moxi_works_agent_id</span> or <span class='attribute-name'>agent_uuiid</span> may be supplied, but not both.</span>
 
 <span class="request-data-head">moxi_works_company_id</span>
 <span class="request-data-remarks">A valid Moxi Works <span class='entity-name'>Company</span> ID. Use [Company Endpoint](#company) to determine what <span class='attribute-name'>moxi_works_company_id</span> you can use.</span>
@@ -148,6 +150,12 @@ Attribute | Type  | Length Limit |
 
 
 <aside class="note">The maximum time range for a single search is one week. If you need to span a greater length of time, break your search up into week-long segments.</aside>
+
+<span class="request-data-head">agent_uuid</span>
+<span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which an <span class='entity-name'>PresentationLog</span> entry is associated with. This will be an [RFC 4122](https://tools.ietf.org/html/rfc4122) compliant UUID. <span class='attribute-name'>agent_uuid</span> is optional.</span>
+
+<span class="request-data-head">moxi_works_agent_id</span>
+<span class="request-data-remarks">This is the Moxi Works Platform ID of the agent which an <span class='entity-name'>PresentationLog</span> entry is associated with. This will be a string that may take the form of an email address, or a unique identification string. This data is optional.</span>
 
 
 <blockquote><div class='highlight json' style="display: block">

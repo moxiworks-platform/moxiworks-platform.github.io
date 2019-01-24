@@ -140,7 +140,7 @@
 <span class="cp">?&gt;</span>
 </code></pre>
 
-<aside class="note">Send a <b>GET</b> request to https://api.moxiworks.com/api/contacts/[partner_contact_id]</aside>
+<aside class="note">Send a <b>GET</b> request to https://api.moxiworks.com/api/contacts/[partner_contact_id|moxi_works_contact_id]</aside>
 
 <p>When showing a contact using the Moxi Works platform API, format your data using the following parameters.</p>
 
@@ -164,14 +164,14 @@
 <td><span class="multi-option-required-data">255</span></td>
 </tr>
 <tr>
-<td><span class="required-data">partner_contact_id</span></td>
-<td><span class="required-data"><span class="data-type">String</span></span></td>
-<td><span class="required-data">255</span></td>
+<td><span class="multi-option-required-data">partner_contact_id †</span></td>
+<td><span class="multi-option-required-data"><span class="data-type">String</span></span></td>
+<td><span class="multi-option-required-data">255</span></td>
 </tr>
 <tr>
-<td><span class="required-data">moxi_works_contact_id</span></td>
-<td><span class="required-data"><span class="data-type">String</span></span></td>
-<td><span class="required-data">255</span></td>
+<td><span class="multi-option-required-data">moxi_works_contact_id †</span></td>
+<td><span class="multi-option-required-data"><span class="data-type">String</span></span></td>
+<td><span class="multi-option-required-data">255</span></td>
 </tr>
 </tbody></table>
 
@@ -186,6 +186,8 @@
 
 <p><span class="request-data-head">moxi_works_agent_id</span>
 <span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>Contact</span> entry is associated with. This will be a string that may take the form of an email address, or a unique identification string. This data is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>Contact</span> <span class='action-name'>Show</span>  request to be accepted.</span></p>
+
+<aside class="note">A company&rsquo;s internal agent id may be used to construct the agent&rsquo;s unique identification string. To do so, the value passed via the moxi_works_agent_id should be a single concatenated string, of the form:</br>[moxi_works_company_id]:[internal_agent_id]</br>Use <a href='#company'>Company Endpoint</a> to determine which moxi_works_company_id to use.</aside>
 
 <p><span class="request-data-head">moxi_works_contact_id</span>
 <span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Contact</span> which this <span class='entity-name'>Contact</span> entry is associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID. This data is required and must reference a valid Moxi Works <span class='entity-name'>Contact</span> ID for your <span class='entity-name'>Contact</span> <span class='action-name'>Show</span>  request to be accepted. This is the same as the <span class='attribute-name'>moxi_works_contact_id</span> attribute of the  <span class='entity-name'>Contact</span> response.</span></p>

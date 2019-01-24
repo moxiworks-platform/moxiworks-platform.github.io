@@ -173,6 +173,11 @@
 <td><span class="data-type">Boolean</span></td>
 <td>255</td>
 </tr>
+<tr>
+<td><span class="optional-data">include_partners</span></td>
+<td><span class="data-type">Boolean</span></td>
+<td>255</td>
+</tr>
 </tbody></table>
 
 <p><span class="multi-option-required-data">* <strong>Either <span class='attribute-name'>moxi_works_agent_id</span> or <span class='attribute-name'>agent_uuid</span> must be supplied. For guidance on which Agent identifier better fits your use-case, see <a href="#agent-identifiers">Agent Identifiers</a></strong></span></p>
@@ -185,6 +190,8 @@
 <p><span class="request-data-head">moxi_works_agent_id</span>
 <span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span>. This will be a string that may take the form of an email address, or a unique identification string. <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>Agent</span> request to be accepted.</span></p>
 
+<aside class="note">A company&rsquo;s internal agent id may be used to construct the agent&rsquo;s unique identification string. To do so, the value passed via the moxi_works_agent_id should be a single concatenated string, of the form:</br>[moxi_works_company_id]:[internal_agent_id]</br>Use <a href='#company'>Company Endpoint</a> to determine which moxi_works_company_id to use.</aside>
+
 <p><span class="request-data-head">moxi_works_company_id</span>
 <span class="request-data-remarks">A valid Moxi Works <span class='entity-name'>Company</span> ID. Use <a href="#company">Company Endpoint</a> to determine what <span class='attribute-name'>moxi_works_company_id</span> you can use.</span></p>
 
@@ -192,6 +199,9 @@
 
 <p><span class="request-data-head">include_gci_goals</span>
 <span class="request-data-remarks">Whether to include agent&rsquo;s GCI goals and commissions data in the response data.</span></p>
+
+<p><span class="request-data-head">include_partners</span>
+<span class="request-data-remarks">To include affiliate data associated with the agent in the response, pass <code class="prettyprint">true</code>.</span></p>
 
 <h5 id="agent-show-response-payload"><span class='entity-name'>Agent</span> <span class='action-name'>Show</span> Response Payload</h5>
 
@@ -535,6 +545,18 @@
 <td><span class="response-data">available_mls</span></td>
 <td><span class="data-type">Array</span></td>
 </tr>
+<tr>
+<td><span class="response-data">partners</span></td>
+<td><span class="data-type">Array</span></td>
+</tr>
+<tr>
+<td><span class="response-data">created_timestamp</span></td>
+<td><span class="data-type">Integer</span></td>
+</tr>
+<tr>
+<td><span class="response-data">deactivated_timestamp</span></td>
+<td><span class="data-type">Integer or null</span></td>
+</tr>
 </tbody></table>
 
 <p><span class="response-data-head">moxi_works_agent_id</span>
@@ -669,6 +691,12 @@
 <p><span class="response-data-head">seller_commission_rate</span>
 <span class="response-data-remarks">Percentage commission rate for the agent when acting as a seller&rsquo;s agent.</span></p>
 
+<p><span class="response-data-head">created_timestamp</span>
+<span class="response-data-remarks">This is the Unix timestamp representing the date that this <span class='entity-name'>Agent</span> was created in the MoxiWorks system.</span></p>
+
+<p><span class="response-data-head">deactivated_timestamp</span>
+<span class="response-data-remarks">This is the Unix timestamp representing the date that this <span class='entity-name'>Agent</span> was deactivated in the MoxiWorks system. This will be returned null if the agent is still active.</span></p>
+
 <h6 id="alternate_offices-object"><span class='attribute-name'>alternate_offices</span> Object</h6>
 
 <p>The <span class='attribute-name'>alternate_offices</span> array contains Dictionary objects representing <span class='entity-name'>AlternateOffice</span> entries. The structure of each <span class='entity-name'>AlternateOffice</span> entry is shown below.</p>
@@ -769,6 +797,36 @@
 
 <p><span class="response-data-head">mls_abbreviation</span>
 <span class="response-data-remarks">The abbreviation of the MLS.</span></p>
+
+<h6 id="partners-objects"><span class='attribute-name'>partners</span> Objects</h6>
+
+<p>Exstence of objects in the <code class="prettyprint">partners</code> data structure is dependent upon external relationships existing between the agent represented by this <span class='entity-name'>Agent</span> and the affiliate.</p>
+
+<aside class="note">Documented entities in the `partners` data structure may or may not be returned based on agent relationship. Your logic should be engineered to handle cases where the entity you are interested in is returned and where an empty data structure is returned.</aside>
+
+<h6 id="leading_re-partner-objects"><span class='attribute-name'>leading_re</span> partner Objects</h6>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span class="response-data">salesforce_id</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">luxury_portfolio</span></td>
+<td><span class="response-data"><span class="data-type">Boolean</span></td>
+</tr>
+</tbody></table>
+
+<p><span class="response-data-head">salesforce_id</span>
+<span class="response-data-remarks">This is the unique salesforce ID of the company in the LeadingRE system.</span></p>
+
+<p><span class="response-data-head">luxury_portfolio</span>
+<span class="response-data-remarks">Indicates whether or not this agent has luxury portfolio association in the LeadingRE system.</span></p>
 
       </div>
       <div class="dark-box">

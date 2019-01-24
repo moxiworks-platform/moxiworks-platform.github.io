@@ -297,14 +297,16 @@ attendees=&amp;note=here%20is%20the%20note
 <p><span class="request-data-head">agent_uuid</span>
 <span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which an  <span class='entity-name'>Event</span> entry is associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID. <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>Event</span> <span class='action-name'>Create</span> request to be accepted.</span></p>
 
+<p><span class="request-data-head">moxi_works_agent_id</span>
+<span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>Event</span> is to be associated with. This will be a string that may take the form of an email address, or a unique identification string. This data is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>Event</span> <span class='action-name'>Create</span>  request to be accepted.</span></p>
+
+<aside class="note">A company&rsquo;s internal agent id may be used to construct the agent&rsquo;s unique identification string. To do so, the value passed via the moxi_works_agent_id should be a single concatenated string, of the form:</br>[moxi_works_company_id]:[internal_agent_id]</br>Use <a href='#company'>Company Endpoint</a> to determine which moxi_works_company_id to use.</aside>
+
 <p><span class="request-data-head">event_subject</span>
 <span class="request-data-remarks">This is a short, descriptive, human readable phrase to be displayed to the agent which lets them know what this <span class='entity-name'>Event</span> regards.</span></p>
 
 <p><span class="request-data-head">event_location</span>
 <span class="request-data-remarks">This is a human readable locatition reference regarding where the event is located that will be meaningful to the agent.</span></p>
-
-<p><span class="request-data-head">moxi_works_agent_id</span>
-<span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>Event</span> is to be associated with. This will be a string that may take the form of an email address, or a unique identification string. This data is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>Event</span> <span class='action-name'>Create</span>  request to be accepted.</span></p>
 
 <p><span class="request-data-head">send_reminder</span>
 <span class="request-data-remarks">Whether to send a reminder about the event to attendees before the event starts.</span></p>

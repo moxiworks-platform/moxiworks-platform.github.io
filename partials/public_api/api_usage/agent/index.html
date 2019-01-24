@@ -209,6 +209,11 @@
 <td><span class="data-type">Integer</span></td>
 <td>255</td>
 </tr>
+<tr>
+<td><span class="optional-data">include_partners</span></td>
+<td><span class="data-type">Boolean</span></td>
+<td>255</td>
+</tr>
 </tbody></table>
 
 <p><span class="required-data"><strong>Required Parameters Are In Red</strong></span></p>
@@ -239,6 +244,9 @@
 <span class="request-data-remarks">any <span class='entity-name'>Agent</span> objects deactivated after this Unix timestamp will be returned in the response. <strong>If no <span class='attribute-name'>deactivated_since</span> parameter is included in the request, only <span class='entity-name'>Agent</span> objects deactivated in the last seven days will be returned.</strong></span></p>
 
 <aside class="note">By default only <span class='entity-name'>Agent</span> objects deactivated in the last seven days will be returned.</aside>
+
+<p><span class="request-data-head">include_partners</span>
+<span class="request-data-remarks">To include affiliate data associated with the agent in the response, pass <code class="prettyprint">true</code>.</span></p>
 
 <blockquote><div class='highlight json' style="display: block">
 <span class="data-example-label">Agent Index: Success Response</span>
@@ -527,6 +535,18 @@
 <td><span class="response-data">available_mls</span></td>
 <td><span class="data-type">Array</span></td>
 </tr>
+<tr>
+<td><span class="response-data">partners</span></td>
+<td><span class="data-type">Array</span></td>
+</tr>
+<tr>
+<td><span class="response-data">created_timestamp</span></td>
+<td><span class="data-type">Integer</span></td>
+</tr>
+<tr>
+<td><span class="response-data">deactivated_timestamp</span></td>
+<td><span class="data-type">Integer or null</span></td>
+</tr>
 </tbody></table>
 
 <p><span class="response-data-head">moxi_works_agent_id</span>
@@ -652,6 +672,12 @@
 <p><span class="response-data-head">region</span>
 <span class="response-data-remarks">The region the agent&rsquo;s office is in. This can be null if there is no data for this attribute.</span></p>
 
+<p><span class="response-data-head">created_timestamp</span>
+<span class="response-data-remarks">This is the Unix timestamp representing the date that this <span class='entity-name'>Agent</span> was created in the MoxiWorks system.</span></p>
+
+<p><span class="response-data-head">deactivated_timestamp</span>
+<span class="response-data-remarks">This is the Unix timestamp representing the date that this <span class='entity-name'>Agent</span> was deactivated in the MoxiWorks system. This will be returned null if the agent is still active.</span></p>
+
 <h6 id="alternate_offices-object"><span class='attribute-name'>alternate_offices</span> Object</h6>
 
 <p>The <span class='attribute-name'>alternate_offices</span> array contains Dictionary objects representing <span class='entity-name'>AlternateOffice</span> entries. The structure of each <span class='entity-name'>AlternateOffice</span> entry is shown below.</p>
@@ -752,6 +778,36 @@
 
 <p><span class="response-data-head">mls_abbreviation</span>
 <span class="response-data-remarks">The abbreviation of the MLS.</span></p>
+
+<h6 id="partners-objects"><span class='attribute-name'>partners</span> Objects</h6>
+
+<p>Exstence of objects in the <code class="prettyprint">partners</code> data structure is dependent upon external relationships existing between the agent represented by this <span class='entity-name'>Agent</span> and the affiliate.</p>
+
+<aside class="note">Documented entities in the `partners` data structure may or may not be returned based on agent relationship. Your logic should be engineered to handle cases where the entity you are interested in is returned and where an empty data structure is returned.</aside>
+
+<h6 id="leading_re-partner-objects"><span class='attribute-name'>leading_re</span> partner Objects</h6>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span class="response-data">salesforce_id</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">luxury_portfolio</span></td>
+<td><span class="response-data"><span class="data-type">Boolean</span></td>
+</tr>
+</tbody></table>
+
+<p><span class="response-data-head">salesforce_id</span>
+<span class="response-data-remarks">This is the unique salesforce ID of the company in the LeadingRE system.</span></p>
+
+<p><span class="response-data-head">luxury_portfolio</span>
+<span class="response-data-remarks">Indicates whether or not this agent has luxury portfolio association in the LeadingRE system.</span></p>
 
       </div>
       <div class="dark-box">

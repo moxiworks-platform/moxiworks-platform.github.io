@@ -184,6 +184,8 @@
 <p><span class="request-data-head">moxi_works_agent_id</span>
 <span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which the <span class='entity-name'>Event</span> is associated with. This will be a string that may take the form of an email address, or a unique identification string. This data is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>Event</span> <span class='action-name'>Show</span>  request to be accepted.</span></p>
 
+<aside class="note">A company&rsquo;s internal agent id may be used to construct the agent&rsquo;s unique identification string. To do so, the value passed via the moxi_works_agent_id should be a single concatenated string, of the form:</br>[moxi_works_company_id]:[internal_agent_id]</br>Use <a href='#company'>Company Endpoint</a> to determine which moxi_works_company_id to use.</aside>
+
 <p><span class="request-data-head">partner_event_id</span>
 <span class="request-data-remarks">This is the unique identifer you use in your system that has been associated with the <span class='entity-name'>Event</span> that you are searching for.</span></p>
 

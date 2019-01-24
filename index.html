@@ -917,6 +917,8 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
 <p><span class="request-data-head">moxi_works_agent_id</span>
 <span class="request-data-remarks">This is the Moxi Works Platform ID of the agent which an  <span class='entity-name'>ActionLog</span> entry is associated with. This will be a string that may take the form of an email address, or a unique identification string. <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>ActionLog</span> request to be accepted.</span></p>
 
+<aside class="note">A company&rsquo;s internal agent id may be used to construct the agent&rsquo;s unique identification string. To do so, the value passed via the moxi_works_agent_id should be a single concatenated string, of the form:</br>[moxi_works_company_id]:[internal_agent_id]</br>Use <a href='#company'>Company Endpoint</a> to determine which moxi_works_company_id to use.</aside>
+
 <p><span class="request-data-head">body</span>
 <span class="request-data-remarks">This is a human readable string which would be presented to the Agent as the content of the <span class='entity-name'>ActionLog</span> entry. This can be any arbitrary plain-text string which would be practical for the agent to see in the history of events associated with a <span class='entity-name'>Contact</span>. It must be greater than 0 and must be less than 255 characters.</span></p>
 
@@ -1213,6 +1215,8 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
 
 <p><span class="request-data-head">moxi_works_agent_id</span>
 <span class="request-data-remarks">This is the Moxi Works Platform ID of the agent which an <span class='entity-name'>ActionLog</span> entry is associated with. This will be a string that may take the form of an email address, or a unique identification string. <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>ActionLog</span> request to be accepted.</span></p>
+
+<aside class="note">A company&rsquo;s internal agent id may be used to construct the agent&rsquo;s unique identification string. To do so, the value passed via the moxi_works_agent_id should be a single concatenated string, of the form:</br>[moxi_works_company_id]:[internal_agent_id]</br>Use <a href='#company'>Company Endpoint</a> to determine which moxi_works_company_id to use.</aside>
 
 <p><span class="request-data-head">moxi_works_contact_id</span>
 <span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Contact</span> which the <span class='entity-name'>ActionLog</span> objects are associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID. This data is required and must reference a valid Moxi Works <span class='entity-name'>Contact</span> ID for your <span class='entity-name'>ActionLog</span> <span class='action-name'>Index</span>  request to be accepted. This is the same as the <span class='attribute-name'>moxi_works_contact_id</span> attribute of the  <span class='entity-name'>Contact</span> response.</span></p>
@@ -1604,6 +1608,11 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
 <td><span class="data-type">Boolean</span></td>
 <td>255</td>
 </tr>
+<tr>
+<td><span class="optional-data">include_partners</span></td>
+<td><span class="data-type">Boolean</span></td>
+<td>255</td>
+</tr>
 </tbody></table>
 
 <p><span class="multi-option-required-data">* <strong>Either <span class='attribute-name'>moxi_works_agent_id</span> or <span class='attribute-name'>agent_uuid</span> must be supplied. For guidance on which Agent identifier better fits your use-case, see <a href="#agent-identifiers">Agent Identifiers</a></strong></span></p>
@@ -1616,6 +1625,8 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
 <p><span class="request-data-head">moxi_works_agent_id</span>
 <span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span>. This will be a string that may take the form of an email address, or a unique identification string. <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>Agent</span> request to be accepted.</span></p>
 
+<aside class="note">A company&rsquo;s internal agent id may be used to construct the agent&rsquo;s unique identification string. To do so, the value passed via the moxi_works_agent_id should be a single concatenated string, of the form:</br>[moxi_works_company_id]:[internal_agent_id]</br>Use <a href='#company'>Company Endpoint</a> to determine which moxi_works_company_id to use.</aside>
+
 <p><span class="request-data-head">moxi_works_company_id</span>
 <span class="request-data-remarks">A valid Moxi Works <span class='entity-name'>Company</span> ID. Use <a href="#company">Company Endpoint</a> to determine what <span class='attribute-name'>moxi_works_company_id</span> you can use.</span></p>
 
@@ -1623,6 +1634,9 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
 
 <p><span class="request-data-head">include_gci_goals</span>
 <span class="request-data-remarks">Whether to include agent&rsquo;s GCI goals and commissions data in the response data.</span></p>
+
+<p><span class="request-data-head">include_partners</span>
+<span class="request-data-remarks">To include affiliate data associated with the agent in the response, pass <code class="prettyprint">true</code>.</span></p>
 
 <h5 id="agent-show-response-payload"><span class='entity-name'>Agent</span> <span class='action-name'>Show</span> Response Payload</h5>
 
@@ -1966,6 +1980,18 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
 <td><span class="response-data">available_mls</span></td>
 <td><span class="data-type">Array</span></td>
 </tr>
+<tr>
+<td><span class="response-data">partners</span></td>
+<td><span class="data-type">Array</span></td>
+</tr>
+<tr>
+<td><span class="response-data">created_timestamp</span></td>
+<td><span class="data-type">Integer</span></td>
+</tr>
+<tr>
+<td><span class="response-data">deactivated_timestamp</span></td>
+<td><span class="data-type">Integer or null</span></td>
+</tr>
 </tbody></table>
 
 <p><span class="response-data-head">moxi_works_agent_id</span>
@@ -2100,6 +2126,12 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
 <p><span class="response-data-head">seller_commission_rate</span>
 <span class="response-data-remarks">Percentage commission rate for the agent when acting as a seller&rsquo;s agent.</span></p>
 
+<p><span class="response-data-head">created_timestamp</span>
+<span class="response-data-remarks">This is the Unix timestamp representing the date that this <span class='entity-name'>Agent</span> was created in the MoxiWorks system.</span></p>
+
+<p><span class="response-data-head">deactivated_timestamp</span>
+<span class="response-data-remarks">This is the Unix timestamp representing the date that this <span class='entity-name'>Agent</span> was deactivated in the MoxiWorks system. This will be returned null if the agent is still active.</span></p>
+
 <h6 id="alternate_offices-object"><span class='attribute-name'>alternate_offices</span> Object</h6>
 
 <p>The <span class='attribute-name'>alternate_offices</span> array contains Dictionary objects representing <span class='entity-name'>AlternateOffice</span> entries. The structure of each <span class='entity-name'>AlternateOffice</span> entry is shown below.</p>
@@ -2200,6 +2232,36 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
 
 <p><span class="response-data-head">mls_abbreviation</span>
 <span class="response-data-remarks">The abbreviation of the MLS.</span></p>
+
+<h6 id="partners-objects"><span class='attribute-name'>partners</span> Objects</h6>
+
+<p>Exstence of objects in the <code class="prettyprint">partners</code> data structure is dependent upon external relationships existing between the agent represented by this <span class='entity-name'>Agent</span> and the affiliate.</p>
+
+<aside class="note">Documented entities in the `partners` data structure may or may not be returned based on agent relationship. Your logic should be engineered to handle cases where the entity you are interested in is returned and where an empty data structure is returned.</aside>
+
+<h6 id="leading_re-partner-objects"><span class='attribute-name'>leading_re</span> partner Objects</h6>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span class="response-data">salesforce_id</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">luxury_portfolio</span></td>
+<td><span class="response-data"><span class="data-type">Boolean</span></td>
+</tr>
+</tbody></table>
+
+<p><span class="response-data-head">salesforce_id</span>
+<span class="response-data-remarks">This is the unique salesforce ID of the company in the LeadingRE system.</span></p>
+
+<p><span class="response-data-head">luxury_portfolio</span>
+<span class="response-data-remarks">Indicates whether or not this agent has luxury portfolio association in the LeadingRE system.</span></p>
 
 
 <h4 id="agent-index"><span class='entity-name'>Agent</span> <span class='action-name'>Index</span></h4>
@@ -2398,6 +2460,11 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
 <td><span class="data-type">Integer</span></td>
 <td>255</td>
 </tr>
+<tr>
+<td><span class="optional-data">include_partners</span></td>
+<td><span class="data-type">Boolean</span></td>
+<td>255</td>
+</tr>
 </tbody></table>
 
 <p><span class="required-data"><strong>Required Parameters Are In Red</strong></span></p>
@@ -2428,6 +2495,9 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
 <span class="request-data-remarks">any <span class='entity-name'>Agent</span> objects deactivated after this Unix timestamp will be returned in the response. <strong>If no <span class='attribute-name'>deactivated_since</span> parameter is included in the request, only <span class='entity-name'>Agent</span> objects deactivated in the last seven days will be returned.</strong></span></p>
 
 <aside class="note">By default only <span class='entity-name'>Agent</span> objects deactivated in the last seven days will be returned.</aside>
+
+<p><span class="request-data-head">include_partners</span>
+<span class="request-data-remarks">To include affiliate data associated with the agent in the response, pass <code class="prettyprint">true</code>.</span></p>
 
 <blockquote><div class='highlight json' style="display: block">
 <span class="data-example-label">Agent Index: Success Response</span>
@@ -2718,6 +2788,18 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
 <td><span class="response-data">available_mls</span></td>
 <td><span class="data-type">Array</span></td>
 </tr>
+<tr>
+<td><span class="response-data">partners</span></td>
+<td><span class="data-type">Array</span></td>
+</tr>
+<tr>
+<td><span class="response-data">created_timestamp</span></td>
+<td><span class="data-type">Integer</span></td>
+</tr>
+<tr>
+<td><span class="response-data">deactivated_timestamp</span></td>
+<td><span class="data-type">Integer or null</span></td>
+</tr>
 </tbody></table>
 
 <p><span class="response-data-head">moxi_works_agent_id</span>
@@ -2843,6 +2925,12 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
 <p><span class="response-data-head">region</span>
 <span class="response-data-remarks">The region the agent&rsquo;s office is in. This can be null if there is no data for this attribute.</span></p>
 
+<p><span class="response-data-head">created_timestamp</span>
+<span class="response-data-remarks">This is the Unix timestamp representing the date that this <span class='entity-name'>Agent</span> was created in the MoxiWorks system.</span></p>
+
+<p><span class="response-data-head">deactivated_timestamp</span>
+<span class="response-data-remarks">This is the Unix timestamp representing the date that this <span class='entity-name'>Agent</span> was deactivated in the MoxiWorks system. This will be returned null if the agent is still active.</span></p>
+
 <h6 id="alternate_offices-object"><span class='attribute-name'>alternate_offices</span> Object</h6>
 
 <p>The <span class='attribute-name'>alternate_offices</span> array contains Dictionary objects representing <span class='entity-name'>AlternateOffice</span> entries. The structure of each <span class='entity-name'>AlternateOffice</span> entry is shown below.</p>
@@ -2943,6 +3031,36 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
 
 <p><span class="response-data-head">mls_abbreviation</span>
 <span class="response-data-remarks">The abbreviation of the MLS.</span></p>
+
+<h6 id="partners-objects"><span class='attribute-name'>partners</span> Objects</h6>
+
+<p>Exstence of objects in the <code class="prettyprint">partners</code> data structure is dependent upon external relationships existing between the agent represented by this <span class='entity-name'>Agent</span> and the affiliate.</p>
+
+<aside class="note">Documented entities in the `partners` data structure may or may not be returned based on agent relationship. Your logic should be engineered to handle cases where the entity you are interested in is returned and where an empty data structure is returned.</aside>
+
+<h6 id="leading_re-partner-objects"><span class='attribute-name'>leading_re</span> partner Objects</h6>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span class="response-data">salesforce_id</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">luxury_portfolio</span></td>
+<td><span class="response-data"><span class="data-type">Boolean</span></td>
+</tr>
+</tbody></table>
+
+<p><span class="response-data-head">salesforce_id</span>
+<span class="response-data-remarks">This is the unique salesforce ID of the company in the LeadingRE system.</span></p>
+
+<p><span class="response-data-head">luxury_portfolio</span>
+<span class="response-data-remarks">Indicates whether or not this agent has luxury portfolio association in the LeadingRE system.</span></p>
 
 
 <h3 id="brand"><span class='entity-name'>Brand</span></h3>
@@ -3305,6 +3423,8 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
 
 <p><span class="request-data-head">moxi_works_agent_id</span>
 <span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span>. This will be a string that may take the form of an email address, or a unique identification string. <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> can be used and should reference a valid Moxi Works Agent ID for your <span class='entity-name'>Brand</span> request to be accepted.</span></p>
+
+<aside class="note">A company&rsquo;s internal agent id may be used to construct the agent&rsquo;s unique identification string. To do so, the value passed via the moxi_works_agent_id should be a single concatenated string, of the form:</br>[moxi_works_company_id]:[internal_agent_id]</br>Use <a href='#company'>Company Endpoint</a> to determine which moxi_works_company_id to use.</aside>
 
 <p><span class="request-data-head">agent_uuid</span>
 <span class="request-data-remarks">A valid Moxi Works <span class='entity-name'>Agent</span> ID. Use <a href="#agent">Agent Endpoint</a> to determine what <span class='attribute-name'>moxi_works_agent_id</span> you can use.</span></p>
@@ -3998,14 +4118,14 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;moxi_works_contact_id=babebe
 <td><span class="multi-option-required-data">255</span></td>
 </tr>
 <tr>
-<td><span class="required-data">moxi_works_contact_id</span></td>
-<td><span class="required-data"><span class="data-type">String</span></span></td>
-<td><span class="required-data">255</span></td>
+<td><span class="multi-option-required-data">moxi_works_contact_id †</span></td>
+<td><span class="multi-option-required-data><span class="data-type">String</span></span></td>
+<td><span class="multi-option-required-data">255</span></td>
 </tr>
 <tr>
-<td><span class="required-data">partner_contact_id</span></td>
-<td><span class="required-data"><span class="data-type">String</span></span></td>
-<td><span class="required-data">255</span></td>
+<td><span class="multi-option-required-data">partner_contact_id †</span></td>
+<td><span class="multi-option-required-data"><span class="data-type">String</span></span></td>
+<td><span class="multi-option-required-data">255</span></td>
 </tr>
 <tr>
 <td><span class="required-data">transaction_name</span></td>
@@ -4126,6 +4246,8 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;moxi_works_contact_id=babebe
 
 <p><span class="multi-option-required-data">* <strong>Either <span class='attribute-name'>moxi_works_agent_id</span> or <span class='attribute-name'>agent_uuid</span> must be supplied. For guidance on which Agent identifier better fits your use-case, see <a href="#agent-identifiers">Agent Identifiers</a></strong></span></p>
 
+<p><span class="multi-option-required-data"> † Either <span class='attribute-name'>moxi_works_contact_id</span> or <span class='attribute-name'>partner_contact_id</span> must be supplied.</span></p>
+
 <p><span class="required-data"><strong>Required Parameters Are In Red</strong></span></p>
 
 <p><span class="request-data-head">agent_uuid</span>
@@ -4133,6 +4255,8 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;moxi_works_contact_id=babebe
 
 <p><span class="request-data-head">moxi_works_agent_id</span>
 <span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>BuyerTransaction</span> object is to be associated with. This will be a string that may take the form of an email address, or a unique identification string. <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>BuyerTransaction</span> request to be accepted.</span></p>
+
+<aside class="note">A company&rsquo;s internal agent id may be used to construct the agent&rsquo;s unique identification string. To do so, the value passed via the moxi_works_agent_id should be a single concatenated string, of the form:</br>[moxi_works_company_id]:[internal_agent_id]</br>Use <a href='#company'>Company Endpoint</a> to determine which moxi_works_company_id to use.</aside>
 
 <p><span class="request-data-head">moxi_works_contact_id</span>
 <span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Contact</span> which this <span class='entity-name'>BuyerTransaction</span> object is to be associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID. This data is required and must reference a valid Moxi Works <span class='entity-name'>Contact</span> ID for your <span class='entity-name'>BuyerTransaction</span> <span class='action-name'>Create</span>  request to be accepted. This is the same as the <span class='attribute-name'>moxi_works_contact_id</span> attribute of the  <span class='entity-name'>Contact</span> response.</span></p>
@@ -5174,6 +5298,8 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;min_beds=12&amp;max_beds=34&
 <p><span class="request-data-head">moxi_works_agent_id</span>
 <span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>BuyerTransaction</span> object is associated with. This will be a string that may take the form of an email address, or a unique identification string. This data is required and must reference a valid Moxi Works <span class='entity-name'>Agent</span> ID for your <span class='entity-name'>BuyerTransaction</span> <span class='action-name'>Update</span>  request to be accepted.</span></p>
 
+<aside class="note">A company&rsquo;s internal agent id may be used to construct the agent&rsquo;s unique identification string. To do so, the value passed via the moxi_works_agent_id should be a single concatenated string, of the form:</br>[moxi_works_company_id]:[internal_agent_id]</br>Use <a href='#company'>Company Endpoint</a> to determine which moxi_works_company_id to use.</aside>
+
 <p><span class="request-data-head">moxi_works_transaction_id</span>
 <span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>BuyerTransaction</span> object that you are updating. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID. This data is required and must reference a valid Moxi Works <span class='entity-name'>BuyerTransaction</span> ID for your <span class='entity-name'>BuyerTransaction</span> <span class='action-name'>Update</span>  request to be accepted. You can determine UUIDs of existing <span class='entity-name'>BuyerTransaction</span> objects by using the <a href='#buyertransaction-index'><span class='entity-name'>BuyerTransaction</span><span class='action-name'>Index</span></a> request.</span></p>
 
@@ -5832,6 +5958,8 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab
 <p><span class="request-data-head">moxi_works_agent_id</span>
 <span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>BuyerTransaction</span> object is associated with. This will be a string that may take the form of an email address, or a unique identification string. This data is required and must reference a valid Moxi Works <span class='entity-name'>Agent</span> ID for your <span class='entity-name'>BuyerTransaction</span> <span class='action-name'>Show</span>  request to be accepted.</span></p>
 
+<aside class="note">A company&rsquo;s internal agent id may be used to construct the agent&rsquo;s unique identification string. To do so, the value passed via the moxi_works_agent_id should be a single concatenated string, of the form:</br>[moxi_works_company_id]:[internal_agent_id]</br>Use <a href='#company'>Company Endpoint</a> to determine which moxi_works_company_id to use.</aside>
+
 <p><span class="response-data-head">moxi_works_transaction_id</span>
 <span class="response-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>BuyerTransaction</span>. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID.</span></p>
 
@@ -6386,12 +6514,12 @@ moxi_works_agent_id=abc123
 <td><span class="multi-option-required-data">255</span></td>
 </tr>
 <tr>
-<td><span class="optional-data">moxi_works_contact_id</span></td>
+<td><span class="optional-data">moxi_works_contact_id †</span></td>
 <td><span class="data-type">String</span></td>
 <td>255</td>
 </tr>
 <tr>
-<td><span class="optional-data">partner_contact_id</span></td>
+<td><span class="optional-data">partner_contact_id †</span></td>
 <td><span class="data-type">String</span></td>
 <td>255</td>
 </tr>
@@ -6404,6 +6532,8 @@ moxi_works_agent_id=abc123
 
 <p><span class="multi-option-required-data">* <strong>Either <span class='attribute-name'>moxi_works_agent_id</span> or <span class='attribute-name'>agent_uuid</span> must be supplied. For guidance on which Agent identifier better fits your use-case, see <a href="#agent-identifiers">Agent Identifiers</a></strong></span></p>
 
+<p><span class="multi-option-required-data"> † Either <span class='attribute-name'>moxi_works_contact_id</span> or <span class='attribute-name'>partner_contact_id</span> may be supplied, but not both.</span></p>
+
 <p><span class="required-data"><strong>Required Parameters Are In Red</strong></span></p>
 
 <p><span class="request-data-head">agent_uuid</span>
@@ -6411,6 +6541,8 @@ moxi_works_agent_id=abc123
 
 <p><span class="request-data-head">moxi_works_agent_id</span>
 <span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which the <span class='entity-name'>BuyerTransaction</span> objects are associated with. This will be a string that may take the form of an email address, or a unique identification string. This data is required and must reference a valid Moxi Works <span class='entity-name'>Agent</span> ID for your <span class='entity-name'>BuyerTransaction</span> <span class='action-name'>Index</span>  request to be accepted.</span></p>
+
+<aside class="note">A company&rsquo;s internal agent id may be used to construct the agent&rsquo;s unique identification string. To do so, the value passed via the moxi_works_agent_id should be a single concatenated string, of the form:</br>[moxi_works_company_id]:[internal_agent_id]</br>Use <a href='#company'>Company Endpoint</a> to determine which moxi_works_company_id to use.</aside>
 
 <p><span class="request-data-head">moxi_works_contact_id</span>
 <span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Contact</span> for which you are searching associated <span class='entity-name'>BuyerTransaction</span> objects. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID. You can use either <span class='attribute-name'>moxi_works_contact_id</span> or <span class='action-name'>partner_contact_id</span> when searching for <span class='entity-name'>BuyerTransaction</span> objects associated with a specific <span class='entity-name'>Contact</span>.</span></p>
@@ -6954,7 +7086,7 @@ moxi_works_agent_id=abc123
 
 <h6 id="partners-objects"><span class='attribute-name'>partners</span> Objects</h6>
 
-<p>Exstence of objects in the <code class="prettyprint">partners</code> data structure is dependent upon external relationships existing between the company represented by this <span class='entity-name'>Company</span> and the partner. </p>
+<p>Exstence of objects in the <code class="prettyprint">partners</code> data structure is dependent upon external relationships existing between the company represented by this <span class='entity-name'>Company</span> and the affiliate.</p>
 
 <aside class="note">Documented entities in the `partners` data structure may or may not be returned based on company relationship. Your logic should be engineered to handle cases where the entity you are interested in is returned and where an empty data structure is returned.</aside>
 
@@ -6970,27 +7102,17 @@ moxi_works_agent_id=abc123
 <td><span class="response-data">id</span></td>
 <td><span class="response-data"><span class="data-type">String or null</span></td>
 </tr>
+<tr>
+<td><span class="response-data">salesforce_id</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
 </tbody></table>
 
 <p><span class="response-data-head">id</span>
 <span class="response-data-remarks">This is the unique ID of this company in the LeadingRE system. </span></p>
 
-<h6 id="salesforce-partner-objects"><span class='attribute-name'>salesforce</span> partner Objects</h6>
-
-<table><thead>
-<tr>
-<th>Attribute</th>
-<th>Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><span class="response-data">id</span></td>
-<td><span class="response-data"><span class="data-type">String or null</span></td>
-</tr>
-</tbody></table>
-
 <p><span class="response-data-head">salesforce_id</span>
-<span class="response-data-remarks">This is the unique ID of the company in the Salesforce system.</span></p>
+<span class="response-data-remarks">This is the unique salesforce ID of the company in the LeadingRE system.</span></p>
 
 
 <h4 id="company-index"><span class='entity-name'>Company</span> <span class='action-name'>Index</span></h4>
@@ -7607,9 +7729,29 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 <td><span class="required-data">255</span></td>
 </tr>
 <tr>
-<td><span class="optional-data">contact_name</span></td>
-<td><span class="data-type">String</span></td>
-<td>255</td>
+<td><span class="multi-option-required-data">contact_name †</span></td>
+<td><span class="multi-option-required-data"><span class="data-type">String</span></span></td>
+<td><span class="multi-option-required-data">255</span></td>
+</tr>
+<tr>
+<td><span class="multi-option-required-data">primary_email_address †</span></td>
+<td><span class="multi-option-required-data"><span class="data-type">String</span></span></td>
+<td><span class="multi-option-required-data">255</span></td>
+</tr>
+<tr>
+<td><span class="multi-option-required-data">secondary_email_address †</span></td>
+<td><span class="multi-option-required-data"><span class="data-type">String</span></span></td>
+<td><span class="multi-option-required-data">255</span></td>
+</tr>
+<tr>
+<td><span class="multi-option-required-data">primary_phone_number †</span></td>
+<td><span class="multi-option-required-data"><span class="data-type">String</span></span></td>
+<td><span class="multi-option-required-data">255</span></td>
+</tr>
+<tr>
+<td><span class="multi-option-required-data">secondary_phone_number †</span></td>
+<td><span class="multi-option-required-data"><span class="data-type">String</span></span></td>
+<td><span class="multi-option-required-data">255</span></td>
 </tr>
 <tr>
 <td><span class="optional-data">gender</span></td>
@@ -7618,26 +7760,6 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 </tr>
 <tr>
 <td><span class="optional-data">label_name</span></td>
-<td><span class="data-type">String</span></td>
-<td>255</td>
-</tr>
-<tr>
-<td><span class="optional-data">primary_email_address</span></td>
-<td><span class="data-type">String</span></td>
-<td>255</td>
-</tr>
-<tr>
-<td><span class="optional-data">secondary_email_address</span></td>
-<td><span class="data-type">String</span></td>
-<td>255</td>
-</tr>
-<tr>
-<td><span class="optional-data">primary_phone_number</span></td>
-<td><span class="data-type">String</span></td>
-<td>255</td>
-</tr>
-<tr>
-<td><span class="optional-data">secondary_phone_number</span></td>
 <td><span class="data-type">String</span></td>
 <td>255</td>
 </tr>
@@ -7815,6 +7937,8 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 
 <p><span class="multi-option-required-data">* <strong>Either <span class='attribute-name'>moxi_works_agent_id</span> or <span class='attribute-name'>agent_uuid</span> must be supplied. For guidance on which Agent identifier better fits your use-case, see <a href="#agent-identifiers">Agent Identifiers</a></strong></span></p>
 
+<p><span class="multi-option-required-data"> † One of these pieces of contact data must be submitted in order to create a contact on the MoxiWorks Platform.</span></p>
+
 <p><span class="required-data"><strong>Required Parameters Are In Red</strong></span></p>
 
 <p><span class="request-data-head">agent_uuid</span>
@@ -7822,6 +7946,8 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 
 <p><span class="request-data-head">moxi_works_agent_id</span>
 <span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>Contact</span> object is to be associated with. This will be a string that may take the form of an email address, or a unique identification string. This data is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>Contact</span> <span class='action-name'>Create</span>  request to be accepted.</span></p>
+
+<aside class="note">A company&rsquo;s internal agent id may be used to construct the agent&rsquo;s unique identification string. To do so, the value passed via the moxi_works_agent_id should be a single concatenated string, of the form:</br>[moxi_works_company_id]:[internal_agent_id]</br>Use <a href='#company'>Company Endpoint</a> to determine which moxi_works_company_id to use.</aside>
 
 <p><span class="request-data-head">partner_contact_id</span>
 <span class="request-data-remarks">This is the unique identifer you use in your system that will be associated with the <span class='entity-name'>Contact</span> that you are creating. This data is required and must be a unique ID for your <span class='entity-name'>Contact</span> <span class='action-name'>Create</span> request to be accepted.</span></p>
@@ -8961,7 +9087,7 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 
 <aside class="note">Send a <b>PUT</b> request to https://api.moxiworks.com/api/contacts/[partner_contact_id]</aside>
 
-<aside class="warning">Moxi Works API will remove data for any attribute not defined within the parameters you send. For instance, if the <span class='entity-name'>home_street_address</span> attribute is not passed, the current <span class='attribute-name'>home_street_address</span> value for the <span class='entity-name'>Contact</span> will be removed from the <span class='entity-name'>contact</span> stored in Moxi Works.</aside>
+<aside class="warning">MoxiWorks API will remove data for any attribute not defined within the parameters you send. For instance, if the <span class='entity-name'>home_street_address</span> attribute is not passed, the current <span class='attribute-name'>home_street_address</span> value for the <span class='entity-name'>Contact</span> will be removed from the <span class='entity-name'>contact</span> stored in MoxiWorks.</aside>
 
 <p>When updating an <span class='entity-name'>Contact</span> using the Moxi Works platform API, format your request using the following parameters.</p>
 
@@ -9198,6 +9324,8 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 
 <p><span class="request-data-head">moxi_works_agent_id</span>
 <span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>Contact</span> entry is to be associated with. This will be a string that may take the form of an email address, or a unique identification string. This data is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>Contact</span> <span class='action-name'>Update</span>  request to be accepted.</span></p>
+
+<aside class="note">A company&rsquo;s internal agent id may be used to construct the agent&rsquo;s unique identification string. To do so, the value passed via the moxi_works_agent_id should be a single concatenated string, of the form:</br>[moxi_works_company_id]:[internal_agent_id]</br>Use <a href='#company'>Company Endpoint</a> to determine which moxi_works_company_id to use.</aside>
 
 <p><span class="request-data-head">partner_contact_id</span>
 <span class="request-data-remarks">This is the unique identifer you use in your system that has been associated with the <span class='entity-name'>Contact</span> that you are creating.</span></p>
@@ -9997,7 +10125,7 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 <span class="cp">?&gt;</span>
 </code></pre>
 
-<aside class="note">Send a <b>GET</b> request to https://api.moxiworks.com/api/contacts/[partner_contact_id]</aside>
+<aside class="note">Send a <b>GET</b> request to https://api.moxiworks.com/api/contacts/[partner_contact_id|moxi_works_contact_id]</aside>
 
 <p>When showing a contact using the Moxi Works platform API, format your data using the following parameters.</p>
 
@@ -10021,14 +10149,14 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 <td><span class="multi-option-required-data">255</span></td>
 </tr>
 <tr>
-<td><span class="required-data">partner_contact_id</span></td>
-<td><span class="required-data"><span class="data-type">String</span></span></td>
-<td><span class="required-data">255</span></td>
+<td><span class="multi-option-required-data">partner_contact_id †</span></td>
+<td><span class="multi-option-required-data"><span class="data-type">String</span></span></td>
+<td><span class="multi-option-required-data">255</span></td>
 </tr>
 <tr>
-<td><span class="required-data">moxi_works_contact_id</span></td>
-<td><span class="required-data"><span class="data-type">String</span></span></td>
-<td><span class="required-data">255</span></td>
+<td><span class="multi-option-required-data">moxi_works_contact_id †</span></td>
+<td><span class="multi-option-required-data"><span class="data-type">String</span></span></td>
+<td><span class="multi-option-required-data">255</span></td>
 </tr>
 </tbody></table>
 
@@ -10043,6 +10171,8 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 
 <p><span class="request-data-head">moxi_works_agent_id</span>
 <span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>Contact</span> entry is associated with. This will be a string that may take the form of an email address, or a unique identification string. This data is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>Contact</span> <span class='action-name'>Show</span>  request to be accepted.</span></p>
+
+<aside class="note">A company&rsquo;s internal agent id may be used to construct the agent&rsquo;s unique identification string. To do so, the value passed via the moxi_works_agent_id should be a single concatenated string, of the form:</br>[moxi_works_company_id]:[internal_agent_id]</br>Use <a href='#company'>Company Endpoint</a> to determine which moxi_works_company_id to use.</aside>
 
 <p><span class="request-data-head">moxi_works_contact_id</span>
 <span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Contact</span> which this <span class='entity-name'>Contact</span> entry is associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID. This data is required and must reference a valid Moxi Works <span class='entity-name'>Contact</span> ID for your <span class='entity-name'>Contact</span> <span class='action-name'>Show</span>  request to be accepted. This is the same as the <span class='attribute-name'>moxi_works_contact_id</span> attribute of the  <span class='entity-name'>Contact</span> response.</span></p>
@@ -10795,6 +10925,8 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 
 <p><span class="request-data-head">moxi_works_agent_id</span>
 <span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>Contact</span> entry is associated with. This will be a string that may take the form of an email address, or a unique identification string. This data is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>Contact</span> <span class='action-name'>Index</span>  request to be accepted.</span></p>
+
+<aside class="note">A company&rsquo;s internal agent id may be used to construct the agent&rsquo;s unique identification string. To do so, the value passed via the moxi_works_agent_id should be a single concatenated string, of the form:</br>[moxi_works_company_id]:[internal_agent_id]</br>Use <a href='#company'>Company Endpoint</a> to determine which moxi_works_company_id to use.</aside>
 
 <p><span class="request-data-head">contact_name</span>
 <span class="request-data-remarks">The full name of the contact which you are trying to find the <span class='entity-name'>Contact</span> record for.</span></p>
@@ -11701,18 +11833,20 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 <td><span class="multi-option-required-data">255</span></td>
 </tr>
 <tr>
-<td><span class="optional-data">moxi_works_contact_id</span></td>
+<td><span class="optional-data">moxi_works_contact_id †</span></td>
 <td><span class="optional-data"><span class="data-type">String</span></span></td>
 <td><span class="optional-data">255</span></td>
 </tr>
 <tr>
-<td><span class="optional-data">partner_contact_id</span></td>
+<td><span class="optional-data">partner_contact_id †</span></td>
 <td><span class="optional-data"><span class="data-type">String</span></span></td>
 <td><span class="optional-data">255</span></td>
 </tr>
 </tbody></table>
 
 <p><span class="multi-option-required-data">* <strong>Either <span class='attribute-name'>moxi_works_agent_id</span> or <span class='attribute-name'>agent_uuid</span> must be supplied. For guidance on which Agent identifier better fits your use-case, see <a href="#agent-identifiers">Agent Identifiers</a></strong></span></p>
+
+<p><span class="multi-option-required-data"> † Either <span class='attribute-name'>moxi_works_contact_id</span> or <span class='attribute-name'>partner_contact_id</span> may be supplied, but not both.</span></p>
 
 <p><span class="required-data"><strong>Required Parameters Are In Red</strong></span></p>
 
@@ -11721,6 +11855,8 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 
 <p><span class="request-data-head">moxi_works_agent_id</span>
 <span class="request-data-remarks">This is the Moxi Works Platform ID of the agent which an <span class='entity-name'>EmailCampaign</span> entry is associated with. This will be a string that may take the form of an email address, or a unique identification string. This data is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>EmailCampaign</span> request to be accepted.</span></p>
+
+<aside class="note">A company&rsquo;s internal agent id may be used to construct the agent&rsquo;s unique identification string. To do so, the value passed via the moxi_works_agent_id should be a single concatenated string, of the form:</br>[moxi_works_company_id]:[internal_agent_id]</br>Use <a href='#company'>Company Endpoint</a> to determine which moxi_works_company_id to use.</aside>
 
 <p><span class="request-data-head">moxi_works_contact_id</span>
 <span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Contact</span> which this <span class='entity-name'>EmailCompaign</span> object is to be associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID. This data must reference a valid Moxi Works <span class='entity-name'>Contact</span> ID for your <span class='entity-name'>EmailCampaign</span> <span class='action-name'>Index</span>  request to be accepted. This is the same as the <span class='attribute-name'>moxi_works_contact_id</span> attribute of the  <span class='entity-name'>Contact</span> response.</span></p>
@@ -12168,14 +12304,16 @@ attendees=&amp;note=here%20is%20the%20note
 <p><span class="request-data-head">agent_uuid</span>
 <span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which an  <span class='entity-name'>Event</span> entry is associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID. <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>Event</span> <span class='action-name'>Create</span> request to be accepted.</span></p>
 
+<p><span class="request-data-head">moxi_works_agent_id</span>
+<span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>Event</span> is to be associated with. This will be a string that may take the form of an email address, or a unique identification string. This data is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>Event</span> <span class='action-name'>Create</span>  request to be accepted.</span></p>
+
+<aside class="note">A company&rsquo;s internal agent id may be used to construct the agent&rsquo;s unique identification string. To do so, the value passed via the moxi_works_agent_id should be a single concatenated string, of the form:</br>[moxi_works_company_id]:[internal_agent_id]</br>Use <a href='#company'>Company Endpoint</a> to determine which moxi_works_company_id to use.</aside>
+
 <p><span class="request-data-head">event_subject</span>
 <span class="request-data-remarks">This is a short, descriptive, human readable phrase to be displayed to the agent which lets them know what this <span class='entity-name'>Event</span> regards.</span></p>
 
 <p><span class="request-data-head">event_location</span>
 <span class="request-data-remarks">This is a human readable locatition reference regarding where the event is located that will be meaningful to the agent.</span></p>
-
-<p><span class="request-data-head">moxi_works_agent_id</span>
-<span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>Event</span> is to be associated with. This will be a string that may take the form of an email address, or a unique identification string. This data is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>Event</span> <span class='action-name'>Create</span>  request to be accepted.</span></p>
 
 <p><span class="request-data-head">send_reminder</span>
 <span class="request-data-remarks">Whether to send a reminder about the event to attendees before the event starts.</span></p>
@@ -12673,14 +12811,16 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <p><span class="request-data-head">agent_uuid</span>
 <span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which an  <span class='entity-name'>Event</span> entry is associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID. <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>Event</span> <span class='action-name'>Create</span> request to be accepted.</span></p>
 
+<p><span class="request-data-head">moxi_works_agent_id</span>
+<span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>Event</span> is to be associated with. This will be a string that may take the form of an email address, or a unique identification string. This data is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>Event</span> <span class='action-name'>Create</span>  request to be accepted.</span></p>
+
+<aside class="note">A company&rsquo;s internal agent id may be used to construct the agent&rsquo;s unique identification string. To do so, the value passed via the moxi_works_agent_id should be a single concatenated string, of the form:</br>[moxi_works_company_id]:[internal_agent_id]</br>Use <a href='#company'>Company Endpoint</a> to determine which moxi_works_company_id to use.</aside>
+
 <p><span class="request-data-head">event_subject</span>
 <span class="request-data-remarks">This is a short, descriptive, human readable phrase to be displayed to the agent which lets them know what this <span class='entity-name'>Event</span> regards.</span></p>
 
 <p><span class="request-data-head">event_location</span>
 <span class="request-data-remarks">This is a human readable locatition reference regarding where the event is located that will be meaningful to the agent.</span></p>
-
-<p><span class="request-data-head">moxi_works_agent_id</span>
-<span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>Event</span> is to be associated with. This will be a string that may take the form of an email address, or a unique identification string. This data is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>Event</span> <span class='action-name'>Create</span>  request to be accepted.</span></p>
 
 <p><span class="request-data-head">send_reminder</span>
 <span class="request-data-remarks">Whether to send a reminder about the event to attendees before the event starts.</span></p>
@@ -13023,6 +13163,8 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <p><span class="request-data-head">moxi_works_agent_id</span>
 <span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which the <span class='entity-name'>Event</span> is associated with. This will be a string that may take the form of an email address, or a unique identification string. This data is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>Event</span> <span class='action-name'>Show</span>  request to be accepted.</span></p>
 
+<aside class="note">A company&rsquo;s internal agent id may be used to construct the agent&rsquo;s unique identification string. To do so, the value passed via the moxi_works_agent_id should be a single concatenated string, of the form:</br>[moxi_works_company_id]:[internal_agent_id]</br>Use <a href='#company'>Company Endpoint</a> to determine which moxi_works_company_id to use.</aside>
+
 <p><span class="request-data-head">partner_event_id</span>
 <span class="request-data-remarks">This is the unique identifer you use in your system that has been associated with the <span class='entity-name'>Event</span> that you are searching for.</span></p>
 
@@ -13354,6 +13496,8 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 
 <p><span class="request-data-head">moxi_works_agent_id</span>
 <span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which you are searching for associated <span class='entity-name'>Event</span> objects. This will be a string that may take the form of an email address, or a unique identification string. This data is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>Event</span> <span class='action-name'>Index</span>  request to be accepted.</span></p>
+
+<aside class="note">A company&rsquo;s internal agent id may be used to construct the agent&rsquo;s unique identification string. To do so, the value passed via the moxi_works_agent_id should be a single concatenated string, of the form:</br>[moxi_works_company_id]:[internal_agent_id]</br>Use <a href='#company'>Company Endpoint</a> to determine which moxi_works_company_id to use.</aside>
 
 <p><span class="request-data-head">date_start</span>
 <span class="request-data-remarks">This is the earliest time that you are searching for an <span class='entity-name'>Event</span> to be in. This data is required and must be a Unix timestamp before <span class='attribute-name'>date_end</span>.</span></p>
@@ -13773,6 +13917,8 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <p><span class="request-data-head">moxi_works_agent_id</span>
 <span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which you are searching for associated <span class='entity-name'>Event</span> objects. This will be a string that may take the form of an email address, or a unique identification string. This data is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>Event</span> <span class='action-name'>Delete</span>  request to be accepted.</span></p>
 
+<aside class="note">A company&rsquo;s internal agent id may be used to construct the agent&rsquo;s unique identification string. To do so, the value passed via the moxi_works_agent_id should be a single concatenated string, of the form:</br>[moxi_works_company_id]:[internal_agent_id]</br>Use <a href='#company'>Company Endpoint</a> to determine which moxi_works_company_id to use.</aside>
+
 <p><span class="request-data-head">partner_event_id</span>
 <span class="request-data-remarks">This is the unique identifer you use in your system that has been associated with the <span class='entity-name'>Event</span>. This data is required and must reference a previously created <span class='entity-name'>Event</span> you have created on The Moxi Works Platform.</span></p>
 
@@ -13994,6 +14140,8 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <p><span class="request-data-head">moxi_works_agent_id</span>
 <span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which you are searching for associated <span class='entity-name'>gallery</span> objects. This will be a string that may take the form of an email address, or a unique identification string. This data is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>gallery</span> <span class='action-name'>Index</span>  request to be accepted.</span></p>
 
+<aside class="note">A company&rsquo;s internal agent id may be used to construct the agent&rsquo;s unique identification string. To do so, the value passed via the moxi_works_agent_id should be a single concatenated string, of the form:</br>[moxi_works_company_id]:[internal_agent_id]</br>Use <a href='#company'>Company Endpoint</a> to determine which moxi_works_company_id to use.</aside>
+
 <p><span class="request-data-head">moxi_works_company_id</span>
 <span class="request-data-remarks">A valid Moxi Works <span class='entity-name'>Company</span> ID. Use <a href="#company">Company Endpoint</a> to determine what <span class='attribute-name'>moxi_works_company_id</span> you can use.</span></p>
 
@@ -14083,24 +14231,24 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 </tr>
 </thead><tbody>
 <tr>
-<td><span class="response-data">ThumbURL</span></td>
-<td><span class="response-data"><span class="data-type">String</span></td>
-</tr>
-<tr>
-<td><span class="response-data">SmallURL</span></td>
-<td><span class="response-data"><span class="data-type">String</span></td>
-</tr>
-<tr>
 <td><span class="response-data">FullURL</span></td>
-<td><span class="response-data"><span class="data-type">String</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
 </tr>
 <tr>
 <td><span class="response-data">GalleryURL</span></td>
-<td><span class="response-data"><span class="data-type">String</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
 </tr>
 <tr>
 <td><span class="response-data">RawURL</span></td>
-<td><span class="response-data"><span class="data-type">String</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">SmallURL</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">ThumbURL</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
 </tr>
 <tr>
 <td><span class="response-data">Title</span></td>
@@ -14136,12 +14284,6 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 </tr>
 </tbody></table>
 
-<p><span class="response-data-head">ThumbURL</span>
-<span class="response-data-remarks">This is a valid URL that can be used for <code class="prettyprint">img src</code> to a thumbnail sized representation of the image. This is the smallest size image returned in each object in the <span class='attribute-name'>ListingImages</span> array.</span></p>
-
-<p><span class="response-data-head">SmallURL</span>
-<span class="response-data-remarks">This is a valid URL that can be used for <code class="prettyprint">img src</code> to a small sized representation of the image. This is the small size image returned in each object in the <span class='attribute-name'>ListingImages</span> array.</span></p>
-
 <p><span class="response-data-head">FullURL</span>
 <span class="response-data-remarks">This is a valid URL that can be used for <code class="prettyprint">img src</code> to a medium sized representation of the image. This is the medium size image returned in each object in the <span class='attribute-name'>ListingImages</span> array.</span></p>
 
@@ -14150,6 +14292,12 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 
 <p><span class="response-data-head">RawURL</span>
 <span class="response-data-remarks">This is a valid URL to the raw image as uploaded. This is the largest size image returned in each object in the <span class='attribute-name'>ListingImages</span> array. Due to variation in size, this image should not be considered for use when displaying images rendered in a browser.</span></p>
+
+<p><span class="response-data-head">SmallURL</span>
+<span class="response-data-remarks">This is a valid URL that can be used for <code class="prettyprint">img src</code> to a small sized representation of the image. This is the small size image returned in each object in the <span class='attribute-name'>ListingImages</span> array.</span></p>
+
+<p><span class="response-data-head">ThumbURL</span>
+<span class="response-data-remarks">This is a valid URL that can be used for <code class="prettyprint">img src</code> to a thumbnail sized representation of the image. This is the smallest size image returned in each object in the <span class='attribute-name'>ListingImages</span> array.</span></p>
 
 <p><span class="response-data-head">Title</span>
 <span class="response-data-remarks">Human readable title of image.</span></p>
@@ -14348,6 +14496,8 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 
 <p><span class="request-data-head">moxi_works_agent_id</span>
 <span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which you are searching for associated <span class='entity-name'>Group</span> objects. This will be a string that may take the form of an email address, or a unique identification string. This data is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>Group</span> <span class='action-name'>Index</span>  request to be accepted.</span></p>
+
+<aside class="note">A company&rsquo;s internal agent id may be used to construct the agent&rsquo;s unique identification string. To do so, the value passed via the moxi_works_agent_id should be a single concatenated string, of the form:</br>[moxi_works_company_id]:[internal_agent_id]</br>Use <a href='#company'>Company Endpoint</a> to determine which moxi_works_company_id to use.</aside>
 
 <p><span class="request-data-head">moxi_works_group_id</span>
 <span class="request-data-remarks">This is the name of a <span class='entity-name'>Group</span> to be shown</span></p>
@@ -14836,6 +14986,8 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <p><span class="request-data-head">moxi_works_agent_id</span>
 <span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which you are searching for associated <span class='entity-name'>Group</span> objects. This will be a string that may take the form of an email address, or a unique identification string. This data is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>Group</span> <span class='action-name'>Index</span>  request to be accepted.</span></p>
 
+<aside class="note">A company&rsquo;s internal agent id may be used to construct the agent&rsquo;s unique identification string. To do so, the value passed via the moxi_works_agent_id should be a single concatenated string, of the form:</br>[moxi_works_company_id]:[internal_agent_id]</br>Use <a href='#company'>Company Endpoint</a> to determine which moxi_works_company_id to use.</aside>
+
 <p><span class="request-data-head">name</span>
 <span class="request-data-remarks">This is the name of a <span class='entity-name'>Group</span> to be searched for.</span></p>
 
@@ -14936,6 +15088,10 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
   </span><span class="nt">"moxi_works_company_id"</span><span class="p">:</span><span class="s2">"bobs_better_houses"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"listing"</span><span class="p">:{</span><span class="w">
     </span><span class="nt">"VirtualTourURL"</span><span class="p">:</span><span class="s2">"http://here.com"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"SharedPartnerData"</span><span class="p">:{</span><span class="w">
+    </span><span class="nt">"attribute_1"</span><span class="p">:</span><span class="s2">"value_1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"attribute_2"</span><span class="p">:</span><span class="s2">"value_2"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
@@ -14964,8 +15120,12 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
         <span class="ss">moxi_works_company_id: </span><span class="s2">"abc123"</span><span class="p">,</span>
         <span class="ss">listing: </span><span class="p">{</span>
           <span class="no">VirtualTourURL</span><span class="p">:</span> <span class="s2">"http://virtualtourdomainurlthing.com"</span>
+        <span class="p">},</span>
+        <span class="no">SharedPartnerData</span><span class="p">:</span> <span class="p">{</span>
+          <span class="ss">attribute_1: </span><span class="s2">"value_1"</span><span class="p">,</span>
+          <span class="ss">attribute_2: </span><span class="s2">"value_2"</span>
         <span class="p">}</span>
-        <span class="p">)</span>
+      <span class="p">)</span>
 
 </code></pre>
 
@@ -15008,6 +15168,8 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 </code></pre>
 
 <aside class="note">Send a <b>PUT</b> request to https://api.moxiworks.com/api/listings/[moxi_works_listing_id]</aside>
+
+<aside class="warning">MoxiWorks API will override all existing data for updatable attributes passed into this update request. As such, any data that is not intended to be removed should be included in the attribute value in your update request.</aside>
 
 <p>When updating <span class='entity-name'>Listing</span> objects using the Moxi Works platform API, format your data using the following parameters.</p>
 
@@ -15108,6 +15270,10 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
   </span><span class="nt">"MoxiWorksListingId"</span><span class="p">:</span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"AgentCreatedListing"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="nt">"VirtualTourURL"</span><span class="p">:</span><span class="s2">"http://the.virtual.tour.url"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"SharedPartnerData"</span><span class="p">:{</span><span class="w">
+     </span><span class="nt">"attribute_1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"value_1"</span><span class="p">,</span><span class="w">
+     </span><span class="nt">"attribute_2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"value_2"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
   </span><span class="nt">"ListingURL"</span><span class="p">:</span><span class="s2">"http://the.listing.url"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"PropertyFeatures"</span><span class="p">:[</span><span class="w">
     </span><span class="p">{</span><span class="w">
@@ -15434,6 +15600,10 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <td><span class="response-data"><span class="data-type">String or null</span></td>
 </tr>
 <tr>
+<td><span class="response-data">SharedPartnerData</span></td>
+<td><span class="response-data"><span class="data-type">Hash</span></td>
+</tr>
+<tr>
 <td><span class="response-data">ListingURL</span></td>
 <td><span class="response-data"><span class="data-type">String or null</span></td>
 </tr>
@@ -15620,6 +15790,9 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <p><span class="response-data-head">VirtualTourURL</span>
 <span class="response-data-remarks">Virtual tour URL for this listing.</span></p>
 
+<p><span class="response-data-head">SharedPartnerData</span>
+<span class="response-data-remarks">A hash containing data shared between MoxiWorks affiliates.</span></p>
+
 <p><span class="response-data-head">ListingURL</span>
 <span class="response-data-remarks">Details URL for this listing.</span></p>
 
@@ -15731,24 +15904,24 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 </tr>
 </thead><tbody>
 <tr>
-<td><span class="response-data">ThumbURL</span></td>
-<td><span class="response-data"><span class="data-type">String</span></td>
-</tr>
-<tr>
-<td><span class="response-data">SmallURL</span></td>
-<td><span class="response-data"><span class="data-type">String</span></td>
-</tr>
-<tr>
 <td><span class="response-data">FullURL</span></td>
-<td><span class="response-data"><span class="data-type">String</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
 </tr>
 <tr>
 <td><span class="response-data">GalleryURL</span></td>
-<td><span class="response-data"><span class="data-type">String</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
 </tr>
 <tr>
 <td><span class="response-data">RawURL</span></td>
-<td><span class="response-data"><span class="data-type">String</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">SmallURL</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">ThumbURL</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
 </tr>
 <tr>
 <td><span class="response-data">Title</span></td>
@@ -15778,13 +15951,11 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <td><span class="response-data">MimeType</span></td>
 <td><span class="response-data"><span class="data-type">String</span></td>
 </tr>
+<tr>
+<td><span class="response-data">EmbededHTMLContent</span></td>
+<td><span class="response-data"><span class="data-type">String</span></td>
+</tr>
 </tbody></table>
-
-<p><span class="response-data-head">ThumbURL</span>
-<span class="response-data-remarks">This is a valid URL that can be used for <code class="prettyprint">img src</code> to a thumbnail sized representation of the image. This is the smallest size image returned in each object in the <span class='attribute-name'>ListingImages</span> array.</span></p>
-
-<p><span class="response-data-head">SmallURL</span>
-<span class="response-data-remarks">This is a valid URL that can be used for <code class="prettyprint">img src</code> to a small sized representation of the image. This is the small size image returned in each object in the <span class='attribute-name'>ListingImages</span> array.</span></p>
 
 <p><span class="response-data-head">FullURL</span>
 <span class="response-data-remarks">This is a valid URL that can be used for <code class="prettyprint">img src</code> to a medium sized representation of the image. This is the medium size image returned in each object in the <span class='attribute-name'>ListingImages</span> array.</span></p>
@@ -15794,6 +15965,12 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 
 <p><span class="response-data-head">RawURL</span>
 <span class="response-data-remarks">This is a valid URL to the raw image as uploaded. This is the largest size image returned in each object in the <span class='attribute-name'>ListingImages</span> array. Due to variation in size, this image should not be considered for use when displaying images rendered in a browser.</span></p>
+
+<p><span class="response-data-head">SmallURL</span>
+<span class="response-data-remarks">This is a valid URL that can be used for <code class="prettyprint">img src</code> to a small sized representation of the image. This is the small size image returned in each object in the <span class='attribute-name'>ListingImages</span> array.</span></p>
+
+<p><span class="response-data-head">ThumbURL</span>
+<span class="response-data-remarks">This is a valid URL that can be used for <code class="prettyprint">img src</code> to a thumbnail sized representation of the image. This is the smallest size image returned in each object in the <span class='attribute-name'>ListingImages</span> array.</span></p>
 
 <p><span class="response-data-head">Title</span>
 <span class="response-data-remarks">Human readable title of image.</span></p>
@@ -15815,6 +15992,9 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 
 <p><span class="response-data-head">MimeType</span>
 <span class="response-data-remarks">MIME or media type of the image.</span></p>
+
+<p><span class="response-data-head">EmbededHTMLContent</span>
+<span class="response-data-remarks">Embedded HTML that can be placed into a webpage &ndash; this will be used for embedded movies.</span></p>
 
 
 <h4 id="listing-show"><span class='entity-name'>Listing</span> <span class='action-name'>Show  </span></h4>
@@ -15983,6 +16163,10 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
   </span><span class="nt">"MoxiWorksListingId"</span><span class="p">:</span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"AgentCreatedListing"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="nt">"VirtualTourURL"</span><span class="p">:</span><span class="s2">"http://the.virtual.tour.url"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"SharedPartnerData"</span><span class="p">:{</span><span class="w">
+     </span><span class="nt">"attribute_1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"value_1"</span><span class="p">,</span><span class="w">
+     </span><span class="nt">"attribute_2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"value_2"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
   </span><span class="nt">"ListingURL"</span><span class="p">:</span><span class="s2">"http://the.listing.url"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"PropertyFeatures"</span><span class="p">:[</span><span class="w">
     </span><span class="p">{</span><span class="w">
@@ -16049,8 +16233,8 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
       </span><span class="nt">"Height"</span><span class="p">:</span><span class="mi">768</span><span class="p">,</span><span class="w">
       </span><span class="nt">"MimeType"</span><span class="p">:</span><span class="s2">"image/jpeg"</span><span class="w">
       </span><span class="p">}</span><span class="w">
-  </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+</span><span class="err">}</span><span class="w">
 </span></code></pre>
 
 <blockquote><div class='highlight json' style="display: block">
@@ -16306,7 +16490,11 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 </tr>
 <tr>
 <td><span class="response-data">VirtualTourURL</span></td>
-<td><span class="response-data"><span class="data-type">Boolean</span></td>
+<td><span class="response-data"><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">SharedPartnerData</span></td>
+<td><span class="response-data"><span class="data-type">Hash</span></td>
 </tr>
 <tr>
 <td><span class="response-data">ListingURL</span></td>
@@ -16495,6 +16683,9 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <p><span class="response-data-head">VirtualTourURL</span>
 <span class="response-data-remarks">Virtual tour URL for this listing.</span></p>
 
+<p><span class="response-data-head">SharedPartnerData</span>
+<span class="response-data-remarks">A hash containing data shared between MoxiWorks affiliates.</span></p>
+
 <p><span class="response-data-head">ListingURL</span>
 <span class="response-data-remarks">Details URL for this listing.</span></p>
 
@@ -16606,24 +16797,24 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 </tr>
 </thead><tbody>
 <tr>
-<td><span class="response-data">ThumbURL</span></td>
-<td><span class="response-data"><span class="data-type">String</span></td>
-</tr>
-<tr>
-<td><span class="response-data">SmallURL</span></td>
-<td><span class="response-data"><span class="data-type">String</span></td>
-</tr>
-<tr>
 <td><span class="response-data">FullURL</span></td>
-<td><span class="response-data"><span class="data-type">String</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
 </tr>
 <tr>
 <td><span class="response-data">GalleryURL</span></td>
-<td><span class="response-data"><span class="data-type">String</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
 </tr>
 <tr>
 <td><span class="response-data">RawURL</span></td>
-<td><span class="response-data"><span class="data-type">String</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">SmallURL</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">ThumbURL</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
 </tr>
 <tr>
 <td><span class="response-data">Title</span></td>
@@ -16653,13 +16844,11 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <td><span class="response-data">MimeType</span></td>
 <td><span class="response-data"><span class="data-type">String</span></td>
 </tr>
+<tr>
+<td><span class="response-data">EmbededHTMLContent</span></td>
+<td><span class="response-data"><span class="data-type">String</span></td>
+</tr>
 </tbody></table>
-
-<p><span class="response-data-head">ThumbURL</span>
-<span class="response-data-remarks">This is a valid URL that can be used for <code class="prettyprint">img src</code> to a thumbnail sized representation of the image. This is the smallest size image returned in each object in the <span class='attribute-name'>ListingImages</span> array.</span></p>
-
-<p><span class="response-data-head">SmallURL</span>
-<span class="response-data-remarks">This is a valid URL that can be used for <code class="prettyprint">img src</code> to a small sized representation of the image. This is the small size image returned in each object in the <span class='attribute-name'>ListingImages</span> array.</span></p>
 
 <p><span class="response-data-head">FullURL</span>
 <span class="response-data-remarks">This is a valid URL that can be used for <code class="prettyprint">img src</code> to a medium sized representation of the image. This is the medium size image returned in each object in the <span class='attribute-name'>ListingImages</span> array.</span></p>
@@ -16669,6 +16858,12 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 
 <p><span class="response-data-head">RawURL</span>
 <span class="response-data-remarks">This is a valid URL to the raw image as uploaded. This is the largest size image returned in each object in the <span class='attribute-name'>ListingImages</span> array. Due to variation in size, this image should not be considered for use when displaying images rendered in a browser.</span></p>
+
+<p><span class="response-data-head">SmallURL</span>
+<span class="response-data-remarks">This is a valid URL that can be used for <code class="prettyprint">img src</code> to a small sized representation of the image. This is the small size image returned in each object in the <span class='attribute-name'>ListingImages</span> array.</span></p>
+
+<p><span class="response-data-head">ThumbURL</span>
+<span class="response-data-remarks">This is a valid URL that can be used for <code class="prettyprint">img src</code> to a thumbnail sized representation of the image. This is the smallest size image returned in each object in the <span class='attribute-name'>ListingImages</span> array.</span></p>
 
 <p><span class="response-data-head">Title</span>
 <span class="response-data-remarks">Human readable title of image.</span></p>
@@ -16690,6 +16885,9 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 
 <p><span class="response-data-head">MimeType</span>
 <span class="response-data-remarks">MIME or media type of the image.</span></p>
+
+<p><span class="response-data-head">EmbededHTMLContent</span>
+<span class="response-data-remarks">Embedded HTML that can be placed into a webpage &ndash; this will be used for embedded movies.</span></p>
 
 
 <h4 id="listing-index"><span class='entity-name'>Listing</span> <span class='action-name'>Index  </span></h4>
@@ -16878,6 +17076,11 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <td><span class="data-type">String</span></td>
 <td>255</td>
 </tr>
+<tr>
+<td><span class="optional-data">shared_partner_data_updated_since</span></td>
+<td><span class="data-type">Integer</span></td>
+<td>255</td>
+</tr>
 </tbody></table>
 
 <p><span class="required-data"><strong>Required Parameters Are In Red</strong></span></p>
@@ -16896,11 +17099,16 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <p><span class="request-data-head">moxi_works_agent_id</span>
 <span class="request-data-remarks">Use this parameter when searching for <span class='entity-name'>Listing</span> objects associated with a specific <span class='entity-name'>Agent</span>.  This will be a string that may take the form of an email address, or a unique identification string. This data must reference a valid Moxi Works Agent ID for your <span class='entity-name'>Listing</span> <span class='action-name'>Index</span>  request to be accepted.</span></p>
 
+<aside class="note">A company&rsquo;s internal agent id may be used to construct the agent&rsquo;s unique identification string. To do so, the value passed via the moxi_works_agent_id should be a single concatenated string, of the form:</br>[moxi_works_company_id]:[internal_agent_id]</br>Use <a href='#company'>Company Endpoint</a> to determine which moxi_works_company_id to use.</aside>
+
 <p><span class="request-data-head">moxi_works_office_id</span>
 <span class="request-data-remarks">Use this parameter when searching for <span class='entity-name'>Listing</span> objects associated with a specific <span class='entity-name'>Office</span>.  This data must reference a valid Moxi Works Office ID for your <span class='entity-name'>Listing</span> <span class='action-name'>Index</span>  request to be accepted.</span></p>
 
 <p><span class="request-data-head">last_moxi_works_listing_id</span>
 <span class="request-data-remarks">If fetching a multi-page response, this should be the <span class='attribute-name'>MoxiWorksListingId</span> found in the last <span class='entity-name'>Listing</span> object of the previously fetched page.</span></p>
+
+<p><span class="request-data-head">shared_partner_data_updated_since</span>
+<span class="request-data-remarks">Filter listings using this unix timestamp representing the date since partner data has been updated. This attribute should be used in conjuncion with the <span class='attribute-name'>updated_since</span> attribute.</span></p>
 
 <blockquote><div class='highlight json' style="display: block">
 <span class='data-example-label'><span class='entity-name'>Listing</span> <span class='action-name'>Index</span> Response Payload Example
@@ -16969,6 +17177,10 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
   </span><span class="nt">"MoxiWorksListingId"</span><span class="p">:</span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"AgentCreatedListing"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="nt">"VirtualTourURL"</span><span class="p">:</span><span class="s2">"http://the.virtual.tour.url"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"SharedPartnerData"</span><span class="p">:{</span><span class="w">
+     </span><span class="nt">"attribute_1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"value_1"</span><span class="p">,</span><span class="w">
+     </span><span class="nt">"attribute_2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"value_2"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
   </span><span class="nt">"ListingURL"</span><span class="p">:</span><span class="s2">"http://the.listing.url"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"PropertyFeatures"</span><span class="p">:[</span><span class="w">
     </span><span class="p">{</span><span class="w">
@@ -17323,6 +17535,10 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <td><span class="response-data"><span class="data-type">String or null</span></td>
 </tr>
 <tr>
+<td><span class="response-data">SharedPartnerData</span></td>
+<td><span class="response-data"><span class="data-type">Hash</span></td>
+</tr>
+<tr>
 <td><span class="response-data">ListingURL</span></td>
 <td><span class="response-data"><span class="data-type">String or null</span></td>
 </tr>
@@ -17509,6 +17725,9 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <p><span class="response-data-head">VirtualTourURL</span>
 <span class="response-data-remarks">Virtual tour URL for this listing.</span></p>
 
+<p><span class="response-data-head">SharedPartnerData</span>
+<span class="response-data-remarks">A hash containing data shared between MoxiWorks affiliates.</span></p>
+
 <p><span class="response-data-head">ListingURL</span>
 <span class="response-data-remarks">Details URL for this listing.</span></p>
 
@@ -17620,14 +17839,6 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 </tr>
 </thead><tbody>
 <tr>
-<td><span class="response-data">ThumbURL</span></td>
-<td><span class="response-data"><span class="data-type">String or null</span></td>
-</tr>
-<tr>
-<td><span class="response-data">SmallURL</span></td>
-<td><span class="response-data"><span class="data-type">String or null</span></td>
-</tr>
-<tr>
 <td><span class="response-data">FullURL</span></td>
 <td><span class="response-data"><span class="data-type">String or null</span></td>
 </tr>
@@ -17637,6 +17848,14 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 </tr>
 <tr>
 <td><span class="response-data">RawURL</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">SmallURL</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">ThumbURL</span></td>
 <td><span class="response-data"><span class="data-type">String or null</span></td>
 </tr>
 <tr>
@@ -17667,13 +17886,11 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <td><span class="response-data">MimeType</span></td>
 <td><span class="response-data"><span class="data-type">String</span></td>
 </tr>
+<tr>
+<td><span class="response-data">EmbededHTMLContent</span></td>
+<td><span class="response-data"><span class="data-type">String</span></td>
+</tr>
 </tbody></table>
-
-<p><span class="response-data-head">ThumbURL</span>
-<span class="response-data-remarks">This is a valid URL that can be used for <code class="prettyprint">img src</code> to a thumbnail sized representation of the image. This is the smallest size image returned in each object in the <span class='attribute-name'>ListingImages</span> array.</span></p>
-
-<p><span class="response-data-head">SmallURL</span>
-<span class="response-data-remarks">This is a valid URL that can be used for <code class="prettyprint">img src</code> to a small sized representation of the image. This is the small size image returned in each object in the <span class='attribute-name'>ListingImages</span> array.</span></p>
 
 <p><span class="response-data-head">FullURL</span>
 <span class="response-data-remarks">This is a valid URL that can be used for <code class="prettyprint">img src</code> to a medium sized representation of the image. This is the medium size image returned in each object in the <span class='attribute-name'>ListingImages</span> array.</span></p>
@@ -17683,6 +17900,12 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 
 <p><span class="response-data-head">RawURL</span>
 <span class="response-data-remarks">This is a valid URL to the raw image as uploaded. This is the largest size image returned in each object in the <span class='attribute-name'>ListingImages</span> array. Due to variation in size, this image should not be considered for use when displaying images rendered in a browser.</span></p>
+
+<p><span class="response-data-head">SmallURL</span>
+<span class="response-data-remarks">This is a valid URL that can be used for <code class="prettyprint">img src</code> to a small sized representation of the image. This is the small size image returned in each object in the <span class='attribute-name'>ListingImages</span> array.</span></p>
+
+<p><span class="response-data-head">ThumbURL</span>
+<span class="response-data-remarks">This is a valid URL that can be used for <code class="prettyprint">img src</code> to a thumbnail sized representation of the image. This is the smallest size image returned in each object in the <span class='attribute-name'>ListingImages</span> array.</span></p>
 
 <p><span class="response-data-head">Title</span>
 <span class="response-data-remarks">Human readable title of image.</span></p>
@@ -17704,6 +17927,9 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 
 <p><span class="response-data-head">MimeType</span>
 <span class="response-data-remarks">MIME or media type of the image.</span></p>
+
+<p><span class="response-data-head">EmbededHTMLContent</span>
+<span class="response-data-remarks">Embedded HTML that can be placed into a webpage &ndash; this will be used for embedded movies.</span></p>
 
 
 <h3 id="office"><span class='entity-name'>Office</span></h3>
@@ -17733,7 +17959,8 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 </code></pre>
 
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"moxi_works_office_id"</span><span class="p">:</span><span class="s2">"deadbeef-sdeadbeef-feed-facedeadbeef"</span><span class="w">
+  </span><span class="nt">"moxi_works_office_id"</span><span class="p">:</span><span class="s2">"deadbeef-sdeadbeef-feed-facedeadbeef"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"moxi_works_company_id"</span><span class="p">:</span><span class="s2">"some_moxi_works_company_id"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
 </span></code></pre>
@@ -17941,6 +18168,14 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <td><span class="response-data">region</span></td>
 <td><span class="data-type">String or null</span></td>
 </tr>
+<tr>
+<td><span class="response-data">created_timestamp</span></td>
+<td><span class="data-type">Integer</span></td>
+</tr>
+<tr>
+<td><span class="response-data">deactivated_timestamp</span></td>
+<td><span class="data-type">Integer or null</span></td>
+</tr>
 </tbody></table>
 
 <p><span class="response-data-head">moxi_works_office_id</span>
@@ -18005,6 +18240,12 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 
 <p><span class="response-data-head">region</span>
 <span class="response-data-remarks">The region the agent&rsquo;s office is in. This can be null if there is no data for this attribute.</span></p>
+
+<p><span class="response-data-head">created_timestamp</span>
+<span class="response-data-remarks">This is the Unix timestamp representing the date that this <span class='entity-name'>Office</span> was created in the MoxiWorks system.</span></p>
+
+<p><span class="response-data-head">deactivated_timestamp</span>
+<span class="response-data-remarks">This is the Unix timestamp representing the date that this <span class='entity-name'>Office</span> was deactivated in the MoxiWorks system. This will be returned null if the office is still active.</span></p>
 
 
 <h4 id="office-index"><span class='entity-name'>Office</span> <span class='action-name'>Index</span></h4>
@@ -18319,6 +18560,14 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <td><span class="response-data">region</span></td>
 <td><span class="data-type">String or null</span></td>
 </tr>
+<tr>
+<td><span class="response-data">created_timestamp</span></td>
+<td><span class="data-type">Integer</span></td>
+</tr>
+<tr>
+<td><span class="response-data">deactivated_timestamp</span></td>
+<td><span class="data-type">Integer or null</span></td>
+</tr>
 </tbody></table>
 
 <p><span class="response-data-head">moxi_works_office_id</span>
@@ -18383,6 +18632,12 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 
 <p><span class="response-data-head">region</span>
 <span class="response-data-remarks">The region the agent&rsquo;s office is in. This can be null if there is no data for this attribute.</span></p>
+
+<p><span class="response-data-head">created_timestamp</span>
+<span class="response-data-remarks">This is the Unix timestamp representing the date that this <span class='entity-name'>Office</span> was created in the MoxiWorks system.</span></p>
+
+<p><span class="response-data-head">deactivated_timestamp</span>
+<span class="response-data-remarks">This is the Unix timestamp representing the date that this <span class='entity-name'>Office</span> was deactivated in the MoxiWorks system. This will be returned null if the office is still active.</span></p>
 
 
 <h3 id="presentationlog"><span class='entity-name'>PresentationLog</span></h3>
@@ -19195,14 +19450,14 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;moxi_works_contact_id=babebe
 <td><span class="multi-option-required-data">255</span></td>
 </tr>
 <tr>
-<td><span class="required-data">moxi_works_contact_id</span></td>
-<td><span class="required-data"><span class="data-type">String</span></span></td>
-<td><span class="required-data">255</span></td>
+<td><span class="multi-option-required-data">moxi_works_contact_id †</span></td>
+<td><span class="multi-option-required-data"><span class="data-type">String</span></span></td>
+<td><span class="multi-option-required-data">255</span></td>
 </tr>
 <tr>
-<td><span class="required-data">partner_contact_id</span></td>
-<td><span class="required-data"><span class="data-type">String</span></span></td>
-<td><span class="required-data">255</span></td>
+<td><span class="multi-option-required-data">partner_contact_id †</span></td>
+<td><span class="multi-option-required-data"><span class="data-type">String</span></span></td>
+<td><span class="multi-option-required-data">255</span></td>
 </tr>
 <tr>
 <td><span class="required-data">transaction_name</span></td>
@@ -19303,6 +19558,8 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;moxi_works_contact_id=babebe
 
 <p><span class="multi-option-required-data">* <strong>Either <span class='attribute-name'>moxi_works_agent_id</span> or <span class='attribute-name'>agent_uuid</span> must be supplied. For guidance on which Agent identifier better fits your use-case, see <a href="#agent-identifiers">Agent Identifiers</a></strong></span></p>
 
+<p><span class="multi-option-required-data"> † Either <span class='attribute-name'>moxi_works_contact_id</span> or <span class='attribute-name'>partner_contact_id</span> must be supplied.</span></p>
+
 <p><span class="required-data"><strong>Required Parameters Are In Red</strong></span></p>
 
 <p><span class="request-data-head">agent_uuid</span>
@@ -19310,6 +19567,8 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;moxi_works_contact_id=babebe
 
 <p><span class="request-data-head">moxi_works_agent_id</span>
 <span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>SellerTransaction</span> object is to be associated with. This will be a string that may take the form of an email address, or a unique identification string. This data is required and must reference a valid Moxi Works <span class='entity-name'>Agent</span> ID for your <span class='entity-name'>SellerTransaction</span> <span class='action-name'>Create</span>  request to be accepted.</span></p>
+
+<aside class="note">A company&rsquo;s internal agent id may be used to construct the agent&rsquo;s unique identification string. To do so, the value passed via the moxi_works_agent_id should be a single concatenated string, of the form:</br>[moxi_works_company_id]:[internal_agent_id]</br>Use <a href='#company'>Company Endpoint</a> to determine which moxi_works_company_id to use.</aside>
 
 <p><span class="request-data-head">moxi_works_contact_id</span>
 <span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Contact</span> which this <span class='entity-name'>SellerTransaction</span> object is to be associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID. This data is required and must reference a valid Moxi Works <span class='entity-name'>Contact</span> ID for your <span class='entity-name'>SellerTransaction</span> <span class='action-name'>Create</span>  request to be accepted. This is the same as the <span class='attribute-name'>moxi_works_contact_id</span> attribute of the  <span class='entity-name'>Contact</span> response.</span></p>
@@ -20216,6 +20475,8 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;beds=12&amp;baths=34.5&amp;n
 <p><span class="request-data-head">moxi_works_agent_id</span>
 <span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>SellerTransaction</span> object is associated with. This will be a string that may take the form of an email address, or a unique identification string. This data is required and must reference a valid Moxi Works <span class='entity-name'>Agent</span> ID for your <span class='entity-name'>SellerTransaction</span> <span class='action-name'>Update</span>  request to be accepted.</span></p>
 
+<aside class="note">A company&rsquo;s internal agent id may be used to construct the agent&rsquo;s unique identification string. To do so, the value passed via the moxi_works_agent_id should be a single concatenated string, of the form:</br>[moxi_works_company_id]:[internal_agent_id]</br>Use <a href='#company'>Company Endpoint</a> to determine which moxi_works_company_id to use.</aside>
+
 <p><span class="request-data-head">moxi_works_transaction_id</span>
 <span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>SellerTransaction</span> object that you are updating. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID. This data is required and must reference a valid Moxi Works <span class='entity-name'>SellerTransaction</span> ID for your <span class='entity-name'>SellerTransaction</span> <span class='action-name'>Update</span>  request to be accepted. You can determine UUIDs of existing <span class='entity-name'>SellerTransaction</span> objects by using the <a href='#sellertransaction-index'><span class='entity-name'>SellerTransaction</span><span class='action-name'>Index</span></a> request.</span></p>
 
@@ -20774,6 +21035,8 @@ moxi_works_agent_id=abc123
 <p><span class="request-data-head">moxi_works_agent_id</span>
 <span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>SellerTransaction</span> object is associated with. This will be a string that may take the form of an email address, or a unique identification string. This data is required and must reference a valid Moxi Works <span class='entity-name'>Agent</span> ID for your <span class='entity-name'>SellerTransaction</span> <span class='action-name'>Show</span>  request to be accepted.</span></p>
 
+<aside class="note">A company&rsquo;s internal agent id may be used to construct the agent&rsquo;s unique identification string. To do so, the value passed via the moxi_works_agent_id should be a single concatenated string, of the form:</br>[moxi_works_company_id]:[internal_agent_id]</br>Use <a href='#company'>Company Endpoint</a> to determine which moxi_works_company_id to use.</aside>
+
 <p><span class="request-data-head">moxi_works_transaction_id</span>
 <span class="requwst-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>SellerTransaction</span>. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID.</span></p>
 
@@ -21232,12 +21495,12 @@ moxi_works_agent_id=abc123
 <td><span class="multi-option-required-data">255</span></td>
 </tr>
 <tr>
-<td><span class="optional-data">moxi_works_contact_id</span></td>
+<td><span class="optional-data">moxi_works_contact_id †</span></td>
 <td><span class="data-type">String</span></td>
 <td>255</td>
 </tr>
 <tr>
-<td><span class="optional-data">partner_contact_id</span></td>
+<td><span class="optional-data">partner_contact_id †</span></td>
 <td><span class="data-type">String</span></td>
 <td>255</td>
 </tr>
@@ -21250,6 +21513,8 @@ moxi_works_agent_id=abc123
 
 <p><span class="multi-option-required-data">* <strong>Either <span class='attribute-name'>moxi_works_agent_id</span> or <span class='attribute-name'>agent_uuid</span> must be supplied. For guidance on which Agent identifier better fits your use-case, see <a href="#agent-identifiers">Agent Identifiers</a></strong></span></p>
 
+<p><span class="multi-option-required-data"> † Either <span class='attribute-name'>moxi_works_contact_id</span> or <span class='attribute-name'>partner_contact_id</span> may be supplied, but not both.</span></p>
+
 <p><span class="required-data"><strong>Required Parameters Are In Red</strong></span></p>
 
 <p><span class="request-data-head">agent_uuid</span>
@@ -21257,6 +21522,8 @@ moxi_works_agent_id=abc123
 
 <p><span class="request-data-head">moxi_works_agent_id</span>
 <span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which the <span class='entity-name'>SellerTransaction</span> objects are associated with. This will be a string that may take the form of an email address, or a unique identification string. This data is required and must reference a valid Moxi Works <span class='entity-name'>Agent</span> ID for your <span class='entity-name'>SellerTransaction</span> <span class='action-name'>Index</span>  request to be accepted.</span></p>
+
+<aside class="note">A company&rsquo;s internal agent id may be used to construct the agent&rsquo;s unique identification string. To do so, the value passed via the moxi_works_agent_id should be a single concatenated string, of the form:</br>[moxi_works_company_id]:[internal_agent_id]</br>Use <a href='#company'>Company Endpoint</a> to determine which moxi_works_company_id to use.</aside>
 
 <p><span class="request-data-head">moxi_works_contact_id</span>
 <span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Contact</span> for which you are searching associated <span class='entity-name'>SellerTransaction</span> objects. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID. You can use either <span class='attribute-name'>moxi_works_contact_id</span> or <span class='action-name'>partner_contact_id</span> when searching for <span class='entity-name'>SellerTransaction</span> objects associated with a specific <span class='entity-name'>Contact</span>.</span></p>
@@ -22457,7 +22724,7 @@ moxi_works_agent_id=abc123
 </tr>
 </thead><tbody>
 <tr>
-<td><span class="response-data">ThumbURL</span></td>
+<td><span class="response-data">FullURL</span></td>
 <td><span class="response-data"><span class="data-type">String or null</span></td>
 </tr>
 <tr>
@@ -22473,7 +22740,7 @@ moxi_works_agent_id=abc123
 <td><span class="response-data"><span class="data-type">String or null</span></td>
 </tr>
 <tr>
-<td><span class="response-data">FullURL</span></td>
+<td><span class="response-data">ThumbURL</span></td>
 <td><span class="response-data"><span class="data-type">String or null</span></td>
 </tr>
 <tr>
@@ -22504,6 +22771,10 @@ moxi_works_agent_id=abc123
 <td><span class="response-data">MimeType</span></td>
 <td><span class="response-data"><span class="data-type">String</span></td>
 </tr>
+<tr>
+<td><span class="response-data">EmbededHTMLContent</span></td>
+<td><span class="response-data"><span class="data-type">String</span></td>
+</tr>
 </tbody></table>
 
 <p><span class="response-data-head">FullURL</span>
@@ -22515,11 +22786,11 @@ moxi_works_agent_id=abc123
 <p><span class="response-data-head">RawURL</span>
 <span class="response-data-remarks">This is a valid URL to the raw image as uploaded. This is the largest size image returned in each object in the <span class='attribute-name'>ListingImages</span> array. Due to variation in size, this image should not be considered for use when displaying images rendered in a browser.</span></p>
 
-<p><span class="response-data-head">ThumbURL</span>
-<span class="response-data-remarks">This is a valid URL that can be used for <code class="prettyprint">img src</code> to a thumbnail sized representation of the image. This is the smallest size image returned in each object in the <span class='attribute-name'>ListingImages</span> array.</span></p>
-
 <p><span class="response-data-head">SmallURL</span>
 <span class="response-data-remarks">This is a valid URL that can be used for <code class="prettyprint">img src</code> to a small sized representation of the image. This is the small size image returned in each object in the <span class='attribute-name'>ListingImages</span> array.</span></p>
+
+<p><span class="response-data-head">ThumbURL</span>
+<span class="response-data-remarks">This is a valid URL that can be used for <code class="prettyprint">img src</code> to a thumbnail sized representation of the image. This is the smallest size image returned in each object in the <span class='attribute-name'>ListingImages</span> array.</span></p>
 
 <p><span class="response-data-head">Title</span>
 <span class="response-data-remarks">Human readable title of image.</span></p>
@@ -22541,6 +22812,9 @@ moxi_works_agent_id=abc123
 
 <p><span class="response-data-head">MimeType</span>
 <span class="response-data-remarks">MIME or media type of the image.</span></p>
+
+<p><span class="response-data-head">EmbededHTMLContent</span>
+<span class="response-data-remarks">Embedded HTML that can be placed into a webpage &ndash; this will be used for embedded movies.</span></p>
 
 
 <h4 id="soldlisting-index"><span class='entity-name'>SoldListing</span> <span class='action-name'>Index  </span></h4>
@@ -22751,6 +23025,8 @@ moxi_works_agent_id=abc123
 
 <p><span class="request-data-head">moxi_works_agent_id</span>
 <span class="request-data-remarks">Use this parameter when searching for <span class='entity-name'>SoldListing</span> objects associated with a specific <span class='entity-name'>Agent</span>.  This will be a string that may take the form of an email address, or a unique identification string. This data must reference a valid Moxi Works Agent ID for your <span class='entity-name'>SoldListing</span> <span class='action-name'>Index</span>  request to be accepted.</span></p>
+
+<aside class="note">A company&rsquo;s internal agent id may be used to construct the agent&rsquo;s unique identification string. To do so, the value passed via the moxi_works_agent_id should be a single concatenated string, of the form:</br>[moxi_works_company_id]:[internal_agent_id]</br>Use <a href='#company'>Company Endpoint</a> to determine which moxi_works_company_id to use.</aside>
 
 <p><span class="request-data-head">moxi_works_office_id</span>
 <span class="request-data-remarks">Use this parameter when searching for <span class='entity-name'>SoldListing</span> objects associated with a specific <span class='entity-name'>Office</span>.  This data must reference a valid Moxi Works Office ID for your <span class='entity-name'>SoldListing</span> <span class='action-name'>Index</span>  request to be accepted.</span></p>
@@ -23546,11 +23822,11 @@ moxi_works_agent_id=abc123
 <td><span class="response-data"><span class="data-type">String or null</span></td>
 </tr>
 <tr>
-<td><span class="response-data">ThumbURL</span></td>
+<td><span class="response-data">SmallURL</span></td>
 <td><span class="response-data"><span class="data-type">String or null</span></td>
 </tr>
 <tr>
-<td><span class="response-data">SmallURL</span></td>
+<td><span class="response-data">ThumbURL</span></td>
 <td><span class="response-data"><span class="data-type">String or null</span></td>
 </tr>
 <tr>
@@ -23581,6 +23857,10 @@ moxi_works_agent_id=abc123
 <td><span class="response-data">MimeType</span></td>
 <td><span class="response-data"><span class="data-type">String</span></td>
 </tr>
+<tr>
+<td><span class="response-data">EmbededHTMLContent</span></td>
+<td><span class="response-data"><span class="data-type">String</span></td>
+</tr>
 </tbody></table>
 
 <p><span class="response-data-head">FullURL</span>
@@ -23592,11 +23872,11 @@ moxi_works_agent_id=abc123
 <p><span class="response-data-head">RawURL</span>
 <span class="response-data-remarks">This is a valid URL to the raw image as uploaded. This is the largest size image returned in each object in the <span class='attribute-name'>ListingImages</span> array. Due to variation in size, this image should not be considered for use when displaying images rendered in a browser.</span></p>
 
-<p><span class="response-data-head">ThumbURL</span>
-<span class="response-data-remarks">This is a valid URL that can be used for <code class="prettyprint">img src</code> to a thumbnail sized representation of the image. This is the smallest size image returned in each object in the <span class='attribute-name'>ListingImages</span> array.</span></p>
-
 <p><span class="response-data-head">SmallURL</span>
 <span class="response-data-remarks">This is a valid URL that can be used for <code class="prettyprint">img src</code> to a small sized representation of the image. This is the small size image returned in each object in the <span class='attribute-name'>ListingImages</span> array.</span></p>
+
+<p><span class="response-data-head">ThumbURL</span>
+<span class="response-data-remarks">This is a valid URL that can be used for <code class="prettyprint">img src</code> to a thumbnail sized representation of the image. This is the smallest size image returned in each object in the <span class='attribute-name'>ListingImages</span> array.</span></p>
 
 <p><span class="response-data-head">Title</span>
 <span class="response-data-remarks">Human readable title of image.</span></p>
@@ -23618,6 +23898,9 @@ moxi_works_agent_id=abc123
 
 <p><span class="response-data-head">MimeType</span>
 <span class="response-data-remarks">MIME or media type of the image.</span></p>
+
+<p><span class="response-data-head">EmbededHTMLContent</span>
+<span class="response-data-remarks">Embedded HTML that can be placed into a webpage &ndash; this will be used for embedded movies.</span></p>
 
 
 <h3 id="task"><span class='entity-name'>Task</span></h3>
@@ -23870,6 +24153,8 @@ moxi_works_agent_id=abc123&amp;description=talk+to+private+kane,%2C+e-one-thousa
 
 <p><span class="request-data-head">moxi_works_agent_id</span>
 <span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>Task</span> object is to be associated with. This will be a string that may take the form of an email address, or a unique identification string. This data is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>Task</span> <span class='action-name'>Create</span>  request to be accepted.</span></p>
+
+<aside class="note">A company&rsquo;s internal agent id may be used to construct the agent&rsquo;s unique identification string. To do so, the value passed via the moxi_works_agent_id should be a single concatenated string, of the form:</br>[moxi_works_company_id]:[internal_agent_id]</br>Use <a href='#company'>Company Endpoint</a> to determine which moxi_works_company_id to use.</aside>
 
 <p><span class="request-data-head">partner_task_id</span>
 <span class="request-data-remarks">This is the unique identifer you use in your system that will be associated with the <span class='entity-name'>Task</span> that you are creating. This data is required and must be a unique ID for your <span class='entity-name'>Task</span> <span class='action-name'>Create</span>  request to be accepted.</span></p>
@@ -24267,6 +24552,8 @@ moxi_works_agent_id=abc123&amp;description=talk+to+private+kane,%2C+e-one-thousa
 <p><span class="request-data-head">moxi_works_agent_id</span>
 <span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>Task</span> object is associated with. This will be a string that may take the form of an email address, or a unique identification string. This data is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>Task</span> <span class='action-name'>Create</span>  request to be accepted.</span></p>
 
+<aside class="note">A company&rsquo;s internal agent id may be used to construct the agent&rsquo;s unique identification string. To do so, the value passed via the moxi_works_agent_id should be a single concatenated string, of the form:</br>[moxi_works_company_id]:[internal_agent_id]</br>Use <a href='#company'>Company Endpoint</a> to determine which moxi_works_company_id to use.</aside>
+
 <p><span class="request-data-head">partner_task_id</span>
 <span class="request-data-remarks">This is the unique identifer you use in your system that is associated with the <span class='entity-name'>Task</span> that you are updating. This data is required and must be a unique ID for your <span class='entity-name'>Task</span> <span class='action-name'>Create</span>  request to be accepted.</span></p>
 
@@ -24597,6 +24884,8 @@ moxi_works_agent_id=abc123&amp;description=talk+to+private+kane,%2C+e-one-thousa
 
 <p><span class="request-data-head">moxi_works_agent_id</span>
 <span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which the <span class='entity-name'>Task</span> objects are associated with. This will be a string that may take the form of an email address, or a unique identification string. This data is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>Task</span> <span class='action-name'>Show</span>  request to be accepted.</span></p>
+
+<aside class="note">A company&rsquo;s internal agent id may be used to construct the agent&rsquo;s unique identification string. To do so, the value passed via the moxi_works_agent_id should be a single concatenated string, of the form:</br>[moxi_works_company_id]:[internal_agent_id]</br>Use <a href='#company'>Company Endpoint</a> to determine which moxi_works_company_id to use.</aside>
 
 <p><span class="request-data-head">partner_task_id</span>
 <span class="request-data-remarks">This is the unique identifer you use in your system that has been associated with the <span class='entity-name'>Task</span>.</span></p>
@@ -25012,6 +25301,8 @@ moxi_works_agent_id=abc123&amp;description=talk+to+private+kane,%2C+e-one-thousa
 
 <p><span class="request-data-head">moxi_works_agent_id</span>
 <span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which the <span class='entity-name'>Task</span> objects are associated with. This will be a string that may take the form of an email address, or a unique identification string. This data is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>Task</span> <span class='action-name'>Index</span>  request to be accepted.</span></p>
+
+<aside class="note">A company&rsquo;s internal agent id may be used to construct the agent&rsquo;s unique identification string. To do so, the value passed via the moxi_works_agent_id should be a single concatenated string, of the form:</br>[moxi_works_company_id]:[internal_agent_id]</br>Use <a href='#company'>Company Endpoint</a> to determine which moxi_works_company_id to use.</aside>
 
 <p><span class="request-data-head">due_date_start</span>
 <span class="request-data-remarks">A Unix timestamp representing the start of a range that you are searching for <span class='entity-name'>Task</span> <span class='attribute-name'>due_date</span> dates to fall in.</span></p>

@@ -537,14 +537,14 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;moxi_works_contact_id=babebe
 <td><span class="multi-option-required-data">255</span></td>
 </tr>
 <tr>
-<td><span class="required-data">moxi_works_contact_id</span></td>
-<td><span class="required-data"><span class="data-type">String</span></span></td>
-<td><span class="required-data">255</span></td>
+<td><span class="multi-option-required-data">moxi_works_contact_id †</span></td>
+<td><span class="multi-option-required-data><span class="data-type">String</span></span></td>
+<td><span class="multi-option-required-data">255</span></td>
 </tr>
 <tr>
-<td><span class="required-data">partner_contact_id</span></td>
-<td><span class="required-data"><span class="data-type">String</span></span></td>
-<td><span class="required-data">255</span></td>
+<td><span class="multi-option-required-data">partner_contact_id †</span></td>
+<td><span class="multi-option-required-data"><span class="data-type">String</span></span></td>
+<td><span class="multi-option-required-data">255</span></td>
 </tr>
 <tr>
 <td><span class="required-data">transaction_name</span></td>
@@ -665,6 +665,8 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;moxi_works_contact_id=babebe
 
 <p><span class="multi-option-required-data">* <strong>Either <span class='attribute-name'>moxi_works_agent_id</span> or <span class='attribute-name'>agent_uuid</span> must be supplied. For guidance on which Agent identifier better fits your use-case, see <a href="#agent-identifiers">Agent Identifiers</a></strong></span></p>
 
+<p><span class="multi-option-required-data"> † Either <span class='attribute-name'>moxi_works_contact_id</span> or <span class='attribute-name'>partner_contact_id</span> must be supplied.</span></p>
+
 <p><span class="required-data"><strong>Required Parameters Are In Red</strong></span></p>
 
 <p><span class="request-data-head">agent_uuid</span>
@@ -672,6 +674,8 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;moxi_works_contact_id=babebe
 
 <p><span class="request-data-head">moxi_works_agent_id</span>
 <span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>BuyerTransaction</span> object is to be associated with. This will be a string that may take the form of an email address, or a unique identification string. <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>BuyerTransaction</span> request to be accepted.</span></p>
+
+<aside class="note">A company&rsquo;s internal agent id may be used to construct the agent&rsquo;s unique identification string. To do so, the value passed via the moxi_works_agent_id should be a single concatenated string, of the form:</br>[moxi_works_company_id]:[internal_agent_id]</br>Use <a href='#company'>Company Endpoint</a> to determine which moxi_works_company_id to use.</aside>
 
 <p><span class="request-data-head">moxi_works_contact_id</span>
 <span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Contact</span> which this <span class='entity-name'>BuyerTransaction</span> object is to be associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID. This data is required and must reference a valid Moxi Works <span class='entity-name'>Contact</span> ID for your <span class='entity-name'>BuyerTransaction</span> <span class='action-name'>Create</span>  request to be accepted. This is the same as the <span class='attribute-name'>moxi_works_contact_id</span> attribute of the  <span class='entity-name'>Contact</span> response.</span></p>
@@ -1713,6 +1717,8 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;min_beds=12&amp;max_beds=34&
 <p><span class="request-data-head">moxi_works_agent_id</span>
 <span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>BuyerTransaction</span> object is associated with. This will be a string that may take the form of an email address, or a unique identification string. This data is required and must reference a valid Moxi Works <span class='entity-name'>Agent</span> ID for your <span class='entity-name'>BuyerTransaction</span> <span class='action-name'>Update</span>  request to be accepted.</span></p>
 
+<aside class="note">A company&rsquo;s internal agent id may be used to construct the agent&rsquo;s unique identification string. To do so, the value passed via the moxi_works_agent_id should be a single concatenated string, of the form:</br>[moxi_works_company_id]:[internal_agent_id]</br>Use <a href='#company'>Company Endpoint</a> to determine which moxi_works_company_id to use.</aside>
+
 <p><span class="request-data-head">moxi_works_transaction_id</span>
 <span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>BuyerTransaction</span> object that you are updating. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID. This data is required and must reference a valid Moxi Works <span class='entity-name'>BuyerTransaction</span> ID for your <span class='entity-name'>BuyerTransaction</span> <span class='action-name'>Update</span>  request to be accepted. You can determine UUIDs of existing <span class='entity-name'>BuyerTransaction</span> objects by using the <a href='#buyertransaction-index'><span class='entity-name'>BuyerTransaction</span><span class='action-name'>Index</span></a> request.</span></p>
 
@@ -2371,6 +2377,8 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab
 <p><span class="request-data-head">moxi_works_agent_id</span>
 <span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>BuyerTransaction</span> object is associated with. This will be a string that may take the form of an email address, or a unique identification string. This data is required and must reference a valid Moxi Works <span class='entity-name'>Agent</span> ID for your <span class='entity-name'>BuyerTransaction</span> <span class='action-name'>Show</span>  request to be accepted.</span></p>
 
+<aside class="note">A company&rsquo;s internal agent id may be used to construct the agent&rsquo;s unique identification string. To do so, the value passed via the moxi_works_agent_id should be a single concatenated string, of the form:</br>[moxi_works_company_id]:[internal_agent_id]</br>Use <a href='#company'>Company Endpoint</a> to determine which moxi_works_company_id to use.</aside>
+
 <p><span class="response-data-head">moxi_works_transaction_id</span>
 <span class="response-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>BuyerTransaction</span>. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID.</span></p>
 
@@ -2925,12 +2933,12 @@ moxi_works_agent_id=abc123
 <td><span class="multi-option-required-data">255</span></td>
 </tr>
 <tr>
-<td><span class="optional-data">moxi_works_contact_id</span></td>
+<td><span class="optional-data">moxi_works_contact_id †</span></td>
 <td><span class="data-type">String</span></td>
 <td>255</td>
 </tr>
 <tr>
-<td><span class="optional-data">partner_contact_id</span></td>
+<td><span class="optional-data">partner_contact_id †</span></td>
 <td><span class="data-type">String</span></td>
 <td>255</td>
 </tr>
@@ -2943,6 +2951,8 @@ moxi_works_agent_id=abc123
 
 <p><span class="multi-option-required-data">* <strong>Either <span class='attribute-name'>moxi_works_agent_id</span> or <span class='attribute-name'>agent_uuid</span> must be supplied. For guidance on which Agent identifier better fits your use-case, see <a href="#agent-identifiers">Agent Identifiers</a></strong></span></p>
 
+<p><span class="multi-option-required-data"> † Either <span class='attribute-name'>moxi_works_contact_id</span> or <span class='attribute-name'>partner_contact_id</span> may be supplied, but not both.</span></p>
+
 <p><span class="required-data"><strong>Required Parameters Are In Red</strong></span></p>
 
 <p><span class="request-data-head">agent_uuid</span>
@@ -2950,6 +2960,8 @@ moxi_works_agent_id=abc123
 
 <p><span class="request-data-head">moxi_works_agent_id</span>
 <span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which the <span class='entity-name'>BuyerTransaction</span> objects are associated with. This will be a string that may take the form of an email address, or a unique identification string. This data is required and must reference a valid Moxi Works <span class='entity-name'>Agent</span> ID for your <span class='entity-name'>BuyerTransaction</span> <span class='action-name'>Index</span>  request to be accepted.</span></p>
+
+<aside class="note">A company&rsquo;s internal agent id may be used to construct the agent&rsquo;s unique identification string. To do so, the value passed via the moxi_works_agent_id should be a single concatenated string, of the form:</br>[moxi_works_company_id]:[internal_agent_id]</br>Use <a href='#company'>Company Endpoint</a> to determine which moxi_works_company_id to use.</aside>
 
 <p><span class="request-data-head">moxi_works_contact_id</span>
 <span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Contact</span> for which you are searching associated <span class='entity-name'>BuyerTransaction</span> objects. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID. You can use either <span class='attribute-name'>moxi_works_contact_id</span> or <span class='action-name'>partner_contact_id</span> when searching for <span class='entity-name'>BuyerTransaction</span> objects associated with a specific <span class='entity-name'>Contact</span>.</span></p>

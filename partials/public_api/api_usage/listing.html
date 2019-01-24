@@ -47,6 +47,10 @@
   </span><span class="nt">"moxi_works_company_id"</span><span class="p">:</span><span class="s2">"bobs_better_houses"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"listing"</span><span class="p">:{</span><span class="w">
     </span><span class="nt">"VirtualTourURL"</span><span class="p">:</span><span class="s2">"http://here.com"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"SharedPartnerData"</span><span class="p">:{</span><span class="w">
+    </span><span class="nt">"attribute_1"</span><span class="p">:</span><span class="s2">"value_1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"attribute_2"</span><span class="p">:</span><span class="s2">"value_2"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
@@ -75,8 +79,12 @@
         <span class="ss">moxi_works_company_id: </span><span class="s2">"abc123"</span><span class="p">,</span>
         <span class="ss">listing: </span><span class="p">{</span>
           <span class="no">VirtualTourURL</span><span class="p">:</span> <span class="s2">"http://virtualtourdomainurlthing.com"</span>
+        <span class="p">},</span>
+        <span class="no">SharedPartnerData</span><span class="p">:</span> <span class="p">{</span>
+          <span class="ss">attribute_1: </span><span class="s2">"value_1"</span><span class="p">,</span>
+          <span class="ss">attribute_2: </span><span class="s2">"value_2"</span>
         <span class="p">}</span>
-        <span class="p">)</span>
+      <span class="p">)</span>
 
 </code></pre>
 
@@ -119,6 +127,8 @@
 </code></pre>
 
 <aside class="note">Send a <b>PUT</b> request to https://api.moxiworks.com/api/listings/[moxi_works_listing_id]</aside>
+
+<aside class="warning">MoxiWorks API will override all existing data for updatable attributes passed into this update request. As such, any data that is not intended to be removed should be included in the attribute value in your update request.</aside>
 
 <p>When updating <span class='entity-name'>Listing</span> objects using the Moxi Works platform API, format your data using the following parameters.</p>
 
@@ -219,6 +229,10 @@
   </span><span class="nt">"MoxiWorksListingId"</span><span class="p">:</span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"AgentCreatedListing"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="nt">"VirtualTourURL"</span><span class="p">:</span><span class="s2">"http://the.virtual.tour.url"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"SharedPartnerData"</span><span class="p">:{</span><span class="w">
+     </span><span class="nt">"attribute_1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"value_1"</span><span class="p">,</span><span class="w">
+     </span><span class="nt">"attribute_2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"value_2"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
   </span><span class="nt">"ListingURL"</span><span class="p">:</span><span class="s2">"http://the.listing.url"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"PropertyFeatures"</span><span class="p">:[</span><span class="w">
     </span><span class="p">{</span><span class="w">
@@ -545,6 +559,10 @@
 <td><span class="response-data"><span class="data-type">String or null</span></td>
 </tr>
 <tr>
+<td><span class="response-data">SharedPartnerData</span></td>
+<td><span class="response-data"><span class="data-type">Hash</span></td>
+</tr>
+<tr>
 <td><span class="response-data">ListingURL</span></td>
 <td><span class="response-data"><span class="data-type">String or null</span></td>
 </tr>
@@ -731,6 +749,9 @@
 <p><span class="response-data-head">VirtualTourURL</span>
 <span class="response-data-remarks">Virtual tour URL for this listing.</span></p>
 
+<p><span class="response-data-head">SharedPartnerData</span>
+<span class="response-data-remarks">A hash containing data shared between MoxiWorks affiliates.</span></p>
+
 <p><span class="response-data-head">ListingURL</span>
 <span class="response-data-remarks">Details URL for this listing.</span></p>
 
@@ -842,24 +863,24 @@
 </tr>
 </thead><tbody>
 <tr>
-<td><span class="response-data">ThumbURL</span></td>
-<td><span class="response-data"><span class="data-type">String</span></td>
-</tr>
-<tr>
-<td><span class="response-data">SmallURL</span></td>
-<td><span class="response-data"><span class="data-type">String</span></td>
-</tr>
-<tr>
 <td><span class="response-data">FullURL</span></td>
-<td><span class="response-data"><span class="data-type">String</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
 </tr>
 <tr>
 <td><span class="response-data">GalleryURL</span></td>
-<td><span class="response-data"><span class="data-type">String</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
 </tr>
 <tr>
 <td><span class="response-data">RawURL</span></td>
-<td><span class="response-data"><span class="data-type">String</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">SmallURL</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">ThumbURL</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
 </tr>
 <tr>
 <td><span class="response-data">Title</span></td>
@@ -889,13 +910,11 @@
 <td><span class="response-data">MimeType</span></td>
 <td><span class="response-data"><span class="data-type">String</span></td>
 </tr>
+<tr>
+<td><span class="response-data">EmbededHTMLContent</span></td>
+<td><span class="response-data"><span class="data-type">String</span></td>
+</tr>
 </tbody></table>
-
-<p><span class="response-data-head">ThumbURL</span>
-<span class="response-data-remarks">This is a valid URL that can be used for <code class="prettyprint">img src</code> to a thumbnail sized representation of the image. This is the smallest size image returned in each object in the <span class='attribute-name'>ListingImages</span> array.</span></p>
-
-<p><span class="response-data-head">SmallURL</span>
-<span class="response-data-remarks">This is a valid URL that can be used for <code class="prettyprint">img src</code> to a small sized representation of the image. This is the small size image returned in each object in the <span class='attribute-name'>ListingImages</span> array.</span></p>
 
 <p><span class="response-data-head">FullURL</span>
 <span class="response-data-remarks">This is a valid URL that can be used for <code class="prettyprint">img src</code> to a medium sized representation of the image. This is the medium size image returned in each object in the <span class='attribute-name'>ListingImages</span> array.</span></p>
@@ -905,6 +924,12 @@
 
 <p><span class="response-data-head">RawURL</span>
 <span class="response-data-remarks">This is a valid URL to the raw image as uploaded. This is the largest size image returned in each object in the <span class='attribute-name'>ListingImages</span> array. Due to variation in size, this image should not be considered for use when displaying images rendered in a browser.</span></p>
+
+<p><span class="response-data-head">SmallURL</span>
+<span class="response-data-remarks">This is a valid URL that can be used for <code class="prettyprint">img src</code> to a small sized representation of the image. This is the small size image returned in each object in the <span class='attribute-name'>ListingImages</span> array.</span></p>
+
+<p><span class="response-data-head">ThumbURL</span>
+<span class="response-data-remarks">This is a valid URL that can be used for <code class="prettyprint">img src</code> to a thumbnail sized representation of the image. This is the smallest size image returned in each object in the <span class='attribute-name'>ListingImages</span> array.</span></p>
 
 <p><span class="response-data-head">Title</span>
 <span class="response-data-remarks">Human readable title of image.</span></p>
@@ -926,6 +951,9 @@
 
 <p><span class="response-data-head">MimeType</span>
 <span class="response-data-remarks">MIME or media type of the image.</span></p>
+
+<p><span class="response-data-head">EmbededHTMLContent</span>
+<span class="response-data-remarks">Embedded HTML that can be placed into a webpage &ndash; this will be used for embedded movies.</span></p>
 
 
 <h4 id="listing-show"><span class='entity-name'>Listing</span> <span class='action-name'>Show  </span></h4>
@@ -1094,6 +1122,10 @@
   </span><span class="nt">"MoxiWorksListingId"</span><span class="p">:</span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"AgentCreatedListing"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="nt">"VirtualTourURL"</span><span class="p">:</span><span class="s2">"http://the.virtual.tour.url"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"SharedPartnerData"</span><span class="p">:{</span><span class="w">
+     </span><span class="nt">"attribute_1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"value_1"</span><span class="p">,</span><span class="w">
+     </span><span class="nt">"attribute_2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"value_2"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
   </span><span class="nt">"ListingURL"</span><span class="p">:</span><span class="s2">"http://the.listing.url"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"PropertyFeatures"</span><span class="p">:[</span><span class="w">
     </span><span class="p">{</span><span class="w">
@@ -1160,8 +1192,8 @@
       </span><span class="nt">"Height"</span><span class="p">:</span><span class="mi">768</span><span class="p">,</span><span class="w">
       </span><span class="nt">"MimeType"</span><span class="p">:</span><span class="s2">"image/jpeg"</span><span class="w">
       </span><span class="p">}</span><span class="w">
-  </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+</span><span class="err">}</span><span class="w">
 </span></code></pre>
 
 <blockquote><div class='highlight json' style="display: block">
@@ -1417,7 +1449,11 @@
 </tr>
 <tr>
 <td><span class="response-data">VirtualTourURL</span></td>
-<td><span class="response-data"><span class="data-type">Boolean</span></td>
+<td><span class="response-data"><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">SharedPartnerData</span></td>
+<td><span class="response-data"><span class="data-type">Hash</span></td>
 </tr>
 <tr>
 <td><span class="response-data">ListingURL</span></td>
@@ -1606,6 +1642,9 @@
 <p><span class="response-data-head">VirtualTourURL</span>
 <span class="response-data-remarks">Virtual tour URL for this listing.</span></p>
 
+<p><span class="response-data-head">SharedPartnerData</span>
+<span class="response-data-remarks">A hash containing data shared between MoxiWorks affiliates.</span></p>
+
 <p><span class="response-data-head">ListingURL</span>
 <span class="response-data-remarks">Details URL for this listing.</span></p>
 
@@ -1717,24 +1756,24 @@
 </tr>
 </thead><tbody>
 <tr>
-<td><span class="response-data">ThumbURL</span></td>
-<td><span class="response-data"><span class="data-type">String</span></td>
-</tr>
-<tr>
-<td><span class="response-data">SmallURL</span></td>
-<td><span class="response-data"><span class="data-type">String</span></td>
-</tr>
-<tr>
 <td><span class="response-data">FullURL</span></td>
-<td><span class="response-data"><span class="data-type">String</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
 </tr>
 <tr>
 <td><span class="response-data">GalleryURL</span></td>
-<td><span class="response-data"><span class="data-type">String</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
 </tr>
 <tr>
 <td><span class="response-data">RawURL</span></td>
-<td><span class="response-data"><span class="data-type">String</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">SmallURL</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">ThumbURL</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
 </tr>
 <tr>
 <td><span class="response-data">Title</span></td>
@@ -1764,13 +1803,11 @@
 <td><span class="response-data">MimeType</span></td>
 <td><span class="response-data"><span class="data-type">String</span></td>
 </tr>
+<tr>
+<td><span class="response-data">EmbededHTMLContent</span></td>
+<td><span class="response-data"><span class="data-type">String</span></td>
+</tr>
 </tbody></table>
-
-<p><span class="response-data-head">ThumbURL</span>
-<span class="response-data-remarks">This is a valid URL that can be used for <code class="prettyprint">img src</code> to a thumbnail sized representation of the image. This is the smallest size image returned in each object in the <span class='attribute-name'>ListingImages</span> array.</span></p>
-
-<p><span class="response-data-head">SmallURL</span>
-<span class="response-data-remarks">This is a valid URL that can be used for <code class="prettyprint">img src</code> to a small sized representation of the image. This is the small size image returned in each object in the <span class='attribute-name'>ListingImages</span> array.</span></p>
 
 <p><span class="response-data-head">FullURL</span>
 <span class="response-data-remarks">This is a valid URL that can be used for <code class="prettyprint">img src</code> to a medium sized representation of the image. This is the medium size image returned in each object in the <span class='attribute-name'>ListingImages</span> array.</span></p>
@@ -1780,6 +1817,12 @@
 
 <p><span class="response-data-head">RawURL</span>
 <span class="response-data-remarks">This is a valid URL to the raw image as uploaded. This is the largest size image returned in each object in the <span class='attribute-name'>ListingImages</span> array. Due to variation in size, this image should not be considered for use when displaying images rendered in a browser.</span></p>
+
+<p><span class="response-data-head">SmallURL</span>
+<span class="response-data-remarks">This is a valid URL that can be used for <code class="prettyprint">img src</code> to a small sized representation of the image. This is the small size image returned in each object in the <span class='attribute-name'>ListingImages</span> array.</span></p>
+
+<p><span class="response-data-head">ThumbURL</span>
+<span class="response-data-remarks">This is a valid URL that can be used for <code class="prettyprint">img src</code> to a thumbnail sized representation of the image. This is the smallest size image returned in each object in the <span class='attribute-name'>ListingImages</span> array.</span></p>
 
 <p><span class="response-data-head">Title</span>
 <span class="response-data-remarks">Human readable title of image.</span></p>
@@ -1801,6 +1844,9 @@
 
 <p><span class="response-data-head">MimeType</span>
 <span class="response-data-remarks">MIME or media type of the image.</span></p>
+
+<p><span class="response-data-head">EmbededHTMLContent</span>
+<span class="response-data-remarks">Embedded HTML that can be placed into a webpage &ndash; this will be used for embedded movies.</span></p>
 
 
 <h4 id="listing-index"><span class='entity-name'>Listing</span> <span class='action-name'>Index  </span></h4>
@@ -1989,6 +2035,11 @@
 <td><span class="data-type">String</span></td>
 <td>255</td>
 </tr>
+<tr>
+<td><span class="optional-data">shared_partner_data_updated_since</span></td>
+<td><span class="data-type">Integer</span></td>
+<td>255</td>
+</tr>
 </tbody></table>
 
 <p><span class="required-data"><strong>Required Parameters Are In Red</strong></span></p>
@@ -2007,11 +2058,16 @@
 <p><span class="request-data-head">moxi_works_agent_id</span>
 <span class="request-data-remarks">Use this parameter when searching for <span class='entity-name'>Listing</span> objects associated with a specific <span class='entity-name'>Agent</span>.  This will be a string that may take the form of an email address, or a unique identification string. This data must reference a valid Moxi Works Agent ID for your <span class='entity-name'>Listing</span> <span class='action-name'>Index</span>  request to be accepted.</span></p>
 
+<aside class="note">A company&rsquo;s internal agent id may be used to construct the agent&rsquo;s unique identification string. To do so, the value passed via the moxi_works_agent_id should be a single concatenated string, of the form:</br>[moxi_works_company_id]:[internal_agent_id]</br>Use <a href='#company'>Company Endpoint</a> to determine which moxi_works_company_id to use.</aside>
+
 <p><span class="request-data-head">moxi_works_office_id</span>
 <span class="request-data-remarks">Use this parameter when searching for <span class='entity-name'>Listing</span> objects associated with a specific <span class='entity-name'>Office</span>.  This data must reference a valid Moxi Works Office ID for your <span class='entity-name'>Listing</span> <span class='action-name'>Index</span>  request to be accepted.</span></p>
 
 <p><span class="request-data-head">last_moxi_works_listing_id</span>
 <span class="request-data-remarks">If fetching a multi-page response, this should be the <span class='attribute-name'>MoxiWorksListingId</span> found in the last <span class='entity-name'>Listing</span> object of the previously fetched page.</span></p>
+
+<p><span class="request-data-head">shared_partner_data_updated_since</span>
+<span class="request-data-remarks">Filter listings using this unix timestamp representing the date since partner data has been updated. This attribute should be used in conjuncion with the <span class='attribute-name'>updated_since</span> attribute.</span></p>
 
 <blockquote><div class='highlight json' style="display: block">
 <span class='data-example-label'><span class='entity-name'>Listing</span> <span class='action-name'>Index</span> Response Payload Example
@@ -2080,6 +2136,10 @@
   </span><span class="nt">"MoxiWorksListingId"</span><span class="p">:</span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"AgentCreatedListing"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="nt">"VirtualTourURL"</span><span class="p">:</span><span class="s2">"http://the.virtual.tour.url"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"SharedPartnerData"</span><span class="p">:{</span><span class="w">
+     </span><span class="nt">"attribute_1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"value_1"</span><span class="p">,</span><span class="w">
+     </span><span class="nt">"attribute_2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"value_2"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
   </span><span class="nt">"ListingURL"</span><span class="p">:</span><span class="s2">"http://the.listing.url"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"PropertyFeatures"</span><span class="p">:[</span><span class="w">
     </span><span class="p">{</span><span class="w">
@@ -2434,6 +2494,10 @@
 <td><span class="response-data"><span class="data-type">String or null</span></td>
 </tr>
 <tr>
+<td><span class="response-data">SharedPartnerData</span></td>
+<td><span class="response-data"><span class="data-type">Hash</span></td>
+</tr>
+<tr>
 <td><span class="response-data">ListingURL</span></td>
 <td><span class="response-data"><span class="data-type">String or null</span></td>
 </tr>
@@ -2620,6 +2684,9 @@
 <p><span class="response-data-head">VirtualTourURL</span>
 <span class="response-data-remarks">Virtual tour URL for this listing.</span></p>
 
+<p><span class="response-data-head">SharedPartnerData</span>
+<span class="response-data-remarks">A hash containing data shared between MoxiWorks affiliates.</span></p>
+
 <p><span class="response-data-head">ListingURL</span>
 <span class="response-data-remarks">Details URL for this listing.</span></p>
 
@@ -2731,14 +2798,6 @@
 </tr>
 </thead><tbody>
 <tr>
-<td><span class="response-data">ThumbURL</span></td>
-<td><span class="response-data"><span class="data-type">String or null</span></td>
-</tr>
-<tr>
-<td><span class="response-data">SmallURL</span></td>
-<td><span class="response-data"><span class="data-type">String or null</span></td>
-</tr>
-<tr>
 <td><span class="response-data">FullURL</span></td>
 <td><span class="response-data"><span class="data-type">String or null</span></td>
 </tr>
@@ -2748,6 +2807,14 @@
 </tr>
 <tr>
 <td><span class="response-data">RawURL</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">SmallURL</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">ThumbURL</span></td>
 <td><span class="response-data"><span class="data-type">String or null</span></td>
 </tr>
 <tr>
@@ -2778,13 +2845,11 @@
 <td><span class="response-data">MimeType</span></td>
 <td><span class="response-data"><span class="data-type">String</span></td>
 </tr>
+<tr>
+<td><span class="response-data">EmbededHTMLContent</span></td>
+<td><span class="response-data"><span class="data-type">String</span></td>
+</tr>
 </tbody></table>
-
-<p><span class="response-data-head">ThumbURL</span>
-<span class="response-data-remarks">This is a valid URL that can be used for <code class="prettyprint">img src</code> to a thumbnail sized representation of the image. This is the smallest size image returned in each object in the <span class='attribute-name'>ListingImages</span> array.</span></p>
-
-<p><span class="response-data-head">SmallURL</span>
-<span class="response-data-remarks">This is a valid URL that can be used for <code class="prettyprint">img src</code> to a small sized representation of the image. This is the small size image returned in each object in the <span class='attribute-name'>ListingImages</span> array.</span></p>
 
 <p><span class="response-data-head">FullURL</span>
 <span class="response-data-remarks">This is a valid URL that can be used for <code class="prettyprint">img src</code> to a medium sized representation of the image. This is the medium size image returned in each object in the <span class='attribute-name'>ListingImages</span> array.</span></p>
@@ -2794,6 +2859,12 @@
 
 <p><span class="response-data-head">RawURL</span>
 <span class="response-data-remarks">This is a valid URL to the raw image as uploaded. This is the largest size image returned in each object in the <span class='attribute-name'>ListingImages</span> array. Due to variation in size, this image should not be considered for use when displaying images rendered in a browser.</span></p>
+
+<p><span class="response-data-head">SmallURL</span>
+<span class="response-data-remarks">This is a valid URL that can be used for <code class="prettyprint">img src</code> to a small sized representation of the image. This is the small size image returned in each object in the <span class='attribute-name'>ListingImages</span> array.</span></p>
+
+<p><span class="response-data-head">ThumbURL</span>
+<span class="response-data-remarks">This is a valid URL that can be used for <code class="prettyprint">img src</code> to a thumbnail sized representation of the image. This is the smallest size image returned in each object in the <span class='attribute-name'>ListingImages</span> array.</span></p>
 
 <p><span class="response-data-head">Title</span>
 <span class="response-data-remarks">Human readable title of image.</span></p>
@@ -2815,6 +2886,9 @@
 
 <p><span class="response-data-head">MimeType</span>
 <span class="response-data-remarks">MIME or media type of the image.</span></p>
+
+<p><span class="response-data-head">EmbededHTMLContent</span>
+<span class="response-data-remarks">Embedded HTML that can be placed into a webpage &ndash; this will be used for embedded movies.</span></p>
 
       </div>
       <div class="dark-box">

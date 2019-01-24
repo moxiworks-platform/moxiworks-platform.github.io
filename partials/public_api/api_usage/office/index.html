@@ -329,6 +329,14 @@
 <td><span class="response-data">region</span></td>
 <td><span class="data-type">String or null</span></td>
 </tr>
+<tr>
+<td><span class="response-data">created_timestamp</span></td>
+<td><span class="data-type">Integer</span></td>
+</tr>
+<tr>
+<td><span class="response-data">deactivated_timestamp</span></td>
+<td><span class="data-type">Integer or null</span></td>
+</tr>
 </tbody></table>
 
 <p><span class="response-data-head">moxi_works_office_id</span>
@@ -393,6 +401,12 @@
 
 <p><span class="response-data-head">region</span>
 <span class="response-data-remarks">The region the agent&rsquo;s office is in. This can be null if there is no data for this attribute.</span></p>
+
+<p><span class="response-data-head">created_timestamp</span>
+<span class="response-data-remarks">This is the Unix timestamp representing the date that this <span class='entity-name'>Office</span> was created in the MoxiWorks system.</span></p>
+
+<p><span class="response-data-head">deactivated_timestamp</span>
+<span class="response-data-remarks">This is the Unix timestamp representing the date that this <span class='entity-name'>Office</span> was deactivated in the MoxiWorks system. This will be returned null if the office is still active.</span></p>
 
       </div>
       <div class="dark-box">

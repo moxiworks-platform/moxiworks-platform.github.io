@@ -241,6 +241,11 @@ Attribute | Type | Length Limit |
   "url": null
   }
   ],
+  "groups":[
+    "this group",
+    "that group",
+    "the other group"
+  ],
   "property_url": "http://my.property.website.is/here",
   "property_mls_id": "abc123",
   "property_street_address": "2345 67th place",
@@ -309,6 +314,11 @@ Attribute | Type | Length Limit |
   "key": "googleplus",
   "url": null
   }
+  ],
+  "groups":[
+    "this group",
+    "that group",
+    "the other group"
   ],
   "occupation": "football fan",
   "property_url": "http://my.property.website.is/here",
@@ -393,6 +403,11 @@ Attribute | Type | Length Limit |
   "url": null
   }
   ],
+  "groups":[
+    "this group",
+    "that group",
+    "the other group"
+  ],
   "property_url": "http://my.property.website.is/here",
   "property_mls_id": "abc123",
   "property_street_address": "2345 67th place",
@@ -462,6 +477,11 @@ Attribute | Type | Length Limit |
   "key": "googleplus",
   "url": null
   }
+  ],
+  "groups":[
+    "this group",
+    "that group",
+    "the other group"
   ],
   "property_url": "http://my.property.website.is/here",
   "property_mls_id": "abc123",
@@ -558,6 +578,7 @@ Attribute | Type |
 |<span class="response-data">anniversary</span>|<span class="data-type">Integer or null</span>|
 |<span class="response-data">home_purchase_anniversary</span>|<span class="data-type">Integer or null</span>|
 |<span class="response-data">social_media_profiles</span>|<span class="data-type">Array</span>|
+|<span class="response-data">groups</span>|<span class="data-type">Array</span>|
 |<span class="response-data">property_url</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">property_mls_id</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">property_street_address</span>|<span class="data-type">String or null</span>|
@@ -688,6 +709,8 @@ Attribute | Type |
 <span class="response-data-head">property_url</span>
 <span class="response-data-remarks">This will be a valid URL for a property of interest in your system that can be viewed by the agent. This value will be null if no data is available for this attribute. </span>
 
+<span class="response-data-head">groups</span>
+<span class="response-data-remarks">Any Agent groups which the contact by name.</span>
 
 <span class="response-data-head">property_mls_id</span>
 <span class="response-data-remarks">This will be the MLS ID of the property of interest. This value will be null if no data is available for this attribute.  </span>

@@ -51,6 +51,17 @@ under the License.
   text-decoration: underline;
 }
 
+.deprecated-data {
+  color: grey;
+}
+
+.deprecated-warning {
+  color: grey;
+  &:after {
+    content: "DEPRECATION WARNING -- Greyed out attributes have been deprecated. Please see attribute description.";
+  }
+}
+
 .response-data-head {
   margin-top: 25px;
   font-weight: bold;

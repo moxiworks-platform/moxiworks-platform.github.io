@@ -15,26 +15,10 @@
 "contact_name":"Firstname Middlenyme Larstnam",
 "gender":"m",
 "label_name":"Mr. and Mrs. Oo-De-Lally Golly What a Day",
-"email_addresses": [
-  {
-    "key": "email_address1",
-    "address": "this@one.com"
-  },
-  {
-    "key": "email_address2",
-    "address": "also@this.com"
-  }
-],
-"phone_numbers": [
-  {
-    "key": "mobile_phone",
-    "number": "3603603608"
-  },
-  {
-    "key": "home_phone",
-    "number": "3603603608"
-  }
-],
+"primary_email_address":"primary@email.com",
+"secondary_email_address":"secondary@email.com",
+"primary_phone_number":"1234567890",
+"secondary_phone_number":"1234567898",
 "home_street_address":"1234 Sesame St.",
 "home_city":"Cityville",
 "home_state":"Stateland",
@@ -258,26 +242,10 @@ $moxi_works_contact = MoxiworksPlatform\Contact::create([
 "contact_name":"Firstname Middlenyme Larstnam",
 "gender":"m",
 "label_name":"Mr. and Mrs. Oo-De-Lally Golly What a Day",
-"email_addresses": [
-  {
-    "key": "email_address1",
-    "address": "this@one.com"
-  },
-  {
-    "key": "email_address2",
-    "address": "also@this.com"
-  }
-],
-"phone_numbers": [
-  {
-    "key": "mobile_phone",
-    "number": "3603603608"
-  },
-  {
-    "key": "home_phone",
-    "number": "3603603608"
-  }
-],
+"primary_email_address":"primary@email.com",
+"secondary_email_address":"secondary@email.com",
+"primary_phone_number":"1234567890",
+"secondary_phone_number":"1234567898",
 "home_street_address":"1234 Sesame St.",
 "home_city":"Cityville",
 "home_state":"Stateland",
@@ -517,12 +485,10 @@ Attribute | Type | Length Limit |
 |<span class="multi-option-required-data">moxi_works_agent_id*</span>|<span class="multi-option-required-data"><span class="data-type">String</span></span>| <span class="multi-option-required-data">255</span>
 |<span class="required-data">partner_contact_id</span>|<span class="required-data"><span class="data-type">String</span></span>| <span class="required-data">255</span>
 |<span class="multi-option-required-data">contact_name †</span>|<span class="multi-option-required-data"><span class="data-type">String</span></span>| <span class="multi-option-required-data">255</span>
-|<span class="multi-option-required-data">email_addresses †</span>|<span class="multi-option-required-data"><span class="data-type">JSON Array</span></span>| <span class="multi-option-required-data">255</span>
-|<span class="multi-option-required-data">phone_numbers †</span>|<span class="multi-option-required-data"><span class="data-type">JSON Array</span></span>| <span class="multi-option-required-data">255</span>
-|<span class="multi-option-required-data deprecated-data">primary_email_address †</span>|<span class="multi-option-required-data deprecated-data"><span class="data-type">String</span></span>| <span class="multi-option-required-data deprecated-data">255</span>
-|<span class="multi-option-required-data deprecated-data">secondary_email_address †</span>|<span class="multi-option-required-data deprecated-data"><span class="data-type">String</span></span>| <span class="multi-option-required-data deprecated-data">255</span>
-|<span class="multi-option-required-data deprecated-data">primary_phone_number †</span>|<span class="multi-option-required-data deprecated-data"><span class="data-type">String</span></span>| <span class="multi-option-required-data deprecated-data">255</span>
-|<span class="multi-option-required-data deprecated-data">secondary_phone_number †</span>|<span class="multi-option-required-data deprecated-data"><span class="data-type">String</span></span>| <span class="multi-option-required-data deprecated-data">255</span>
+|<span class="multi-option-required-data">primary_email_address †</span>|<span class="multi-option-required-data"><span class="data-type">String</span></span>| <span class="multi-option-required-data">255</span>
+|<span class="multi-option-required-data">secondary_email_address †</span>|<span class="multi-option-required-data"><span class="data-type">String</span></span>| <span class="multi-option-required-data">255</span>
+|<span class="multi-option-required-data">primary_phone_number †</span>|<span class="multi-option-required-data"><span class="data-type">String</span></span>| <span class="multi-option-required-data">255</span>
+|<span class="multi-option-required-data">secondary_phone_number †</span>|<span class="multi-option-required-data"><span class="data-type">String</span></span>| <span class="multi-option-required-data">255</span>
 |<span class="optional-data">gender</span>|<span class="data-type">String</span>| 255 |
 |<span class="optional-data">label_name</span>|<span class="data-type">String</span>| 255 |
 |<span class="optional-data">home_street_address</span>|<span class="data-type">String</span>| 255 |
@@ -566,8 +532,6 @@ Attribute | Type | Length Limit |
 
 <span class="required-data">**Required Parameters Are In Red**</span>
 
-<span class="deprecated-warning"></span>
-
 <span class="request-data-head">agent_uuid</span>
 <span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which an  <span class='entity-name'>Contact</span> entry is associated with. This will be an [RFC 4122](https://tools.ietf.org/html/rfc4122) compliant UUID. <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>Contact</span> <span class='action-name'>Show</span> request to be accepted.</span>
 
@@ -589,53 +553,18 @@ Attribute | Type | Length Limit |
 <span class="request-data-head">label_name</span>
 <span class="request-data-remarks">This is the name used to address the contact when creating mailing labels for the contact associated with this <span class='entity-name'>Contact</span> record. It should be a human readable string. </span>
 
-<span class="request-data-head deprecated-data">primary_email_address</span>
-<span class="request-data-remarks deprecated-data">This is the email address that should be used first. If provided, the address must conform to [RFC 3696](https://tools.ietf.org/html/rfc3696#section-3). This attribute should not be used in conjunction with the <span class='attribute-name'>email_addresses</span> attribute.</span>
+<span class="request-data-head">primary_email_address</span>
+<span class="request-data-remarks">This is the email address that should be used first. If provided, the address must conform to [RFC 3696](https://tools.ietf.org/html/rfc3696#section-3). </span>
 
-<span class="request-data-head deprecated-data">secondary_email_address</span>
-<span class="request-data-remarks mdeprecated-data">This is the email address that should be used as an alternate. If provided, the address must conform to [RFC 3696](https://tools.ietf.org/html/rfc3696#section-3). This attribute should not be used in conjunction with the <span class='attribute-name'>email_addresses</span> attribute.</span>
+<span class="request-data-head">secondary_email_address</span>
+<span class="request-data-remarks">This is the email address that should be used as an alternate. If provided, the address must conform to [RFC 3696](https://tools.ietf.org/html/rfc3696#section-3). </span>
 
-###### <span class='attribute-name'>email_addresses</span> Objects
 
-Each object in the <span class='attribute-name'>email_addresses</span> array should have the following structure:
+<span class="request-data-head">primary_phone_number</span>
+<span class="request-data-remarks">This is the phone number that should be used first. It should be a 10 digit phone number.</span>
 
-Attribute | Type |
------|-----|-----|-----|
-|<span class="optional-data">key</span>|<span class="data-type">String</span>
-|<span class="optional-data">address</span>|<span class="data-type">String</span>
-
-<span class="request-data-head">key</span>
-<span class="request-data-remarks">The key identifier of the email field. The appropriate email keys are determined by the email server type associated with the <span class='entity-name'>Agent</span>. Email fields submitted with mismatched keys will not be added to the contact record. </span>
-<span class="request-data-remarks">The key identifiers for <span class='entity-name'>Agent</span> entities synced to MoxiEngage via a Microsoft Exchange account are: <span class='attribute-name'>email_address1</span>, <span class='attribute-name'>email_address2</span>, <span class='attribute-name'>email_address3</span>. </span>
-<span class="request-data-remarks">The key identifiers for <span class='entity-name'>Agent</span> entities synced to MoxiEngage via a Google account are: <span class='attribute-name'>home</span>, <span class='attribute-name'>work</span>, <span class='attribute-name'>other</span>. </span>
-
-<span class="request-data-head">address</span>
-<span class="request-data-remarks">If provided, the address must conform to [RFC 3696](https://tools.ietf.org/html/rfc3696#section-3).</span>
-
-<span class="request-data-head deprecated-data">primary_phone_number</span>
-<span class="request-data-remarks deprecated-data">This is the phone number that should be used first. It should be a 10 digit phone number. This attribute should not be used in conjunction with the <span class='attribute-name'>phone_numbers</span> attribute.</span>
-
-<span class="request-data-head deprecated-data">secondary_phone_number</span>
-<span class="request-data-remarks deprecated-data">This is the phone number that should be used as an alternate. It should be a 10 digit phone number. This attribute should not be used in conjunction with the <span class='attribute-name'>phone_numbers</span> attribute.</span>
-
-###### <span class='attribute-name'>phone_numbers</span> Objects
-
-Each object in the <span class='attribute-name'>phone_numbers</span> array should have the following structure:
-
-<aside class="warning">A personal phone must be supplied for use in lead generation and agent notification scenarios. Accepted phone keys vary by the email server type used to sync the <span class='entity-name'>Agent</span> record in MoxiEngage:<br>Google: <span class='attribute-name'>mobile</span>, <span class='attribute-name'>home</span><br>Microsoft Exchange: <span class='attribute-name'>mobile_phone</span>, <span class='attribute-name'>home_phone</span></aside>
-
-Attribute | Type |
------|-----|-----|-----|
-|<span class="optional-data">key</span>|<span class="data-type">String</span>
-|<span class="optional-data">number</span>|<span class="data-type">String</span>
-
-<span class="request-data-head">key</span>
-<span class="request-data-remarks">The key identifier of the phone field. The appropriate phone keys are determined by the email server type associated with the <span class='entity-name'>Agent</span>. Phone fields submitted with mismatched keys will not be added to the contact record. </span>
-<span class="request-data-remarks">The key identifiers for <span class='entity-name'>Agent</span> entities synced to MoxiEngage via a Microsoft Exchange account are: <span class='attribute-name'>mobile_phone</span>, <span class='attribute-name'>home_phone</span>, <span class='attribute-name'>home_phone2</span>, <span class='attribute-name'>business_phone</span>, <span class='attribute-name'>business_phone2</span>, <span class='attribute-name'>assistant_phone</span>, <span class='attribute-name'>home_fax</span>, <span class='attribute-name'>business_fax</span>, <span class='attribute-name'>car_phone</span>, <span class='attribute-name'>company_main_phone</span>, <span class='attribute-name'>other_fax</span>, <span class='attribute-name'>other_telephone</span>, <span class='attribute-name'>callback</span>, <span class='attribute-name'>isdn</span>, <span class='attribute-name'>pager</span>. </span>
-<span class="request-data-remarks">The key identifiers for <span class='entity-name'>Agent</span> entities synced to MoxiEngage via a Google account are: <span class='attribute-name'>mobile</span>, <span class='attribute-name'>home</span>, <span class='attribute-name'>work</span>, <span class='attribute-name'>assistant</span>, <span class='attribute-name'>home_fax</span>, <span class='attribute-name'>tty_tdd</span>, <span class='attribute-name'>radio</span>, <span class='attribute-name'>main</span>, <span class='attribute-name'>work_fax</span>, <span class='attribute-name'>car</span>, <span class='attribute-name'>other</span>, <span class='attribute-name'>pager</span>, <span class='attribute-name'>isdn</span>, <span class='attribute-name'>callback</span>, <span class='attribute-name'>telex</span>. </span>
-
-<span class="request-data-head">number</span>
-<span class="request-data-remarks">If provided, the number should be a 10 digit phone number.</span>
+<span class="request-data-head">secondary_phone_number</span>
+<span class="request-data-remarks">This is the phone number that should be used as an alternate. It should be a 10 digit phone number.</span>
 
 
 <span class="request-data-head">home_street_address</span>
@@ -765,13 +694,21 @@ The following attributes make up the payload of the <span class='entity-name'>Co
   "suffix":null,
   "gender": "m",
   "label_name":"Mr. and Mrs. Oo-De-Lally Golly What a Day",
+  "primary_email_address":"primary@email.com",
+  "secondary_email_address":"secondary@email.com",
+  "primary_phone_number":"3603603608",
+  "secondary_phone_number":"3603603609",
   "email_addresses": [
     {
       "key": "email_address1",
-      "address": "this@one.com"
+      "address": "primary@email.com"
     },
     {
       "key": "email_address2",
+      "address": "secondary@email.com"
+    },
+    {
+      "key": "email_address3",
       "address": "also@this.com"
     }
   ],
@@ -782,8 +719,12 @@ The following attributes make up the payload of the <span class='entity-name'>Co
     },
     {
       "key": "home_phone",
-      "number": "3603603608"
-    }
+      "number": "3603603609"
+    },
+    {
+      "key": "business_phone",
+      "number": "3603603610"
+    },
   ],
   "home_street_address": "1234 Sesame St.",
   "home_city": "Cityville",
@@ -862,13 +803,21 @@ The following attributes make up the payload of the <span class='entity-name'>Co
   "suffix":null,
   "gender": "m",
   "label_name":"Mr. and Mrs. Oo-De-Lally Golly What a Day",
+  "primary_email_address":"primary@email.com",
+  "secondary_email_address":"secondary@email.com",
+  "primary_phone_number":"3603603608",
+  "secondary_phone_number":"3603603609",
   "email_addresses": [
     {
       "key": "email_address1",
-      "address": "this@one.com"
+      "address": "primary@email.com"
     },
     {
       "key": "email_address2",
+      "address": "secondary@email.com"
+    },
+    {
+      "key": "email_address3",
       "address": "also@this.com"
     }
   ],
@@ -879,8 +828,12 @@ The following attributes make up the payload of the <span class='entity-name'>Co
     },
     {
       "key": "home_phone",
-      "number": "3603603608"
-    }
+      "number": "3603603609"
+    },
+    {
+      "key": "business_phone",
+      "number": "3603603610"
+    },
   ],
   "home_street_address": "1234 Sesame St.",
   "home_city": "Cityville",
@@ -967,11 +920,11 @@ Attribute | Type |
 |<span class="response-data">suffix</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">gender</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">label_name</span>|<span class="data-type">String or null</span>|
-|<span class="deprecated-data">primary_email_address</span>|<span class="data-type deprecated-data">String or null</span>|
-|<span class="deprecated-data">secondary_email_address</span>|<span class="data-type deprecated-data">String or null</span>|
+|<span class="response-data">primary_email_address</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">secondary_email_address</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">email_addresses</span>|<span class="data-type">Array</span>|
-|<span class="deprecated-data">primary_phone_number</span>|<span class="data-type deprecated-data">String or null</span>|
-|<span class="deprecated-data">secondary_phone_number</span>|<span class="data-type deprecated-data">String or null</span>|
+|<span class="response-data">primary_phone_number</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">secondary_phone_number</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">phone_numbers</span>|<span class="data-type">Array</span>|
 |<span class="response-data">home_city</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">home_state</span>|<span class="data-type">String or null</span>|
@@ -1013,8 +966,6 @@ Attribute | Type |
 
 <span class='multi-option-response-data'>* Either <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> will be returned depending on whether it is used in the request. The response payload object's agent identifier key will match the passed parameter.</span>
 
-<span class="deprecated-warning"></span>
-
 <span class="response-data-head">agent_uuid</span>
 <span class="response-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>Contact</span>  is associated with. This will be an [RFC 4122](https://tools.ietf.org/html/rfc4122) compliant UUID.</span>
 
@@ -1052,15 +1003,17 @@ Attribute | Type |
 <span class="response-data-head">label_name</span>
 <span class="response-data-remarks">This is the name used to address the contact when creating mailing labels for the contact associated with this <span class='entity-name'>Contact</span> record. This value will be null if no data is available for this attribute. </span>
 
-<span class="response-data-head deprecated-data">primary_email_address</span>
-<span class="response-data-remarks deprecated-data">This is the email address that should be used first. If provided, the address must conform to [RFC 3696](https://tools.ietf.org/html/rfc3696#section-3). This value will be null if no data is available for this attribute. This attribute should not be used in conjunction with the <span class='attribute-name'>email_addresses</span> attribute.</span>
+<span class="response-data-head">primary_email_address</span>
+<span class="response-data-remarks">This is the email address that should be used first. If provided, the address must conform to [RFC 3696](https://tools.ietf.org/html/rfc3696#section-3). This value will be null if no data is available for this attribute.</span>
 
-<span class="response-data-head deprecated-data">secondary_email_address</span>
-<span class="response-data-remarks deprecated-data">This is the email address that should be used as an alternate. If provided, the address must conform to [RFC 3696](https://tools.ietf.org/html/rfc3696#section-3). This value will be null if no data is available for this attribute. This attribute should not be used in conjunction with the <span class='attribute-name'>email_addresses</span> attribute. </span>
+<span class="response-data-head">secondary_email_address</span>
+<span class="response-data-remarks">This is the email address that should be used as an alternate. If provided, the address must conform to [RFC 3696](https://tools.ietf.org/html/rfc3696#section-3). This value will be null if no data is available for this attribute. </span>
 
 ###### <span class='attribute-name'>email_addresses</span> Objects
 
-Each object in the <span class='attribute-name'>email_addresses</span> array will have the following structure (only email fields present in this <span class='entity-name'>Contact</span> record will be returned.)
+These email addresses correspond to agent created <span class='entity-name'>Contact</span> entities. Only phone fields present in this <span class='entity-name'>Contact</span> record will be returned.
+
+Each object in the <span class='attribute-name'>email_addresses</span> array will have the following structure:
 
 Attribute | Type |
 -----|-----|-----|-----|
@@ -1068,22 +1021,24 @@ Attribute | Type |
 |<span class="response-data">address</span>|<span class="response-data"><span class="data-type">String</span>
 
 <span class="response-data-head">key</span>
-<span class="response-data-remarks">The key identifier of the email field. The appropriate email keys are determined by the email server type associated with the <span class='entity-name'>Agent</span>. Email fields submitted with mismatched keys will not be added to the contact record. </span>
+<span class="response-data-remarks">The key identifier of the email field. The appropriate email keys are determined by the email server type associated with the <span class='entity-name'>Agent</span>. </span>
 <span class="response-data-remarks">The key identifiers for <span class='entity-name'>Agent</span> entities synced to MoxiEngage via a Microsoft Exchange account are: <span class='attribute-name'>email_address1</span>, <span class='attribute-name'>email_address2</span>, <span class='attribute-name'>email_address3</span>. </span>
 <span class="response-data-remarks">The key identifiers for <span class='entity-name'>Agent</span> entities synced to MoxiEngage via a Google account are: <span class='attribute-name'>home</span>, <span class='attribute-name'>work</span>, <span class='attribute-name'>other</span>. </span>
 
 <span class="response-data-head">address</span>
-<span class="response-data-remarks">If provided, the address must conform to [RFC 3696](https://tools.ietf.org/html/rfc3696#section-3).</span>
+<span class="response-data-remarks">The email address field value.</span>
 
-<span class="response-data-head deprecated-data">primary_phone_number</span>
-<span class="response-data-remarks deprecated-data">This is the phone number that should be used first. It should be a 10 digit phone number. This attribute should not be used in conjunction with the <span class='attribute-name'>phone_numbers</span> attribute.</span>
+<span class="response-data-head">primary_phone_number</span>
+<span class="response-data-remarks">This is the phone number that should be used first. It should be a 10 digit phone number. This attribute should not be used in conjunction with the <span class='attribute-name'>phone_numbers</span> attribute.</span>
 
-<span class="response-data-head deprecated-data">secondary_phone_number</span>
-<span class="response-data-remarks deprecated-data">This is the phone number that should be used as an alternate. It should be a 10 digit phone number. This attribute should not be used in conjunction with the <span class='attribute-name'>phone_numbers</span> attribute.</span>
+<span class="response-data-head">secondary_phone_number</span>
+<span class="response-data-remarks">This is the phone number that should be used as an alternate. It should be a 10 digit phone number. This attribute should not be used in conjunction with the <span class='attribute-name'>phone_numbers</span> attribute.</span>
 
 ###### <span class='attribute-name'>phone_numbers</span> Objects
 
-Each object in the <span class='attribute-name'>phone_numbers</span> array will have the following structure (only phone fields present in this <span class='entity-name'>Contact</span> record will be returned.)
+These phone numbers correspond to agent created <span class='entity-name'>Contact</span> entities. Only phone fields present in this <span class='entity-name'>Contact</span> record will be returned.
+
+Each object in the <span class='attribute-name'>phone_numbers</span> array will have the following structure:
 
 Attribute | Type |
 -----|-----|-----|-----|
@@ -1091,12 +1046,12 @@ Attribute | Type |
 |<span class="response-data">number</span>|<span class="response-data"><span class="data-type">String</span>
 
 <span class="response-data-head">key</span>
-<span class="response-data-remarks">The key identifier of the phone field. The appropriate phone keys are determined by the email server type associated with the <span class='entity-name'>Agent</span>. Phone fields submitted with mismatched keys will not be added to the contact record. </span>
+<span class="response-data-remarks">The key identifier of the phone field. The appropriate phone keys are determined by the email server type associated with the <span class='entity-name'>Agent</span>. </span>
 <span class="response-data-remarks">The key identifiers for <span class='entity-name'>Agent</span> entities synced to MoxiEngage via a Microsoft Exchange account are: <span class='attribute-name'>mobile_phone</span>, <span class='attribute-name'>home_phone</span>, <span class='attribute-name'>home_phone2</span>, <span class='attribute-name'>business_phone</span>, <span class='attribute-name'>business_phone2</span>, <span class='attribute-name'>assistant_phone</span>, <span class='attribute-name'>home_fax</span>, <span class='attribute-name'>business_fax</span>, <span class='attribute-name'>car_phone</span>, <span class='attribute-name'>company_main_phone</span>, <span class='attribute-name'>other_fax</span>, <span class='attribute-name'>other_telephone</span>, <span class='attribute-name'>callback</span>, <span class='attribute-name'>isdn</span>, <span class='attribute-name'>pager</span>. </span>
 <span class="response-data-remarks">The key identifiers for <span class='entity-name'>Agent</span> entities synced to MoxiEngage via a Google account are: <span class='attribute-name'>mobile</span>, <span class='attribute-name'>home</span>, <span class='attribute-name'>work</span>, <span class='attribute-name'>assistant</span>, <span class='attribute-name'>home_fax</span>, <span class='attribute-name'>tty_tdd</span>, <span class='attribute-name'>radio</span>, <span class='attribute-name'>main</span>, <span class='attribute-name'>work_fax</span>, <span class='attribute-name'>car</span>, <span class='attribute-name'>other</span>, <span class='attribute-name'>pager</span>, <span class='attribute-name'>isdn</span>, <span class='attribute-name'>callback</span>, <span class='attribute-name'>telex</span>. </span>
 
 <span class="response-data-head">number</span>
-<span class="response-data-remarks">If provided, the number should be a 10 digit phone number.</span>
+<span class="response-data-remarks">The phone number field value.</span>
 
 <span class="response-data-head">home_street_address</span>
 <span class="response-data-remarks">The contact's home address street, including number and any suite / apartment number information.  This value will be null if no data is available for this attribute. </span>

@@ -109,7 +109,13 @@ Most of this can be automated by using an appropriate OAuth 2 client library.</p
 <tr>
 <td><span class="required-data">company_uuid</span></td>
 <td><span class="data-type">String</span></td>
-<td><span class="data-remarks">If provided, this value gives a hint for the authorization system about what realtor agents logging in will be from. If it&rsquo;s not provided, it will be inferred from the <code class="prettyprint">client_id</code>.</span></td>
+<td><span class="data-remarks">If provided, this value gives a hint for the authorization system about what brokerate agents logging in will be from. This is used to ensure agents have the correct sign-in experience, if required. If it&rsquo;s not provided, it will be inferred from the <code class="prettyprint">client_id</code>.</span></td>
+<td><span class="required-data">optional</span></td>
+</tr>
+<tr>
+<td><span class="required-data">moxi_works_company_id</span></td>
+<td><span class="data-type">String</span></td>
+<td><span class="data-remarks">Another method to specify agent sign-in experience. Serves the same purpose as <code class="prettyprint">company_uuid</code>, but takes the same format company id as the rest of the API uses. Will be ignored if <code class="prettyprint">company_uuid</code> is also provided.</span></td>
 <td><span class="required-data">optional</span></td>
 </tr>
 </tbody></table>

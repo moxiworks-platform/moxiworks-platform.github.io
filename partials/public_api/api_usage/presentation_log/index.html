@@ -155,9 +155,21 @@
 <td><span class="data-type">Integer</span></td>
 <td>255</td>
 </tr>
+<tr>
+<td><span class="optional-data">moxi_works_agent_id †</span></td>
+<td><span class="optional-data"><span class="data-type">String</span></span></td>
+<td><span class="optional-data">255</span></td>
+</tr>
+<tr>
+<td><span class="optional-data">agent_uuid †</span></td>
+<td><span class="optional-data"><span class="data-type">String</span></span></td>
+<td><span class="optional-data">255</span></td>
+</tr>
 </tbody></table>
 
 <p><span class="required-data"><strong>Required Parameters Are In Red</strong></span></p>
+
+<p><span class="multi-option-required-data"> † Either <span class='attribute-name'>moxi_works_agent_id</span> or <span class='attribute-name'>agent_uuiid</span> may be supplied, but not both.</span></p>
 
 <p><span class="request-data-head">moxi_works_company_id</span>
 <span class="request-data-remarks">A valid Moxi Works <span class='entity-name'>Company</span> ID. Use <a href="#company">Company Endpoint</a> to determine what <span class='attribute-name'>moxi_works_company_id</span> you can use.</span></p>
@@ -187,6 +199,12 @@
 <span class="request-data-remarks">Paged responses of all <span class='entity-name'>PresentationLog</span> objects updated before this Unix timestamp will be returned in the response. </span></p>
 
 <aside class="note">The maximum time range for a single search is one week. If you need to span a greater length of time, break your search up into week-long segments.</aside>
+
+<p><span class="request-data-head">agent_uuid</span>
+<span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which an <span class='entity-name'>PresentationLog</span> entry is associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID. <span class='attribute-name'>agent_uuid</span> is optional.</span></p>
+
+<p><span class="request-data-head">moxi_works_agent_id</span>
+<span class="request-data-remarks">This is the Moxi Works Platform ID of the agent which an <span class='entity-name'>PresentationLog</span> entry is associated with. This will be a string that may take the form of an email address, or a unique identification string. This data is optional.</span></p>
 
 <blockquote><div class='highlight json' style="display: block">
 <span class="data-example-label">PresentationLog Index: Success Response</span>

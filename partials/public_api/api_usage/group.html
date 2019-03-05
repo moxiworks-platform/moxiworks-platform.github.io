@@ -519,7 +519,8 @@
 
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"agent_uuid"</span><span class="p">:</span><span class="s2">"12345678-1234-1234-1234-1234567890ab"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"foo"</span><span class="w">
+  </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"foo"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"updated_since"</span><span class="p">:</span><span class="s2">"1518049148"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -678,6 +679,11 @@
 <td><span class="data-type">String</span></td>
 <td>255</td>
 </tr>
+<tr>
+<td><span class="optional-data">updated_since</span></td>
+<td><span class="data-type">Integer</span></td>
+<td>255</td>
+</tr>
 </tbody></table>
 
 <p><span class="multi-option-required-data">* <strong>Either <span class='attribute-name'>moxi_works_agent_id</span> or <span class='attribute-name'>agent_uuid</span> must be supplied. For guidance on which Agent identifier better fits your use-case, see <a href="#agent-identifiers">Agent Identifiers</a></strong></span></p>
@@ -696,6 +702,11 @@
 <span class="request-data-remarks">This is the name of a <span class='entity-name'>Group</span> to be searched for.</span></p>
 
 <aside class="note">If no <span class='attribute-name'>name</span> parameter is included, all defined <span class='entity-name'>Group</span> objects for the <span class='entity-name'>Agent</span> will be returned in the response.</aside>
+
+<p><span class="request-data-head">updated_since</span>
+<span class="request-data-remarks">When a Unix timestamp is passed in this parameter, only <span class='entity-name'>Group</span> objects that contain contacts that have been updated since this Unix timestamp will be returned. This update references contacts, not any changes with the group itself.</span></p>
+
+<aside class="note">The <span class='attribute-name'>updated_since</span> parameter references changes in associated contacts contained in the <span class='entity-name'>Group</span>. Once you have ascertained which groups need to be checked, you can use the <span class='entity-name'>Group</span> <span class='action-name'>Show</span> request to check for contact updates. </aside>
 
 <h5 id="group-index-response-payload"><span class='entity-name'>Group</span> <span class='action-name'>Index</span> Response Payload</h5>
 

@@ -1,0 +1,205 @@
+#### <span class='entity-name'>Group</span> <span class='action-name'>Update</span>
+
+> <span class="data-example-label"><span class='entity-name'>Group</span> <span class='action-name'>Update</span> (using <span class='attribute-name'>agent_uuid</span> and <span class='attribute-name'>partner_group_id</span>) Example</span>
+
+```json
+{
+"agent_uuid":"12345678-1234-1234-1234-1234567890ab",
+"partner_group_id": "your_internal_group_id",
+"is_contact_removal": false,
+"contacts": "partner_contact_id_1,partner_contact_id_2,partner_contact_id_3,partner_contact_id_4"
+}
+```
+
+```http
+PUT /api/groups/[partner_group_id] HTTP/1.1
+Host: api.moxiworks.com
+Accept: application/vnd.moxi-platform+json;version=1
+Authorization: Basic XNNeXAAAUZaQlF0dA==
+Content-Type: application/x-www-form-urlencoded
+
+
+agent_uuid=12345678-1234-1234-1234-1234567890ab&partner_group_id=your_internal_group_id&contacts=partner_contact_id_1,partner_contact_id_2,partner_contact_id_3,partner_contact_id_4&is_contact_removal=false
+```
+
+> <span class="data-example-label"><span class='entity-name'>Group</span> <span class='action-name'>Update</span> (using <span class='attribute-name'>moxi_works_agent_id</span> and <span class='attribute-name'>moxi_works_group_name</span>) Example</span>
+
+```json
+{
+"moxi_works_agent_id": "abc123",
+"moxi_works_group_name": "some group name",
+"is_contact_removal": true,
+"contacts": "partner_contact_id_1,partner_contact_id_2,partner_contact_id_3,partner_contact_id_4"
+}
+```
+
+```http
+PUT /api/group/[moxi_works_group_name] HTTP/1.1
+Host: api.moxiworks.com
+Accept: application/vnd.moxi-platform+json;version=1
+Authorization: Basic XNNeXAAAUZaQlF0dA==
+Content-Type: application/x-www-form-urlencoded
+
+
+moxi_works_agent_id=abc123&moxi_works_group_name=some+group+name&contacts=partner_contact_id_1,partner_contact_id_2,partner_contact_id_3,partner_contact_id_4&is_contact_removal=true
+```
+
+##### <span class='entity-name'>Group</span> <span class='action-name'>Group</span> Request Attributes
+
+<aside class="note">Send a <b>PUT</b> request to https://api.moxiworks.com/api/groups/[partner_group_id or moxi_works_group_name]</aside>
+
+When creating an <span class='entity-name'>Group</span> using the Moxi Works platform API, format your request using the following parameters.
+
+Attribute | Type | Length Limit |
+-----|-----|-----|-----|
+|<span class="multi-option-required-data">agent_uuid*</span>|<span class="multi-option-required-data"><span class="data-type">String</span></span>| <span class="multi-option-required-data">255</span>
+|<span class="multi-option-required-data">moxi_works_agent_id*</span>|<span class="multi-option-required-data"><span class="data-type">String</span></span>| <span class="multi-option-required-data">255</span>
+|<span class="multi-option-required-data">partner_group_id*</span>|<span class="multi-option-required-data"><span class="data-type">String</span></span>| <span class="multi-option-required-data">255</span>
+|<span class="multi-option-required-data">moxi_works_group_name*</span>|<span class="multi-option-required-data"><span class="data-type">String</span></span>| <span class="multi-option-required-data">255</span>
+|<span class="optional-data">is_contact_removal</span>|<span class="data-type">Boolean</span>| 255 |
+|<span class="optional-data">contacts</span>|<span class="data-type">String</span>|  |
+
+
+<span class="multi-option-required-data">* **Either <span class='attribute-name'>moxi_works_agent_id</span> or <span class='attribute-name'>agent_uuid</span> must be supplied. For guidance on which Agent identifier better fits your use-case, see [Agent Identifiers](#agent-identifiers)**</span>
+
+<span class="multi-option-required-data">* **Either <span class='attribute-name'>partner_group_id</span> or <span class='attribute-name'>moxi_works_group_name</span> must be supplied.**</span>
+
+<span class="required-data">**Required Parameters Are In Red**</span>
+
+<span class="request-data-head">agent_uuid</span>
+<span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which an  <span class='entity-name'>Group</span> entry is associated with. This will be an [RFC 4122](https://tools.ietf.org/html/rfc4122) compliant UUID. <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>Group</span> <span class='action-name'>Show</span> request to be accepted.</span>
+
+<span class="request-data-head">moxi_works_agent_id</span>
+<span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>Group</span> object is to be associated with. This will be a string that may take the form of an email address, or a unique identification string. This data is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>Group</span> <span class='action-name'>Update</span>  request to be accepted.</span>
+
+<aside class="note">A company's internal agent id may be used to construct the agent's unique identification string. To do so, the value passed via the moxi_works_agent_id should be a single concatenated string, of the form:</br>[moxi_works_company_id]:[internal_agent_id]</br>Use <a href='#company'>Company Endpoint</a> to determine which moxi_works_company_id to use.</aside>
+
+<span class="request-data-head">partner_group_id</span>
+<span class="request-data-remarks">This is the unique identifer you use in your system that will be associated with the <span class='entity-name'>Group</span> that you are updating. This data is required and must be a unique ID for your <span class='entity-name'>Group</span> for your <span class='action-name'>Update</span> request to be accepted.</span>
+
+<span class="request-data-head">moxi_works_group_name</span>
+<span class="request-data-remarks">This is the name of the group you are updating the <span class='entity-name'>Group</span> record for. This will match the <span class='attribute-name'>name</span> attribute supplied for <span class='entity-name'>Group</span> <span class='action-name'>Create</span> requests.</span>
+
+<span class="request-data-head">is_contact_removal</span>
+<span class="request-data-remarks">Pass a value of true to remove contacts from the <span class='entity-name'>Group</span> with this <span class='action-name'>Update</span> request.</span>
+
+<span class="request-data-head">contacts</span>
+<span class="request-data-remarks">This is a comma separated list of <span class='attribute-name'>parter_contact_id</span>s. Only ids associated with the requesting partner AND the associated <span class='entity-name'>Agent</span> will be added to / removed from the <span class='entity-name'>Group</span>. Contacts found to already exist in the group will be ignored when attempting to add contacts. Contacts not found in the group will be ignored when attempting to remove contacts.</span>
+
+
+##### <span class='entity-name'>Group</span> <span class='action-name'>Update</span> Response Payload
+The following attributes make up the payload of the <span class='entity-name'>Group</span> response for a <span class='action-name'>Update</span> request.
+
+
+<blockquote><div class='highlight json' style="display: block">
+<span class='data-example-label'><span class='entity-name'>Group</span> <span class='action-name'>Update</span> (using <span class='attribute-name'>agent_uuid</span>) Response Payload Example
+</span></div></blockquote>
+
+
+```json
+{
+  "agent_uuid": "23acd353-939d-40cb-b58b-c88d8a8d8ccc",
+  "moxi_works_group_name": "Group name",
+  "moxi_works_group_id": "{4B86F74F-B8B9-4E84-AFA8-1B2BBEEF41D6}",
+  "partner_group_id": "partner_group_id_1554159703",
+  "transient": true,
+  "is_contact_removal": false,
+  "updated_contacts": [
+    {
+      "moxi_works_contact_id": "deadbeef-feed-face-2bad4daddea1",
+      "partner_contact_id": "partner_contact_id_1"
+    },
+    {
+      "moxi_works_contact_id": "deadbeef-feed-face-2bad4daddea2",
+      "partner_contact_id": "partner_contact_id_2"
+    },
+    {
+      "moxi_works_contact_id": "deadbeef-feed-face-2bad4daddea3",
+      "partner_contact_id": "partner_contact_id_3"
+    }
+  ]
+}
+```
+
+
+
+<blockquote><div class='highlight json' style="display: block">
+<span class='data-example-label'><span class='entity-name'>Group</span> <span class='action-name'>Update</span> (using <span class='attribute-name'>moxi_works_agent_id</span>) Response Payload Example
+</span></div></blockquote>
+
+
+```json
+{
+  "moxi_works_agent_id": "1234abcd",
+  "moxi_works_group_name": "Group name",
+  "moxi_works_group_id": "{4B86F74F-B8B9-4E84-AFA8-1B2BBEEF41D6}",
+  "partner_group_id": "partner_group_id_1554159703",
+  "transient": true,
+  "is_contact_removal": true,
+  "updated_contacts": [
+    {
+      "moxi_works_contact_id": "deadbeef-feed-face-2bad4daddea1",
+      "partner_contact_id": "partner_contact_id_1"
+    },
+    {
+      "moxi_works_contact_id": "deadbeef-feed-face-2bad4daddea2",
+      "partner_contact_id": "partner_contact_id_2"
+    },
+    {
+      "moxi_works_contact_id": "deadbeef-feed-face-2bad4daddea3",
+      "partner_contact_id": "partner_contact_id_3"
+    }
+  ]
+}
+```
+
+<blockquote><div class='highlight json' style="display: block">
+  <span class='data-example-label'><span class='entity-name'>Group</span> <span class='action-name'>Update</span> Failure Response Example
+</div> See <a href='#error-handling'>Error Handling</a> for details about individual error codes.</blockquote>
+
+```json
+{
+  "status":"fail",
+  "errorCode": xxx,
+  "messages": ["messages"]
+}
+
+```
+###### <span class='action-name'>Update</span> Response Attributes
+
+Attribute | Type |
+-----|-----|-----|-----|
+|<span class="multi-option-response-data">agent_uuid*</span>|<span class="data-type">String</span>| |
+|<span class="multi-option-response-data">moxi_works_agent_id*</span>|<span class="data-type">String</span>| |
+|<span class="response-data">moxi_works_group_name</span>|<span class="data-type">String</span>|
+|<span class="response-data">moxi_works_group_id</span>|<span class="data-type">String</span>|
+|<span class="response-data">partner_group_id</span>|<span class="data-type">String</span>|
+|<span class="response-data">transient</span>|<span class="response-data"><span class="data-type">Boolean</span></span>|
+|<span class="response-data">is_contact_removal</span>|<span class="response-data"><span class="data-type">Boolean</span></span>|
+|<span class="response-data">updated_contacts</span>|<span class="response-data"><span class="data-type">Array</span></span>|
+
+<span class='multi-option-response-data'>* Either <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> will be returned depending on whether it is used in the request. The response payload object's agent identifier key will match the passed parameter.</span>
+
+<span class="response-data-head">agent_uuid</span>
+<span class="response-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>Group</span>  is associated with. This will be an [RFC 4122](https://tools.ietf.org/html/rfc4122) compliant UUID.</span>
+
+<span class="response-data-head">moxi_works_agent_id</span>
+<span class="response-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> to whom this <span class='entity-name'>Group</span> is associated. This will be a string that may take the form of an email address, or a unique alphanumeric identification string.</span>
+
+<span class="response-data-head">moxi_works_group_name</span>
+<span class="response-data-remarks">This is a human readable string meaningful to the agent about what kind of <span class='entity-name'>Contact</span> objects are in this <span class='entity-name'>Group</span>.</span>
+
+<span class="response-data-head">moxi_works_group_id</span>
+<span class="response-data-remarks">This is the unique identifier for this <span class='entity-name'>Group</span>.</span>
+
+<span class="response-data-head">partner_group_id</span>
+<span class="response-data-remarks">This is the unique identifier you use in your system that has been associated with the <span class='entity-name'>Group</span> that you are updating.</span>
+
+<span class="response-data-head">transient</span>
+<span class="response-data-remarks">Whether the group ID exists beyond name change.</span>
+
+<span class="response-data-head">is_contact_removal</span>
+<span class="response-data-remarks">How to determine if contacts were removed or added in this request</span>
+
+<span class="response-data-head">updated_contacts</span>
+<span class="response-data-remarks">This is a list of contact id hashes representing <span class='entity-name'>Contact</span> objects that were successfully added to / removed from the <span class='entity-name'>Group</span>. The contact hash will be composed of the <span class='attribute-name'>partner_contact_id</span> and <span class='attribute-name'>moxi_works_contact_id</span> associated with the contact.</span>

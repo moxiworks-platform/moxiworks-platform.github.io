@@ -137,7 +137,7 @@ $moxi_works_group = MoxiworksPlatform\Group::find([
 ```
 
 
-<aside class="note">Send a <b>GET</b> request to https://api.moxiworks.com/api/groups/[moxi_works_group_id]</aside>
+<aside class="note">Send a <b>GET</b> request to https://api.moxiworks.com/api/groups/[moxi_works_group_name or partner_group_id]</aside>
 
 ##### <span class='entity-name'>Group</span> <span class='action-name'>Show</span> Request Attributes
 
@@ -146,30 +146,32 @@ Attribute | Type | Length Limit |
 -----|-----|-----|-----|
 |<span class="multi-option-required-data">agent_uuid*</span>|<span class="multi-option-required-data"><span class="data-type">String</span></span>| <span class="multi-option-required-data">255</span>
 |<span class="multi-option-required-data">moxi_works_agent_id*</span>|<span class="multi-option-required-data"><span class="data-type">String</span></span>| <span class="multi-option-required-data">255</span>
-|<span class="required-data">moxi_works_group_id</span>|<span class="required-data"><span class="data-type">String</span></span>|<span class="required-data">255</span>
+|<span class="multi-option-required-data">partner_group_id*</span>|<span class="multi-option-required-data"><span class="data-type">String</span></span>| <span class="multi-option-required-data">255</span>
+|<span class="multi-option-required-data">moxi_works_group_name*</span>|<span class="multi-option-required-data"><span class="data-type">String</span></span>| <span class="multi-option-required-data">255</span>
 |<span class="optional-data">page_number</span>|<span class="data-type">Integer</span>| 255 |
-
-
 
 
 <span class="multi-option-required-data">* **Either <span class='attribute-name'>moxi_works_agent_id</span> or <span class='attribute-name'>agent_uuid</span> must be supplied. For guidance on which Agent identifier better fits your use-case, see [Agent Identifiers](#agent-identifiers)**</span>
 
+<span class="multi-option-required-data">* **Either <span class='attribute-name'>partner_group_id</span> or <span class='attribute-name'>moxi_works_group_name</span> must be supplied.**</span>
 
 <span class="required-data">**Required Parameters Are In Red**</span>
 
-
 <span class="request-data-head">agent_uuid</span>
+
 <span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which an  <span class='entity-name'>Group</span> entry is associated with. This will be an [RFC 4122](https://tools.ietf.org/html/rfc4122) compliant UUID. <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>Group</span> <span class='action-name'>Show</span> request to be accepted.</span>
-
-
 
 <span class="request-data-head">moxi_works_agent_id</span>
 <span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which you are searching for associated <span class='entity-name'>Group</span> objects. This will be a string that may take the form of an email address, or a unique identification string. This data is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>Group</span> <span class='action-name'>Index</span>  request to be accepted.</span>
 
 <aside class="note">A company's internal agent id may be used to construct the agent's unique identification string. To do so, the value passed via the moxi_works_agent_id should be a single concatenated string, of the form:</br>[moxi_works_company_id]:[internal_agent_id]</br>Use <a href='#company'>Company Endpoint</a> to determine which moxi_works_company_id to use.</aside>
 
-<span class="request-data-head">moxi_works_group_id</span>
+<span class="request-data-head">moxi_works_group_name</span>
 <span class="request-data-remarks">This is the name of a <span class='entity-name'>Group</span> to be shown</span>
+
+<span class="request-data-head">partner_group_id</span>
+<span class="request-data-remarks">This is the unique identifer you use in your system that will be associated with the <span class='entity-name'>Group</span> that you are updating. This data is required and must be a unique ID for your <span class='entity-name'>Group</span> for your <span class='action-name'>Update</span> request to be accepted.</span>
+
 
 <aside class="note">The name of the group in the Moxi Works Platform must be an exact match for the name you send in your request.</aside>
 
@@ -189,6 +191,7 @@ Attribute | Type | Length Limit |
     "agent_uuid":"12345678-1234-1234-1234-1234567890ab",
     "moxi_works_group_name":"foo",
     "moxi_works_group_id": "{4B86F74F-B8B9-4E84-AFA8-1B2BBEEF41D6}",
+    "partner_group_id": "partner_group_id_1",
     "transient": true,
     "page_number":1,
     "total_pages":1,
@@ -230,6 +233,7 @@ Attribute | Type | Length Limit |
     "moxi_works_agent_id":"1234abcd",
     "moxi_works_group_name":"foo",
     "moxi_works_group_id": "{4B86F74F-B8B9-4E84-AFA8-1B2BBEEF41D6}",
+    "partner_group_id": "partner_group_id_1",
     "transient": true,
     "page_number":1,
     "total_pages":1,
@@ -287,6 +291,7 @@ Attribute | Type |
 |<span class="multi-option-response-data">agent_uuid*</span>|<span class="data-type">String</span>| |
 |<span class="multi-option-response-data">moxi_works_agent_id*</span>|<span class="data-type">String</span>| |
 |<span class="response-data">moxi_works_group_name</span>|<span class="response-data"><span class="data-type">String</span></span>|
+|<span class="response-data">partner_group_id</span>|<span class="data-type">String</span>|
 |<span class="response-data">moxi_works_group_id</span>|<span class="response-data"><span class="data-type">String</span></span>|
 |<span class="response-data">transient</span>|<span class="response-data"><span class="data-type">Boolean</span></span>|
 |<span class="response-data">page_number</span>|<span class="response-data"><span class="data-type">Integer</span></span>|
@@ -306,6 +311,9 @@ Attribute | Type |
 
 <span class="response-data-head">moxi_works_group_name</span>
 <span class="response-data-remarks">This is a human readable string meaningful to the agent about what kind of <span class='entity-name'>Contact</span> objects are in this <span class='entity-name'>Group</span>.</span>
+
+<span class="response-data-head">partner_group_id</span>
+<span class="response-data-remarks">This is the unique identifier you use in your system that has been associated with the <span class='entity-name'>Group</span>.</span>
 
 
 <span class="response-data-head">moxi_works_group_id</span>

@@ -1,0 +1,293 @@
+#### <span class='entity-name'>WebUser</span> <span class='action-name'>Index</span>
+
+> <span class="data-example-label"><span class='entity-name'>WebUser</span> <span class='action-name'>Index</span> Example</span>
+
+
+> All <span class='entity-name'>WebUser</span> objects for specified <span class='entity-name'>Company</span>
+
+```http
+GET /api/web_users?moxi_works_company_id=abc123 HTTP/1.1
+Host: api.moxiworks.com
+Accept: application/vnd.moxi-platform+json;version=1
+Authorization: Basic XNNeXAAAUZaQlF0dA==
+Content-Type: application/x-www-form-urlencoded
+
+```
+
+```json
+{
+  "moxi_works_company_id":"the_company"
+}
+
+```
+
+##### <span class='entity-name'>WebUser</span> <span class='action-name'>Index</span> Request Attributes
+
+<aside class="note">Send a <b>GET</b> request to https://api.moxiworks.com/api/web_users</aside>
+
+When searching for <span class='entity-name'>WebUser</span> entities using the Moxi Works platform API, format your data using the following parameters.
+
+
+Attribute | Type  | Length Limit |
+-----|-----|-----|-----|
+|<span class="required-data">moxi_works_company_id</span>|<span class="required-data"><span class="data-type">String</span></span>|<span class="required-data">255<span> |
+|<span class="optional-data">agent_uuid †</span>|<span class="data-type">String</span>| 255 |
+|<span class="optional-data">moxi_works_agent_id †</span>|<span class="data-type">String</span>| 255 |
+|<span class="optional-data">has_agent_association</span>|<span class="data-type">Boolean</span>| 255 |
+|<span class="optional-data">page_number</span>|<span class="data-type">Integer</span>| 255 |
+
+<span class="required-data">**Required Parameters Are In Red**</span>
+
+<span class="multi-option-data"> † Either <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> may be supplied, but not both.</span>
+
+<span class="request-data-head">moxi_works_company_id</span>
+<span class="request-data-remarks">A valid Moxi Works <span class='entity-name'>Company</span> ID. Use [Company Endpoint](#company) to determine what <span class='attribute-name'>moxi_works_company_id</span> you can use.</span>
+
+<aside class="note">Use <a href='#company'>Company Endpoint</a> to determine the moxi_works_company_id to send.</aside>
+
+<span class="request-data-head">agent_uuid</span>
+<span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which the  <span class='entity-name'>WebUser</span> entry is associated with. This will be an [RFC 4122](https://tools.ietf.org/html/rfc4122) compliant UUID. If supplied thee <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> must reference a valid Moxi Works Agent ID for your <span class='entity-name'>WebUser</span> request to be accepted.</span>
+
+
+<span class="request-data-head">moxi_works_agent_id</span>
+<span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which the <span class='entity-name'>WebUser</span> objects are associated with. This will be a string that may take the form of an email address, or a unique identification string. If supplied this data must reference a valid Moxi Works <span class='entity-name'>Agent</span> ID for your <span class='entity-name'>WebUser</span> <span class='action-name'>Index</span>  request to be accepted.</span>
+
+<span class="request-data-head">page_number</span>
+<span class="request-data-remarks">Page of <span class='entity-name'>WebUser</span> records to return. Use if `total_pages` indicates that there is more than one page of data available.</span>
+
+<blockquote><div class='highlight json' style="display: block">
+<span class="data-example-label">Team Index: Success Response</span>
+</div></blockquote>
+
+```json
+
+[
+  {
+    "moxi_works_user_id": "0b080c6a-0d13-430d-8541-9680e7adcd34",
+    "first_name": "Blep",
+    "last_name": "Bloop",
+    "email": "dummy_1387389@agentdigs.com",
+    "associated_agent_uuid": null,
+    "favorite_listing_ids": [],
+    "saved_searches": []
+  }
+]
+```
+
+<blockquote><div class='highlight json' style="display: block">
+<span class="data-example-label">Team Index: Failure Response</span>
+</div> See <a href='#error-handling'>Error Handling</a> for details about individual error codes.</blockquote>
+
+```json
+{
+  "status":"fail",
+  "errorCode": xxx,
+  "messages": ["messages"]
+}
+
+```
+
+<span class='entity-name'>WebUser</span>  <span class='action-name'>Index</span> responses are divided into pages of  <span class='entity-name'>WebUser</span> objects. Use response payload attributes <span class='attribute-name'>total_pages</span> and <span class='attribute-name'>page_number</span> to determine how many pages of  <span class='entity-name'>WebUser</span> objects there are and whether additional pages need to be requested.
+
+
+Attribute | Type |
+-----|-----|-----|-----|
+|<span class="response-data">moxi_works_user_id</span>|<span class="data-type">String</span>|
+|<span class="response-data">first_name</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">last_name</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">email</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">associated_agent_uuid</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">favorite_listing_ids</span>|<span class="data-type">Array</span>|
+|<span class="response-data">saved_searches</span>|<span class="data-type">Array</span>|
+
+<span class="response-data-head">moxi_works_user_id</span>
+<span class="response-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>WebUser</span>. This will be an [RFC 4122](https://tools.ietf.org/html/rfc4122) compliant UUID.</span>
+
+<span class="response-data-head">first_name</span>
+<span class="response-data-remarks">The first name associated with the <span class='entity-name'>WebUser</span> record.</span>
+
+<span class="response-data-head">last_name</span>
+<span class="response-data-remarks">The last name associated with the <span class='entity-name'>WebUser</span> record.</span>
+
+<span class="response-data-head">email</span>
+<span class="response-data-remarks">This is the email address associated with the <span class='entity-name'>WebUser</span> record.</span>
+
+<span class="response-data-head">associated_agent_uuid</span>
+<span class="response-data-remarks">This is the <span class='attribute-name'>agent_uuid</span> of the <span class='entity-name'>Agent</span> record that this <span class='entity-name'>WebUser</span> is associated with. This will be an [RFC 4122](https://tools.ietf.org/html/rfc4122) compliant UUID, or null if the user does not have an agent association.</span>
+
+<span class="response-data-head">favorite_listing_ids</span>
+<span class="response-data-remarks">This is will be a list of <span class='attribute-name'>moxi_works_listing_id</span>s for listings marked as favorites for the <span class='entity-name'>WebUser</span> record. </span>
+
+###### <span class='attribute-name'>saved_searches</span> Object
+
+The <span class='attribute-name'>saved_searches</span> Array contains Dictionary objects representing <span class='entity-name'>SavedSearch</span> entries. The structure of each <span class='entity-name'>SavedSearch</span> entry is shown below.
+
+Attribute | Type |
+-----|-----|-----|-----|
+|<span class="response-data">search_name</span>|<span class="data-type">String</span>|
+|<span class="response-data">email_frequency</span>|<span class="data-type">String</span>|
+|<span class="response-data">send_empty_emails</span>|<span class="data-type">Boolean</span>|
+|<span class="response-data">search_criteria</span>|<span class="data-type">Hash</span>|
+
+
+<span class="response-data-head">name</span>
+<span class="response-data-remarks">The name that the user has given to the saved search.</span>
+
+
+<span class="response-data-head">email_frequency</span>
+<span class="response-data-remarks">The frequency of saved search update emails. Options are: monthly, weekly, daily, hourly, never.</span>
+
+
+<span class="response-data-head">send_empty_emails</span>
+<span class="response-data-remarks">This field indicates whether or not the user has elected to receive saved search update emails containing zero listing updates.</span>
+
+###### <span class='attribute-name'>search_criteria</span> Object
+
+The <span class='attribute-name'>search_criteria</span> Hash is a Dictionary object containing the criteria used to refine the <span class='entity-name'>SavedSearch</span> entry. The structure of the <span class='attribute-name'>search_criteria</span> Hash is shown below.
+
+Attribute | Type |
+-----|-----|-----|-----|
+|<span class="response-data">search_field</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">city</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">state</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">zipcode</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">street_name</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">house_number</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">listing_status</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">price_min</span>|<span class="data-type">Integer or null</span>|
+|<span class="response-data">price_max</span>|<span class="data-type">Integer or null</span>|
+|<span class="response-data">bed_min</span>|<span class="data-type">Integer or null</span>|
+|<span class="response-data">bath_min</span>|<span class="data-type">Float or null</span>|
+|<span class="response-data">sqft_min</span>|<span class="data-type">Integer or null</span>|
+|<span class="response-data">sqft_max</span>|<span class="data-type">Integer or null</span>|
+|<span class="response-data">lot_size_min</span>|<span class="data-type">Float, Integer or null</span>|
+|<span class="response-data">lot_size_max</span>|<span class="data-type">Float, Integer or null</span>|
+|<span class="response-data">lot_size_conversion</span>|<span class="data-type">String</span>|
+|<span class="response-data">year_built_min</span>|<span class="data-type">Integer</span>|
+|<span class="response-data">year_built_max</span>|<span class="data-type">Integer</span>|
+|<span class="response-data">days_on_mls</span>|<span class="data-type">Integer</span>|
+|<span class="response-data">single_story_home</span>|<span class="data-type">Boolean</span>|
+|<span class="response-data">garage</span>|<span class="data-type">Boolean</span>|
+|<span class="response-data">pool</span>|<span class="data-type">Boolean</span>|
+|<span class="response-data">waterfront</span>|<span class="data-type">Boolean</span>|
+|<span class="response-data">view</span>|<span class="data-type">Boolean</span>|
+|<span class="response-data">new_construction</span>|<span class="data-type">Boolean</span>|
+|<span class="response-data">luxury_property</span>|<span class="data-type">Boolean</span>|
+|<span class="response-data">destination</span>|<span class="data-type">Boolean</span>|
+|<span class="response-data">open_house</span>|<span class="data-type">String</span>|
+|<span class="response-data">property_types</span>|<span class="data-type">Array</span>|
+|<span class="response-data">drive_time</span>|<span class="data-type">Hash</span>|
+
+<span class="response-data-head">search_field</span>
+<span class="response-data-remarks">The search string used in generating the <span class='entity-name'>SavedSearch</span> object.</span>
+
+<span class="response-data-head">city</span>
+<span class="response-data-remarks">The focus city of this <span class='entity-name'>SavedSearch</span> entry.</span>
+
+<span class="response-data-head">state</span>
+<span class="response-data-remarks">The focus state of this <span class='entity-name'>SavedSearch</span> entry.</span>
+
+<span class="response-data-head">zipcode</span>
+<span class="response-data-remarks">The focus zip / postal code of this <span class='entity-name'>SavedSearch</span> entry.</span>
+
+<span class="response-data-head">street_name</span>
+<span class="response-data-remarks">The focus street name of this <span class='entity-name'>SavedSearch</span> entry.</span>
+
+<span class="response-data-head">house_number</span>
+<span class="response-data-remarks">The focus house number of this <span class='entity-name'>SavedSearch</span> entry.</span>
+
+<span class="response-data-head">listing_status</span>
+<span class="response-data-remarks">The listing status for listings included in this <span class='entity-name'>SavedSearch</span> entry.</span>
+
+<span class="response-data-head">price_min</span>
+<span class="response-data-remarks">The minimum price for listings included in this <span class='entity-name'>SavedSearch</span> entry.</span>
+
+<span class="response-data-head">price_max</span>
+<span class="response-data-remarks">The maximum price for listings included in this <span class='entity-name'>SavedSearch</span> entry.</span>
+
+<span class="response-data-head">bed_min</span>
+<span class="response-data-remarks">The minimum number of beds for listings included in this <span class='entity-name'>SavedSearch</span> entry.</span>
+
+<span class="response-data-head">bath_min</span>
+<span class="response-data-remarks">The minimum number of baths for listings included in this <span class='entity-name'>SavedSearch</span> entry.</span>
+
+<span class="response-data-head">sqft_min</span>
+<span class="response-data-remarks">The minimum interior square footage for listings included in this <span class='entity-name'>SavedSearch</span> entry.</span>
+
+<span class="response-data-head">sqft_max</span>
+<span class="response-data-remarks">The maximum interior square footage for listings included in this <span class='entity-name'>SavedSearch</span> entry.</span>
+
+<span class="response-data-head">lot_size_min</span>
+<span class="response-data-remarks">The minimum lot size for listings included in this <span class='entity-name'>SavedSearch</span> entry. Use the <span class='attribute-name'>lot_size_conversion</span> attribute to determine if this field is represented in square feet (Integer) or acres (Float).</span>
+
+<span class="response-data-head">lot_size_max</span>
+<span class="response-data-remarks">The maximum lot size for listings included in this <span class='entity-name'>SavedSearch</span> entry. Use the <span class='attribute-name'>lot_size_conversion</span> attribute to determine if this field is represented in square feet (Integer) or acres (Float).</span>
+
+<span class="response-data-head">lot_size_conversion</span>
+<span class="response-data-remarks">The units used for computing lot size. Options are: sqft, acres</span>
+
+<span class="response-data-head">year_built_min</span>
+<span class="response-data-remarks">The earliest year that listings included in this <span class='entity-name'>SavedSearch</span> entry can have been built.</span>
+
+<span class="response-data-head">year_built_max</span>
+<span class="response-data-remarks">The latest year that listings included in this <span class='entity-name'>SavedSearch</span> entry can have been built.</span>
+
+<span class="response-data-head">days_on_mls</span>
+<span class="response-data-remarks">The maximum number of days that listings included in this <span class='entity-name'>SavedSearch</span> entry can have been listed on the MLS.</span>
+
+<span class="response-data-head">single_story_home</span>
+<span class="response-data-remarks">Whether or not listings included in this <span class='entity-name'>SavedSearch</span> entry must be single story homes.</span>
+
+<span class="response-data-head">garage</span>
+<span class="response-data-remarks">Whether or not listings included in this <span class='entity-name'>SavedSearch</span> entry must have a garage.</span>
+
+<span class="response-data-head">pool</span>
+<span class="response-data-remarks">Whether or not listings included in this <span class='entity-name'>SavedSearch</span> entry must have a pool.</span>
+
+<span class="response-data-head">waterfront</span>
+<span class="response-data-remarks">Whether or not listings included in this <span class='entity-name'>SavedSearch</span> entry must be on the waterfront.</span>
+
+<span class="response-data-head">view</span>
+<span class="response-data-remarks">Whether or not listings included in this <span class='entity-name'>SavedSearch</span> entry must be classified as having views.</span>
+
+<span class="response-data-head">new_construction</span>
+<span class="response-data-remarks">Whether or not listings included in this <span class='entity-name'>SavedSearch</span> entry must be classified as having new construction.</span>
+
+<span class="response-data-head">luxury_property</span>
+<span class="response-data-remarks">Whether or not listings included in this <span class='entity-name'>SavedSearch</span> entry must be classified as being a luxury property.</span>
+
+<span class="response-data-head">destination</span>
+<span class="response-data-remarks">Whether or not listings included in this <span class='entity-name'>SavedSearch</span> entry must be classified as being in a destination setting.</span>
+
+<span class="response-data-head">open_house</span>
+<span class="response-data-remarks">This field indicates how listings included in this <span class='entity-name'>SavedSearch</span> have been filtered by open house times. Options are: weekend, saturday, sunday, week, today, tomorrow, none.</span>
+
+<span class="response-data-head">property_types</span>
+<span class="response-data-remarks">This is an array of property types included in this <span class='entity-name'>SavedSearch</span> entry.</span>
+
+
+###### <span class='attribute-name'>drive_time</span> Object
+
+The <span class='attribute-name'>drive_time</span> Hash is a Dictionary object representing drive time calculations associated with the <span class='entity-name'>SavedSearch</span> entry. The structure of the <span class='attribute-name'>drive_time</span> entry is shown below.
+
+Attribute | Type |
+-----|-----|-----|-----|
+|<span class="response-data">arrival_time</span>|<span class="data-type">String</span>|
+|<span class="response-data">duration</span>|<span class="data-type">String</span>|
+|<span class="response-data">is_to_location</span>|<span class="data-type">Boolean</span>|
+|<span class="response-data">avoid_ferry</span>|<span class="data-type">Hash</span>|
+
+
+<span class="response-data-head">arrival_time</span>
+<span class="response-data-remarks">The anticipated time of day for the arrival to/from the location.</span>
+
+
+<span class="response-data-head">duration</span>
+<span class="response-data-remarks">The expected duration of the drive</span>
+
+
+<span class="response-data-head">is_to_location</span>
+<span class="response-data-remarks">Determines whether the drive is to or from the location(s) specified by the other search criteria.</span>
+
+<span class="response-data-head">avoid_ferry</span>
+<span class="response-data-remarks">Determines whether or not the <span class='attribute-name'>drive_time</span> search has been configured to avoid any ferry boats.</span>

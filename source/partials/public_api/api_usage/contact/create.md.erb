@@ -489,6 +489,7 @@ Attribute | Type | Length Limit |
 |<span class="multi-option-required-data">secondary_email_address †</span>|<span class="multi-option-required-data"><span class="data-type">String</span></span>| <span class="multi-option-required-data">255</span>
 |<span class="multi-option-required-data">primary_phone_number †</span>|<span class="multi-option-required-data"><span class="data-type">String</span></span>| <span class="multi-option-required-data">255</span>
 |<span class="multi-option-required-data">secondary_phone_number †</span>|<span class="multi-option-required-data"><span class="data-type">String</span></span>| <span class="multi-option-required-data">255</span>
+|<span class="optional-data">moxi_works_lead_source_id</span>|<span class="data-type">String</span>| 255 |
 |<span class="optional-data">gender</span>|<span class="data-type">String</span>| 255 |
 |<span class="optional-data">label_name</span>|<span class="data-type">String</span>| 255 |
 |<span class="optional-data">home_street_address</span>|<span class="data-type">String</span>| 255 |
@@ -546,6 +547,9 @@ Attribute | Type | Length Limit |
 
 <span class="request-data-head">contact_name</span>
 <span class="request-data-remarks">This is the full name of the contact you are creating a <span class='entity-name'>Contact</span> record for. You should format this information as <i>first middle last</i>.</span>
+
+<span class="request-data-head">moxi_works_lead_source_id</span>
+<span class="request-data-remarks">The <span class='entity-name'>Contact</span> will be created in MoxiEngage as a lead sourced from the <span class='entity-name'>LeadSource</span> associated with this <span class='attribute-name'>moxi_works_lead_source_id</span>. Send a <span class='entity-name'>LeadSource</span> <span class='action-name'>index</span> request to determine which lead sources your organization has permission to impersonate during lead generation.</span>
 
 <span class="request-data-head">gender</span>
 <span class="request-data-remarks">The gender of the contact. This can be `male`, `female`, `m` or `f`. No matter what is provided in the request, the response payload will return `m` or `f`. </span>

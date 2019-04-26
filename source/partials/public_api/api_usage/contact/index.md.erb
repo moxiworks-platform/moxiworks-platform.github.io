@@ -201,6 +201,8 @@ Attribute | Type | Length Limit |
   "agent_uuid": "12345678-1234-1234-1234-1234567890ab",
   "partner_contact_id": "booyuh",
   "moxi_works_contact_id":"deadbeef-feed-face-2bad4daddead",
+  "moxi_works_lead_source_id": "some_lead_source_id",
+  "is_deleted": false,
   "contact_name":"Firstname Middlenyme Larstnam",
   "first_name":"Firstname",
   "middle_name":"Middlenyme",
@@ -294,6 +296,8 @@ Attribute | Type | Length Limit |
   "agent_uuid": "12345678-1234-1234-1234-1234567890ab",
   "partner_contact_id": "fooyuh",
   "moxi_works_contact_id":"deadbeef-feed-face-2baddadbdead",
+  "moxi_works_lead_source_id": "some_lead_source_id",
+  "is_deleted": false,
   "contact_name": "buckminster fuller",
   "first_name":"buckminster",
   "middle_name":null,
@@ -603,6 +607,8 @@ Attribute | Type |
 |<span class="multi-option-response-data">moxi_works_agent_id*</span>|<span class="data-type">String</span>| |
 |<span class="response-data">partner_contact_id</span>|<span class="response-data"><span class="data-type">String</span>
 |<span class="response-data">moxi_works_contact_id</span>|<span class="data-type">String</span>|
+|<span class="response-data">moxi_works_lead_source_id</span>|<span class="data-type">String</span>|
+|<span class="response-data">is_deleted</span>|<span class="data-type">Boolean</span>|
 |<span class="response-data">contact_name</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">first_name</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">middle_name</span>|<span class="data-type">String or null</span>|
@@ -670,6 +676,12 @@ Attribute | Type |
 
 <span class="response-data-head">moxi_works_contact_id</span>
 <span class="response-data-remarks">This is the Moxi Works Platform ID of this <span class='entity-name'>Contact</span>. This will be an [RFC 4122](https://tools.ietf.org/html/rfc4122) compliant UUID.</span>
+
+<span class="response-data-head">moxi_works_lead_source_id</span>
+<span class="response-data-remarks">This is the unique Moxi Works Platform ID of the <span class='entity-name'>LeadSource</span> that generated this <span class='entity-name'>Contact</span>.</span>
+
+<span class="response-data-head">is_deleted</span>
+<span class="response-data-remarks">Will be true if this <span class='entity-name'>Contact</span> has been deleted from the <span class='entity-name'>Agent</span>s contacts.</span>
 
 
 <span class="response-data-head">contact_name</span>

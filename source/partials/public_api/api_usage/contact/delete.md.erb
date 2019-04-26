@@ -82,6 +82,107 @@ Attribute | Type | Length Limit |
   "deleted": true,
   "messages": [
     "contact MySystemsUniqueContactID deleted from account 12345678-1234-1234-1234-1234567890ab"
+  ],
+  "result": {
+    "moxi_works_agent_id": "1234abcd",
+    "partner_contact_id": "booyuh",
+    "moxi_works_contact_id":"deadbeef-feed-face-bad4dad22dead",
+    "moxi_works_lead_source_id": "some_lead_source_id",
+    "is_deleted": true,
+    "contact_name":"Firstname Middlenyme Larstnam",
+    "first_name":"Firstname",
+    "middle_name":"Middlenyme",
+    "last_name":"Larstnam",
+    "suffix":null,
+    "gender": "m",
+    "label_name": "Mr. and Mrs. Oo-De-Lally Golly What a Day",
+    "primary_email_address":"primary@email.com",
+    "secondary_email_address":"secondary@email.com",
+    "primary_phone_number":"3603603608",
+    "secondary_phone_number":"3603603609",
+    "email_addresses": [
+      {
+        "key": "email_address1",
+        "address": "primary@email.com"
+      },
+      {
+        "key": "email_address2",
+        "address": "secondary@email.com"
+      },
+      {
+        "key": "email_address3",
+        "address": "also@this.com"
+      }
+    ],
+    "phone_numbers": [
+      {
+        "key": "mobile_phone",
+        "number": "3603603608"
+      },
+      {
+        "key": "home_phone",
+        "number": "3603603609"
+      },
+      {
+        "key": "business_phone",
+        "number": "3603603610"
+      },
+    ],
+    "home_street_address": "1234 Sesame St.",
+    "home_city": "Cityville",
+    "home_state": "Stateland",
+    "home_zip": "12345-6789",
+    "home_country": "Ottoman Empire",
+    "job_title": "Junior Bacon Burner",
+    "occupation": "chef",
+    "is_new_contact": true,
+    "birthday": 1496310636,
+    "anniversary": 1495199540,
+    "home_purchase_anniversary": 1484088442,
+    "social_media_profiles": [
+      {
+    "key": "facebook",
+    "url": null
+    },
+      {
+    "key": "linkedin",
+    "url": null
+    },
+      {
+    "key": "twitter",
+    "url": null
+    },
+      {
+    "key": "googleplus",
+    "url": null
+    }
+    ],
+    "property_url": "http://my.property.website.is/here",
+    "property_mls_id": "abc123",
+    "property_street_address": "2345 67th place",
+    "property_city": "Townland",
+    "property_state": "Statesville",
+    "property_zip": "98765-4321",
+    "property_beds": "18",
+    "property_baths": "12.5",
+    "property_list_price": "123456789",
+    "property_listing_status": "Active",
+    "property_photo_url": "http://property.photo.is/here.jpg",
+    "search_city": "Searchland",
+    "search_state": "Searchsylvania",
+    "search_zip": "12345-6789",
+    "search_min_beds": "2",
+    "search_min_baths": "3.25",
+    "search_min_price": "1234567",
+    "search_max_price": "1234569",
+    "search_min_sq_ft": "1234",
+    "search_max_sq_ft": "1235",
+    "search_min_lot_size": "3234",
+    "search_max_lot_size": "3235",
+    "search_min_year_built": "1388",
+    "search_max_year_built": "2044",
+    "search_property_types": "Condo, Single Family, Townhouse",
+    "note": "whatevers2009"
   }
 }
 ```
@@ -134,6 +235,8 @@ Attribute | Type |
 |<span class="multi-option-response-data">moxi_works_agent_id*</span>|<span class="data-type">String</span>| |
 |<span class="response-data">partner_contact_id</span>|<span class="data-type">String</span>|
 |<span class="response-data">moxi_works_contact_id</span>|<span class="data-type">String</span>|
+|<span class="response-data">moxi_works_lead_source_id</span>|<span class="data-type">String</span>|
+|<span class="response-data">is_deleted</span>|<span class="data-type">Boolean</span>|
 |<span class="response-data">contact_name</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">first_name</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">middle_name</span>|<span class="data-type">String or null</span>|
@@ -190,7 +293,6 @@ Attribute | Type |
 <span class="response-data-head">agent_uuid</span>
 <span class="response-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>Contact</span>  is associated with. This will be an [RFC 4122](https://tools.ietf.org/html/rfc4122) compliant UUID.</span>
 
-
 <span class="response-data-head">moxi_works_agent_id</span>
 <span class="response-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> to whom this <span class='entity-name'>Contact</span> is associated. This will be a string that may take the form of an email address, or a unique alphanumeric identification string.</span>
 
@@ -200,6 +302,11 @@ Attribute | Type |
 <span class="response-data-head">moxi_works_contact_id</span>
 <span class="response-data-remarks">This is the Moxi Works Platform ID of this <span class='entity-name'>Contact</span>. This will be an [RFC 4122](https://tools.ietf.org/html/rfc4122) compliant UUID.</span>
 
+<span class="response-data-head">moxi_works_lead_source_id</span>
+<span class="response-data-remarks">This is the unique Moxi Works Platform ID of the <span class='entity-name'>LeadSource</span> that generated this <span class='entity-name'>Contact</span>.</span>
+
+<span class="response-data-head">is_deleted</span>
+<span class="response-data-remarks">Will be true if this <span class='entity-name'>Contact</span> has been deleted from the <span class='entity-name'>Agent</span>s contacts.</span>
 
 <span class="response-data-head">contact_name</span>
 <span class="response-data-remarks">This is the full name of the contact you are creating a <span class='entity-name'>Contact</span> record for. You should format this information as <i>first middle last</i>. This value will be null if no data is available for this attribute. </span>

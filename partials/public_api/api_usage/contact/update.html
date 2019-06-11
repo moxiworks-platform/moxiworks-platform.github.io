@@ -848,6 +848,8 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
   </span><span class="nt">"agent_uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345678-1234-1234-1234-1234567890ab"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"partner_contact_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"booyuh"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"moxi_works_contact_id"</span><span class="p">:</span><span class="s2">"deadbeef-feed-face-bad4dad22dead"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"moxi_works_lead_source_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"some_lead_source_id"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"is_deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="nt">"contact_name"</span><span class="p">:</span><span class="s2">"Firstname Middlenyme Larstnam"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"first_name"</span><span class="p">:</span><span class="s2">"Firstname"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"middle_name"</span><span class="p">:</span><span class="s2">"Middlenyme"</span><span class="p">,</span><span class="w">
@@ -952,6 +954,8 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
   </span><span class="nt">"moxi_works_agent_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234abcd"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"partner_contact_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"booyuh"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"moxi_works_contact_id"</span><span class="p">:</span><span class="s2">"deadbeef-feed-face-bad4dad22dead"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"moxi_works_lead_source_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"some_lead_source_id"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"is_deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="nt">"contact_name"</span><span class="p">:</span><span class="s2">"Firstname Middlenyme Larstnam"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"first_name"</span><span class="p">:</span><span class="s2">"Firstname"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"middle_name"</span><span class="p">:</span><span class="s2">"Middlenyme"</span><span class="p">,</span><span class="w">
@@ -1083,6 +1087,14 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 <tr>
 <td><span class="response-data">moxi_works_contact_id</span></td>
 <td><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">moxi_works_lead_source_id</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">is_deleted</span></td>
+<td><span class="data-type">Boolean</span></td>
 </tr>
 <tr>
 <td><span class="response-data">contact_name</span></td>
@@ -1303,6 +1315,12 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 
 <p><span class="response-data-head">moxi_works_contact_id</span>
 <span class="response-data-remarks">This is the Moxi Works Platform ID of this <span class='entity-name'>Contact</span>. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID.</span></p>
+
+<p><span class="response-data-head">moxi_works_lead_source_id</span>
+<span class="response-data-remarks">This is the unique Moxi Works Platform ID of the <span class='entity-name'>LeadSource</span> that generated this <span class='entity-name'>Contact</span>.</span></p>
+
+<p><span class="response-data-head">is_deleted</span>
+<span class="response-data-remarks">Will be true if this <span class='entity-name'>Contact</span> has been deleted from the <span class='entity-name'>Agent</span>s contacts.</span></p>
 
 <p><span class="response-data-head">contact_name</span>
 <span class="response-data-remarks">This is the full name of the contact you are creating a <span class='entity-name'>Contact</span> record for. You should format this information as <i>first middle last</i>. This value will be null if no data is available for this attribute. </span></p>

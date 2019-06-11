@@ -1,0 +1,133 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>API Documentation</title>
+
+    <link href="../../../../stylesheets/screen.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="../../../../stylesheets/print.css" rel="stylesheet" type="text/css" media="print" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+      <script src="../../../../javascripts/all_nosearch.js" type="text/javascript"></script>
+
+  </head>
+
+  <body class="partials partials_public_api partials_public_api_api_usage partials_public_api_api_usage_lead_source partials_public_api_api_usage_lead_source_index">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="../../../../images/navbar.png" />
+      </span>
+    </a>
+    <div class="tocify-wrapper">
+      <img src="../../../../images/logo.png" />
+      <div id="toc">
+      </div>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h4 id="leadsource-index"><span class='entity-name'>LeadSource</span> <span class='action-name'>Index</span></h4>
+
+<aside class="note">Send a <b>GET</b> request to https://api.moxiworks.com/api/lead_sources</aside>
+
+<p>The <span class='entity-name'>LeadSource</span> <span class='action-name'>Index</span> endpoint will return all <span class='entity-name'>LeadSource</span> entities under whose alias your organization may generate leads. When searching for <span class='entity-name'>LeadSource</span> entities using the MoxiWorks platform API, format your request using the following parameters.</p>
+
+<blockquote>
+<p><span class="data-example-label"><span class='entity-name'>LeadSource </span><span class='action-name'>Index </span>Request Example</span></p>
+</blockquote>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/lead_sources</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">api.moxiworks.com</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.moxi-platform+json;version=1</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Basic XNNeXAAAUZaQlF0dA==</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/x-www-form-urlencoded</span>
+
+</code></pre>
+<pre class="highlight json"><code><span class="p">{}</span><span class="w">
+
+</span></code></pre>
+
+<h5 id="leadsource-index-request-attributes"><span class='entity-name'>LeadSource</span> <span class='action-name'>Index</span> Request Attributes</h5>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Length Limit</th>
+</tr>
+</thead><tbody>
+</tbody></table>
+
+<h5 id="leadsource-index-response-payload"><span class='entity-name'>LeadSource</span> <span class='action-name'>Index</span> Response Payload</h5>
+
+<p><span class='entity-name'>LeadSource</span> <span class='action-name'>Index</span> returns an array of objects representing lead sources that your organization has permission to use as an alias when generating leads via the MoxiWorks platform API.
+The following attributes make up the payload of each <span class='entity-name'>LeadSource</span> object returned in an <span class='action-name'>Index</span> request.</p>
+
+<blockquote><div class='highlight json' style="display: block">
+<span class='data-example-label'><span class='entity-name'>LeadSource</span> <span class='action-name'>Index</span> Response Payload Example
+</span></div></blockquote>
+<pre class="highlight json"><code><span class="w">
+</span><span class="p">[</span><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="nt">"moxi_works_lead_source_id"</span><span class="p">:</span><span class="s2">"some_lead_source_id"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"Some Lead Source Name"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"is_partner_default"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="p">},</span><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="nt">"moxi_works_lead_source_id"</span><span class="p">:</span><span class="s2">"some_other_lead_source_id"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"Some Other Lead Source Name"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"is_partner_default"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<blockquote><div class='highlight json' style="display: block">
+<span class="data-example-label"><span class='entity-name'>Company</span> <span class='action-name'>Index</span> Failure Response</span>
+</div> See <a href='#error-handling'>Error Handling</a> for details about individual error codes.</blockquote>
+<pre class="highlight json"><code><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="nt">"status"</span><span class="p">:</span><span class="s2">"fail"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"errorCode"</span><span class="p">:</span><span class="w"> </span><span class="err">xxx</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"messages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"messages"</span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+
+<h6 id="index-response-attributes"><span class='action-name'>Index</span> Response Attributes</h6>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span class="response-data">moxi_works_lead_source_id</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">name</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">is_partner_default</span></td>
+<td><span class="data-type">Boolean</span></td>
+</tr>
+</tbody></table>
+
+<p><span class="response-data-head">moxi_works_lead_source_id</span>
+<span class="response-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>LeadSource</span>. This will be an alphanumeric identification string which will be similar to the <span class='entity-name'>LeadSource</span> <span class='attribute-name'>name</span>.</span></p>
+
+<p><span class="response-data-head">name</span>
+<span class="response-data-remarks">This is the common name of the lead source.</span></p>
+
+<p><span class="response-data-head">is_partner_default</span>
+<span class="response-data-remarks">Is true for the <span class='entity-name'>LeadSource</span> entity used as a default for this partner. This should always be true for exactly one of each partner&rsquo;s available lead sources in the <span class='action-name'>Index</span> Response Payload.</span></p>
+
+      </div>
+      <div class="dark-box">
+      </div>
+    </div>
+  </body>
+</html>

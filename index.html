@@ -7267,6 +7267,7 @@ The following attributes make up the payload of each <span class='entity-name'>C
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
 </span><span class="nt">"agent_uuid"</span><span class="p">:</span><span class="s2">"12345678-1234-1234-1234-1234567890ab"</span><span class="p">,</span><span class="w">
 </span><span class="nt">"partner_contact_id"</span><span class="p">:</span><span class="s2">"booyuh"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"moxi_works_lead_source_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"some_lead_source_id"</span><span class="p">,</span><span class="w">
 </span><span class="nt">"contact_name"</span><span class="p">:</span><span class="s2">"Firstname Middlenyme Larstnam"</span><span class="p">,</span><span class="w">
 </span><span class="nt">"gender"</span><span class="p">:</span><span class="s2">"m"</span><span class="p">,</span><span class="w">
 </span><span class="nt">"label_name"</span><span class="p">:</span><span class="s2">"Mr. and Mrs. Oo-De-Lally Golly What a Day"</span><span class="p">,</span><span class="w">
@@ -7491,6 +7492,7 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;partner_contact_id=abc982cdf
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
 </span><span class="nt">"moxi_works_agent_id"</span><span class="p">:</span><span class="s2">"1234abcd"</span><span class="p">,</span><span class="w">
 </span><span class="nt">"partner_contact_id"</span><span class="p">:</span><span class="s2">"booyuh"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"moxi_works_lead_source_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"some_lead_source_id"</span><span class="p">,</span><span class="w">
 </span><span class="nt">"contact_name"</span><span class="p">:</span><span class="s2">"Firstname Middlenyme Larstnam"</span><span class="p">,</span><span class="w">
 </span><span class="nt">"gender"</span><span class="p">:</span><span class="s2">"m"</span><span class="p">,</span><span class="w">
 </span><span class="nt">"label_name"</span><span class="p">:</span><span class="s2">"Mr. and Mrs. Oo-De-Lally Golly What a Day"</span><span class="p">,</span><span class="w">
@@ -7768,6 +7770,11 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 <td><span class="multi-option-required-data">255</span></td>
 </tr>
 <tr>
+<td><span class="optional-data">moxi_works_lead_source_id</span></td>
+<td><span class="data-type">String</span></td>
+<td>255</td>
+</tr>
+<tr>
 <td><span class="optional-data">gender</span></td>
 <td><span class="data-type">String</span></td>
 <td>255</td>
@@ -7969,6 +7976,9 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 <p><span class="request-data-head">contact_name</span>
 <span class="request-data-remarks">This is the full name of the contact you are creating a <span class='entity-name'>Contact</span> record for. You should format this information as <i>first middle last</i>.</span></p>
 
+<p><span class="request-data-head">moxi_works_lead_source_id</span>
+<span class="request-data-remarks">The <span class='entity-name'>Contact</span> will be created in MoxiEngage as a lead sourced from the <span class='entity-name'>LeadSource</span> associated with this <span class='attribute-name'>moxi_works_lead_source_id</span>. Send a <span class='entity-name'>LeadSource</span> <span class='action-name'>index</span> request to determine which lead sources your organization has permission to impersonate during lead generation.</span></p>
+
 <p><span class="request-data-head">gender</span>
 <span class="request-data-remarks">The gender of the contact. This can be <code class="prettyprint">male</code>, <code class="prettyprint">female</code>, <code class="prettyprint">m</code> or <code class="prettyprint">f</code>. No matter what is provided in the request, the response payload will return <code class="prettyprint">m</code> or <code class="prettyprint">f</code>. </span></p>
 
@@ -8097,6 +8107,8 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
   </span><span class="nt">"agent_uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345678-1234-1234-1234-1234567890ab"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"partner_contact_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"booyuh"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"moxi_works_contact_id"</span><span class="p">:</span><span class="s2">"deadbeef-feed-face-2bad4daddead"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"moxi_works_lead_source_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"some_lead_source_id"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"is_deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="nt">"contact_name"</span><span class="p">:</span><span class="s2">"Firstname Middlenyme Larstnam"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"first_name"</span><span class="p">:</span><span class="s2">"Firstname"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"middle_name"</span><span class="p">:</span><span class="s2">"Middlenyme"</span><span class="p">,</span><span class="w">
@@ -8201,6 +8213,8 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
   </span><span class="nt">"moxi_works_agent_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234abcd"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"partner_contact_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"booyuh"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"moxi_works_contact_id"</span><span class="p">:</span><span class="s2">"deadbeef-feed-face-2bad4daddead"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"moxi_works_lead_source_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"some_lead_source_id"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"is_deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="nt">"contact_name"</span><span class="p">:</span><span class="s2">"Firstname Middlenyme Larstnam"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"first_name"</span><span class="p">:</span><span class="s2">"Firstname"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"middle_name"</span><span class="p">:</span><span class="s2">"Middlenyme"</span><span class="p">,</span><span class="w">
@@ -8324,6 +8338,14 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 <tr>
 <td><span class="multi-option-response-data">moxi_works_agent_id*</span></td>
 <td><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">moxi_works_lead_source_id</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">is_deleted</span></td>
+<td><span class="data-type">Boolean</span></td>
 </tr>
 <tr>
 <td><span class="response-data">partner_contact_id</span></td>
@@ -8548,6 +8570,12 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 
 <p><span class="response-data-head">moxi_works_contact_id</span>
 <span class="response-data-remarks">This is the Moxi Works Platform ID of this <span class='entity-name'>Contact</span>. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID.</span></p>
+
+<p><span class="response-data-head">moxi_works_lead_source_id</span>
+<span class="response-data-remarks">This is the unique Moxi Works Platform ID of the <span class='entity-name'>LeadSource</span> that generated this <span class='entity-name'>Contact</span>.</span></p>
+
+<p><span class="response-data-head">is_deleted</span>
+<span class="response-data-remarks">Will be true if this <span class='entity-name'>Contact</span> has been deleted from the <span class='entity-name'>Agent</span>s contacts.</span></p>
 
 <p><span class="response-data-head">contact_name</span>
 <span class="response-data-remarks">This is the full name of the contact you are creating a <span class='entity-name'>Contact</span> record for. You should format this information as <i>first middle last</i>. This value will be null if no data is available for this attribute. </span></p>
@@ -9604,6 +9632,8 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
   </span><span class="nt">"agent_uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345678-1234-1234-1234-1234567890ab"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"partner_contact_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"booyuh"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"moxi_works_contact_id"</span><span class="p">:</span><span class="s2">"deadbeef-feed-face-bad4dad22dead"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"moxi_works_lead_source_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"some_lead_source_id"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"is_deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="nt">"contact_name"</span><span class="p">:</span><span class="s2">"Firstname Middlenyme Larstnam"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"first_name"</span><span class="p">:</span><span class="s2">"Firstname"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"middle_name"</span><span class="p">:</span><span class="s2">"Middlenyme"</span><span class="p">,</span><span class="w">
@@ -9708,6 +9738,8 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
   </span><span class="nt">"moxi_works_agent_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234abcd"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"partner_contact_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"booyuh"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"moxi_works_contact_id"</span><span class="p">:</span><span class="s2">"deadbeef-feed-face-bad4dad22dead"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"moxi_works_lead_source_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"some_lead_source_id"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"is_deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="nt">"contact_name"</span><span class="p">:</span><span class="s2">"Firstname Middlenyme Larstnam"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"first_name"</span><span class="p">:</span><span class="s2">"Firstname"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"middle_name"</span><span class="p">:</span><span class="s2">"Middlenyme"</span><span class="p">,</span><span class="w">
@@ -9839,6 +9871,14 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 <tr>
 <td><span class="response-data">moxi_works_contact_id</span></td>
 <td><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">moxi_works_lead_source_id</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">is_deleted</span></td>
+<td><span class="data-type">Boolean</span></td>
 </tr>
 <tr>
 <td><span class="response-data">contact_name</span></td>
@@ -10059,6 +10099,12 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 
 <p><span class="response-data-head">moxi_works_contact_id</span>
 <span class="response-data-remarks">This is the Moxi Works Platform ID of this <span class='entity-name'>Contact</span>. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID.</span></p>
+
+<p><span class="response-data-head">moxi_works_lead_source_id</span>
+<span class="response-data-remarks">This is the unique Moxi Works Platform ID of the <span class='entity-name'>LeadSource</span> that generated this <span class='entity-name'>Contact</span>.</span></p>
+
+<p><span class="response-data-head">is_deleted</span>
+<span class="response-data-remarks">Will be true if this <span class='entity-name'>Contact</span> has been deleted from the <span class='entity-name'>Agent</span>s contacts.</span></p>
 
 <p><span class="response-data-head">contact_name</span>
 <span class="response-data-remarks">This is the full name of the contact you are creating a <span class='entity-name'>Contact</span> record for. You should format this information as <i>first middle last</i>. This value will be null if no data is available for this attribute. </span></p>
@@ -10473,6 +10519,8 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
   </span><span class="nt">"agent_uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345678-1234-1234-1234-1234567890ab"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"partner_contact_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"booyuh"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"moxi_works_contact_id"</span><span class="p">:</span><span class="s2">"deadbeef-feed-face-bad4dad22dead"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"moxi_works_lead_source_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"some_lead_source_id"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"is_deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="nt">"contact_name"</span><span class="p">:</span><span class="s2">"Firstname Middlenyme Larstnam"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"first_name"</span><span class="p">:</span><span class="s2">"Firstname"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"middle_name"</span><span class="p">:</span><span class="s2">"Middlenyme"</span><span class="p">,</span><span class="w">
@@ -10581,6 +10629,8 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
   </span><span class="nt">"moxi_works_agent_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234abcd"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"partner_contact_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"booyuh"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"moxi_works_contact_id"</span><span class="p">:</span><span class="s2">"deadbeef-feed-face-bad4dad22dead"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"moxi_works_lead_source_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"some_lead_source_id"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"is_deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="nt">"contact_name"</span><span class="p">:</span><span class="s2">"Firstname Middlenyme Larstnam"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"first_name"</span><span class="p">:</span><span class="s2">"Firstname"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"middle_name"</span><span class="p">:</span><span class="s2">"Middlenyme"</span><span class="p">,</span><span class="w">
@@ -10716,6 +10766,14 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 <tr>
 <td><span class="response-data">moxi_works_contact_id</span></td>
 <td><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">moxi_works_lead_source_id</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">is_deleted</span></td>
+<td><span class="data-type">Boolean</span></td>
 </tr>
 <tr>
 <td><span class="response-data">contact_name</span></td>
@@ -10940,6 +10998,12 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 
 <p><span class="response-data-head">moxi_works_contact_id</span>
 <span class="response-data-remarks">This is the Moxi Works Platform ID of this <span class='entity-name'>Contact</span>. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID.</span></p>
+
+<p><span class="response-data-head">moxi_works_lead_source_id</span>
+<span class="response-data-remarks">This is the unique Moxi Works Platform ID of the <span class='entity-name'>LeadSource</span> that generated this <span class='entity-name'>Contact</span>.</span></p>
+
+<p><span class="response-data-head">is_deleted</span>
+<span class="response-data-remarks">Will be true if this <span class='entity-name'>Contact</span> has been deleted from the <span class='entity-name'>Agent</span>s contacts.</span></p>
 
 <p><span class="response-data-head">contact_name</span>
 <span class="response-data-remarks">This is the full name of the contact you are finding a <span class='entity-name'>Contact</span> record for. You should format this information as <i>first middle last</i>. This value will be null if no data is available for this attribute. </span></p>
@@ -11375,7 +11439,6 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 <blockquote><div class='highlight json' style="display: block">
 <span class='data-example-label'><span class='entity-name'>Contact</span> <span class='action-name'>Index</span> (using <span class='attribute-name'>agent_uuid</span>) Response Payload Example
 </span></div></blockquote>
-
 <pre class="highlight json"><code><span class="w">
 </span><span class="p">{</span><span class="w">
 </span><span class="nt">"page_number"</span><span class="p">:</span><span class="mi">6</span><span class="p">,</span><span class="w">
@@ -11384,6 +11447,8 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
   </span><span class="nt">"agent_uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345678-1234-1234-1234-1234567890ab"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"partner_contact_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"booyuh"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"moxi_works_contact_id"</span><span class="p">:</span><span class="s2">"deadbeef-feed-face-2bad4daddead"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"moxi_works_lead_source_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"some_lead_source_id"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"is_deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="nt">"contact_name"</span><span class="p">:</span><span class="s2">"Firstname Middlenyme Larstnam"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"first_name"</span><span class="p">:</span><span class="s2">"Firstname"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"middle_name"</span><span class="p">:</span><span class="s2">"Middlenyme"</span><span class="p">,</span><span class="w">
@@ -11442,11 +11507,6 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
   </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
   </span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">
-  </span><span class="nt">"groups"</span><span class="p">:[</span><span class="w">
-    </span><span class="s2">"this group"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"that group"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"the other group"</span><span class="w">
-  </span><span class="p">],</span><span class="w">
   </span><span class="nt">"property_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://my.property.website.is/here"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"property_mls_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"property_street_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2345 67th place"</span><span class="p">,</span><span class="w">
@@ -11477,6 +11537,8 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
   </span><span class="nt">"agent_uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345678-1234-1234-1234-1234567890ab"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"partner_contact_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fooyuh"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"moxi_works_contact_id"</span><span class="p">:</span><span class="s2">"deadbeef-feed-face-2baddadbdead"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"moxi_works_lead_source_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"some_lead_source_id"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"is_deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="nt">"contact_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"buckminster fuller"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"first_name"</span><span class="p">:</span><span class="s2">"buckminster"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"middle_name"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -11546,11 +11608,6 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
   </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
   </span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">
-  </span><span class="nt">"groups"</span><span class="p">:[</span><span class="w">
-    </span><span class="s2">"this group"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"that group"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"the other group"</span><span class="w">
-  </span><span class="p">],</span><span class="w">
   </span><span class="nt">"occupation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"football fan"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"property_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://my.property.website.is/here"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"property_mls_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
@@ -11584,7 +11641,6 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 <blockquote><div class='highlight json' style="display: block">
 <span class='data-example-label'><span class='entity-name'>Contact</span> <span class='action-name'>Index</span> (using <span class='attribute-name'>moxi_works_agent_id</span>) Response Payload Example
 </span></div></blockquote>
-
 <pre class="highlight json"><code><span class="w">
 </span><span class="p">{</span><span class="w">
 </span><span class="nt">"page_number"</span><span class="p">:</span><span class="mi">6</span><span class="p">,</span><span class="w">
@@ -11632,11 +11688,6 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
   </span><span class="nt">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"googleplus"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
   </span><span class="p">}</span><span class="w">
-  </span><span class="p">],</span><span class="w">
-  </span><span class="nt">"groups"</span><span class="p">:[</span><span class="w">
-    </span><span class="s2">"this group"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"that group"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"the other group"</span><span class="w">
   </span><span class="p">],</span><span class="w">
   </span><span class="nt">"property_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://my.property.website.is/here"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"property_mls_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
@@ -11708,11 +11759,6 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
   </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
   </span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">
-  </span><span class="nt">"groups"</span><span class="p">:[</span><span class="w">
-    </span><span class="s2">"this group"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"that group"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"the other group"</span><span class="w">
-  </span><span class="p">],</span><span class="w">
   </span><span class="nt">"property_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://my.property.website.is/here"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"property_mls_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"property_street_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2345 67th place"</span><span class="p">,</span><span class="w">
@@ -11745,7 +11791,6 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 <blockquote><div class='highlight json' style="display: block">
   <span class='data-example-label'><span class='entity-name'>Contact</span> <span class='action-name'>Index</span> Failure Response Example
 </div> See <a href='#error-handling'>Error Handling</a> for details about individual error codes.</blockquote>
-
 <pre class="highlight json"><code><span class="w">
 </span><span class="p">{</span><span class="w">
   </span><span class="nt">"status"</span><span class="p">:</span><span class="s2">"fail"</span><span class="p">,</span><span class="w">
@@ -11811,6 +11856,14 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 <tr>
 <td><span class="response-data">moxi_works_contact_id</span></td>
 <td><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">moxi_works_lead_source_id</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">is_deleted</span></td>
+<td><span class="data-type">Boolean</span></td>
 </tr>
 <tr>
 <td><span class="response-data">contact_name</span></td>
@@ -11910,10 +11963,6 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 </tr>
 <tr>
 <td><span class="response-data">social_media_profiles</span></td>
-<td><span class="data-type">Array</span></td>
-</tr>
-<tr>
-<td><span class="response-data">groups</span></td>
 <td><span class="data-type">Array</span></td>
 </tr>
 <tr>
@@ -12035,6 +12084,12 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 
 <p><span class="response-data-head">moxi_works_contact_id</span>
 <span class="response-data-remarks">This is the Moxi Works Platform ID of this <span class='entity-name'>Contact</span>. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID.</span></p>
+
+<p><span class="response-data-head">moxi_works_lead_source_id</span>
+<span class="response-data-remarks">This is the unique Moxi Works Platform ID of the <span class='entity-name'>LeadSource</span> that generated this <span class='entity-name'>Contact</span>.</span></p>
+
+<p><span class="response-data-head">is_deleted</span>
+<span class="response-data-remarks">Will be true if this <span class='entity-name'>Contact</span> has been deleted from the <span class='entity-name'>Agent</span>s contacts.</span></p>
 
 <p><span class="response-data-head">contact_name</span>
 <span class="response-data-remarks">This is the full name of the contact you are creating a <span class='entity-name'>Contact</span> record for. You should format this information as <i>first middle last</i>. This value will be null if no data is available for this attribute. </span></p>
@@ -12188,9 +12243,6 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 <p><span class="response-data-head">property_url</span>
 <span class="response-data-remarks">This will be a valid URL for a property of interest in your system that can be viewed by the agent. This value will be null if no data is available for this attribute. </span></p>
 
-<p><span class="response-data-head">groups</span>
-<span class="response-data-remarks">Any Agent groups which the contact by name.</span></p>
-
 <p><span class="response-data-head">property_mls_id</span>
 <span class="response-data-remarks">This will be the MLS ID of the property of interest. This value will be null if no data is available for this attribute.  </span></p>
 
@@ -12262,6 +12314,737 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 
 <p><span class="response-data-head">note</span>
 <span class="response-data-remarks">This is an arbitrary string giving the agent more details about the contact which would not otherwise fit into the <span class='entity-name'>Contact</span> record.  Any Notes added here will be displayed to the agent in an Activity Log record. Any HTML formatting included will be stripped from the <span class='attribute-name'>note</span> attribute&rsquo;s data.  This value will be null if no data is available for this attribute. </span></p>
+
+
+<h4 id="contact-delete"><span class='entity-name'>Contact</span> <span class='action-name'>Delete</span></h4>
+
+<blockquote>
+<p><span class="data-example-label"><span class='entity-name'>Contact</span> <span class='action-name'>Delete</span> (using <span class='attribute-name'>agent_uuid</span>) Example</span></p>
+</blockquote>
+
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"agent_uuid"</span><span class="p">:</span><span class="s2">"12345678-1234-1234-1234-1234567890ab"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"partner_contact_id"</span><span class="p">:</span><span class="s2">"MySystemsUniqueContactID"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+
+<pre class="highlight http"><code><span class="nf">DELETE</span> <span class="nn">/api/contacts/partner_contact_id?agent_uuid=12345678-1234-1234-1234-1234567890ab</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">api.moxiworks.com</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.moxi-platform+json;version=1</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Basic XNNeXAAAUZaQlF0dA==</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/x-www-form-urlencoded</span>
+
+</code></pre>
+
+<blockquote>
+<p><span class="data-example-label"><span class='entity-name'>Contact</span> <span class='action-name'>Delete</span> (using <span class='attribute-name'>moxi_works_agent_id</span>) Example</span></p>
+</blockquote>
+
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"moxi_works_agent_id"</span><span class="p">:</span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"partner_contact_id"</span><span class="p">:</span><span class="s2">"MySystemsUniqueContactID"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+
+<pre class="highlight http"><code><span class="nf">DELETE</span> <span class="nn">/api/contacts/partner_contact_id?moxi_works_agent_id=abc123</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">api.moxiworks.com</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.moxi-platform+json;version=1</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Basic XNNeXAAAUZaQlF0dA==</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/x-www-form-urlencoded</span>
+
+</code></pre>
+
+<aside class="note">Send a <b>DELETE</b> request to https://api.moxiworks.com/api/contacts/[partner_contact_id]</aside>
+
+<p>When deleting an <span class='entity-name'>Contact</span> object using the Moxi Works platform API, format your data using the following parameters.</p>
+
+<h5 id="contact-delete-request-attributes"><span class='entity-name'>Contact</span> <span class='action-name'>Delete</span> Request Attributes</h5>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Length Limit</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span class="multi-option-required-data">agent_uuid*</span></td>
+<td><span class="multi-option-required-data"><span class="data-type">String</span></span></td>
+<td><span class="multi-option-required-data">255</span></td>
+</tr>
+<tr>
+<td><span class="multi-option-required-data">moxi_works_agent_id*</span></td>
+<td><span class="multi-option-required-data"><span class="data-type">String</span></span></td>
+<td><span class="multi-option-required-data">255</span></td>
+</tr>
+<tr>
+<td><span class="required-data">partner_contact_id</span></td>
+<td><span class="required-data"><span class="data-type">String</span></span></td>
+<td><span class="required-data">255</span></td>
+</tr>
+</tbody></table>
+
+<p><span class="multi-option-required-data">* <strong>Either <span class='attribute-name'>moxi_works_agent_id</span> or <span class='attribute-name'>agent_uuid</span> must be supplied. For guidance on which Agent identifier better fits your use-case, see <a href="#agent-identifiers">Agent Identifiers</a></strong></span></p>
+
+<p><span class="required-data"><strong>Required Parameters Are In Red</strong></span></p>
+
+<p><span class="request-data-head">agent_uuid</span>
+<span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which an  <span class='entity-name'>Contact</span> entry is associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID. <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>Contact</span> <span class='action-name'>Delete</span> request to be accepted.</span></p>
+
+<p><span class="request-data-head">moxi_works_agent_id</span>
+<span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which you are searching for associated <span class='entity-name'>Contact</span> objects. This will be a string that may take the form of an email address, or a unique identification string. This data is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>Contact</span> <span class='action-name'>Delete</span> request to be accepted.</span></p>
+
+<aside class="note">A company&rsquo;s internal agent id may be used to construct the agent&rsquo;s unique identification string. To do so, the value passed via the moxi_works_agent_id should be a single concatenated string, of the form:</br>[moxi_works_company_id]:[internal_agent_id]</br>Use <a href='#company'>Company Endpoint</a> to determine which moxi_works_company_id to use.</aside>
+
+<p><span class="request-data-head">partner_contact_id</span>
+<span class="request-data-remarks">This is the unique identifer you use in your system that has been associated with the <span class='entity-name'>Contact</span> that you are creating.</span></p>
+
+<blockquote><div class='highlight json' style="display: block">
+ <span class="data-example-label"><span class='entity-name'>Contact</span> <span class='action-name'>Delete</span> Response</span>
+</div></blockquote>
+
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"messages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"contact MySystemsUniqueContactID deleted from account 12345678-1234-1234-1234-1234567890ab"</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"moxi_works_agent_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234abcd"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"partner_contact_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"booyuh"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"moxi_works_contact_id"</span><span class="p">:</span><span class="s2">"deadbeef-feed-face-bad4dad22dead"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"moxi_works_lead_source_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"some_lead_source_id"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"is_deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"contact_name"</span><span class="p">:</span><span class="s2">"Firstname Middlenyme Larstnam"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"first_name"</span><span class="p">:</span><span class="s2">"Firstname"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"middle_name"</span><span class="p">:</span><span class="s2">"Middlenyme"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"last_name"</span><span class="p">:</span><span class="s2">"Larstnam"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"suffix"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"gender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"m"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"label_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mr. and Mrs. Oo-De-Lally Golly What a Day"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"primary_email_address"</span><span class="p">:</span><span class="s2">"primary@email.com"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"secondary_email_address"</span><span class="p">:</span><span class="s2">"secondary@email.com"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"primary_phone_number"</span><span class="p">:</span><span class="s2">"3603603608"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"secondary_phone_number"</span><span class="p">:</span><span class="s2">"3603603609"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"email_addresses"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"email_address1"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"primary@email.com"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"email_address2"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"secondary@email.com"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"email_address3"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"also@this.com"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"phone_numbers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mobile_phone"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3603603608"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"home_phone"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3603603609"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"business_phone"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3603603610"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"home_street_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234 Sesame St."</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"home_city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cityville"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"home_state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Stateland"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"home_zip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345-6789"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"home_country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ottoman Empire"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"job_title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Junior Bacon Burner"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"occupation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"chef"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"is_new_contact"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"birthday"</span><span class="p">:</span><span class="w"> </span><span class="mi">1496310636</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"anniversary"</span><span class="p">:</span><span class="w"> </span><span class="mi">1495199540</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"home_purchase_anniversary"</span><span class="p">:</span><span class="w"> </span><span class="mi">1484088442</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"social_media_profiles"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"facebook"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"linkedin"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"twitter"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"googleplus"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"property_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://my.property.website.is/here"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"property_mls_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"property_street_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2345 67th place"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"property_city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Townland"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"property_state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Statesville"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"property_zip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"98765-4321"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"property_beds"</span><span class="p">:</span><span class="w"> </span><span class="s2">"18"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"property_baths"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12.5"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"property_list_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456789"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"property_listing_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Active"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"property_photo_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://property.photo.is/here.jpg"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"search_city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Searchland"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"search_state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Searchsylvania"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"search_zip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345-6789"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"search_min_beds"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"search_min_baths"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3.25"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"search_min_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234567"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"search_max_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234569"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"search_min_sq_ft"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"search_max_sq_ft"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1235"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"search_min_lot_size"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3234"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"search_max_lot_size"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3235"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"search_min_year_built"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1388"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"search_max_year_built"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2044"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"search_property_types"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Condo, Single Family, Townhouse"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"note"</span><span class="p">:</span><span class="w"> </span><span class="s2">"whatevers2009"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote><div class='highlight json' style="display: block">
+ <span class="data-example-label"><span class='entity-name'>Contact</span> <span class='action-name'>Delete</span> Failure Response</span>
+</div> See <a href='#error-handling'>Error Handling</a> for details about individual error codes.</blockquote>
+
+<pre class="highlight json"><code><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="nt">"status"</span><span class="p">:</span><span class="s2">"fail"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"errorCode"</span><span class="p">:</span><span class="w"> </span><span class="err">xxx</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"messages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"messages"</span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+
+<h5 id="contact-delete-response-payload"><span class='entity-name'>Contact</span> <span class='action-name'>Delete</span> Response Payload</h5>
+
+<p>The following attributes make up the payload of the <span class='entity-name'>Contact</span> response for a <span class='action-name'>Delete</span> request.</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span class="response-data">status</span></td>
+<td><span class="response-data"><span class="data-type">String</span></span></td>
+</tr>
+<tr>
+<td><span class="response-data">deleted</span></td>
+<td><span class="response-data"><span class="data-type">Boolean</span></td>
+</tr>
+<tr>
+<td><span class="response-data">messages</span></td>
+<td><span class="response-data"><span class="data-type">Array</span></td>
+</tr>
+<tr>
+<td><span class="response-data">result</span></td>
+<td><span class="response-data"><span class="data-type">Hash</span></td>
+</tr>
+</tbody></table>
+
+<p><span class="response-data-head">status</span>
+<span class="response-data-remarks">This indicates whether the request was successfully processed.</span></p>
+
+<p><span class="response-data-head">deleted</span>
+<span class="response-data-remarks">This is the result of the action &ndash; whether the <span class='entity-name'>Contact</span> object was actually deleted.</span></p>
+
+<p><span class="response-data-head">messages</span>
+<span class="response-data-remarks">Messages communicating more information about the result of the <span class='entity-name'>Contact</span> delete request.</span></p>
+
+<p><span class="response-data-head">result</span>
+<span class="response-data-remarks">The resulting <span class='entity-name'>Contact</span> object associated with this <span class='action-name'>Delete</span> request.</span></p>
+
+<h6 id="contact-objects"><span class='attribute-name'>contact</span> Objects</h6>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span class="multi-option-response-data">agent_uuid*</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="multi-option-response-data">moxi_works_agent_id*</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">partner_contact_id</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">moxi_works_contact_id</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">moxi_works_lead_source_id</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">is_deleted</span></td>
+<td><span class="data-type">Boolean</span></td>
+</tr>
+<tr>
+<td><span class="response-data">contact_name</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">first_name</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">middle_name</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">last_name</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">suffix</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">gender</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">label_name</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">primary_email_address</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">secondary_email_address</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">email_addresses</span></td>
+<td><span class="data-type">Array</span></td>
+</tr>
+<tr>
+<td><span class="response-data">primary_phone_number</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">secondary_phone_number</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">phone_numbers</span></td>
+<td><span class="data-type">Array</span></td>
+</tr>
+<tr>
+<td><span class="response-data">home_city</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">home_state</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">home_zip</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">home_country</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">job_title</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">occupation</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">is_new_contact</span></td>
+<td><span class="data-type">Boolean</span></td>
+</tr>
+<tr>
+<td><span class="response-data">birthday</span></td>
+<td><span class="data-type">Integer or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">anniversary</span></td>
+<td><span class="data-type">Integer or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">home_purchase_anniversary</span></td>
+<td><span class="data-type">Integer or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">social_media_profiles</span></td>
+<td><span class="data-type">Array</span></td>
+</tr>
+<tr>
+<td><span class="response-data">property_url</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">property_mls_id</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">property_street_address</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">property_city</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">property_state</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">property_zip</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">property_beds</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">property_baths</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">property_list_price</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">property_listing_status</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">property_photo_url</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">search_city</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">search_state</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">search_zip</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">search_min_baths</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">search_min_beds</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">search_min_price</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">search_max_price</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">search_min_sq_ft</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">search_max_sq_ft</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">search_min_lot_size</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">search_max_lot_size</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">search_min_year_built</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">search_max_year_built</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">search_property_types</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">note</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+</tbody></table>
+
+<p><span class='multi-option-response-data'>* Either <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> will be returned depending on whether it is used in the request. The response payload object&rsquo;s agent identifier key will match the passed parameter.</span></p>
+
+<p><span class="response-data-head">agent_uuid</span>
+<span class="response-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>Contact</span>  is associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID.</span></p>
+
+<p><span class="response-data-head">moxi_works_agent_id</span>
+<span class="response-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> to whom this <span class='entity-name'>Contact</span> is associated. This will be a string that may take the form of an email address, or a unique alphanumeric identification string.</span></p>
+
+<p><span class="response-data-head">partner_contact_id</span>
+<span class="response-data-remarks">This is the unique identifer you use in your system that has been associated with the <span class='entity-name'>Contact</span> that you are creating.</span></p>
+
+<p><span class="response-data-head">moxi_works_contact_id</span>
+<span class="response-data-remarks">This is the Moxi Works Platform ID of this <span class='entity-name'>Contact</span>. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID.</span></p>
+
+<p><span class="response-data-head">moxi_works_lead_source_id</span>
+<span class="response-data-remarks">This is the unique Moxi Works Platform ID of the <span class='entity-name'>LeadSource</span> that generated this <span class='entity-name'>Contact</span>.</span></p>
+
+<p><span class="response-data-head">is_deleted</span>
+<span class="response-data-remarks">Will be true if this <span class='entity-name'>Contact</span> has been deleted from the <span class='entity-name'>Agent</span>s contacts.</span></p>
+
+<p><span class="response-data-head">contact_name</span>
+<span class="response-data-remarks">This is the full name of the contact you are creating a <span class='entity-name'>Contact</span> record for. You should format this information as <i>first middle last</i>. This value will be null if no data is available for this attribute. </span></p>
+
+<p><span class="response-data-head">first_name</span>
+<span class="response-data-remarks">This is the first name of the contact associated with this <span class='entity-name'>Contact</span> record. This value will be null if no data is available for this attribute. </span></p>
+
+<p><span class="response-data-head">middle_name</span>
+<span class="response-data-remarks">This is the middle name of the contact associated with this <span class='entity-name'>Contact</span> record. This value will be null if no data is available for this attribute. </span></p>
+
+<p><span class="response-data-head">last_name</span>
+<span class="response-data-remarks">This is the last name of the contact associated with this <span class='entity-name'>Contact</span> record. This value will be null if no data is available for this attribute. </span></p>
+
+<p><span class="response-data-head">suffix</span>
+<span class="response-data-remarks">This is the generational suffix of the name of the contact associated with this <span class='entity-name'>Contact</span> record. This value will be null if no data is available for this attribute. Supported suffixes are <code class="prettyprint">II</code> <code class="prettyprint">III</code> <code class="prettyprint">IV</code> <code class="prettyprint">JR</code> <code class="prettyprint">JR.</code>. <code class="prettyprint">SR</code> <code class="prettyprint">SR.</code> </span></p>
+
+<p><span class="response-data-head">gender</span>
+<span class="response-data-remarks">The gender of the contact. This can be <code class="prettyprint">male</code>, <code class="prettyprint">female</code>, <code class="prettyprint">m</code> or <code class="prettyprint">f</code>. No matter what is provided in the request, the response payload will return <code class="prettyprint">m</code> or <code class="prettyprint">f</code>.  This value will be null if no data is available for this attribute. </span></p>
+
+<p><span class="response-data-head">label_name</span>
+<span class="response-data-remarks">This is the name used to address the contact when creating mailing labels for the contact associated with this <span class='entity-name'>Contact</span> record. This value will be null if no data is available for this attribute. </span></p>
+
+<p><span class="response-data-head">primary_email_address</span>
+<span class="response-data-remarks">This is the email address that should be used first. If provided, the address must conform to <a href="https://tools.ietf.org/html/rfc3696#section-3">RFC 3696</a>. This value will be null if no data is available for this attribute.</span></p>
+
+<p><span class="response-data-head">secondary_email_address</span>
+<span class="response-data-remarks">This is the email address that should be used as an alternate. If provided, the address must conform to <a href="https://tools.ietf.org/html/rfc3696#section-3">RFC 3696</a>. This value will be null if no data is available for this attribute. </span></p>
+
+<h6 id="email_addresses-objects"><span class='attribute-name'>email_addresses</span> Objects</h6>
+
+<p>These email addresses correspond to agent created <span class='entity-name'>Contact</span> entities. Only phone fields present in this <span class='entity-name'>Contact</span> record will be returned.</p>
+
+<p>Each object in the <span class='attribute-name'>email_addresses</span> array will have the following structure:</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span class="response-data">key</span></td>
+<td><span class="response-data"><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">address</span></td>
+<td><span class="response-data"><span class="data-type">String</span></td>
+</tr>
+</tbody></table>
+
+<p><span class="response-data-head">key</span>
+<span class="response-data-remarks">The key identifier of the email field. The appropriate email keys are determined by the email server type associated with the <span class='entity-name'>Agent</span>. </span>
+<span class="response-data-remarks">The key identifiers for <span class='entity-name'>Agent</span> entities synced to MoxiEngage via a Microsoft Exchange account are: <span class='attribute-name'>email_address1</span>, <span class='attribute-name'>email_address2</span>, <span class='attribute-name'>email_address3</span>. </span>
+<span class="response-data-remarks">The key identifiers for <span class='entity-name'>Agent</span> entities synced to MoxiEngage via a Google account are: <span class='attribute-name'>home</span>, <span class='attribute-name'>work</span>, <span class='attribute-name'>other</span>. </span></p>
+
+<p><span class="response-data-head">address</span>
+<span class="response-data-remarks">The email address field value.</span></p>
+
+<p><span class="response-data-head">primary_phone_number</span>
+<span class="response-data-remarks">This is the phone number that should be used first. It should be a 10 digit phone number. This attribute should not be used in conjunction with the <span class='attribute-name'>phone_numbers</span> attribute.</span></p>
+
+<p><span class="response-data-head">secondary_phone_number</span>
+<span class="response-data-remarks">This is the phone number that should be used as an alternate. It should be a 10 digit phone number. This attribute should not be used in conjunction with the <span class='attribute-name'>phone_numbers</span> attribute.</span></p>
+
+<h6 id="phone_numbers-objects"><span class='attribute-name'>phone_numbers</span> Objects</h6>
+
+<p>These phone numbers correspond to agent created <span class='entity-name'>Contact</span> entities. Only phone fields present in this <span class='entity-name'>Contact</span> record will be returned.</p>
+
+<p>Each object in the <span class='attribute-name'>phone_numbers</span> array will have the following structure:</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span class="response-data">key</span></td>
+<td><span class="response-data"><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">number</span></td>
+<td><span class="response-data"><span class="data-type">String</span></td>
+</tr>
+</tbody></table>
+
+<p><span class="response-data-head">key</span>
+<span class="response-data-remarks">The key identifier of the phone field. The appropriate phone keys are determined by the email server type associated with the <span class='entity-name'>Agent</span>. </span>
+<span class="response-data-remarks">The key identifiers for <span class='entity-name'>Agent</span> entities synced to MoxiEngage via a Microsoft Exchange account are: <span class='attribute-name'>mobile_phone</span>, <span class='attribute-name'>home_phone</span>, <span class='attribute-name'>home_phone2</span>, <span class='attribute-name'>business_phone</span>, <span class='attribute-name'>business_phone2</span>, <span class='attribute-name'>assistant_phone</span>, <span class='attribute-name'>home_fax</span>, <span class='attribute-name'>business_fax</span>, <span class='attribute-name'>car_phone</span>, <span class='attribute-name'>company_main_phone</span>, <span class='attribute-name'>other_fax</span>, <span class='attribute-name'>other_telephone</span>, <span class='attribute-name'>callback</span>, <span class='attribute-name'>isdn</span>, <span class='attribute-name'>pager</span>. </span>
+<span class="response-data-remarks">The key identifiers for <span class='entity-name'>Agent</span> entities synced to MoxiEngage via a Google account are: <span class='attribute-name'>mobile</span>, <span class='attribute-name'>home</span>, <span class='attribute-name'>work</span>, <span class='attribute-name'>assistant</span>, <span class='attribute-name'>home_fax</span>, <span class='attribute-name'>tty_tdd</span>, <span class='attribute-name'>radio</span>, <span class='attribute-name'>main</span>, <span class='attribute-name'>work_fax</span>, <span class='attribute-name'>car</span>, <span class='attribute-name'>other</span>, <span class='attribute-name'>pager</span>, <span class='attribute-name'>isdn</span>, <span class='attribute-name'>callback</span>, <span class='attribute-name'>telex</span>. </span></p>
+
+<p><span class="response-data-head">number</span>
+<span class="response-data-remarks">The phone number field value.</span></p>
+
+<p><span class="response-data-head">home_street_address</span>
+<span class="response-data-remarks">The contact&rsquo;s home address street, including number and any suite / apartment number information.  This value will be null if no data is available for this attribute. </span></p>
+
+<p><span class="response-data-head">home_city</span>
+<span class="response-data-remarks">The city of the contact&rsquo;s home address. This value will be null if no data is available for this attribute.  This value will be null if no data is available for this attribute. </span></p>
+
+<p><span class="response-data-head">home_state</span>
+<span class="response-data-remarks">The state of the contact&rsquo;s home address.  This value will be null if no data is available for this attribute. </span></p>
+
+<p><span class="response-data-head">home_zip</span>
+<span class="response-data-remarks">The zip code of the contact’s home address.  This value will be null if no data is available for this attribute. </span></p>
+
+<p><span class="response-data-head">home_country</span>
+<span class="response-data-remarks">The country of the contact&rsquo;s home address.  This value will be null if no data is available for this attribute. </span></p>
+
+<p><span class="response-data-head">job_title</span>
+<span class="response-data-remarks">The contact&rsquo;s professional job title.  This value will be null if no data is available for this attribute. </span></p>
+
+<p><span class="response-data-head">occupation</span>
+<span class="response-data-remarks">The contact&rsquo;s profession.  This value will be null if no data is available for this attribute. </span></p>
+
+<p><span class="response-data-head">is_new_contact</span>
+<span class="response-data-remarks">Whether the contact was recently added to the Agent&rsquo;s database. </span></p>
+
+<p><span class="response-data-head">birthday</span>
+<span class="response-data-remarks">Birthday of the contact represented as a Unix Timestamp. </span></p>
+
+<p><span class="response-data-head">anniversary</span>
+<span class="response-data-remarks">Wedding anniversary of the contact represented as a Unix Timestamp. </span></p>
+
+<p><span class="response-data-head">home_purchase_anniversary</span>
+<span class="response-data-remarks">Anniversary of the contact&rsquo;s home purchase represented as a Unix Timestamp. </span></p>
+
+<h6 id="social_media_profiles-objects"><span class='attribute-name'>social_media_profiles</span> Objects</h6>
+
+<p>Each object in the <span class='attribute-name'>social_media_profiles</span> array will have the following structure.</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span class="response-data">key</span></td>
+<td><span class="response-data"><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">url</span></td>
+<td><span class="response-data"><span class="data-type">String</span></td>
+</tr>
+</tbody></table>
+
+<p><span class="response-data-head">key</span>
+<span class="response-data-remarks">The key identifier of the social media url. Defined keys are &lsquo;facebook,&rsquo; &#39;linkedin,&rsquo; &#39;twitter,&rsquo; and &#39;googleplus&rsquo;</span></p>
+
+<p><span class="response-data-head">property_url</span>
+<span class="response-data-remarks">This will be a valid URL for a property of interest in your system that can be viewed by the agent. This value will be null if no data is available for this attribute. </span></p>
+
+<p><span class="response-data-head">property_mls_id</span>
+<span class="response-data-remarks">This will be the MLS ID of the property of interest. This value will be null if no data is available for this attribute.  </span></p>
+
+<p><span class="response-data-head">property_street_address</span>
+<span class="response-data-remarks">This will be the street address of the property of interest, including number and suite/apartment number information.  This value will be null if no data is available for this attribute. </span></p>
+
+<p><span class="response-data-head">property_city</span>
+<span class="response-data-remarks">This will be the city in which the property of interest exists.  This value will be null if no data is available for this attribute. </span></p>
+
+<p><span class="response-data-head">property_state</span>
+<span class="response-data-remarks">This will be the state or province in which the property of interest exists.  This value will be null if no data is available for this attribute. </span></p>
+
+<p><span class="response-data-head">property_zip</span>
+<span class="response-data-remarks">This will be the postal code in which the property of interest exists.  This value will be null if no data is available for this attribute. </span></p>
+
+<p><span class="response-data-head">property_beds</span>
+<span class="response-data-remarks">This will be the number of bedrooms in the property of interest.  This value will be null if no data is available for this attribute. </span></p>
+
+<p><span class="response-data-head">property_baths</span>
+<span class="response-data-remarks">This will be the number of bathrooms in the property of interest.  This value will be null if no data is available for this attribute. </span></p>
+
+<p><span class="response-data-head">property_list_price</span>
+<span class="response-data-remarks">This will be the list price of the property of interest. This value will be null if no data is available for this attribute.  </span></p>
+
+<p><span class="response-data-head">property_listing_status</span>
+<span class="response-data-remarks">This will be the listing status of the property of interest. This can be any arbitrary string, but for best results, this should be a state like <code class="prettyprint">Active</code>, <code class="prettyprint">Pending</code>, <code class="prettyprint">Sold</code>, <code class="prettyprint">Cancelled</code> or any other human readable state that would be useful when presented to the agent. This value will be null if no data is available for this attribute. </span></p>
+
+<p><span class="response-data-head">property_photo_url</span>
+<span class="response-data-remarks">This will be a valid URL to an image of the property of interest.  This value will be null if no data is available for this attribute. </span></p>
+
+<p><span class="response-data-head">search_city</span>
+<span class="response-data-remarks">This will be the city / locale used in the listing search criteria.  This value will be null if no data is available for this attribute. </span></p>
+
+<p><span class="response-data-head">search_state</span>
+<span class="response-data-remarks">This will be the state / region used in the listing search criteria.  This value will be null if no data is available for this attribute. </span></p>
+
+<p><span class="response-data-head">search_zip</span>
+<span class="response-data-remarks">This will be the zip / postal code used in the listing search criteria.  This value will be null if no data is available for this attribute. </span></p>
+
+<p><span class="response-data-head">search_min_baths</span>
+<span class="response-data-remarks">This will be the minimum bathrooms used in the listing search criteria.  This value will be null if no data is available for this attribute. </span></p>
+
+<p><span class="response-data-head">search_min beds</span>
+<span class="response-data-remarks">This will be the minimum bedrooms used in the listing search criteria.  This value will be null if no data is available for this attribute. </span></p>
+
+<p><span class="response-data-head">search_min_price</span>
+<span class="response-data-remarks">This will be the minimum price used in the listing search criteria.  This value will be null if no data is available for this attribute. </span></p>
+
+<p><span class="response-data-head">search_max_price</span>
+<span class="response-data-remarks">This will be the maximum price used in the listing search criteria.  This value will be null if no data is available for this attribute. </span></p>
+
+<p><span class="response-data-head">search_min_sq_ft</span>
+<span class="response-data-remarks">This will be the minimum square feet of the total living area used in the listing search criteria.  This value will be null if no data is available for this attribute. </span></p>
+
+<p><span class="response-data-head">search_max_sq_ft</span>
+<span class="response-data-remarks">This will be the maximum square feet of the total living area used in the listing search criteria.  This value will be null if no data is available for this attribute. </span></p>
+
+<p><span class="response-data-head">search_min_lot_size</span>
+<span class="response-data-remarks">This will be the minimum lot size used in the listing search criteria.  This value will be null if no data is available for this attribute. </span></p>
+
+<p><span class="response-data-head">search_max_lot_size</span>
+<span class="response-data-remarks">This will be the maximum lot size used in the listing search criteria.  This value will be null if no data is available for this attribute. </span></p>
+
+<p><span class="response-data-head">search_min_year_built</span>
+<span class="response-data-remarks">This will be the minimum allowable year built used in the listing search criteria.  This value will be null if no data is available for this attribute. </span></p>
+
+<p><span class="response-data-head">search_property_types</span>
+<span class="response-data-remarks">This will be the property types used in the listing search criteria. This can be any arbitrary human readable string, but using recognized property types such as <code class="prettyprint">Condo</code>, <code class="prettyprint">Single-Family</code>, <code class="prettyprint">Townhouse</code>, <code class="prettyprint">Land</code>, <code class="prettyprint">Multifamily</code> will provide more value to the agent.  This value will be null if no data is available for this attribute. </span></p>
+
+<p><span class="response-data-head">note</span>
+<span class="response-data-remarks">This is an arbitrary string giving the agent more details about the contact which would not otherwise fit into the <span class='entity-name'>Contact</span> record. Any Notes added here will be displayed to the agent in an Activity Log record. Any HTML formatting included will be stripped from the <span class='attribute-name'>note</span> attribute&rsquo;s data.  This value will be null if no data is available for this attribute. </span></p>
 
 
 <h3 id="emailcampaign"><span class='entity-name'>EmailCampaign</span></h3>
@@ -16192,6 +16975,112 @@ moxi_works_agent_id=abc123&amp;moxi_works_group_name=some+group+name&amp;contact
 <span class="response-data-remarks">Whether the group ID exists beyond name change.</span></p>
 
 <aside class="warning">Some providers (namely versions of Exchange) provide no permanent unique identifier for groups. <span class='entity-name'>Group</span> IDs for these providers are inherently transient. Moxi Works has no way to guarantee that any <span class='entity-name'>Group</span> marked <span class='attribute-name'>transient</span> will persist since the name can be changed outside of The Moxi Works platform and Exchange provides no persistent IDs for their Group entities.</aside>
+
+
+<h3 id="leadsource"><span class='entity-name'>LeadSource</span></h3>
+
+<p>Moxi Works Platform <span class='entity-name'>LeadSource</span> are the lead sources that may be used to generate leads in the MoxiWorks Platform API.</p>
+
+<h4 id="leadsource-index"><span class='entity-name'>LeadSource</span> <span class='action-name'>Index</span></h4>
+
+<aside class="note">Send a <b>GET</b> request to https://api.moxiworks.com/api/lead_sources</aside>
+
+<p>The <span class='entity-name'>LeadSource</span> <span class='action-name'>Index</span> endpoint will return all <span class='entity-name'>LeadSource</span> entities under whose alias your organization may generate leads. When searching for <span class='entity-name'>LeadSource</span> entities using the MoxiWorks platform API, format your request using the following parameters.</p>
+
+<blockquote>
+<p><span class="data-example-label"><span class='entity-name'>LeadSource </span><span class='action-name'>Index </span>Request Example</span></p>
+</blockquote>
+
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/lead_sources</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">api.moxiworks.com</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.moxi-platform+json;version=1</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Basic XNNeXAAAUZaQlF0dA==</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/x-www-form-urlencoded</span>
+
+</code></pre>
+
+<pre class="highlight json"><code><span class="p">{}</span><span class="w">
+
+</span></code></pre>
+
+<h5 id="leadsource-index-request-attributes"><span class='entity-name'>LeadSource</span> <span class='action-name'>Index</span> Request Attributes</h5>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Length Limit</th>
+</tr>
+</thead><tbody>
+</tbody></table>
+
+<h5 id="leadsource-index-response-payload"><span class='entity-name'>LeadSource</span> <span class='action-name'>Index</span> Response Payload</h5>
+
+<p><span class='entity-name'>LeadSource</span> <span class='action-name'>Index</span> returns an array of objects representing lead sources that your organization has permission to use as an alias when generating leads via the MoxiWorks platform API.
+The following attributes make up the payload of each <span class='entity-name'>LeadSource</span> object returned in an <span class='action-name'>Index</span> request.</p>
+
+<blockquote><div class='highlight json' style="display: block">
+<span class='data-example-label'><span class='entity-name'>LeadSource</span> <span class='action-name'>Index</span> Response Payload Example
+</span></div></blockquote>
+
+<pre class="highlight json"><code><span class="w">
+</span><span class="p">[</span><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="nt">"moxi_works_lead_source_id"</span><span class="p">:</span><span class="s2">"some_lead_source_id"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"Some Lead Source Name"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"is_partner_default"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="p">},</span><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="nt">"moxi_works_lead_source_id"</span><span class="p">:</span><span class="s2">"some_other_lead_source_id"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"Some Other Lead Source Name"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"is_partner_default"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<blockquote><div class='highlight json' style="display: block">
+<span class="data-example-label"><span class='entity-name'>Company</span> <span class='action-name'>Index</span> Failure Response</span>
+</div> See <a href='#error-handling'>Error Handling</a> for details about individual error codes.</blockquote>
+
+<pre class="highlight json"><code><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="nt">"status"</span><span class="p">:</span><span class="s2">"fail"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"errorCode"</span><span class="p">:</span><span class="w"> </span><span class="err">xxx</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"messages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"messages"</span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+
+<h6 id="index-response-attributes"><span class='action-name'>Index</span> Response Attributes</h6>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span class="response-data">moxi_works_lead_source_id</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">name</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">is_partner_default</span></td>
+<td><span class="data-type">Boolean</span></td>
+</tr>
+</tbody></table>
+
+<p><span class="response-data-head">moxi_works_lead_source_id</span>
+<span class="response-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>LeadSource</span>. This will be an alphanumeric identification string which will be similar to the <span class='entity-name'>LeadSource</span> <span class='attribute-name'>name</span>.</span></p>
+
+<p><span class="response-data-head">name</span>
+<span class="response-data-remarks">This is the common name of the lead source.</span></p>
+
+<p><span class="response-data-head">is_partner_default</span>
+<span class="response-data-remarks">Is true for the <span class='entity-name'>LeadSource</span> entity used as a default for this partner. This should always be true for exactly one of each partner&rsquo;s available lead sources in the <span class='action-name'>Index</span> Response Payload.</span></p>
 
 
 <h3 id="listing"><span class='entity-name'>Listing</span></h3>
@@ -27151,6 +28040,489 @@ moxi_works_agent_id=abc123&amp;description=talk+to+private+kane,%2C+e-one-thousa
 
 <p><span class="response-data-head">active</span>
 <span class="response-data-remarks">Whether this team is active.</span></p>
+
+
+<h3 id="webuser"><span class='entity-name'>WebUser</span></h3>
+
+<p>Moxi Works Platform <span class='entity-name'>WebUser</span> entities represent online web users.</p>
+
+<h4 id="webuser-index"><span class='entity-name'>WebUser</span> <span class='action-name'>Index</span></h4>
+
+<blockquote>
+<p><span class="data-example-label"><span class='entity-name'>WebUser</span> <span class='action-name'>Index</span> Example</span></p>
+
+<p>All <span class='entity-name'>WebUser</span> objects for specified <span class='entity-name'>Company</span></p>
+</blockquote>
+
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/web_users?moxi_works_company_id=abc123</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">api.moxiworks.com</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.moxi-platform+json;version=1</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Basic XNNeXAAAUZaQlF0dA==</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/x-www-form-urlencoded</span>
+
+</code></pre>
+
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"moxi_works_company_id"</span><span class="p">:</span><span class="s2">"the_company"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+
+<h5 id="webuser-index-request-attributes"><span class='entity-name'>WebUser</span> <span class='action-name'>Index</span> Request Attributes</h5>
+
+<aside class="note">Send a <b>GET</b> request to https://api.moxiworks.com/api/web_users</aside>
+
+<p>When searching for <span class='entity-name'>WebUser</span> entities using the Moxi Works platform API, format your data using the following parameters.</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Length Limit</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span class="required-data">moxi_works_company_id</span></td>
+<td><span class="required-data"><span class="data-type">String</span></span></td>
+<td><span class="required-data">255<span></td>
+</tr>
+<tr>
+<td><span class="optional-data">agent_uuid †</span></td>
+<td><span class="data-type">String</span></td>
+<td>255</td>
+</tr>
+<tr>
+<td><span class="optional-data">moxi_works_agent_id †</span></td>
+<td><span class="data-type">String</span></td>
+<td>255</td>
+</tr>
+<tr>
+<td><span class="optional-data">has_agent_association</span></td>
+<td><span class="data-type">Boolean</span></td>
+<td>255</td>
+</tr>
+<tr>
+<td><span class="optional-data">page_number</span></td>
+<td><span class="data-type">Integer</span></td>
+<td>255</td>
+</tr>
+<tr>
+<td><span class="optional-data">updated_after</span></td>
+<td><span class="data-type">Integer</span></td>
+<td>255</td>
+</tr>
+<tr>
+<td><span class="optional-data">updated_before</span></td>
+<td><span class="data-type">Integer</span></td>
+<td>255</td>
+</tr>
+</tbody></table>
+
+<p><span class="required-data"><strong>Required Parameters Are In Red</strong></span></p>
+
+<p><span class="multi-option-data"> † Either <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> may be supplied, but not both.</span></p>
+
+<p><span class="request-data-head">moxi_works_company_id</span>
+<span class="request-data-remarks">A valid Moxi Works <span class='entity-name'>Company</span> ID. Use <a href="#company">Company Endpoint</a> to determine what <span class='attribute-name'>moxi_works_company_id</span> you can use.</span></p>
+
+<aside class="note">Use <a href='#company'>Company Endpoint</a> to determine the moxi_works_company_id to send.</aside>
+
+<p><span class="request-data-head">agent_uuid</span>
+<span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which the  <span class='entity-name'>WebUser</span> entry is associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID. If supplied thee <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> must reference a valid Moxi Works Agent ID for your <span class='entity-name'>WebUser</span> request to be accepted.</span></p>
+
+<p><span class="request-data-head">moxi_works_agent_id</span>
+<span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which the <span class='entity-name'>WebUser</span> objects are associated with. This will be a string that may take the form of an email address, or a unique identification string. If supplied this data must reference a valid Moxi Works <span class='entity-name'>Agent</span> ID for your <span class='entity-name'>WebUser</span> <span class='action-name'>Index</span>  request to be accepted.</span></p>
+
+<p><span class="request-data-head">page_number</span>
+<span class="request-data-remarks">Page of <span class='entity-name'>WebUser</span> records to return. Use if <code class="prettyprint">total_pages</code> indicates that there is more than one page of data available.</span></p>
+
+<p><span class="request-data-head">updated_after</span>
+<span class="request-data-remarks">Only <span class='entity-name'>WebUser</span> records updated later than this Unix timestamp will be included in the query. Must be earlier than the <span class='attribute-name'>updated_before</span> attribute if it is provided.</span></p>
+
+<p><span class="request-data-head">updated_before</span>
+<span class="request-data-remarks">Only <span class='entity-name'>WebUser</span> records updated earlier than this Unix timestamp will be included in the query. Must be later than the <span class='attribute-name'>updated_after</span> attribute if it is provided.</span></p>
+
+<blockquote><div class='highlight json' style="display: block">
+<span class="data-example-label">Team Index: Success Response</span>
+</div></blockquote>
+
+<pre class="highlight json"><code><span class="w">
+</span><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"moxi_works_user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0b080c6a-0d13-430d-8541-9680e7adcd34"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Blep"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bloop"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dummy_1387389@agentdigs.com"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"associated_agent_uuid"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"favorite_listing_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="nt">"saved_searches"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<blockquote><div class='highlight json' style="display: block">
+<span class="data-example-label">Team Index: Failure Response</span>
+</div> See <a href='#error-handling'>Error Handling</a> for details about individual error codes.</blockquote>
+
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"status"</span><span class="p">:</span><span class="s2">"fail"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"errorCode"</span><span class="p">:</span><span class="w"> </span><span class="err">xxx</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"messages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"messages"</span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+
+<p><span class='entity-name'>WebUser</span>  <span class='action-name'>Index</span> responses are divided into pages of  <span class='entity-name'>WebUser</span> objects. Use response payload attributes <span class='attribute-name'>total_pages</span> and <span class='attribute-name'>page_number</span> to determine how many pages of  <span class='entity-name'>WebUser</span> objects there are and whether additional pages need to be requested.</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span class="response-data">moxi_works_user_id</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">first_name</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">last_name</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">email</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">associated_agent_uuid</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">favorite_listing_ids</span></td>
+<td><span class="data-type">Array</span></td>
+</tr>
+<tr>
+<td><span class="response-data">saved_searches</span></td>
+<td><span class="data-type">Array</span></td>
+</tr>
+</tbody></table>
+
+<p><span class="response-data-head">moxi_works_user_id</span>
+<span class="response-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>WebUser</span>. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID.</span></p>
+
+<p><span class="response-data-head">first_name</span>
+<span class="response-data-remarks">The first name associated with the <span class='entity-name'>WebUser</span> record.</span></p>
+
+<p><span class="response-data-head">last_name</span>
+<span class="response-data-remarks">The last name associated with the <span class='entity-name'>WebUser</span> record.</span></p>
+
+<p><span class="response-data-head">email</span>
+<span class="response-data-remarks">This is the email address associated with the <span class='entity-name'>WebUser</span> record.</span></p>
+
+<p><span class="response-data-head">associated_agent_uuid</span>
+<span class="response-data-remarks">This is the <span class='attribute-name'>agent_uuid</span> of the <span class='entity-name'>Agent</span> record that this <span class='entity-name'>WebUser</span> is associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID, or null if the user does not have an agent association.</span></p>
+
+<p><span class="response-data-head">favorite_listing_ids</span>
+<span class="response-data-remarks">This is will be a list of <span class='attribute-name'>moxi_works_listing_id</span>s for listings marked as favorites for the <span class='entity-name'>WebUser</span> record. </span></p>
+
+<h6 id="saved_searches-object"><span class='attribute-name'>saved_searches</span> Object</h6>
+
+<p>The <span class='attribute-name'>saved_searches</span> Array contains Dictionary objects representing <span class='entity-name'>SavedSearch</span> entries. The structure of each <span class='entity-name'>SavedSearch</span> entry is shown below.</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span class="response-data">search_name</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">email_frequency</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">send_empty_emails</span></td>
+<td><span class="data-type">Boolean</span></td>
+</tr>
+<tr>
+<td><span class="response-data">search_criteria</span></td>
+<td><span class="data-type">Hash</span></td>
+</tr>
+</tbody></table>
+
+<p><span class="response-data-head">name</span>
+<span class="response-data-remarks">The name that the user has given to the saved search.</span></p>
+
+<p><span class="response-data-head">email_frequency</span>
+<span class="response-data-remarks">The frequency of saved search update emails. Options are: monthly, weekly, daily, hourly, never.</span></p>
+
+<p><span class="response-data-head">send_empty_emails</span>
+<span class="response-data-remarks">This field indicates whether or not the user has elected to receive saved search update emails containing zero listing updates.</span></p>
+
+<h6 id="search_criteria-object"><span class='attribute-name'>search_criteria</span> Object</h6>
+
+<p>The <span class='attribute-name'>search_criteria</span> Hash is a Dictionary object containing the criteria used to refine the <span class='entity-name'>SavedSearch</span> entry. The structure of the <span class='attribute-name'>search_criteria</span> Hash is shown below.</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span class="response-data">search_field</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">city</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">state</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">zipcode</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">street_name</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">house_number</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">listing_status</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">price_min</span></td>
+<td><span class="data-type">Integer or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">price_max</span></td>
+<td><span class="data-type">Integer or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">bed_min</span></td>
+<td><span class="data-type">Integer or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">bath_min</span></td>
+<td><span class="data-type">Float or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">sqft_min</span></td>
+<td><span class="data-type">Integer or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">sqft_max</span></td>
+<td><span class="data-type">Integer or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">lot_size_min</span></td>
+<td><span class="data-type">Float, Integer or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">lot_size_max</span></td>
+<td><span class="data-type">Float, Integer or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">lot_size_conversion</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">year_built_min</span></td>
+<td><span class="data-type">Integer</span></td>
+</tr>
+<tr>
+<td><span class="response-data">year_built_max</span></td>
+<td><span class="data-type">Integer</span></td>
+</tr>
+<tr>
+<td><span class="response-data">days_on_mls</span></td>
+<td><span class="data-type">Integer</span></td>
+</tr>
+<tr>
+<td><span class="response-data">single_story_home</span></td>
+<td><span class="data-type">Boolean</span></td>
+</tr>
+<tr>
+<td><span class="response-data">garage</span></td>
+<td><span class="data-type">Boolean</span></td>
+</tr>
+<tr>
+<td><span class="response-data">pool</span></td>
+<td><span class="data-type">Boolean</span></td>
+</tr>
+<tr>
+<td><span class="response-data">waterfront</span></td>
+<td><span class="data-type">Boolean</span></td>
+</tr>
+<tr>
+<td><span class="response-data">view</span></td>
+<td><span class="data-type">Boolean</span></td>
+</tr>
+<tr>
+<td><span class="response-data">new_construction</span></td>
+<td><span class="data-type">Boolean</span></td>
+</tr>
+<tr>
+<td><span class="response-data">luxury_property</span></td>
+<td><span class="data-type">Boolean</span></td>
+</tr>
+<tr>
+<td><span class="response-data">destination</span></td>
+<td><span class="data-type">Boolean</span></td>
+</tr>
+<tr>
+<td><span class="response-data">open_house</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">property_types</span></td>
+<td><span class="data-type">Array</span></td>
+</tr>
+<tr>
+<td><span class="response-data">drive_time</span></td>
+<td><span class="data-type">Hash</span></td>
+</tr>
+</tbody></table>
+
+<p><span class="response-data-head">search_field</span>
+<span class="response-data-remarks">The search string used in generating the <span class='entity-name'>SavedSearch</span> object.</span></p>
+
+<p><span class="response-data-head">city</span>
+<span class="response-data-remarks">The focus city of this <span class='entity-name'>SavedSearch</span> entry.</span></p>
+
+<p><span class="response-data-head">state</span>
+<span class="response-data-remarks">The focus state of this <span class='entity-name'>SavedSearch</span> entry.</span></p>
+
+<p><span class="response-data-head">zipcode</span>
+<span class="response-data-remarks">The focus zip / postal code of this <span class='entity-name'>SavedSearch</span> entry.</span></p>
+
+<p><span class="response-data-head">street_name</span>
+<span class="response-data-remarks">The focus street name of this <span class='entity-name'>SavedSearch</span> entry.</span></p>
+
+<p><span class="response-data-head">house_number</span>
+<span class="response-data-remarks">The focus house number of this <span class='entity-name'>SavedSearch</span> entry.</span></p>
+
+<p><span class="response-data-head">listing_status</span>
+<span class="response-data-remarks">The listing status for listings included in this <span class='entity-name'>SavedSearch</span> entry.</span></p>
+
+<p><span class="response-data-head">price_min</span>
+<span class="response-data-remarks">The minimum price for listings included in this <span class='entity-name'>SavedSearch</span> entry.</span></p>
+
+<p><span class="response-data-head">price_max</span>
+<span class="response-data-remarks">The maximum price for listings included in this <span class='entity-name'>SavedSearch</span> entry.</span></p>
+
+<p><span class="response-data-head">bed_min</span>
+<span class="response-data-remarks">The minimum number of beds for listings included in this <span class='entity-name'>SavedSearch</span> entry.</span></p>
+
+<p><span class="response-data-head">bath_min</span>
+<span class="response-data-remarks">The minimum number of baths for listings included in this <span class='entity-name'>SavedSearch</span> entry.</span></p>
+
+<p><span class="response-data-head">sqft_min</span>
+<span class="response-data-remarks">The minimum interior square footage for listings included in this <span class='entity-name'>SavedSearch</span> entry.</span></p>
+
+<p><span class="response-data-head">sqft_max</span>
+<span class="response-data-remarks">The maximum interior square footage for listings included in this <span class='entity-name'>SavedSearch</span> entry.</span></p>
+
+<p><span class="response-data-head">lot_size_min</span>
+<span class="response-data-remarks">The minimum lot size for listings included in this <span class='entity-name'>SavedSearch</span> entry. Use the <span class='attribute-name'>lot_size_conversion</span> attribute to determine if this field is represented in square feet (Integer) or acres (Float).</span></p>
+
+<p><span class="response-data-head">lot_size_max</span>
+<span class="response-data-remarks">The maximum lot size for listings included in this <span class='entity-name'>SavedSearch</span> entry. Use the <span class='attribute-name'>lot_size_conversion</span> attribute to determine if this field is represented in square feet (Integer) or acres (Float).</span></p>
+
+<p><span class="response-data-head">lot_size_conversion</span>
+<span class="response-data-remarks">The units used for computing lot size. Options are: sqft, acres</span></p>
+
+<p><span class="response-data-head">year_built_min</span>
+<span class="response-data-remarks">The earliest year that listings included in this <span class='entity-name'>SavedSearch</span> entry can have been built.</span></p>
+
+<p><span class="response-data-head">year_built_max</span>
+<span class="response-data-remarks">The latest year that listings included in this <span class='entity-name'>SavedSearch</span> entry can have been built.</span></p>
+
+<p><span class="response-data-head">days_on_mls</span>
+<span class="response-data-remarks">The maximum number of days that listings included in this <span class='entity-name'>SavedSearch</span> entry can have been listed on the MLS.</span></p>
+
+<p><span class="response-data-head">single_story_home</span>
+<span class="response-data-remarks">Whether or not listings included in this <span class='entity-name'>SavedSearch</span> entry must be single story homes.</span></p>
+
+<p><span class="response-data-head">garage</span>
+<span class="response-data-remarks">Whether or not listings included in this <span class='entity-name'>SavedSearch</span> entry must have a garage.</span></p>
+
+<p><span class="response-data-head">pool</span>
+<span class="response-data-remarks">Whether or not listings included in this <span class='entity-name'>SavedSearch</span> entry must have a pool.</span></p>
+
+<p><span class="response-data-head">waterfront</span>
+<span class="response-data-remarks">Whether or not listings included in this <span class='entity-name'>SavedSearch</span> entry must be on the waterfront.</span></p>
+
+<p><span class="response-data-head">view</span>
+<span class="response-data-remarks">Whether or not listings included in this <span class='entity-name'>SavedSearch</span> entry must be classified as having views.</span></p>
+
+<p><span class="response-data-head">new_construction</span>
+<span class="response-data-remarks">Whether or not listings included in this <span class='entity-name'>SavedSearch</span> entry must be classified as having new construction.</span></p>
+
+<p><span class="response-data-head">luxury_property</span>
+<span class="response-data-remarks">Whether or not listings included in this <span class='entity-name'>SavedSearch</span> entry must be classified as being a luxury property.</span></p>
+
+<p><span class="response-data-head">destination</span>
+<span class="response-data-remarks">Whether or not listings included in this <span class='entity-name'>SavedSearch</span> entry must be classified as being in a destination setting.</span></p>
+
+<p><span class="response-data-head">open_house</span>
+<span class="response-data-remarks">This field indicates how listings included in this <span class='entity-name'>SavedSearch</span> have been filtered by open house times. Options are: weekend, saturday, sunday, week, today, tomorrow, none.</span></p>
+
+<p><span class="response-data-head">property_types</span>
+<span class="response-data-remarks">This is an array of property types included in this <span class='entity-name'>SavedSearch</span> entry.</span></p>
+
+<h6 id="drive_time-object"><span class='attribute-name'>drive_time</span> Object</h6>
+
+<p>The <span class='attribute-name'>drive_time</span> Hash is a Dictionary object representing drive time calculations associated with the <span class='entity-name'>SavedSearch</span> entry. The structure of the <span class='attribute-name'>drive_time</span> entry is shown below.</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span class="response-data">arrival_time</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">duration</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">is_to_location</span></td>
+<td><span class="data-type">Boolean</span></td>
+</tr>
+<tr>
+<td><span class="response-data">avoid_ferry</span></td>
+<td><span class="data-type">Hash</span></td>
+</tr>
+</tbody></table>
+
+<p><span class="response-data-head">arrival_time</span>
+<span class="response-data-remarks">The anticipated time of day for the arrival to/from the location.</span></p>
+
+<p><span class="response-data-head">duration</span>
+<span class="response-data-remarks">The expected duration of the drive</span></p>
+
+<p><span class="response-data-head">is_to_location</span>
+<span class="response-data-remarks">Determines whether the drive is to or from the location(s) specified by the other search criteria.</span></p>
+
+<p><span class="response-data-head">avoid_ferry</span>
+<span class="response-data-remarks">Determines whether or not the <span class='attribute-name'>drive_time</span> search has been configured to avoid any ferry boats.</span></p>
 
 
 <h1 id="moxi-works-authentication">Moxi Works Authentication</h1>

@@ -88,6 +88,7 @@ Attribute | Type | Length Limit |
     "partner_contact_id": "booyuh",
     "moxi_works_contact_id":"deadbeef-feed-face-bad4dad22dead",
     "moxi_works_lead_source_id": "some_lead_source_id",
+    "moxi_works_origin_lead_source_id": "some_other_lead_source_id",
     "is_deleted": true,
     "contact_name":"Firstname Middlenyme Larstnam",
     "first_name":"Firstname",
@@ -182,7 +183,24 @@ Attribute | Type | Length Limit |
     "search_min_year_built": "1388",
     "search_max_year_built": "2044",
     "search_property_types": "Condo, Single Family, Townhouse",
-    "note": "whatevers2009"
+    "note": "whatevers2009",
+    "websites": [
+      {
+        "rank": 1,
+        "key": "website_key_1",
+        "value": "https://blep.com"
+      },
+      {
+        "rank": 2,
+        "key": "website_key_2",
+        "value": "https://blep.com"
+      }
+    ],
+   "home_purchase_anniversaries": [
+      1484088442
+   ],
+   "company": "Blep Ltd.",
+   "spouse_or_partner": "Rick Sanchez"
   }
 }
 ```
@@ -290,8 +308,8 @@ Attribute | Type |
 |<span class="response-data">note</span>|<span class="data-type">String or null</span>|  |
 |<span class="response-data">websites</span>|<span class="data-type">Array</span>|  |
 |<span class="response-data">home_purchase_anniversaries</span>|<span class="data-type">Array</span>|  |
-|<span class="response-data">company</span>|<span class="data-type">String</span>|  |
-|<span class="response-data">spouse_or_partner</span>|<span class="data-type">String</span>|  |
+|<span class="response-data">company</span>|<span class="data-type">String or null</span>|  |
+|<span class="response-data">spouse_or_partner</span>|<span class="data-type">String or null</span>|  |
 
 <span class='multi-option-response-data'>* Either <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> will be returned depending on whether it is used in the request. The response payload object's agent identifier key will match the passed parameter.</span>
 

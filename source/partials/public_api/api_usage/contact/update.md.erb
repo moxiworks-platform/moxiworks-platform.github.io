@@ -521,6 +521,10 @@ Attribute | Type | Length Limit |
 |<span class="optional-data">search_max_year_built</span>|<span class="data-type">Integer</span>| 255 |
 |<span class="optional-data">search_property_types</span>|<span class="data-type">String</span>| 255 |
 |<span class="optional-data">note</span>|<span class="data-type">String</span>|  |
+|<span class="optional-data">websites</span>|<span class="data-type">Array</span>|  |
+|<span class="optional-data">home_purchase_anniversaries</span>|<span class="data-type">String</span>|  |
+|<span class="optional-data">company</span>|<span class="data-type">String</span>|  |
+|<span class="optional-data">spouse_or_partner</span>|<span class="data-type">String</span>|  |
 
 <span class="multi-option-required-data">* **Either <span class='attribute-name'>moxi_works_agent_id</span> or <span class='attribute-name'>agent_uuid</span> must be supplied. For guidance on which Agent identifier better fits your use-case, see [Agent Identifiers](#agent-identifiers)**</span>
 
@@ -529,7 +533,6 @@ Attribute | Type | Length Limit |
 
 <span class="request-data-head">agent_uuid</span>
 <span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which an  <span class='entity-name'>Contact</span> entry is associated with. This will be an [RFC 4122](https://tools.ietf.org/html/rfc4122) compliant UUID. <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>Contact</span> <span class='action-name'>Update</span> request to be accepted.</span>
-
 
 <span class="request-data-head">moxi_works_agent_id</span>
 <span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>Contact</span> entry is to be associated with. This will be a string that may take the form of an email address, or a unique identification string. This data is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>Contact</span> <span class='action-name'>Update</span>  request to be accepted.</span>
@@ -578,14 +581,11 @@ Attribute | Type | Length Limit |
 <span class="request-data-head">job_title</span>
 <span class="request-data-remarks">The contact's professional job title. </span>
 
-
 <span class="request-data-head">occupation</span>
 <span class="request-data-remarks">The contact's profession. </span>
 
-
 <span class="request-data-head">property_url</span>
 <span class="request-data-remarks">This should be a valid URL for a property of interest in your system that can be viewed by the agent.</span>
-
 
 <span class="request-data-head">property_mls_id</span>
 <span class="request-data-remarks">Use this if you have data about a property that this contact has shown interest in (property of interest); this should be the MLS ID of the property of interest. </span>
@@ -658,6 +658,18 @@ Attribute | Type | Length Limit |
 
 <span class="request-data-head">note</span>
 <span class="request-data-remarks">This is an arbitrary string giving the agent more details about the contact which would not otherwise fit into the <span class='entity-name'>Contact</span> record. Any Notes added here will be displayed to the agent in an Activity Log record. Any HTML formatting included will be stripped from the <span class='attribute-name'>note</span> attribute's data. </span>
+
+<span class="request-data-head">websites</span>
+<span class="request-data-remarks">Websites should be submitted as a json array of objects. Each object should include website prioritized 'rank' and 'value'. The number of website fields available for update for a given <span class='entity-name'>Contact</span> record depends on the agent email client type.</span>
+
+<span class="request-data-head">home_purchase_anniversaries</span>
+<span class="request-data-remarks">A comma separated list of unix timestamps representing the house-iversary dates for the <span class='entity-name'>Contact</span> record.</span>
+
+<span class="request-data-head">company</span>
+<span class="request-data-remarks">The name of the company to be associated with the <span class='entity-name'>Contact</span> record.</span>
+
+<span class="request-data-head">spouse_or_partner</span>
+<span class="request-data-remarks">The spouse or partner name to be associated with the <span class='entity-name'>Contact</span> record.</span>
 
 
 ##### <span class='entity-name'>Contact</span> <span class='action-name'>Update</span> Response Payload
@@ -904,6 +916,7 @@ Attribute | Type |
 |<span class="response-data">partner_contact_id</span>|<span class="response-data"><span class="data-type">String</span>
 |<span class="response-data">moxi_works_contact_id</span>|<span class="data-type">String</span>|
 |<span class="response-data">moxi_works_lead_source_id</span>|<span class="data-type">String</span>|
+|<span class="response-data">moxi_works_origin_lead_source_id</span>|<span class="data-type">String</span>|
 |<span class="response-data">is_deleted</span>|<span class="data-type">Boolean</span>|
 |<span class="response-data">contact_name</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">first_name</span>|<span class="data-type">String or null</span>|
@@ -956,6 +969,10 @@ Attribute | Type |
 |<span class="response-data">search_max_year_built</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">search_property_types</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">note</span>|<span class="data-type">String or null</span>|  |
+|<span class="response-data">websites</span>|<span class="data-type">Array</span>|  |
+|<span class="response-data">home_purchase_anniversaries</span>|<span class="data-type">Array</span>|  |
+|<span class="response-data">company</span>|<span class="data-type">String</span>|  |
+|<span class="response-data">spouse_or_partner</span>|<span class="data-type">String</span>|  |
 
 <span class='multi-option-response-data'>* Either <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> will be returned depending on whether it is used in the request. The response payload object's agent identifier key will match the passed parameter.</span>
 
@@ -974,6 +991,9 @@ Attribute | Type |
 
 <span class="response-data-head">moxi_works_lead_source_id</span>
 <span class="response-data-remarks">This is the unique Moxi Works Platform ID of the <span class='entity-name'>LeadSource</span> that generated this <span class='entity-name'>Contact</span>.</span>
+
+<span class="request-data-head">moxi_works_origin_lead_source_id</span>
+<span class="request-data-remarks">This is used to keep track of the original lead source for this <span class='entity-name'>Contact</span> record. This field will not be displayed in MoxiEngage, and is for the parter's own tracking purposes. This key will be associated with valid <span class='attribute-name'>moxi_works_lead_source_id</span>. Send a <span class='entity-name'>LeadSource</span> <span class='action-name'>index</span> request for a full list of applicable lead sources and their ids.</span>
 
 <span class="response-data-head">is_deleted</span>
 <span class="response-data-remarks">Will be true if this <span class='entity-name'>Contact</span> has been deleted from the <span class='entity-name'>Agent</span>s contacts.</span>
@@ -1087,7 +1107,33 @@ Attribute | Type |
 <span class="response-data-head">home_purchase_anniversary</span>
 <span class="response-data-remarks">Anniversary of the contact's home purchase represented as a Unix Timestamp. </span>
 
+<span class="response-data-head">home_purchase_anniversaries</span>
+<span class="response-data-remarks">A list of Unix Timestamps representing the contact's home purchase anniversaries.</span>
 
+<span class="response-data-head">company</span>
+<span class="response-data-remarks">The name of the company associated with the contact.</span>
+
+<span class="response-data-head">spouse_or_partner</span>
+<span class="response-data-remarks">The spouse or partner of the contact.</span>
+
+###### <span class='attribute-name'>websites</span> Objects
+
+Each object in the <span class='attribute-name'>websites</span> array will have the following structure.
+
+Attribute | Type |
+-----|-----|-----|-----|
+|<span class="response-data">rank</span>|<span class="response-data"><span class="data-type">Integer</span>
+|<span class="response-data">key</span>|<span class="response-data"><span class="data-type">String</span>
+|<span class="response-data">value</span>|<span class="response-data"><span class="data-type">String</span>
+
+<span class="response-data-head">rank</span>
+<span class="response-data-remarks">The website's priority in the contact record.</span>
+
+<span class="response-data-head">key</span>
+<span class="response-data-remarks">The key identifier of the website for use in digesting websites added to the contact record via MoxiEngage</span>
+
+<span class="response-data-head">key</span>
+<span class="response-data-remarks">The url of the website.</span>
 
 ###### <span class='attribute-name'>social_media_profiles</span> Objects
 

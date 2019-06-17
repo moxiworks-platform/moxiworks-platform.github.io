@@ -177,6 +177,7 @@ Attribute | Type  | Length Limit |
 |<span class="optional-data">deactivated</span>|<span class="data-type">Boolean</span>| 255 |
 |<span class="optional-data">deactivated_since</span>|<span class="data-type">Integer</span>| 255 |
 |<span class="optional-data">include_partners</span>|<span class="data-type">Boolean</span>| 255 |
+|<span class="optional-data">include_company_programs</span>|<span class="data-type">Boolean</span>| 255 |
 
 <span class="required-data">**Required Parameters Are In Red**</span>
 
@@ -213,6 +214,9 @@ Attribute | Type  | Length Limit |
 
 <span class="request-data-head">include_partners</span>
 <span class="request-data-remarks">To include affiliate data associated with the agent in the response, pass `true`.</span>
+
+<span class="request-data-head">include_company_programs</span>
+<span class="request-data-remarks">To include company specific programs associated with the agent in the response, pass `true`.</span>
 
 
 <blockquote><div class='highlight json' style="display: block">
@@ -361,9 +365,11 @@ Attribute | Type |
 |<span class="response-data">profile_image_url</span>|<span class="data-type">String</span>|
 |<span class="response-data">profile_thumb_url</span>|<span class="data-type">String</span>|
 |<span class="response-data">region</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">service_area_zip_codes</span>|<span class="data-type">Array</span>|
 |<span class="response-data">alternate_offices</span>|<span class="data-type">Array</span>|
 |<span class="response-data">available_mls</span>|<span class="data-type">Array</span>|
 |<span class="response-data">partners</span>|<span class="data-type">Array</span>|
+|<span class="response-data">company_programs</span>|<span class="data-type">Array</span>|
 |<span class="response-data">created_timestamp</span>|<span class="data-type">Integer</span>|
 |<span class="response-data">deactivated_timestamp</span>|<span class="data-type">Integer or null</span>|
 
@@ -499,6 +505,12 @@ Attribute | Type |
 
 <span class="response-data-head">region</span>
 <span class="response-data-remarks">The region the agent's office is in. This can be null if there is no data for this attribute.</span>
+
+<span class="response-data-head">service_area_zip_codes</span>
+<span class="response-data-remarks">A list of the lead service area zip codes covered by the agent.</span>
+
+<span class="response-data-head">company_programs</span>
+<span class="response-data-remarks">A list of the company specific program names in which the agent participates or is a member.</span>
 
 <span class="response-data-head">created_timestamp</span>
 <span class="response-data-remarks">This is the Unix timestamp representing the date that this <span class='entity-name'>Agent</span> was created in the MoxiWorks system.</span>

@@ -10,9 +10,7 @@
 {
   "moxi_works_listing_id":"abc123",
   "moxi_works_company_id":"bobs_better_houses",
-  "listing":{
-    "VirtualTourURL":"http://here.com"
-  },
+  "VirtualTourURL":"http://here.com",
   "SharedPartnerData":{
     "attribute_1":"value_1",
     "attribute_2":"value_2"
@@ -45,9 +43,7 @@ MoxiworksPlatform::Credentials.new(platform_identifier, platform_secret)
 moxi_works_listing = MoxiworksPlatform::Listing.update(
         moxi_works_listing_id: "1234abcd",
         moxi_works_company_id: "abc123",
-        listing: {
-          VirtualTourURL: "http://virtualtourdomainurlthing.com"
-        },
+        VirtualTourURL: "http://virtualtourdomainurlthing.com",
         SharedPartnerData: {
           attribute_1: "value_1",
           attribute_2: "value_2"
@@ -91,7 +87,7 @@ $credentials = new MoxiworksPlatform\Credentials($platform_identifier, $platform
 $moxi_works_listing = MoxiworksPlatform\Listing::update([
         'moxi_works_listing_id' => '1234abcd',
         'moxi_works_company_id' => 'abc123',
-        'listing' => ['VirtualTourURL' => 'http://virtualtourdomainurlthing.com']
+        'VirtualTourURL' => 'http://virtualtourdomainurlthing.com'
         ]);
 ?>
 ```

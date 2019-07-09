@@ -123,6 +123,7 @@
     </span><span class="nt">"partner_contact_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"booyuh"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"moxi_works_contact_id"</span><span class="p">:</span><span class="s2">"deadbeef-feed-face-bad4dad22dead"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"moxi_works_lead_source_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"some_lead_source_id"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"moxi_works_origin_lead_source_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"some_other_lead_source_id"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"is_deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
     </span><span class="nt">"contact_name"</span><span class="p">:</span><span class="s2">"Firstname Middlenyme Larstnam"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"first_name"</span><span class="p">:</span><span class="s2">"Firstname"</span><span class="p">,</span><span class="w">
@@ -217,7 +218,24 @@
     </span><span class="nt">"search_min_year_built"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1388"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"search_max_year_built"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2044"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"search_property_types"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Condo, Single Family, Townhouse"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"note"</span><span class="p">:</span><span class="w"> </span><span class="s2">"whatevers2009"</span><span class="w">
+    </span><span class="nt">"note"</span><span class="p">:</span><span class="w"> </span><span class="s2">"whatevers2009"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"websites"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"website_key_1"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://blep.com"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"website_key_2"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://blep.com"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+   </span><span class="nt">"home_purchase_anniversaries"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="mi">1484088442</span><span class="w">
+   </span><span class="p">],</span><span class="w">
+   </span><span class="nt">"company"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Blep Ltd."</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"spouse_or_partner"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rick Sanchez"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -300,6 +318,10 @@
 </tr>
 <tr>
 <td><span class="response-data">moxi_works_lead_source_id</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">moxi_works_origin_lead_source_id</span></td>
 <td><span class="data-type">String</span></td>
 </tr>
 <tr>
@@ -506,6 +528,22 @@
 <td><span class="response-data">note</span></td>
 <td><span class="data-type">String or null</span></td>
 </tr>
+<tr>
+<td><span class="response-data">websites</span></td>
+<td><span class="data-type">Array</span></td>
+</tr>
+<tr>
+<td><span class="response-data">home_purchase_anniversaries</span></td>
+<td><span class="data-type">Array</span></td>
+</tr>
+<tr>
+<td><span class="response-data">company</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">spouse_or_partner</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
 </tbody></table>
 
 <p><span class='multi-option-response-data'>* Either <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> will be returned depending on whether it is used in the request. The response payload object&rsquo;s agent identifier key will match the passed parameter.</span></p>
@@ -524,6 +562,9 @@
 
 <p><span class="response-data-head">moxi_works_lead_source_id</span>
 <span class="response-data-remarks">This is the unique Moxi Works Platform ID of the <span class='entity-name'>LeadSource</span> that generated this <span class='entity-name'>Contact</span>.</span></p>
+
+<p><span class="request-data-head">moxi_works_origin_lead_source_id</span>
+<span class="request-data-remarks">This is used to keep track of the original lead source for this <span class='entity-name'>Contact</span> record. This field will not be displayed in MoxiEngage, and is for the parter&rsquo;s own tracking purposes. This key will be associated with valid <span class='attribute-name'>moxi_works_lead_source_id</span>. Send a <span class='entity-name'>LeadSource</span> <span class='action-name'>index</span> request for a full list of applicable lead sources and their ids.</span></p>
 
 <p><span class="response-data-head">is_deleted</span>
 <span class="response-data-remarks">Will be true if this <span class='entity-name'>Contact</span> has been deleted from the <span class='entity-name'>Agent</span>s contacts.</span></p>
@@ -653,6 +694,48 @@
 
 <p><span class="response-data-head">home_purchase_anniversary</span>
 <span class="response-data-remarks">Anniversary of the contact&rsquo;s home purchase represented as a Unix Timestamp. </span></p>
+
+<p><span class="response-data-head">home_purchase_anniversaries</span>
+<span class="response-data-remarks">A list of Unix Timestamps representing the contact&rsquo;s home purchase anniversaries.</span></p>
+
+<p><span class="response-data-head">company</span>
+<span class="response-data-remarks">The name of the company associated with the contact.</span></p>
+
+<p><span class="response-data-head">spouse_or_partner</span>
+<span class="response-data-remarks">The spouse or partner of the contact.</span></p>
+
+<h6 id="websites-objects"><span class='attribute-name'>websites</span> Objects</h6>
+
+<p>Each object in the <span class='attribute-name'>websites</span> array will have the following structure.</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span class="response-data">rank</span></td>
+<td><span class="response-data"><span class="data-type">Integer</span></td>
+</tr>
+<tr>
+<td><span class="response-data">key</span></td>
+<td><span class="response-data"><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">value</span></td>
+<td><span class="response-data"><span class="data-type">String</span></td>
+</tr>
+</tbody></table>
+
+<p><span class="response-data-head">rank</span>
+<span class="response-data-remarks">The website&rsquo;s priority in the contact record.</span></p>
+
+<p><span class="response-data-head">key</span>
+<span class="response-data-remarks">The key identifier of the website for use in digesting websites added to the contact record via MoxiEngage</span></p>
+
+<p><span class="response-data-head">key</span>
+<span class="response-data-remarks">The url of the website.</span></p>
 
 <h6 id="social_media_profiles-objects"><span class='attribute-name'>social_media_profiles</span> Objects</h6>
 

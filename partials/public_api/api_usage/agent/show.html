@@ -248,6 +248,14 @@
   </span><span class="nt">"home_page"</span><span class="p">:</span><span class="w"> </span><span class="s2">"foo.com"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"profile_image_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://picturererer.com/pics37/ImageStore.dll?id=852087C5D3A533DD&amp;w=200"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"profile_thumb_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://picturererer.com/pics37/ImageStore.dll?id=852087C5D3A533DD&amp;w=75"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"service_area_zip_codes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"98117"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"98105"</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"company_programs"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"Deluxe Listings agent"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Very Cool Program Manager"</span><span class="w">
+  </span><span class="p">],</span><span class="w">
   </span><span class="nt">"alternate_offices"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="nt">"moxi_works_office_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
@@ -317,6 +325,14 @@
   </span><span class="nt">"profile_image_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://picturererer.com/pics37/ImageStore.dll?id=852087C5D3A533DD&amp;w=200"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"profile_thumb_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://picturererer.com/pics37/ImageStore.dll?id=852087C5D3A533DD&amp;w=75"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"region"</span><span class="p">:</span><span class="s2">"WESTERN WASHINGTON"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"service_area_zip_codes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"98117"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"98105"</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"company_programs"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"Deluxe Listings agent"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Very Cool Program Manager"</span><span class="w">
+  </span><span class="p">],</span><span class="w">
   </span><span class="nt">"alternate_offices"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="nt">"moxi_works_office_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
@@ -542,6 +558,10 @@
 <td><span class="data-type">Float</span></td>
 </tr>
 <tr>
+<td><span class="response-data">service_area_zip_codes</span></td>
+<td><span class="data-type">Array</span></td>
+</tr>
+<tr>
 <td><span class="response-data">alternate_offices</span></td>
 <td><span class="data-type">Array</span></td>
 </tr>
@@ -551,6 +571,10 @@
 </tr>
 <tr>
 <td><span class="response-data">partners</span></td>
+<td><span class="data-type">Array</span></td>
+</tr>
+<tr>
+<td><span class="response-data">company_programs</span></td>
 <td><span class="data-type">Array</span></td>
 </tr>
 <tr>
@@ -697,6 +721,12 @@
 
 <p><span class="response-data-head">seller_commission_rate</span>
 <span class="response-data-remarks">Percentage commission rate for the agent when acting as a seller&rsquo;s agent.</span></p>
+
+<p><span class="response-data-head">service_area_zip_codes</span>
+<span class="response-data-remarks">A list of the lead service area zip codes covered by the agent.</span></p>
+
+<p><span class="response-data-head">company_programs</span>
+<span class="response-data-remarks">A list of the company specific program names in which the agent participates or is a member.</span></p>
 
 <p><span class="response-data-head">created_timestamp</span>
 <span class="response-data-remarks">This is the Unix timestamp representing the date that this <span class='entity-name'>Agent</span> was created in the MoxiWorks system.</span></p>

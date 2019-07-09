@@ -61,7 +61,7 @@
 
 <h5 id="leadsource-index-response-payload"><span class='entity-name'>LeadSource</span> <span class='action-name'>Index</span> Response Payload</h5>
 
-<p><span class='entity-name'>LeadSource</span> <span class='action-name'>Index</span> returns an array of objects representing lead sources that your organization has permission to use as an alias when generating leads via the MoxiWorks platform API.
+<p><span class='entity-name'>LeadSource</span> <span class='action-name'>Index</span> returns an array of objects representing lead sources available for association with <span class='entity-name'>Contact</span> records in MoxiEngage and MoxiWorks platform API.
 The following attributes make up the payload of each <span class='entity-name'>LeadSource</span> object returned in an <span class='action-name'>Index</span> request.</p>
 
 <blockquote><div class='highlight json' style="display: block">
@@ -111,6 +111,10 @@ The following attributes make up the payload of each <span class='entity-name'>L
 <td><span class="data-type">String</span></td>
 </tr>
 <tr>
+<td><span class="response-data">is_partner_alias</span></td>
+<td><span class="data-type">Boolean</span></td>
+</tr>
+<tr>
 <td><span class="response-data">is_partner_default</span></td>
 <td><span class="data-type">Boolean</span></td>
 </tr>
@@ -121,6 +125,9 @@ The following attributes make up the payload of each <span class='entity-name'>L
 
 <p><span class="response-data-head">name</span>
 <span class="response-data-remarks">This is the common name of the lead source.</span></p>
+
+<p><span class="response-data-head">is_partner_default</span>
+<span class="response-data-remarks">Is true if this <span class='entity-name'>LeadSource</span> may be used as a lead source alias for the requesting partner.</span></p>
 
 <p><span class="response-data-head">is_partner_default</span>
 <span class="response-data-remarks">Is true for the <span class='entity-name'>LeadSource</span> entity used as a default for this partner. This should always be true for exactly one of each partner&rsquo;s available lead sources in the <span class='action-name'>Index</span> Response Payload.</span></p>

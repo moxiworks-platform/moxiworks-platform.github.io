@@ -1647,6 +1647,14 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
   </span><span class="nt">"home_page"</span><span class="p">:</span><span class="w"> </span><span class="s2">"foo.com"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"profile_image_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://picturererer.com/pics37/ImageStore.dll?id=852087C5D3A533DD&amp;w=200"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"profile_thumb_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://picturererer.com/pics37/ImageStore.dll?id=852087C5D3A533DD&amp;w=75"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"service_area_zip_codes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"98117"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"98105"</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"company_programs"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"Deluxe Listings agent"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Very Cool Program Manager"</span><span class="w">
+  </span><span class="p">],</span><span class="w">
   </span><span class="nt">"alternate_offices"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="nt">"moxi_works_office_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
@@ -1716,6 +1724,14 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
   </span><span class="nt">"profile_image_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://picturererer.com/pics37/ImageStore.dll?id=852087C5D3A533DD&amp;w=200"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"profile_thumb_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://picturererer.com/pics37/ImageStore.dll?id=852087C5D3A533DD&amp;w=75"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"region"</span><span class="p">:</span><span class="s2">"WESTERN WASHINGTON"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"service_area_zip_codes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"98117"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"98105"</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"company_programs"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"Deluxe Listings agent"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Very Cool Program Manager"</span><span class="w">
+  </span><span class="p">],</span><span class="w">
   </span><span class="nt">"alternate_offices"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="nt">"moxi_works_office_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
@@ -1941,6 +1957,10 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
 <td><span class="data-type">Float</span></td>
 </tr>
 <tr>
+<td><span class="response-data">service_area_zip_codes</span></td>
+<td><span class="data-type">Array</span></td>
+</tr>
+<tr>
 <td><span class="response-data">alternate_offices</span></td>
 <td><span class="data-type">Array</span></td>
 </tr>
@@ -1950,6 +1970,10 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
 </tr>
 <tr>
 <td><span class="response-data">partners</span></td>
+<td><span class="data-type">Array</span></td>
+</tr>
+<tr>
+<td><span class="response-data">company_programs</span></td>
 <td><span class="data-type">Array</span></td>
 </tr>
 <tr>
@@ -2096,6 +2120,12 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
 
 <p><span class="response-data-head">seller_commission_rate</span>
 <span class="response-data-remarks">Percentage commission rate for the agent when acting as a seller&rsquo;s agent.</span></p>
+
+<p><span class="response-data-head">service_area_zip_codes</span>
+<span class="response-data-remarks">A list of the lead service area zip codes covered by the agent.</span></p>
+
+<p><span class="response-data-head">company_programs</span>
+<span class="response-data-remarks">A list of the company specific program names in which the agent participates or is a member.</span></p>
 
 <p><span class="response-data-head">created_timestamp</span>
 <span class="response-data-remarks">This is the Unix timestamp representing the date that this <span class='entity-name'>Agent</span> was created in the MoxiWorks system.</span></p>
@@ -2436,6 +2466,11 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
 <td><span class="data-type">Boolean</span></td>
 <td>255</td>
 </tr>
+<tr>
+<td><span class="optional-data">include_company_programs</span></td>
+<td><span class="data-type">Boolean</span></td>
+<td>255</td>
+</tr>
 </tbody></table>
 
 <p><span class="required-data"><strong>Required Parameters Are In Red</strong></span></p>
@@ -2469,6 +2504,9 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
 
 <p><span class="request-data-head">include_partners</span>
 <span class="request-data-remarks">To include affiliate data associated with the agent in the response, pass <code class="prettyprint">true</code>.</span></p>
+
+<p><span class="request-data-head">include_company_programs</span>
+<span class="request-data-remarks">To include company specific programs associated with the agent in the response, pass <code class="prettyprint">true</code>.</span></p>
 
 <blockquote><div class='highlight json' style="display: block">
 <span class="data-example-label">Agent Index: Success Response</span>
@@ -2520,6 +2558,14 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
   </span><span class="nt">"profile_image_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://picturererer.com/pics37/ImageStore.dll?id=852087C5D3A533DD&amp;w=200"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"profile_thumb_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://picturererer.com/pics37/ImageStore.dll?id=852087C5D3A533DD&amp;w=75"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"region"</span><span class="p">:</span><span class="s2">"WESTERN WASHINGTON"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"service_area_zip_codes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"98117"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"98105"</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"company_programs"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"Deluxe Listings agent"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Very Cool Program Manager"</span><span class="w">
+  </span><span class="p">],</span><span class="w">
   </span><span class="nt">"alternate_offices"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="nt">"moxi_works_office_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
@@ -2756,6 +2802,10 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
 <td><span class="data-type">String or null</span></td>
 </tr>
 <tr>
+<td><span class="response-data">service_area_zip_codes</span></td>
+<td><span class="data-type">Array</span></td>
+</tr>
+<tr>
 <td><span class="response-data">alternate_offices</span></td>
 <td><span class="data-type">Array</span></td>
 </tr>
@@ -2765,6 +2815,10 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
 </tr>
 <tr>
 <td><span class="response-data">partners</span></td>
+<td><span class="data-type">Array</span></td>
+</tr>
+<tr>
+<td><span class="response-data">company_programs</span></td>
 <td><span class="data-type">Array</span></td>
 </tr>
 <tr>
@@ -2902,6 +2956,12 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
 
 <p><span class="response-data-head">region</span>
 <span class="response-data-remarks">The region the agent&rsquo;s office is in. This can be null if there is no data for this attribute.</span></p>
+
+<p><span class="response-data-head">service_area_zip_codes</span>
+<span class="response-data-remarks">A list of the lead service area zip codes covered by the agent.</span></p>
+
+<p><span class="response-data-head">company_programs</span>
+<span class="response-data-remarks">A list of the company specific program names in which the agent participates or is a member.</span></p>
 
 <p><span class="response-data-head">created_timestamp</span>
 <span class="response-data-remarks">This is the Unix timestamp representing the date that this <span class='entity-name'>Agent</span> was created in the MoxiWorks system.</span></p>
@@ -7232,6 +7292,7 @@ The following attributes make up the payload of each <span class='entity-name'>C
 </span><span class="nt">"agent_uuid"</span><span class="p">:</span><span class="s2">"12345678-1234-1234-1234-1234567890ab"</span><span class="p">,</span><span class="w">
 </span><span class="nt">"partner_contact_id"</span><span class="p">:</span><span class="s2">"booyuh"</span><span class="p">,</span><span class="w">
 </span><span class="nt">"moxi_works_lead_source_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"some_lead_source_id"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"moxi_works_origin_lead_source_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"some_other_lead_source_id"</span><span class="p">,</span><span class="w">
 </span><span class="nt">"contact_name"</span><span class="p">:</span><span class="s2">"Firstname Middlenyme Larstnam"</span><span class="p">,</span><span class="w">
 </span><span class="nt">"gender"</span><span class="p">:</span><span class="s2">"m"</span><span class="p">,</span><span class="w">
 </span><span class="nt">"label_name"</span><span class="p">:</span><span class="s2">"Mr. and Mrs. Oo-De-Lally Golly What a Day"</span><span class="p">,</span><span class="w">
@@ -7271,7 +7332,20 @@ The following attributes make up the payload of each <span class='entity-name'>C
 </span><span class="nt">"search_min_year_built"</span><span class="p">:</span><span class="s2">"1388"</span><span class="p">,</span><span class="w">
 </span><span class="nt">"search_max_year_built"</span><span class="p">:</span><span class="s2">"2044"</span><span class="p">,</span><span class="w">
 </span><span class="nt">"search_property_types"</span><span class="p">:</span><span class="s2">"Condo, Single Family, Townhouse"</span><span class="p">,</span><span class="w">
-</span><span class="nt">"note"</span><span class="p">:</span><span class="s2">"whatevers2009"</span><span class="w">
+</span><span class="nt">"note"</span><span class="p">:</span><span class="s2">"whatevers2009"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"websites"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://blep.com"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://blep.com"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+</span><span class="nt">"home_purchase_anniversaries"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1484088442,1484088443"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"company"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Blep Ltd."</span><span class="p">,</span><span class="w">
+</span><span class="nt">"spouse_or_partner"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rick Sanchez"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -7457,6 +7531,7 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;partner_contact_id=abc982cdf
 </span><span class="nt">"moxi_works_agent_id"</span><span class="p">:</span><span class="s2">"1234abcd"</span><span class="p">,</span><span class="w">
 </span><span class="nt">"partner_contact_id"</span><span class="p">:</span><span class="s2">"booyuh"</span><span class="p">,</span><span class="w">
 </span><span class="nt">"moxi_works_lead_source_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"some_lead_source_id"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"moxi_works_origin_lead_source_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"some_other_lead_source_id"</span><span class="p">,</span><span class="w">
 </span><span class="nt">"contact_name"</span><span class="p">:</span><span class="s2">"Firstname Middlenyme Larstnam"</span><span class="p">,</span><span class="w">
 </span><span class="nt">"gender"</span><span class="p">:</span><span class="s2">"m"</span><span class="p">,</span><span class="w">
 </span><span class="nt">"label_name"</span><span class="p">:</span><span class="s2">"Mr. and Mrs. Oo-De-Lally Golly What a Day"</span><span class="p">,</span><span class="w">
@@ -7496,7 +7571,20 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;partner_contact_id=abc982cdf
 </span><span class="nt">"search_min_year_built"</span><span class="p">:</span><span class="s2">"1388"</span><span class="p">,</span><span class="w">
 </span><span class="nt">"search_max_year_built"</span><span class="p">:</span><span class="s2">"2044"</span><span class="p">,</span><span class="w">
 </span><span class="nt">"search_property_types"</span><span class="p">:</span><span class="s2">"Condo, Single Family, Townhouse"</span><span class="p">,</span><span class="w">
-</span><span class="nt">"note"</span><span class="p">:</span><span class="s2">"whatevers2009"</span><span class="w">
+</span><span class="nt">"note"</span><span class="p">:</span><span class="s2">"whatevers2009"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"websites"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://blep.com"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://blep.com"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+</span><span class="nt">"home_purchase_anniversaries"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1484088442,1484088443"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"company"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Blep Ltd."</span><span class="p">,</span><span class="w">
+</span><span class="nt">"spouse_or_partner"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rick Sanchez"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -7739,6 +7827,11 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 <td>255</td>
 </tr>
 <tr>
+<td><span class="optional-data">moxi_works_origin_lead_source_id</span></td>
+<td><span class="data-type">String</span></td>
+<td>255</td>
+</tr>
+<tr>
 <td><span class="optional-data">gender</span></td>
 <td><span class="data-type">String</span></td>
 <td>255</td>
@@ -7918,6 +8011,26 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 <td><span class="data-type">String</span></td>
 <td></td>
 </tr>
+<tr>
+<td><span class="optional-data">websites</span></td>
+<td><span class="data-type">Array</span></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="optional-data">home_purchase_anniversaries</span></td>
+<td><span class="data-type">String</span></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="optional-data">company</span></td>
+<td><span class="data-type">String</span></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="optional-data">spouse_or_partner</span></td>
+<td><span class="data-type">String</span></td>
+<td></td>
+</tr>
 </tbody></table>
 
 <p><span class="multi-option-required-data">* <strong>Either <span class='attribute-name'>moxi_works_agent_id</span> or <span class='attribute-name'>agent_uuid</span> must be supplied. For guidance on which Agent identifier better fits your use-case, see <a href="#agent-identifiers">Agent Identifiers</a></strong></span></p>
@@ -7942,6 +8055,9 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 
 <p><span class="request-data-head">moxi_works_lead_source_id</span>
 <span class="request-data-remarks">The <span class='entity-name'>Contact</span> will be created in MoxiEngage as a lead sourced from the <span class='entity-name'>LeadSource</span> associated with this <span class='attribute-name'>moxi_works_lead_source_id</span>. Send a <span class='entity-name'>LeadSource</span> <span class='action-name'>index</span> request to determine which lead sources your organization has permission to impersonate during lead generation.</span></p>
+
+<p><span class="request-data-head">moxi_works_origin_lead_source_id</span>
+<span class="request-data-remarks">This is used to keep track of the original lead source for this <span class='entity-name'>Contact</span> record. This field will not be displayed in MoxiEngage, and is for the parter&rsquo;s own tracking purposes. This key must be associated with valid <span class='attribute-name'>moxi_works_lead_source_id</span>. Send a <span class='entity-name'>LeadSource</span> <span class='action-name'>index</span> request for a full list of applicable lead sources and their ids.</span></p>
 
 <p><span class="request-data-head">gender</span>
 <span class="request-data-remarks">The gender of the contact. This can be <code class="prettyprint">male</code>, <code class="prettyprint">female</code>, <code class="prettyprint">m</code> or <code class="prettyprint">f</code>. No matter what is provided in the request, the response payload will return <code class="prettyprint">m</code> or <code class="prettyprint">f</code>. </span></p>
@@ -8060,6 +8176,18 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 <p><span class="request-data-head">note</span>
 <span class="request-data-remarks">This is an arbitrary string giving the agent more details about the contact which would not otherwise fit into the <span class='entity-name'>Contact</span> record. Any HTML formatting included will be stripped from the <span class='attribute-name'>note</span> attribute&rsquo;s data. </span></p>
 
+<p><span class="request-data-head">websites</span>
+<span class="request-data-remarks">Websites should be submitted as a json array of objects. Each object should include website prioritized &lsquo;rank&rsquo; and &lsquo;value&rsquo;. The number of website fields available for update for a given <span class='entity-name'>Contact</span> record depends on the agent email client type.</span></p>
+
+<p><span class="request-data-head">home_purchase_anniversaries</span>
+<span class="request-data-remarks">A comma separated list of unix timestamps representing the house-iversary dates for the <span class='entity-name'>Contact</span> record.</span></p>
+
+<p><span class="request-data-head">company</span>
+<span class="request-data-remarks">The name of the company to be associated with the <span class='entity-name'>Contact</span> record.</span></p>
+
+<p><span class="request-data-head">spouse_or_partner</span>
+<span class="request-data-remarks">The spouse or partner name to be associated with the <span class='entity-name'>Contact</span> record.</span></p>
+
 <h5 id="contact-create-response-payload"><span class='entity-name'>Contact</span> <span class='action-name'>Create</span> Response Payload</h5>
 
 <p>The following attributes make up the payload of the <span class='entity-name'>Contact</span> response for a <span class='action-name'>Create</span> request.</p>
@@ -8072,6 +8200,7 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
   </span><span class="nt">"partner_contact_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"booyuh"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"moxi_works_contact_id"</span><span class="p">:</span><span class="s2">"deadbeef-feed-face-2bad4daddead"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"moxi_works_lead_source_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"some_lead_source_id"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"moxi_works_origin_lead_source_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"some_other_lead_source_id"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"is_deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="nt">"contact_name"</span><span class="p">:</span><span class="s2">"Firstname Middlenyme Larstnam"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"first_name"</span><span class="p">:</span><span class="s2">"Firstname"</span><span class="p">,</span><span class="w">
@@ -8166,8 +8295,26 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
   </span><span class="nt">"search_min_year_built"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1388"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"search_max_year_built"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2044"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"search_property_types"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Condo, Single Family, Townhouse"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"note"</span><span class="p">:</span><span class="w"> </span><span class="s2">"whatevers2009"</span><span class="w">
-</span><span class="p">}</span><span class="w">
+  </span><span class="nt">"note"</span><span class="p">:</span><span class="w"> </span><span class="s2">"whatevers2009"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"websites"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"website_key_1"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://blep.com"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"website_key_2"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://blep.com"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+   </span><span class="nt">"home_purchase_anniversaries"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="mi">1484088442</span><span class="w">
+   </span><span class="p">],</span><span class="w">
+   </span><span class="nt">"company"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Blep Ltd."</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"spouse_or_partner"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rick Sanchez"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="err">}</span><span class="w">
 </span></code></pre>
 
 <blockquote><div class='highlight json' style="display: block">
@@ -8178,6 +8325,7 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
   </span><span class="nt">"partner_contact_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"booyuh"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"moxi_works_contact_id"</span><span class="p">:</span><span class="s2">"deadbeef-feed-face-2bad4daddead"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"moxi_works_lead_source_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"some_lead_source_id"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"moxi_works_origin_lead_source_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"some_other_lead_source_id"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"is_deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="nt">"contact_name"</span><span class="p">:</span><span class="s2">"Firstname Middlenyme Larstnam"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"first_name"</span><span class="p">:</span><span class="s2">"Firstname"</span><span class="p">,</span><span class="w">
@@ -8272,8 +8420,13 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
   </span><span class="nt">"search_min_year_built"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1388"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"search_max_year_built"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2044"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"search_property_types"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Condo, Single Family, Townhouse"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"note"</span><span class="p">:</span><span class="w"> </span><span class="s2">"whatevers2009"</span><span class="w">
-</span><span class="p">}</span><span class="w">
+  </span><span class="nt">"note"</span><span class="p">:</span><span class="w"> </span><span class="s2">"whatevers2009"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"websites"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+   </span><span class="nt">"home_purchase_anniversaries"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+   </span><span class="nt">"company"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"spouse_or_partner"</span><span class="p">:</span><span class="w">  </span><span class="kc">null</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="err">}</span><span class="w">
 </span></code></pre>
 
 <blockquote><div class='highlight json' style="display: block">
@@ -8306,6 +8459,10 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 <tr>
 <td><span class="response-data">moxi_works_lead_source_id</span></td>
 <td><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">moxi_works_origin_lead_source_id</span></td>
+<td><span class="data-type">String or null</span></td>
 </tr>
 <tr>
 <td><span class="response-data">is_deleted</span></td>
@@ -8519,6 +8676,22 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 <td><span class="response-data">note</span></td>
 <td><span class="data-type">String or null</span></td>
 </tr>
+<tr>
+<td><span class="response-data">websites</span></td>
+<td><span class="data-type">Array</span></td>
+</tr>
+<tr>
+<td><span class="response-data">home_purchase_anniversaries</span></td>
+<td><span class="data-type">Array</span></td>
+</tr>
+<tr>
+<td><span class="response-data">company</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">spouse_or_partner</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
 </tbody></table>
 
 <p><span class='multi-option-response-data'>* Either <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> will be returned depending on whether it is used in the request. The response payload object&rsquo;s agent identifier key will match the passed parameter.</span></p>
@@ -8537,6 +8710,9 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 
 <p><span class="response-data-head">moxi_works_lead_source_id</span>
 <span class="response-data-remarks">This is the unique Moxi Works Platform ID of the <span class='entity-name'>LeadSource</span> that generated this <span class='entity-name'>Contact</span>.</span></p>
+
+<p><span class="request-data-head">moxi_works_origin_lead_source_id</span>
+<span class="request-data-remarks">This is used to keep track of the original lead source for this <span class='entity-name'>Contact</span> record. This field will not be displayed in MoxiEngage, and is for the parter&rsquo;s own tracking purposes. This key will be associated with valid <span class='attribute-name'>moxi_works_lead_source_id</span>. Send a <span class='entity-name'>LeadSource</span> <span class='action-name'>index</span> request for a full list of applicable lead sources and their ids.</span></p>
 
 <p><span class="response-data-head">is_deleted</span>
 <span class="response-data-remarks">Will be true if this <span class='entity-name'>Contact</span> has been deleted from the <span class='entity-name'>Agent</span>s contacts.</span></p>
@@ -8655,6 +8831,9 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 <p><span class="response-data-head">occupation</span>
 <span class="response-data-remarks">The contact&rsquo;s profession.  This value will be null if no data is available for this attribute. </span></p>
 
+<p><span class="response-data-head">company</span>
+<span class="response-data-remarks">The name of the company associated with the contact.</span></p>
+
 <p><span class="response-data-head">is_new_contact</span>
 <span class="response-data-remarks">Whether the contact was recently added to the Agent&rsquo;s database. </span></p>
 
@@ -8666,6 +8845,48 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 
 <p><span class="response-data-head">home_purchase_anniversary</span>
 <span class="response-data-remarks">Anniversary of the contact&rsquo;s home purchase represented as a Unix Timestamp. </span></p>
+
+<p><span class="response-data-head">home_purchase_anniversaries</span>
+<span class="response-data-remarks">A list of Unix Timestamps representing the contact&rsquo;s home purchase anniversaries.</span></p>
+
+<p><span class="response-data-head">company</span>
+<span class="response-data-remarks">The name of the company associated with the contact.</span></p>
+
+<p><span class="response-data-head">spouse_or_partner</span>
+<span class="response-data-remarks">The spouse or partner of the contact.</span></p>
+
+<h6 id="websites-objects"><span class='attribute-name'>websites</span> Objects</h6>
+
+<p>Each object in the <span class='attribute-name'>websites</span> array will have the following structure.</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span class="response-data">rank</span></td>
+<td><span class="response-data"><span class="data-type">Integer</span></td>
+</tr>
+<tr>
+<td><span class="response-data">key</span></td>
+<td><span class="response-data"><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">value</span></td>
+<td><span class="response-data"><span class="data-type">String</span></td>
+</tr>
+</tbody></table>
+
+<p><span class="response-data-head">rank</span>
+<span class="response-data-remarks">The website&rsquo;s priority in the contact record.</span></p>
+
+<p><span class="response-data-head">key</span>
+<span class="response-data-remarks">The key identifier of the website for use in digesting websites added to the contact record via MoxiEngage</span></p>
+
+<p><span class="response-data-head">key</span>
+<span class="response-data-remarks">The url of the website.</span></p>
 
 <h6 id="social_media_profiles-objects"><span class='attribute-name'>social_media_profiles</span> Objects</h6>
 
@@ -8688,7 +8909,7 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 </tbody></table>
 
 <p><span class="response-data-head">key</span>
-<span class="response-data-remarks">The key identifier of the social media url. Defined keys are &lsquo;facebook,&rsquo; &lsquo;linkedin,&rsquo; &lsquo;twitter,&rsquo; and &lsquo;googleplus&rsquo;</span></p>
+<span class="response-data-remarks">The key identifier of the social media url. Defined keys are &lsquo;facebook,&rsquo; &lsquo;linkedin,&rsquo; &#39;twitter,&rsquo; and &#39;googleplus&rsquo;</span></p>
 
 <p><span class="response-data-head">property_url</span>
 <span class="response-data-remarks">This will be a valid URL for a property of interest in your system that can be viewed by the agent. This value will be null if no data is available for this attribute. </span></p>
@@ -8818,7 +9039,20 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 </span><span class="nt">"search_min_year_built"</span><span class="p">:</span><span class="s2">"1388"</span><span class="p">,</span><span class="w">
 </span><span class="nt">"search_max_year_built"</span><span class="p">:</span><span class="s2">"2044"</span><span class="p">,</span><span class="w">
 </span><span class="nt">"search_property_types"</span><span class="p">:</span><span class="s2">"Condo, Single Family, Townhouse"</span><span class="p">,</span><span class="w">
-</span><span class="nt">"note"</span><span class="p">:</span><span class="s2">"whatevers2009"</span><span class="w">
+</span><span class="nt">"note"</span><span class="p">:</span><span class="s2">"whatevers2009"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"websites"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://blep.com"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://blep.com"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+</span><span class="nt">"home_purchase_anniversaries"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1484088442,1484088443"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"company"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Blep Ltd."</span><span class="p">,</span><span class="w">
+</span><span class="nt">"spouse_or_partner"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rick Sanchez"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -9042,7 +9276,20 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;partner_contact_id=abc982cdf
 </span><span class="nt">"search_min_year_built"</span><span class="p">:</span><span class="s2">"1388"</span><span class="p">,</span><span class="w">
 </span><span class="nt">"search_max_year_built"</span><span class="p">:</span><span class="s2">"2044"</span><span class="p">,</span><span class="w">
 </span><span class="nt">"search_property_types"</span><span class="p">:</span><span class="s2">"Condo, Single Family, Townhouse"</span><span class="p">,</span><span class="w">
-</span><span class="nt">"note"</span><span class="p">:</span><span class="s2">"whatevers2009"</span><span class="w">
+</span><span class="nt">"note"</span><span class="p">:</span><span class="s2">"whatevers2009"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"websites"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://blep.com"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://blep.com"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+</span><span class="nt">"home_purchase_anniversaries"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1484088442,1484088443"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"company"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Blep Ltd."</span><span class="p">,</span><span class="w">
+</span><span class="nt">"spouse_or_partner"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rick Sanchez"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -9451,6 +9698,26 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 <td><span class="data-type">String</span></td>
 <td></td>
 </tr>
+<tr>
+<td><span class="optional-data">websites</span></td>
+<td><span class="data-type">Array</span></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="optional-data">home_purchase_anniversaries</span></td>
+<td><span class="data-type">String</span></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="optional-data">company</span></td>
+<td><span class="data-type">String</span></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="optional-data">spouse_or_partner</span></td>
+<td><span class="data-type">String</span></td>
+<td></td>
+</tr>
 </tbody></table>
 
 <p><span class="multi-option-required-data">* <strong>Either <span class='attribute-name'>moxi_works_agent_id</span> or <span class='attribute-name'>agent_uuid</span> must be supplied. For guidance on which Agent identifier better fits your use-case, see <a href="#agent-identifiers">Agent Identifiers</a></strong></span></p>
@@ -9585,6 +9852,18 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 <p><span class="request-data-head">note</span>
 <span class="request-data-remarks">This is an arbitrary string giving the agent more details about the contact which would not otherwise fit into the <span class='entity-name'>Contact</span> record. Any Notes added here will be displayed to the agent in an Activity Log record. Any HTML formatting included will be stripped from the <span class='attribute-name'>note</span> attribute&rsquo;s data. </span></p>
 
+<p><span class="request-data-head">websites</span>
+<span class="request-data-remarks">Websites should be submitted as a json array of objects. Each object should include website prioritized &lsquo;rank&rsquo; and &#39;value&rsquo;. The number of website fields available for update for a given <span class='entity-name'>Contact</span> record depends on the agent email client type.</span></p>
+
+<p><span class="request-data-head">home_purchase_anniversaries</span>
+<span class="request-data-remarks">A comma separated list of unix timestamps representing the house-iversary dates for the <span class='entity-name'>Contact</span> record.</span></p>
+
+<p><span class="request-data-head">company</span>
+<span class="request-data-remarks">The name of the company to be associated with the <span class='entity-name'>Contact</span> record.</span></p>
+
+<p><span class="request-data-head">spouse_or_partner</span>
+<span class="request-data-remarks">The spouse or partner name to be associated with the <span class='entity-name'>Contact</span> record.</span></p>
+
 <h5 id="contact-update-response-payload"><span class='entity-name'>Contact</span> <span class='action-name'>Update</span> Response Payload</h5>
 
 <p>The following attributes make up the payload of the <span class='entity-name'>Contact</span> response for a <span class='action-name'>Update</span> request.</p>
@@ -9597,6 +9876,7 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
   </span><span class="nt">"partner_contact_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"booyuh"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"moxi_works_contact_id"</span><span class="p">:</span><span class="s2">"deadbeef-feed-face-bad4dad22dead"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"moxi_works_lead_source_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"some_lead_source_id"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"moxi_works_origin_lead_source_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"some_other_lead_source_id"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"is_deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="nt">"contact_name"</span><span class="p">:</span><span class="s2">"Firstname Middlenyme Larstnam"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"first_name"</span><span class="p">:</span><span class="s2">"Firstname"</span><span class="p">,</span><span class="w">
@@ -9691,7 +9971,25 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
   </span><span class="nt">"search_min_year_built"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1388"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"search_max_year_built"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2044"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"search_property_types"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Condo, Single Family, Townhouse"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"note"</span><span class="p">:</span><span class="w"> </span><span class="s2">"whatevers2009"</span><span class="w">
+  </span><span class="nt">"note"</span><span class="p">:</span><span class="w"> </span><span class="s2">"whatevers2009"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"websites"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"website_key_1"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://blep.com"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"website_key_2"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://blep.com"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"home_purchase_anniversaries"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="mi">1484088442</span><span class="w">
+   </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"company"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Blep Ltd."</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"spouse_or_partner"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rick Sanchez"</span><span class="w">
+
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -9703,6 +10001,7 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
   </span><span class="nt">"partner_contact_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"booyuh"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"moxi_works_contact_id"</span><span class="p">:</span><span class="s2">"deadbeef-feed-face-bad4dad22dead"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"moxi_works_lead_source_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"some_lead_source_id"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"moxi_works_origin_lead_source_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"some_other_lead_source_id"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"is_deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="nt">"contact_name"</span><span class="p">:</span><span class="s2">"Firstname Middlenyme Larstnam"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"first_name"</span><span class="p">:</span><span class="s2">"Firstname"</span><span class="p">,</span><span class="w">
@@ -9797,7 +10096,11 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
   </span><span class="nt">"search_min_year_built"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1388"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"search_max_year_built"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2044"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"search_property_types"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Condo, Single Family, Townhouse"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"note"</span><span class="p">:</span><span class="w"> </span><span class="s2">"whatevers2009"</span><span class="w">
+  </span><span class="nt">"note"</span><span class="p">:</span><span class="w"> </span><span class="s2">"whatevers2009"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"websites"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+  </span><span class="nt">"home_purchase_anniversaries"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+  </span><span class="nt">"company"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"spouse_or_partner"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -9838,6 +10141,10 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 </tr>
 <tr>
 <td><span class="response-data">moxi_works_lead_source_id</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">moxi_works_origin_lead_source_id</span></td>
 <td><span class="data-type">String</span></td>
 </tr>
 <tr>
@@ -10048,6 +10355,22 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 <td><span class="response-data">note</span></td>
 <td><span class="data-type">String or null</span></td>
 </tr>
+<tr>
+<td><span class="response-data">websites</span></td>
+<td><span class="data-type">Array</span></td>
+</tr>
+<tr>
+<td><span class="response-data">home_purchase_anniversaries</span></td>
+<td><span class="data-type">Array</span></td>
+</tr>
+<tr>
+<td><span class="response-data">company</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">spouse_or_partner</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
 </tbody></table>
 
 <p><span class='multi-option-response-data'>* Either <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> will be returned depending on whether it is used in the request. The response payload object&rsquo;s agent identifier key will match the passed parameter.</span></p>
@@ -10066,6 +10389,9 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 
 <p><span class="response-data-head">moxi_works_lead_source_id</span>
 <span class="response-data-remarks">This is the unique Moxi Works Platform ID of the <span class='entity-name'>LeadSource</span> that generated this <span class='entity-name'>Contact</span>.</span></p>
+
+<p><span class="request-data-head">moxi_works_origin_lead_source_id</span>
+<span class="request-data-remarks">This is used to keep track of the original lead source for this <span class='entity-name'>Contact</span> record. This field will not be displayed in MoxiEngage, and is for the parter&rsquo;s own tracking purposes. This key will be associated with valid <span class='attribute-name'>moxi_works_lead_source_id</span>. Send a <span class='entity-name'>LeadSource</span> <span class='action-name'>index</span> request for a full list of applicable lead sources and their ids.</span></p>
 
 <p><span class="response-data-head">is_deleted</span>
 <span class="response-data-remarks">Will be true if this <span class='entity-name'>Contact</span> has been deleted from the <span class='entity-name'>Agent</span>s contacts.</span></p>
@@ -10196,6 +10522,48 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 <p><span class="response-data-head">home_purchase_anniversary</span>
 <span class="response-data-remarks">Anniversary of the contact&rsquo;s home purchase represented as a Unix Timestamp. </span></p>
 
+<p><span class="response-data-head">home_purchase_anniversaries</span>
+<span class="response-data-remarks">A list of Unix Timestamps representing the contact&rsquo;s home purchase anniversaries.</span></p>
+
+<p><span class="response-data-head">company</span>
+<span class="response-data-remarks">The name of the company associated with the contact.</span></p>
+
+<p><span class="response-data-head">spouse_or_partner</span>
+<span class="response-data-remarks">The spouse or partner of the contact.</span></p>
+
+<h6 id="websites-objects"><span class='attribute-name'>websites</span> Objects</h6>
+
+<p>Each object in the <span class='attribute-name'>websites</span> array will have the following structure.</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span class="response-data">rank</span></td>
+<td><span class="response-data"><span class="data-type">Integer</span></td>
+</tr>
+<tr>
+<td><span class="response-data">key</span></td>
+<td><span class="response-data"><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">value</span></td>
+<td><span class="response-data"><span class="data-type">String</span></td>
+</tr>
+</tbody></table>
+
+<p><span class="response-data-head">rank</span>
+<span class="response-data-remarks">The website&rsquo;s priority in the contact record.</span></p>
+
+<p><span class="response-data-head">key</span>
+<span class="response-data-remarks">The key identifier of the website for use in digesting websites added to the contact record via MoxiEngage</span></p>
+
+<p><span class="response-data-head">key</span>
+<span class="response-data-remarks">The url of the website.</span></p>
+
 <h6 id="social_media_profiles-objects"><span class='attribute-name'>social_media_profiles</span> Objects</h6>
 
 <p>Each object in the <span class='attribute-name'>social_media_profiles</span> array will have the following structure.</p>
@@ -10217,7 +10585,7 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 </tbody></table>
 
 <p><span class="response-data-head">key</span>
-<span class="response-data-remarks">The key identifier of the social media url. Defined keys are &lsquo;facebook,&rsquo; &#39;linkedin,&rsquo; &#39;twitter,&rsquo; and &#39;googleplus&rsquo;</span></p>
+<span class="response-data-remarks">The key identifier of the social media url. Defined keys are &#39;facebook,&rsquo; &#39;linkedin,&rsquo; &#39;twitter,&rsquo; and &#39;googleplus&rsquo;</span></p>
 
 <p><span class="response-data-head">property_url</span>
 <span class="response-data-remarks">This will be a valid URL for a property of interest in your system that can be viewed by the agent. This value will be null if no data is available for this attribute. </span></p>
@@ -10484,6 +10852,7 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
   </span><span class="nt">"partner_contact_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"booyuh"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"moxi_works_contact_id"</span><span class="p">:</span><span class="s2">"deadbeef-feed-face-bad4dad22dead"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"moxi_works_lead_source_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"some_lead_source_id"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"moxi_works_origin_lead_source_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"some_other_lead_source_id"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"is_deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="nt">"contact_name"</span><span class="p">:</span><span class="s2">"Firstname Middlenyme Larstnam"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"first_name"</span><span class="p">:</span><span class="s2">"Firstname"</span><span class="p">,</span><span class="w">
@@ -10582,7 +10951,24 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
   </span><span class="nt">"search_max_lot_size"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3235"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"search_min_year_built"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1388"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"search_max_year_built"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2044"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"search_property_types"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Condo, Single Family, Townhouse"</span><span class="w">
+  </span><span class="nt">"search_property_types"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Condo, Single Family, Townhouse"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"websites"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"website_key_1"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://blep.com"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"website_key_2"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://blep.com"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"home_purchase_anniversaries"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="mi">1484088442</span><span class="w">
+   </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"company"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Blep Ltd."</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"spouse_or_partner"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rick Sanchez"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -10594,6 +10980,7 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
   </span><span class="nt">"partner_contact_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"booyuh"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"moxi_works_contact_id"</span><span class="p">:</span><span class="s2">"deadbeef-feed-face-bad4dad22dead"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"moxi_works_lead_source_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"some_lead_source_id"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"moxi_works_origin_lead_source_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"some_other_lead_source_id"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"is_deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="nt">"contact_name"</span><span class="p">:</span><span class="s2">"Firstname Middlenyme Larstnam"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"first_name"</span><span class="p">:</span><span class="s2">"Firstname"</span><span class="p">,</span><span class="w">
@@ -10692,7 +11079,11 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
   </span><span class="nt">"search_max_lot_size"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3235"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"search_min_year_built"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1388"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"search_max_year_built"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2044"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"search_property_types"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Condo, Single Family, Townhouse"</span><span class="w">
+  </span><span class="nt">"search_property_types"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Condo, Single Family, Townhouse"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"websites"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+  </span><span class="nt">"home_purchase_anniversaries"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+  </span><span class="nt">"company"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"spouse_or_partner"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -10733,6 +11124,10 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 </tr>
 <tr>
 <td><span class="response-data">moxi_works_lead_source_id</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">moxi_works_origin_lead_source_id</span></td>
 <td><span class="data-type">String</span></td>
 </tr>
 <tr>
@@ -10817,6 +11212,18 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 </tr>
 <tr>
 <td><span class="response-data">occupation</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">company</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">websites</span></td>
+<td><span class="data-type">Array</span></td>
+</tr>
+<tr>
+<td><span class="response-data">spouse_or_partner</span></td>
 <td><span class="data-type">String or null</span></td>
 </tr>
 <tr>
@@ -10947,6 +11354,22 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 <td><span class="response-data">note</span></td>
 <td><span class="data-type">String or null</span></td>
 </tr>
+<tr>
+<td><span class="response-data">websites</span></td>
+<td><span class="data-type">Array</span></td>
+</tr>
+<tr>
+<td><span class="response-data">home_purchase_anniversaries</span></td>
+<td><span class="data-type">Array</span></td>
+</tr>
+<tr>
+<td><span class="response-data">company</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">spouse_or_partner</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
 </tbody></table>
 
 <p><span class='multi-option-response-data'>* Either <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> will be returned depending on whether it is used in the request. The response payload object&rsquo;s agent identifier key will match the passed parameter.</span></p>
@@ -10965,6 +11388,9 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 
 <p><span class="response-data-head">moxi_works_lead_source_id</span>
 <span class="response-data-remarks">This is the unique Moxi Works Platform ID of the <span class='entity-name'>LeadSource</span> that generated this <span class='entity-name'>Contact</span>.</span></p>
+
+<p><span class="request-data-head">moxi_works_origin_lead_source_id</span>
+<span class="request-data-remarks">This is used to keep track of the original lead source for this <span class='entity-name'>Contact</span> record. This field will not be displayed in MoxiEngage, and is for the parter&rsquo;s own tracking purposes. This key will be associated with valid <span class='attribute-name'>moxi_works_lead_source_id</span>. Send a <span class='entity-name'>LeadSource</span> <span class='action-name'>index</span> request for a full list of applicable lead sources and their ids.</span></p>
 
 <p><span class="response-data-head">is_deleted</span>
 <span class="response-data-remarks">Will be true if this <span class='entity-name'>Contact</span> has been deleted from the <span class='entity-name'>Agent</span>s contacts.</span></p>
@@ -11094,6 +11520,48 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 
 <p><span class="response-data-head">home_purchase_anniversary</span>
 <span class="response-data-remarks">Anniversary of the contact&rsquo;s home purchase represented as a Unix Timestamp. </span></p>
+
+<p><span class="response-data-head">home_purchase_anniversaries</span>
+<span class="response-data-remarks">A list of Unix Timestamps representing the contact&rsquo;s home purchase anniversaries.</span></p>
+
+<p><span class="response-data-head">company</span>
+<span class="response-data-remarks">The name of the company associated with the contact.</span></p>
+
+<p><span class="response-data-head">spouse_or_partner</span>
+<span class="response-data-remarks">The spouse or partner of the contact.</span></p>
+
+<h6 id="websites-objects"><span class='attribute-name'>websites</span> Objects</h6>
+
+<p>Each object in the <span class='attribute-name'>websites</span> array will have the following structure.</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span class="response-data">rank</span></td>
+<td><span class="response-data"><span class="data-type">Integer</span></td>
+</tr>
+<tr>
+<td><span class="response-data">key</span></td>
+<td><span class="response-data"><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">value</span></td>
+<td><span class="response-data"><span class="data-type">String</span></td>
+</tr>
+</tbody></table>
+
+<p><span class="response-data-head">rank</span>
+<span class="response-data-remarks">The website&rsquo;s priority in the contact record.</span></p>
+
+<p><span class="response-data-head">key</span>
+<span class="response-data-remarks">The key identifier of the website for use in digesting websites added to the contact record via MoxiEngage</span></p>
+
+<p><span class="response-data-head">key</span>
+<span class="response-data-remarks">The url of the website.</span></p>
 
 <h6 id="social_media_profiles-objects"><span class='attribute-name'>social_media_profiles</span> Objects</h6>
 
@@ -11412,6 +11880,7 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
   </span><span class="nt">"partner_contact_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"booyuh"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"moxi_works_contact_id"</span><span class="p">:</span><span class="s2">"deadbeef-feed-face-2bad4daddead"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"moxi_works_lead_source_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"some_lead_source_id"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"moxi_works_origin_lead_source_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"some_other_lead_source_id"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"is_deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="nt">"contact_name"</span><span class="p">:</span><span class="s2">"Firstname Middlenyme Larstnam"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"first_name"</span><span class="p">:</span><span class="s2">"Firstname"</span><span class="p">,</span><span class="w">
@@ -11495,13 +11964,32 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
   </span><span class="nt">"search_max_lot_size"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3235"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"search_min_year_built"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1388"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"search_max_year_built"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2044"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"search_property_types"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Condo, Single Family, Townhouse"</span><span class="w">
+  </span><span class="nt">"search_property_types"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Condo, Single Family, Townhouse"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"websites"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"website_key_1"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://blep.com"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"website_key_2"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://blep.com"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"home_purchase_anniversaries"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="mi">1484088442</span><span class="w">
+   </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"company"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Blep Ltd."</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"spouse_or_partner"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rick Sanchez"</span><span class="w">
+
 </span><span class="p">},</span><span class="w">
 </span><span class="p">{</span><span class="w">
   </span><span class="nt">"agent_uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345678-1234-1234-1234-1234567890ab"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"partner_contact_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fooyuh"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"moxi_works_contact_id"</span><span class="p">:</span><span class="s2">"deadbeef-feed-face-2baddadbdead"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"moxi_works_lead_source_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"some_lead_source_id"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"moxi_works_origin_lead_source_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"some_other_lead_source_id"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"is_deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="nt">"contact_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"buckminster fuller"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"first_name"</span><span class="p">:</span><span class="s2">"buckminster"</span><span class="p">,</span><span class="w">
@@ -11597,7 +12085,11 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
   </span><span class="nt">"search_max_lot_size"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3235"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"search_min_year_built"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1388"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"search_max_year_built"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2044"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"search_property_types"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Condo, Single Family, Townhouse"</span><span class="w">
+  </span><span class="nt">"search_property_types"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Condo, Single Family, Townhouse"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"websites"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+  </span><span class="nt">"home_purchase_anniversaries"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+  </span><span class="nt">"company"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"spouse_or_partner"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
 </span><span class="p">}]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -11826,6 +12318,10 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 <td><span class="data-type">String</span></td>
 </tr>
 <tr>
+<td><span class="response-data">moxi_works_origin_lead_source_id</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
+<tr>
 <td><span class="response-data">is_deleted</span></td>
 <td><span class="data-type">Boolean</span></td>
 </tr>
@@ -12033,6 +12529,22 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 <td><span class="response-data">note</span></td>
 <td><span class="data-type">String or null</span></td>
 </tr>
+<tr>
+<td><span class="response-data">websites</span></td>
+<td><span class="data-type">Array</span></td>
+</tr>
+<tr>
+<td><span class="response-data">home_purchase_anniversaries</span></td>
+<td><span class="data-type">Array</span></td>
+</tr>
+<tr>
+<td><span class="response-data">company</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">spouse_or_partner</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
 </tbody></table>
 
 <p><span class='multi-option-response-data'>* Either <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> will be returned depending on whether it is used in the request. The response payload object&rsquo;s agent identifier key will match the passed parameter.</span></p>
@@ -12051,6 +12563,9 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 
 <p><span class="response-data-head">moxi_works_lead_source_id</span>
 <span class="response-data-remarks">This is the unique Moxi Works Platform ID of the <span class='entity-name'>LeadSource</span> that generated this <span class='entity-name'>Contact</span>.</span></p>
+
+<p><span class="request-data-head">moxi_works_origin_lead_source_id</span>
+<span class="request-data-remarks">This is used to keep track of the original lead source for this <span class='entity-name'>Contact</span> record. This field will not be displayed in MoxiEngage, and is for the parter&rsquo;s own tracking purposes. This key will be associated with valid <span class='attribute-name'>moxi_works_lead_source_id</span>. Send a <span class='entity-name'>LeadSource</span> <span class='action-name'>index</span> request for a full list of applicable lead sources and their ids.</span></p>
 
 <p><span class="response-data-head">is_deleted</span>
 <span class="response-data-remarks">Will be true if this <span class='entity-name'>Contact</span> has been deleted from the <span class='entity-name'>Agent</span>s contacts.</span></p>
@@ -12180,6 +12695,48 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 
 <p><span class="response-data-head">home_purchase_anniversary</span>
 <span class="response-data-remarks">Anniversary of the contact&rsquo;s home purchase represented as a Unix Timestamp. </span></p>
+
+<p><span class="response-data-head">home_purchase_anniversaries</span>
+<span class="response-data-remarks">A list of Unix Timestamps representing the contact&rsquo;s home purchase anniversaries.</span></p>
+
+<p><span class="response-data-head">company</span>
+<span class="response-data-remarks">The name of the company associated with the contact.</span></p>
+
+<p><span class="response-data-head">spouse_or_partner</span>
+<span class="response-data-remarks">The spouse or partner of the contact.</span></p>
+
+<h6 id="websites-objects"><span class='attribute-name'>websites</span> Objects</h6>
+
+<p>Each object in the <span class='attribute-name'>websites</span> array will have the following structure.</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span class="response-data">rank</span></td>
+<td><span class="response-data"><span class="data-type">Integer</span></td>
+</tr>
+<tr>
+<td><span class="response-data">key</span></td>
+<td><span class="response-data"><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">value</span></td>
+<td><span class="response-data"><span class="data-type">String</span></td>
+</tr>
+</tbody></table>
+
+<p><span class="response-data-head">rank</span>
+<span class="response-data-remarks">The website&rsquo;s priority in the contact record.</span></p>
+
+<p><span class="response-data-head">key</span>
+<span class="response-data-remarks">The key identifier of the website for use in digesting websites added to the contact record via MoxiEngage</span></p>
+
+<p><span class="response-data-head">key</span>
+<span class="response-data-remarks">The url of the website.</span></p>
 
 <h6 id="social_media_profiles-objects"><span class='attribute-name'>social_media_profiles</span> Objects</h6>
 
@@ -12380,6 +12937,7 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
     </span><span class="nt">"partner_contact_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"booyuh"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"moxi_works_contact_id"</span><span class="p">:</span><span class="s2">"deadbeef-feed-face-bad4dad22dead"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"moxi_works_lead_source_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"some_lead_source_id"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"moxi_works_origin_lead_source_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"some_other_lead_source_id"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"is_deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
     </span><span class="nt">"contact_name"</span><span class="p">:</span><span class="s2">"Firstname Middlenyme Larstnam"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"first_name"</span><span class="p">:</span><span class="s2">"Firstname"</span><span class="p">,</span><span class="w">
@@ -12474,7 +13032,24 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
     </span><span class="nt">"search_min_year_built"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1388"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"search_max_year_built"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2044"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"search_property_types"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Condo, Single Family, Townhouse"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"note"</span><span class="p">:</span><span class="w"> </span><span class="s2">"whatevers2009"</span><span class="w">
+    </span><span class="nt">"note"</span><span class="p">:</span><span class="w"> </span><span class="s2">"whatevers2009"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"websites"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"website_key_1"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://blep.com"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"website_key_2"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://blep.com"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+   </span><span class="nt">"home_purchase_anniversaries"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="mi">1484088442</span><span class="w">
+   </span><span class="p">],</span><span class="w">
+   </span><span class="nt">"company"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Blep Ltd."</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"spouse_or_partner"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rick Sanchez"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -12558,6 +13133,10 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 </tr>
 <tr>
 <td><span class="response-data">moxi_works_lead_source_id</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">moxi_works_origin_lead_source_id</span></td>
 <td><span class="data-type">String</span></td>
 </tr>
 <tr>
@@ -12764,6 +13343,22 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 <td><span class="response-data">note</span></td>
 <td><span class="data-type">String or null</span></td>
 </tr>
+<tr>
+<td><span class="response-data">websites</span></td>
+<td><span class="data-type">Array</span></td>
+</tr>
+<tr>
+<td><span class="response-data">home_purchase_anniversaries</span></td>
+<td><span class="data-type">Array</span></td>
+</tr>
+<tr>
+<td><span class="response-data">company</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">spouse_or_partner</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
 </tbody></table>
 
 <p><span class='multi-option-response-data'>* Either <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> will be returned depending on whether it is used in the request. The response payload object&rsquo;s agent identifier key will match the passed parameter.</span></p>
@@ -12782,6 +13377,9 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 
 <p><span class="response-data-head">moxi_works_lead_source_id</span>
 <span class="response-data-remarks">This is the unique Moxi Works Platform ID of the <span class='entity-name'>LeadSource</span> that generated this <span class='entity-name'>Contact</span>.</span></p>
+
+<p><span class="request-data-head">moxi_works_origin_lead_source_id</span>
+<span class="request-data-remarks">This is used to keep track of the original lead source for this <span class='entity-name'>Contact</span> record. This field will not be displayed in MoxiEngage, and is for the parter&rsquo;s own tracking purposes. This key will be associated with valid <span class='attribute-name'>moxi_works_lead_source_id</span>. Send a <span class='entity-name'>LeadSource</span> <span class='action-name'>index</span> request for a full list of applicable lead sources and their ids.</span></p>
 
 <p><span class="response-data-head">is_deleted</span>
 <span class="response-data-remarks">Will be true if this <span class='entity-name'>Contact</span> has been deleted from the <span class='entity-name'>Agent</span>s contacts.</span></p>
@@ -12911,6 +13509,48 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 
 <p><span class="response-data-head">home_purchase_anniversary</span>
 <span class="response-data-remarks">Anniversary of the contact&rsquo;s home purchase represented as a Unix Timestamp. </span></p>
+
+<p><span class="response-data-head">home_purchase_anniversaries</span>
+<span class="response-data-remarks">A list of Unix Timestamps representing the contact&rsquo;s home purchase anniversaries.</span></p>
+
+<p><span class="response-data-head">company</span>
+<span class="response-data-remarks">The name of the company associated with the contact.</span></p>
+
+<p><span class="response-data-head">spouse_or_partner</span>
+<span class="response-data-remarks">The spouse or partner of the contact.</span></p>
+
+<h6 id="websites-objects"><span class='attribute-name'>websites</span> Objects</h6>
+
+<p>Each object in the <span class='attribute-name'>websites</span> array will have the following structure.</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span class="response-data">rank</span></td>
+<td><span class="response-data"><span class="data-type">Integer</span></td>
+</tr>
+<tr>
+<td><span class="response-data">key</span></td>
+<td><span class="response-data"><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">value</span></td>
+<td><span class="response-data"><span class="data-type">String</span></td>
+</tr>
+</tbody></table>
+
+<p><span class="response-data-head">rank</span>
+<span class="response-data-remarks">The website&rsquo;s priority in the contact record.</span></p>
+
+<p><span class="response-data-head">key</span>
+<span class="response-data-remarks">The key identifier of the website for use in digesting websites added to the contact record via MoxiEngage</span></p>
+
+<p><span class="response-data-head">key</span>
+<span class="response-data-remarks">The url of the website.</span></p>
 
 <h6 id="social_media_profiles-objects"><span class='attribute-name'>social_media_profiles</span> Objects</h6>
 
@@ -16980,7 +17620,7 @@ moxi_works_agent_id=abc123&amp;moxi_works_group_name=some+group+name&amp;contact
 
 <h5 id="leadsource-index-response-payload"><span class='entity-name'>LeadSource</span> <span class='action-name'>Index</span> Response Payload</h5>
 
-<p><span class='entity-name'>LeadSource</span> <span class='action-name'>Index</span> returns an array of objects representing lead sources that your organization has permission to use as an alias when generating leads via the MoxiWorks platform API.
+<p><span class='entity-name'>LeadSource</span> <span class='action-name'>Index</span> returns an array of objects representing lead sources available for association with <span class='entity-name'>Contact</span> records in MoxiEngage and MoxiWorks platform API.
 The following attributes make up the payload of each <span class='entity-name'>LeadSource</span> object returned in an <span class='action-name'>Index</span> request.</p>
 
 <blockquote><div class='highlight json' style="display: block">
@@ -17032,6 +17672,10 @@ The following attributes make up the payload of each <span class='entity-name'>L
 <td><span class="data-type">String</span></td>
 </tr>
 <tr>
+<td><span class="response-data">is_partner_alias</span></td>
+<td><span class="data-type">Boolean</span></td>
+</tr>
+<tr>
 <td><span class="response-data">is_partner_default</span></td>
 <td><span class="data-type">Boolean</span></td>
 </tr>
@@ -17042,6 +17686,9 @@ The following attributes make up the payload of each <span class='entity-name'>L
 
 <p><span class="response-data-head">name</span>
 <span class="response-data-remarks">This is the common name of the lead source.</span></p>
+
+<p><span class="response-data-head">is_partner_default</span>
+<span class="response-data-remarks">Is true if this <span class='entity-name'>LeadSource</span> may be used as a lead source alias for the requesting partner.</span></p>
 
 <p><span class="response-data-head">is_partner_default</span>
 <span class="response-data-remarks">Is true for the <span class='entity-name'>LeadSource</span> entity used as a default for this partner. This should always be true for exactly one of each partner&rsquo;s available lead sources in the <span class='action-name'>Index</span> Response Payload.</span></p>
@@ -17064,9 +17711,7 @@ The following attributes make up the payload of each <span class='entity-name'>L
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"moxi_works_listing_id"</span><span class="p">:</span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"moxi_works_company_id"</span><span class="p">:</span><span class="s2">"bobs_better_houses"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"listing"</span><span class="p">:{</span><span class="w">
-    </span><span class="nt">"VirtualTourURL"</span><span class="p">:</span><span class="s2">"http://here.com"</span><span class="w">
-  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"VirtualTourURL"</span><span class="p">:</span><span class="s2">"http://here.com"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"SharedPartnerData"</span><span class="p">:{</span><span class="w">
     </span><span class="nt">"attribute_1"</span><span class="p">:</span><span class="s2">"value_1"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"attribute_2"</span><span class="p">:</span><span class="s2">"value_2"</span><span class="w">
@@ -17096,9 +17741,7 @@ The following attributes make up the payload of each <span class='entity-name'>L
 <span class="n">moxi_works_listing</span> <span class="o">=</span> <span class="no">MoxiworksPlatform</span><span class="o">::</span><span class="no">Listing</span><span class="p">.</span><span class="nf">update</span><span class="p">(</span>
         <span class="ss">moxi_works_listing_id: </span><span class="s2">"1234abcd"</span><span class="p">,</span>
         <span class="ss">moxi_works_company_id: </span><span class="s2">"abc123"</span><span class="p">,</span>
-        <span class="ss">listing: </span><span class="p">{</span>
-          <span class="no">VirtualTourURL</span><span class="p">:</span> <span class="s2">"http://virtualtourdomainurlthing.com"</span>
-        <span class="p">},</span>
+        <span class="no">VirtualTourURL</span><span class="p">:</span> <span class="s2">"http://virtualtourdomainurlthing.com"</span><span class="p">,</span>
         <span class="no">SharedPartnerData</span><span class="p">:</span> <span class="p">{</span>
           <span class="ss">attribute_1: </span><span class="s2">"value_1"</span><span class="p">,</span>
           <span class="ss">attribute_2: </span><span class="s2">"value_2"</span>
@@ -17140,7 +17783,7 @@ The following attributes make up the payload of each <span class='entity-name'>L
 <span class="nv">$moxi_works_listing</span> <span class="o">=</span> <span class="nx">MoxiworksPlatform\Listing</span><span class="o">::</span><span class="na">update</span><span class="p">([</span>
         <span class="s1">'moxi_works_listing_id'</span> <span class="o">=&gt;</span> <span class="s1">'1234abcd'</span><span class="p">,</span>
         <span class="s1">'moxi_works_company_id'</span> <span class="o">=&gt;</span> <span class="s1">'abc123'</span><span class="p">,</span>
-        <span class="s1">'listing'</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">'VirtualTourURL'</span> <span class="o">=&gt;</span> <span class="s1">'http://virtualtourdomainurlthing.com'</span><span class="p">]</span>
+        <span class="s1">'VirtualTourURL'</span> <span class="o">=&gt;</span> <span class="s1">'http://virtualtourdomainurlthing.com'</span>
         <span class="p">]);</span>
 <span class="cp">?&gt;</span>
 </code></pre>

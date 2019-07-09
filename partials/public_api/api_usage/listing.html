@@ -45,9 +45,7 @@
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"moxi_works_listing_id"</span><span class="p">:</span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"moxi_works_company_id"</span><span class="p">:</span><span class="s2">"bobs_better_houses"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"listing"</span><span class="p">:{</span><span class="w">
-    </span><span class="nt">"VirtualTourURL"</span><span class="p">:</span><span class="s2">"http://here.com"</span><span class="w">
-  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"VirtualTourURL"</span><span class="p">:</span><span class="s2">"http://here.com"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"SharedPartnerData"</span><span class="p">:{</span><span class="w">
     </span><span class="nt">"attribute_1"</span><span class="p">:</span><span class="s2">"value_1"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"attribute_2"</span><span class="p">:</span><span class="s2">"value_2"</span><span class="w">
@@ -77,9 +75,7 @@
 <span class="n">moxi_works_listing</span> <span class="o">=</span> <span class="no">MoxiworksPlatform</span><span class="o">::</span><span class="no">Listing</span><span class="p">.</span><span class="nf">update</span><span class="p">(</span>
         <span class="ss">moxi_works_listing_id: </span><span class="s2">"1234abcd"</span><span class="p">,</span>
         <span class="ss">moxi_works_company_id: </span><span class="s2">"abc123"</span><span class="p">,</span>
-        <span class="ss">listing: </span><span class="p">{</span>
-          <span class="no">VirtualTourURL</span><span class="p">:</span> <span class="s2">"http://virtualtourdomainurlthing.com"</span>
-        <span class="p">},</span>
+        <span class="no">VirtualTourURL</span><span class="p">:</span> <span class="s2">"http://virtualtourdomainurlthing.com"</span><span class="p">,</span>
         <span class="no">SharedPartnerData</span><span class="p">:</span> <span class="p">{</span>
           <span class="ss">attribute_1: </span><span class="s2">"value_1"</span><span class="p">,</span>
           <span class="ss">attribute_2: </span><span class="s2">"value_2"</span>
@@ -121,7 +117,7 @@
 <span class="nv">$moxi_works_listing</span> <span class="o">=</span> <span class="nx">MoxiworksPlatform\Listing</span><span class="o">::</span><span class="na">update</span><span class="p">([</span>
         <span class="s1">'moxi_works_listing_id'</span> <span class="o">=&gt;</span> <span class="s1">'1234abcd'</span><span class="p">,</span>
         <span class="s1">'moxi_works_company_id'</span> <span class="o">=&gt;</span> <span class="s1">'abc123'</span><span class="p">,</span>
-        <span class="s1">'listing'</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">'VirtualTourURL'</span> <span class="o">=&gt;</span> <span class="s1">'http://virtualtourdomainurlthing.com'</span><span class="p">]</span>
+        <span class="s1">'VirtualTourURL'</span> <span class="o">=&gt;</span> <span class="s1">'http://virtualtourdomainurlthing.com'</span>
         <span class="p">]);</span>
 <span class="cp">?&gt;</span>
 </code></pre>

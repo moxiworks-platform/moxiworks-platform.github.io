@@ -176,8 +176,6 @@ Attribute | Type | Length Limit |
 <span class="required-data">**Required Parameters Are In Red**</span>
 
 
-
-
 <span class="request-data-head">moxi_works_company_id</span>
 <span class="request-data-remarks">A valid Moxi Works <span class='entity-name'>Company</span> ID. Use [Company Endpoint](#company) to determine what <span class='attribute-name'>moxi_works_company_id</span> you can use.</span>
 
@@ -185,7 +183,7 @@ Attribute | Type | Length Limit |
 
 
 <span class="request-data-head">sold_since</span>
-<span class="request-data-remarks">Paged responses of all <span class='entity-name'>SoldListing</span> objects updated after this Unix timestamp will be returned in the response. **If no <span class='attribute-name'>sold_since</span> parameter is included in the request, only <span class='entity-name'>SoldListing</span> objects updated in the last seven days will be returned.**</span>
+<span class="request-data-remarks">Paged responses of all <span class='entity-name'>SoldListing</span> objects with a sold date after this Unix timestamp will be returned in the response. **If no <span class='attribute-name'>sold_since</span> parameter is included in the request, only <span class='entity-name'>SoldListing</span> objects with a sold date within the last seven days will be returned.**</span>
 
 <aside class="note"><span class='attribute-name'>sold_since</span> can be no more than 32 days ago.</aside>
 

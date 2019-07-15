@@ -61,6 +61,7 @@
       }
     ],
 "home_purchase_anniversaries": "1484088442,1484088443",
+"birthday": 1484088443,
 "company": "Blep Ltd.",
 "spouse_or_partner": "Rick Sanchez"
 }
@@ -303,6 +304,7 @@ $moxi_works_contact = 12345678-1234-1234-1234-1234567890ab\Contact::update([
       }
     ],
 "home_purchase_anniversaries": "1484088442,1484088443",
+"birthday": 1484088443,
 "company": "Blep Ltd.",
 "spouse_or_partner": "Rick Sanchez"
 }
@@ -548,6 +550,7 @@ Attribute | Type | Length Limit |
 |<span class="optional-data">search_property_types</span>|<span class="data-type">String</span>| 255 |
 |<span class="optional-data">note</span>|<span class="data-type">String</span>|  |
 |<span class="optional-data">websites</span>|<span class="data-type">Array</span>|  |
+|<span class="optional-data">birthday</span>|<span class="data-type">Integer</span>|  |
 |<span class="optional-data">home_purchase_anniversaries</span>|<span class="data-type">String</span>|  |
 |<span class="optional-data">company</span>|<span class="data-type">String</span>|  |
 |<span class="optional-data">spouse_or_partner</span>|<span class="data-type">String</span>|  |
@@ -687,6 +690,9 @@ Attribute | Type | Length Limit |
 
 <span class="request-data-head">websites</span>
 <span class="request-data-remarks">Websites should be submitted as a json array of objects. Each object should include website prioritized 'rank' and 'value'. The number of website fields available for update for a given <span class='entity-name'>Contact</span> record depends on the agent email client type.</span>
+
+<span class="request-data-head">birthday</span>
+<span class="request-data-remarks">A unix timestamps representing the birthday for the <span class='entity-name'>Contact</span> record.</span>
 
 <span class="request-data-head">home_purchase_anniversaries</span>
 <span class="request-data-remarks">A comma separated list of unix timestamps representing the house-iversary dates for the <span class='entity-name'>Contact</span> record.</span>

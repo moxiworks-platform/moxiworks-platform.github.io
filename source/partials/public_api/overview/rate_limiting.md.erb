@@ -28,7 +28,10 @@ The Moxi Works Platform includes rate limiting information in the response heade
 
 Response Header | Type | Description |
 -----|-----|-----|-----|
-| X-RateLimit-Limit | Integer | Number of request available in each period |
-| X-RateLimit-Remaining | Integer | Requests remaining in current period |
-| X-RateLimit-Period | Integer | Rate limit period length (in seconds) |
-| X-RateLimit-Reset | Unix Timestamp | Timestamp at which the next period begins |
+| x-ratelimit-limit | Integer | Number of request available in each period |
+| x-ratelimit-remaining | Integer | Requests remaining in current period |
+| x-ratelimit-period | Integer | Rate limit period length (in seconds) |
+| x-ratelimit-reset | Unix Timestamp | Timestamp at which the next period begins |
+
+
+<aside class='warning'>To ensure that your logic handles MoxiWorks API response headers correctly, please use case insensitive comparisons when parsing the response header keys as they are not guaranteed to match any specific uppercase or lowercase combination.  </aside>

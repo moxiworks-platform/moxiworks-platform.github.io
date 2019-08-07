@@ -212,6 +212,7 @@ The following attributes make up the payload of the <span class='entity-name'>Ag
   "title": "Broker",
   "uuid":"8675309e9-1234-dead-beef-deadbeefdead",
   "has_engage_access":true,
+  "website_base_url": "mymoxi@website.com",
   "twitter": "https://twitter.com/agentguy",
   "google_plus": "https://plus.google.com/1234567891011121314/posts",
   "facebook": "https://www.facebook.com/moxiworks/",
@@ -291,6 +292,7 @@ The following attributes make up the payload of the <span class='entity-name'>Ag
   "has_engage_access":true,
   "access_level":"user",
   "has_product_access":true,
+  "website_base_url": "mymoxi@website.com",
   "twitter": "https://twitter.com/agentguy",
   "google_plus": "https://plus.google.com/1234567891011121314/posts",
   "facebook": "https://www.facebook.com/moxiworks/",
@@ -385,6 +387,7 @@ Attribute | Type |
 |<span class="response-data">has_product_access</span>|<span class="data-type">Boolean</span>|
 |<span class="response-data">has_engage_access</span>|<span class="data-type">Boolean</span>|
 |<span class="response-data">access_level</span>|<span class="data-type">String</span>|
+|<span class="response-data">website_base_url</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">twitter</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">google_plus</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">facebook</span>|<span class="data-type">String or null</span>|
@@ -508,9 +511,11 @@ Attribute | Type |
 <span class="response-data-head">access_level</span>
 <span class="response-data-remarks">The access level of the agent.</span>
 
+<span class="response-data-head">website_base_url</span>
+<span class="response-data-remarks">The base url of the agent's MoxiWorks agent website.</span>
+
 <span class="response-data-head">twitter</span>
 <span class="response-data-remarks">Agent's Twitter URL. This can be null if there is no data available for this attribute.</span>
-
 
 <span class="response-data-head">google_plus</span>
 <span class="response-data-remarks">Agent's Google Plus URL.  This can be null if there is no data for this attribute.</span>

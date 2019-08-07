@@ -178,6 +178,7 @@ Attribute | Type  | Length Limit |
 |<span class="optional-data">deactivated_since</span>|<span class="data-type">Integer</span>| 255 |
 |<span class="optional-data">include_partners</span>|<span class="data-type">Boolean</span>| 255 |
 |<span class="optional-data">include_company_programs</span>|<span class="data-type">Boolean</span>| 255 |
+|<span class="optional-data">include_website</span>|<span class="data-type">Boolean</span>| 255 |
 
 <span class="required-data">**Required Parameters Are In Red**</span>
 
@@ -217,6 +218,9 @@ Attribute | Type  | Length Limit |
 
 <span class="request-data-head">include_company_programs</span>
 <span class="request-data-remarks">To include company specific programs associated with the agent in the response, pass `true`.</span>
+
+<span class="request-data-head">include_website</span>
+<span class="request-data-remarks">To include the base url (website_base_url) of the agent's MoxiWorks website pass `true`.</span>
 
 
 <blockquote><div class='highlight json' style="display: block">
@@ -263,6 +267,7 @@ Attribute | Type  | Length Limit |
   "has_product_access":true,
   "has_engage_access":true,
   "access_level":"user",
+  "website_base_url": "mymoxi@website.com",
   "twitter": "https://twitter.com/agentguy",
   "google_plus": "https://plus.google.com/1234567891011121314/posts",
   "facebook": "https://www.facebook.com/moxiworks/",
@@ -366,6 +371,7 @@ Attribute | Type |
 |<span class="response-data">has_product_access</span>|<span class="data-type">Boolean</span>|
 |<span class="response-data">has_engage_access</span>|<span class="data-type">Boolean</span>|
 |<span class="response-data">access_level</span>|<span class="data-type">String</span>|
+|<span class="response-data">website_base_url</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">twitter</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">google_plus</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">facebook</span>|<span class="data-type">String or null</span>|
@@ -488,6 +494,8 @@ Attribute | Type |
 <span class="response-data-head">access_level</span>
 <span class="response-data-remarks">The access level of the agent.</span>
 
+<span class="response-data-head">website_base_url</span>
+<span class="response-data-remarks">The base url of the agent's MoxiWorks agent website.</span>
 
 <span class="response-data-head">twitter</span>
 <span class="response-data-remarks">Agent's Twitter URL. This can be null if there is no data available for this attribute.</span>

@@ -95,6 +95,7 @@
       </span><span class="p">}</span><span class="w">
     </span><span class="p">],</span><span class="w">
 </span><span class="nt">"home_purchase_anniversaries"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1484088442,1484088443"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"birthday"</span><span class="p">:</span><span class="w"> </span><span class="mi">1484088443</span><span class="p">,</span><span class="w">
 </span><span class="nt">"company"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Blep Ltd."</span><span class="p">,</span><span class="w">
 </span><span class="nt">"spouse_or_partner"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rick Sanchez"</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -329,6 +330,7 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;partner_contact_id=abc982cdf
       </span><span class="p">}</span><span class="w">
     </span><span class="p">],</span><span class="w">
 </span><span class="nt">"home_purchase_anniversaries"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1484088442,1484088443"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"birthday"</span><span class="p">:</span><span class="w"> </span><span class="mi">1484088443</span><span class="p">,</span><span class="w">
 </span><span class="nt">"company"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Blep Ltd."</span><span class="p">,</span><span class="w">
 </span><span class="nt">"spouse_or_partner"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rick Sanchez"</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -759,6 +761,11 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 <td></td>
 </tr>
 <tr>
+<td><span class="optional-data">birthday</span></td>
+<td><span class="data-type">Integer</span></td>
+<td></td>
+</tr>
+<tr>
 <td><span class="optional-data">home_purchase_anniversaries</span></td>
 <td><span class="data-type">String</span></td>
 <td></td>
@@ -920,6 +927,9 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 
 <p><span class="request-data-head">websites</span>
 <span class="request-data-remarks">Websites should be submitted as a json array of objects. Each object should include website prioritized &lsquo;rank&rsquo; and &#39;value&rsquo;. The number of website fields available for update for a given <span class='entity-name'>Contact</span> record depends on the agent email client type.</span></p>
+
+<p><span class="request-data-head">birthday</span>
+<span class="request-data-remarks">A unix timestamps representing the birthday for the <span class='entity-name'>Contact</span> record.</span></p>
 
 <p><span class="request-data-head">home_purchase_anniversaries</span>
 <span class="request-data-remarks">A comma separated list of unix timestamps representing the house-iversary dates for the <span class='entity-name'>Contact</span> record.</span></p>

@@ -1165,7 +1165,7 @@
 <aside class="note">Use <a href='#company'>Company Endpoint</a> to determine the moxi_works_company_id to send.</aside>
 
 <p><span class="request-data-head">sold_since</span>
-<span class="request-data-remarks">Paged responses of all <span class='entity-name'>SoldListing</span> objects updated after this Unix timestamp will be returned in the response. <strong>If no <span class='attribute-name'>sold_since</span> parameter is included in the request, only <span class='entity-name'>SoldListing</span> objects updated in the last seven days will be returned.</strong></span></p>
+<span class="request-data-remarks">Paged responses of all <span class='entity-name'>SoldListing</span> objects with a sold date after this Unix timestamp will be returned in the response. <strong>If no <span class='attribute-name'>sold_since</span> parameter is included in the request, only <span class='entity-name'>SoldListing</span> objects with a sold date within the last seven days will be returned.</strong></span></p>
 
 <aside class="note"><span class='attribute-name'>sold_since</span> can be no more than 32 days ago.</aside>
 

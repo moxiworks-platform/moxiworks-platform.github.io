@@ -61,26 +61,28 @@ Alternatively, you might choose to use <a href="https://en.wikipedia.org/wiki/Ex
 </tr>
 </thead><tbody>
 <tr>
-<td>X-RateLimit-Limit</td>
+<td>x-ratelimit-limit</td>
 <td>Integer</td>
 <td>Number of request available in each period</td>
 </tr>
 <tr>
-<td>X-RateLimit-Remaining</td>
+<td>x-ratelimit-remaining</td>
 <td>Integer</td>
 <td>Requests remaining in current period</td>
 </tr>
 <tr>
-<td>X-RateLimit-Period</td>
+<td>x-ratelimit-period</td>
 <td>Integer</td>
 <td>Rate limit period length (in seconds)</td>
 </tr>
 <tr>
-<td>X-RateLimit-Reset</td>
+<td>x-ratelimit-reset</td>
 <td>Unix Timestamp</td>
 <td>Timestamp at which the next period begins</td>
 </tr>
 </tbody></table>
+
+<aside class='warning'>To ensure that your logic handles MoxiWorks API response headers correctly, please use case insensitive comparisons when parsing the response header keys as they are not guaranteed to match any specific uppercase or lowercase combination.  </aside>
 
       </div>
       <div class="dark-box">

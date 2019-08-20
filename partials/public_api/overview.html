@@ -145,26 +145,28 @@ Alternatively, you might choose to use <a href="https://en.wikipedia.org/wiki/Ex
 </tr>
 </thead><tbody>
 <tr>
-<td>X-RateLimit-Limit</td>
+<td>x-ratelimit-limit</td>
 <td>Integer</td>
 <td>Number of request available in each period</td>
 </tr>
 <tr>
-<td>X-RateLimit-Remaining</td>
+<td>x-ratelimit-remaining</td>
 <td>Integer</td>
 <td>Requests remaining in current period</td>
 </tr>
 <tr>
-<td>X-RateLimit-Period</td>
+<td>x-ratelimit-period</td>
 <td>Integer</td>
 <td>Rate limit period length (in seconds)</td>
 </tr>
 <tr>
-<td>X-RateLimit-Reset</td>
+<td>x-ratelimit-reset</td>
 <td>Unix Timestamp</td>
 <td>Timestamp at which the next period begins</td>
 </tr>
 </tbody></table>
+
+<aside class='warning'>To ensure that your logic handles MoxiWorks API response headers correctly, please use case insensitive comparisons when parsing the response header keys as they are not guaranteed to match any specific uppercase or lowercase combination.  </aside>
 
 
 <h3 id="session-handling">Session Handling</h3>
@@ -175,18 +177,18 @@ Alternatively, you might choose to use <a href="https://en.wikipedia.org/wiki/Ex
 
 <pre class='highlight'>
   <code>
-X-Frame-Options: SAMEORIGIN
-X-Xss-Protection: 1; mode=block
-X-Content-Type-Options: nosniff
-Content-Type: application/json; charset=utf-8
-Cache-Control: no-cache
-X-Request-Id: c953f03d-05d6-43e9-baac-995d9b278004
-X-Runtime: 0.757307
-Server: Moximus
-Date: Wed, 22 Jan 2017 18:34:44 GMT
-Content-Length: 132
-Connection: Keep-Alive
-<span style="color:red">Set-Cookie: _wms_svc_public_session=Y0pzOEdSOGNlRklWSHVkTDVoeE11OU9xVEhoczZuVXJBWGo2Tzk1L0RKOGRwZVBkUnFWMG9nQ2o1QittT3dwN3lZNGVZQXgzSnJPNUp3RGlDS1dKQkZYT3FJQ0ZBaWFLczZTdFl1TjU5VVpRUEx2c29uUHI0cUFhYkUzbDNYMjR6SWdLZjFqM1pNS1dzYmp3dDhkQWw5cjVzMVVOZW1sTndoazNKeThWakhZPS0tNHZBUjk3aGFPbWs3bk9YQlhSbDBRUT09--7faa50a21bc8e09861bc9637eb828a4ce154a980; path=/; HttpOnly
+x-frame-options: SAMEORIGIN
+x-xss-protection: 1; mode=block
+x-content-type-options: nosniff
+content-type: application/json; charset=utf-8
+cache-control: no-cache
+x-request-id: c953f03d-05d6-43e9-baac-995d9b278004
+x-runtime: 0.757307
+xerver: Moximus
+date: Wed, 22 Jan 2017 18:34:44 GMT
+content-length: 132
+connection: Keep-Alive
+<span style="color:red">set-cookie: _wms_svc_public_session=Y0pzOEdSOGNlRklWSHVkTDVoeE11OU9xVEhoczZuVXJBWGo2Tzk1L0RKOGRwZVBkUnFWMG9nQ2o1QittT3dwN3lZNGVZQXgzSnJPNUp3RGlDS1dKQkZYT3FJQ0ZBaWFLczZTdFl1TjU5VVpRUEx2c29uUHI0cUFhYkUzbDNYMjR6SWdLZjFqM1pNS1dzYmp3dDhkQWw5cjVzMVVOZW1sTndoazNKeThWakhZPS0tNHZBUjk3aGFPbWs3bk9YQlhSbDBRUT09--7faa50a21bc8e09861bc9637eb828a4ce154a980; path=/; HttpOnly
 </span>
 </code>
 </pre>
@@ -211,7 +213,7 @@ Content-Type: application/x-www-form-urlencoded
 
 <p>If you fail to include session data in your request, you will notice a far lower number of allowed connections to the Moxi Works Platform than is advertised in <a href="#rate-limiting">Rate Limiting</a>.</p>
 
-<p>When you successfully connect to the Moxi Works Platform, you will recieve a <code class="prettyprint">Set-Cookie</code> header. The name of the cookie will be <code class="prettyprint">_wms_svc_public_session</code>. You&rsquo;ll need to send this cookie name - value pair back to The Moxi Works Platform in a <code class="prettyprint">Cookie</code> request header.</p>
+<p>When you successfully connect to the Moxi Works Platform, you will recieve a <code class="prettyprint">set-cookie</code> header. The name of the cookie will be <code class="prettyprint">_wms_svc_public_session</code>. You&rsquo;ll need to send this cookie name - value pair back to The Moxi Works Platform in a <code class="prettyprint">Cookie</code> request header.</p>
 
 <h3 id="example-requests-amp-responses">Example Requests &amp; Responses</h3>
 

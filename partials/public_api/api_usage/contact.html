@@ -100,6 +100,7 @@
       </span><span class="p">}</span><span class="w">
     </span><span class="p">],</span><span class="w">
 </span><span class="nt">"home_purchase_anniversaries"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1484088442,1484088443"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"birthday"</span><span class="p">:</span><span class="w"> </span><span class="mi">1484088443</span><span class="p">,</span><span class="w">
 </span><span class="nt">"company"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Blep Ltd."</span><span class="p">,</span><span class="w">
 </span><span class="nt">"spouse_or_partner"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rick Sanchez"</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -339,6 +340,7 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;partner_contact_id=abc982cdf
       </span><span class="p">}</span><span class="w">
     </span><span class="p">],</span><span class="w">
 </span><span class="nt">"home_purchase_anniversaries"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1484088442,1484088443"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"birthday"</span><span class="p">:</span><span class="w"> </span><span class="mi">1484088443</span><span class="p">,</span><span class="w">
 </span><span class="nt">"company"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Blep Ltd."</span><span class="p">,</span><span class="w">
 </span><span class="nt">"spouse_or_partner"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rick Sanchez"</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -773,6 +775,11 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 <td></td>
 </tr>
 <tr>
+<td><span class="optional-data">birthday</span></td>
+<td><span class="data-type">Integer</span></td>
+<td></td>
+</tr>
+<tr>
 <td><span class="optional-data">home_purchase_anniversaries</span></td>
 <td><span class="data-type">String</span></td>
 <td></td>
@@ -934,6 +941,9 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 
 <p><span class="request-data-head">websites</span>
 <span class="request-data-remarks">Websites should be submitted as a json array of objects. Each object should include website prioritized &lsquo;rank&rsquo; and &lsquo;value&rsquo;. The number of website fields available for update for a given <span class='entity-name'>Contact</span> record depends on the agent email client type.</span></p>
+
+<p><span class="request-data-head">birthday</span>
+<span class="request-data-remarks">A unix timestamps representing the birthday for the <span class='entity-name'>Contact</span> record.</span></p>
 
 <p><span class="request-data-head">home_purchase_anniversaries</span>
 <span class="request-data-remarks">A comma separated list of unix timestamps representing the house-iversary dates for the <span class='entity-name'>Contact</span> record.</span></p>
@@ -1807,6 +1817,7 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
       </span><span class="p">}</span><span class="w">
     </span><span class="p">],</span><span class="w">
 </span><span class="nt">"home_purchase_anniversaries"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1484088442,1484088443"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"birthday"</span><span class="p">:</span><span class="w"> </span><span class="mi">1484088443</span><span class="p">,</span><span class="w">
 </span><span class="nt">"company"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Blep Ltd."</span><span class="p">,</span><span class="w">
 </span><span class="nt">"spouse_or_partner"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rick Sanchez"</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -2044,6 +2055,7 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;partner_contact_id=abc982cdf
       </span><span class="p">}</span><span class="w">
     </span><span class="p">],</span><span class="w">
 </span><span class="nt">"home_purchase_anniversaries"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1484088442,1484088443"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"birthday"</span><span class="p">:</span><span class="w"> </span><span class="mi">1484088443</span><span class="p">,</span><span class="w">
 </span><span class="nt">"company"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Blep Ltd."</span><span class="p">,</span><span class="w">
 </span><span class="nt">"spouse_or_partner"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rick Sanchez"</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -2460,6 +2472,11 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 <td></td>
 </tr>
 <tr>
+<td><span class="optional-data">birthday</span></td>
+<td><span class="data-type">Integer</span></td>
+<td></td>
+</tr>
+<tr>
 <td><span class="optional-data">home_purchase_anniversaries</span></td>
 <td><span class="data-type">String</span></td>
 <td></td>
@@ -2610,6 +2627,9 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 
 <p><span class="request-data-head">websites</span>
 <span class="request-data-remarks">Websites should be submitted as a json array of objects. Each object should include website prioritized &lsquo;rank&rsquo; and &#39;value&rsquo;. The number of website fields available for update for a given <span class='entity-name'>Contact</span> record depends on the agent email client type.</span></p>
+
+<p><span class="request-data-head">birthday</span>
+<span class="request-data-remarks">A unix timestamps representing the birthday for the <span class='entity-name'>Contact</span> record.</span></p>
 
 <p><span class="request-data-head">home_purchase_anniversaries</span>
 <span class="request-data-remarks">A comma separated list of unix timestamps representing the house-iversary dates for the <span class='entity-name'>Contact</span> record.</span></p>
@@ -4696,6 +4716,11 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
   </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
   </span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"groups"</span><span class="p">:[</span><span class="w">
+    </span><span class="s2">"this group"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"that group"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"the other group"</span><span class="w">
+  </span><span class="p">],</span><span class="w">
   </span><span class="nt">"property_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://my.property.website.is/here"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"property_mls_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"property_street_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2345 67th place"</span><span class="p">,</span><span class="w">
@@ -4816,6 +4841,11 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
   </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
   </span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"groups"</span><span class="p">:[</span><span class="w">
+    </span><span class="s2">"this group"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"that group"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"the other group"</span><span class="w">
+  </span><span class="p">],</span><span class="w">
   </span><span class="nt">"occupation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"football fan"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"property_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://my.property.website.is/here"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"property_mls_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
@@ -4901,6 +4931,11 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
   </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
   </span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"groups"</span><span class="p">:[</span><span class="w">
+    </span><span class="s2">"this group"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"that group"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"the other group"</span><span class="w">
+  </span><span class="p">],</span><span class="w">
   </span><span class="nt">"property_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://my.property.website.is/here"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"property_mls_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"property_street_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2345 67th place"</span><span class="p">,</span><span class="w">
@@ -4970,6 +5005,11 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
   </span><span class="nt">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"googleplus"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
   </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"groups"</span><span class="p">:[</span><span class="w">
+    </span><span class="s2">"this group"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"that group"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"the other group"</span><span class="w">
   </span><span class="p">],</span><span class="w">
   </span><span class="nt">"property_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://my.property.website.is/here"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"property_mls_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
@@ -5179,6 +5219,10 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 </tr>
 <tr>
 <td><span class="response-data">social_media_profiles</span></td>
+<td><span class="data-type">Array</span></td>
+</tr>
+<tr>
+<td><span class="response-data">groups</span></td>
 <td><span class="data-type">Array</span></td>
 </tr>
 <tr>
@@ -5519,6 +5563,9 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 
 <p><span class="response-data-head">property_url</span>
 <span class="response-data-remarks">This will be a valid URL for a property of interest in your system that can be viewed by the agent. This value will be null if no data is available for this attribute. </span></p>
+
+<p><span class="response-data-head">groups</span>
+<span class="response-data-remarks">Any Agent groups which the contact by name.</span></p>
 
 <p><span class="response-data-head">property_mls_id</span>
 <span class="response-data-remarks">This will be the MLS ID of the property of interest. This value will be null if no data is available for this attribute.  </span></p>

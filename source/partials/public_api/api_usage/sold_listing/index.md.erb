@@ -11,7 +11,7 @@
 
 Index will return a paged response of sold listings that have been updated since a given timestamp for a specified company. For a list of company IDs that you can reques sold listings for, use the [Company Endpoint](#company).
 
-<aside class="note">If no sold_since parameter is provided, listings that have been updated in the <b>last seven days</b> will be returned.</aside>
+<aside class="note">If no <span class='attribute-name'>sold_since</span> or <span class='attribute-name'>sold_before</span> parameters are provided, only listings that have been updated in the <b>last seven days</b> will be returned.</aside>
 
 
 
@@ -23,7 +23,8 @@ Index will return a paged response of sold listings that have been updated since
 ```json
 {
   "moxi_works_company_id":"abc123",
-  "sold_since":"1461108284"
+  "sold_since":"1461108284",
+  "sold_before":"1463700284"
 }
 ```
 
@@ -87,13 +88,14 @@ $company_listings = MoxiworksPlatform\SoldListing::search(['moxi_works_company_i
 {
   "moxi_works_company_id":"abc123",
   "sold_since":"1461108284",
+  "sold_before":"1463700284",
   "last_moxi_works_listing_id":"abc12345"
 }
 
 ```
 
 ```http
-GET /api/sold_listings?moxi_works_company_id=abc123&sold_since=1461108284&last_moxi_works_listing_id=abc123 HTTP/1.1
+GET /api/sold_listings?moxi_works_company_id=abc123&sold_since=1461108284&sold_before=1463700284&last_moxi_works_listing_id=abc123 HTTP/1.1
 Host: api.moxiworks.com
 Accept: application/vnd.moxi-platform+json;version=1
 Authorization: Basic XNNeXAAAUZaQlF0dA==
@@ -126,7 +128,7 @@ unless first_page['final_page']
   last_listing_id = (last_listing.nil?) ? nil : last_listing.moxi_works_listing_id
 
   next_page = MoxiworksPlatform::SoldListing.search(moxi_works_company_id: "abc123",
-    sold_since: Time.now - one_week, last_moxi_works_listing_id: last_listing_id)
+    sold_since: Time.now.to_i - one_week, last_moxi_works_listing_id: last_listing_id, sold_before: Time.now)
 end
 
 
@@ -134,7 +136,7 @@ end
 
 MoxiworksPlatform::SoldListing.search(
   moxi_works_company_id: 'abc123',
-  sold_since: Time.now.to_i - one_week) { |page_of_listings| puts page_of_listings.count }
+  sold_since: Time.now.to_i - one_week, sold_before: Time.now.to_i) { |page_of_listings| puts page_of_listings.count }
 
 
 ```
@@ -148,7 +150,7 @@ $first_page = MoxiworksPlatform\SoldListing::search(['moxi_works_company_id' => 
 if(!$first_page['final_page']) {
   $last_listing = end(array_values($first_page['listings']));
   $last_listing_id = $last_listing->$moxi_works_listing_id;
-  MoxiworksPlatform\SoldListing::search(['moxi_works_company_id' => 'abc123', 'sold_since' => time() - $one_week], 'last_moxi_works_listing_id' => $last_listing_id);
+  MoxiworksPlatform\SoldListing::search(['moxi_works_company_id' => 'abc123', 'sold_since' => time() - $one_week, 'sold_before' => time()], 'last_moxi_works_listing_id' => $last_listing_id);
 }
 
 ?>
@@ -166,6 +168,7 @@ Attribute | Type | Length Limit |
 -----|-----|-----|-----|
 |<span class="required-data">moxi_works_company_id</span>|<span class="required-data"><span class="data-type">String</span></span>|<span class="required-data">255<span> |
 |<span class="optional-data">sold_since</span>|<span class="data-type">Integer</span>| 255 |
+|<span class="optional-data">sold_before</span>|<span class="data-type">Integer</span>| 255 |
 |<span class="optional-data">agent_uuid</span>|<span class="data-type">String</span>| 255 |
 |<span class="optional-data">moxi_works_agent_id</span>|<span class="data-type">String</span>| 255 |
 |<span class="optional-data">moxi_works_office_id</span>|<span class="data-type">String</span>| 255 |
@@ -183,9 +186,20 @@ Attribute | Type | Length Limit |
 
 
 <span class="request-data-head">sold_since</span>
-<span class="request-data-remarks">Paged responses of all <span class='entity-name'>SoldListing</span> objects with a sold date after this Unix timestamp will be returned in the response. **If no <span class='attribute-name'>sold_since</span> parameter is included in the request, only <span class='entity-name'>SoldListing</span> objects with a sold date within the last seven days will be returned.**</span>
+<span class="request-data-remarks">Paged responses of <span class='entity-name'>SoldListing</span> objects with a sold date after this Unix timestamp will be returned in the response. **If no <span class='attribute-name'>sold_since</span> or <span class='attribute-name'>sold_after</span> parameter is included in the request, only <span class='entity-name'>SoldListing</span> objects with a sold date within the last seven days will be returned.**</span>
 
-<aside class="note"><span class='attribute-name'>sold_since</span> can be no more than 32 days ago.</aside>
+<aside class="note">If only <span class='attribute-name'>sold_since</span> is defined in your request, the service will return listings sold in the seven days prior to <span class='attribute-name'>sold_since</span></aside>
+
+<aside class="note"><span class='attribute-name'>sold_before</span> can be no more than 32 days after to <span class='attribute-name'>sold_since</span>.</aside>
+
+<span class="request-data-head">sold_before</span>
+<span class="request-data-remarks">Paged responses of <span class='entity-name'>SoldListing</span> objects with a sold date after this Unix timestamp will be returned in the response. **If no <span class='attribute-name'>sold_since</span> or <span class='attribute-name'>sold_before</span> parameter is included in the request, only <span class='entity-name'>SoldListing</span> objects with a sold date within the last seven days will be returned.**</span>
+
+<aside class="note">If only <span class='attribute-name'>sold_before</span> is defined in your request, the service will return listings sold in the seven days prior to <span class='attribute-name'>sold_before</span></aside>
+
+
+<aside class="note"><span class='attribute-name'>sold_since</span> can be no more than 32 days prior to <span class='attribute-name'>sold_before</span>.</aside>
+
 
 <span class="request-data-head">agent_uuid</span>
 <span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which  <span class='entity-name'>SoldListing</span> objects are associated with. This will be an [RFC 4122](https://tools.ietf.org/html/rfc4122) compliant UUID.</span>

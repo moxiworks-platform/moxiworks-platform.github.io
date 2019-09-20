@@ -17129,7 +17129,7 @@ The following attributes make up the payload of each <span class='entity-name'>L
 <p><span class="response-data-head">name</span>
 <span class="response-data-remarks">This is the common name of the lead source.</span></p>
 
-<p><span class="response-data-head">is_partner_default</span>
+<p><span class="response-data-head">is_partner_alias</span>
 <span class="response-data-remarks">Is true if this <span class='entity-name'>LeadSource</span> may be used as a lead source alias for the requesting partner.</span></p>
 
 <p><span class="response-data-head">is_partner_default</span>
@@ -24908,7 +24908,7 @@ moxi_works_agent_id=abc123
 
 <p>Index will return a paged response of sold listings that have been updated since a given timestamp for a specified company. For a list of company IDs that you can reques sold listings for, use the <a href="#company">Company Endpoint</a>.</p>
 
-<aside class="note">If no sold_since parameter is provided, listings that have been updated in the <b>last seven days</b> will be returned.</aside>
+<aside class="note">If no <span class='attribute-name'>sold_since</span> or <span class='attribute-name'>sold_before</span> parameters are provided, only listings that have been updated in the <b>last seven days</b> will be returned.</aside>
 
 <blockquote>
 <p><span class="data-example-label"><span class='entity-name'>SoldListing</span> <span class='action-name'>Index</span> Example</span></p>
@@ -24918,7 +24918,8 @@ moxi_works_agent_id=abc123
 
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"moxi_works_company_id"</span><span class="p">:</span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"sold_since"</span><span class="p">:</span><span class="s2">"1461108284"</span><span class="w">
+  </span><span class="nt">"sold_since"</span><span class="p">:</span><span class="s2">"1461108284"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"sold_before"</span><span class="p">:</span><span class="s2">"1463700284"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -24977,12 +24978,13 @@ moxi_works_agent_id=abc123
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"moxi_works_company_id"</span><span class="p">:</span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"sold_since"</span><span class="p">:</span><span class="s2">"1461108284"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"sold_before"</span><span class="p">:</span><span class="s2">"1463700284"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"last_moxi_works_listing_id"</span><span class="p">:</span><span class="s2">"abc12345"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
 </span></code></pre>
 
-<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/sold_listings?moxi_works_company_id=abc123&amp;sold_since=1461108284&amp;last_moxi_works_listing_id=abc123</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/sold_listings?moxi_works_company_id=abc123&amp;sold_since=1461108284&amp;sold_before=1463700284&amp;last_moxi_works_listing_id=abc123</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">api.moxiworks.com</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.moxi-platform+json;version=1</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">Basic XNNeXAAAUZaQlF0dA==</span>
@@ -25012,7 +25014,7 @@ moxi_works_agent_id=abc123
   <span class="n">last_listing_id</span> <span class="o">=</span> <span class="p">(</span><span class="n">last_listing</span><span class="p">.</span><span class="nf">nil?</span><span class="p">)</span> <span class="p">?</span> <span class="kp">nil</span> <span class="p">:</span> <span class="n">last_listing</span><span class="p">.</span><span class="nf">moxi_works_listing_id</span>
 
   <span class="n">next_page</span> <span class="o">=</span> <span class="no">MoxiworksPlatform</span><span class="o">::</span><span class="no">SoldListing</span><span class="p">.</span><span class="nf">search</span><span class="p">(</span><span class="ss">moxi_works_company_id: </span><span class="s2">"abc123"</span><span class="p">,</span>
-    <span class="ss">sold_since: </span><span class="no">Time</span><span class="p">.</span><span class="nf">now</span> <span class="o">-</span> <span class="n">one_week</span><span class="p">,</span> <span class="ss">last_moxi_works_listing_id: </span><span class="n">last_listing_id</span><span class="p">)</span>
+    <span class="ss">sold_since: </span><span class="no">Time</span><span class="p">.</span><span class="nf">now</span><span class="p">.</span><span class="nf">to_i</span> <span class="o">-</span> <span class="n">one_week</span><span class="p">,</span> <span class="ss">last_moxi_works_listing_id: </span><span class="n">last_listing_id</span><span class="p">,</span> <span class="ss">sold_before: </span><span class="no">Time</span><span class="p">.</span><span class="nf">now</span><span class="p">)</span>
 <span class="k">end</span>
 
 
@@ -25020,7 +25022,7 @@ moxi_works_agent_id=abc123
 
 <span class="no">MoxiworksPlatform</span><span class="o">::</span><span class="no">SoldListing</span><span class="p">.</span><span class="nf">search</span><span class="p">(</span>
   <span class="ss">moxi_works_company_id: </span><span class="s1">'abc123'</span><span class="p">,</span>
-  <span class="ss">sold_since: </span><span class="no">Time</span><span class="p">.</span><span class="nf">now</span><span class="p">.</span><span class="nf">to_i</span> <span class="o">-</span> <span class="n">one_week</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="n">page_of_listings</span><span class="o">|</span> <span class="nb">puts</span> <span class="n">page_of_listings</span><span class="p">.</span><span class="nf">count</span> <span class="p">}</span>
+  <span class="ss">sold_since: </span><span class="no">Time</span><span class="p">.</span><span class="nf">now</span><span class="p">.</span><span class="nf">to_i</span> <span class="o">-</span> <span class="n">one_week</span><span class="p">,</span> <span class="ss">sold_before: </span><span class="no">Time</span><span class="p">.</span><span class="nf">now</span><span class="p">.</span><span class="nf">to_i</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="n">page_of_listings</span><span class="o">|</span> <span class="nb">puts</span> <span class="n">page_of_listings</span><span class="p">.</span><span class="nf">count</span> <span class="p">}</span>
 
 
 </code></pre>
@@ -25033,7 +25035,7 @@ moxi_works_agent_id=abc123
 <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nv">$first_page</span><span class="p">[</span><span class="s1">'final_page'</span><span class="p">])</span> <span class="p">{</span>
   <span class="nv">$last_listing</span> <span class="o">=</span> <span class="nb">end</span><span class="p">(</span><span class="nb">array_values</span><span class="p">(</span><span class="nv">$first_page</span><span class="p">[</span><span class="s1">'listings'</span><span class="p">]));</span>
   <span class="nv">$last_listing_id</span> <span class="o">=</span> <span class="nv">$last_listing</span><span class="o">-&gt;</span><span class="nv">$moxi_works_listing_id</span><span class="p">;</span>
-  <span class="nx">MoxiworksPlatform\SoldListing</span><span class="o">::</span><span class="na">search</span><span class="p">([</span><span class="s1">'moxi_works_company_id'</span> <span class="o">=&gt;</span> <span class="s1">'abc123'</span><span class="p">,</span> <span class="s1">'sold_since'</span> <span class="o">=&gt;</span> <span class="nb">time</span><span class="p">()</span> <span class="o">-</span> <span class="nv">$one_week</span><span class="p">],</span> <span class="s1">'last_moxi_works_listing_id'</span> <span class="o">=&gt;</span> <span class="nv">$last_listing_id</span><span class="p">);</span>
+  <span class="nx">MoxiworksPlatform\SoldListing</span><span class="o">::</span><span class="na">search</span><span class="p">([</span><span class="s1">'moxi_works_company_id'</span> <span class="o">=&gt;</span> <span class="s1">'abc123'</span><span class="p">,</span> <span class="s1">'sold_since'</span> <span class="o">=&gt;</span> <span class="nb">time</span><span class="p">()</span> <span class="o">-</span> <span class="nv">$one_week</span><span class="p">,</span> <span class="s1">'sold_before'</span> <span class="o">=&gt;</span> <span class="nb">time</span><span class="p">()],</span> <span class="s1">'last_moxi_works_listing_id'</span> <span class="o">=&gt;</span> <span class="nv">$last_listing_id</span><span class="p">);</span>
 <span class="p">}</span>
 
 <span class="cp">?&gt;</span>
@@ -25059,6 +25061,11 @@ moxi_works_agent_id=abc123
 </tr>
 <tr>
 <td><span class="optional-data">sold_since</span></td>
+<td><span class="data-type">Integer</span></td>
+<td>255</td>
+</tr>
+<tr>
+<td><span class="optional-data">sold_before</span></td>
 <td><span class="data-type">Integer</span></td>
 <td>255</td>
 </tr>
@@ -25097,9 +25104,18 @@ moxi_works_agent_id=abc123
 <aside class="note">Use <a href='#company'>Company Endpoint</a> to determine the moxi_works_company_id to send.</aside>
 
 <p><span class="request-data-head">sold_since</span>
-<span class="request-data-remarks">Paged responses of all <span class='entity-name'>SoldListing</span> objects with a sold date after this Unix timestamp will be returned in the response. <strong>If no <span class='attribute-name'>sold_since</span> parameter is included in the request, only <span class='entity-name'>SoldListing</span> objects with a sold date within the last seven days will be returned.</strong></span></p>
+<span class="request-data-remarks">Paged responses of <span class='entity-name'>SoldListing</span> objects with a sold date after this Unix timestamp will be returned in the response. <strong>If no <span class='attribute-name'>sold_since</span> or <span class='attribute-name'>sold_after</span> parameter is included in the request, only <span class='entity-name'>SoldListing</span> objects with a sold date within the last seven days will be returned.</strong></span></p>
 
-<aside class="note"><span class='attribute-name'>sold_since</span> can be no more than 32 days ago.</aside>
+<aside class="note">If only <span class='attribute-name'>sold_since</span> is defined in your request, the service will return listings sold in the seven days prior to <span class='attribute-name'>sold_since</span></aside>
+
+<aside class="note"><span class='attribute-name'>sold_before</span> can be no more than 32 days after to <span class='attribute-name'>sold_since</span>.</aside>
+
+<p><span class="request-data-head">sold_before</span>
+<span class="request-data-remarks">Paged responses of <span class='entity-name'>SoldListing</span> objects with a sold date after this Unix timestamp will be returned in the response. <strong>If no <span class='attribute-name'>sold_since</span> or <span class='attribute-name'>sold_before</span> parameter is included in the request, only <span class='entity-name'>SoldListing</span> objects with a sold date within the last seven days will be returned.</strong></span></p>
+
+<aside class="note">If only <span class='attribute-name'>sold_before</span> is defined in your request, the service will return listings sold in the seven days prior to <span class='attribute-name'>sold_before</span></aside>
+
+<aside class="note"><span class='attribute-name'>sold_since</span> can be no more than 32 days prior to <span class='attribute-name'>sold_before</span>.</aside>
 
 <p><span class="request-data-head">agent_uuid</span>
 <span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which  <span class='entity-name'>SoldListing</span> objects are associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID.</span></p>

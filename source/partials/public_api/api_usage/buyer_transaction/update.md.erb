@@ -608,6 +608,9 @@ Attribute | Type | Length Limit |
 <span class="request-data-head">promote_transaction</span>
 <span class="request-data-remarks">If this is set to `true` then The Moxi Works Platform will promote this transaction to the next stage. </span>
 
+<span class="request-data-head">stage</span>
+<span class="request-data-remarks">The stage that the <span class='entity-name'>BuyerTransaction</span> should be placed into (see section header). This should not be used in conjunction with the <span class='attribute-name'>promote_transaction</span> attribute.</span>
+
 ###### Promoting <span class='entity-name'>BuyerTransaction</span> Stage
 In order to promote a <span class='entity-name'>BuyerTransaction</span> to the next stage, include the <span class='attribute-name'>promote_transaction</span> parameter in your <span class='action-name'>Update</span> request and set it to `true`.  For more information about <span class='entity-name'>BuyerTransaction</span> stages, see <a href='#buyertransaction-stages'><span class='entity-name'>BuyerTransaction</span> Stages</a>.
 

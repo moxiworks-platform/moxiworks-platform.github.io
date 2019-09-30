@@ -16,7 +16,13 @@ Content-Type: application/x-www-form-urlencoded
 
 ```json
 {
-  "moxi_works_company_id":"the_company"
+  "moxi_works_company_id": "the_company",
+  "moxi_works_agent_id": "blep@blerp.com",
+  "has_agent_association": true,
+  "has_favorites": true,
+  "page_number": 1,
+  "updated_after": 1569862394,
+  "updated_before": 1569870000
 }
 
 ```
@@ -34,6 +40,9 @@ Attribute | Type  | Length Limit |
 |<span class="optional-data">agent_uuid †</span>|<span class="data-type">String</span>| 255 |
 |<span class="optional-data">moxi_works_agent_id †</span>|<span class="data-type">String</span>| 255 |
 |<span class="optional-data">has_agent_association</span>|<span class="data-type">Boolean</span>| 255 |
+|<span class="optional-data">has_web_data</span>|<span class="data-type">Boolean</span>| 255 |
+|<span class="optional-data">has_favorites</span>|<span class="data-type">Boolean</span>| 255 |
+|<span class="optional-data">has_searches</span>|<span class="data-type">Boolean</span>| 255 |
 |<span class="optional-data">page_number</span>|<span class="data-type">Integer</span>| 255 |
 |<span class="optional-data">updated_after</span>|<span class="data-type">Integer</span>| 255 |
 |<span class="optional-data">updated_before</span>|<span class="data-type">Integer</span>| 255 |
@@ -50,9 +59,20 @@ Attribute | Type  | Length Limit |
 <span class="request-data-head">agent_uuid</span>
 <span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which the  <span class='entity-name'>WebUser</span> entry is associated with. This will be an [RFC 4122](https://tools.ietf.org/html/rfc4122) compliant UUID. If supplied thee <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> must reference a valid Moxi Works Agent ID for your <span class='entity-name'>WebUser</span> request to be accepted.</span>
 
-
 <span class="request-data-head">moxi_works_agent_id</span>
 <span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which the <span class='entity-name'>WebUser</span> objects are associated with. This will be a string that may take the form of an email address, or a unique identification string. If supplied this data must reference a valid Moxi Works <span class='entity-name'>Agent</span> ID for your <span class='entity-name'>WebUser</span> <span class='action-name'>Index</span>  request to be accepted.</span>
+
+<span class="request-data-head">has_agent_association</span>
+<span class="request-data-remarks">This boolean should be set to true when fetching only agent associated <span class='entity-name'>WebUser</span> objects.</span>
+
+<span class="request-data-head">has_web_data</span>
+<span class="request-data-remarks">This boolean should be set to true when fetching only <span class='entity-name'>WebUser</span> objects that have available listing search or favorite listing data.</span>
+
+<span class="request-data-head">has_favorites</span>
+<span class="request-data-remarks">This boolean should be set to true when fetching only <span class='entity-name'>WebUser</span> objects that have available favorite listing data.</span>
+
+<span class="request-data-head">has_searches</span>
+<span class="request-data-remarks">This boolean should be set to true when fetching only <span class='entity-name'>WebUser</span> objects that have available listing search data.</span>
 
 <span class="request-data-head">page_number</span>
 <span class="request-data-remarks">Page of <span class='entity-name'>WebUser</span> records to return. Use if `total_pages` indicates that there is more than one page of data available.</span>

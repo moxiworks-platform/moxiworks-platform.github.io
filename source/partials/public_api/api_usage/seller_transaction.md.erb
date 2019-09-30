@@ -7,20 +7,28 @@ Moxi Works Platform <span class='entity-name'>SellerTransaction</span> entities 
 Each <span class='entity-name'>SellerTransaction</span> passes through five stages. Each stage represents a different stage in the transaction lifecycle. Every <span class='entity-name'>SellerTransaction</span> response will include the current stage of the <span class='entity-name'>SellerTransaction</span> both in its numeric form as well as a human readable string representation.  As the transaction progresses through its lifecycle, you can promote it to the next stage.    See <a href='#promoting-sellertransaction-stage'>Promoting <span class='entity-name'>SellerTransaction</span> Stage</a> for information about promoting a <span class='entity-name'>SellerTransaction</span> object to the next stage.
 
 
-Each <span class='entity-name'>SellerTransaction</span> created through the Moxi Works Platform will be created as a stage 3 (`active`) <span class='entity-name'>SellerTransaction</span>.
+By default, each <span class='entity-name'>SellerTransaction</span> created through the Moxi Works Platform will be created as a stage 3 (`active`) <span class='entity-name'>SellerTransaction</span>.
 
-Use the table below to determine the mapping between the integer represended in <span class='attribute-name'>stage</span> and its human readable counterpart.</span>
-
+Use the table below to determine the mapping between the integer represented in <span class='attribute-name'>stage</span> and its human readable counterpart.</span>
 
 stage | stage_name | description |
 -----|-----|-----|-----|
+0 | inactive | This is a discontinued <span class='entity-name'>SellerTransaction</span>. It cannot be edited, or moved to a different stage. |
 1 | initialized | This is an empty <span class='entity-name'>SellerTransaction</span> already associated with a <span class='entity-name'>Contact</span> and is ready to be configured  |
 2 | configured | This is an inactive <span class='entity-name'>SellerTransaction</span> that has been configured. This <span class='entity-name'>SellerTransaction</span> is not actively being worked on. |
-3 | active | This is a configured and active <span class='entity-name'>SellerTransaction</span>. The agent is actively working on this transaction.
+3 | active | This is a configured and active <span class='entity-name'>SellerTransaction</span>. The agent is actively working on this transaction. Once active, a transaction cannot be regressed to an earlier stage.
 4 | pending | This is an active <span class='entity-name'>SellerTransaction</span> that is in a `pending` state. |
-5 | complete | This is a <span class='entity-name'>SellerTransaction</span> which has been completed. |
+5 | complete | This is a <span class='entity-name'>SellerTransaction</span> which has been completed.|
 
-
+<aside class="note">
+  Additional transaction guidelines:
+  <ul>
+    <li> The <span class='attribute-name'>address</span>, <span class='attribute-name'>city</span>, <span class='attribute-name'>state</span>, and <span class='attribute-name'>zip_code</span> attributes must be included in order to move a transaction into stages 4 or 5: 'pending' or 'complete'.</li>
+    <li> The <span class='attribute-name'>closing_price</span> and <span class='attribute-name'>closing_timestamp</span> attributes must be included in order to move a transaction into stage 5: 'complete'. They may not be present when moving a transaction to any other stage.</li>
+    <li> The <span class='attribute-name'>mls_number</span> attribute must be included for transactions for which the <span class='attribute-name'>is_mls_transaction</span> attribute is set to true.</li>
+    <li> <span class='attribute-name'>stage</span> `1` (`initialized`)  Transaction records may be promoted to either <span class='entity-name'>BuyerTransaction</span> records or <span class='entity-name'>SellerTransaction</span> records when they are promoted to <span class='attribute-name'>stage</span> `2` (`configured`) . </aside>
+  </ul>
+</aside>
 
 <%= partial "partials/public_api/api_usage/seller_transaction/create.md.erb" %>
 

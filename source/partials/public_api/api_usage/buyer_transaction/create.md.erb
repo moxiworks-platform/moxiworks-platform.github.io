@@ -34,7 +34,8 @@
   "sales_volume_flat_fee":null,
   "target_price":null,
   "min_price":292929,
-  "max_price":2323223
+  "max_price":2323223,
+  "stage": 'active'
 }
 
 
@@ -331,7 +332,8 @@ $moxi_works_transaction = MoxiworksPlatform\BuyerTransaction::create([
   "sales_volume_flat_fee":null,
   "target_price":null,
   "min_price":292929,
-  "max_price":2323223
+  "max_price":2323223,
+  "stage": 3
 }
 
 
@@ -487,6 +489,7 @@ Attribute | Type | Length Limit |
 |<span class="optional-data">target_price</span>|<span class="optional-data"><span class="data-type">Integer</span></span>| <span class="optional-data">255</span> |
 |<span class="optional-data">min_price</span>|<span class="optional-data"><span class="data-type">Integer</span></span>| <span class="optional-data">255</span> |
 |<span class="optional-data">max_price</span>|<span class="optional-data"><span class="data-type">Integer</span></span>| <span class="optional-data">255</span> |
+|<span class="optional-data">stage</span>|<span class="optional-data"><span class="data-type">Integer or String</span></span>| <span class="optional-data">255</span> |
 
 <span class="multi-option-required-data">* **Either <span class='attribute-name'>moxi_works_agent_id</span> or <span class='attribute-name'>agent_uuid</span> must be supplied. For guidance on which Agent identifier better fits your use-case, see [Agent Identifiers](#agent-identifiers)**</span>
 
@@ -587,6 +590,9 @@ Attribute | Type | Length Limit |
 
 <span class="request-data-head">max_price</span>
 <span class="request-data-remarks">The maximum price range for a property if using a price range rather than target price.</span>
+
+<span class="request-data-head">stage</span>
+<span class="request-data-remarks">The stage that the <span class='entity-name'>BuyerTransaction</span> should be placed into (see section header).</span>
 
 <aside class="note">When setting a <span class='entity-name'>BuyerTransaction</span> price, you can set <b>either</b> a target price or a price range, but not both. If using <span class='attribute-name'>target_price</span> then <span class='attribute-name'>min_price</span> and <span class='attribute-name'>max_price</span> should not be populated. If using either <span class='attribute-name'>min_price</span> or <span class='attribute-name'>max_price</span>, then <span class='attribute-name'>target_price</span> should not be populated.</aside>
 

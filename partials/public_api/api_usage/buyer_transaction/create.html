@@ -63,7 +63,8 @@
   </span><span class="nt">"sales_volume_flat_fee"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"target_price"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"min_price"</span><span class="p">:</span><span class="mi">292929</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"max_price"</span><span class="p">:</span><span class="mi">2323223</span><span class="w">
+  </span><span class="nt">"max_price"</span><span class="p">:</span><span class="mi">2323223</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"stage"</span><span class="p">:</span><span class="w"> </span><span class="err">'active'</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
 
@@ -341,7 +342,8 @@ moxi_works_agent_id=abc123&amp;moxi_works_contact_id=babebead-feed-face-dead-bee
   </span><span class="nt">"sales_volume_flat_fee"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"target_price"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"min_price"</span><span class="p">:</span><span class="mi">292929</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"max_price"</span><span class="p">:</span><span class="mi">2323223</span><span class="w">
+  </span><span class="nt">"max_price"</span><span class="p">:</span><span class="mi">2323223</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"stage"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
 
@@ -598,6 +600,11 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;moxi_works_contact_id=babebe
 <td><span class="optional-data"><span class="data-type">Integer</span></span></td>
 <td><span class="optional-data">255</span></td>
 </tr>
+<tr>
+<td><span class="optional-data">stage</span></td>
+<td><span class="optional-data"><span class="data-type">Integer or String</span></span></td>
+<td><span class="optional-data">255</span></td>
+</tr>
 </tbody></table>
 
 <p><span class="multi-option-required-data">* <strong>Either <span class='attribute-name'>moxi_works_agent_id</span> or <span class='attribute-name'>agent_uuid</span> must be supplied. For guidance on which Agent identifier better fits your use-case, see <a href="#agent-identifiers">Agent Identifiers</a></strong></span></p>
@@ -694,6 +701,9 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;moxi_works_contact_id=babebe
 
 <p><span class="request-data-head">max_price</span>
 <span class="request-data-remarks">The maximum price range for a property if using a price range rather than target price.</span></p>
+
+<p><span class="request-data-head">stage</span>
+<span class="request-data-remarks">The stage that the <span class='entity-name'>BuyerTransaction</span> should be placed into (see section header).</span></p>
 
 <aside class="note">When setting a <span class='entity-name'>BuyerTransaction</span> price, you can set <b>either</b> a target price or a price range, but not both. If using <span class='attribute-name'>target_price</span> then <span class='attribute-name'>min_price</span> and <span class='attribute-name'>max_price</span> should not be populated. If using either <span class='attribute-name'>min_price</span> or <span class='attribute-name'>max_price</span>, then <span class='attribute-name'>target_price</span> should not be populated.</aside>
 

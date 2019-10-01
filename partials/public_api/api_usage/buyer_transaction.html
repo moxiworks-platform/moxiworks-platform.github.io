@@ -34,11 +34,11 @@
 
 <h6 id="buyertransaction-stages"><span class='entity-name'>BuyerTransaction</span> Stages</h6>
 
-<p>Each <span class='entity-name'>BuyerTransaction</span> passes through five stages. Each stage represents a different stage in the transaction lifecycle. Every <span class='entity-name'>BuyerTransaction</span> response will include the current stage of the <span class='entity-name'>BuyerTransaction</span> both in its numeric form as well as a human readable string representation.  As the transaction progresses through its lifecycle, you can promote it to the next stage.    See <a href='#promoting-sellertransaction-stage'>Promoting <span class='entity-name'>BuyerTransaction</span> Stage</a> for information about promoting a <span class='entity-name'>BuyerTransaction</span> object to the next stage.</p>
+<p>By default, each <span class='entity-name'>BuyerTransaction</span> passes through five stages. Each stage represents a different stage in the transaction lifecycle. Every <span class='entity-name'>BuyerTransaction</span> response will include the current stage of the <span class='entity-name'>BuyerTransaction</span> both in its numeric form as well as a human readable string representation.  As the transaction progresses through its lifecycle, you can promote it to the next stage.    See <a href='#promoting-sellertransaction-stage'>Promoting <span class='entity-name'>BuyerTransaction</span> Stage</a> for information about promoting a <span class='entity-name'>BuyerTransaction</span> object to the next stage.</p>
 
 <p>Each <span class='entity-name'>BuyerTransaction</span> created through the Moxi Works Platform will be created as a stage 3 (<code class="prettyprint">active</code>) <span class='entity-name'>BuyerTransaction</span>.</p>
 
-<p>Use the table below to determine the mapping between the integer represended in <span class='attribute-name'>stage</span> and its human readable counterpart.</span></p>
+<p>Use the table below to determine the mapping between the integer represented in <span class='attribute-name'>stage</span> and its human readable counterpart.</span></p>
 
 <table><thead>
 <tr>
@@ -47,6 +47,11 @@
 <th>description</th>
 </tr>
 </thead><tbody>
+<tr>
+<td>0</td>
+<td>inactive</td>
+<td>This is a discontinued <span class='entity-name'>BuyerTransaction</span>. It cannot be edited, or moved to a different stage.</td>
+</tr>
 <tr>
 <td>1</td>
 <td>initialized</td>
@@ -60,7 +65,7 @@
 <tr>
 <td>3</td>
 <td>active</td>
-<td>This is a configured and active <span class='entity-name'>BuyerTransaction</span>. The agent is actively working on this transaction.</td>
+<td>This is a configured and active <span class='entity-name'>BuyerTransaction</span>. The agent is actively working on this transaction. Once active, a transaction cannot be regressed to an earlier stage.</td>
 </tr>
 <tr>
 <td>4</td>
@@ -74,7 +79,15 @@
 </tr>
 </tbody></table>
 
-<aside class="note"><span class='attribute-name'>stage</span> `1` (`initialized`)  Transaction records may be promoted to either <span class='entity-name'>BuyerTransaction</span> records or <span class='entity-name'>SellerTransaction</span> records once they are promoted to <span class='attribute-name'>stage</span> `2` (`configured`) . </aside>
+<aside class="note">
+  Additional transaction guidelines:
+  <ul>
+    <li> The <span class='attribute-name'>address</span>, <span class='attribute-name'>city</span>, <span class='attribute-name'>state</span>, and <span class='attribute-name'>zip_code</span> attributes must be included in order to move a transaction into stages 4 or 5: &lsquo;pending&rsquo; or 'complete&rsquo;.</li>
+    <li> The <span class='attribute-name'>closing_price</span> and <span class='attribute-name'>closing_timestamp</span> attributes must be included in order to move a transaction into stage 5: 'complete&rsquo;. They may not be present when moving a transaction to any other stage.</li>
+    <li> The <span class='attribute-name'>mls_number</span> attribute must be included for transactions for which the <span class='attribute-name'>is_mls_transaction</span> attribute is set to true.</li>
+    <li> <span class='attribute-name'>stage</span> `1` (`initialized`)  Transaction records may be promoted to either <span class='entity-name'>BuyerTransaction</span> records or <span class='entity-name'>SellerTransaction</span> records when they are promoted to <span class='attribute-name'>stage</span> `2` (`configured`) . </aside>
+  </ul>
+</aside>
 
 <h4 id="buyertransaction-create"><span class='entity-name'>BuyerTransaction</span> <span class='action-name'>Create</span></h4>
 
@@ -112,7 +125,8 @@
   </span><span class="nt">"sales_volume_flat_fee"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"target_price"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"min_price"</span><span class="p">:</span><span class="mi">292929</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"max_price"</span><span class="p">:</span><span class="mi">2323223</span><span class="w">
+  </span><span class="nt">"max_price"</span><span class="p">:</span><span class="mi">2323223</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"stage"</span><span class="p">:</span><span class="w"> </span><span class="err">'active'</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
 
@@ -400,7 +414,8 @@ moxi_works_agent_id=abc123&amp;moxi_works_contact_id=babebead-feed-face-dead-bee
   </span><span class="nt">"sales_volume_flat_fee"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"target_price"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"min_price"</span><span class="p">:</span><span class="mi">292929</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"max_price"</span><span class="p">:</span><span class="mi">2323223</span><span class="w">
+  </span><span class="nt">"max_price"</span><span class="p">:</span><span class="mi">2323223</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"stage"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
 
@@ -661,6 +676,11 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;moxi_works_contact_id=babebe
 <td><span class="optional-data"><span class="data-type">Integer</span></span></td>
 <td><span class="optional-data">255</span></td>
 </tr>
+<tr>
+<td><span class="optional-data">stage</span></td>
+<td><span class="optional-data"><span class="data-type">Integer or String</span></span></td>
+<td><span class="optional-data">255</span></td>
+</tr>
 </tbody></table>
 
 <p><span class="multi-option-required-data">* <strong>Either <span class='attribute-name'>moxi_works_agent_id</span> or <span class='attribute-name'>agent_uuid</span> must be supplied. For guidance on which Agent identifier better fits your use-case, see <a href="#agent-identifiers">Agent Identifiers</a></strong></span></p>
@@ -757,6 +777,9 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;moxi_works_contact_id=babebe
 
 <p><span class="request-data-head">max_price</span>
 <span class="request-data-remarks">The maximum price range for a property if using a price range rather than target price.</span></p>
+
+<p><span class="request-data-head">stage</span>
+<span class="request-data-remarks">The stage that the <span class='entity-name'>BuyerTransaction</span> should be placed into (see section header).</span></p>
 
 <aside class="note">When setting a <span class='entity-name'>BuyerTransaction</span> price, you can set <b>either</b> a target price or a price range, but not both. If using <span class='attribute-name'>target_price</span> then <span class='attribute-name'>min_price</span> and <span class='attribute-name'>max_price</span> should not be populated. If using either <span class='attribute-name'>min_price</span> or <span class='attribute-name'>max_price</span>, then <span class='attribute-name'>target_price</span> should not be populated.</aside>
 
@@ -1805,6 +1828,9 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;min_beds=12&amp;max_beds=34&
 
 <p><span class="request-data-head">promote_transaction</span>
 <span class="request-data-remarks">If this is set to <code class="prettyprint">true</code> then The Moxi Works Platform will promote this transaction to the next stage. </span></p>
+
+<p><span class="request-data-head">stage</span>
+<span class="request-data-remarks">The stage that the <span class='entity-name'>BuyerTransaction</span> should be placed into (see section header). This should not be used in conjunction with the <span class='attribute-name'>promote_transaction</span> attribute.</span></p>
 
 <h6 id="promoting-buyertransaction-stage">Promoting <span class='entity-name'>BuyerTransaction</span> Stage</h6>
 

@@ -254,7 +254,7 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
 <aside class="note">A company&rsquo;s internal agent id may be used to construct the agent&rsquo;s unique identification string. To do so, the value passed via the moxi_works_agent_id should be a single concatenated string, of the form:</br>[moxi_works_company_id]:[internal_agent_id]</br>Use <a href='#company'>Company Endpoint</a> to determine which moxi_works_company_id to use.</aside>
 
 <p><span class="request-data-head">body</span>
-<span class="request-data-remarks">This is a human readable string which would be presented to the Agent as the content of the <span class='entity-name'>ActionLog</span> entry. This can be any arbitrary plain-text string which would be practical for the agent to see in the history of events associated with a <span class='entity-name'>Contact</span>. It must be greater than 0 and must be less than 255 characters.</span></p>
+<span class="request-data-remarks">This is a human readable string which would be presented to the Agent as the content of the <span class='entity-name'>ActionLog</span> entry. This can be any arbitrary plain-text string which would be practical for the agent to see in the history of events associated with a <span class='entity-name'>Contact</span>. It must be greater than 0 and must be less than 5000 characters (including white space).</span></p>
 
 <p><span class="request-data-head">moxi_works_contact_id</span>
 <span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Contact</span> which this <span class='entity-name'>ActionLog</span> object is to be associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID. This data is required and must reference a valid Moxi Works <span class='entity-name'>Contact</span> ID for your <span class='entity-name'>ActionLog</span> <span class='action-name'>Create</span>  request to be accepted. This is the same as the <span class='attribute-name'>moxi_works_contact_id</span> attribute of the  <span class='entity-name'>Contact</span> response.</span></p>
@@ -389,7 +389,9 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
 
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"agent_uuid"</span><span class="p">:</span><span class="s2">"12345678-1234-1234-1234-1234567890ab"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"partner_contact_id"</span><span class="p">:</span><span class="s2">"mySystemsContactId"</span><span class="w">
+  </span><span class="nt">"partner_contact_id"</span><span class="p">:</span><span class="s2">"mySystemsContactId"</span><span class="p">,</span><span class="nt">"
+  "</span><span class="err">date_min</span><span class="nt">": 1569860000,
+  "</span><span class="err">date_max"</span><span class="p">:</span><span class="w"> </span><span class="mi">1569870000</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
 </span></code></pre>
@@ -536,6 +538,16 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
 <td><span class="required-data"><span class="data-type">String</span></span></td>
 <td><span class="required-data">255</span></td>
 </tr>
+<tr>
+<td><span class="optional-data">date_min</span></td>
+<td><span class="data-type">Integer</span></td>
+<td>255</td>
+</tr>
+<tr>
+<td><span class="optional-data">date_max</span></td>
+<td><span class="data-type">Integer</span></td>
+<td>255</td>
+</tr>
 </tbody></table>
 
 <p><span class="multi-option-required-data"> * Either <span class='attribute-name'>moxi_works_agent_id</span> or <span class='attribute-name'>agent_uuid</span> must be supplied. For guidance on which Agent identifier better fits your use-case, see <a href="#agent-identifiers">Agent Identifiers</a></span></p>
@@ -557,6 +569,12 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
 
 <p><span class="request-data-head">partner_contact_id</span>
 <span class="request-data-remarks">This is the unique identifer you use in your system that has been associated with the <span class='entity-name'>Contact</span> that you are creating an <span class='entity-name'>ActionLog</span> entry about. You should have already created the <span class='entity-name'>Contact</span> record on the Moxi Works Platform using <a href="/#contact-create">Contact Create</a> before attempting to use your system&rsquo;s contact ID to show <span class='entity-name'>ActionLog</span> entries for the <span class='entity-name'>Contact</span>. Your request will be rejected if the <span class='entity-name'>Contact</span> record does not exist.</span></p>
+
+<p><span class="request-data-head">date_min</span>
+<span class="request-data-remarks">Only <span class='entity-name'>ActionLog</span> records created later than this Unix timestamp will be included in the query. The upper bound of the time slice will be the 90 days higher than <span class='attribute-name'>date_min</span> value or the value of the the <span class='attribute-name'>date_max</span>; whichever is lower. If no timestamps are provided, ActionLogs from the last 90 days will be retrieved.</span></p>
+
+<p><span class="request-data-head">date_max</span>
+<span class="request-data-remarks">Only <span class='entity-name'>ActionLog</span> records created earlier than this Unix timestamp will be included in the query. Should be no higher than 90 days past the <span class='attribute-name'>date_min</span> attribute if it is provided.</span></p>
 
 <h5 id="actionlog-index-response-payload"><span class='entity-name'>ActionLog</span> <span class='action-name'>Index</span> Response Payload</h5>
 
@@ -1855,6 +1873,11 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
 <td><span class="data-type">Boolean</span></td>
 <td>255</td>
 </tr>
+<tr>
+<td><span class="optional-data">has_company_programs</span></td>
+<td><span class="data-type">Boolean</span></td>
+<td>255</td>
+</tr>
 </tbody></table>
 
 <p><span class="required-data"><strong>Required Parameters Are In Red</strong></span></p>
@@ -1894,6 +1917,9 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
 
 <p><span class="request-data-head">include_website</span>
 <span class="request-data-remarks">To include the base url (website_base_url) of the agent&rsquo;s MoxiWorks website pass <code class="prettyprint">true</code>.</span></p>
+
+<p><span class="request-data-head">has_company_programs</span>
+<span class="request-data-remarks">To include only <span class='entity-name'>Agent</span> objects associated with company specific programs pass <code class="prettyprint">true</code>.</span></p>
 
 <blockquote><div class='highlight json' style="display: block">
 <span class="data-example-label">Agent Index: Success Response</span>
@@ -3048,11 +3074,11 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
 
 <h6 id="buyertransaction-stages"><span class='entity-name'>BuyerTransaction</span> Stages</h6>
 
-<p>Each <span class='entity-name'>BuyerTransaction</span> passes through five stages. Each stage represents a different stage in the transaction lifecycle. Every <span class='entity-name'>BuyerTransaction</span> response will include the current stage of the <span class='entity-name'>BuyerTransaction</span> both in its numeric form as well as a human readable string representation.  As the transaction progresses through its lifecycle, you can promote it to the next stage.    See <a href='#promoting-sellertransaction-stage'>Promoting <span class='entity-name'>BuyerTransaction</span> Stage</a> for information about promoting a <span class='entity-name'>BuyerTransaction</span> object to the next stage.</p>
+<p>By default, each <span class='entity-name'>BuyerTransaction</span> passes through five stages. Each stage represents a different stage in the transaction lifecycle. Every <span class='entity-name'>BuyerTransaction</span> response will include the current stage of the <span class='entity-name'>BuyerTransaction</span> both in its numeric form as well as a human readable string representation.  As the transaction progresses through its lifecycle, you can promote it to the next stage.    See <a href='#promoting-sellertransaction-stage'>Promoting <span class='entity-name'>BuyerTransaction</span> Stage</a> for information about promoting a <span class='entity-name'>BuyerTransaction</span> object to the next stage.</p>
 
 <p>Each <span class='entity-name'>BuyerTransaction</span> created through the Moxi Works Platform will be created as a stage 3 (<code class="prettyprint">active</code>) <span class='entity-name'>BuyerTransaction</span>.</p>
 
-<p>Use the table below to determine the mapping between the integer represended in <span class='attribute-name'>stage</span> and its human readable counterpart.</span></p>
+<p>Use the table below to determine the mapping between the integer represented in <span class='attribute-name'>stage</span> and its human readable counterpart.</span></p>
 
 <table><thead>
 <tr>
@@ -3061,6 +3087,11 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
 <th>description</th>
 </tr>
 </thead><tbody>
+<tr>
+<td>0</td>
+<td>inactive</td>
+<td>This is a discontinued <span class='entity-name'>BuyerTransaction</span>. It cannot be edited, or moved to a different stage.</td>
+</tr>
 <tr>
 <td>1</td>
 <td>initialized</td>
@@ -3074,7 +3105,7 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
 <tr>
 <td>3</td>
 <td>active</td>
-<td>This is a configured and active <span class='entity-name'>BuyerTransaction</span>. The agent is actively working on this transaction.</td>
+<td>This is a configured and active <span class='entity-name'>BuyerTransaction</span>. The agent is actively working on this transaction. Once active, a transaction cannot be regressed to an earlier stage.</td>
 </tr>
 <tr>
 <td>4</td>
@@ -3088,7 +3119,15 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
 </tr>
 </tbody></table>
 
-<aside class="note"><span class='attribute-name'>stage</span> `1` (`initialized`)  Transaction records may be promoted to either <span class='entity-name'>BuyerTransaction</span> records or <span class='entity-name'>SellerTransaction</span> records once they are promoted to <span class='attribute-name'>stage</span> `2` (`configured`) . </aside>
+<aside class="note">
+  Additional transaction guidelines:
+  <ul>
+    <li> The <span class='attribute-name'>address</span>, <span class='attribute-name'>city</span>, <span class='attribute-name'>state</span>, and <span class='attribute-name'>zip_code</span> attributes must be included in order to move a transaction into stages 4 or 5: &lsquo;pending&rsquo; or &lsquo;complete&rsquo;.</li>
+    <li> The <span class='attribute-name'>closing_price</span> and <span class='attribute-name'>closing_timestamp</span> attributes must be included in order to move a transaction into stage 5: 'complete&rsquo;. They may not be present when moving a transaction to any other stage.</li>
+    <li> The <span class='attribute-name'>mls_number</span> attribute must be included for transactions for which the <span class='attribute-name'>is_mls_transaction</span> attribute is set to true.</li>
+    <li> <span class='attribute-name'>stage</span> `1` (`initialized`)  Transaction records may be promoted to either <span class='entity-name'>BuyerTransaction</span> records or <span class='entity-name'>SellerTransaction</span> records when they are promoted to <span class='attribute-name'>stage</span> `2` (`configured`) . </aside>
+  </ul>
+</aside>
 
 <h4 id="buyertransaction-create"><span class='entity-name'>BuyerTransaction</span> <span class='action-name'>Create</span></h4>
 
@@ -3126,7 +3165,8 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
   </span><span class="nt">"sales_volume_flat_fee"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"target_price"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"min_price"</span><span class="p">:</span><span class="mi">292929</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"max_price"</span><span class="p">:</span><span class="mi">2323223</span><span class="w">
+  </span><span class="nt">"max_price"</span><span class="p">:</span><span class="mi">2323223</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"stage"</span><span class="p">:</span><span class="w"> </span><span class="err">'active'</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
 
@@ -3414,7 +3454,8 @@ moxi_works_agent_id=abc123&amp;moxi_works_contact_id=babebead-feed-face-dead-bee
   </span><span class="nt">"sales_volume_flat_fee"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"target_price"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"min_price"</span><span class="p">:</span><span class="mi">292929</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"max_price"</span><span class="p">:</span><span class="mi">2323223</span><span class="w">
+  </span><span class="nt">"max_price"</span><span class="p">:</span><span class="mi">2323223</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"stage"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
 
@@ -3675,6 +3716,11 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;moxi_works_contact_id=babebe
 <td><span class="optional-data"><span class="data-type">Integer</span></span></td>
 <td><span class="optional-data">255</span></td>
 </tr>
+<tr>
+<td><span class="optional-data">stage</span></td>
+<td><span class="optional-data"><span class="data-type">Integer or String</span></span></td>
+<td><span class="optional-data">255</span></td>
+</tr>
 </tbody></table>
 
 <p><span class="multi-option-required-data">* <strong>Either <span class='attribute-name'>moxi_works_agent_id</span> or <span class='attribute-name'>agent_uuid</span> must be supplied. For guidance on which Agent identifier better fits your use-case, see <a href="#agent-identifiers">Agent Identifiers</a></strong></span></p>
@@ -3771,6 +3817,9 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;moxi_works_contact_id=babebe
 
 <p><span class="request-data-head">max_price</span>
 <span class="request-data-remarks">The maximum price range for a property if using a price range rather than target price.</span></p>
+
+<p><span class="request-data-head">stage</span>
+<span class="request-data-remarks">The stage that the <span class='entity-name'>BuyerTransaction</span> should be placed into (see section header).</span></p>
 
 <aside class="note">When setting a <span class='entity-name'>BuyerTransaction</span> price, you can set <b>either</b> a target price or a price range, but not both. If using <span class='attribute-name'>target_price</span> then <span class='attribute-name'>min_price</span> and <span class='attribute-name'>max_price</span> should not be populated. If using either <span class='attribute-name'>min_price</span> or <span class='attribute-name'>max_price</span>, then <span class='attribute-name'>target_price</span> should not be populated.</aside>
 
@@ -4819,6 +4868,9 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;min_beds=12&amp;max_beds=34&
 
 <p><span class="request-data-head">promote_transaction</span>
 <span class="request-data-remarks">If this is set to <code class="prettyprint">true</code> then The Moxi Works Platform will promote this transaction to the next stage. </span></p>
+
+<p><span class="request-data-head">stage</span>
+<span class="request-data-remarks">The stage that the <span class='entity-name'>BuyerTransaction</span> should be placed into (see section header). This should not be used in conjunction with the <span class='attribute-name'>promote_transaction</span> attribute.</span></p>
 
 <h6 id="promoting-buyertransaction-stage">Promoting <span class='entity-name'>BuyerTransaction</span> Stage</h6>
 
@@ -7576,7 +7628,7 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 <span class="request-data-remarks">Use this if you have data about listing searches that this contact has performed; this should be the property types used in the listing search criteria. This can be any arbitrary human readable string, but using recognized property types such as <code class="prettyprint">Condo</code>, <code class="prettyprint">Single-Family</code>, <code class="prettyprint">Townhouse</code>, <code class="prettyprint">Land</code>, <code class="prettyprint">Multifamily</code> will provide more value to the agent. </span></p>
 
 <p><span class="request-data-head">note</span>
-<span class="request-data-remarks">This is an arbitrary string giving the agent more details about the contact which would not otherwise fit into the <span class='entity-name'>Contact</span> record. Any HTML formatting included will be stripped from the <span class='attribute-name'>note</span> attribute&rsquo;s data. </span></p>
+<span class="request-data-remarks">This is an arbitrary string giving the agent more details about the contact which would not otherwise fit into the <span class='entity-name'>Contact</span> record. Any HTML formatting included will be stripped from the <span class='attribute-name'>note</span> attribute&rsquo;s data.</span></p>
 
 <p><span class="request-data-head">websites</span>
 <span class="request-data-remarks">Websites should be submitted as a json array of objects. Each object should include website prioritized &lsquo;rank&rsquo; and &lsquo;value&rsquo;. The number of website fields available for update for a given <span class='entity-name'>Contact</span> record depends on the agent email client type.</span></p>
@@ -8314,7 +8366,7 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 </tbody></table>
 
 <p><span class="response-data-head">key</span>
-<span class="response-data-remarks">The key identifier of the social media url. Defined keys are &lsquo;facebook,&rsquo; &#39;linkedin,&rsquo; &#39;twitter,&rsquo; and &#39;googleplus&rsquo;</span></p>
+<span class="response-data-remarks">The key identifier of the social media url. Defined keys are &#39;facebook,&rsquo; &#39;linkedin,&rsquo; &#39;twitter,&rsquo; and &#39;googleplus&rsquo;</span></p>
 
 <p><span class="response-data-head">property_url</span>
 <span class="response-data-remarks">This will be a valid URL for a property of interest in your system that can be viewed by the agent. This value will be null if no data is available for this attribute. </span></p>
@@ -8390,6 +8442,8 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 
 <p><span class="response-data-head">note</span>
 <span class="response-data-remarks">This is an arbitrary string giving the agent more details about the contact which would not otherwise fit into the <span class='entity-name'>Contact</span> record. Any Notes added here will be displayed to the agent in an Activity Log record. Any HTML formatting included will be stripped from the <span class='attribute-name'>note</span> attribute&rsquo;s data.  This value will be null if no data is available for this attribute. </span></p>
+
+<aside class="note">Partner generated notes will be returned as a concatenated string following agent generated notes. The agent and partner notes will be separated by this delimiter: &ldquo; == &rdquo;</aside>
 
 
 <h4 id="contact-update"><span class='entity-name'>Contact</span> <span class='action-name'>Update</span></h4>
@@ -9264,6 +9318,8 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 <p><span class="request-data-head">note</span>
 <span class="request-data-remarks">This is an arbitrary string giving the agent more details about the contact which would not otherwise fit into the <span class='entity-name'>Contact</span> record. Any Notes added here will be displayed to the agent in an Activity Log record. Any HTML formatting included will be stripped from the <span class='attribute-name'>note</span> attribute&rsquo;s data. </span></p>
 
+<aside class="note">Partner generated notes will be returned as a concatenated string following agent generated notes. The agent and partner notes will be separated by this delimiter: &ldquo; == &rdquo;</aside>
+
 <p><span class="request-data-head">websites</span>
 <span class="request-data-remarks">Websites should be submitted as a json array of objects. Each object should include website prioritized &lsquo;rank&rsquo; and &#39;value&rsquo;. The number of website fields available for update for a given <span class='entity-name'>Contact</span> record depends on the agent email client type.</span></p>
 
@@ -10076,6 +10132,8 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 
 <p><span class="response-data-head">note</span>
 <span class="response-data-remarks">This is an arbitrary string giving the agent more details about the contact which would not otherwise fit into the <span class='entity-name'>Contact</span> record. Any HTML formatting included will be stripped from the <span class='attribute-name'>note</span> attribute&rsquo;s data.  This value will be null if no data is available for this attribute. </span></p>
+
+<aside class="note">Partner generated notes will be returned as a concatenated string following agent generated notes. The agent and partner notes will be separated by this delimiter: &ldquo; == &rdquo;</aside>
 
 
 <h4 id="contact-show"><span class='entity-name'>Contact</span> <span class='action-name'>Show  </span></h4>
@@ -11078,6 +11136,8 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 
 <p><span class="response-data-head">note</span>
 <span class="response-data-remarks">This is an arbitrary string giving the agent more details about the contact which would not otherwise fit into the <span class='entity-name'>Contact</span> record. Any Notes added here will be displayed to the agent in an Activity Log record. Any HTML formatting included will be stripped from the <span class='attribute-name'>note</span> attribute&rsquo;s data.  This value will be null if no data is available for this attribute. </span></p>
+
+<aside class="note">Partner generated notes will be returned as a concatenated string following agent generated notes. The agent and partner notes will be separated by this delimiter: &ldquo; == &rdquo;</aside>
 
 
 <h4 id="contact-index"><span class='entity-name'>Contact</span> <span class='action-name'>Index</span></h4>
@@ -12277,6 +12337,8 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 
 <p><span class="response-data-head">note</span>
 <span class="response-data-remarks">This is an arbitrary string giving the agent more details about the contact which would not otherwise fit into the <span class='entity-name'>Contact</span> record.  Any Notes added here will be displayed to the agent in an Activity Log record. Any HTML formatting included will be stripped from the <span class='attribute-name'>note</span> attribute&rsquo;s data.  This value will be null if no data is available for this attribute. </span></p>
+
+<aside class="note">Partner generated notes will be returned as a concatenated string following agent generated notes. The agent and partner notes will be separated by this delimiter: &ldquo; == &rdquo;</aside>
 
 
 <h4 id="contact-delete"><span class='entity-name'>Contact</span> <span class='action-name'>Delete</span></h4>
@@ -21076,9 +21138,9 @@ The following attributes make up the payload of each <span class='entity-name'>L
 
 <p>Each <span class='entity-name'>SellerTransaction</span> passes through five stages. Each stage represents a different stage in the transaction lifecycle. Every <span class='entity-name'>SellerTransaction</span> response will include the current stage of the <span class='entity-name'>SellerTransaction</span> both in its numeric form as well as a human readable string representation.  As the transaction progresses through its lifecycle, you can promote it to the next stage.    See <a href='#promoting-sellertransaction-stage'>Promoting <span class='entity-name'>SellerTransaction</span> Stage</a> for information about promoting a <span class='entity-name'>SellerTransaction</span> object to the next stage.</p>
 
-<p>Each <span class='entity-name'>SellerTransaction</span> created through the Moxi Works Platform will be created as a stage 3 (<code class="prettyprint">active</code>) <span class='entity-name'>SellerTransaction</span>.</p>
+<p>By default, each <span class='entity-name'>SellerTransaction</span> created through the Moxi Works Platform will be created as a stage 3 (<code class="prettyprint">active</code>) <span class='entity-name'>SellerTransaction</span>.</p>
 
-<p>Use the table below to determine the mapping between the integer represended in <span class='attribute-name'>stage</span> and its human readable counterpart.</span></p>
+<p>Use the table below to determine the mapping between the integer represented in <span class='attribute-name'>stage</span> and its human readable counterpart.</span></p>
 
 <table><thead>
 <tr>
@@ -21087,6 +21149,11 @@ The following attributes make up the payload of each <span class='entity-name'>L
 <th>description</th>
 </tr>
 </thead><tbody>
+<tr>
+<td>0</td>
+<td>inactive</td>
+<td>This is a discontinued <span class='entity-name'>SellerTransaction</span>. It cannot be edited, or moved to a different stage.</td>
+</tr>
 <tr>
 <td>1</td>
 <td>initialized</td>
@@ -21100,7 +21167,7 @@ The following attributes make up the payload of each <span class='entity-name'>L
 <tr>
 <td>3</td>
 <td>active</td>
-<td>This is a configured and active <span class='entity-name'>SellerTransaction</span>. The agent is actively working on this transaction.</td>
+<td>This is a configured and active <span class='entity-name'>SellerTransaction</span>. The agent is actively working on this transaction. Once active, a transaction cannot be regressed to an earlier stage.</td>
 </tr>
 <tr>
 <td>4</td>
@@ -21113,6 +21180,16 @@ The following attributes make up the payload of each <span class='entity-name'>L
 <td>This is a <span class='entity-name'>SellerTransaction</span> which has been completed.</td>
 </tr>
 </tbody></table>
+
+<aside class="note">
+  Additional transaction guidelines:
+  <ul>
+    <li> The <span class='attribute-name'>address</span>, <span class='attribute-name'>city</span>, <span class='attribute-name'>state</span>, and <span class='attribute-name'>zip_code</span> attributes must be included in order to move a transaction into stages 4 or 5: &lsquo;pending&rsquo; or 'complete&rsquo;.</li>
+    <li> The <span class='attribute-name'>closing_price</span> and <span class='attribute-name'>closing_timestamp</span> attributes must be included in order to move a transaction into stage 5: 'complete&rsquo;. They may not be present when moving a transaction to any other stage.</li>
+    <li> The <span class='attribute-name'>mls_number</span> attribute must be included for transactions for which the <span class='attribute-name'>is_mls_transaction</span> attribute is set to true.</li>
+    <li> <span class='attribute-name'>stage</span> `1` (`initialized`)  Transaction records may be promoted to either <span class='entity-name'>BuyerTransaction</span> records or <span class='entity-name'>SellerTransaction</span> records when they are promoted to <span class='attribute-name'>stage</span> `2` (`configured`) . </aside>
+  </ul>
+</aside>
 
 <h4 id="sellertransaction-create"><span class='entity-name'>SellerTransaction</span> <span class='action-name'>Create</span></h4>
 
@@ -28128,7 +28205,13 @@ moxi_works_agent_id=abc123&amp;description=talk+to+private+kane,%2C+e-one-thousa
 </code></pre>
 
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"moxi_works_company_id"</span><span class="p">:</span><span class="s2">"the_company"</span><span class="w">
+  </span><span class="nt">"moxi_works_company_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"the_company"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"moxi_works_agent_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"blep@blerp.com"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"has_agent_association"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"has_favorites"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"page_number"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"updated_after"</span><span class="p">:</span><span class="w"> </span><span class="mi">1569862394</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"updated_before"</span><span class="p">:</span><span class="w"> </span><span class="mi">1569870000</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
 </span></code></pre>
@@ -28167,6 +28250,21 @@ moxi_works_agent_id=abc123&amp;description=talk+to+private+kane,%2C+e-one-thousa
 <td>255</td>
 </tr>
 <tr>
+<td><span class="optional-data">has_web_data</span></td>
+<td><span class="data-type">Boolean</span></td>
+<td>255</td>
+</tr>
+<tr>
+<td><span class="optional-data">has_favorites</span></td>
+<td><span class="data-type">Boolean</span></td>
+<td>255</td>
+</tr>
+<tr>
+<td><span class="optional-data">has_searches</span></td>
+<td><span class="data-type">Boolean</span></td>
+<td>255</td>
+</tr>
+<tr>
 <td><span class="optional-data">page_number</span></td>
 <td><span class="data-type">Integer</span></td>
 <td>255</td>
@@ -28197,6 +28295,18 @@ moxi_works_agent_id=abc123&amp;description=talk+to+private+kane,%2C+e-one-thousa
 
 <p><span class="request-data-head">moxi_works_agent_id</span>
 <span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which the <span class='entity-name'>WebUser</span> objects are associated with. This will be a string that may take the form of an email address, or a unique identification string. If supplied this data must reference a valid Moxi Works <span class='entity-name'>Agent</span> ID for your <span class='entity-name'>WebUser</span> <span class='action-name'>Index</span>  request to be accepted.</span></p>
+
+<p><span class="request-data-head">has_agent_association</span>
+<span class="request-data-remarks">This boolean should be set to true when fetching only agent associated <span class='entity-name'>WebUser</span> objects.</span></p>
+
+<p><span class="request-data-head">has_web_data</span>
+<span class="request-data-remarks">This boolean should be set to true when fetching only <span class='entity-name'>WebUser</span> objects that have available listing search or favorite listing data.</span></p>
+
+<p><span class="request-data-head">has_favorites</span>
+<span class="request-data-remarks">This boolean should be set to true when fetching only <span class='entity-name'>WebUser</span> objects that have available favorite listing data.</span></p>
+
+<p><span class="request-data-head">has_searches</span>
+<span class="request-data-remarks">This boolean should be set to true when fetching only <span class='entity-name'>WebUser</span> objects that have available listing search data.</span></p>
 
 <p><span class="request-data-head">page_number</span>
 <span class="request-data-remarks">Page of <span class='entity-name'>WebUser</span> records to return. Use if <code class="prettyprint">total_pages</code> indicates that there is more than one page of data available.</span></p>

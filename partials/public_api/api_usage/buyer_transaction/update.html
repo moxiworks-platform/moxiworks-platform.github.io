@@ -726,6 +726,9 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;min_beds=12&amp;max_beds=34&
 <p><span class="request-data-head">promote_transaction</span>
 <span class="request-data-remarks">If this is set to <code class="prettyprint">true</code> then The Moxi Works Platform will promote this transaction to the next stage. </span></p>
 
+<p><span class="request-data-head">stage</span>
+<span class="request-data-remarks">The stage that the <span class='entity-name'>BuyerTransaction</span> should be placed into (see section header). This should not be used in conjunction with the <span class='attribute-name'>promote_transaction</span> attribute.</span></p>
+
 <h6 id="promoting-buyertransaction-stage">Promoting <span class='entity-name'>BuyerTransaction</span> Stage</h6>
 
 <p>In order to promote a <span class='entity-name'>BuyerTransaction</span> to the next stage, include the <span class='attribute-name'>promote_transaction</span> parameter in your <span class='action-name'>Update</span> request and set it to <code class="prettyprint">true</code>.  For more information about <span class='entity-name'>BuyerTransaction</span> stages, see <a href='#buyertransaction-stages'><span class='entity-name'>BuyerTransaction</span> Stages</a>.</p>

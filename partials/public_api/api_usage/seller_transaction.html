@@ -36,9 +36,9 @@
 
 <p>Each <span class='entity-name'>SellerTransaction</span> passes through five stages. Each stage represents a different stage in the transaction lifecycle. Every <span class='entity-name'>SellerTransaction</span> response will include the current stage of the <span class='entity-name'>SellerTransaction</span> both in its numeric form as well as a human readable string representation.  As the transaction progresses through its lifecycle, you can promote it to the next stage.    See <a href='#promoting-sellertransaction-stage'>Promoting <span class='entity-name'>SellerTransaction</span> Stage</a> for information about promoting a <span class='entity-name'>SellerTransaction</span> object to the next stage.</p>
 
-<p>Each <span class='entity-name'>SellerTransaction</span> created through the Moxi Works Platform will be created as a stage 3 (<code class="prettyprint">active</code>) <span class='entity-name'>SellerTransaction</span>.</p>
+<p>By default, each <span class='entity-name'>SellerTransaction</span> created through the Moxi Works Platform will be created as a stage 3 (<code class="prettyprint">active</code>) <span class='entity-name'>SellerTransaction</span>.</p>
 
-<p>Use the table below to determine the mapping between the integer represended in <span class='attribute-name'>stage</span> and its human readable counterpart.</span></p>
+<p>Use the table below to determine the mapping between the integer represented in <span class='attribute-name'>stage</span> and its human readable counterpart.</span></p>
 
 <table><thead>
 <tr>
@@ -47,6 +47,11 @@
 <th>description</th>
 </tr>
 </thead><tbody>
+<tr>
+<td>0</td>
+<td>inactive</td>
+<td>This is a discontinued <span class='entity-name'>SellerTransaction</span>. It cannot be edited, or moved to a different stage.</td>
+</tr>
 <tr>
 <td>1</td>
 <td>initialized</td>
@@ -60,7 +65,7 @@
 <tr>
 <td>3</td>
 <td>active</td>
-<td>This is a configured and active <span class='entity-name'>SellerTransaction</span>. The agent is actively working on this transaction.</td>
+<td>This is a configured and active <span class='entity-name'>SellerTransaction</span>. The agent is actively working on this transaction. Once active, a transaction cannot be regressed to an earlier stage.</td>
 </tr>
 <tr>
 <td>4</td>
@@ -73,6 +78,16 @@
 <td>This is a <span class='entity-name'>SellerTransaction</span> which has been completed.</td>
 </tr>
 </tbody></table>
+
+<aside class="note">
+  Additional transaction guidelines:
+  <ul>
+    <li> The <span class='attribute-name'>address</span>, <span class='attribute-name'>city</span>, <span class='attribute-name'>state</span>, and <span class='attribute-name'>zip_code</span> attributes must be included in order to move a transaction into stages 4 or 5: &lsquo;pending&rsquo; or 'complete&rsquo;.</li>
+    <li> The <span class='attribute-name'>closing_price</span> and <span class='attribute-name'>closing_timestamp</span> attributes must be included in order to move a transaction into stage 5: 'complete&rsquo;. They may not be present when moving a transaction to any other stage.</li>
+    <li> The <span class='attribute-name'>mls_number</span> attribute must be included for transactions for which the <span class='attribute-name'>is_mls_transaction</span> attribute is set to true.</li>
+    <li> <span class='attribute-name'>stage</span> `1` (`initialized`)  Transaction records may be promoted to either <span class='entity-name'>BuyerTransaction</span> records or <span class='entity-name'>SellerTransaction</span> records when they are promoted to <span class='attribute-name'>stage</span> `2` (`configured`) . </aside>
+  </ul>
+</aside>
 
 <h4 id="sellertransaction-create"><span class='entity-name'>SellerTransaction</span> <span class='action-name'>Create</span></h4>
 

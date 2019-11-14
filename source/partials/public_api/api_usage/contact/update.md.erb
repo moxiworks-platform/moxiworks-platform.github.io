@@ -63,7 +63,13 @@
 "home_purchase_anniversaries": "1484088442,1484088443",
 "birthday": 1484088443,
 "company": "Blep Ltd.",
-"spouse_or_partner": "Rick Sanchez"
+"spouse_or_partner": "Rick Sanchez",
+"category_names": "blep1,blep2,blep3",
+"groups":[
+  "blep1",
+  "blep2",
+  "blep3"
+]
 }
 ```
 
@@ -306,7 +312,13 @@ $moxi_works_contact = 12345678-1234-1234-1234-1234567890ab\Contact::update([
 "home_purchase_anniversaries": "1484088442,1484088443",
 "birthday": 1484088443,
 "company": "Blep Ltd.",
-"spouse_or_partner": "Rick Sanchez"
+"spouse_or_partner": "Rick Sanchez",
+"category_names": "blep1,blep2,blep3",
+"groups":[
+  "blep1",
+  "blep2",
+  "blep3"
+]
 }
 ```
 
@@ -554,6 +566,7 @@ Attribute | Type | Length Limit |
 |<span class="optional-data">home_purchase_anniversaries</span>|<span class="data-type">String</span>|  |
 |<span class="optional-data">company</span>|<span class="data-type">String</span>|  |
 |<span class="optional-data">spouse_or_partner</span>|<span class="data-type">String</span>|  |
+|<span class="optional-data">category_names</span>|<span class="data-type">String</span>|  |
 
 <span class="multi-option-required-data">* **Either <span class='attribute-name'>moxi_works_agent_id</span> or <span class='attribute-name'>agent_uuid</span> must be supplied. For guidance on which Agent identifier better fits your use-case, see [Agent Identifiers](#agent-identifiers)**</span>
 
@@ -705,6 +718,8 @@ Attribute | Type | Length Limit |
 <span class="request-data-head">spouse_or_partner</span>
 <span class="request-data-remarks">The spouse or partner name to be associated with the <span class='entity-name'>Contact</span> record.</span>
 
+<span class="request-data-head">category_names</span>
+<span class="request-data-remarks">A comma separated string of the agent's mail server categories / groups into which the <span class='entity-name'>Contact</span> will be placed. If a supplied group / category name doesn't already exist for the <span class='entity-name'>Agent</span> record, a new category / group will be created and the contact will be added to it.</span>
 
 ##### <span class='entity-name'>Contact</span> <span class='action-name'>Update</span> Response Payload
 The following attributes make up the payload of the <span class='entity-name'>Contact</span> response for a <span class='action-name'>Update</span> request.
@@ -834,8 +849,13 @@ The following attributes make up the payload of the <span class='entity-name'>Co
       1484088442
    ],
   "company": "Blep Ltd.",
-  "spouse_or_partner": "Rick Sanchez"
-
+  "spouse_or_partner": "Rick Sanchez",
+  "category_names": "blep1,blep2,blep3",
+  "groups":[
+     "blep1",
+     "blep2",
+     "blep3"
+  ]
 }
 ```
 
@@ -949,7 +969,13 @@ The following attributes make up the payload of the <span class='entity-name'>Co
   "websites": [],
   "home_purchase_anniversaries": [],
   "company": null,
-  "spouse_or_partner": null
+  "spouse_or_partner": null,
+  "category_names": "blep1,blep2,blep3",
+  "groups":[
+     "blep1",
+     "blep2",
+     "blep3"
+  ]
 }
 ```
 
@@ -1031,6 +1057,8 @@ Attribute | Type |
 |<span class="response-data">home_purchase_anniversaries</span>|<span class="data-type">Array</span>|  |
 |<span class="response-data">company</span>|<span class="data-type">String or null</span>|  |
 |<span class="response-data">spouse_or_partner</span>|<span class="data-type">String or null</span>|  |
+|<span class="response-data">category_names</span>|<span class="data-type">String or null</span>|  |
+|<span class="response-data">groups</span>|<span class="data-type">Array</span>|  |
 
 <span class='multi-option-response-data'>* Either <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> will be returned depending on whether it is used in the request. The response payload object's agent identifier key will match the passed parameter.</span>
 
@@ -1173,6 +1201,13 @@ Attribute | Type |
 
 <span class="response-data-head">spouse_or_partner</span>
 <span class="response-data-remarks">The spouse or partner of the contact.</span>
+
+<span class="response-data-head">category_names</span>
+<span class="response-data-remarks">A comma separated list of the agent's mail server groups / categories to which this contact belongs.</span>
+
+<span class="response-data-head">groups</span>
+<span class="response-data-remarks">An array of the agent's mail server groups / categories to which this contact belongs.</span>
+
 
 ###### <span class='attribute-name'>websites</span> Objects
 

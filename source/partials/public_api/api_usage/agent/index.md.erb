@@ -264,6 +264,14 @@ Attribute | Type  | Length Limit |
   "office_phone_number": "(234)456-7890",
   "primary_email_address": "the_agent@agentdomain.com",
   "secondary_email_address": "the_agent_alt@otherdomain.com",
+  "email_addresses": {
+    "primary": "primary@email.com",
+    "display": "display@email.com",
+    "alternate": null,
+    "moxi_sync": "moxi@email.com",
+    "lead_routing": "lead@email.com",
+    "zillow": null
+  },
   "lead_routing_email_address":"leadrouter@thisdomain.com",
   "title": "Broker",
   "uuid":"8675309e9-1234-dead-beef-deadbeefdead",
@@ -368,6 +376,7 @@ Attribute | Type |
 |<span class="response-data">office_phone_number</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">primary_email_address</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">secondary_email_address</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">email_addresses</span>|<span class="data-type">Hash</span>|
 |<span class="response-data">lead_routing_email_address</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">title</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">uuid</span>|<span class="data-type">String</span>|
@@ -627,3 +636,34 @@ Attribute | Type |
 
 <span class="response-data-head">luxury_portfolio</span>
 <span class="response-data-remarks">Indicates whether or not this agent has luxury portfolio association in the LeadingRE system.</span>
+
+###### <span class='attribute-name'>email_addresses</span> Object
+
+The <span class='attribute-name'>email_addresses</span> Hash is a Dictionary object holding the email addresses associated with the <span class='entity-name'>Agent</span> record. The structure of the object is shown below.
+
+Attribute | Type |
+-----|-----|-----|-----|
+|<span class="response-data">primary</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">display</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">alternate</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">moxi_sync</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">lead_routing</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">zillow</span>|<span class="data-type">String or null</span>|
+
+<span class="response-data-head">primary</span>
+<span class="response-data-remarks">The primary email address associated with the <span class='entity-name'>Agent</span> record.</span>
+
+<span class="response-data-head">display</span>
+<span class="response-data-remarks">The display email address associated with the <span class='entity-name'>Agent</span> record.</span>
+
+<span class="response-data-head">alternate</span>
+<span class="response-data-remarks">The alternate email address associated with the <span class='entity-name'>Agent</span> record.</span>
+
+<span class="response-data-head">moxi_sync</span>
+<span class="response-data-remarks">The moxi_sync email address associated with the <span class='entity-name'>Agent</span> record.</span>
+
+<span class="response-data-head">lead_routing</span>
+<span class="response-data-remarks">The lead_routing email address associated with the <span class='entity-name'>Agent</span> record.</span>
+
+<span class="response-data-head">zillow</span>
+<span class="response-data-remarks">The zillow email address associated with the <span class='entity-name'>Agent</span> record.</span>

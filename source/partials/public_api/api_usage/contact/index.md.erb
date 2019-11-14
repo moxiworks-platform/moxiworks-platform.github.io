@@ -308,8 +308,13 @@ Attribute | Type | Length Limit |
       1484088442
    ],
   "company": "Blep Ltd.",
-  "spouse_or_partner": "Rick Sanchez"
-
+  "spouse_or_partner": "Rick Sanchez",
+  "category_names": "blep1,blep2,blep3",
+  "groups":[
+    "blep1",
+    "blep2",
+    "blep3"
+  ]
 },
 {
   "agent_uuid": "12345678-1234-1234-1234-1234567890ab",
@@ -421,7 +426,13 @@ Attribute | Type | Length Limit |
   "websites": [],
   "home_purchase_anniversaries": [],
   "company": null,
-  "spouse_or_partner": null
+  "spouse_or_partner": null,
+  "category_names": "blep1,blep2,blep3",
+  "groups":[
+    "blep1",
+    "blep2",
+    "blep3"
+  ]
 }]
 }
 ```
@@ -690,6 +701,8 @@ Attribute | Type |
 |<span class="response-data">home_purchase_anniversaries</span>|<span class="data-type">Array</span>|  |
 |<span class="response-data">company</span>|<span class="data-type">String or null</span>|  |
 |<span class="response-data">spouse_or_partner</span>|<span class="data-type">String or null</span>|  |
+|<span class="response-data">category_names</span>|<span class="data-type">String or null</span>|  |
+|<span class="response-data">groups</span>|<span class="data-type">Array</span>|  |
 
 <span class='multi-option-response-data'>* Either <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> will be returned depending on whether it is used in the request. The response payload object's agent identifier key will match the passed parameter.</span>
 
@@ -835,6 +848,13 @@ Attribute | Type |
 
 <span class="response-data-head">spouse_or_partner</span>
 <span class="response-data-remarks">The spouse or partner of the contact.</span>
+
+<span class="response-data-head">category_names</span>
+<span class="response-data-remarks">A comma separated list of the agent's mail server groups / categories to which this contact belongs.</span>
+
+<span class="response-data-head">groups</span>
+<span class="response-data-remarks">An array of the agent's mail server groups / categories to which this contact belongs.</span>
+
 
 ###### <span class='attribute-name'>websites</span> Objects
 

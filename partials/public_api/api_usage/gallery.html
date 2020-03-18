@@ -196,6 +196,8 @@
 <p><span class="request-data-head">moxi_works_agent_id</span>
 <span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which you are searching for associated <span class='entity-name'>gallery</span> objects. This will be a string that may take the form of an email address, or a unique identification string. This data is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>gallery</span> <span class='action-name'>Index</span>  request to be accepted.</span></p>
 
+<aside class="note">A company&rsquo;s internal agent id may be used to construct the agent&rsquo;s unique identification string. To do so, the value passed via the moxi_works_agent_id should be a single concatenated string, of the form:</br>[moxi_works_company_id]:[internal_agent_id]</br>Use <a href='#company'>Company Endpoint</a> to determine which moxi_works_company_id to use.</aside>
+
 <p><span class="request-data-head">moxi_works_company_id</span>
 <span class="request-data-remarks">A valid Moxi Works <span class='entity-name'>Company</span> ID. Use <a href="#company">Company Endpoint</a> to determine what <span class='attribute-name'>moxi_works_company_id</span> you can use.</span></p>
 
@@ -285,24 +287,24 @@
 </tr>
 </thead><tbody>
 <tr>
-<td><span class="response-data">ThumbURL</span></td>
-<td><span class="response-data"><span class="data-type">String</span></td>
-</tr>
-<tr>
-<td><span class="response-data">SmallURL</span></td>
-<td><span class="response-data"><span class="data-type">String</span></td>
-</tr>
-<tr>
 <td><span class="response-data">FullURL</span></td>
-<td><span class="response-data"><span class="data-type">String</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
 </tr>
 <tr>
 <td><span class="response-data">GalleryURL</span></td>
-<td><span class="response-data"><span class="data-type">String</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
 </tr>
 <tr>
 <td><span class="response-data">RawURL</span></td>
-<td><span class="response-data"><span class="data-type">String</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">SmallURL</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">ThumbURL</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
 </tr>
 <tr>
 <td><span class="response-data">Title</span></td>
@@ -338,12 +340,6 @@
 </tr>
 </tbody></table>
 
-<p><span class="response-data-head">ThumbURL</span>
-<span class="response-data-remarks">This is a valid URL that can be used for <code class="prettyprint">img src</code> to a thumbnail sized representation of the image. This is the smallest size image returned in each object in the <span class='attribute-name'>ListingImages</span> array.</span></p>
-
-<p><span class="response-data-head">SmallURL</span>
-<span class="response-data-remarks">This is a valid URL that can be used for <code class="prettyprint">img src</code> to a small sized representation of the image. This is the small size image returned in each object in the <span class='attribute-name'>ListingImages</span> array.</span></p>
-
 <p><span class="response-data-head">FullURL</span>
 <span class="response-data-remarks">This is a valid URL that can be used for <code class="prettyprint">img src</code> to a medium sized representation of the image. This is the medium size image returned in each object in the <span class='attribute-name'>ListingImages</span> array.</span></p>
 
@@ -352,6 +348,12 @@
 
 <p><span class="response-data-head">RawURL</span>
 <span class="response-data-remarks">This is a valid URL to the raw image as uploaded. This is the largest size image returned in each object in the <span class='attribute-name'>ListingImages</span> array. Due to variation in size, this image should not be considered for use when displaying images rendered in a browser.</span></p>
+
+<p><span class="response-data-head">SmallURL</span>
+<span class="response-data-remarks">This is a valid URL that can be used for <code class="prettyprint">img src</code> to a small sized representation of the image. This is the small size image returned in each object in the <span class='attribute-name'>ListingImages</span> array.</span></p>
+
+<p><span class="response-data-head">ThumbURL</span>
+<span class="response-data-remarks">This is a valid URL that can be used for <code class="prettyprint">img src</code> to a thumbnail sized representation of the image. This is the smallest size image returned in each object in the <span class='attribute-name'>ListingImages</span> array.</span></p>
 
 <p><span class="response-data-head">Title</span>
 <span class="response-data-remarks">Human readable title of image.</span></p>

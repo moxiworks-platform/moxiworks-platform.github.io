@@ -247,8 +247,10 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
 <p><span class="request-data-head">moxi_works_agent_id</span>
 <span class="request-data-remarks">This is the Moxi Works Platform ID of the agent which an  <span class='entity-name'>ActionLog</span> entry is associated with. This will be a string that may take the form of an email address, or a unique identification string. <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>ActionLog</span> request to be accepted.</span></p>
 
+<aside class="note">A company&rsquo;s internal agent id may be used to construct the agent&rsquo;s unique identification string. To do so, the value passed via the moxi_works_agent_id should be a single concatenated string, of the form:</br>[moxi_works_company_id]:[internal_agent_id]</br>Use <a href='#company'>Company Endpoint</a> to determine which moxi_works_company_id to use.</aside>
+
 <p><span class="request-data-head">body</span>
-<span class="request-data-remarks">This is a human readable string which would be presented to the Agent as the content of the <span class='entity-name'>ActionLog</span> entry. This can be any arbitrary plain-text string which would be practical for the agent to see in the history of events associated with a <span class='entity-name'>Contact</span>. It must be greater than 0 and must be less than 255 characters.</span></p>
+<span class="request-data-remarks">This is a human readable string which would be presented to the Agent as the content of the <span class='entity-name'>ActionLog</span> entry. This can be any arbitrary plain-text string which would be practical for the agent to see in the history of events associated with a <span class='entity-name'>Contact</span>. It must be greater than 0 and must be less than 5000 characters (including white space).</span></p>
 
 <p><span class="request-data-head">moxi_works_contact_id</span>
 <span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Contact</span> which this <span class='entity-name'>ActionLog</span> object is to be associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID. This data is required and must reference a valid Moxi Works <span class='entity-name'>Contact</span> ID for your <span class='entity-name'>ActionLog</span> <span class='action-name'>Create</span>  request to be accepted. This is the same as the <span class='attribute-name'>moxi_works_contact_id</span> attribute of the  <span class='entity-name'>Contact</span> response.</span></p>
@@ -383,7 +385,9 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
 
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"agent_uuid"</span><span class="p">:</span><span class="s2">"12345678-1234-1234-1234-1234567890ab"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"partner_contact_id"</span><span class="p">:</span><span class="s2">"mySystemsContactId"</span><span class="w">
+  </span><span class="nt">"partner_contact_id"</span><span class="p">:</span><span class="s2">"mySystemsContactId"</span><span class="p">,</span><span class="nt">"
+  "</span><span class="err">date_min</span><span class="nt">": 1569860000,
+  "</span><span class="err">date_max"</span><span class="p">:</span><span class="w"> </span><span class="mi">1569870000</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
 </span></code></pre>
@@ -530,6 +534,16 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
 <td><span class="required-data"><span class="data-type">String</span></span></td>
 <td><span class="required-data">255</span></td>
 </tr>
+<tr>
+<td><span class="optional-data">date_min</span></td>
+<td><span class="data-type">Integer</span></td>
+<td>255</td>
+</tr>
+<tr>
+<td><span class="optional-data">date_max</span></td>
+<td><span class="data-type">Integer</span></td>
+<td>255</td>
+</tr>
 </tbody></table>
 
 <p><span class="multi-option-required-data"> * Either <span class='attribute-name'>moxi_works_agent_id</span> or <span class='attribute-name'>agent_uuid</span> must be supplied. For guidance on which Agent identifier better fits your use-case, see <a href="#agent-identifiers">Agent Identifiers</a></span></p>
@@ -544,11 +558,19 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
 <p><span class="request-data-head">moxi_works_agent_id</span>
 <span class="request-data-remarks">This is the Moxi Works Platform ID of the agent which an <span class='entity-name'>ActionLog</span> entry is associated with. This will be a string that may take the form of an email address, or a unique identification string. <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>ActionLog</span> request to be accepted.</span></p>
 
+<aside class="note">A company&rsquo;s internal agent id may be used to construct the agent&rsquo;s unique identification string. To do so, the value passed via the moxi_works_agent_id should be a single concatenated string, of the form:</br>[moxi_works_company_id]:[internal_agent_id]</br>Use <a href='#company'>Company Endpoint</a> to determine which moxi_works_company_id to use.</aside>
+
 <p><span class="request-data-head">moxi_works_contact_id</span>
 <span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Contact</span> which the <span class='entity-name'>ActionLog</span> objects are associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID. This data is required and must reference a valid Moxi Works <span class='entity-name'>Contact</span> ID for your <span class='entity-name'>ActionLog</span> <span class='action-name'>Index</span>  request to be accepted. This is the same as the <span class='attribute-name'>moxi_works_contact_id</span> attribute of the  <span class='entity-name'>Contact</span> response.</span></p>
 
 <p><span class="request-data-head">partner_contact_id</span>
 <span class="request-data-remarks">This is the unique identifer you use in your system that has been associated with the <span class='entity-name'>Contact</span> that you are creating an <span class='entity-name'>ActionLog</span> entry about. You should have already created the <span class='entity-name'>Contact</span> record on the Moxi Works Platform using <a href="/#contact-create">Contact Create</a> before attempting to use your system&rsquo;s contact ID to show <span class='entity-name'>ActionLog</span> entries for the <span class='entity-name'>Contact</span>. Your request will be rejected if the <span class='entity-name'>Contact</span> record does not exist.</span></p>
+
+<p><span class="request-data-head">date_min</span>
+<span class="request-data-remarks">Only <span class='entity-name'>ActionLog</span> records created later than this Unix timestamp will be included in the query. The upper bound of the time slice will be the 90 days higher than <span class='attribute-name'>date_min</span> value or the value of the the <span class='attribute-name'>date_max</span>; whichever is lower. If no timestamps are provided, ActionLogs from the last 90 days will be retrieved.</span></p>
+
+<p><span class="request-data-head">date_max</span>
+<span class="request-data-remarks">Only <span class='entity-name'>ActionLog</span> records created earlier than this Unix timestamp will be included in the query. Should be no higher than 90 days past the <span class='attribute-name'>date_min</span> attribute if it is provided.</span></p>
 
 <h5 id="actionlog-index-response-payload"><span class='entity-name'>ActionLog</span> <span class='action-name'>Index</span> Response Payload</h5>
 

@@ -204,14 +204,16 @@
 <p><span class="request-data-head">moxi_works_agent_id</span>
 <span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>Contact</span> entry is associated with. This will be a string that may take the form of an email address, or a unique identification string. This data is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>Contact</span> <span class='action-name'>Index</span>  request to be accepted.</span></p>
 
+<aside class="note">A company&rsquo;s internal agent id may be used to construct the agent&rsquo;s unique identification string. To do so, the value passed via the moxi_works_agent_id should be a single concatenated string, of the form:</br>[moxi_works_company_id]:[internal_agent_id]</br>Use <a href='#company'>Company Endpoint</a> to determine which moxi_works_company_id to use.</aside>
+
 <p><span class="request-data-head">contact_name</span>
 <span class="request-data-remarks">The full name of the contact which you are trying to find the <span class='entity-name'>Contact</span> record for.</span></p>
 
 <p><span class="request-data-head">email_address</span>
-<span class="request-data-remarks">An email address associated with the  <span class='entity-name'>Contact</span> record. May be primary or secondary.</span></p>
+<span class="request-data-remarks">An email address associated with the  <span class='entity-name'>Contact</span> record.</span></p>
 
 <p><span class="request-data-head">phone_number</span>
-<span class="request-data-remarks">A phone number associated with the  <span class='entity-name'>Contact</span> record. May be primary or secondary.</span></p>
+<span class="request-data-remarks">A phone number associated with the <span class='entity-name'>Contact</span> record.</span></p>
 
 <p><span class="request-data-head">updated_since</span>
 <span class="request-data-remarks">Paged responses of all <span class='entity-name'>Contact</span> objects updated after this Unix timestamp will be returned in the response.</span></p>
@@ -230,6 +232,9 @@
   </span><span class="nt">"agent_uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345678-1234-1234-1234-1234567890ab"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"partner_contact_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"booyuh"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"moxi_works_contact_id"</span><span class="p">:</span><span class="s2">"deadbeef-feed-face-2bad4daddead"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"moxi_works_lead_source_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"some_lead_source_id"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"moxi_works_origin_lead_source_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"some_other_lead_source_id"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"is_deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="nt">"contact_name"</span><span class="p">:</span><span class="s2">"Firstname Middlenyme Larstnam"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"first_name"</span><span class="p">:</span><span class="s2">"Firstname"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"middle_name"</span><span class="p">:</span><span class="s2">"Middlenyme"</span><span class="p">,</span><span class="w">
@@ -237,8 +242,26 @@
   </span><span class="nt">"suffix"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"gender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"m"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"label_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mr. and Mrs. Oo-De-Lally Golly What a Day"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"primary_email_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"me@justabout.right.here"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"secondary_email_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"me.too@justabout.right.here"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"email_addresses"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"email_address1"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"this@one.com"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"email_address2"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"also@this.com"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"phone_numbers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mobile_phone"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3603603608"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"home_phone"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3603603608"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
   </span><span class="nt">"primary_phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9995551212"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"secondary_phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"(333) 555-1185"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"home_street_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234 Sesame St."</span><span class="p">,</span><span class="w">
@@ -270,6 +293,11 @@
   </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
   </span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"groups"</span><span class="p">:[</span><span class="w">
+    </span><span class="s2">"this group"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"that group"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"the other group"</span><span class="w">
+  </span><span class="p">],</span><span class="w">
   </span><span class="nt">"property_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://my.property.website.is/here"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"property_mls_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"property_street_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2345 67th place"</span><span class="p">,</span><span class="w">
@@ -294,12 +322,38 @@
   </span><span class="nt">"search_max_lot_size"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3235"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"search_min_year_built"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1388"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"search_max_year_built"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2044"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"search_property_types"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Condo, Single Family, Townhouse"</span><span class="w">
+  </span><span class="nt">"search_property_types"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Condo, Single Family, Townhouse"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"websites"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"website_key_1"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://blep.com"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"website_key_2"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://blep.com"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"home_purchase_anniversaries"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="mi">1484088442</span><span class="w">
+   </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"company"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Blep Ltd."</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"spouse_or_partner"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rick Sanchez"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"category_names"</span><span class="p">:</span><span class="w"> </span><span class="s2">"blep1,blep2,blep3"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"groups"</span><span class="p">:[</span><span class="w">
+    </span><span class="s2">"blep1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"blep2"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"blep3"</span><span class="w">
+  </span><span class="p">]</span><span class="w">
 </span><span class="p">},</span><span class="w">
 </span><span class="p">{</span><span class="w">
   </span><span class="nt">"agent_uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345678-1234-1234-1234-1234567890ab"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"partner_contact_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fooyuh"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"moxi_works_contact_id"</span><span class="p">:</span><span class="s2">"deadbeef-feed-face-2baddadbdead"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"moxi_works_lead_source_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"some_lead_source_id"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"moxi_works_origin_lead_source_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"some_other_lead_source_id"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"is_deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="nt">"contact_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"buckminster fuller"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"first_name"</span><span class="p">:</span><span class="s2">"buckminster"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"middle_name"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -307,8 +361,38 @@
   </span><span class="nt">"suffix"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"gender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"m"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"label_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mr. and Mrs. Oo-De-Lally Golly What a Day"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"primary_email_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"whatever@whatevers.right.here"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"secondary_email_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"me.2009@2009.whatevers.here"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"primary_email_address"</span><span class="p">:</span><span class="s2">"primary@email.com"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"secondary_email_address"</span><span class="p">:</span><span class="s2">"secondary@email.com"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"primary_phone_number"</span><span class="p">:</span><span class="s2">"3603603608"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"secondary_phone_number"</span><span class="p">:</span><span class="s2">"3603603609"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"email_addresses"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"email_address1"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"primary@email.com"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"email_address2"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"secondary@email.com"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"email_address3"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"also@this.com"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"phone_numbers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mobile_phone"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3603603608"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"home_phone"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3603603609"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"business_phone"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3603603610"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+  </span><span class="p">],</span><span class="w">
   </span><span class="nt">"primary_phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"202 123-4567"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"secondary_phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"(444) 555-6666"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"home_street_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234 Pecan Dr."</span><span class="p">,</span><span class="w">
@@ -339,6 +423,11 @@
   </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
   </span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"groups"</span><span class="p">:[</span><span class="w">
+    </span><span class="s2">"this group"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"that group"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"the other group"</span><span class="w">
+  </span><span class="p">],</span><span class="w">
   </span><span class="nt">"occupation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"football fan"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"property_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://my.property.website.is/here"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"property_mls_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
@@ -364,7 +453,17 @@
   </span><span class="nt">"search_max_lot_size"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3235"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"search_min_year_built"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1388"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"search_max_year_built"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2044"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"search_property_types"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Condo, Single Family, Townhouse"</span><span class="w">
+  </span><span class="nt">"search_property_types"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Condo, Single Family, Townhouse"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"websites"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+  </span><span class="nt">"home_purchase_anniversaries"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+  </span><span class="nt">"company"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"spouse_or_partner"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"category_names"</span><span class="p">:</span><span class="w"> </span><span class="s2">"blep1,blep2,blep3"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"groups"</span><span class="p">:[</span><span class="w">
+    </span><span class="s2">"blep1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"blep2"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"blep3"</span><span class="w">
+  </span><span class="p">]</span><span class="w">
 </span><span class="p">}]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -420,6 +519,11 @@
   </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
   </span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"groups"</span><span class="p">:[</span><span class="w">
+    </span><span class="s2">"this group"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"that group"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"the other group"</span><span class="w">
+  </span><span class="p">],</span><span class="w">
   </span><span class="nt">"property_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://my.property.website.is/here"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"property_mls_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"property_street_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2345 67th place"</span><span class="p">,</span><span class="w">
@@ -489,6 +593,11 @@
   </span><span class="nt">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"googleplus"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
   </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"groups"</span><span class="p">:[</span><span class="w">
+    </span><span class="s2">"this group"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"that group"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"the other group"</span><span class="w">
   </span><span class="p">],</span><span class="w">
   </span><span class="nt">"property_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://my.property.website.is/here"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"property_mls_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
@@ -589,6 +698,18 @@
 <td><span class="data-type">String</span></td>
 </tr>
 <tr>
+<td><span class="response-data">moxi_works_lead_source_id</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">moxi_works_origin_lead_source_id</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">is_deleted</span></td>
+<td><span class="data-type">Boolean</span></td>
+</tr>
+<tr>
 <td><span class="response-data">contact_name</span></td>
 <td><span class="data-type">String or null</span></td>
 </tr>
@@ -625,12 +746,20 @@
 <td><span class="data-type">String or null</span></td>
 </tr>
 <tr>
+<td><span class="response-data">email_addresses</span></td>
+<td><span class="data-type">Array</span></td>
+</tr>
+<tr>
 <td><span class="response-data">primary_phone_number</span></td>
 <td><span class="data-type">String or null</span></td>
 </tr>
 <tr>
 <td><span class="response-data">secondary_phone_number</span></td>
 <td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">phone_numbers</span></td>
+<td><span class="data-type">Array</span></td>
 </tr>
 <tr>
 <td><span class="response-data">home_street_address</span></td>
@@ -678,6 +807,10 @@
 </tr>
 <tr>
 <td><span class="response-data">social_media_profiles</span></td>
+<td><span class="data-type">Array</span></td>
+</tr>
+<tr>
+<td><span class="response-data">groups</span></td>
 <td><span class="data-type">Array</span></td>
 </tr>
 <tr>
@@ -784,6 +917,30 @@
 <td><span class="response-data">note</span></td>
 <td><span class="data-type">String or null</span></td>
 </tr>
+<tr>
+<td><span class="response-data">websites</span></td>
+<td><span class="data-type">Array</span></td>
+</tr>
+<tr>
+<td><span class="response-data">home_purchase_anniversaries</span></td>
+<td><span class="data-type">Array</span></td>
+</tr>
+<tr>
+<td><span class="response-data">company</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">spouse_or_partner</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">category_names</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">groups</span></td>
+<td><span class="data-type">Array</span></td>
+</tr>
 </tbody></table>
 
 <p><span class='multi-option-response-data'>* Either <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> will be returned depending on whether it is used in the request. The response payload object&rsquo;s agent identifier key will match the passed parameter.</span></p>
@@ -799,6 +956,15 @@
 
 <p><span class="response-data-head">moxi_works_contact_id</span>
 <span class="response-data-remarks">This is the Moxi Works Platform ID of this <span class='entity-name'>Contact</span>. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID.</span></p>
+
+<p><span class="response-data-head">moxi_works_lead_source_id</span>
+<span class="response-data-remarks">This is the unique Moxi Works Platform ID of the <span class='entity-name'>LeadSource</span> that generated this <span class='entity-name'>Contact</span>.</span></p>
+
+<p><span class="request-data-head">moxi_works_origin_lead_source_id</span>
+<span class="request-data-remarks">This is used to keep track of the original lead source for this <span class='entity-name'>Contact</span> record. This field will not be displayed in MoxiEngage, and is for the parter&rsquo;s own tracking purposes. This key will be associated with valid <span class='attribute-name'>moxi_works_lead_source_id</span>. Send a <span class='entity-name'>LeadSource</span> <span class='action-name'>index</span> request for a full list of applicable lead sources and their ids.</span></p>
+
+<p><span class="response-data-head">is_deleted</span>
+<span class="response-data-remarks">Will be true if this <span class='entity-name'>Contact</span> has been deleted from the <span class='entity-name'>Agent</span>s contacts.</span></p>
 
 <p><span class="response-data-head">contact_name</span>
 <span class="response-data-remarks">This is the full name of the contact you are creating a <span class='entity-name'>Contact</span> record for. You should format this information as <i>first middle last</i>. This value will be null if no data is available for this attribute. </span></p>
@@ -822,10 +988,76 @@
 <span class="response-data-remarks">This is the name used to address the contact when creating mailing labels for the contact associated with this <span class='entity-name'>Contact</span> record. This value will be null if no data is available for this attribute. </span></p>
 
 <p><span class="response-data-head">primary_email_address</span>
-<span class="response-data-remarks">This is the email address that should be used first. If provided, the address must conform to <a href="https://tools.ietf.org/html/rfc3696#section-3">RFC 3696</a>. This value will be null if no data is available for this attribute. </span></p>
+<span class="response-data-remarks">This is the email address that should be used first. If provided, the address must conform to <a href="https://tools.ietf.org/html/rfc3696#section-3">RFC 3696</a>. This value will be null if no data is available for this attribute. This attribute should not be used in conjunction with the <span class='attribute-name'>email_addresses</span> attribute.</span></p>
 
 <p><span class="response-data-head">secondary_email_address</span>
-<span class="response-data-remarks">This is the email address that should be used as an alternate. If provided, the address must conform to <a href="https://tools.ietf.org/html/rfc3696#section-3">RFC 3696</a>. This value will be null if no data is available for this attribute. </span></p>
+<span class="response-data-remarks">This is the email address that should be used as an alternate. If provided, the address must conform to <a href="https://tools.ietf.org/html/rfc3696#section-3">RFC 3696</a>. This value will be null if no data is available for this attribute. This attribute should not be used in conjunction with the <span class='attribute-name'>email_addresses</span> attribute. </span></p>
+
+<h6 id="email_addresses-objects"><span class='attribute-name'>email_addresses</span> Objects</h6>
+
+<p>These email addresses correspond to agent created <span class='entity-name'>Contact</span> entities. Only phone fields present in this <span class='entity-name'>Contact</span> record will be returned.</p>
+
+<p>Each object in the <span class='attribute-name'>email_addresses</span> array will have the following structure:</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span class="response-data">key</span></td>
+<td><span class="response-data"><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">address</span></td>
+<td><span class="response-data"><span class="data-type">String</span></td>
+</tr>
+</tbody></table>
+
+<p><span class="response-data-head">key</span>
+<span class="response-data-remarks">The key identifier of the email field. The appropriate email keys are determined by the email server type associated with the <span class='entity-name'>Agent</span>. </span>
+<span class="response-data-remarks">The key identifiers for <span class='entity-name'>Agent</span> entities synced to MoxiEngage via a Microsoft Exchange account are: <span class='attribute-name'>email_address1</span>, <span class='attribute-name'>email_address2</span>, <span class='attribute-name'>email_address3</span>. </span>
+<span class="response-data-remarks">The key identifiers for <span class='entity-name'>Agent</span> entities synced to MoxiEngage via a Google account are: <span class='attribute-name'>home</span>, <span class='attribute-name'>work</span>, <span class='attribute-name'>other</span>. </span></p>
+
+<p><span class="response-data-head">address</span>
+<span class="response-data-remarks">The email address field value.</span></p>
+
+<p><span class="response-data-head">primary_phone_number</span>
+<span class="response-data-remarks">This is the phone number that should be used first. It should be a 10 digit phone number. This attribute should not be used in conjunction with the <span class='attribute-name'>phone_numbers</span> attribute.</span></p>
+
+<p><span class="response-data-head">secondary_phone_number</span>
+<span class="response-data-remarks">This is the phone number that should be used as an alternate. It should be a 10 digit phone number. This attribute should not be used in conjunction with the <span class='attribute-name'>phone_numbers</span> attribute.</span></p>
+
+<h6 id="phone_numbers-objects"><span class='attribute-name'>phone_numbers</span> Objects</h6>
+
+<p>These phone numbers correspond to agent created <span class='entity-name'>Contact</span> entities. Only phone fields present in this <span class='entity-name'>Contact</span> record will be returned.</p>
+
+<p>Each object in the <span class='attribute-name'>phone_numbers</span> array will have the following structure:</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span class="response-data">key</span></td>
+<td><span class="response-data"><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">number</span></td>
+<td><span class="response-data"><span class="data-type">String</span></td>
+</tr>
+</tbody></table>
+
+<p><span class="response-data-head">key</span>
+<span class="response-data-remarks">The key identifier of the phone field. The appropriate phone keys are determined by the email server type associated with the <span class='entity-name'>Agent</span>.</span>
+<span class="response-data-remarks">The key identifiers for <span class='entity-name'>Agent</span> entities synced to MoxiEngage via a Microsoft Exchange account are: <span class='attribute-name'>mobile_phone</span>, <span class='attribute-name'>home_phone</span>, <span class='attribute-name'>home_phone2</span>, <span class='attribute-name'>business_phone</span>, <span class='attribute-name'>business_phone2</span>, <span class='attribute-name'>assistant_phone</span>, <span class='attribute-name'>home_fax</span>, <span class='attribute-name'>business_fax</span>, <span class='attribute-name'>car_phone</span>, <span class='attribute-name'>company_main_phone</span>, <span class='attribute-name'>other_fax</span>, <span class='attribute-name'>other_telephone</span>, <span class='attribute-name'>callback</span>, <span class='attribute-name'>isdn</span>, <span class='attribute-name'>pager</span>. </span>
+<span class="response-data-remarks">The key identifiers for <span class='entity-name'>Agent</span> entities synced to MoxiEngage via a Google account are: <span class='attribute-name'>mobile</span>, <span class='attribute-name'>home</span>, <span class='attribute-name'>work</span>, <span class='attribute-name'>assistant</span>, <span class='attribute-name'>home_fax</span>, <span class='attribute-name'>tty_tdd</span>, <span class='attribute-name'>radio</span>, <span class='attribute-name'>main</span>, <span class='attribute-name'>work_fax</span>, <span class='attribute-name'>car</span>, <span class='attribute-name'>other</span>, <span class='attribute-name'>pager</span>, <span class='attribute-name'>isdn</span>, <span class='attribute-name'>callback</span>, <span class='attribute-name'>telex</span>. </span></p>
+
+<p><span class="response-data-head">number</span>
+<span class="response-data-remarks">The phone number field value.</span></p>
 
 <p><span class="response-data-head">home_street_address</span>
 <span class="response-data-remarks">The contact&rsquo;s home address street, including number and any suite / apartment number information.  This value will be null if no data is available for this attribute. </span></p>
@@ -860,6 +1092,54 @@
 <p><span class="response-data-head">home_purchase_anniversary</span>
 <span class="response-data-remarks">Anniversary of the contact&rsquo;s home purchase represented as a Unix Timestamp. </span></p>
 
+<p><span class="response-data-head">home_purchase_anniversaries</span>
+<span class="response-data-remarks">A list of Unix Timestamps representing the contact&rsquo;s home purchase anniversaries.</span></p>
+
+<p><span class="response-data-head">company</span>
+<span class="response-data-remarks">The name of the company associated with the contact.</span></p>
+
+<p><span class="response-data-head">spouse_or_partner</span>
+<span class="response-data-remarks">The spouse or partner of the contact.</span></p>
+
+<p><span class="response-data-head">category_names</span>
+<span class="response-data-remarks">A comma separated list of the agent&rsquo;s mail server groups / categories to which this contact belongs.</span></p>
+
+<p><span class="response-data-head">groups</span>
+<span class="response-data-remarks">An array of the agent&rsquo;s mail server groups / categories to which this contact belongs.</span></p>
+
+<h6 id="websites-objects"><span class='attribute-name'>websites</span> Objects</h6>
+
+<p>Each object in the <span class='attribute-name'>websites</span> array will have the following structure.</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span class="response-data">rank</span></td>
+<td><span class="response-data"><span class="data-type">Integer</span></td>
+</tr>
+<tr>
+<td><span class="response-data">key</span></td>
+<td><span class="response-data"><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">value</span></td>
+<td><span class="response-data"><span class="data-type">String</span></td>
+</tr>
+</tbody></table>
+
+<p><span class="response-data-head">rank</span>
+<span class="response-data-remarks">The website&rsquo;s priority in the contact record.</span></p>
+
+<p><span class="response-data-head">key</span>
+<span class="response-data-remarks">The key identifier of the website for use in digesting websites added to the contact record via MoxiEngage</span></p>
+
+<p><span class="response-data-head">key</span>
+<span class="response-data-remarks">The url of the website.</span></p>
+
 <h6 id="social_media_profiles-objects"><span class='attribute-name'>social_media_profiles</span> Objects</h6>
 
 <p>Each object in the <span class='attribute-name'>social_media_profiles</span> array will have the following structure.</p>
@@ -885,6 +1165,9 @@
 
 <p><span class="response-data-head">property_url</span>
 <span class="response-data-remarks">This will be a valid URL for a property of interest in your system that can be viewed by the agent. This value will be null if no data is available for this attribute. </span></p>
+
+<p><span class="response-data-head">groups</span>
+<span class="response-data-remarks">Any Agent groups which the contact by name.</span></p>
 
 <p><span class="response-data-head">property_mls_id</span>
 <span class="response-data-remarks">This will be the MLS ID of the property of interest. This value will be null if no data is available for this attribute.  </span></p>
@@ -957,6 +1240,8 @@
 
 <p><span class="response-data-head">note</span>
 <span class="response-data-remarks">This is an arbitrary string giving the agent more details about the contact which would not otherwise fit into the <span class='entity-name'>Contact</span> record.  Any Notes added here will be displayed to the agent in an Activity Log record. Any HTML formatting included will be stripped from the <span class='attribute-name'>note</span> attribute&rsquo;s data.  This value will be null if no data is available for this attribute. </span></p>
+
+<aside class="note">Partner generated notes will be returned as a concatenated string following agent generated notes. The agent and partner notes will be separated by this delimiter: &ldquo; == &rdquo;</aside>
 
       </div>
       <div class="dark-box">

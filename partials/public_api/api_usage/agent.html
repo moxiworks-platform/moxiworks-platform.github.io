@@ -187,6 +187,11 @@
 <td><span class="data-type">Boolean</span></td>
 <td>255</td>
 </tr>
+<tr>
+<td><span class="optional-data">include_partners</span></td>
+<td><span class="data-type">Boolean</span></td>
+<td>255</td>
+</tr>
 </tbody></table>
 
 <p><span class="multi-option-required-data">* <strong>Either <span class='attribute-name'>moxi_works_agent_id</span> or <span class='attribute-name'>agent_uuid</span> must be supplied. For guidance on which Agent identifier better fits your use-case, see <a href="#agent-identifiers">Agent Identifiers</a></strong></span></p>
@@ -199,6 +204,8 @@
 <p><span class="request-data-head">moxi_works_agent_id</span>
 <span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span>. This will be a string that may take the form of an email address, or a unique identification string. <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>Agent</span> request to be accepted.</span></p>
 
+<aside class="note">A company&rsquo;s internal agent id may be used to construct the agent&rsquo;s unique identification string. To do so, the value passed via the moxi_works_agent_id should be a single concatenated string, of the form:</br>[moxi_works_company_id]:[internal_agent_id]</br>Use <a href='#company'>Company Endpoint</a> to determine which moxi_works_company_id to use.</aside>
+
 <p><span class="request-data-head">moxi_works_company_id</span>
 <span class="request-data-remarks">A valid Moxi Works <span class='entity-name'>Company</span> ID. Use <a href="#company">Company Endpoint</a> to determine what <span class='attribute-name'>moxi_works_company_id</span> you can use.</span></p>
 
@@ -206,6 +213,9 @@
 
 <p><span class="request-data-head">include_gci_goals</span>
 <span class="request-data-remarks">Whether to include agent&rsquo;s GCI goals and commissions data in the response data.</span></p>
+
+<p><span class="request-data-head">include_partners</span>
+<span class="request-data-remarks">To include affiliate data associated with the agent in the response, pass <code class="prettyprint">true</code>.</span></p>
 
 <h5 id="agent-show-response-payload"><span class='entity-name'>Agent</span> <span class='action-name'>Show</span> Response Payload</h5>
 
@@ -242,16 +252,33 @@
   </span><span class="nt">"office_phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"(234)456-7890"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"primary_email_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"the_agent@agentdomain.com"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"secondary_email_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"the_agent_alt@otherdomain.com"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"email_addresses"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"primary"</span><span class="p">:</span><span class="w"> </span><span class="s2">"primary@email.com"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"display"</span><span class="p">:</span><span class="w"> </span><span class="s2">"display@email.com"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"alternate"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"moxi_sync"</span><span class="p">:</span><span class="w"> </span><span class="s2">"moxi@email.com"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"lead_routing"</span><span class="p">:</span><span class="w"> </span><span class="s2">"lead@email.com"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"zillow"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="p">},</span><span class="w">
   </span><span class="nt">"lead_routing_email_address"</span><span class="p">:</span><span class="s2">"leadrouter@thisdomain.com"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Broker"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"uuid"</span><span class="p">:</span><span class="s2">"8675309e9-1234-dead-beef-deadbeefdead"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"has_engage_access"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"website_base_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mymoxi@website.com"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"twitter"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://twitter.com/agentguy"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"google_plus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://plus.google.com/1234567891011121314/posts"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"facebook"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.facebook.com/moxiworks/"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"home_page"</span><span class="p">:</span><span class="w"> </span><span class="s2">"foo.com"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"profile_image_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://picturererer.com/pics37/ImageStore.dll?id=852087C5D3A533DD&amp;w=200"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"profile_thumb_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://picturererer.com/pics37/ImageStore.dll?id=852087C5D3A533DD&amp;w=75"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"service_area_zip_codes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"98117"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"98105"</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"company_programs"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"Deluxe Listings agent"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Very Cool Program Manager"</span><span class="w">
+  </span><span class="p">],</span><span class="w">
   </span><span class="nt">"alternate_offices"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="nt">"moxi_works_office_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
@@ -308,12 +335,21 @@
   </span><span class="nt">"office_phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"(234)456-7890"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"primary_email_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"the_agent@agentdomain.com"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"secondary_email_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"the_agent_alt@otherdomain.com"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"email_addresses"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"primary"</span><span class="p">:</span><span class="w"> </span><span class="s2">"primary@email.com"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"display"</span><span class="p">:</span><span class="w"> </span><span class="s2">"display@email.com"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"alternate"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"moxi_sync"</span><span class="p">:</span><span class="w"> </span><span class="s2">"moxi@email.com"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"lead_routing"</span><span class="p">:</span><span class="w"> </span><span class="s2">"lead@email.com"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"zillow"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="p">},</span><span class="w">
   </span><span class="nt">"lead_routing_email_address"</span><span class="p">:</span><span class="s2">"leadrouter@thisdomain.com"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Broker"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"uuid"</span><span class="p">:</span><span class="s2">"8675309e9-1234-dead-beef-deadbeefdead"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"has_engage_access"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
   </span><span class="nt">"access_level"</span><span class="p">:</span><span class="s2">"user"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"has_product_access"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"website_base_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mymoxi@website.com"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"twitter"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://twitter.com/agentguy"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"google_plus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://plus.google.com/1234567891011121314/posts"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"facebook"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.facebook.com/moxiworks/"</span><span class="p">,</span><span class="w">
@@ -321,6 +357,14 @@
   </span><span class="nt">"profile_image_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://picturererer.com/pics37/ImageStore.dll?id=852087C5D3A533DD&amp;w=200"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"profile_thumb_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://picturererer.com/pics37/ImageStore.dll?id=852087C5D3A533DD&amp;w=75"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"region"</span><span class="p">:</span><span class="s2">"WESTERN WASHINGTON"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"service_area_zip_codes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"98117"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"98105"</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"company_programs"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"Deluxe Listings agent"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Very Cool Program Manager"</span><span class="w">
+  </span><span class="p">],</span><span class="w">
   </span><span class="nt">"alternate_offices"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="nt">"moxi_works_office_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
@@ -450,6 +494,10 @@
 <td><span class="data-type">String or null</span></td>
 </tr>
 <tr>
+<td><span class="response-data">nickname</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
 <td><span class="response-data">main_phone_number</span></td>
 <td><span class="data-type">String or null</span></td>
 </tr>
@@ -478,6 +526,10 @@
 <td><span class="data-type">String or null</span></td>
 </tr>
 <tr>
+<td><span class="response-data">email_addresses</span></td>
+<td><span class="data-type">Hash</span></td>
+</tr>
+<tr>
 <td><span class="response-data">lead_routing_email_address</span></td>
 <td><span class="data-type">String or null</span></td>
 </tr>
@@ -500,6 +552,10 @@
 <tr>
 <td><span class="response-data">access_level</span></td>
 <td><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">website_base_url</span></td>
+<td><span class="data-type">String or null</span></td>
 </tr>
 <tr>
 <td><span class="response-data">twitter</span></td>
@@ -542,12 +598,32 @@
 <td><span class="data-type">Float</span></td>
 </tr>
 <tr>
+<td><span class="response-data">service_area_zip_codes</span></td>
+<td><span class="data-type">Array</span></td>
+</tr>
+<tr>
 <td><span class="response-data">alternate_offices</span></td>
 <td><span class="data-type">Array</span></td>
 </tr>
 <tr>
 <td><span class="response-data">available_mls</span></td>
 <td><span class="data-type">Array</span></td>
+</tr>
+<tr>
+<td><span class="response-data">partners</span></td>
+<td><span class="data-type">Array</span></td>
+</tr>
+<tr>
+<td><span class="response-data">company_programs</span></td>
+<td><span class="data-type">Array</span></td>
+</tr>
+<tr>
+<td><span class="response-data">created_timestamp</span></td>
+<td><span class="data-type">Integer</span></td>
+</tr>
+<tr>
+<td><span class="response-data">deactivated_timestamp</span></td>
+<td><span class="data-type">Integer or null</span></td>
 </tr>
 </tbody></table>
 
@@ -611,6 +687,9 @@
 <p><span class="response-data-head">last_name</span>
 <span class="response-data-remarks">The last name of the agent. This can be null if there is no data for this attribute.</span></p>
 
+<p><span class="response-data-head">nickname</span>
+<span class="response-data-remarks">The nickname of the agent. This can be null if there is no data for this attribute.</span></p>
+
 <p><span class="response-data-head">mobile_phone_number</span>
 <span class="response-data-remarks">Mobile phone number of the agent. <span class='attribute-name'>main_phone_number</span> should be considered higher priority, if not the same. This can be null if there is no data for this attribute.</span></p>
 
@@ -653,6 +732,9 @@
 <p><span class="response-data-head">access_level</span>
 <span class="response-data-remarks">The access level of the agent.</span></p>
 
+<p><span class="response-data-head">website_base_url</span>
+<span class="response-data-remarks">The base url of the agent&rsquo;s MoxiWorks agent website.</span></p>
+
 <p><span class="response-data-head">twitter</span>
 <span class="response-data-remarks">Agent&rsquo;s Twitter URL. This can be null if there is no data available for this attribute.</span></p>
 
@@ -682,6 +764,18 @@
 
 <p><span class="response-data-head">seller_commission_rate</span>
 <span class="response-data-remarks">Percentage commission rate for the agent when acting as a seller&rsquo;s agent.</span></p>
+
+<p><span class="response-data-head">service_area_zip_codes</span>
+<span class="response-data-remarks">A list of the lead service area zip codes covered by the agent.</span></p>
+
+<p><span class="response-data-head">company_programs</span>
+<span class="response-data-remarks">A list of the company specific program names in which the agent participates or is a member.</span></p>
+
+<p><span class="response-data-head">created_timestamp</span>
+<span class="response-data-remarks">This is the Unix timestamp representing the date that this <span class='entity-name'>Agent</span> was created in the MoxiWorks system.</span></p>
+
+<p><span class="response-data-head">deactivated_timestamp</span>
+<span class="response-data-remarks">This is the Unix timestamp representing the date that this <span class='entity-name'>Agent</span> was deactivated in the MoxiWorks system. This will be returned null if the agent is still active.</span></p>
 
 <h6 id="alternate_offices-object"><span class='attribute-name'>alternate_offices</span> Object</h6>
 
@@ -783,6 +877,90 @@
 
 <p><span class="response-data-head">mls_abbreviation</span>
 <span class="response-data-remarks">The abbreviation of the MLS.</span></p>
+
+<h6 id="partners-objects"><span class='attribute-name'>partners</span> Objects</h6>
+
+<p>Exstence of objects in the <code class="prettyprint">partners</code> data structure is dependent upon external relationships existing between the agent represented by this <span class='entity-name'>Agent</span> and the affiliate.</p>
+
+<aside class="note">Documented entities in the `partners` data structure may or may not be returned based on agent relationship. Your logic should be engineered to handle cases where the entity you are interested in is returned and where an empty data structure is returned.</aside>
+
+<h6 id="leading_re-partner-objects"><span class='attribute-name'>leading_re</span> partner Objects</h6>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span class="response-data">salesforce_id</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">luxury_portfolio</span></td>
+<td><span class="response-data"><span class="data-type">Boolean</span></td>
+</tr>
+</tbody></table>
+
+<p><span class="response-data-head">salesforce_id</span>
+<span class="response-data-remarks">This is the unique salesforce ID of the company in the LeadingRE system.</span></p>
+
+<p><span class="response-data-head">luxury_portfolio</span>
+<span class="response-data-remarks">Indicates whether or not this agent has luxury portfolio association in the LeadingRE system.</span></p>
+
+<h6 id="email_addresses-object"><span class='attribute-name'>email_addresses</span> Object</h6>
+
+<p>The <span class='attribute-name'>email_addresses</span> Hash is a Dictionary object holding the email addresses associated with the <span class='entity-name'>Agent</span> record. The structure of the object is shown below.</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span class="response-data">primary</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">display</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">alternate</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">moxi_sync</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">lead_routing</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">zillow</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+</tbody></table>
+
+<p><span class="response-data-head">primary</span>
+<span class="response-data-remarks">The primary email address associated with the <span class='entity-name'>Agent</span> record.</span></p>
+
+<p><span class="response-data-head">display</span>
+<span class="response-data-remarks">The display email address associated with the <span class='entity-name'>Agent</span> record.</span></p>
+
+<p><span class="response-data-head">alternate</span>
+<span class="response-data-remarks">The alternate email address associated with the <span class='entity-name'>Agent</span> record.</span></p>
+
+<p><span class="response-data-head">moxi_sync</span>
+<span class="response-data-remarks">The moxi_sync email address associated with the <span class='entity-name'>Agent</span> record.</span></p>
+
+<p><span class="response-data-head">lead_routing</span>
+<span class="response-data-remarks">The lead_routing email address associated with the <span class='entity-name'>Agent</span> record.</span></p>
+
+<p><span class="response-data-head">zillow</span>
+<span class="response-data-remarks">The zillow email address associated with the <span class='entity-name'>Agent</span> record.</span></p>
 
 
 <h4 id="agent-index"><span class='entity-name'>Agent</span> <span class='action-name'>Index</span></h4>
@@ -981,6 +1159,26 @@
 <td><span class="data-type">Integer</span></td>
 <td>255</td>
 </tr>
+<tr>
+<td><span class="optional-data">include_partners</span></td>
+<td><span class="data-type">Boolean</span></td>
+<td>255</td>
+</tr>
+<tr>
+<td><span class="optional-data">include_company_programs</span></td>
+<td><span class="data-type">Boolean</span></td>
+<td>255</td>
+</tr>
+<tr>
+<td><span class="optional-data">include_website</span></td>
+<td><span class="data-type">Boolean</span></td>
+<td>255</td>
+</tr>
+<tr>
+<td><span class="optional-data">has_company_programs</span></td>
+<td><span class="data-type">Boolean</span></td>
+<td>255</td>
+</tr>
 </tbody></table>
 
 <p><span class="required-data"><strong>Required Parameters Are In Red</strong></span></p>
@@ -1011,6 +1209,18 @@
 <span class="request-data-remarks">any <span class='entity-name'>Agent</span> objects deactivated after this Unix timestamp will be returned in the response. <strong>If no <span class='attribute-name'>deactivated_since</span> parameter is included in the request, only <span class='entity-name'>Agent</span> objects deactivated in the last seven days will be returned.</strong></span></p>
 
 <aside class="note">By default only <span class='entity-name'>Agent</span> objects deactivated in the last seven days will be returned.</aside>
+
+<p><span class="request-data-head">include_partners</span>
+<span class="request-data-remarks">To include affiliate data associated with the agent in the response, pass <code class="prettyprint">true</code>.</span></p>
+
+<p><span class="request-data-head">include_company_programs</span>
+<span class="request-data-remarks">To include company specific programs associated with the agent in the response, pass <code class="prettyprint">true</code>.</span></p>
+
+<p><span class="request-data-head">include_website</span>
+<span class="request-data-remarks">To include the base url (website_base_url) of the agent&rsquo;s MoxiWorks website pass <code class="prettyprint">true</code>.</span></p>
+
+<p><span class="request-data-head">has_company_programs</span>
+<span class="request-data-remarks">To include only <span class='entity-name'>Agent</span> objects associated with company specific programs pass <code class="prettyprint">true</code>.</span></p>
 
 <blockquote><div class='highlight json' style="display: block">
 <span class="data-example-label">Agent Index: Success Response</span>
@@ -1049,12 +1259,21 @@
   </span><span class="nt">"office_phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"(234)456-7890"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"primary_email_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"the_agent@agentdomain.com"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"secondary_email_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"the_agent_alt@otherdomain.com"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"email_addresses"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"primary"</span><span class="p">:</span><span class="w"> </span><span class="s2">"primary@email.com"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"display"</span><span class="p">:</span><span class="w"> </span><span class="s2">"display@email.com"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"alternate"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"moxi_sync"</span><span class="p">:</span><span class="w"> </span><span class="s2">"moxi@email.com"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"lead_routing"</span><span class="p">:</span><span class="w"> </span><span class="s2">"lead@email.com"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"zillow"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="p">},</span><span class="w">
   </span><span class="nt">"lead_routing_email_address"</span><span class="p">:</span><span class="s2">"leadrouter@thisdomain.com"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Broker"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"uuid"</span><span class="p">:</span><span class="s2">"8675309e9-1234-dead-beef-deadbeefdead"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"has_product_access"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
   </span><span class="nt">"has_engage_access"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
   </span><span class="nt">"access_level"</span><span class="p">:</span><span class="s2">"user"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"website_base_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mymoxi@website.com"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"twitter"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://twitter.com/agentguy"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"google_plus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://plus.google.com/1234567891011121314/posts"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"facebook"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.facebook.com/moxiworks/"</span><span class="p">,</span><span class="w">
@@ -1062,6 +1281,14 @@
   </span><span class="nt">"profile_image_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://picturererer.com/pics37/ImageStore.dll?id=852087C5D3A533DD&amp;w=200"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"profile_thumb_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://picturererer.com/pics37/ImageStore.dll?id=852087C5D3A533DD&amp;w=75"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"region"</span><span class="p">:</span><span class="s2">"WESTERN WASHINGTON"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"service_area_zip_codes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"98117"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"98105"</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"company_programs"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"Deluxe Listings agent"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Very Cool Program Manager"</span><span class="w">
+  </span><span class="p">],</span><span class="w">
   </span><span class="nt">"alternate_offices"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="nt">"moxi_works_office_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
@@ -1214,6 +1441,10 @@
 <td><span class="data-type">String or null</span></td>
 </tr>
 <tr>
+<td><span class="response-data">nickname</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
 <td><span class="response-data">main_phone_number</span></td>
 <td><span class="data-type">String or null</span></td>
 </tr>
@@ -1242,6 +1473,10 @@
 <td><span class="data-type">String or null</span></td>
 </tr>
 <tr>
+<td><span class="response-data">email_addresses</span></td>
+<td><span class="data-type">Hash</span></td>
+</tr>
+<tr>
 <td><span class="response-data">lead_routing_email_address</span></td>
 <td><span class="data-type">String or null</span></td>
 </tr>
@@ -1264,6 +1499,10 @@
 <tr>
 <td><span class="response-data">access_level</span></td>
 <td><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">website_base_url</span></td>
+<td><span class="data-type">String or null</span></td>
 </tr>
 <tr>
 <td><span class="response-data">twitter</span></td>
@@ -1294,12 +1533,32 @@
 <td><span class="data-type">String or null</span></td>
 </tr>
 <tr>
+<td><span class="response-data">service_area_zip_codes</span></td>
+<td><span class="data-type">Array</span></td>
+</tr>
+<tr>
 <td><span class="response-data">alternate_offices</span></td>
 <td><span class="data-type">Array</span></td>
 </tr>
 <tr>
 <td><span class="response-data">available_mls</span></td>
 <td><span class="data-type">Array</span></td>
+</tr>
+<tr>
+<td><span class="response-data">partners</span></td>
+<td><span class="data-type">Array</span></td>
+</tr>
+<tr>
+<td><span class="response-data">company_programs</span></td>
+<td><span class="data-type">Array</span></td>
+</tr>
+<tr>
+<td><span class="response-data">created_timestamp</span></td>
+<td><span class="data-type">Integer</span></td>
+</tr>
+<tr>
+<td><span class="response-data">deactivated_timestamp</span></td>
+<td><span class="data-type">Integer or null</span></td>
 </tr>
 </tbody></table>
 
@@ -1363,6 +1622,9 @@
 <p><span class="response-data-head">last_name</span>
 <span class="response-data-remarks">The last name of the agent. This can be null if there is no data for this attribute.</span></p>
 
+<p><span class="response-data-head">nickname</span>
+<span class="response-data-remarks">The nickname of the agent. This can be null if there is no data for this attribute.</span></p>
+
 <p><span class="response-data-head">mobile_phone_number</span>
 <span class="response-data-remarks">Mobile phone number of the agent. <span class='attribute-name'>main_phone_number</span> should be considered higher priority, if not the same. This can be null if there is no data for this attribute.</span></p>
 
@@ -1405,6 +1667,9 @@
 <p><span class="response-data-head">access_level</span>
 <span class="response-data-remarks">The access level of the agent.</span></p>
 
+<p><span class="response-data-head">website_base_url</span>
+<span class="response-data-remarks">The base url of the agent&rsquo;s MoxiWorks agent website.</span></p>
+
 <p><span class="response-data-head">twitter</span>
 <span class="response-data-remarks">Agent&rsquo;s Twitter URL. This can be null if there is no data available for this attribute.</span></p>
 
@@ -1425,6 +1690,18 @@
 
 <p><span class="response-data-head">region</span>
 <span class="response-data-remarks">The region the agent&rsquo;s office is in. This can be null if there is no data for this attribute.</span></p>
+
+<p><span class="response-data-head">service_area_zip_codes</span>
+<span class="response-data-remarks">A list of the lead service area zip codes covered by the agent.</span></p>
+
+<p><span class="response-data-head">company_programs</span>
+<span class="response-data-remarks">A list of the company specific program names in which the agent participates or is a member.</span></p>
+
+<p><span class="response-data-head">created_timestamp</span>
+<span class="response-data-remarks">This is the Unix timestamp representing the date that this <span class='entity-name'>Agent</span> was created in the MoxiWorks system.</span></p>
+
+<p><span class="response-data-head">deactivated_timestamp</span>
+<span class="response-data-remarks">This is the Unix timestamp representing the date that this <span class='entity-name'>Agent</span> was deactivated in the MoxiWorks system. This will be returned null if the agent is still active.</span></p>
 
 <h6 id="alternate_offices-object"><span class='attribute-name'>alternate_offices</span> Object</h6>
 
@@ -1526,6 +1803,90 @@
 
 <p><span class="response-data-head">mls_abbreviation</span>
 <span class="response-data-remarks">The abbreviation of the MLS.</span></p>
+
+<h6 id="partners-objects"><span class='attribute-name'>partners</span> Objects</h6>
+
+<p>Exstence of objects in the <code class="prettyprint">partners</code> data structure is dependent upon external relationships existing between the agent represented by this <span class='entity-name'>Agent</span> and the affiliate.</p>
+
+<aside class="note">Documented entities in the `partners` data structure may or may not be returned based on agent relationship. Your logic should be engineered to handle cases where the entity you are interested in is returned and where an empty data structure is returned.</aside>
+
+<h6 id="leading_re-partner-objects"><span class='attribute-name'>leading_re</span> partner Objects</h6>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span class="response-data">salesforce_id</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">luxury_portfolio</span></td>
+<td><span class="response-data"><span class="data-type">Boolean</span></td>
+</tr>
+</tbody></table>
+
+<p><span class="response-data-head">salesforce_id</span>
+<span class="response-data-remarks">This is the unique salesforce ID of the company in the LeadingRE system.</span></p>
+
+<p><span class="response-data-head">luxury_portfolio</span>
+<span class="response-data-remarks">Indicates whether or not this agent has luxury portfolio association in the LeadingRE system.</span></p>
+
+<h6 id="email_addresses-object"><span class='attribute-name'>email_addresses</span> Object</h6>
+
+<p>The <span class='attribute-name'>email_addresses</span> Hash is a Dictionary object holding the email addresses associated with the <span class='entity-name'>Agent</span> record. The structure of the object is shown below.</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span class="response-data">primary</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">display</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">alternate</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">moxi_sync</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">lead_routing</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">zillow</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+</tbody></table>
+
+<p><span class="response-data-head">primary</span>
+<span class="response-data-remarks">The primary email address associated with the <span class='entity-name'>Agent</span> record.</span></p>
+
+<p><span class="response-data-head">display</span>
+<span class="response-data-remarks">The display email address associated with the <span class='entity-name'>Agent</span> record.</span></p>
+
+<p><span class="response-data-head">alternate</span>
+<span class="response-data-remarks">The alternate email address associated with the <span class='entity-name'>Agent</span> record.</span></p>
+
+<p><span class="response-data-head">moxi_sync</span>
+<span class="response-data-remarks">The moxi_sync email address associated with the <span class='entity-name'>Agent</span> record.</span></p>
+
+<p><span class="response-data-head">lead_routing</span>
+<span class="response-data-remarks">The lead_routing email address associated with the <span class='entity-name'>Agent</span> record.</span></p>
+
+<p><span class="response-data-head">zillow</span>
+<span class="response-data-remarks">The zillow email address associated with the <span class='entity-name'>Agent</span> record.</span></p>
 
       </div>
       <div class="dark-box">

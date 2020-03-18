@@ -182,7 +182,7 @@
 
 <h6 id="partners-objects"><span class='attribute-name'>partners</span> Objects</h6>
 
-<p>Exstence of objects in the <code class="prettyprint">partners</code> data structure is dependent upon external relationships existing between the company represented by this <span class='entity-name'>Company</span> and the partner. </p>
+<p>Exstence of objects in the <code class="prettyprint">partners</code> data structure is dependent upon external relationships existing between the company represented by this <span class='entity-name'>Company</span> and the affiliate.</p>
 
 <aside class="note">Documented entities in the `partners` data structure may or may not be returned based on company relationship. Your logic should be engineered to handle cases where the entity you are interested in is returned and where an empty data structure is returned.</aside>
 
@@ -198,27 +198,17 @@
 <td><span class="response-data">id</span></td>
 <td><span class="response-data"><span class="data-type">String or null</span></td>
 </tr>
+<tr>
+<td><span class="response-data">salesforce_id</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
 </tbody></table>
 
 <p><span class="response-data-head">id</span>
 <span class="response-data-remarks">This is the unique ID of this company in the LeadingRE system. </span></p>
 
-<h6 id="salesforce-partner-objects"><span class='attribute-name'>salesforce</span> partner Objects</h6>
-
-<table><thead>
-<tr>
-<th>Attribute</th>
-<th>Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><span class="response-data">id</span></td>
-<td><span class="response-data"><span class="data-type">String or null</span></td>
-</tr>
-</tbody></table>
-
 <p><span class="response-data-head">salesforce_id</span>
-<span class="response-data-remarks">This is the unique ID of the company in the Salesforce system.</span></p>
+<span class="response-data-remarks">This is the unique salesforce ID of the company in the LeadingRE system.</span></p>
 
 
 <h4 id="company-index"><span class='entity-name'>Company</span> <span class='action-name'>Index</span></h4>

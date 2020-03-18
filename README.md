@@ -35,32 +35,64 @@ If you plan on updating QA docs, you'll need to add the moxiworks fork to your a
 
 *note:* to make changes that are visible in qa, you'll need to merge changes to gh-pages branch; however, *ensure that you are making changes in develop so that published changes are also propagated to master on publish.*
 
+
+#### Publishing Directly To QA (Preferred Method)
+
+If you just want to push to QA without a PR (not much need for PR in this project), your workflow could look something like:
+
+
+`git checkout develop`
+
+
+`git commit sumthin`
+
+
+`git checkout gh-pages`
+
+
+`git merge develop`
+
+
+`git push qa develop`
+
+
+`git push qa gh-pages`
+
+
+
 #### Publishing Using a Pull Request
 
 so, ideally, if you're using a pull request, your workflow could go something like:
 
 `git checkout develop`
-_do stuff_
+
+
+`do stuff`
+
+
 `git commit sumthin`
+
+
 `git pull-request -b moxiworks:develop` <- requires `hub` be installed on your system
+
 
 If you're handling the other end of the PR, you'll need to merge the changes from `develop` into `gh-pages`. Your workflow could go something like:
 
 `git checkout develop`
+
+
 `git fetch qa`
+
+
 `git merge qa/develop`
-`git checkout gh-pages`
-`git merge develop`
-`git push qa gh-pages`
 
-#### Publishing Directly To QA
 
-If you just want to push to QA without a PR (not much need for PR in this project), your workflow could look something like:
-`git checkout develop`
-`git commit sumthin`
 `git checkout gh-pages`
+
+
 `git merge develop`
-`git push qa develop`
+
+
 `git push qa gh-pages`
 
 

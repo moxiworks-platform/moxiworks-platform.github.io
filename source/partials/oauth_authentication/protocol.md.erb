@@ -1,8 +1,8 @@
 ### OAuth 2 Protocol
 
-Moxi Works authentication uses the [Authorization Code Grant](https://tools.ietf.org/html/rfc6749#section-4.1) Oauth 2 flow.
+MoxiWorks authentication uses the [Authorization Code Grant](https://tools.ietf.org/html/rfc6749#section-4.1) Oauth 2 flow.
 
-This section describes the flow in detail, as used by Moxi Works authentication.
+This section describes the flow in detail, as used by MoxiWorks authentication.
 Most of this can be automated by using an appropriate OAuth 2 client library.
 
 
@@ -21,7 +21,7 @@ The authorization code grant begins with the client deciding to authorize the en
 | <span class="required-data">company_uuid</span> | <span class="data-type">String</span> | <span class="data-remarks">If provided, this value gives a hint for the authorization system about what brokerate agents logging in will be from. This is used to ensure agents have the correct sign-in experience, if required. If it's not provided, it will be inferred from the `client_id`.</span> | <span class="required-data">optional</span> |
 | <span class="required-data">moxi_works_company_id</span> | <span class="data-type">String</span> | <span class="data-remarks">Another method to specify agent sign-in experience. Serves the same purpose as `company_uuid`, but takes the same format company id as the rest of the API uses. Will be ignored if `company_uuid` is also provided.</span> | <span class="required-data">optional</span> |
 
-Moxi Works will authenticate the user and redirect their user agent to the `redirect_uri` specified.
+MoxiWorks will authenticate the user and redirect their user agent to the `redirect_uri` specified.
 When the user agent requests the `redirect_uri`, it will have one or two additional query arguments provided.
 It will have a parameter named `code` which contains the authorization code.
 If the original request contained a `state` parameter, the redirect will also contain a `state` parameter with the same value.

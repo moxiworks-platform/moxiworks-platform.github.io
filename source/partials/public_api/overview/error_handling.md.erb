@@ -11,7 +11,7 @@
 }
 ```
 
-The following table specifies the recommended action for each Moxi Works API error code.
+The following table specifies the recommended action for each MoxiWorks API error code.
 
 <aside class='notice'>When reporting issues that are not resolvable using the following table, please include the entire response (including request_id) in your report.</aside>
 
@@ -31,7 +31,7 @@ API Error Code | HTTP Status Code | Message | Recommended Action |
 1200 | 400 | Malformed data in request. | <span class="fix-then-retry-error">Fix issue, then retry.</span>
 1210 | 400 | Unsupported operation. | <span class="no-retry-error">Do not retry.</span>
 2000 | 401 | Basic Authorization header required. | <span class="fix-then-retry-error">Fix issue, then retry.</span><br/><br/>Hint: Verify that <b>Authorization</b> header is present and set properly.
-2010 | 401 |  Your Authorization header is invalid. | <span class="fix-then-retry-error">Fix issue, then retry.</span><br/><br/>Hint: Verify that the Moxi Works Platform Identifier and Secret specified in the <b>Authorization</b> header are valid and properly encoded.
+2010 | 401 |  Your Authorization header is invalid. | <span class="fix-then-retry-error">Fix issue, then retry.</span><br/><br/>Hint: Verify that the MoxiWorks Platform Identifier and Secret specified in the <b>Authorization</b> header are valid and properly encoded.
 2015 | 401 | Unauthorized request. | <span class="no-retry-error">Do not retry.</span>
 2020 | 403 |  You are forbidden to perform this action. | <span class="no-retry-error">Do not retry.</span><br/><br/>
 2025 | 403 |  You are forbidden to perform this action. Agent does not have access to requested resource. | <span class="no-retry-error">Do not retry.</span><br/><br/>

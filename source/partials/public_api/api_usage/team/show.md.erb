@@ -43,8 +43,8 @@ company_teams = MoxiworksPlatform::Team.find(moxi_works_team_id: "deadbeef-deadb
 
 ```php
 <?php
-$platform_identifier = 'abc123'; // platorm_identifier provided by Moxi Works Platform Rep
-$platform_secret = 'secret'; //platform_secret provided by Moxi Works Platform Rep
+$platform_identifier = 'abc123'; // platorm_identifier provided by MoxiWorks Platform Rep
+$platform_secret = 'secret'; //platform_secret provided by MoxiWorks Platform Rep
 
 $credentials = new MoxiworksPlatform\Credentials($platform_identifier, $platform_secret);
 
@@ -69,7 +69,7 @@ var team = results.Item
 
 <aside class="note">Send a <b>GET</b> request to https://api.moxiworks.com/api/teams/[moxi_works_team_id]</aside>
 
-When showing <span class='entity-name'>Team</span> entities using the Moxi Works platform API, format your data using the following parameters.
+When showing <span class='entity-name'>Team</span> entities using the MoxiWorks platform API, format your data using the following parameters.
 
 
 Attribute | Type  | Length Limit |
@@ -82,11 +82,11 @@ Attribute | Type  | Length Limit |
 
 
 <span class="request-data-head">moxi_works_team_id</span>
-<span class="request-data-remarks">A valid Moxi Works <span class='entity-name'>Team</span> ID. Use [Team Index Endpoint](#team-index) for a list of all <span class='entity-name'>Team</span> objects associated with  a <span class='entity-name'>Company</span> or use the <span class='attribute-name'>moxi_works_team_id</span> attribute returned in an <span class='entity-name'>Agent</span> response.</span>
+<span class="request-data-remarks">A valid MoxiWorks <span class='entity-name'>Team</span> ID. Use [Team Index Endpoint](#team-index) for a list of all <span class='entity-name'>Team</span> objects associated with  a <span class='entity-name'>Company</span> or use the <span class='attribute-name'>moxi_works_team_id</span> attribute returned in an <span class='entity-name'>Agent</span> response.</span>
 
 
 <span class="request-data-head">moxi_works_company_id</span>
-<span class="request-data-remarks">A valid Moxi Works <span class='entity-name'>Company</span> ID. Use [Company Endpoint](#company) to determine what <span class='attribute-name'>moxi_works_company_id</span> you can use.</span>
+<span class="request-data-remarks">A valid MoxiWorks <span class='entity-name'>Company</span> ID. Use [Company Endpoint](#company) to determine what <span class='attribute-name'>moxi_works_company_id</span> you can use.</span>
 
 <aside class="note">Use <a href='#company'>Company Endpoint</a> to determine the moxi_works_company_id to send.</aside>
 
@@ -157,7 +157,7 @@ Attribute | Type |
 
 
 <span class="response-data-head">uuid</span>
-<span class="response-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Team</span>. This will be an [RFC 4122](https://tools.ietf.org/html/rfc4122) compliant UUID.</span>
+<span class="response-data-remarks">This is the MoxiWorks Platform ID of the <span class='entity-name'>Team</span>. This will be an [RFC 4122](https://tools.ietf.org/html/rfc4122) compliant UUID.</span>
 
 <span class="response-data-head">name</span>
 <span class="response-data-remarks">The name of the team. This can be null if there is no data for this attribute.</span>

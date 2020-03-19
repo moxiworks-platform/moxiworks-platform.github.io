@@ -1,6 +1,6 @@
 #!/bin/sh
 
-#set -e
+set -e
 git commit -a -m "doc update"
 git fetch qa
 git checkout gh-pages

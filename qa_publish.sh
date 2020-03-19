@@ -4,7 +4,7 @@
 set -e
 
 
-tmpdir=`date +%s`
+tmpdir=/tmp/qadocbuild-`date +%s`
 
 git commit -a -m "doc update"
 git fetch qa

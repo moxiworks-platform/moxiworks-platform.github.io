@@ -47,16 +47,7 @@ If you just want to push to QA without a PR (not much need for PR in this projec
 `git commit sumthin`
 
 
-`git checkout gh-pages`
-
-
-`git merge develop`
-
-
-`git push qa develop`
-
-
-`git push qa gh-pages`
+`./qa_publish.sh`
 
 
 
@@ -87,12 +78,6 @@ If you're handling the other end of the PR, you'll need to merge the changes fro
 `git merge qa/develop`
 
 
-`git checkout gh-pages`
-
-
-`git merge develop`
-
-
-`git push qa gh-pages`
+`./qa_publish.sh`
 
 

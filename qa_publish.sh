@@ -2,6 +2,9 @@
 
 git commit -a -m "doc update"
 git fetch qa
+git checkout master
+git merge qa/master
+git checkout develop
 git merge qa/develop
 bundle exec middleman build --clean
 git checkout gh-pages

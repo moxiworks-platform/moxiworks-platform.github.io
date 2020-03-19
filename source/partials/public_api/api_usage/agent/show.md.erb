@@ -142,6 +142,7 @@ Attribute | Type | Length Limit |
 |<span class="multi-option-required-data">agent_uuid*</span>|<span class="multi-option-required-data"><span class="data-type">String</span></span>| <span class="multi-option-required-data">255</span>
 |<span class="multi-option-required-data">moxi_works_agent_id*</span>|<span class="multi-option-required-data"><span class="data-type">String</span></span>| <span class="multi-option-required-data">255</span>
 |<span class="required-data">moxi_works_company_id</span>|<span class="required-data"><span class="data-type">String</span></span>|<span class="required-data">255<span> |
+|<span class="optional-data">include_access_level</span>|<span class="data-type">Boolean</span>| 255 |
 |<span class="optional-data">include_gci_goals</span>|<span class="data-type">Boolean</span>| 255 |
 |<span class="optional-data">include_partners</span>|<span class="data-type">Boolean</span>| 255 |
 
@@ -164,6 +165,9 @@ Attribute | Type | Length Limit |
 <span class="request-data-remarks">A valid Moxi Works <span class='entity-name'>Company</span> ID. Use [Company Endpoint](#company) to determine what <span class='attribute-name'>moxi_works_company_id</span> you can use.</span>
 
 <aside class="note">Use <a href='#company'>Company Endpoint</a> to determine the moxi_works_company_id to send.</aside>
+
+<span class="request-data-head">include_access_level</span>
+<span class="request-data-remarks">To include access level information for the agent in the response, pass `true`</span>
 
 <span class="request-data-head">include_gci_goals</span>
 <span class="request-data-remarks">Whether to include agent's GCI goals and commissions data in the response data.</span>

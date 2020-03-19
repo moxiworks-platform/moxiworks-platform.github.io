@@ -1,5 +1,6 @@
 #!/bin/sh
 
+git commit -a -m "doc update"
 git fetch qa
 git merge qa/develop
 bundle exec middleman build --clean

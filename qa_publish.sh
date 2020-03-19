@@ -1,6 +1,11 @@
 #!/bin/sh
 
+
 set -e
+
+
+tmpdir=`date +%s`
+
 git commit -a -m "doc update"
 git fetch qa
 git checkout gh-pages
@@ -9,10 +14,10 @@ git checkout develop
 git merge qa/develop
 bundle exec middleman build --clean
 git checkout gh-pages
-mkdir old
-mv * old
-mv old/build/* ./
-rm -r old
+mkdir ${tmpdir}
+mv * ${tmpdir}
+mv ${tmpdir}/build/* ./
+rm -r ${tmpdir}
 git add *
 git commit -a -m "doc build"
 git checkout master

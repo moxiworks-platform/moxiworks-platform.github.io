@@ -66,8 +66,8 @@
 
 </code></pre>
 <pre class="highlight php"><code><span class="cp">&lt;?php</span>
-<span class="nv">$platform_identifier</span> <span class="o">=</span> <span class="s1">'abc123'</span><span class="p">;</span> <span class="c1">// platorm_identifier provided by Moxi Works Platform Rep
-</span><span class="nv">$platform_secret</span> <span class="o">=</span> <span class="s1">'secret'</span><span class="p">;</span> <span class="c1">//platform_secret provided by Moxi Works Platform Rep
+<span class="nv">$platform_identifier</span> <span class="o">=</span> <span class="s1">'abc123'</span><span class="p">;</span> <span class="c1">// platorm_identifier provided by MoxiWorks Platform Rep
+</span><span class="nv">$platform_secret</span> <span class="o">=</span> <span class="s1">'secret'</span><span class="p">;</span> <span class="c1">//platform_secret provided by MoxiWorks Platform Rep
 </span>
 <span class="nv">$credentials</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MoxiworksPlatform\Credentials</span><span class="p">(</span><span class="nv">$platform_identifier</span><span class="p">,</span> <span class="nv">$platform_secret</span><span class="p">);</span>
 
@@ -92,7 +92,7 @@
 
 <aside class="note">Send a <b>GET</b> request to https://api.moxiworks.com/api/teams/[moxi_works_team_id]</aside>
 
-<p>When showing <span class='entity-name'>Team</span> entities using the Moxi Works platform API, format your data using the following parameters.</p>
+<p>When showing <span class='entity-name'>Team</span> entities using the MoxiWorks platform API, format your data using the following parameters.</p>
 
 <table><thead>
 <tr>
@@ -116,10 +116,10 @@
 <p><span class="required-data"><strong>Required Parameters Are In Red</strong></span></p>
 
 <p><span class="request-data-head">moxi_works_team_id</span>
-<span class="request-data-remarks">A valid Moxi Works <span class='entity-name'>Team</span> ID. Use <a href="#team-index">Team Index Endpoint</a> for a list of all <span class='entity-name'>Team</span> objects associated with  a <span class='entity-name'>Company</span> or use the <span class='attribute-name'>moxi_works_team_id</span> attribute returned in an <span class='entity-name'>Agent</span> response.</span></p>
+<span class="request-data-remarks">A valid MoxiWorks <span class='entity-name'>Team</span> ID. Use <a href="#team-index">Team Index Endpoint</a> for a list of all <span class='entity-name'>Team</span> objects associated with  a <span class='entity-name'>Company</span> or use the <span class='attribute-name'>moxi_works_team_id</span> attribute returned in an <span class='entity-name'>Agent</span> response.</span></p>
 
 <p><span class="request-data-head">moxi_works_company_id</span>
-<span class="request-data-remarks">A valid Moxi Works <span class='entity-name'>Company</span> ID. Use <a href="#company">Company Endpoint</a> to determine what <span class='attribute-name'>moxi_works_company_id</span> you can use.</span></p>
+<span class="request-data-remarks">A valid MoxiWorks <span class='entity-name'>Company</span> ID. Use <a href="#company">Company Endpoint</a> to determine what <span class='attribute-name'>moxi_works_company_id</span> you can use.</span></p>
 
 <aside class="note">Use <a href='#company'>Company Endpoint</a> to determine the moxi_works_company_id to send.</aside>
 
@@ -238,7 +238,7 @@
 </tbody></table>
 
 <p><span class="response-data-head">uuid</span>
-<span class="response-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Team</span>. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID.</span></p>
+<span class="response-data-remarks">This is the MoxiWorks Platform ID of the <span class='entity-name'>Team</span>. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID.</span></p>
 
 <p><span class="response-data-head">name</span>
 <span class="response-data-remarks">The name of the team. This can be null if there is no data for this attribute.</span></p>

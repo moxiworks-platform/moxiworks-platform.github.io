@@ -39,28 +39,28 @@
 <pre class="highlight ruby"><code>
 <span class="nb">require</span> <span class="s1">'moxiworks_platform'</span>
 
-<span class="n">platform_identifier</span> <span class="o">=</span> <span class="s1">'abc123'</span> <span class="c1"># platorm_identifier provided by Moxi Works Platform Rep</span>
-<span class="n">platform_secret</span> <span class="o">=</span> <span class="s1">'secret'</span> <span class="c1">#platform_secret provided by Moxi Works Platform Rep</span>
+<span class="n">platform_identifier</span> <span class="o">=</span> <span class="s1">'abc123'</span> <span class="c1"># platorm_identifier provided by MoxiWorks Platform Rep</span>
+<span class="n">platform_secret</span> <span class="o">=</span> <span class="s1">'secret'</span> <span class="c1">#platform_secret provided by MoxiWorks Platform Rep</span>
 
 <span class="no">MoxiworksPlatform</span><span class="o">::</span><span class="no">Credentials</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">platform_identifier</span><span class="p">,</span> <span class="n">platform_secret</span><span class="p">)</span>
 
 </code></pre>
 <pre class="highlight php"><code>
 <span class="cp">&lt;?php</span>
-<span class="nv">$platform_identifier</span> <span class="o">=</span> <span class="s1">'abc123'</span><span class="p">;</span> <span class="c1">// platorm_identifier provided by Moxi Works Platform Rep
-</span><span class="nv">$platform_secret</span> <span class="o">=</span> <span class="s1">'secret'</span><span class="p">;</span> <span class="c1">//platform_secret provided by Moxi Works Platform Rep
+<span class="nv">$platform_identifier</span> <span class="o">=</span> <span class="s1">'abc123'</span><span class="p">;</span> <span class="c1">// platorm_identifier provided by MoxiWorks Platform Rep
+</span><span class="nv">$platform_secret</span> <span class="o">=</span> <span class="s1">'secret'</span><span class="p">;</span> <span class="c1">//platform_secret provided by MoxiWorks Platform Rep
 </span>
 <span class="nv">$credentials</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MoxiworksPlatform\Credentials</span><span class="p">(</span><span class="nv">$platform_identifier</span><span class="p">,</span> <span class="nv">$platform_secret</span><span class="p">);</span>
 <span class="cp">?&gt;</span>
 </code></pre>
 
-<p><aside class="warning">To ensure that your key and secret remain secret, always use HTTPS when making requests from the Moxi Works Platform public API.</aside></p>
+<p><aside class="warning">To ensure that your key and secret remain secret, always use HTTPS when making requests from the MoxiWorks Platform public API.</aside></p>
 
-<p>The Moxi Works API utilizes Authorization HTTP headers for authorization.</p>
+<p>The MoxiWorks API utilizes Authorization HTTP headers for authorization.</p>
 
-<p>To authorize your request, use the API Identifier and Secret combination you have been provided by your Moxi Works Platform representative.</p>
+<p>To authorize your request, use the API Identifier and Secret combination you have been provided by your MoxiWorks Platform representative.</p>
 
-<p>When composing your basic header, per <a href='https://www.ietf.org/rfc/rfc2617.txt'>RFC 2617</a> you&rsquo;ll need to base 64 encode your Moxi Works Platform Identifier and Secret and remember to separate your platform identifier and secret with a colon.</p>
+<p>When composing your basic header, per <a href='https://www.ietf.org/rfc/rfc2617.txt'>RFC 2617</a> you&rsquo;ll need to base 64 encode your MoxiWorks Platform Identifier and Secret and remember to separate your platform identifier and secret with a colon.</p>
 
 <aside class='info'>Use your Partner ID as the Authorization header username and Partner Secret as the password.</aside>
 
@@ -84,11 +84,11 @@
 </tr>
 </tbody></table>
 
-<p>Still need more info? Email api@moxiworks.com and let us know what language you&rsquo;re using to connect to the Moxi Works Platform.</p>
+<p>Still need more info? Email api@moxiworks.com and let us know what language you&rsquo;re using to connect to the MoxiWorks Platform.</p>
 
-<aside class='note'>You can acquire your Moxi Works API Identifier and Secret pair by contacting Moxi Works.</aside>
+<aside class='note'>You can acquire your MoxiWorks API Identifier and Secret pair by contacting MoxiWorks.</aside>
 
-<p><aside class="warning">Do not include your Moxi Works API Identifier or Secret  in the parameters sent to the server; they must be set in the request header. Setting the API Identifier and Secret in the request parameters will result in an authorization failure.</aside></p>
+<p><aside class="warning">Do not include your MoxiWorks API Identifier or Secret  in the parameters sent to the server; they must be set in the request header. Setting the API Identifier and Secret in the request parameters will result in an authorization failure.</aside></p>
 
       </div>
       <div class="dark-box">

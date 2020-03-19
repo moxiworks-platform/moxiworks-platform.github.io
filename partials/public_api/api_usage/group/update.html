@@ -74,7 +74,7 @@ moxi_works_agent_id=abc123&amp;moxi_works_group_name=some+group+name&amp;contact
 
 <aside class="note">Send a <b>PUT</b> request to https://api.moxiworks.com/api/groups/[partner_group_id or moxi_works_group_name]</aside>
 
-<p>When creating an <span class='entity-name'>Group</span> using the Moxi Works platform API, format your request using the following parameters.</p>
+<p>When creating an <span class='entity-name'>Group</span> using the MoxiWorks platform API, format your request using the following parameters.</p>
 
 <table><thead>
 <tr>
@@ -122,10 +122,10 @@ moxi_works_agent_id=abc123&amp;moxi_works_group_name=some+group+name&amp;contact
 <p><span class="required-data"><strong>Required Parameters Are In Red</strong></span></p>
 
 <p><span class="request-data-head">agent_uuid</span>
-<span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which an  <span class='entity-name'>Group</span> entry is associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID. <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>Group</span> <span class='action-name'>Show</span> request to be accepted.</span></p>
+<span class="request-data-remarks">This is the MoxiWorks Platform ID of the <span class='entity-name'>Agent</span> which an  <span class='entity-name'>Group</span> entry is associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID. <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> is required and must reference a valid MoxiWorks Agent ID for your <span class='entity-name'>Group</span> <span class='action-name'>Show</span> request to be accepted.</span></p>
 
 <p><span class="request-data-head">moxi_works_agent_id</span>
-<span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>Group</span> object is to be associated with. This will be a string that may take the form of an email address, or a unique identification string. This data is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>Group</span> <span class='action-name'>Update</span>  request to be accepted.</span></p>
+<span class="request-data-remarks">This is the MoxiWorks Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>Group</span> object is to be associated with. This will be a string that may take the form of an email address, or a unique identification string. This data is required and must reference a valid MoxiWorks Agent ID for your <span class='entity-name'>Group</span> <span class='action-name'>Update</span>  request to be accepted.</span></p>
 
 <aside class="note">A company&rsquo;s internal agent id may be used to construct the agent&rsquo;s unique identification string. To do so, the value passed via the moxi_works_agent_id should be a single concatenated string, of the form:</br>[moxi_works_company_id]:[internal_agent_id]</br>Use <a href='#company'>Company Endpoint</a> to determine which moxi_works_company_id to use.</aside>
 
@@ -255,10 +255,10 @@ moxi_works_agent_id=abc123&amp;moxi_works_group_name=some+group+name&amp;contact
 <p><span class='multi-option-response-data'>* Either <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> will be returned depending on whether it is used in the request. The response payload object&rsquo;s agent identifier key will match the passed parameter.</span></p>
 
 <p><span class="response-data-head">agent_uuid</span>
-<span class="response-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>Group</span>  is associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID.</span></p>
+<span class="response-data-remarks">This is the MoxiWorks Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>Group</span>  is associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID.</span></p>
 
 <p><span class="response-data-head">moxi_works_agent_id</span>
-<span class="response-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> to whom this <span class='entity-name'>Group</span> is associated. This will be a string that may take the form of an email address, or a unique alphanumeric identification string.</span></p>
+<span class="response-data-remarks">This is the MoxiWorks Platform ID of the <span class='entity-name'>Agent</span> to whom this <span class='entity-name'>Group</span> is associated. This will be a string that may take the form of an email address, or a unique alphanumeric identification string.</span></p>
 
 <p><span class="response-data-head">moxi_works_group_name</span>
 <span class="response-data-remarks">This is a human readable string meaningful to the agent about what kind of <span class='entity-name'>Contact</span> objects are in this <span class='entity-name'>Group</span>.</span></p>

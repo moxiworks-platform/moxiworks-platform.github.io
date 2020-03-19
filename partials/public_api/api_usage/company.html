@@ -30,7 +30,7 @@
       <div class="content">
         <h3 id="company"><span class='entity-name'>Company</span></h3>
 
-<p>Moxi Works Plaform <span class='entity-name'>Company</span> entities are your entry-point for determining the established relationships for your organization to companies on the Moxi Works Platform and for accessing data about those companies. Many requests require a <span class='attribute-name'>moxi_works_company_id</span>, which you&rsquo;ll need to derive from the <span class='entity-name'>Company</span> <span class='action-name'>Index</span> endpoint.</p>
+<p>MoxiWorks Plaform <span class='entity-name'>Company</span> entities are your entry-point for determining the established relationships for your organization to companies on the MoxiWorks Platform and for accessing data about those companies. Many requests require a <span class='attribute-name'>moxi_works_company_id</span>, which you&rsquo;ll need to derive from the <span class='entity-name'>Company</span> <span class='action-name'>Index</span> endpoint.</p>
 
 <h4 id="company-show"><span class='entity-name'>Company</span> <span class='action-name'>Show</span></h4>
 
@@ -86,8 +86,8 @@
 </code></pre>
 
 <pre class="highlight php"><code><span class="cp">&lt;?php</span>
-<span class="nv">$platform_identifier</span> <span class="o">=</span> <span class="s1">'abc123'</span><span class="p">;</span> <span class="c1">// platorm_identifier provided by Moxi Works Platform Rep
-</span><span class="nv">$platform_secret</span> <span class="o">=</span> <span class="s1">'secret'</span><span class="p">;</span> <span class="c1">//platform_secret provided by Moxi Works Platform Rep
+<span class="nv">$platform_identifier</span> <span class="o">=</span> <span class="s1">'abc123'</span><span class="p">;</span> <span class="c1">// platorm_identifier provided by MoxiWorks Platform Rep
+</span><span class="nv">$platform_secret</span> <span class="o">=</span> <span class="s1">'secret'</span><span class="p">;</span> <span class="c1">//platform_secret provided by MoxiWorks Platform Rep
 </span>
 <span class="nv">$credentials</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MoxiworksPlatform\Credentials</span><span class="p">(</span><span class="nv">$platform_identifier</span><span class="p">,</span> <span class="nv">$platform_secret</span><span class="p">);</span>
 
@@ -100,7 +100,7 @@
 
 <aside class="note">Send a <b>GET</b> request to https://api.moxiworks.com/api/companies/[moxi_works_company_id]</aside>
 
-<p>When finding an <span class='entity-name'>Company</span> using the Moxi Works platform API, format your request using the following parameters.</p>
+<p>When finding an <span class='entity-name'>Company</span> using the MoxiWorks platform API, format your request using the following parameters.</p>
 
 <table><thead>
 <tr>
@@ -119,7 +119,7 @@
 <p><span class="required-data"><strong>Required Parameters Are In Red</strong></span></p>
 
 <p><span class="request-data-head">moxi_works_company_id</span>
-<span class="request-data-remarks">A valid Moxi Works <span class='entity-name'>Company</span> ID. Use <a href="#company">Company Endpoint</a> to determine what <span class='attribute-name'>moxi_works_company_id</span> you can use.</span></p>
+<span class="request-data-remarks">A valid MoxiWorks <span class='entity-name'>Company</span> ID. Use <a href="#company">Company Endpoint</a> to determine what <span class='attribute-name'>moxi_works_company_id</span> you can use.</span></p>
 
 <aside class="note">Use <a href='#company'>Company Endpoint</a> to determine the moxi_works_company_id to send.</aside>
 
@@ -172,7 +172,7 @@
 </tbody></table>
 
 <p><span class="response-data-head">moxi_works_company_id</span>
-<span class="response-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Company</span>. This will be an alphanumeric identification string which will be similar to the company name.</span></p>
+<span class="response-data-remarks">This is the MoxiWorks Platform ID of the <span class='entity-name'>Company</span>. This will be an alphanumeric identification string which will be similar to the company name.</span></p>
 
 <p><span class="response-data-head">name</span>
 <span class="response-data-remarks">This is a human readable name of the company which this <span class='entity-name'>Company</span> object represents.</span></p>
@@ -221,7 +221,7 @@
 
 <aside class="note">Send a <b>GET</b> request to https://api.moxiworks.com/api/companies</aside>
 
-<p>The <span class='entity-name'>Company</span> <span class='action-name'>Index</span> endpoint will return all <span class='entity-name'>Company</span> entities your organization is associated with. When searching for <span class='entity-name'>Company</span> entities using the Moxi Works platform API, format your request using the following parameters.</p>
+<p>The <span class='entity-name'>Company</span> <span class='action-name'>Index</span> endpoint will return all <span class='entity-name'>Company</span> entities your organization is associated with. When searching for <span class='entity-name'>Company</span> entities using the MoxiWorks platform API, format your request using the following parameters.</p>
 
 <blockquote>
 <p><span class="data-example-label"><span class='entity-name'>Company </span><span class='action-name'>Index </span>Request Example</span></p>
@@ -324,7 +324,7 @@ The following attributes make up the payload of each <span class='entity-name'>C
 </tbody></table>
 
 <p><span class="response-data-head">moxi_works_company_id</span>
-<span class="response-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Company</span>. This will be an alphanumeric identification string which will be similar to the company name.</span></p>
+<span class="response-data-remarks">This is the MoxiWorks Platform ID of the <span class='entity-name'>Company</span>. This will be an alphanumeric identification string which will be similar to the company name.</span></p>
 
 <p><span class="response-data-head">name</span>
 <span class="response-data-remarks">This is a human readable name of the company which this <span class='entity-name'>Company</span> object represents.</span></p>

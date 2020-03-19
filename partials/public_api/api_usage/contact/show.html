@@ -77,8 +77,8 @@
 
 </code></pre>
 <pre class="highlight php"><code><span class="cp">&lt;?php</span>
-<span class="nv">$platform_identifier</span> <span class="o">=</span> <span class="s1">'abc123'</span><span class="p">;</span> <span class="c1">// platorm_identifier provided by Moxi Works Platform Rep
-</span><span class="nv">$platform_secret</span> <span class="o">=</span> <span class="s1">'secret'</span><span class="p">;</span> <span class="c1">//platform_secret provided by Moxi Works Platform Rep
+<span class="nv">$platform_identifier</span> <span class="o">=</span> <span class="s1">'abc123'</span><span class="p">;</span> <span class="c1">// platorm_identifier provided by MoxiWorks Platform Rep
+</span><span class="nv">$platform_secret</span> <span class="o">=</span> <span class="s1">'secret'</span><span class="p">;</span> <span class="c1">//platform_secret provided by MoxiWorks Platform Rep
 </span>
 <span class="nv">$credentials</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MoxiworksPlatform\Credentials</span><span class="p">(</span><span class="nv">$platform_identifier</span><span class="p">,</span> <span class="nv">$platform_secret</span><span class="p">);</span>
 
@@ -129,8 +129,8 @@
 
 </code></pre>
 <pre class="highlight php"><code><span class="cp">&lt;?php</span>
-<span class="nv">$platform_identifier</span> <span class="o">=</span> <span class="s1">'abc123'</span><span class="p">;</span> <span class="c1">// platorm_identifier provided by Moxi Works Platform Rep
-</span><span class="nv">$platform_secret</span> <span class="o">=</span> <span class="s1">'secret'</span><span class="p">;</span> <span class="c1">//platform_secret provided by Moxi Works Platform Rep
+<span class="nv">$platform_identifier</span> <span class="o">=</span> <span class="s1">'abc123'</span><span class="p">;</span> <span class="c1">// platorm_identifier provided by MoxiWorks Platform Rep
+</span><span class="nv">$platform_secret</span> <span class="o">=</span> <span class="s1">'secret'</span><span class="p">;</span> <span class="c1">//platform_secret provided by MoxiWorks Platform Rep
 </span>
 <span class="nv">$credentials</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MoxiworksPlatform\Credentials</span><span class="p">(</span><span class="nv">$platform_identifier</span><span class="p">,</span> <span class="nv">$platform_secret</span><span class="p">);</span>
 
@@ -142,7 +142,7 @@
 
 <aside class="note">Send a <b>GET</b> request to https://api.moxiworks.com/api/contacts/[partner_contact_id|moxi_works_contact_id]</aside>
 
-<p>When showing a contact using the Moxi Works platform API, format your data using the following parameters.</p>
+<p>When showing a contact using the MoxiWorks platform API, format your data using the following parameters.</p>
 
 <h5 id="contact-show-request-attributes"><span class='entity-name'>Contact</span> <span class='action-name'>Show</span> Request Attributes</h5>
 
@@ -182,15 +182,15 @@
 <p><span class="required-data"><strong>Required Parameters Are In Red</strong></span></p>
 
 <p><span class="request-data-head">agent_uuid</span>
-<span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which a  <span class='entity-name'>Contact</span> is associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID. <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>Conact</span> <span class='action-name'>Show</span> request to be accepted.</span></p>
+<span class="request-data-remarks">This is the MoxiWorks Platform ID of the <span class='entity-name'>Agent</span> which a  <span class='entity-name'>Contact</span> is associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID. <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> is required and must reference a valid MoxiWorks Agent ID for your <span class='entity-name'>Conact</span> <span class='action-name'>Show</span> request to be accepted.</span></p>
 
 <p><span class="request-data-head">moxi_works_agent_id</span>
-<span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>Contact</span> entry is associated with. This will be a string that may take the form of an email address, or a unique identification string. This data is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>Contact</span> <span class='action-name'>Show</span>  request to be accepted.</span></p>
+<span class="request-data-remarks">This is the MoxiWorks Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>Contact</span> entry is associated with. This will be a string that may take the form of an email address, or a unique identification string. This data is required and must reference a valid MoxiWorks Agent ID for your <span class='entity-name'>Contact</span> <span class='action-name'>Show</span>  request to be accepted.</span></p>
 
 <aside class="note">A company&rsquo;s internal agent id may be used to construct the agent&rsquo;s unique identification string. To do so, the value passed via the moxi_works_agent_id should be a single concatenated string, of the form:</br>[moxi_works_company_id]:[internal_agent_id]</br>Use <a href='#company'>Company Endpoint</a> to determine which moxi_works_company_id to use.</aside>
 
 <p><span class="request-data-head">moxi_works_contact_id</span>
-<span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Contact</span> which this <span class='entity-name'>Contact</span> entry is associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID. This data is required and must reference a valid Moxi Works <span class='entity-name'>Contact</span> ID for your <span class='entity-name'>Contact</span> <span class='action-name'>Show</span>  request to be accepted. This is the same as the <span class='attribute-name'>moxi_works_contact_id</span> attribute of the  <span class='entity-name'>Contact</span> response.</span></p>
+<span class="request-data-remarks">This is the MoxiWorks Platform ID of the <span class='entity-name'>Contact</span> which this <span class='entity-name'>Contact</span> entry is associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID. This data is required and must reference a valid MoxiWorks <span class='entity-name'>Contact</span> ID for your <span class='entity-name'>Contact</span> <span class='action-name'>Show</span>  request to be accepted. This is the same as the <span class='attribute-name'>moxi_works_contact_id</span> attribute of the  <span class='entity-name'>Contact</span> response.</span></p>
 
 <p><span class="request-data-head">partner_contact_id</span>
 <span class="request-data-remarks">This is the unique identifer you use in your system that has been associated with the <span class='entity-name'>Contact</span> that you are finding.</span></p>
@@ -744,19 +744,19 @@
 <p><span class='multi-option-response-data'>* Either <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> will be returned depending on whether it is used in the request. The response payload object&rsquo;s agent identifier key will match the passed parameter.</span></p>
 
 <p><span class="response-data-head">agent_uuid</span>
-<span class="response-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>Contact</span>  is associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID.</span></p>
+<span class="response-data-remarks">This is the MoxiWorks Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>Contact</span>  is associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID.</span></p>
 
 <p><span class="response-data-head">moxi_works_agent_id</span>
-<span class="response-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span>. This will be a string that may take the form of an email address, or a unique alphanumeric identification string.</span></p>
+<span class="response-data-remarks">This is the MoxiWorks Platform ID of the <span class='entity-name'>Agent</span>. This will be a string that may take the form of an email address, or a unique alphanumeric identification string.</span></p>
 
 <p><span class="response-data-head">partner_contact_id</span>
 <span class="response-data-remarks">This is the unique identifer you use in your system that has been associated with the <span class='entity-name'>Contact</span> that you are finding.</span></p>
 
 <p><span class="response-data-head">moxi_works_contact_id</span>
-<span class="response-data-remarks">This is the Moxi Works Platform ID of this <span class='entity-name'>Contact</span>. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID.</span></p>
+<span class="response-data-remarks">This is the MoxiWorks Platform ID of this <span class='entity-name'>Contact</span>. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID.</span></p>
 
 <p><span class="response-data-head">moxi_works_lead_source_id</span>
-<span class="response-data-remarks">This is the unique Moxi Works Platform ID of the <span class='entity-name'>LeadSource</span> that generated this <span class='entity-name'>Contact</span>.</span></p>
+<span class="response-data-remarks">This is the unique MoxiWorks Platform ID of the <span class='entity-name'>LeadSource</span> that generated this <span class='entity-name'>Contact</span>.</span></p>
 
 <p><span class="request-data-head">moxi_works_origin_lead_source_id</span>
 <span class="request-data-remarks">This is used to keep track of the original lead source for this <span class='entity-name'>Contact</span> record. This field will not be displayed in MoxiEngage, and is for the parter&rsquo;s own tracking purposes. This key will be associated with valid <span class='attribute-name'>moxi_works_lead_source_id</span>. Send a <span class='entity-name'>LeadSource</span> <span class='action-name'>index</span> request for a full list of applicable lead sources and their ids.</span></p>

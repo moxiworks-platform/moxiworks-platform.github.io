@@ -80,8 +80,8 @@
 
 </code></pre>
 <pre class="highlight php"><code><span class="cp">&lt;?php</span>
-<span class="nv">$platform_identifier</span> <span class="o">=</span> <span class="s1">'abc123'</span><span class="p">;</span> <span class="c1">// platorm_identifier provided by Moxi Works Platform Rep
-</span><span class="nv">$platform_secret</span> <span class="o">=</span> <span class="s1">'secret'</span><span class="p">;</span> <span class="c1">//platform_secret provided by Moxi Works Platform Rep
+<span class="nv">$platform_identifier</span> <span class="o">=</span> <span class="s1">'abc123'</span><span class="p">;</span> <span class="c1">// platorm_identifier provided by MoxiWorks Platform Rep
+</span><span class="nv">$platform_secret</span> <span class="o">=</span> <span class="s1">'secret'</span><span class="p">;</span> <span class="c1">//platform_secret provided by MoxiWorks Platform Rep
 </span>
 <span class="nv">$credentials</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MoxiworksPlatform\Credentials</span><span class="p">(</span><span class="nv">$platform_identifier</span><span class="p">,</span> <span class="nv">$platform_secret</span><span class="p">);</span>
 
@@ -93,7 +93,7 @@
 
 <aside class="note">Send a <b>GET</b> request to https://api.moxiworks.com/api/sold_listings/[moxi_works_listing_id]</aside>
 
-<p>When showing <span class='entity-name'>SoldListing</span> objects using the Moxi Works platform API, format your data using the following parameters.</p>
+<p>When showing <span class='entity-name'>SoldListing</span> objects using the MoxiWorks platform API, format your data using the following parameters.</p>
 
 <h5 id="soldlisting-show-request-attributes"><span class='entity-name'>SoldListing</span> <span class='action-name'>Show</span> Request Attributes</h5>
 
@@ -119,10 +119,10 @@
 <p><span class="required-data"><strong>Required Parameters Are In Red</strong></span></p>
 
 <p><span class="request-data-head">moxi_works_listing_id</span>
-<span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>SoldListing</span> which you are requesting to <span class='action-name'>Show</span>. This data is required and must reference a valid Moxi Works <span class='entity-name'>SoldListing</span> ID for your <span class='action-name'>Show</span>  request to be accepted.</span></p>
+<span class="request-data-remarks">This is the MoxiWorks Platform ID of the <span class='entity-name'>SoldListing</span> which you are requesting to <span class='action-name'>Show</span>. This data is required and must reference a valid MoxiWorks <span class='entity-name'>SoldListing</span> ID for your <span class='action-name'>Show</span>  request to be accepted.</span></p>
 
 <p><span class="request-data-head">moxi_works_company_id</span>
-<span class="request-data-remarks">A valid Moxi Works <span class='entity-name'>Company</span> ID. Use <a href="#company">Company Endpoint</a> to determine what <span class='attribute-name'>moxi_works_company_id</span> you can use.</span></p>
+<span class="request-data-remarks">A valid MoxiWorks <span class='entity-name'>Company</span> ID. Use <a href="#company">Company Endpoint</a> to determine what <span class='attribute-name'>moxi_works_company_id</span> you can use.</span></p>
 
 <aside class="note">Use <a href='#company'>Company Endpoint</a> to determine the moxi_works_company_id to send.</aside>
 
@@ -727,7 +727,7 @@
 <span class="response-data-remarks">Detailed status of the listing</span></p>
 
 <p><span class="response-data-head">MoxiWorksListingID</span>
-<span class="response-data-remarks">The unique Identifier for the listing in The Moxi Works Platform.</span></p>
+<span class="response-data-remarks">The unique Identifier for the listing in The MoxiWorks Platform.</span></p>
 
 <p><span class="response-data-head">AgentCreatedListing</span>
 <span class="response-data-remarks">Whether the agent created this listing.</span></p>

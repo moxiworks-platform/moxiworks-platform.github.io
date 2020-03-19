@@ -38,7 +38,7 @@
 
 <aside class="note">Send a <b>GET</b> request to https://api.moxiworks.com/api/action_logs</aside>
 
-<p>When searching for <span class='entity-name'>ActionLog</span> entities using the Moxi Works platform API, format your request using the following parameters.</p>
+<p>When searching for <span class='entity-name'>ActionLog</span> entities using the MoxiWorks platform API, format your request using the following parameters.</p>
 
 <blockquote>
 <p><span class="data-example-label"><span class='entity-name'>ActionLog </span><span class='action-name'>Index </span> (using <span class='attribute-name'>agent_uuid</span> Request Example</span></p>
@@ -87,8 +87,8 @@
 
 </code></pre>
 <pre class="highlight php"><code><span class="cp">&lt;?php</span>
-<span class="nv">$platform_identifier</span> <span class="o">=</span> <span class="s1">'abc123'</span><span class="p">;</span> <span class="c1">// platorm_identifier provided by Moxi Works Platform Rep
-</span><span class="nv">$platform_secret</span> <span class="o">=</span> <span class="s1">'secret'</span><span class="p">;</span> <span class="c1">//platform_secret provided by Moxi Works Platform Rep
+<span class="nv">$platform_identifier</span> <span class="o">=</span> <span class="s1">'abc123'</span><span class="p">;</span> <span class="c1">// platorm_identifier provided by MoxiWorks Platform Rep
+</span><span class="nv">$platform_secret</span> <span class="o">=</span> <span class="s1">'secret'</span><span class="p">;</span> <span class="c1">//platform_secret provided by MoxiWorks Platform Rep
 </span>
 <span class="nv">$credentials</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MoxiworksPlatform\Credentials</span><span class="p">(</span><span class="nv">$platform_identifier</span><span class="p">,</span> <span class="nv">$platform_secret</span><span class="p">);</span>
 
@@ -144,8 +144,8 @@
 
 </code></pre>
 <pre class="highlight php"><code><span class="cp">&lt;?php</span>
-<span class="nv">$platform_identifier</span> <span class="o">=</span> <span class="s1">'abc123'</span><span class="p">;</span> <span class="c1">// platorm_identifier provided by Moxi Works Platform Rep
-</span><span class="nv">$platform_secret</span> <span class="o">=</span> <span class="s1">'secret'</span><span class="p">;</span> <span class="c1">//platform_secret provided by Moxi Works Platform Rep
+<span class="nv">$platform_identifier</span> <span class="o">=</span> <span class="s1">'abc123'</span><span class="p">;</span> <span class="c1">// platorm_identifier provided by MoxiWorks Platform Rep
+</span><span class="nv">$platform_secret</span> <span class="o">=</span> <span class="s1">'secret'</span><span class="p">;</span> <span class="c1">//platform_secret provided by MoxiWorks Platform Rep
 </span>
 <span class="nv">$credentials</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MoxiworksPlatform\Credentials</span><span class="p">(</span><span class="nv">$platform_identifier</span><span class="p">,</span> <span class="nv">$platform_secret</span><span class="p">);</span>
 
@@ -204,18 +204,18 @@
 <p><span class="required-data"><strong>Required Parameters Are In Red</strong></span></p>
 
 <p><span class="request-data-head">agent_uuid</span>
-<span class="request-data-remarks">This is the Moxi Works Platform ID of the agent which an  <span class='entity-name'>ActionLog</span> entry is associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID. <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>ActionLog</span> request to be accepted.</span></p>
+<span class="request-data-remarks">This is the MoxiWorks Platform ID of the agent which an  <span class='entity-name'>ActionLog</span> entry is associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID. <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> is required and must reference a valid MoxiWorks Agent ID for your <span class='entity-name'>ActionLog</span> request to be accepted.</span></p>
 
 <p><span class="request-data-head">moxi_works_agent_id</span>
-<span class="request-data-remarks">This is the Moxi Works Platform ID of the agent which an <span class='entity-name'>ActionLog</span> entry is associated with. This will be a string that may take the form of an email address, or a unique identification string. <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>ActionLog</span> request to be accepted.</span></p>
+<span class="request-data-remarks">This is the MoxiWorks Platform ID of the agent which an <span class='entity-name'>ActionLog</span> entry is associated with. This will be a string that may take the form of an email address, or a unique identification string. <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> is required and must reference a valid MoxiWorks Agent ID for your <span class='entity-name'>ActionLog</span> request to be accepted.</span></p>
 
 <aside class="note">A company&rsquo;s internal agent id may be used to construct the agent&rsquo;s unique identification string. To do so, the value passed via the moxi_works_agent_id should be a single concatenated string, of the form:</br>[moxi_works_company_id]:[internal_agent_id]</br>Use <a href='#company'>Company Endpoint</a> to determine which moxi_works_company_id to use.</aside>
 
 <p><span class="request-data-head">moxi_works_contact_id</span>
-<span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Contact</span> which the <span class='entity-name'>ActionLog</span> objects are associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID. This data is required and must reference a valid Moxi Works <span class='entity-name'>Contact</span> ID for your <span class='entity-name'>ActionLog</span> <span class='action-name'>Index</span>  request to be accepted. This is the same as the <span class='attribute-name'>moxi_works_contact_id</span> attribute of the  <span class='entity-name'>Contact</span> response.</span></p>
+<span class="request-data-remarks">This is the MoxiWorks Platform ID of the <span class='entity-name'>Contact</span> which the <span class='entity-name'>ActionLog</span> objects are associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID. This data is required and must reference a valid MoxiWorks <span class='entity-name'>Contact</span> ID for your <span class='entity-name'>ActionLog</span> <span class='action-name'>Index</span>  request to be accepted. This is the same as the <span class='attribute-name'>moxi_works_contact_id</span> attribute of the  <span class='entity-name'>Contact</span> response.</span></p>
 
 <p><span class="request-data-head">partner_contact_id</span>
-<span class="request-data-remarks">This is the unique identifer you use in your system that has been associated with the <span class='entity-name'>Contact</span> that you are creating an <span class='entity-name'>ActionLog</span> entry about. You should have already created the <span class='entity-name'>Contact</span> record on the Moxi Works Platform using <a href="/#contact-create">Contact Create</a> before attempting to use your system&rsquo;s contact ID to show <span class='entity-name'>ActionLog</span> entries for the <span class='entity-name'>Contact</span>. Your request will be rejected if the <span class='entity-name'>Contact</span> record does not exist.</span></p>
+<span class="request-data-remarks">This is the unique identifer you use in your system that has been associated with the <span class='entity-name'>Contact</span> that you are creating an <span class='entity-name'>ActionLog</span> entry about. You should have already created the <span class='entity-name'>Contact</span> record on the MoxiWorks Platform using <a href="/#contact-create">Contact Create</a> before attempting to use your system&rsquo;s contact ID to show <span class='entity-name'>ActionLog</span> entries for the <span class='entity-name'>Contact</span>. Your request will be rejected if the <span class='entity-name'>Contact</span> record does not exist.</span></p>
 
 <p><span class="request-data-head">date_min</span>
 <span class="request-data-remarks">Only <span class='entity-name'>ActionLog</span> records created later than this Unix timestamp will be included in the query. The upper bound of the time slice will be the 90 days higher than <span class='attribute-name'>date_min</span> value or the value of the the <span class='attribute-name'>date_max</span>; whichever is lower. If no timestamps are provided, ActionLogs from the last 90 days will be retrieved.</span></p>
@@ -390,13 +390,13 @@
 <p><span class='multi-option-response-data'> † Either <span class='attribute-name'>moxi_works_contact_id</span> or <span class='attribute-name'>partner_contact_id</span> will be returned depending on whether it is used in the request. The response payload object&rsquo;s agent identifier key will match the passed parameter.</span></p>
 
 <p><span class="response-data-head">agent_uuid</span>
-<span class="response-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which an <span class='entity-name'>ActionLog</span> entry is associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID.</span></p>
+<span class="response-data-remarks">This is the MoxiWorks Platform ID of the <span class='entity-name'>Agent</span> which an <span class='entity-name'>ActionLog</span> entry is associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID.</span></p>
 
 <p><span class="response-data-head">moxi_works_agent_id</span>
-<span class="response-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which an action log entry is associated with. This will be a string that may take the form of an email address, or a unique alphanumeric identification string.</span></p>
+<span class="response-data-remarks">This is the MoxiWorks Platform ID of the <span class='entity-name'>Agent</span> which an action log entry is associated with. This will be a string that may take the form of an email address, or a unique alphanumeric identification string.</span></p>
 
 <p><span class="response-data-head">moxi_works_contact_id</span>
-<span class="response-data-remarks">This is the Moxi Works Platform ID of this <span class='entity-name'>Contact</span> that this <span class='entity-name'>ActionLog</span> entry is about. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID.</span></p>
+<span class="response-data-remarks">This is the MoxiWorks Platform ID of this <span class='entity-name'>Contact</span> that this <span class='entity-name'>ActionLog</span> entry is about. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID.</span></p>
 
 <p><span class="response-data-head">partner_contact_id</span>
 <span class="response-data-remarks">This is the unique identifer you use in your system that has been associated with the <span class='entity-name'>Contact</span> that this <span class='entity-name'>ActionLog</span> entry is about.</span></p>
@@ -433,7 +433,7 @@
 </tbody></table>
 
 <p><span class="response-data-head">moxi_works_action_log_id</span>
-<span class="response-data-remarks">This is the unique identifier for the Moxi Works Platform <span class='entity-name'>ActionLog</span> entry.</span></p>
+<span class="response-data-remarks">This is the unique identifier for the MoxiWorks Platform <span class='entity-name'>ActionLog</span> entry.</span></p>
 
 <p><span class="response-data-head">type</span>
 <span class="response-data-remarks">This is a string from an enumerated set representing the  type of <span class='entity-name'>ActionLog</span> entry this is. The string should be formatted in lowercase with an underscore between each word. Individual <span class='entity-name'>ActionLog</span> types are outside the scope of this document.</span></p>

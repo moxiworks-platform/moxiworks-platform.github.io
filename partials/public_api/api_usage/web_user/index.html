@@ -58,7 +58,7 @@
 
 <aside class="note">Send a <b>GET</b> request to https://api.moxiworks.com/api/web_users</aside>
 
-<p>When searching for <span class='entity-name'>WebUser</span> entities using the Moxi Works platform API, format your data using the following parameters.</p>
+<p>When searching for <span class='entity-name'>WebUser</span> entities using the MoxiWorks platform API, format your data using the following parameters.</p>
 
 <table><thead>
 <tr>
@@ -124,15 +124,15 @@
 <p><span class="multi-option-data"> † Either <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> may be supplied, but not both.</span></p>
 
 <p><span class="request-data-head">moxi_works_company_id</span>
-<span class="request-data-remarks">A valid Moxi Works <span class='entity-name'>Company</span> ID. Use <a href="#company">Company Endpoint</a> to determine what <span class='attribute-name'>moxi_works_company_id</span> you can use.</span></p>
+<span class="request-data-remarks">A valid MoxiWorks <span class='entity-name'>Company</span> ID. Use <a href="#company">Company Endpoint</a> to determine what <span class='attribute-name'>moxi_works_company_id</span> you can use.</span></p>
 
 <aside class="note">Use <a href='#company'>Company Endpoint</a> to determine the moxi_works_company_id to send.</aside>
 
 <p><span class="request-data-head">agent_uuid</span>
-<span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which the  <span class='entity-name'>WebUser</span> entry is associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID. If supplied thee <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> must reference a valid Moxi Works Agent ID for your <span class='entity-name'>WebUser</span> request to be accepted.</span></p>
+<span class="request-data-remarks">This is the MoxiWorks Platform ID of the <span class='entity-name'>Agent</span> which the  <span class='entity-name'>WebUser</span> entry is associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID. If supplied thee <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> must reference a valid MoxiWorks Agent ID for your <span class='entity-name'>WebUser</span> request to be accepted.</span></p>
 
 <p><span class="request-data-head">moxi_works_agent_id</span>
-<span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which the <span class='entity-name'>WebUser</span> objects are associated with. This will be a string that may take the form of an email address, or a unique identification string. If supplied this data must reference a valid Moxi Works <span class='entity-name'>Agent</span> ID for your <span class='entity-name'>WebUser</span> <span class='action-name'>Index</span>  request to be accepted.</span></p>
+<span class="request-data-remarks">This is the MoxiWorks Platform ID of the <span class='entity-name'>Agent</span> which the <span class='entity-name'>WebUser</span> objects are associated with. This will be a string that may take the form of an email address, or a unique identification string. If supplied this data must reference a valid MoxiWorks <span class='entity-name'>Agent</span> ID for your <span class='entity-name'>WebUser</span> <span class='action-name'>Index</span>  request to be accepted.</span></p>
 
 <p><span class="request-data-head">has_agent_association</span>
 <span class="request-data-remarks">This boolean should be set to true when fetching only agent associated <span class='entity-name'>WebUser</span> objects.</span></p>
@@ -222,7 +222,7 @@
 </tbody></table>
 
 <p><span class="response-data-head">moxi_works_user_id</span>
-<span class="response-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>WebUser</span>. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID.</span></p>
+<span class="response-data-remarks">This is the MoxiWorks Platform ID of the <span class='entity-name'>WebUser</span>. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID.</span></p>
 
 <p><span class="response-data-head">first_name</span>
 <span class="response-data-remarks">The first name associated with the <span class='entity-name'>WebUser</span> record.</span></p>

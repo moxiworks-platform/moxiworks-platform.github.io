@@ -30,13 +30,13 @@
       <div class="content">
         <h3 id="buyertransaction"><span class='entity-name'>BuyerTransaction</span></h3>
 
-<p>Moxi Works Platform <span class='entity-name'>BuyerTransaction</span> entities represent buyer-side transactions that agents are working on.</p>
+<p>MoxiWorks Platform <span class='entity-name'>BuyerTransaction</span> entities represent buyer-side transactions that agents are working on.</p>
 
 <h6 id="buyertransaction-stages"><span class='entity-name'>BuyerTransaction</span> Stages</h6>
 
 <p>By default, each <span class='entity-name'>BuyerTransaction</span> passes through five stages. Each stage represents a different stage in the transaction lifecycle. Every <span class='entity-name'>BuyerTransaction</span> response will include the current stage of the <span class='entity-name'>BuyerTransaction</span> both in its numeric form as well as a human readable string representation.  As the transaction progresses through its lifecycle, you can promote it to the next stage.    See <a href='#promoting-sellertransaction-stage'>Promoting <span class='entity-name'>BuyerTransaction</span> Stage</a> for information about promoting a <span class='entity-name'>BuyerTransaction</span> object to the next stage.</p>
 
-<p>Each <span class='entity-name'>BuyerTransaction</span> created through the Moxi Works Platform will be created as a stage 3 (<code class="prettyprint">active</code>) <span class='entity-name'>BuyerTransaction</span>.</p>
+<p>Each <span class='entity-name'>BuyerTransaction</span> created through the MoxiWorks Platform will be created as a stage 3 (<code class="prettyprint">active</code>) <span class='entity-name'>BuyerTransaction</span>.</p>
 
 <p>Use the table below to determine the mapping between the integer represented in <span class='attribute-name'>stage</span> and its human readable counterpart.</span></p>
 
@@ -212,8 +212,8 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;moxi_works_contact_id=babebe
 </code></pre>
 
 <pre class="highlight php"><code><span class="cp">&lt;?php</span>
-<span class="nv">$platform_identifier</span> <span class="o">=</span> <span class="s1">'abc123'</span><span class="p">;</span> <span class="c1">// platorm_identifier provided by Moxi Works Platform Rep
-</span><span class="nv">$platform_secret</span> <span class="o">=</span> <span class="s1">'secret'</span><span class="p">;</span> <span class="c1">//platform_secret provided by Moxi Works Platform Rep
+<span class="nv">$platform_identifier</span> <span class="o">=</span> <span class="s1">'abc123'</span><span class="p">;</span> <span class="c1">// platorm_identifier provided by MoxiWorks Platform Rep
+</span><span class="nv">$platform_secret</span> <span class="o">=</span> <span class="s1">'secret'</span><span class="p">;</span> <span class="c1">//platform_secret provided by MoxiWorks Platform Rep
 </span>
 <span class="nv">$credentials</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MoxiworksPlatform\Credentials</span><span class="p">(</span><span class="nv">$platform_identifier</span><span class="p">,</span> <span class="nv">$platform_secret</span><span class="p">);</span>
 
@@ -356,8 +356,8 @@ moxi_works_agent_id=abc123&amp;moxi_works_contact_id=babebead-feed-face-dead-bee
 </code></pre>
 
 <pre class="highlight php"><code><span class="cp">&lt;?php</span>
-<span class="nv">$platform_identifier</span> <span class="o">=</span> <span class="s1">'abc123'</span><span class="p">;</span> <span class="c1">// platorm_identifier provided by Moxi Works Platform Rep
-</span><span class="nv">$platform_secret</span> <span class="o">=</span> <span class="s1">'secret'</span><span class="p">;</span> <span class="c1">//platform_secret provided by Moxi Works Platform Rep
+<span class="nv">$platform_identifier</span> <span class="o">=</span> <span class="s1">'abc123'</span><span class="p">;</span> <span class="c1">// platorm_identifier provided by MoxiWorks Platform Rep
+</span><span class="nv">$platform_secret</span> <span class="o">=</span> <span class="s1">'secret'</span><span class="p">;</span> <span class="c1">//platform_secret provided by MoxiWorks Platform Rep
 </span>
 <span class="nv">$credentials</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MoxiworksPlatform\Credentials</span><span class="p">(</span><span class="nv">$platform_identifier</span><span class="p">,</span> <span class="nv">$platform_secret</span><span class="p">);</span>
 
@@ -499,8 +499,8 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;moxi_works_contact_id=babebe
 </code></pre>
 
 <pre class="highlight php"><code><span class="cp">&lt;?php</span>
-<span class="nv">$platform_identifier</span> <span class="o">=</span> <span class="s1">'abc123'</span><span class="p">;</span> <span class="c1">// platorm_identifier provided by Moxi Works Platform Rep
-</span><span class="nv">$platform_secret</span> <span class="o">=</span> <span class="s1">'secret'</span><span class="p">;</span> <span class="c1">//platform_secret provided by Moxi Works Platform Rep
+<span class="nv">$platform_identifier</span> <span class="o">=</span> <span class="s1">'abc123'</span><span class="p">;</span> <span class="c1">// platorm_identifier provided by MoxiWorks Platform Rep
+</span><span class="nv">$platform_secret</span> <span class="o">=</span> <span class="s1">'secret'</span><span class="p">;</span> <span class="c1">//platform_secret provided by MoxiWorks Platform Rep
 </span>
 <span class="nv">$credentials</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MoxiworksPlatform\Credentials</span><span class="p">(</span><span class="nv">$platform_identifier</span><span class="p">,</span> <span class="nv">$platform_secret</span><span class="p">);</span>
 
@@ -530,7 +530,7 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;moxi_works_contact_id=babebe
 
 <aside class="note">Send a <b>POST</b> request to https://api.moxiworks.com/api/buyer_transactions</aside>
 
-<p>When creating an transaction using the Moxi Works platform API, format your data using the following parameters.</p>
+<p>When creating an transaction using the MoxiWorks platform API, format your data using the following parameters.</p>
 
 <h5 id="buyertransaction-create-request-attributes"><span class='entity-name'>BuyerTransaction</span> <span class='action-name'>Create</span> Request Attributes</h5>
 
@@ -690,15 +690,15 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;moxi_works_contact_id=babebe
 <p><span class="required-data"><strong>Required Parameters Are In Red</strong></span></p>
 
 <p><span class="request-data-head">agent_uuid</span>
-<span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which the  <span class='entity-name'>BuyerTransaction</span> entry is associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID. <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>BuyerTransaction</span> request to be accepted.</span></p>
+<span class="request-data-remarks">This is the MoxiWorks Platform ID of the <span class='entity-name'>Agent</span> which the  <span class='entity-name'>BuyerTransaction</span> entry is associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID. <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> is required and must reference a valid MoxiWorks Agent ID for your <span class='entity-name'>BuyerTransaction</span> request to be accepted.</span></p>
 
 <p><span class="request-data-head">moxi_works_agent_id</span>
-<span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>BuyerTransaction</span> object is to be associated with. This will be a string that may take the form of an email address, or a unique identification string. <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>BuyerTransaction</span> request to be accepted.</span></p>
+<span class="request-data-remarks">This is the MoxiWorks Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>BuyerTransaction</span> object is to be associated with. This will be a string that may take the form of an email address, or a unique identification string. <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> is required and must reference a valid MoxiWorks Agent ID for your <span class='entity-name'>BuyerTransaction</span> request to be accepted.</span></p>
 
 <aside class="note">A company&rsquo;s internal agent id may be used to construct the agent&rsquo;s unique identification string. To do so, the value passed via the moxi_works_agent_id should be a single concatenated string, of the form:</br>[moxi_works_company_id]:[internal_agent_id]</br>Use <a href='#company'>Company Endpoint</a> to determine which moxi_works_company_id to use.</aside>
 
 <p><span class="request-data-head">moxi_works_contact_id</span>
-<span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Contact</span> which this <span class='entity-name'>BuyerTransaction</span> object is to be associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID. This data is required and must reference a valid Moxi Works <span class='entity-name'>Contact</span> ID for your <span class='entity-name'>BuyerTransaction</span> <span class='action-name'>Create</span>  request to be accepted. This is the same as the <span class='attribute-name'>moxi_works_contact_id</span> attribute of the  <span class='entity-name'>Contact</span> response.</span></p>
+<span class="request-data-remarks">This is the MoxiWorks Platform ID of the <span class='entity-name'>Contact</span> which this <span class='entity-name'>BuyerTransaction</span> object is to be associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID. This data is required and must reference a valid MoxiWorks <span class='entity-name'>Contact</span> ID for your <span class='entity-name'>BuyerTransaction</span> <span class='action-name'>Create</span>  request to be accepted. This is the same as the <span class='attribute-name'>moxi_works_contact_id</span> attribute of the  <span class='entity-name'>Contact</span> response.</span></p>
 
 <p><span class="request-data-head">partner_contact_id</span>
 <span class="request-data-remarks">This is the unique identifer you use in your system that has been associated with the <span class='entity-name'>Contact</span> that this <span class='entity-name'>BuyerTransaction</span> regards. If the referenced contact was not created by you, then this should not be used, instead use <span class='attribute-name'>moxi_works_contact_id</span>.</span></p>
@@ -1017,19 +1017,19 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;moxi_works_contact_id=babebe
 <p><span class='multi-option-response-data'>* Either <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> will be returned depending on whether it is used in the request. The response payload object&rsquo;s agent identifier key will match the passed parameter.</span></p>
 
 <p><span class="response-data-head">agent_uuid</span>
-<span class="response-data-remarks">This is the Moxi Works Platform ID of the agent which an <span class='entity-name'>BuyerTransaction</span> entry is associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID.</span></p>
+<span class="response-data-remarks">This is the MoxiWorks Platform ID of the agent which an <span class='entity-name'>BuyerTransaction</span> entry is associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID.</span></p>
 
 <p><span class="response-data-head">moxi_works_agent_id</span>
-<span class="response-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>BuyerTransaction</span> is associated with. This will be a string that may take the form of an email address, or a unique alphanumeric identification string.</span></p>
+<span class="response-data-remarks">This is the MoxiWorks Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>BuyerTransaction</span> is associated with. This will be a string that may take the form of an email address, or a unique alphanumeric identification string.</span></p>
 
 <p><span class="response-data-head">moxi_works_transaction_id</span>
-<span class="response-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>BuyerTransaction</span> which you have created. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID. This ID should be recorded on response as it is the key ID for updating the <span class='entity-name'>BuyerTransaction</span>.</span></p>
+<span class="response-data-remarks">This is the MoxiWorks Platform ID of the <span class='entity-name'>BuyerTransaction</span> which you have created. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID. This ID should be recorded on response as it is the key ID for updating the <span class='entity-name'>BuyerTransaction</span>.</span></p>
 
 <p><span class="response-data-head">moxi_works_contact_id</span>
-<span class="response-data-remarks">This is the Moxi Works Platform ID of the  <span class='entity-name'>Contact</span> which this <span class='entity-name'>BuyerTransaction</span> has been associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID.</span></p>
+<span class="response-data-remarks">This is the MoxiWorks Platform ID of the  <span class='entity-name'>Contact</span> which this <span class='entity-name'>BuyerTransaction</span> has been associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID.</span></p>
 
 <p><span class="response-data-head">partner_contact_id</span>
-<span class="response-data-remarks">If this <span class='entity-name'>Contact</span> was created by your sytem in the Moxi Works Platform, then this is the unique identifer you use in your system that has been associated with the <span class='entity-name'>Contact</span> that you are creating this <span class='entity-name'>BuyerTransaction</span> for. If the <span class='entity-name'>Contact</span> was not created by you, then <span class='attribute-name'>partner_contact_id</span> will be empty.</span></p>
+<span class="response-data-remarks">If this <span class='entity-name'>Contact</span> was created by your sytem in the MoxiWorks Platform, then this is the unique identifer you use in your system that has been associated with the <span class='entity-name'>Contact</span> that you are creating this <span class='entity-name'>BuyerTransaction</span> for. If the <span class='entity-name'>Contact</span> was not created by you, then <span class='attribute-name'>partner_contact_id</span> will be empty.</span></p>
 
 <p><span class="response-data-head">transaction_name</span>
 <span class="response-data-remarks">A brief, human readable title that is shown to the agent as the subject of the <span class='entity-name'>BuyerTransaction</span>.</span></p>
@@ -1041,7 +1041,7 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;moxi_works_contact_id=babebe
 <span class="response-data-remarks">Each <span class='entity-name'>BuyerTransaction</span> has five stages (1-5). <span class='attribute-name'>stage</span> displays the stage number that the <span class='entity-name'>BuyerTransaction</span> is currently in. For more information about <span class='entity-name'>BuyerTransaction</span> stages, see <a href='#buyertransaction-stages'>BuyerTransaction Stages</a>.</span></p>
 
 <p><span class="response-data-head">stage_name</span>
-<span class="response-data-remarks">This attribute displays a human readable stage name that is associated with the current <span class='attribute-name'>stage</span> attribute. When created through the Moxi Works Platform <span class='entity-name'>BuyerTransaction</span> objects will automatically be configured as <span class='attribute-value'>active</span> transactions. For more information about <span class='entity-name'>BuyerTransaction</span> stages, see <a href='#buyertransaction-stages'>BuyerTransaction Stages</a>.</span></p>
+<span class="response-data-remarks">This attribute displays a human readable stage name that is associated with the current <span class='attribute-name'>stage</span> attribute. When created through the MoxiWorks Platform <span class='entity-name'>BuyerTransaction</span> objects will automatically be configured as <span class='attribute-value'>active</span> transactions. For more information about <span class='entity-name'>BuyerTransaction</span> stages, see <a href='#buyertransaction-stages'>BuyerTransaction Stages</a>.</span></p>
 
 <p><span class="response-data-head">address</span>
 <span class="response-data-remarks">The street address for the property being purchased.</span></p>
@@ -1242,8 +1242,8 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;min_beds=12&amp;max_beds=34&
 </code></pre>
 
 <pre class="highlight php"><code><span class="cp">&lt;?php</span>
-<span class="nv">$platform_identifier</span> <span class="o">=</span> <span class="s1">'abc123'</span><span class="p">;</span> <span class="c1">// platorm_identifier provided by Moxi Works Platform Rep
-</span><span class="nv">$platform_secret</span> <span class="o">=</span> <span class="s1">'secret'</span><span class="p">;</span> <span class="c1">//platform_secret provided by Moxi Works Platform Rep
+<span class="nv">$platform_identifier</span> <span class="o">=</span> <span class="s1">'abc123'</span><span class="p">;</span> <span class="c1">// platorm_identifier provided by MoxiWorks Platform Rep
+</span><span class="nv">$platform_secret</span> <span class="o">=</span> <span class="s1">'secret'</span><span class="p">;</span> <span class="c1">//platform_secret provided by MoxiWorks Platform Rep
 </span>
 <span class="nv">$credentials</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MoxiworksPlatform\Credentials</span><span class="p">(</span><span class="nv">$platform_identifier</span><span class="p">,</span> <span class="nv">$platform_secret</span><span class="p">);</span>
 
@@ -1391,8 +1391,8 @@ moxi_works_agent_id=abc123&amp;min_beds=12&amp;max_beds=34&amp;min_baths=1.75&am
 </code></pre>
 
 <pre class="highlight php"><code><span class="cp">&lt;?php</span>
-<span class="nv">$platform_identifier</span> <span class="o">=</span> <span class="s1">'abc123'</span><span class="p">;</span> <span class="c1">// platorm_identifier provided by Moxi Works Platform Rep
-</span><span class="nv">$platform_secret</span> <span class="o">=</span> <span class="s1">'secret'</span><span class="p">;</span> <span class="c1">//platform_secret provided by Moxi Works Platform Rep
+<span class="nv">$platform_identifier</span> <span class="o">=</span> <span class="s1">'abc123'</span><span class="p">;</span> <span class="c1">// platorm_identifier provided by MoxiWorks Platform Rep
+</span><span class="nv">$platform_secret</span> <span class="o">=</span> <span class="s1">'secret'</span><span class="p">;</span> <span class="c1">//platform_secret provided by MoxiWorks Platform Rep
 </span>
 <span class="nv">$credentials</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MoxiworksPlatform\Credentials</span><span class="p">(</span><span class="nv">$platform_identifier</span><span class="p">,</span> <span class="nv">$platform_secret</span><span class="p">);</span>
 
@@ -1538,8 +1538,8 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;min_beds=12&amp;max_beds=34&
 </code></pre>
 
 <pre class="highlight php"><code><span class="cp">&lt;?php</span>
-<span class="nv">$platform_identifier</span> <span class="o">=</span> <span class="s1">'abc123'</span><span class="p">;</span> <span class="c1">// platorm_identifier provided by Moxi Works Platform Rep
-</span><span class="nv">$platform_secret</span> <span class="o">=</span> <span class="s1">'secret'</span><span class="p">;</span> <span class="c1">//platform_secret provided by Moxi Works Platform Rep
+<span class="nv">$platform_identifier</span> <span class="o">=</span> <span class="s1">'abc123'</span><span class="p">;</span> <span class="c1">// platorm_identifier provided by MoxiWorks Platform Rep
+</span><span class="nv">$platform_secret</span> <span class="o">=</span> <span class="s1">'secret'</span><span class="p">;</span> <span class="c1">//platform_secret provided by MoxiWorks Platform Rep
 </span>
 <span class="nv">$credentials</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MoxiworksPlatform\Credentials</span><span class="p">(</span><span class="nv">$platform_identifier</span><span class="p">,</span> <span class="nv">$platform_secret</span><span class="p">);</span>
 
@@ -1570,9 +1570,9 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;min_beds=12&amp;max_beds=34&
 
 <aside class="note">Send a <b>PUT</b> request to https://api.moxiworks.com/api/buyer_transactions/[moxi_works_transaction_id]</aside>
 
-<aside class="warning">Moxi Works API will remove data for any attribute not defined within the parameters you send. For instance, if the <span class='entity-name'>city</span> attribute is not passed, the current <span class='attribute-name'>city</span> value for the <span class='entity-name'>BuyerTransaction</span> will be removed from the <span class='entity-name'>BuyerTransaction</span> stored in Moxi Works.</aside>
+<aside class="warning">MoxiWorks API will remove data for any attribute not defined within the parameters you send. For instance, if the <span class='entity-name'>city</span> attribute is not passed, the current <span class='attribute-name'>city</span> value for the <span class='entity-name'>BuyerTransaction</span> will be removed from the <span class='entity-name'>BuyerTransaction</span> stored in MoxiWorks.</aside>
 
-<p>When updating a <span class='entity-name'>BuyerTransaction</span> using the Moxi Works platform API, format your data using the following parameters.</p>
+<p>When updating a <span class='entity-name'>BuyerTransaction</span> using the MoxiWorks platform API, format your data using the following parameters.</p>
 
 <h5 id="buyertransaction-update-request-attributes"><span class='entity-name'>BuyerTransaction</span> <span class='action-name'>Update</span> Request Attributes</h5>
 
@@ -1735,15 +1735,15 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;min_beds=12&amp;max_beds=34&
 <p><span class="required-data"><strong>Required Parameters Are In Red</strong></span></p>
 
 <p><span class="request-data-head">agent_uuid</span>
-<span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which an  <span class='entity-name'>BuyerTransaction</span> entry is associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID. <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>BuyerTransaction</span> <span class='action-name'>Show</span> request to be accepted.</span></p>
+<span class="request-data-remarks">This is the MoxiWorks Platform ID of the <span class='entity-name'>Agent</span> which an  <span class='entity-name'>BuyerTransaction</span> entry is associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID. <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> is required and must reference a valid MoxiWorks Agent ID for your <span class='entity-name'>BuyerTransaction</span> <span class='action-name'>Show</span> request to be accepted.</span></p>
 
 <p><span class="request-data-head">moxi_works_agent_id</span>
-<span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>BuyerTransaction</span> object is associated with. This will be a string that may take the form of an email address, or a unique identification string. This data is required and must reference a valid Moxi Works <span class='entity-name'>Agent</span> ID for your <span class='entity-name'>BuyerTransaction</span> <span class='action-name'>Update</span>  request to be accepted.</span></p>
+<span class="request-data-remarks">This is the MoxiWorks Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>BuyerTransaction</span> object is associated with. This will be a string that may take the form of an email address, or a unique identification string. This data is required and must reference a valid MoxiWorks <span class='entity-name'>Agent</span> ID for your <span class='entity-name'>BuyerTransaction</span> <span class='action-name'>Update</span>  request to be accepted.</span></p>
 
 <aside class="note">A company&rsquo;s internal agent id may be used to construct the agent&rsquo;s unique identification string. To do so, the value passed via the moxi_works_agent_id should be a single concatenated string, of the form:</br>[moxi_works_company_id]:[internal_agent_id]</br>Use <a href='#company'>Company Endpoint</a> to determine which moxi_works_company_id to use.</aside>
 
 <p><span class="request-data-head">moxi_works_transaction_id</span>
-<span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>BuyerTransaction</span> object that you are updating. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID. This data is required and must reference a valid Moxi Works <span class='entity-name'>BuyerTransaction</span> ID for your <span class='entity-name'>BuyerTransaction</span> <span class='action-name'>Update</span>  request to be accepted. You can determine UUIDs of existing <span class='entity-name'>BuyerTransaction</span> objects by using the <a href='#buyertransaction-index'><span class='entity-name'>BuyerTransaction</span><span class='action-name'>Index</span></a> request.</span></p>
+<span class="request-data-remarks">This is the MoxiWorks Platform ID of the <span class='entity-name'>BuyerTransaction</span> object that you are updating. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID. This data is required and must reference a valid MoxiWorks <span class='entity-name'>BuyerTransaction</span> ID for your <span class='entity-name'>BuyerTransaction</span> <span class='action-name'>Update</span>  request to be accepted. You can determine UUIDs of existing <span class='entity-name'>BuyerTransaction</span> objects by using the <a href='#buyertransaction-index'><span class='entity-name'>BuyerTransaction</span><span class='action-name'>Index</span></a> request.</span></p>
 
 <p><span class="request-data-head">transaction_name</span>
 <span class="request-data-remarks">A brief, human readable title that will be shown to the agent as the subject of the <span class='entity-name'>BuyerTransaction</span> that you are updating.</span></p>
@@ -1827,7 +1827,7 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;min_beds=12&amp;max_beds=34&
 <span class="request-data-remarks">A Unix timestamp representing the point in time when the transaction for this <span class='entity-name'>BuyerTransaction</span> object was completed. This should be <code class="prettyprint">null</code> if the <span class='entity-name'>BuyerTransaction</span> is not yet in <code class="prettyprint">complete</code> state or you are not promoting the <span class='entity-name'>BuyerTransaction</span> to <code class="prettyprint">complete</code>.</span></p>
 
 <p><span class="request-data-head">promote_transaction</span>
-<span class="request-data-remarks">If this is set to <code class="prettyprint">true</code> then The Moxi Works Platform will promote this transaction to the next stage. </span></p>
+<span class="request-data-remarks">If this is set to <code class="prettyprint">true</code> then The MoxiWorks Platform will promote this transaction to the next stage. </span></p>
 
 <p><span class="request-data-head">stage</span>
 <span class="request-data-remarks">The stage that the <span class='entity-name'>BuyerTransaction</span> should be placed into (see section header). This should not be used in conjunction with the <span class='attribute-name'>promote_transaction</span> attribute.</span></p>
@@ -2058,19 +2058,19 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;min_beds=12&amp;max_beds=34&
 <p><span class='multi-option-response-data'>* Either <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> will be returned depending on whether it is used in the request. The response payload object&rsquo;s agent identifier key will match the passed parameter.</span></p>
 
 <p><span class="response-data-head">agent_uuid</span>
-<span class="response-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>BuyerTransaction</span>  is associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID.</span></p>
+<span class="response-data-remarks">This is the MoxiWorks Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>BuyerTransaction</span>  is associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID.</span></p>
 
 <p><span class="response-data-head">moxi_works_agent_id</span>
-<span class="response-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>BuyerTransaction</span> is associated with. This will be a string that may take the form of an email address, or a unique alphanumeric identification string.</span></p>
+<span class="response-data-remarks">This is the MoxiWorks Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>BuyerTransaction</span> is associated with. This will be a string that may take the form of an email address, or a unique alphanumeric identification string.</span></p>
 
 <p><span class="response-data-head">moxi_works_transaction_id</span>
-<span class="response-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>BuyerTransaction</span>. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID.</span></p>
+<span class="response-data-remarks">This is the MoxiWorks Platform ID of the <span class='entity-name'>BuyerTransaction</span>. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID.</span></p>
 
 <p><span class="response-data-head">moxi_works_contact_id</span>
-<span class="response-data-remarks">This is the Moxi Works Platform ID of the  <span class='entity-name'>Contact</span> which this <span class='entity-name'>BuyerTransaction</span> has been associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID.</span></p>
+<span class="response-data-remarks">This is the MoxiWorks Platform ID of the  <span class='entity-name'>Contact</span> which this <span class='entity-name'>BuyerTransaction</span> has been associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID.</span></p>
 
 <p><span class="response-data-head">partner_contact_id</span>
-<span class="response-data-remarks">If the <span class='entity-name'>Contact</span> was created by your sytem in the Moxi Works Platform, then this is the unique identifer you use in your system that has been associated with the <span class='entity-name'>Contact</span> that you are updating this <span class='entity-name'>BuyerTransaction</span> for. If the <span class='entity-name'>Contact</span> was not created by you, then <span class='attribute-name'>partner_contact_id</span> will be empty.</span></p>
+<span class="response-data-remarks">If the <span class='entity-name'>Contact</span> was created by your sytem in the MoxiWorks Platform, then this is the unique identifer you use in your system that has been associated with the <span class='entity-name'>Contact</span> that you are updating this <span class='entity-name'>BuyerTransaction</span> for. If the <span class='entity-name'>Contact</span> was not created by you, then <span class='attribute-name'>partner_contact_id</span> will be empty.</span></p>
 
 <p><span class="response-data-head">transaction_name</span>
 <span class="response-data-remarks">A brief, human readable title that is shown to the agent as the subject of the <span class='entity-name'>BuyerTransaction</span>.</span></p>
@@ -2219,8 +2219,8 @@ moxi_works_agent_id=abc123
 </code></pre>
 
 <pre class="highlight php"><code><span class="cp">&lt;?php</span>
-<span class="nv">$platform_identifier</span> <span class="o">=</span> <span class="s1">'abc123'</span><span class="p">;</span> <span class="c1">// platorm_identifier provided by Moxi Works Platform Rep
-</span><span class="nv">$platform_secret</span> <span class="o">=</span> <span class="s1">'secret'</span><span class="p">;</span> <span class="c1">//platform_secret provided by Moxi Works Platform Rep
+<span class="nv">$platform_identifier</span> <span class="o">=</span> <span class="s1">'abc123'</span><span class="p">;</span> <span class="c1">// platorm_identifier provided by MoxiWorks Platform Rep
+</span><span class="nv">$platform_secret</span> <span class="o">=</span> <span class="s1">'secret'</span><span class="p">;</span> <span class="c1">//platform_secret provided by MoxiWorks Platform Rep
 </span>
 <span class="nv">$credentials</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MoxiworksPlatform\Credentials</span><span class="p">(</span><span class="nv">$platform_identifier</span><span class="p">,</span> <span class="nv">$platform_secret</span><span class="p">);</span>
 
@@ -2285,8 +2285,8 @@ moxi_works_agent_id=abc123
 </code></pre>
 
 <pre class="highlight php"><code><span class="cp">&lt;?php</span>
-<span class="nv">$platform_identifier</span> <span class="o">=</span> <span class="s1">'abc123'</span><span class="p">;</span> <span class="c1">// platorm_identifier provided by Moxi Works Platform Rep
-</span><span class="nv">$platform_secret</span> <span class="o">=</span> <span class="s1">'secret'</span><span class="p">;</span> <span class="c1">//platform_secret provided by Moxi Works Platform Rep
+<span class="nv">$platform_identifier</span> <span class="o">=</span> <span class="s1">'abc123'</span><span class="p">;</span> <span class="c1">// platorm_identifier provided by MoxiWorks Platform Rep
+</span><span class="nv">$platform_secret</span> <span class="o">=</span> <span class="s1">'secret'</span><span class="p">;</span> <span class="c1">//platform_secret provided by MoxiWorks Platform Rep
 </span>
 <span class="nv">$credentials</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MoxiworksPlatform\Credentials</span><span class="p">(</span><span class="nv">$platform_identifier</span><span class="p">,</span> <span class="nv">$platform_secret</span><span class="p">);</span>
 
@@ -2351,8 +2351,8 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab
 </code></pre>
 
 <pre class="highlight php"><code><span class="cp">&lt;?php</span>
-<span class="nv">$platform_identifier</span> <span class="o">=</span> <span class="s1">'abc123'</span><span class="p">;</span> <span class="c1">// platorm_identifier provided by Moxi Works Platform Rep
-</span><span class="nv">$platform_secret</span> <span class="o">=</span> <span class="s1">'secret'</span><span class="p">;</span> <span class="c1">//platform_secret provided by Moxi Works Platform Rep
+<span class="nv">$platform_identifier</span> <span class="o">=</span> <span class="s1">'abc123'</span><span class="p">;</span> <span class="c1">// platorm_identifier provided by MoxiWorks Platform Rep
+</span><span class="nv">$platform_secret</span> <span class="o">=</span> <span class="s1">'secret'</span><span class="p">;</span> <span class="c1">//platform_secret provided by MoxiWorks Platform Rep
 </span>
 <span class="nv">$credentials</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MoxiworksPlatform\Credentials</span><span class="p">(</span><span class="nv">$platform_identifier</span><span class="p">,</span> <span class="nv">$platform_secret</span><span class="p">);</span>
 
@@ -2365,7 +2365,7 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab
 
 <aside class="note">Send a <b>GET</b> request to https://api.moxiworks.com/api/buyer_transactions/[moxi_works_transaction_id]</aside>
 
-<p>When showing a <span class='entity-name'>BuyerTransaction</span> using the Moxi Works platform API, format your data using the following parameters.</p>
+<p>When showing a <span class='entity-name'>BuyerTransaction</span> using the MoxiWorks platform API, format your data using the following parameters.</p>
 
 <h5 id="buyertransaction-show-request-attributes"><span class='entity-name'>BuyerTransaction</span> <span class='action-name'>Show</span> Request Attributes</h5>
 
@@ -2398,15 +2398,15 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab
 <p><span class="required-data"><strong>Required Parameters Are In Red</strong></span></p>
 
 <p><span class="request-data-head">agent_uuid</span>
-<span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which an  <span class='entity-name'>BuyerTransaction</span> entry is associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID. <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>BuyerTransaction</span> <span class='action-name'>Show</span> request to be accepted.</span></p>
+<span class="request-data-remarks">This is the MoxiWorks Platform ID of the <span class='entity-name'>Agent</span> which an  <span class='entity-name'>BuyerTransaction</span> entry is associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID. <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> is required and must reference a valid MoxiWorks Agent ID for your <span class='entity-name'>BuyerTransaction</span> <span class='action-name'>Show</span> request to be accepted.</span></p>
 
 <p><span class="request-data-head">moxi_works_agent_id</span>
-<span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>BuyerTransaction</span> object is associated with. This will be a string that may take the form of an email address, or a unique identification string. This data is required and must reference a valid Moxi Works <span class='entity-name'>Agent</span> ID for your <span class='entity-name'>BuyerTransaction</span> <span class='action-name'>Show</span>  request to be accepted.</span></p>
+<span class="request-data-remarks">This is the MoxiWorks Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>BuyerTransaction</span> object is associated with. This will be a string that may take the form of an email address, or a unique identification string. This data is required and must reference a valid MoxiWorks <span class='entity-name'>Agent</span> ID for your <span class='entity-name'>BuyerTransaction</span> <span class='action-name'>Show</span>  request to be accepted.</span></p>
 
 <aside class="note">A company&rsquo;s internal agent id may be used to construct the agent&rsquo;s unique identification string. To do so, the value passed via the moxi_works_agent_id should be a single concatenated string, of the form:</br>[moxi_works_company_id]:[internal_agent_id]</br>Use <a href='#company'>Company Endpoint</a> to determine which moxi_works_company_id to use.</aside>
 
 <p><span class="response-data-head">moxi_works_transaction_id</span>
-<span class="response-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>BuyerTransaction</span>. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID.</span></p>
+<span class="response-data-remarks">This is the MoxiWorks Platform ID of the <span class='entity-name'>BuyerTransaction</span>. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID.</span></p>
 
 <blockquote><div class='highlight json' style="display: block">
 <span class='data-example-label'><span class='entity-name'>BuyerTransaction</span> <span class='action-name'>Show</span> (using <span class='attribute-name'>agent_uuid</span>) Response Payload Example
@@ -2642,19 +2642,19 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab
 <p><span class='multi-option-response-data'>* Either <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> will be returned depending on whether it is used in the request. The response payload object&rsquo;s agent identifier key will match the passed parameter.</span></p>
 
 <p><span class="response-data-head">agent_uuid</span>
-<span class="response-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>BuyerTransaction</span>  is associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID.</span></p>
+<span class="response-data-remarks">This is the MoxiWorks Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>BuyerTransaction</span>  is associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID.</span></p>
 
 <p><span class="response-data-head">moxi_works_agent_id</span>
-<span class="response-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>BuyerTransaction</span> is associated with. This will be a string that may take the form of an email address, or a unique alphanumeric identification string.</span></p>
+<span class="response-data-remarks">This is the MoxiWorks Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>BuyerTransaction</span> is associated with. This will be a string that may take the form of an email address, or a unique alphanumeric identification string.</span></p>
 
 <p><span class="response-data-head">moxi_works_transaction_id</span>
-<span class="response-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>BuyerTransaction</span>. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID.</span></p>
+<span class="response-data-remarks">This is the MoxiWorks Platform ID of the <span class='entity-name'>BuyerTransaction</span>. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID.</span></p>
 
 <p><span class="response-data-head">moxi_works_contact_id</span>
-<span class="response-data-remarks">This is the Moxi Works Platform ID of the  <span class='entity-name'>Contact</span> which this <span class='entity-name'>BuyerTransaction</span> has been associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID. </span></p>
+<span class="response-data-remarks">This is the MoxiWorks Platform ID of the  <span class='entity-name'>Contact</span> which this <span class='entity-name'>BuyerTransaction</span> has been associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID. </span></p>
 
 <p><span class="response-data-head">partner_contact_id</span>
-<span class="response-data-remarks">If this <span class='entity-name'>Contact</span> was created by your sytem in the Moxi Works Platform, then this is the unique identifer you use in your system that has been associated with the <span class='entity-name'>Contact</span> that you are creating this <span class='entity-name'>BuyerTransaction</span> for. If the <span class='entity-name'>Contact</span> was not created by you, then <span class='attribute-name'>partner_contact_id</span> will be empty.</span></p>
+<span class="response-data-remarks">If this <span class='entity-name'>Contact</span> was created by your sytem in the MoxiWorks Platform, then this is the unique identifer you use in your system that has been associated with the <span class='entity-name'>Contact</span> that you are creating this <span class='entity-name'>BuyerTransaction</span> for. If the <span class='entity-name'>Contact</span> was not created by you, then <span class='attribute-name'>partner_contact_id</span> will be empty.</span></p>
 
 <p><span class="response-data-head">transaction_name</span>
 <span class="response-data-remarks">A brief, human readable title that is shown to the agent as the subject of the <span class='entity-name'>BuyerTransaction</span>.</span></p>
@@ -2666,7 +2666,7 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab
 <span class="response-data-remarks">Each <span class='entity-name'>BuyerTransaction</span> has five stages (1-5). <span class='attribute-name'>stage</span> displays the stage number that the <span class='entity-name'>BuyerTransaction</span> is currently in. For more information about <span class='entity-name'>BuyerTransaction</span> stages, see <a href='#buyertransaction-stages'>BuyerTransaction Stages</a>.</span></p>
 
 <p><span class="response-data-head">stage_name</span>
-<span class="response-data-remarks">This attribute displays a human readable stage name that is associated with the current <span class='attribute-name'>stage</span> attribute. When created through the Moxi Works Platform <span class='entity-name'>BuyerTransaction</span> objects will automatically be configured as <span class='attribute-value'>active</span> transactions. For more information about <span class='entity-name'>BuyerTransaction</span> stages, see <a href='#buyertransaction-stages'>BuyerTransaction Stages</a>.</span></p>
+<span class="response-data-remarks">This attribute displays a human readable stage name that is associated with the current <span class='attribute-name'>stage</span> attribute. When created through the MoxiWorks Platform <span class='entity-name'>BuyerTransaction</span> objects will automatically be configured as <span class='attribute-value'>active</span> transactions. For more information about <span class='entity-name'>BuyerTransaction</span> stages, see <a href='#buyertransaction-stages'>BuyerTransaction Stages</a>.</span></p>
 
 <p><span class="response-data-head">address</span>
 <span class="response-data-remarks">The street address for the property being purchased.</span></p>
@@ -2800,8 +2800,8 @@ agent_uuid=abc123
 </code></pre>
 
 <pre class="highlight php"><code><span class="cp">&lt;?php</span>
-<span class="nv">$platform_identifier</span> <span class="o">=</span> <span class="s1">'abc123'</span><span class="p">;</span> <span class="c1">// platorm_identifier provided by Moxi Works Platform Rep
-</span><span class="nv">$platform_secret</span> <span class="o">=</span> <span class="s1">'secret'</span><span class="p">;</span> <span class="c1">//platform_secret provided by Moxi Works Platform Rep
+<span class="nv">$platform_identifier</span> <span class="o">=</span> <span class="s1">'abc123'</span><span class="p">;</span> <span class="c1">// platorm_identifier provided by MoxiWorks Platform Rep
+</span><span class="nv">$platform_secret</span> <span class="o">=</span> <span class="s1">'secret'</span><span class="p">;</span> <span class="c1">//platform_secret provided by MoxiWorks Platform Rep
 </span>
 <span class="nv">$credentials</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MoxiworksPlatform\Credentials</span><span class="p">(</span><span class="nv">$platform_identifier</span><span class="p">,</span> <span class="nv">$platform_secret</span><span class="p">);</span>
 
@@ -2862,8 +2862,8 @@ moxi_works_agent_id=abc123
 </code></pre>
 
 <pre class="highlight php"><code><span class="cp">&lt;?php</span>
-<span class="nv">$platform_identifier</span> <span class="o">=</span> <span class="s1">'abc123'</span><span class="p">;</span> <span class="c1">// platorm_identifier provided by Moxi Works Platform Rep
-</span><span class="nv">$platform_secret</span> <span class="o">=</span> <span class="s1">'secret'</span><span class="p">;</span> <span class="c1">//platform_secret provided by Moxi Works Platform Rep
+<span class="nv">$platform_identifier</span> <span class="o">=</span> <span class="s1">'abc123'</span><span class="p">;</span> <span class="c1">// platorm_identifier provided by MoxiWorks Platform Rep
+</span><span class="nv">$platform_secret</span> <span class="o">=</span> <span class="s1">'secret'</span><span class="p">;</span> <span class="c1">//platform_secret provided by MoxiWorks Platform Rep
 </span>
 <span class="nv">$credentials</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MoxiworksPlatform\Credentials</span><span class="p">(</span><span class="nv">$platform_identifier</span><span class="p">,</span> <span class="nv">$platform_secret</span><span class="p">);</span>
 
@@ -2924,8 +2924,8 @@ moxi_works_agent_id=abc123
 </code></pre>
 
 <pre class="highlight php"><code><span class="cp">&lt;?php</span>
-<span class="nv">$platform_identifier</span> <span class="o">=</span> <span class="s1">'abc123'</span><span class="p">;</span> <span class="c1">// platorm_identifier provided by Moxi Works Platform Rep
-</span><span class="nv">$platform_secret</span> <span class="o">=</span> <span class="s1">'secret'</span><span class="p">;</span> <span class="c1">//platform_secret provided by Moxi Works Platform Rep
+<span class="nv">$platform_identifier</span> <span class="o">=</span> <span class="s1">'abc123'</span><span class="p">;</span> <span class="c1">// platorm_identifier provided by MoxiWorks Platform Rep
+</span><span class="nv">$platform_secret</span> <span class="o">=</span> <span class="s1">'secret'</span><span class="p">;</span> <span class="c1">//platform_secret provided by MoxiWorks Platform Rep
 </span>
 <span class="nv">$credentials</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MoxiworksPlatform\Credentials</span><span class="p">(</span><span class="nv">$platform_identifier</span><span class="p">,</span> <span class="nv">$platform_secret</span><span class="p">);</span>
 
@@ -2937,7 +2937,7 @@ moxi_works_agent_id=abc123
 
 <aside class="note">Send a <b>GET</b> request to https://api.moxiworks.com/api/buyer_transactions</aside>
 
-<p>When searching for <span class='entity-name'>BuyerTransaction</span> objects using the Moxi Works platform API, format your data using the following parameters.</p>
+<p>When searching for <span class='entity-name'>BuyerTransaction</span> objects using the MoxiWorks platform API, format your data using the following parameters.</p>
 
 <h5 id="buyertransaction-index-request-attributes"><span class='entity-name'>BuyerTransaction</span> <span class='action-name'>Index</span> Request Attributes</h5>
 
@@ -2982,15 +2982,15 @@ moxi_works_agent_id=abc123
 <p><span class="required-data"><strong>Required Parameters Are In Red</strong></span></p>
 
 <p><span class="request-data-head">agent_uuid</span>
-<span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which the  <span class='entity-name'>BuyerTransaction</span> entry is associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID. <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>BuyerTransaction</span> request to be accepted.</span></p>
+<span class="request-data-remarks">This is the MoxiWorks Platform ID of the <span class='entity-name'>Agent</span> which the  <span class='entity-name'>BuyerTransaction</span> entry is associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID. <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> is required and must reference a valid MoxiWorks Agent ID for your <span class='entity-name'>BuyerTransaction</span> request to be accepted.</span></p>
 
 <p><span class="request-data-head">moxi_works_agent_id</span>
-<span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which the <span class='entity-name'>BuyerTransaction</span> objects are associated with. This will be a string that may take the form of an email address, or a unique identification string. This data is required and must reference a valid Moxi Works <span class='entity-name'>Agent</span> ID for your <span class='entity-name'>BuyerTransaction</span> <span class='action-name'>Index</span>  request to be accepted.</span></p>
+<span class="request-data-remarks">This is the MoxiWorks Platform ID of the <span class='entity-name'>Agent</span> which the <span class='entity-name'>BuyerTransaction</span> objects are associated with. This will be a string that may take the form of an email address, or a unique identification string. This data is required and must reference a valid MoxiWorks <span class='entity-name'>Agent</span> ID for your <span class='entity-name'>BuyerTransaction</span> <span class='action-name'>Index</span>  request to be accepted.</span></p>
 
 <aside class="note">A company&rsquo;s internal agent id may be used to construct the agent&rsquo;s unique identification string. To do so, the value passed via the moxi_works_agent_id should be a single concatenated string, of the form:</br>[moxi_works_company_id]:[internal_agent_id]</br>Use <a href='#company'>Company Endpoint</a> to determine which moxi_works_company_id to use.</aside>
 
 <p><span class="request-data-head">moxi_works_contact_id</span>
-<span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Contact</span> for which you are searching associated <span class='entity-name'>BuyerTransaction</span> objects. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID. You can use either <span class='attribute-name'>moxi_works_contact_id</span> or <span class='action-name'>partner_contact_id</span> when searching for <span class='entity-name'>BuyerTransaction</span> objects associated with a specific <span class='entity-name'>Contact</span>.</span></p>
+<span class="request-data-remarks">This is the MoxiWorks Platform ID of the <span class='entity-name'>Contact</span> for which you are searching associated <span class='entity-name'>BuyerTransaction</span> objects. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID. You can use either <span class='attribute-name'>moxi_works_contact_id</span> or <span class='action-name'>partner_contact_id</span> when searching for <span class='entity-name'>BuyerTransaction</span> objects associated with a specific <span class='entity-name'>Contact</span>.</span></p>
 
 <p><span class="request-data-head">partner_contact_id</span>
 <span class="request-data-remarks">This is the unique identifer you use in your system that has been associated with the <span class='entity-name'>Contact</span> you want to find <span class='entity-name'>BuyerTransaction</span> objects for. You can use either <span class='attribute-name'>moxi_works_contact_id</span> or <span class='attribute-name'>partner_contact_id</span> when searching for <span class='entity-name'>BuyerTransaction</span> objects associated with a specific <span class='entity-name'>Contact</span>.</span></p>
@@ -3278,19 +3278,19 @@ moxi_works_agent_id=abc123
 <p><span class='multi-option-response-data'>* Either <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> will be returned depending on whether it is used in the request. The response payload object&rsquo;s agent identifier key will match the passed parameter.</span></p>
 
 <p><span class="response-data-head">agent_uuid</span>
-<span class="response-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>BuyerTransaction</span>  is associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID.</span></p>
+<span class="response-data-remarks">This is the MoxiWorks Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>BuyerTransaction</span>  is associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID.</span></p>
 
 <p><span class="response-data-head">moxi_works_agent_id</span>
-<span class="response-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>BuyerTransaction</span> is associated with. This will be a string that may take the form of an email address, or a unique alphanumeric identification string.</span></p>
+<span class="response-data-remarks">This is the MoxiWorks Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>BuyerTransaction</span> is associated with. This will be a string that may take the form of an email address, or a unique alphanumeric identification string.</span></p>
 
 <p><span class="response-data-head">moxi_works_transaction_id</span>
-<span class="response-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>BuyerTransaction</span> which you have created. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID.</span></p>
+<span class="response-data-remarks">This is the MoxiWorks Platform ID of the <span class='entity-name'>BuyerTransaction</span> which you have created. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID.</span></p>
 
 <p><span class="response-data-head">moxi_works_contact_id</span>
-<span class="response-data-remarks">This is the Moxi Works Platform ID of the  <span class='entity-name'>Contact</span> which this <span class='entity-name'>BuyerTransaction</span> has been associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID. </span></p>
+<span class="response-data-remarks">This is the MoxiWorks Platform ID of the  <span class='entity-name'>Contact</span> which this <span class='entity-name'>BuyerTransaction</span> has been associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID. </span></p>
 
 <p><span class="response-data-head">partner_contact_id</span>
-<span class="response-data-remarks">If this <span class='entity-name'>Contact</span> was created by your sytem in the Moxi Works Platform, then this is the unique identifer you use in your system that has been associated with the <span class='entity-name'>Contact</span> that you are creating this <span class='entity-name'>BuyerTransaction</span> for. If the <span class='entity-name'>Contact</span> was not created by you, then <span class='attribute-name'>partner_contact_id</span> will be empty.</span></p>
+<span class="response-data-remarks">If this <span class='entity-name'>Contact</span> was created by your sytem in the MoxiWorks Platform, then this is the unique identifer you use in your system that has been associated with the <span class='entity-name'>Contact</span> that you are creating this <span class='entity-name'>BuyerTransaction</span> for. If the <span class='entity-name'>Contact</span> was not created by you, then <span class='attribute-name'>partner_contact_id</span> will be empty.</span></p>
 
 <p><span class="response-data-head">transaction_name</span>
 <span class="response-data-remarks">A brief, human readable title that is shown to the agent as the subject of the <span class='entity-name'>BuyerTransaction</span>.</span></p>
@@ -3302,7 +3302,7 @@ moxi_works_agent_id=abc123
 <span class="response-data-remarks">Each <span class='entity-name'>BuyerTransaction</span> has five stages (1-5). <span class='attribute-name'>stage</span> displays the stage number that the <span class='entity-name'>BuyerTransaction</span> is currently in. For more information about <span class='entity-name'>BuyerTransaction</span> stages, see <a href='#buyertransaction-stages'>BuyerTransaction Stages</a>.</span></p>
 
 <p><span class="response-data-head">stage_name</span>
-<span class="response-data-remarks">This attribute displays a human readable stage name that is associated with the current <span class='attribute-name'>stage</span> attribute. When created through the Moxi Works Platform <span class='entity-name'>BuyerTransaction</span> objects will automatically be configured as <span class='attribute-value'>active</span> transactions. For more information about <span class='entity-name'>BuyerTransaction</span> stages, see <a href='#buyertransaction-stages'>BuyerTransaction Stages</a>.</span></p>
+<span class="response-data-remarks">This attribute displays a human readable stage name that is associated with the current <span class='attribute-name'>stage</span> attribute. When created through the MoxiWorks Platform <span class='entity-name'>BuyerTransaction</span> objects will automatically be configured as <span class='attribute-value'>active</span> transactions. For more information about <span class='entity-name'>BuyerTransaction</span> stages, see <a href='#buyertransaction-stages'>BuyerTransaction Stages</a>.</span></p>
 
 <p><span class="response-data-head">address</span>
 <span class="response-data-remarks">The street address for the property being purchased.</span></p>

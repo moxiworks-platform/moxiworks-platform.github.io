@@ -79,8 +79,8 @@
 
 </code></pre>
 <pre class="highlight php"><code><span class="cp">&lt;?php</span>
-<span class="nv">$platform_identifier</span> <span class="o">=</span> <span class="s1">'abc123'</span><span class="p">;</span> <span class="c1">// platorm_identifier provided by Moxi Works Platform Rep
-</span><span class="nv">$platform_secret</span> <span class="o">=</span> <span class="s1">'secret'</span><span class="p">;</span> <span class="c1">//platform_secret provided by Moxi Works Platform Rep
+<span class="nv">$platform_identifier</span> <span class="o">=</span> <span class="s1">'abc123'</span><span class="p">;</span> <span class="c1">// platorm_identifier provided by MoxiWorks Platform Rep
+</span><span class="nv">$platform_secret</span> <span class="o">=</span> <span class="s1">'secret'</span><span class="p">;</span> <span class="c1">//platform_secret provided by MoxiWorks Platform Rep
 </span>
 <span class="nv">$credentials</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MoxiworksPlatform\Credentials</span><span class="p">(</span><span class="nv">$platform_identifier</span><span class="p">,</span> <span class="nv">$platform_secret</span><span class="p">);</span>
 
@@ -165,7 +165,7 @@
 
 <aside class="note">Send a <b>GET</b> request to https://api.moxiworks.com/api/agents</aside>
 
-<p>When searching for <span class='entity-name'>Agent</span> entities using the Moxi Works platform API, format your data using the following parameters.</p>
+<p>When searching for <span class='entity-name'>Agent</span> entities using the MoxiWorks platform API, format your data using the following parameters.</p>
 
 <table><thead>
 <tr>
@@ -234,12 +234,12 @@
 <p><span class="required-data"><strong>Required Parameters Are In Red</strong></span></p>
 
 <p><span class="request-data-head">moxi_works_company_id</span>
-<span class="request-data-remarks">A valid Moxi Works <span class='entity-name'>Company</span> ID. Use <a href="#company">Company Endpoint</a> to determine what <span class='attribute-name'>moxi_works_company_id</span> you can use.</span></p>
+<span class="request-data-remarks">A valid MoxiWorks <span class='entity-name'>Company</span> ID. Use <a href="#company">Company Endpoint</a> to determine what <span class='attribute-name'>moxi_works_company_id</span> you can use.</span></p>
 
 <aside class="note">Use <a href='#company'>Company Endpoint</a> to determine the moxi_works_company_id to send.</aside>
 
 <p><span class="request-data-head">moxi_works_office_id</span>
-<span class="request-data-remarks">A valid Moxi Works <span class='entity-name'>Office</span> ID. Use <a href="#office">Office Endpoint</a> to determine what <span class='attribute-name'>moxi_works_office_id</span> you can use.</span></p>
+<span class="request-data-remarks">A valid MoxiWorks <span class='entity-name'>Office</span> ID. Use <a href="#office">Office Endpoint</a> to determine what <span class='attribute-name'>moxi_works_office_id</span> you can use.</span></p>
 
 <p><span class="request-data-head">updated_since</span>
 <span class="request-data-remarks">any <span class='entity-name'>Agent</span> objects updated after this Unix timestamp will be returned in the response. <strong>If no <span class='attribute-name'>updated_since</span> parameter is included in the request, only <span class='entity-name'>Agent</span> objects updated in the last seven days will be returned.</strong></span></p>
@@ -611,7 +611,7 @@
 </tbody></table>
 
 <p><span class="response-data-head">moxi_works_agent_id</span>
-<span class="response-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span>. This will be a string that may take the form of an email address, or a unique alphanumeric identification string.</span></p>
+<span class="response-data-remarks">This is the MoxiWorks Platform ID of the <span class='entity-name'>Agent</span>. This will be a string that may take the form of an email address, or a unique alphanumeric identification string.</span></p>
 
 <p><span class="response-data-head">client_agent_id</span>
 <span class="response-data-remarks">This is the  ID of the <span class='entity-name'>Agent</span> utilized by their company.</span></p>
@@ -632,7 +632,7 @@
 <span class="response-data-remarks">This is the ID of this <span class='entity-name'>Agent</span>. This will be an integer.</span></p>
 
 <p><span class="response-data-head">moxi_works_office_id</span>
-<span class="response-data-remarks">This is the Moxi Works Platform ID of the office for this <span class='entity-name'>Agent</span>. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID.</span></p>
+<span class="response-data-remarks">This is the MoxiWorks Platform ID of the office for this <span class='entity-name'>Agent</span>. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID.</span></p>
 
 <p><span class="response-data-head">office_id</span>
 <span class="response-data-remarks">This is the ID of the office for this <span class='entity-name'>Agent</span>. This will be an integer.</span></p>
@@ -796,10 +796,10 @@
 </tbody></table>
 
 <p><span class="response-data-head">moxi_works_office_id</span>
-<span class="response-data-remarks">This is the unique identifier for the Moxi Works Platform <span class='entity-name'>AlternateOffice</span> entry.</span></p>
+<span class="response-data-remarks">This is the unique identifier for the MoxiWorks Platform <span class='entity-name'>AlternateOffice</span> entry.</span></p>
 
 <p><span class="response-data-head">office_id</span>
-<span class="response-data-remarks">This is an integer identifier for the Moxi Works Platform <span class='entity-name'>AlternateOffice</span> entry. If you are using Moxi Works SSO, this will be the ID corresponding to the ID provided there.</span></p>
+<span class="response-data-remarks">This is an integer identifier for the MoxiWorks Platform <span class='entity-name'>AlternateOffice</span> entry. If you are using MoxiWorks SSO, this will be the ID corresponding to the ID provided there.</span></p>
 
 <p><span class="response-data-head">office_address_street</span>
 <span class="response-data-remarks">The street address of the office represented by this <span class='entity-name'>AlternateOffice</span> entry.</span></p>
@@ -844,7 +844,7 @@
 </tbody></table>
 
 <p><span class="response-data-head">name</span>
-<span class="response-data-remarks">The Moxi Works internal unique name for the MLS.</span></p>
+<span class="response-data-remarks">The MoxiWorks internal unique name for the MLS.</span></p>
 
 <p><span class="response-data-head">display_name</span>
 <span class="response-data-remarks">The name of the MLS as it is to be displayed to users.</span></p>

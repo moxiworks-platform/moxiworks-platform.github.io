@@ -30,7 +30,7 @@
       <div class="content">
         <h3 id="event"><span class='entity-name'>Event</span></h3>
 
-<p>Moxi Works Platform <span class='entity-name'>Event</span> entities represent appointments, meetings or other events scheduled for an agent.</p>
+<p>MoxiWorks Platform <span class='entity-name'>Event</span> entities represent appointments, meetings or other events scheduled for an agent.</p>
 
 <h4 id="event-create"><span class='entity-name'>Event</span> <span class='action-name'>Create</span></h4>
 
@@ -124,8 +124,8 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;partner_event_id=abc98df345&
 </code></pre>
 
 <pre class="highlight php"><code><span class="cp">&lt;?php</span>
-<span class="nv">$platform_identifier</span> <span class="o">=</span> <span class="s1">'abc123'</span><span class="p">;</span> <span class="c1">// platorm_identifier provided by Moxi Works Platform Rep
-</span><span class="nv">$platform_secret</span> <span class="o">=</span> <span class="s1">'secret'</span><span class="p">;</span> <span class="c1">//platform_secret provided by Moxi Works Platform Rep
+<span class="nv">$platform_identifier</span> <span class="o">=</span> <span class="s1">'abc123'</span><span class="p">;</span> <span class="c1">// platorm_identifier provided by MoxiWorks Platform Rep
+</span><span class="nv">$platform_secret</span> <span class="o">=</span> <span class="s1">'secret'</span><span class="p">;</span> <span class="c1">//platform_secret provided by MoxiWorks Platform Rep
 </span>
 <span class="nv">$credentials</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MoxiworksPlatform\Credentials</span><span class="p">(</span><span class="nv">$platform_identifier</span><span class="p">,</span> <span class="nv">$platform_secret</span><span class="p">);</span>
 
@@ -205,8 +205,8 @@ attendees=&amp;note=here%20is%20the%20note
 </code></pre>
 
 <pre class="highlight php"><code><span class="cp">&lt;?php</span>
-<span class="nv">$platform_identifier</span> <span class="o">=</span> <span class="s1">'abc123'</span><span class="p">;</span> <span class="c1">// platorm_identifier provided by Moxi Works Platform Rep
-</span><span class="nv">$platform_secret</span> <span class="o">=</span> <span class="s1">'secret'</span><span class="p">;</span> <span class="c1">//platform_secret provided by Moxi Works Platform Rep
+<span class="nv">$platform_identifier</span> <span class="o">=</span> <span class="s1">'abc123'</span><span class="p">;</span> <span class="c1">// platorm_identifier provided by MoxiWorks Platform Rep
+</span><span class="nv">$platform_secret</span> <span class="o">=</span> <span class="s1">'secret'</span><span class="p">;</span> <span class="c1">//platform_secret provided by MoxiWorks Platform Rep
 </span>
 <span class="nv">$credentials</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MoxiworksPlatform\Credentials</span><span class="p">(</span><span class="nv">$platform_identifier</span><span class="p">,</span> <span class="nv">$platform_secret</span><span class="p">);</span>
 
@@ -229,7 +229,7 @@ attendees=&amp;note=here%20is%20the%20note
 
 <aside class="note">Send a <b>POST</b> request to https://api.moxiworks.com/api/events</aside>
 
-<p>When creating an <span class='entity-name'>Event</span> using the Moxi Works platform API, format your request using the following parameters.</p>
+<p>When creating an <span class='entity-name'>Event</span> using the MoxiWorks platform API, format your request using the following parameters.</p>
 
 <table><thead>
 <tr>
@@ -308,10 +308,10 @@ attendees=&amp;note=here%20is%20the%20note
 <span class="request-data-remarks">This is the unique identifer you use in your system that has been associated with the <span class='entity-name'>Event</span> that you are creating. This data is required and must be a unique key.</span></p>
 
 <p><span class="request-data-head">agent_uuid</span>
-<span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which an  <span class='entity-name'>Event</span> entry is associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID. <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>Event</span> <span class='action-name'>Create</span> request to be accepted.</span></p>
+<span class="request-data-remarks">This is the MoxiWorks Platform ID of the <span class='entity-name'>Agent</span> which an  <span class='entity-name'>Event</span> entry is associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID. <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> is required and must reference a valid MoxiWorks Agent ID for your <span class='entity-name'>Event</span> <span class='action-name'>Create</span> request to be accepted.</span></p>
 
 <p><span class="request-data-head">moxi_works_agent_id</span>
-<span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>Event</span> is to be associated with. This will be a string that may take the form of an email address, or a unique identification string. This data is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>Event</span> <span class='action-name'>Create</span>  request to be accepted.</span></p>
+<span class="request-data-remarks">This is the MoxiWorks Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>Event</span> is to be associated with. This will be a string that may take the form of an email address, or a unique identification string. This data is required and must reference a valid MoxiWorks Agent ID for your <span class='entity-name'>Event</span> <span class='action-name'>Create</span>  request to be accepted.</span></p>
 
 <aside class="note">A company&rsquo;s internal agent id may be used to construct the agent&rsquo;s unique identification string. To do so, the value passed via the moxi_works_agent_id should be a single concatenated string, of the form:</br>[moxi_works_company_id]:[internal_agent_id]</br>Use <a href='#company'>Company Endpoint</a> to determine which moxi_works_company_id to use.</aside>
 
@@ -337,7 +337,7 @@ attendees=&amp;note=here%20is%20the%20note
 <span class="request-data-remarks">Whether the event is an all day event.</span></p>
 
 <p><span class="request-data-head">attendees</span>
-<span class="request-data-remarks">This is a comma separated list of contacts that have already been added through the Moxi Works Platform API who will be present at the referenced event. (Use IDs from your system &ndash; i.e. partner_contact_id from <a href="#contact-create">Contact Create</a> ).</span></p>
+<span class="request-data-remarks">This is a comma separated list of contacts that have already been added through the MoxiWorks Platform API who will be present at the referenced event. (Use IDs from your system &ndash; i.e. partner_contact_id from <a href="#contact-create">Contact Create</a> ).</span></p>
 
 <aside class="note">Attendees must be Contacts with an associated email address. <b>Attendees added who don&rsquo;t have an email address associated will not be added to the event.</b></aside>
 
@@ -466,10 +466,10 @@ attendees=&amp;note=here%20is%20the%20note
 <span class="response-data-remarks">This is the unique identifer you use in your system that has been associated with the <span class='entity-name'>Event</span>.</span></p>
 
 <p><span class="response-data-head">agent_uuid</span>
-<span class="response-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>Event</span>  is associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID.</span></p>
+<span class="response-data-remarks">This is the MoxiWorks Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>Event</span>  is associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID.</span></p>
 
 <p><span class="response-data-head">moxi_works_agent_id</span>
-<span class="response-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>Event</span> is associated with. This will be a string that may take the form of an email address, or a unique identification string.</span></p>
+<span class="response-data-remarks">This is the MoxiWorks Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>Event</span> is associated with. This will be a string that may take the form of an email address, or a unique identification string.</span></p>
 
 <p><span class="response-data-head">event_subject</span>
 <span class="response-data-remarks">This is a short, descriptive, human readable phrase to be displayed to the agent which lets them know what this <span class='entity-name'>Event</span> regards.</span></p>
@@ -493,7 +493,7 @@ attendees=&amp;note=here%20is%20the%20note
 <span class="response-data-remarks">This is the Unix timestamp representing the end time of the <span class='entity-name'>Event</span>.</span></p>
 
 <p><span class="response-data-head">attendees</span>
-<span class="response-data-remarks">This is a comma separated list of contacts that have already been added through the Moxi Works Platform API who will be present at the referenced event. (Use IDs from your system &ndash; i.e. partner_contact_id from <a href="#contact-create">Contact Create</a> ).</span></p>
+<span class="response-data-remarks">This is a comma separated list of contacts that have already been added through the MoxiWorks Platform API who will be present at the referenced event. (Use IDs from your system &ndash; i.e. partner_contact_id from <a href="#contact-create">Contact Create</a> ).</span></p>
 
 
 <h4 id="event-update"><span class='entity-name'>Event</span> <span class='action-name'>Update</span></h4>
@@ -596,8 +596,8 @@ note=here%20is%20the%20note
 </code></pre>
 
 <pre class="highlight php"><code><span class="cp">&lt;?php</span>
-<span class="nv">$platform_identifier</span> <span class="o">=</span> <span class="s1">'abc123'</span><span class="p">;</span> <span class="c1">// platorm_identifier provided by Moxi Works Platform Rep
-</span><span class="nv">$platform_secret</span> <span class="o">=</span> <span class="s1">'secret'</span><span class="p">;</span> <span class="c1">//platform_secret provided by Moxi Works Platform Rep
+<span class="nv">$platform_identifier</span> <span class="o">=</span> <span class="s1">'abc123'</span><span class="p">;</span> <span class="c1">// platorm_identifier provided by MoxiWorks Platform Rep
+</span><span class="nv">$platform_secret</span> <span class="o">=</span> <span class="s1">'secret'</span><span class="p">;</span> <span class="c1">//platform_secret provided by MoxiWorks Platform Rep
 </span>
 <span class="nv">$credentials</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MoxiworksPlatform\Credentials</span><span class="p">(</span><span class="nv">$platform_identifier</span><span class="p">,</span> <span class="nv">$platform_secret</span><span class="p">);</span>
 
@@ -709,8 +709,8 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 </code></pre>
 
 <pre class="highlight php"><code><span class="cp">&lt;?php</span>
-<span class="nv">$platform_identifier</span> <span class="o">=</span> <span class="s1">'abc123'</span><span class="p">;</span> <span class="c1">// platorm_identifier provided by Moxi Works Platform Rep
-</span><span class="nv">$platform_secret</span> <span class="o">=</span> <span class="s1">'secret'</span><span class="p">;</span> <span class="c1">//platform_secret provided by Moxi Works Platform Rep
+<span class="nv">$platform_identifier</span> <span class="o">=</span> <span class="s1">'abc123'</span><span class="p">;</span> <span class="c1">// platorm_identifier provided by MoxiWorks Platform Rep
+</span><span class="nv">$platform_secret</span> <span class="o">=</span> <span class="s1">'secret'</span><span class="p">;</span> <span class="c1">//platform_secret provided by MoxiWorks Platform Rep
 </span>
 <span class="nv">$credentials</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MoxiworksPlatform\Credentials</span><span class="p">(</span><span class="nv">$platform_identifier</span><span class="p">,</span> <span class="nv">$platform_secret</span><span class="p">);</span>
 
@@ -732,9 +732,9 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 
 <aside class="note">Send a <b>PUT</b> request to https://api.moxiworks.com/api/events/[partner_event_id]</aside>
 
-<aside class="warning">Moxi Works API will remove data for any attribute not defined within the parameters you send. For instance, if the <span class='entity-name'>note</span> attribute is not passed, the current <span class='attribute-name'>note</span> value for the <span class='entity-name'>Event</span> will be removed from the <span class='entity-name'>Event</span> stored in Moxi Works.</aside>
+<aside class="warning">MoxiWorks API will remove data for any attribute not defined within the parameters you send. For instance, if the <span class='entity-name'>note</span> attribute is not passed, the current <span class='attribute-name'>note</span> value for the <span class='entity-name'>Event</span> will be removed from the <span class='entity-name'>Event</span> stored in MoxiWorks.</aside>
 
-<p>When creating an <span class='entity-name'>Event</span> using the Moxi Works platform API, format your request using the following parameters.</p>
+<p>When creating an <span class='entity-name'>Event</span> using the MoxiWorks platform API, format your request using the following parameters.</p>
 
 <h5 id="event-update-request-attributes"><span class='entity-name'>Event</span> <span class='action-name'>Update</span> Request Attributes</h5>
 
@@ -815,10 +815,10 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <span class="request-data-remarks">This is the unique identifer you use in your system that has been associated with the <span class='entity-name'>Event</span> that you are updating.</span></p>
 
 <p><span class="request-data-head">agent_uuid</span>
-<span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which an  <span class='entity-name'>Event</span> entry is associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID. <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>Event</span> <span class='action-name'>Create</span> request to be accepted.</span></p>
+<span class="request-data-remarks">This is the MoxiWorks Platform ID of the <span class='entity-name'>Agent</span> which an  <span class='entity-name'>Event</span> entry is associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID. <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> is required and must reference a valid MoxiWorks Agent ID for your <span class='entity-name'>Event</span> <span class='action-name'>Create</span> request to be accepted.</span></p>
 
 <p><span class="request-data-head">moxi_works_agent_id</span>
-<span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>Event</span> is to be associated with. This will be a string that may take the form of an email address, or a unique identification string. This data is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>Event</span> <span class='action-name'>Create</span>  request to be accepted.</span></p>
+<span class="request-data-remarks">This is the MoxiWorks Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>Event</span> is to be associated with. This will be a string that may take the form of an email address, or a unique identification string. This data is required and must reference a valid MoxiWorks Agent ID for your <span class='entity-name'>Event</span> <span class='action-name'>Create</span>  request to be accepted.</span></p>
 
 <aside class="note">A company&rsquo;s internal agent id may be used to construct the agent&rsquo;s unique identification string. To do so, the value passed via the moxi_works_agent_id should be a single concatenated string, of the form:</br>[moxi_works_company_id]:[internal_agent_id]</br>Use <a href='#company'>Company Endpoint</a> to determine which moxi_works_company_id to use.</aside>
 
@@ -844,7 +844,7 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <span class="request-data-remarks">Whether the event is an all day event.</span></p>
 
 <p><span class="request-data-head">attendees</span>
-<span class="request-data-remarks">This is a comma separated list of contacts that have already been added through the Moxi Works Platform API who will be present at the referenced event. (Use IDs from your system &ndash; i.e. partner_contact_id from <a href="#contact-create">Contact Create</a> ).</span></p>
+<span class="request-data-remarks">This is a comma separated list of contacts that have already been added through the MoxiWorks Platform API who will be present at the referenced event. (Use IDs from your system &ndash; i.e. partner_contact_id from <a href="#contact-create">Contact Create</a> ).</span></p>
 
 <aside class="note">Attendees must be Contacts with an associated email address. <b>Attendees added who don&rsquo;t have an email address associated will not be added to the event.</b></aside>
 
@@ -973,10 +973,10 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <span class="response-data-remarks">This is the unique identifer you use in your system that has been associated with the <span class='entity-name'>Event</span>.</span></p>
 
 <p><span class="response-data-head">agent_uuid</span>
-<span class="response-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>Event</span>  is associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID.</span></p>
+<span class="response-data-remarks">This is the MoxiWorks Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>Event</span>  is associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID.</span></p>
 
 <p><span class="response-data-head">moxi_works_agent_id</span>
-<span class="response-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>Event</span> is associated with. This will be a string that may take the form of an email address, or a unique identification string.</span></p>
+<span class="response-data-remarks">This is the MoxiWorks Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>Event</span> is associated with. This will be a string that may take the form of an email address, or a unique identification string.</span></p>
 
 <p><span class="response-data-head">event_subject</span>
 <span class="response-data-remarks">This is a short, descriptive, human readable phrase to be displayed to the agent which lets them know what this <span class='entity-name'>Event</span> regards.</span></p>
@@ -1000,7 +1000,7 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <span class="response-data-remarks">This is the Unix timestamp representing the end time of the <span class='entity-name'>Event</span>.</span></p>
 
 <p><span class="response-data-head">attendees</span>
-<span class="response-data-remarks">This is a comma separated list of contacts that have already been added through the Moxi Works Platform API who will be present at the referenced event. (Use IDs from your system &ndash; i.e. partner_contact_id from <a href="#contact-create">Contact Create</a> ).</span></p>
+<span class="response-data-remarks">This is a comma separated list of contacts that have already been added through the MoxiWorks Platform API who will be present at the referenced event. (Use IDs from your system &ndash; i.e. partner_contact_id from <a href="#contact-create">Contact Create</a> ).</span></p>
 
 
 <h4 id="event-show"><span class='entity-name'>Event</span> <span class='action-name'>Show</span></h4>
@@ -1060,8 +1060,8 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 </code></pre>
 
 <pre class="highlight php"><code><span class="cp">&lt;?php</span>
-<span class="nv">$platform_identifier</span> <span class="o">=</span> <span class="s1">'abc123'</span><span class="p">;</span> <span class="c1">// platorm_identifier provided by Moxi Works Platform Rep
-</span><span class="nv">$platform_secret</span> <span class="o">=</span> <span class="s1">'secret'</span><span class="p">;</span> <span class="c1">//platform_secret provided by Moxi Works Platform Rep
+<span class="nv">$platform_identifier</span> <span class="o">=</span> <span class="s1">'abc123'</span><span class="p">;</span> <span class="c1">// platorm_identifier provided by MoxiWorks Platform Rep
+</span><span class="nv">$platform_secret</span> <span class="o">=</span> <span class="s1">'secret'</span><span class="p">;</span> <span class="c1">//platform_secret provided by MoxiWorks Platform Rep
 </span>
 <span class="nv">$credentials</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MoxiworksPlatform\Credentials</span><span class="p">(</span><span class="nv">$platform_identifier</span><span class="p">,</span> <span class="nv">$platform_secret</span><span class="p">);</span>
 
@@ -1120,8 +1120,8 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 </code></pre>
 
 <pre class="highlight php"><code><span class="cp">&lt;?php</span>
-<span class="nv">$platform_identifier</span> <span class="o">=</span> <span class="s1">'abc123'</span><span class="p">;</span> <span class="c1">// platorm_identifier provided by Moxi Works Platform Rep
-</span><span class="nv">$platform_secret</span> <span class="o">=</span> <span class="s1">'secret'</span><span class="p">;</span> <span class="c1">//platform_secret provided by Moxi Works Platform Rep
+<span class="nv">$platform_identifier</span> <span class="o">=</span> <span class="s1">'abc123'</span><span class="p">;</span> <span class="c1">// platorm_identifier provided by MoxiWorks Platform Rep
+</span><span class="nv">$platform_secret</span> <span class="o">=</span> <span class="s1">'secret'</span><span class="p">;</span> <span class="c1">//platform_secret provided by MoxiWorks Platform Rep
 </span>
 <span class="nv">$credentials</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MoxiworksPlatform\Credentials</span><span class="p">(</span><span class="nv">$platform_identifier</span><span class="p">,</span> <span class="nv">$platform_secret</span><span class="p">);</span>
 
@@ -1164,10 +1164,10 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <p><span class="required-data"><strong>Required Parameters Are In Red</strong></span></p>
 
 <p><span class="request-data-head">agent_uuid</span>
-<span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which an  <span class='entity-name'>Event</span> entry is associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID. <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>Event</span> <span class='action-name'>Show</span> request to be accepted.</span></p>
+<span class="request-data-remarks">This is the MoxiWorks Platform ID of the <span class='entity-name'>Agent</span> which an  <span class='entity-name'>Event</span> entry is associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID. <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> is required and must reference a valid MoxiWorks Agent ID for your <span class='entity-name'>Event</span> <span class='action-name'>Show</span> request to be accepted.</span></p>
 
 <p><span class="request-data-head">moxi_works_agent_id</span>
-<span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which the <span class='entity-name'>Event</span> is associated with. This will be a string that may take the form of an email address, or a unique identification string. This data is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>Event</span> <span class='action-name'>Show</span>  request to be accepted.</span></p>
+<span class="request-data-remarks">This is the MoxiWorks Platform ID of the <span class='entity-name'>Agent</span> which the <span class='entity-name'>Event</span> is associated with. This will be a string that may take the form of an email address, or a unique identification string. This data is required and must reference a valid MoxiWorks Agent ID for your <span class='entity-name'>Event</span> <span class='action-name'>Show</span>  request to be accepted.</span></p>
 
 <aside class="note">A company&rsquo;s internal agent id may be used to construct the agent&rsquo;s unique identification string. To do so, the value passed via the moxi_works_agent_id should be a single concatenated string, of the form:</br>[moxi_works_company_id]:[internal_agent_id]</br>Use <a href='#company'>Company Endpoint</a> to determine which moxi_works_company_id to use.</aside>
 
@@ -1296,10 +1296,10 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <span class="response-data-remarks">This is the unique identifer you use in your system that has been associated with the <span class='entity-name'>Event</span>.</span></p>
 
 <p><span class="response-data-head">agent_uuid</span>
-<span class="response-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>Event</span>  is associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID.</span></p>
+<span class="response-data-remarks">This is the MoxiWorks Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>Event</span>  is associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID.</span></p>
 
 <p><span class="response-data-head">moxi_works_agent_id</span>
-<span class="response-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>Event</span> is associated with. This will be a string that may take the form of an email address, or a unique identification string.</span></p>
+<span class="response-data-remarks">This is the MoxiWorks Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>Event</span> is associated with. This will be a string that may take the form of an email address, or a unique identification string.</span></p>
 
 <p><span class="response-data-head">event_subject</span>
 <span class="response-data-remarks">This is a short, descriptive, human readable phrase to be displayed to the agent which lets them know what this <span class='entity-name'>Event</span> regards.</span></p>
@@ -1323,7 +1323,7 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <span class="response-data-remarks">This is the Unix timestamp representing the end time of the <span class='entity-name'>Event</span>.</span></p>
 
 <p><span class="response-data-head">attendees</span>
-<span class="response-data-remarks">This is a comma separated list of contacts that have already been added through the Moxi Works Platform API who will be present at the referenced event. (Use IDs from your system &ndash; i.e. partner_contact_id from <a href="#contact-create">Contact Create</a> ).</span></p>
+<span class="response-data-remarks">This is a comma separated list of contacts that have already been added through the MoxiWorks Platform API who will be present at the referenced event. (Use IDs from your system &ndash; i.e. partner_contact_id from <a href="#contact-create">Contact Create</a> ).</span></p>
 
 
 <h4 id="event-index"><span class='entity-name'>Event</span> <span class='action-name'>Index</span></h4>
@@ -1384,8 +1384,8 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 </code></pre>
 
 <pre class="highlight php"><code><span class="cp">&lt;?php</span>
-<span class="nv">$platform_identifier</span> <span class="o">=</span> <span class="s1">'abc123'</span><span class="p">;</span> <span class="c1">// platorm_identifier provided by Moxi Works Platform Rep
-</span><span class="nv">$platform_secret</span> <span class="o">=</span> <span class="s1">'secret'</span><span class="p">;</span> <span class="c1">//platform_secret provided by Moxi Works Platform Rep
+<span class="nv">$platform_identifier</span> <span class="o">=</span> <span class="s1">'abc123'</span><span class="p">;</span> <span class="c1">// platorm_identifier provided by MoxiWorks Platform Rep
+</span><span class="nv">$platform_secret</span> <span class="o">=</span> <span class="s1">'secret'</span><span class="p">;</span> <span class="c1">//platform_secret provided by MoxiWorks Platform Rep
 </span>
 <span class="nv">$credentials</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MoxiworksPlatform\Credentials</span><span class="p">(</span><span class="nv">$platform_identifier</span><span class="p">,</span> <span class="nv">$platform_secret</span><span class="p">);</span>
 
@@ -1446,8 +1446,8 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 </code></pre>
 
 <pre class="highlight php"><code><span class="cp">&lt;?php</span>
-<span class="nv">$platform_identifier</span> <span class="o">=</span> <span class="s1">'abc123'</span><span class="p">;</span> <span class="c1">// platorm_identifier provided by Moxi Works Platform Rep
-</span><span class="nv">$platform_secret</span> <span class="o">=</span> <span class="s1">'secret'</span><span class="p">;</span> <span class="c1">//platform_secret provided by Moxi Works Platform Rep
+<span class="nv">$platform_identifier</span> <span class="o">=</span> <span class="s1">'abc123'</span><span class="p">;</span> <span class="c1">// platorm_identifier provided by MoxiWorks Platform Rep
+</span><span class="nv">$platform_secret</span> <span class="o">=</span> <span class="s1">'secret'</span><span class="p">;</span> <span class="c1">//platform_secret provided by MoxiWorks Platform Rep
 </span>
 <span class="nv">$credentials</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MoxiworksPlatform\Credentials</span><span class="p">(</span><span class="nv">$platform_identifier</span><span class="p">,</span> <span class="nv">$platform_secret</span><span class="p">);</span>
 
@@ -1460,7 +1460,7 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 
 <aside class="note">Send a <b>GET</b> request to https://api.moxiworks.com/api/events</aside>
 
-<p>When searching for <span class='entity-name'>Event</span> objects using the Moxi Works platform API, format your data using the following parameters.</p>
+<p>When searching for <span class='entity-name'>Event</span> objects using the MoxiWorks platform API, format your data using the following parameters.</p>
 
 <h5 id="event-index-request-attributes"><span class='entity-name'>Event</span> <span class='action-name'>Index</span> Request Attributes</h5>
 
@@ -1498,10 +1498,10 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <p><span class="required-data"><strong>Required Parameters Are In Red</strong></span></p>
 
 <p><span class="request-data-head">agent_uuid</span>
-<span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which an  <span class='entity-name'>Event</span> entry is associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID. <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>Event</span> <span class='action-name'>Index</span> request to be accepted.</span></p>
+<span class="request-data-remarks">This is the MoxiWorks Platform ID of the <span class='entity-name'>Agent</span> which an  <span class='entity-name'>Event</span> entry is associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID. <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> is required and must reference a valid MoxiWorks Agent ID for your <span class='entity-name'>Event</span> <span class='action-name'>Index</span> request to be accepted.</span></p>
 
 <p><span class="request-data-head">moxi_works_agent_id</span>
-<span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which you are searching for associated <span class='entity-name'>Event</span> objects. This will be a string that may take the form of an email address, or a unique identification string. This data is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>Event</span> <span class='action-name'>Index</span>  request to be accepted.</span></p>
+<span class="request-data-remarks">This is the MoxiWorks Platform ID of the <span class='entity-name'>Agent</span> which you are searching for associated <span class='entity-name'>Event</span> objects. This will be a string that may take the form of an email address, or a unique identification string. This data is required and must reference a valid MoxiWorks Agent ID for your <span class='entity-name'>Event</span> <span class='action-name'>Index</span>  request to be accepted.</span></p>
 
 <aside class="note">A company&rsquo;s internal agent id may be used to construct the agent&rsquo;s unique identification string. To do so, the value passed via the moxi_works_agent_id should be a single concatenated string, of the form:</br>[moxi_works_company_id]:[internal_agent_id]</br>Use <a href='#company'>Company Endpoint</a> to determine which moxi_works_company_id to use.</aside>
 
@@ -1725,10 +1725,10 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <span class="response-data-remarks">This is the unique identifer you use in your system that has been associated with the <span class='entity-name'>Event</span>.</span></p>
 
 <p><span class="response-data-head">agent_uuid</span>
-<span class="response-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>Event</span>  is associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID.</span></p>
+<span class="response-data-remarks">This is the MoxiWorks Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>Event</span>  is associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID.</span></p>
 
 <p><span class="response-data-head">moxi_works_agent_id</span>
-<span class="response-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>Event</span> is associated with. This will be a string that may take the form of an email address, or a unique identification string.</span></p>
+<span class="response-data-remarks">This is the MoxiWorks Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>Event</span> is associated with. This will be a string that may take the form of an email address, or a unique identification string.</span></p>
 
 <p><span class="response-data-head">event_subject</span>
 <span class="response-data-remarks">This is a short, descriptive, human readable phrase to be displayed to the agent which lets them know what this <span class='entity-name'>Event</span> regards.</span></p>
@@ -1752,7 +1752,7 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <span class="response-data-remarks">This is the Unix timestamp representing the end time of the <span class='entity-name'>Event</span>.</span></p>
 
 <p><span class="response-data-head">attendees</span>
-<span class="response-data-remarks">This is a comma separated list of contacts that have already been added through the Moxi Works Platform API who will be present at the referenced event. (Use IDs from your system &ndash; i.e. partner_contact_id from <a href="#contact-create">Contact Create</a> ).</span></p>
+<span class="response-data-remarks">This is a comma separated list of contacts that have already been added through the MoxiWorks Platform API who will be present at the referenced event. (Use IDs from your system &ndash; i.e. partner_contact_id from <a href="#contact-create">Contact Create</a> ).</span></p>
 
 
 <h4 id="event-delete"><span class='entity-name'>Event</span> <span class='action-name'>Delete</span></h4>
@@ -1812,8 +1812,8 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 </code></pre>
 
 <pre class="highlight php"><code><span class="cp">&lt;?php</span>
-<span class="nv">$platform_identifier</span> <span class="o">=</span> <span class="s1">'abc123'</span><span class="p">;</span> <span class="c1">// platorm_identifier provided by Moxi Works Platform Rep
-</span><span class="nv">$platform_secret</span> <span class="o">=</span> <span class="s1">'secret'</span><span class="p">;</span> <span class="c1">//platform_secret provided by Moxi Works Platform Rep
+<span class="nv">$platform_identifier</span> <span class="o">=</span> <span class="s1">'abc123'</span><span class="p">;</span> <span class="c1">// platorm_identifier provided by MoxiWorks Platform Rep
+</span><span class="nv">$platform_secret</span> <span class="o">=</span> <span class="s1">'secret'</span><span class="p">;</span> <span class="c1">//platform_secret provided by MoxiWorks Platform Rep
 </span>
 <span class="nv">$credentials</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MoxiworksPlatform\Credentials</span><span class="p">(</span><span class="nv">$platform_identifier</span><span class="p">,</span> <span class="nv">$platform_secret</span><span class="p">);</span>
 
@@ -1872,8 +1872,8 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 </code></pre>
 
 <pre class="highlight php"><code><span class="cp">&lt;?php</span>
-<span class="nv">$platform_identifier</span> <span class="o">=</span> <span class="s1">'abc123'</span><span class="p">;</span> <span class="c1">// platorm_identifier provided by Moxi Works Platform Rep
-</span><span class="nv">$platform_secret</span> <span class="o">=</span> <span class="s1">'secret'</span><span class="p">;</span> <span class="c1">//platform_secret provided by Moxi Works Platform Rep
+<span class="nv">$platform_identifier</span> <span class="o">=</span> <span class="s1">'abc123'</span><span class="p">;</span> <span class="c1">// platorm_identifier provided by MoxiWorks Platform Rep
+</span><span class="nv">$platform_secret</span> <span class="o">=</span> <span class="s1">'secret'</span><span class="p">;</span> <span class="c1">//platform_secret provided by MoxiWorks Platform Rep
 </span>
 <span class="nv">$credentials</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MoxiworksPlatform\Credentials</span><span class="p">(</span><span class="nv">$platform_identifier</span><span class="p">,</span> <span class="nv">$platform_secret</span><span class="p">);</span>
 
@@ -1885,7 +1885,7 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 
 <aside class="note">Send a <b>DELETE</b> request to https://api.moxiworks.com/api/events/[partner_event_id]</aside>
 
-<p>When deleting an <span class='entity-name'>Event</span> object using the Moxi Works platform API, format your data using the following parameters.</p>
+<p>When deleting an <span class='entity-name'>Event</span> object using the MoxiWorks platform API, format your data using the following parameters.</p>
 
 <h5 id="event-delete-request-attributes"><span class='entity-name'>Event</span> <span class='action-name'>Delete</span> Request Attributes</h5>
 
@@ -1918,15 +1918,15 @@ required_attendees=&amp;optional_attendees=&amp;note=here%20is%20the%20note
 <p><span class="required-data"><strong>Required Parameters Are In Red</strong></span></p>
 
 <p><span class="request-data-head">agent_uuid</span>
-<span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which an  <span class='entity-name'>Event</span> entry is associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID. <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>Event</span> <span class='action-name'>Show</span> request to be accepted.</span></p>
+<span class="request-data-remarks">This is the MoxiWorks Platform ID of the <span class='entity-name'>Agent</span> which an  <span class='entity-name'>Event</span> entry is associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID. <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> is required and must reference a valid MoxiWorks Agent ID for your <span class='entity-name'>Event</span> <span class='action-name'>Show</span> request to be accepted.</span></p>
 
 <p><span class="request-data-head">moxi_works_agent_id</span>
-<span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which you are searching for associated <span class='entity-name'>Event</span> objects. This will be a string that may take the form of an email address, or a unique identification string. This data is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>Event</span> <span class='action-name'>Delete</span>  request to be accepted.</span></p>
+<span class="request-data-remarks">This is the MoxiWorks Platform ID of the <span class='entity-name'>Agent</span> which you are searching for associated <span class='entity-name'>Event</span> objects. This will be a string that may take the form of an email address, or a unique identification string. This data is required and must reference a valid MoxiWorks Agent ID for your <span class='entity-name'>Event</span> <span class='action-name'>Delete</span>  request to be accepted.</span></p>
 
 <aside class="note">A company&rsquo;s internal agent id may be used to construct the agent&rsquo;s unique identification string. To do so, the value passed via the moxi_works_agent_id should be a single concatenated string, of the form:</br>[moxi_works_company_id]:[internal_agent_id]</br>Use <a href='#company'>Company Endpoint</a> to determine which moxi_works_company_id to use.</aside>
 
 <p><span class="request-data-head">partner_event_id</span>
-<span class="request-data-remarks">This is the unique identifer you use in your system that has been associated with the <span class='entity-name'>Event</span>. This data is required and must reference a previously created <span class='entity-name'>Event</span> you have created on The Moxi Works Platform.</span></p>
+<span class="request-data-remarks">This is the unique identifer you use in your system that has been associated with the <span class='entity-name'>Event</span>. This data is required and must reference a previously created <span class='entity-name'>Event</span> you have created on The MoxiWorks Platform.</span></p>
 
 <blockquote><div class='highlight json' style="display: block">
  <span class="data-example-label"><span class='entity-name'>Event</span> <span class='action-name'>Delete</span> Response</span>

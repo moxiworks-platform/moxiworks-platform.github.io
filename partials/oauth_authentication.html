@@ -28,12 +28,12 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id="moxi-works-authentication">Moxi Works Authentication</h1>
+        <h1 id="moxiworks-authentication">MoxiWorks Authentication</h1>
 
 <h3 id="oauth-authentication">OAuth Authentication</h3>
 
-<p>Moxi Works provides an authentication service to allow clients to use Moxi Works user accounts on their own properties.
-This can be useful to avoid managing end-user accounts and to provide a more seamless integration between Moxi Works sites and client sites.</p>
+<p>MoxiWorks provides an authentication service to allow clients to use MoxiWorks user accounts on their own properties.
+This can be useful to avoid managing end-user accounts and to provide a more seamless integration between MoxiWorks sites and client sites.</p>
 
 <p>Authentication is provided with the industry-standard <a href="http://oauth.net/2/">OAuth 2 protocol</a>.
 OAuth 2 is used to get an access token for an individual user.
@@ -46,12 +46,12 @@ That access token can then be used to look up information about the user, includ
 <p>The <code class="prettyprint">client_id</code> is an identifier for an individual client.
 It doesn&rsquo;t need to be kept secret.</p>
 
-<p>The <code class="prettyprint">client_secret</code> is a secret for proving to Moxi Works that requests are coming from the client they claim to be.
-It must not be shared with any party other than Moxi Works.
+<p>The <code class="prettyprint">client_secret</code> is a secret for proving to MoxiWorks that requests are coming from the client they claim to be.
+It must not be shared with any party other than MoxiWorks.
 That includes sending it to the end user&rsquo;s browser and sharing with other third-party services.</p>
 
 <p>Contact your account manager to get a <code class="prettyprint">client_id</code> and <code class="prettyprint">client_secret</code> for your application.
-If there are third-party services that need access to Moxi Works&rsquo; authentication service, contact your account manager to get a <code class="prettyprint">client_id</code> and <code class="prettyprint">client_secret</code> for them as well.</p>
+If there are third-party services that need access to MoxiWorks&rsquo; authentication service, contact your account manager to get a <code class="prettyprint">client_id</code> and <code class="prettyprint">client_secret</code> for them as well.</p>
 
 <p>When you get your <code class="prettyprint">client_id</code> and <code class="prettyprint">client_secret</code>, you will also need to provide a list of valid <code class="prettyprint">redirect_uri</code>s.
 These are the allowed locations to communicate information about the user&rsquo;s authentication state back to clients.
@@ -63,9 +63,9 @@ Contact your account manager for assistance.</p>
 
 <h3 id="oauth-2-protocol">OAuth 2 Protocol</h3>
 
-<p>Moxi Works authentication uses the <a href="https://tools.ietf.org/html/rfc6749#section-4.1">Authorization Code Grant</a> Oauth 2 flow.</p>
+<p>MoxiWorks authentication uses the <a href="https://tools.ietf.org/html/rfc6749#section-4.1">Authorization Code Grant</a> Oauth 2 flow.</p>
 
-<p>This section describes the flow in detail, as used by Moxi Works authentication.
+<p>This section describes the flow in detail, as used by MoxiWorks authentication.
 Most of this can be automated by using an appropriate OAuth 2 client library.</p>
 
 <h4 id="client-initiation">Client Initiation</h4>
@@ -120,7 +120,7 @@ Most of this can be automated by using an appropriate OAuth 2 client library.</p
 </tr>
 </tbody></table>
 
-<p>Moxi Works will authenticate the user and redirect their user agent to the <code class="prettyprint">redirect_uri</code> specified.
+<p>MoxiWorks will authenticate the user and redirect their user agent to the <code class="prettyprint">redirect_uri</code> specified.
 When the user agent requests the <code class="prettyprint">redirect_uri</code>, it will have one or two additional query arguments provided.
 It will have a parameter named <code class="prettyprint">code</code> which contains the authorization code.
 If the original request contained a <code class="prettyprint">state</code> parameter, the redirect will also contain a <code class="prettyprint">state</code> parameter with the same value.</p>

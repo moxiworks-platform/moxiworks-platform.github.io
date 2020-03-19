@@ -1642,6 +1642,11 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
 <td><span class="required-data">255<span></td>
 </tr>
 <tr>
+<td><span class="optional-data">include_access_level</span></td>
+<td><span class="data-type">Boolean</span></td>
+<td>255</td>
+</tr>
+<tr>
 <td><span class="optional-data">include_gci_goals</span></td>
 <td><span class="data-type">Boolean</span></td>
 <td>255</td>
@@ -1669,6 +1674,9 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
 <span class="request-data-remarks">A valid Moxi Works <span class='entity-name'>Company</span> ID. Use <a href="#company">Company Endpoint</a> to determine what <span class='attribute-name'>moxi_works_company_id</span> you can use.</span></p>
 
 <aside class="note">Use <a href='#company'>Company Endpoint</a> to determine the moxi_works_company_id to send.</aside>
+
+<p><span class="request-data-head">include_access_level</span>
+<span class="request-data-remarks">To include access level information for the agent in the response, pass <code class="prettyprint">true</code></span></p>
 
 <p><span class="request-data-head">include_gci_goals</span>
 <span class="request-data-remarks">Whether to include agent&rsquo;s GCI goals and commissions data in the response data.</span></p>

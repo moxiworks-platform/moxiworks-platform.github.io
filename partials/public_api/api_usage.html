@@ -1648,6 +1648,10 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
 <td><span class="response-data">mls_abbreviation</span></td>
 <td><span class="data-type">String</span></td>
 </tr>
+<tr>
+<td><span class="response-data">agent_id</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
 </tbody></table>
 
 <p><span class="response-data-head">name</span>
@@ -1658,6 +1662,9 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
 
 <p><span class="response-data-head">mls_abbreviation</span>
 <span class="response-data-remarks">The abbreviation of the MLS.</span></p>
+
+<p><span class="response-data-head">agent_id</span>
+<span class="response-data-remarks">The agent&rsquo;s MLS id.</span></p>
 
 <h6 id="partners-objects"><span class='attribute-name'>partners</span> Objects</h6>
 
@@ -2574,6 +2581,10 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
 <td><span class="response-data">mls_abbreviation</span></td>
 <td><span class="data-type">String</span></td>
 </tr>
+<tr>
+<td><span class="response-data">agent_id</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
 </tbody></table>
 
 <p><span class="response-data-head">name</span>
@@ -2584,6 +2595,9 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemsContactId&amp;title=C
 
 <p><span class="response-data-head">mls_abbreviation</span>
 <span class="response-data-remarks">The abbreviation of the MLS.</span></p>
+
+<p><span class="response-data-head">agent_id</span>
+<span class="response-data-remarks">The agent&rsquo;s MLS id.</span></p>
 
 <h6 id="partners-objects"><span class='attribute-name'>partners</span> Objects</h6>
 
@@ -19498,6 +19512,16 @@ The following attributes make up the payload of each <span class='entity-name'>L
 <td><span class="data-type">Integer</span></td>
 <td>255</td>
 </tr>
+<tr>
+<td><span class="optional-data">market_status</span></td>
+<td><span class="data-type">String</span></td>
+<td>255</td>
+</tr>
+<tr>
+<td><span class="optional-data">property_types</span></td>
+<td><span class="data-type">String</span></td>
+<td>255</td>
+</tr>
 </tbody></table>
 
 <p><span class="required-data"><strong>Required Parameters Are In Red</strong></span></p>
@@ -19526,6 +19550,140 @@ The following attributes make up the payload of each <span class='entity-name'>L
 
 <p><span class="request-data-head">shared_partner_data_updated_since</span>
 <span class="request-data-remarks">Filter listings using this unix timestamp representing the date since partner data has been updated. This attribute should be used in conjuncion with the <span class='attribute-name'>updated_since</span> attribute.</span></p>
+
+<p><span class="request-data-head">market_status</span></p>
+
+<p><span class="request-data-remarks">When filtering by <span class='attribute-name'>market_status</span> use one of the following options:</span></p>
+
+<table><thead>
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span class="optional-attr-value">on-market</span></td>
+<td><span class="request-data-remarks">The default value for <span class='attribute-name'>market_status</span>. This listing set includes &lsquo;Active&rsquo; and &lsquo;Pending&rsquo; listings.</span></td>
+</tr>
+<tr>
+<td><span class="optional-attr-value">off-market</span></td>
+<td><span class="request-data-remarks">If <span class='attribute-name'>market_status</span> is set to this value, only off-market listings will be returned.</span></td>
+</tr>
+<tr>
+<td><span class="optional-attr-value">all</span></td>
+<td><span class="request-data-remarks"> When <span class='attribute-name'>market_status</span> is set to this value, both off-market and on-market listings will be returned.</span></td>
+</tr>
+</tbody></table>
+
+<p><span class="request-data-head">property_types</span>
+<span class="request-data-remarks">When filtering by <span class='attribute-name'>property_types</span> pass a comma separated string of integers associated with various property types.</span>
+<span class="request-data-remarks">When <span class='attribute-name'>property_types</span> is not inlcuded, all property types will be included in the response.</span></p>
+
+<p><span class="request-data-remarks">Use this legend to determine which integer values to include in <span class='attribute-name'>property_types</span>.</span></p>
+
+<table><thead>
+<tr>
+<th>Number</th>
+<th>Property Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span class="optional-attr-value">-1</span></td>
+<td><span class="request-data-remarks">Not Found</span></td>
+</tr>
+<tr>
+<td><span class="optional-attr-value">1</span></td>
+<td><span class="request-data-remarks">Residential</span></td>
+</tr>
+<tr>
+<td><span class="optional-attr-value">2</span></td>
+<td><span class="request-data-remarks">Condo</span></td>
+</tr>
+<tr>
+<td><span class="optional-attr-value">3</span></td>
+<td><span class="request-data-remarks">Land</span></td>
+</tr>
+<tr>
+<td><span class="optional-attr-value">4</span></td>
+<td><span class="request-data-remarks">Mfghome</span></td>
+</tr>
+<tr>
+<td><span class="optional-attr-value">5</span></td>
+<td><span class="request-data-remarks">Farm/Ranch</span></td>
+</tr>
+<tr>
+<td><span class="optional-attr-value">6</span></td>
+<td><span class="request-data-remarks">Rental</span></td>
+</tr>
+<tr>
+<td><span class="optional-attr-value">7</span></td>
+<td><span class="request-data-remarks">Multifamily</span></td>
+</tr>
+<tr>
+<td><span class="optional-attr-value">8</span></td>
+<td><span class="request-data-remarks">Co-op</span></td>
+</tr>
+<tr>
+<td><span class="optional-attr-value">9</span></td>
+<td><span class="request-data-remarks">Townhouse</span></td>
+</tr>
+<tr>
+<td><span class="optional-attr-value">10</span></td>
+<td><span class="request-data-remarks">Commerical</span></td>
+</tr>
+<tr>
+<td><span class="optional-attr-value">11</span></td>
+<td><span class="request-data-remarks">Business Opportunity</span></td>
+</tr>
+<tr>
+<td><span class="optional-attr-value">12</span></td>
+<td><span class="request-data-remarks">Commercial Res Income</span></td>
+</tr>
+<tr>
+<td><span class="optional-attr-value">13</span></td>
+<td><span class="request-data-remarks">Commercial Hotel</span></td>
+</tr>
+<tr>
+<td><span class="optional-attr-value">14</span></td>
+<td><span class="request-data-remarks">Commercial Mobile Home Park</span></td>
+</tr>
+<tr>
+<td><span class="optional-attr-value">15</span></td>
+<td><span class="request-data-remarks">Commercial Lease</span></td>
+</tr>
+<tr>
+<td><span class="optional-attr-value">16</span></td>
+<td><span class="request-data-remarks">Commercial Land</span></td>
+</tr>
+<tr>
+<td><span class="optional-attr-value">17</span></td>
+<td><span class="request-data-remarks">Moorage</span></td>
+</tr>
+<tr>
+<td><span class="optional-attr-value">18</span></td>
+<td><span class="request-data-remarks">Timeshare</span></td>
+</tr>
+<tr>
+<td><span class="optional-attr-value">19</span></td>
+<td><span class="request-data-remarks">Commercial Industrial</span></td>
+</tr>
+<tr>
+<td><span class="optional-attr-value">20</span></td>
+<td><span class="request-data-remarks">Multifamily2_4</span></td>
+</tr>
+<tr>
+<td><span class="optional-attr-value">21</span></td>
+<td><span class="request-data-remarks">Multifamily5up</span></td>
+</tr>
+<tr>
+<td><span class="optional-attr-value">22</span></td>
+<td><span class="request-data-remarks">Apartment</span></td>
+</tr>
+<tr>
+<td><span class="optional-attr-value">23</span></td>
+<td><span class="request-data-remarks">Highrise</span></td>
+</tr>
+</tbody></table>
 
 <blockquote><div class='highlight json' style="display: block">
 <span class='data-example-label'><span class='entity-name'>Listing</span> <span class='action-name'>Index</span> Response Payload Example

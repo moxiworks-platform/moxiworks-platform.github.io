@@ -56,8 +56,8 @@ moxi_works_company = MoxiworksPlatform::Company.find(moxi_works_company_id: "123
 
 ```php
 <?php
-$platform_identifier = 'abc123'; // platorm_identifier provided by Moxi Works Platform Rep
-$platform_secret = 'secret'; //platform_secret provided by Moxi Works Platform Rep
+$platform_identifier = 'abc123'; // platorm_identifier provided by MoxiWorks Platform Rep
+$platform_secret = 'secret'; //platform_secret provided by MoxiWorks Platform Rep
 
 $credentials = new MoxiworksPlatform\Credentials($platform_identifier, $platform_secret);
 
@@ -71,7 +71,7 @@ $moxi_works_company = MoxiworksPlatform\Company::find([
 
 <aside class="note">Send a <b>GET</b> request to https://api.moxiworks.com/api/companies/[moxi_works_company_id]</aside>
 
-When finding an <span class='entity-name'>Company</span> using the Moxi Works platform API, format your request using the following parameters.
+When finding an <span class='entity-name'>Company</span> using the MoxiWorks platform API, format your request using the following parameters.
 
 
 Attribute | Type | Length Limit |
@@ -82,7 +82,7 @@ Attribute | Type | Length Limit |
 
 
 <span class="request-data-head">moxi_works_company_id</span>
-<span class="request-data-remarks">A valid Moxi Works <span class='entity-name'>Company</span> ID. Use [Company Endpoint](#company) to determine what <span class='attribute-name'>moxi_works_company_id</span> you can use.</span>
+<span class="request-data-remarks">A valid MoxiWorks <span class='entity-name'>Company</span> ID. Use [Company Endpoint](#company) to determine what <span class='attribute-name'>moxi_works_company_id</span> you can use.</span>
 
 
 <aside class="note">Use <a href='#company'>Company Endpoint</a> to determine the moxi_works_company_id to send.</aside>
@@ -127,7 +127,7 @@ Attribute | Type |
 |<span class="response-data">partners</span>|<span class="data-type">Array</span>|
 
 <span class="response-data-head">moxi_works_company_id</span>
-<span class="response-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Company</span>. This will be an alphanumeric identification string which will be similar to the company name.</span>
+<span class="response-data-remarks">This is the MoxiWorks Platform ID of the <span class='entity-name'>Company</span>. This will be an alphanumeric identification string which will be similar to the company name.</span>
 
 <span class="response-data-head">name</span>
 <span class="response-data-remarks">This is a human readable name of the company which this <span class='entity-name'>Company</span> object represents.</span>

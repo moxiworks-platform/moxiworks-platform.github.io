@@ -60,8 +60,8 @@ company_offices = MoxiworksPlatform::Office.search(moxi_works_company_id: "abc12
 
 ```php
 <?php
-$platform_identifier = 'abc123'; // platorm_identifier provided by Moxi Works Platform Rep
-$platform_secret = 'secret'; //platform_secret provided by Moxi Works Platform Rep
+$platform_identifier = 'abc123'; // platorm_identifier provided by MoxiWorks Platform Rep
+$platform_secret = 'secret'; //platform_secret provided by MoxiWorks Platform Rep
 
 $credentials = new MoxiworksPlatform\Credentials($platform_identifier, $platform_secret);
 
@@ -103,7 +103,7 @@ $company_offices = MoxiworksPlatform\Office::search(['moxi_works_company_id' => 
 
 <aside class="note">Send a <b>GET</b> request to https://api.moxiworks.com/api/offices</aside>
 
-When searching for <span class='entity-name'>Office</span> entities using the Moxi Works platform API, format your data using the following parameters.
+When searching for <span class='entity-name'>Office</span> entities using the MoxiWorks platform API, format your data using the following parameters.
 
 
 Attribute | Type  | Length Limit |
@@ -118,7 +118,7 @@ Attribute | Type  | Length Limit |
 
 
 <span class="request-data-head">moxi_works_company_id</span>
-<span class="request-data-remarks">A valid Moxi Works <span class='entity-name'>Company</span> ID. Use [Company Endpoint](#company) to determine what <span class='attribute-name'>moxi_works_company_id</span> you can use.</span>
+<span class="request-data-remarks">A valid MoxiWorks <span class='entity-name'>Company</span> ID. Use [Company Endpoint](#company) to determine what <span class='attribute-name'>moxi_works_company_id</span> you can use.</span>
 
 <aside class="note">Use <a href='#company'>Company Endpoint</a> to determine the moxi_works_company_id to send.</aside>
 
@@ -229,11 +229,11 @@ Attribute | Type |
 |<span class="response-data">deactivated_timestamp</span>|<span class="data-type">Integer or null</span>|
 
 <span class="response-data-head">moxi_works_office_id</span>
-<span class="response-data-remarks">This is the Moxi Works Platform ID of the office for this <span class='entity-name'>Office</span>. This will be an [RFC 4122](https://tools.ietf.org/html/rfc4122) compliant UUID.</span>
+<span class="response-data-remarks">This is the MoxiWorks Platform ID of the office for this <span class='entity-name'>Office</span>. This will be an [RFC 4122](https://tools.ietf.org/html/rfc4122) compliant UUID.</span>
 
 
 <span class="response-data-head">id</span>
-<span class="response-data-remarks">An alternate integer ID of the office. If you are integrating with Moxi Works Authentication services, you should use this ID.</span>
+<span class="response-data-remarks">An alternate integer ID of the office. If you are integrating with MoxiWorks Authentication services, you should use this ID.</span>
 
 <span class="response-data-head">client_office_id</span>
 <span class="response-data-remarks">This is the  ID of the office utilized by the company.</span>

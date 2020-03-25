@@ -60,8 +60,8 @@ company_presentation_logs = MoxiworksPlatform::PresentationLog.search(moxi_works
 
 ```php
 <?php
-$platform_identifier = 'abc123'; // platorm_identifier provided by Moxi Works Platform Rep
-$platform_secret = 'secret'; //platform_secret provided by Moxi Works Platform Rep
+$platform_identifier = 'abc123'; // platorm_identifier provided by MoxiWorks Platform Rep
+$platform_secret = 'secret'; //platform_secret provided by MoxiWorks Platform Rep
 
 $credentials = new MoxiworksPlatform\Credentials($platform_identifier, $platform_secret);
 
@@ -103,7 +103,7 @@ $company_presentation_logs = MoxiworksPlatform\PresentationLog::search(['moxi_wo
 
 <aside class="note">Send a <b>GET</b> request to https://api.moxiworks.com/api/presentation_logs</aside>
 
-When searching for <span class='entity-name'>PresentationLog</span> entities using the Moxi Works platform API, format your data using the following parameters.
+When searching for <span class='entity-name'>PresentationLog</span> entities using the MoxiWorks platform API, format your data using the following parameters.
 
 
 Attribute | Type  | Length Limit |
@@ -122,12 +122,12 @@ Attribute | Type  | Length Limit |
 <span class="multi-option-required-data"> † Either <span class='attribute-name'>moxi_works_agent_id</span> or <span class='attribute-name'>agent_uuiid</span> may be supplied, but not both.</span>
 
 <span class="request-data-head">moxi_works_company_id</span>
-<span class="request-data-remarks">A valid Moxi Works <span class='entity-name'>Company</span> ID. Use [Company Endpoint](#company) to determine what <span class='attribute-name'>moxi_works_company_id</span> you can use.</span>
+<span class="request-data-remarks">A valid MoxiWorks <span class='entity-name'>Company</span> ID. Use [Company Endpoint](#company) to determine what <span class='attribute-name'>moxi_works_company_id</span> you can use.</span>
 
 <aside class="note">Use <a href='#company'>Company Endpoint</a> to determine the moxi_works_company_id to send.</aside>
 
 <span class="request-data-head">moxi_works_office_id</span>
-<span class="request-data-remarks">A valid Moxi Works <span class='entity-name'>Office</span> ID. Use [Office Endpoint](#office) to determine what <span class='attribute-name'>moxi_works_office_id</span> you can use.</span>
+<span class="request-data-remarks">A valid MoxiWorks <span class='entity-name'>Office</span> ID. Use [Office Endpoint](#office) to determine what <span class='attribute-name'>moxi_works_office_id</span> you can use.</span>
 
 <aside class="note">Use <a href='#company'>Office Endpoint</a> to determine the moxi_works_office_id to send.</aside>
 
@@ -152,10 +152,10 @@ Attribute | Type  | Length Limit |
 <aside class="note">The maximum time range for a single search is one week. If you need to span a greater length of time, break your search up into week-long segments.</aside>
 
 <span class="request-data-head">agent_uuid</span>
-<span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which an <span class='entity-name'>PresentationLog</span> entry is associated with. This will be an [RFC 4122](https://tools.ietf.org/html/rfc4122) compliant UUID. <span class='attribute-name'>agent_uuid</span> is optional.</span>
+<span class="request-data-remarks">This is the MoxiWorks Platform ID of the <span class='entity-name'>Agent</span> which an <span class='entity-name'>PresentationLog</span> entry is associated with. This will be an [RFC 4122](https://tools.ietf.org/html/rfc4122) compliant UUID. <span class='attribute-name'>agent_uuid</span> is optional.</span>
 
 <span class="request-data-head">moxi_works_agent_id</span>
-<span class="request-data-remarks">This is the Moxi Works Platform ID of the agent which an <span class='entity-name'>PresentationLog</span> entry is associated with. This will be a string that may take the form of an email address, or a unique identification string. This data is optional.</span>
+<span class="request-data-remarks">This is the MoxiWorks Platform ID of the agent which an <span class='entity-name'>PresentationLog</span> entry is associated with. This will be a string that may take the form of an email address, or a unique identification string. This data is optional.</span>
 
 
 <blockquote><div class='highlight json' style="display: block">
@@ -232,7 +232,7 @@ Attribute | Type |
 |<span class="response-data">moxi_works_presentation_id</span>|<span class="data-type">String or null</span>|
 
 <span class="response-data-head">agent_uuid</span>
-<span class="response-data-remarks">This is the Moxi Works Platform ID of the agent which an <span class='entity-name'>ActionLog</span> entry is associated with. This will be an [RFC 4122](https://tools.ietf.org/html/rfc4122) compliant UUID.</span>
+<span class="response-data-remarks">This is the MoxiWorks Platform ID of the agent which an <span class='entity-name'>ActionLog</span> entry is associated with. This will be an [RFC 4122](https://tools.ietf.org/html/rfc4122) compliant UUID.</span>
 
 <span class="response-data-head">agent_fname</span>
 <span class="response-data-remarks">First name of agent. This can be null if there is no data for this attribute.</span>

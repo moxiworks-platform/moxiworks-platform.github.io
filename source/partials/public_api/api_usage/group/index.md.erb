@@ -64,8 +64,8 @@ moxi_works_groups = MoxiworksPlatform::Group.search(
 
 ```php
 <?php
-$platform_identifier = 'abc123'; // platorm_identifier provided by Moxi Works Platform Rep
-$platform_secret = 'secret'; //platform_secret provided by Moxi Works Platform Rep
+$platform_identifier = 'abc123'; // platorm_identifier provided by MoxiWorks Platform Rep
+$platform_secret = 'secret'; //platform_secret provided by MoxiWorks Platform Rep
 
 $credentials = new MoxiworksPlatform\Credentials($platform_identifier, $platform_secret);
 
@@ -139,8 +139,8 @@ moxi_works_groups = MoxiworksPlatform::Group.search(
 
 ```php
 <?php
-$platform_identifier = 'abc123'; // platorm_identifier provided by Moxi Works Platform Rep
-$platform_secret = 'secret'; //platform_secret provided by Moxi Works Platform Rep
+$platform_identifier = 'abc123'; // platorm_identifier provided by MoxiWorks Platform Rep
+$platform_secret = 'secret'; //platform_secret provided by MoxiWorks Platform Rep
 
 $credentials = new MoxiworksPlatform\Credentials($platform_identifier, $platform_secret);
 
@@ -159,7 +159,7 @@ $moxi_works_groups = MoxiworksPlatform\Group::search([
 <aside class="note">Send a <b>GET</b> request to https://api.moxiworks.com/api/groups</aside>
 
 
-When searching for <span class='entity-name'>Group</span> objects using the Moxi Works platform API, format your data using the following parameters.
+When searching for <span class='entity-name'>Group</span> objects using the MoxiWorks platform API, format your data using the following parameters.
 
 ##### <span class='entity-name'>Group</span> <span class='action-name'>Index</span> Request Attributes
 
@@ -179,11 +179,11 @@ Attribute | Type | Length Limit |
 
 
 <span class="request-data-head">agent_uuid</span>
-<span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which an  <span class='entity-name'>group</span> entry is associated with. This will be an [RFC 4122](https://tools.ietf.org/html/rfc4122) compliant UUID. <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>Group</span> <span class='action-name'>Index</span> request to be accepted.</span>
+<span class="request-data-remarks">This is the MoxiWorks Platform ID of the <span class='entity-name'>Agent</span> which an  <span class='entity-name'>group</span> entry is associated with. This will be an [RFC 4122](https://tools.ietf.org/html/rfc4122) compliant UUID. <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> is required and must reference a valid MoxiWorks Agent ID for your <span class='entity-name'>Group</span> <span class='action-name'>Index</span> request to be accepted.</span>
 
 
 <span class="request-data-head">moxi_works_agent_id</span>
-<span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which you are searching for associated <span class='entity-name'>Group</span> objects. This will be a string that may take the form of an email address, or a unique identification string. This data is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>Group</span> <span class='action-name'>Index</span>  request to be accepted.</span>
+<span class="request-data-remarks">This is the MoxiWorks Platform ID of the <span class='entity-name'>Agent</span> which you are searching for associated <span class='entity-name'>Group</span> objects. This will be a string that may take the form of an email address, or a unique identification string. This data is required and must reference a valid MoxiWorks Agent ID for your <span class='entity-name'>Group</span> <span class='action-name'>Index</span>  request to be accepted.</span>
 
 <aside class="note">A company's internal agent id may be used to construct the agent's unique identification string. To do so, the value passed via the moxi_works_agent_id should be a single concatenated string, of the form:</br>[moxi_works_company_id]:[internal_agent_id]</br>Use <a href='#company'>Company Endpoint</a> to determine which moxi_works_company_id to use.</aside>
 
@@ -271,4 +271,4 @@ Attribute | Type |
 <span class="response-data-head">transient</span>
 <span class="response-data-remarks">Whether the group ID exists beyond name change.</span>
 
-<aside class="warning">Some providers (namely versions of Exchange) provide no permanent unique identifier for groups. <span class='entity-name'>Group</span> IDs for these providers are inherently transient. Moxi Works has no way to guarantee that any <span class='entity-name'>Group</span> marked <span class='attribute-name'>transient</span> will persist since the name can be changed outside of The Moxi Works platform and Exchange provides no persistent IDs for their Group entities.</aside>
+<aside class="warning">Some providers (namely versions of Exchange) provide no permanent unique identifier for groups. <span class='entity-name'>Group</span> IDs for these providers are inherently transient. MoxiWorks has no way to guarantee that any <span class='entity-name'>Group</span> marked <span class='attribute-name'>transient</span> will persist since the name can be changed outside of The MoxiWorks platform and Exchange provides no persistent IDs for their Group entities.</aside>

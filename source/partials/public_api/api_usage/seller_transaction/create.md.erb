@@ -113,8 +113,8 @@ moxi_works_transaction = MoxiworksPlatform::SellerTransaction.create(
 
 ```php
 <?php
-$platform_identifier = 'abc123'; // platorm_identifier provided by Moxi Works Platform Rep
-$platform_secret = 'secret'; //platform_secret provided by Moxi Works Platform Rep
+$platform_identifier = 'abc123'; // platorm_identifier provided by MoxiWorks Platform Rep
+$platform_secret = 'secret'; //platform_secret provided by MoxiWorks Platform Rep
 
 $credentials = new MoxiworksPlatform\Credentials($platform_identifier, $platform_secret);
 
@@ -247,8 +247,8 @@ moxi_works_transaction = MoxiworksPlatform::SellerTransaction.create(
 
 ```php
 <?php
-$platform_identifier = 'abc123'; // platorm_identifier provided by Moxi Works Platform Rep
-$platform_secret = 'secret'; //platform_secret provided by Moxi Works Platform Rep
+$platform_identifier = 'abc123'; // platorm_identifier provided by MoxiWorks Platform Rep
+$platform_secret = 'secret'; //platform_secret provided by MoxiWorks Platform Rep
 
 $credentials = new MoxiworksPlatform\Credentials($platform_identifier, $platform_secret);
 
@@ -381,8 +381,8 @@ moxi_works_transaction = MoxiworksPlatform::SellerTransaction.create(
 
 ```php
 <?php
-$platform_identifier = 'abc123'; // platorm_identifier provided by Moxi Works Platform Rep
-$platform_secret = 'secret'; //platform_secret provided by Moxi Works Platform Rep
+$platform_identifier = 'abc123'; // platorm_identifier provided by MoxiWorks Platform Rep
+$platform_secret = 'secret'; //platform_secret provided by MoxiWorks Platform Rep
 
 $credentials = new MoxiworksPlatform\Credentials($platform_identifier, $platform_secret);
 
@@ -411,7 +411,7 @@ $moxi_works_transaction = MoxiworksPlatform\SellerTransaction::create([
 
 <aside class="note">Send a <b>POST</b> request to https://api.moxiworks.com/api/seller_transactions</aside>
 
-When creating an transaction using the Moxi Works platform API, format your data using the following parameters.
+When creating an transaction using the MoxiWorks platform API, format your data using the following parameters.
 
 ##### <span class='entity-name'>SellerTransaction</span> <span class='action-name'>Create</span> Request Attributes
 
@@ -452,17 +452,17 @@ Attribute | Type | Length Limit |
 
 
 <span class="request-data-head">agent_uuid</span>
-<span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which an  <span class='entity-name'>SellerTransaction</span> entry is associated with. This will be an [RFC 4122](https://tools.ietf.org/html/rfc4122) compliant UUID. <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> is required and must reference a valid Moxi Works Agent ID for your <span class='entity-name'>SellerTransaction</span> <span class='action-name'>Create</span> request to be accepted.</span>
+<span class="request-data-remarks">This is the MoxiWorks Platform ID of the <span class='entity-name'>Agent</span> which an  <span class='entity-name'>SellerTransaction</span> entry is associated with. This will be an [RFC 4122](https://tools.ietf.org/html/rfc4122) compliant UUID. <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> is required and must reference a valid MoxiWorks Agent ID for your <span class='entity-name'>SellerTransaction</span> <span class='action-name'>Create</span> request to be accepted.</span>
 
 
 <span class="request-data-head">moxi_works_agent_id</span>
-<span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>SellerTransaction</span> object is to be associated with. This will be a string that may take the form of an email address, or a unique identification string. This data is required and must reference a valid Moxi Works <span class='entity-name'>Agent</span> ID for your <span class='entity-name'>SellerTransaction</span> <span class='action-name'>Create</span>  request to be accepted.</span>
+<span class="request-data-remarks">This is the MoxiWorks Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>SellerTransaction</span> object is to be associated with. This will be a string that may take the form of an email address, or a unique identification string. This data is required and must reference a valid MoxiWorks <span class='entity-name'>Agent</span> ID for your <span class='entity-name'>SellerTransaction</span> <span class='action-name'>Create</span>  request to be accepted.</span>
 
 <aside class="note">A company's internal agent id may be used to construct the agent's unique identification string. To do so, the value passed via the moxi_works_agent_id should be a single concatenated string, of the form:</br>[moxi_works_company_id]:[internal_agent_id]</br>Use <a href='#company'>Company Endpoint</a> to determine which moxi_works_company_id to use.</aside>
 
 
 <span class="request-data-head">moxi_works_contact_id</span>
-<span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Contact</span> which this <span class='entity-name'>SellerTransaction</span> object is to be associated with. This will be an [RFC 4122](https://tools.ietf.org/html/rfc4122) compliant UUID. This data is required and must reference a valid Moxi Works <span class='entity-name'>Contact</span> ID for your <span class='entity-name'>SellerTransaction</span> <span class='action-name'>Create</span>  request to be accepted. This is the same as the <span class='attribute-name'>moxi_works_contact_id</span> attribute of the  <span class='entity-name'>Contact</span> response.</span>
+<span class="request-data-remarks">This is the MoxiWorks Platform ID of the <span class='entity-name'>Contact</span> which this <span class='entity-name'>SellerTransaction</span> object is to be associated with. This will be an [RFC 4122](https://tools.ietf.org/html/rfc4122) compliant UUID. This data is required and must reference a valid MoxiWorks <span class='entity-name'>Contact</span> ID for your <span class='entity-name'>SellerTransaction</span> <span class='action-name'>Create</span>  request to be accepted. This is the same as the <span class='attribute-name'>moxi_works_contact_id</span> attribute of the  <span class='entity-name'>Contact</span> response.</span>
 
 
 <span class="request-data-head">partner_contact_id</span>
@@ -664,21 +664,21 @@ Attribute | Type |
 
 
 <span class="response-data-head">agent_uuid</span>
-<span class="response-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>SellerTransaction</span> is associated with. This will be an [RFC 4122](https://tools.ietf.org/html/rfc4122) compliant UUID.</span>
+<span class="response-data-remarks">This is the MoxiWorks Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>SellerTransaction</span> is associated with. This will be an [RFC 4122](https://tools.ietf.org/html/rfc4122) compliant UUID.</span>
 
 
 
 <span class="response-data-head">moxi_works_agent_id</span>
-<span class="response-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>SellerTransaction</span> is associated with. This will be a string that may take the form of an email address, or a unique alphanumeric identification string.</span>
+<span class="response-data-remarks">This is the MoxiWorks Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>SellerTransaction</span> is associated with. This will be a string that may take the form of an email address, or a unique alphanumeric identification string.</span>
 
 <span class="response-data-head">moxi_works_transaction_id</span>
-<span class="response-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>SellerTransaction</span> which you have created. This will be an [RFC 4122](https://tools.ietf.org/html/rfc4122) compliant UUID.This ID should be recorded on response as it is the key ID for updating the <span class='entity-name'>SellerTransaction</span>.</span>
+<span class="response-data-remarks">This is the MoxiWorks Platform ID of the <span class='entity-name'>SellerTransaction</span> which you have created. This will be an [RFC 4122](https://tools.ietf.org/html/rfc4122) compliant UUID.This ID should be recorded on response as it is the key ID for updating the <span class='entity-name'>SellerTransaction</span>.</span>
 
 <span class="response-data-head">moxi_works_contact_id</span>
-<span class="response-data-remarks">This is the Moxi Works Platform ID of the  <span class='entity-name'>Contact</span> which this <span class='entity-name'>SellerTransaction</span> has been associated with. This will be an [RFC 4122](https://tools.ietf.org/html/rfc4122) compliant UUID. </span>
+<span class="response-data-remarks">This is the MoxiWorks Platform ID of the  <span class='entity-name'>Contact</span> which this <span class='entity-name'>SellerTransaction</span> has been associated with. This will be an [RFC 4122](https://tools.ietf.org/html/rfc4122) compliant UUID. </span>
 
 <span class="response-data-head">partner_contact_id</span>
-<span class="response-data-remarks">If this <span class='entity-name'>Contact</span> was created by your sytem in the Moxi Works Platform, then this is the unique identifer you use in your system that has been associated with the <span class='entity-name'>Contact</span> that you are creating this <span class='entity-name'>SellerTransaction</span> for. If the <span class='entity-name'>Contact</span> was not created by you, then <span class='attribute-name'>partner_contact_id</span> will be empty.</span>
+<span class="response-data-remarks">If this <span class='entity-name'>Contact</span> was created by your sytem in the MoxiWorks Platform, then this is the unique identifer you use in your system that has been associated with the <span class='entity-name'>Contact</span> that you are creating this <span class='entity-name'>SellerTransaction</span> for. If the <span class='entity-name'>Contact</span> was not created by you, then <span class='attribute-name'>partner_contact_id</span> will be empty.</span>
 
 
 
@@ -694,7 +694,7 @@ Attribute | Type |
 <span class="response-data-remarks">Each <span class='entity-name'>SellerTransaction</span> has five stages (1-5). <span class='attribute-name'>stage</span> displays the stage number that the <span class='entity-name'>SellerTransaction</span> is currently in. For more information about <span class='entity-name'>SellerTransaction</span> stages, see <a href='#sellertransaction-stages'>SellerTransaction Stages</a>.</span>
 
 <span class="response-data-head">stage_name</span>
-<span class="response-data-remarks">This attribute displays a human readable stage name that is associated with the current <span class='attribute-name'>stage</span> attribute. When created through the Moxi Works Platform <span class='entity-name'>SellerTransaction</span> objects will automatically be configured as <span class='attribute-value'>active</span> transactions. For more information about <span class='entity-name'>SellerTransaction</span> stages, see <a href='#sellertransaction-stages'>SellerTransaction Stages</a>.</span>
+<span class="response-data-remarks">This attribute displays a human readable stage name that is associated with the current <span class='attribute-name'>stage</span> attribute. When created through the MoxiWorks Platform <span class='entity-name'>SellerTransaction</span> objects will automatically be configured as <span class='attribute-value'>active</span> transactions. For more information about <span class='entity-name'>SellerTransaction</span> stages, see <a href='#sellertransaction-stages'>SellerTransaction Stages</a>.</span>
 
 
 <span class="response-data-head">address</span>

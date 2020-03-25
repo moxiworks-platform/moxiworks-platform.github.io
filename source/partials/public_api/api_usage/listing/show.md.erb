@@ -61,8 +61,8 @@ moxi_works_listing = MoxiworksPlatform::Listing.find(
 
 ```php
 <?php
-$platform_identifier = 'abc123'; // platorm_identifier provided by Moxi Works Platform Rep
-$platform_secret = 'secret'; //platform_secret provided by Moxi Works Platform Rep
+$platform_identifier = 'abc123'; // platorm_identifier provided by MoxiWorks Platform Rep
+$platform_secret = 'secret'; //platform_secret provided by MoxiWorks Platform Rep
 
 $credentials = new MoxiworksPlatform\Credentials($platform_identifier, $platform_secret);
 
@@ -76,7 +76,7 @@ $moxi_works_listing = MoxiworksPlatform\Listing::find([
 <aside class="note">Send a <b>GET</b> request to https://api.moxiworks.com/api/listings/[moxi_works_listing_id]</aside>
 
 
-When showing <span class='entity-name'>Listing</span> objects using the Moxi Works platform API, format your data using the following parameters.
+When showing <span class='entity-name'>Listing</span> objects using the MoxiWorks platform API, format your data using the following parameters.
 
 ##### <span class='entity-name'>Listing</span> <span class='action-name'>Show</span> Request Attributes
 
@@ -90,11 +90,11 @@ Attribute | Type | Length Limit |
 
 
 <span class="request-data-head">moxi_works_listing_id</span>
-<span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Listing</span> which you are requesting to <span class='action-name'>Show</span>. This data is required and must reference a valid Moxi Works <span class='entity-name'>Listing</span> ID for your <span class='action-name'>Show</span>  request to be accepted.</span>
+<span class="request-data-remarks">This is the MoxiWorks Platform ID of the <span class='entity-name'>Listing</span> which you are requesting to <span class='action-name'>Show</span>. This data is required and must reference a valid MoxiWorks <span class='entity-name'>Listing</span> ID for your <span class='action-name'>Show</span>  request to be accepted.</span>
 
 
 <span class="request-data-head">moxi_works_company_id</span>
-<span class="request-data-remarks">A valid Moxi Works <span class='entity-name'>Company</span> ID. Use [Company Endpoint](#company) to determine what <span class='attribute-name'>moxi_works_company_id</span> you can use.</span>
+<span class="request-data-remarks">A valid MoxiWorks <span class='entity-name'>Company</span> ID. Use [Company Endpoint](#company) to determine what <span class='attribute-name'>moxi_works_company_id</span> you can use.</span>
 
 <aside class="note">Use <a href='#company'>Company Endpoint</a> to determine the moxi_works_company_id to send.</aside>
 
@@ -524,7 +524,7 @@ Attribute | Type |
 
 
 <span class="response-data-head">MoxiWorksListingID</span>
-<span class="response-data-remarks">The unique Identifier for the listing in The Moxi Works Platform.</span>
+<span class="response-data-remarks">The unique Identifier for the listing in The MoxiWorks Platform.</span>
 
 
 <span class="response-data-head">AgentCreatedListing</span>

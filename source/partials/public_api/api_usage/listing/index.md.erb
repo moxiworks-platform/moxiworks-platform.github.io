@@ -71,8 +71,8 @@ company_listings = MoxiworksPlatform::Listing.search(moxi_works_company_id: "abc
 
 ```php
 <?php
-$platform_identifier = 'abc123'; // platorm_identifier provided by Moxi Works Platform Rep
-$platform_secret = 'secret'; //platform_secret provided by Moxi Works Platform Rep
+$platform_identifier = 'abc123'; // platorm_identifier provided by MoxiWorks Platform Rep
+$platform_secret = 'secret'; //platform_secret provided by MoxiWorks Platform Rep
 
 $credentials = new MoxiworksPlatform\Credentials($platform_identifier, $platform_secret);
 
@@ -158,7 +158,7 @@ if(!$first_page['final_page']) {
 <aside class="note">Send a <b>GET</b> request to https://api.moxiworks.com/api/listings</aside>
 
 
-When searching for <span class='entity-name'>Listing</span> objects using the Moxi Works platform API, format your data using the following parameters.
+When searching for <span class='entity-name'>Listing</span> objects using the MoxiWorks platform API, format your data using the following parameters.
 
 ##### <span class='entity-name'>Listing</span> <span class='action-name'>Index</span> Request Attributes
 
@@ -179,7 +179,7 @@ Attribute | Type | Length Limit |
 
 
 <span class="request-data-head">moxi_works_company_id</span>
-<span class="request-data-remarks">A valid Moxi Works <span class='entity-name'>Company</span> ID. Use [Company Endpoint](#company) to determine what <span class='attribute-name'>moxi_works_company_id</span> you can use.</span>
+<span class="request-data-remarks">A valid MoxiWorks <span class='entity-name'>Company</span> ID. Use [Company Endpoint](#company) to determine what <span class='attribute-name'>moxi_works_company_id</span> you can use.</span>
 
 <aside class="note">Use <a href='#company'>Company Endpoint</a> to determine the moxi_works_company_id to send.</aside>
 
@@ -188,15 +188,15 @@ Attribute | Type | Length Limit |
 <span class="request-data-remarks">Paged responses of all <span class='entity-name'>Listing</span> objects updated after this Unix timestamp will be returned in the response. **If no <span class='attribute-name'>updated_since</span> parameter is included in the request, only <span class='entity-name'>Listing</span> objects updated in the last seven days will be returned.**</span>
 
 <span class="request-data-head">agent_uuid</span>
-<span class="request-data-remarks">This is the Moxi Works Platform ID of the <span class='entity-name'>Agent</span> which  <span class='entity-name'>Listing</span> objects are associated with. This will be an [RFC 4122](https://tools.ietf.org/html/rfc4122) compliant UUID.</span>
+<span class="request-data-remarks">This is the MoxiWorks Platform ID of the <span class='entity-name'>Agent</span> which  <span class='entity-name'>Listing</span> objects are associated with. This will be an [RFC 4122](https://tools.ietf.org/html/rfc4122) compliant UUID.</span>
 
 <span class="request-data-head">moxi_works_agent_id</span>
-<span class="request-data-remarks">Use this parameter when searching for <span class='entity-name'>Listing</span> objects associated with a specific <span class='entity-name'>Agent</span>.  This will be a string that may take the form of an email address, or a unique identification string. This data must reference a valid Moxi Works Agent ID for your <span class='entity-name'>Listing</span> <span class='action-name'>Index</span>  request to be accepted.</span>
+<span class="request-data-remarks">Use this parameter when searching for <span class='entity-name'>Listing</span> objects associated with a specific <span class='entity-name'>Agent</span>.  This will be a string that may take the form of an email address, or a unique identification string. This data must reference a valid MoxiWorks Agent ID for your <span class='entity-name'>Listing</span> <span class='action-name'>Index</span>  request to be accepted.</span>
 
 <aside class="note">A company's internal agent id may be used to construct the agent's unique identification string. To do so, the value passed via the moxi_works_agent_id should be a single concatenated string, of the form:</br>[moxi_works_company_id]:[internal_agent_id]</br>Use <a href='#company'>Company Endpoint</a> to determine which moxi_works_company_id to use.</aside>
 
 <span class="request-data-head">moxi_works_office_id</span>
-<span class="request-data-remarks">Use this parameter when searching for <span class='entity-name'>Listing</span> objects associated with a specific <span class='entity-name'>Office</span>.  This data must reference a valid Moxi Works Office ID for your <span class='entity-name'>Listing</span> <span class='action-name'>Index</span>  request to be accepted.</span>
+<span class="request-data-remarks">Use this parameter when searching for <span class='entity-name'>Listing</span> objects associated with a specific <span class='entity-name'>Office</span>.  This data must reference a valid MoxiWorks Office ID for your <span class='entity-name'>Listing</span> <span class='action-name'>Index</span>  request to be accepted.</span>
 
 <span class="request-data-head">last_moxi_works_listing_id</span>
 <span class="request-data-remarks">If fetching a multi-page response, this should be the <span class='attribute-name'>MoxiWorksListingId</span> found in the last <span class='entity-name'>Listing</span> object of the previously fetched page.</span>
@@ -692,7 +692,7 @@ Attribute | Type |
 <span class="response-data-remarks">Detailed status of the listing; whether it's `active` `pending`</span>
 
 <span class="response-data-head">MoxiWorksListingID</span>
-<span class="response-data-remarks">The unique Identifier for the listing in The Moxi Works Platform.</span>
+<span class="response-data-remarks">The unique Identifier for the listing in The MoxiWorks Platform.</span>
 
 <span class="response-data-head">AgentCreatedListing</span>
 <span class="response-data-remarks">Whether the agent created this listing.</span>

@@ -172,10 +172,10 @@ Attribute | Type | Length Limit |
 |<span class="optional-data">moxi_works_office_id</span>|<span class="data-type">String</span>| 255 |
 |<span class="optional-data">last_moxi_works_listing_id</span>|<span class="data-type">String</span>| 255 |
 |<span class="optional-data">shared_partner_data_updated_since</span>|<span class="data-type">Integer</span>| 255 |
+|<span class="optional-data">market_status</span>|<span class="data-type">String</span>| 255 |
+|<span class="optional-data">property_types</span>|<span class="data-type">String</span>| 255 |
 
 <span class="required-data">**Required Parameters Are In Red**</span>
-
-
 
 
 <span class="request-data-head">moxi_works_company_id</span>
@@ -203,6 +203,50 @@ Attribute | Type | Length Limit |
 
 <span class="request-data-head">shared_partner_data_updated_since</span>
 <span class="request-data-remarks">Filter listings using this unix timestamp representing the date since partner data has been updated. This attribute should be used in conjuncion with the <span class='attribute-name'>updated_since</span> attribute.</span>
+
+<span class="request-data-head">market_status</span>
+
+<span class="request-data-remarks">When filtering by <span class='attribute-name'>market_status</span> use one of the following options:</span>
+
+Value | Description |
+-----|-----|
+|<span class="optional-attr-value">on-market</span>|<span class="request-data-remarks">The default value for <span class='attribute-name'>market_status</span>. This listing set includes 'Active' and 'Pending' listings.</span>|
+|<span class="optional-attr-value">off-market</span>|<span class="request-data-remarks">If <span class='attribute-name'>market_status</span> is set to this value, only off-market listings will be returned.</span>|
+|<span class="optional-attr-value">all</span>|<span class="request-data-remarks"> When <span class='attribute-name'>market_status</span> is set to this value, both off-market and on-market listings will be returned.</span>|
+
+<span class="request-data-head">property_types</span>
+<span class="request-data-remarks">When filtering by <span class='attribute-name'>property_types</span> pass a comma separated string of integers associated with various property types.</span>
+<span class="request-data-remarks">When <span class='attribute-name'>property_types</span> is not inlcuded, all property types will be included in the response.</span>
+
+<span class="request-data-remarks">Use this legend to determine which integer values to include in <span class='attribute-name'>property_types</span>.</span>
+
+Number | Property Type |
+-----|-----|
+|<span class="optional-attr-value">-1</span>|<span class="request-data-remarks">Not Found</span>|
+|<span class="optional-attr-value">1</span>|<span class="request-data-remarks">Residential</span>|
+|<span class="optional-attr-value">2</span>|<span class="request-data-remarks">Condo</span>|
+|<span class="optional-attr-value">3</span>|<span class="request-data-remarks">Land</span>|
+|<span class="optional-attr-value">4</span>|<span class="request-data-remarks">Mfghome</span>|
+|<span class="optional-attr-value">5</span>|<span class="request-data-remarks">Farm/Ranch</span>|
+|<span class="optional-attr-value">6</span>|<span class="request-data-remarks">Rental</span>|
+|<span class="optional-attr-value">7</span>|<span class="request-data-remarks">Multifamily</span>|
+|<span class="optional-attr-value">8</span>|<span class="request-data-remarks">Co-op</span>|
+|<span class="optional-attr-value">9</span>|<span class="request-data-remarks">Townhouse</span>|
+|<span class="optional-attr-value">10</span>|<span class="request-data-remarks">Commerical</span>|
+|<span class="optional-attr-value">11</span>|<span class="request-data-remarks">Business Opportunity</span>|
+|<span class="optional-attr-value">12</span>|<span class="request-data-remarks">Commercial Res Income</span>|
+|<span class="optional-attr-value">13</span>|<span class="request-data-remarks">Commercial Hotel</span>|
+|<span class="optional-attr-value">14</span>|<span class="request-data-remarks">Commercial Mobile Home Park</span>|
+|<span class="optional-attr-value">15</span>|<span class="request-data-remarks">Commercial Lease</span>|
+|<span class="optional-attr-value">16</span>|<span class="request-data-remarks">Commercial Land</span>|
+|<span class="optional-attr-value">17</span>|<span class="request-data-remarks">Moorage</span>|
+|<span class="optional-attr-value">18</span>|<span class="request-data-remarks">Timeshare</span>|
+|<span class="optional-attr-value">19</span>|<span class="request-data-remarks">Commercial Industrial</span>|
+|<span class="optional-attr-value">20</span>|<span class="request-data-remarks">Multifamily2_4</span>|
+|<span class="optional-attr-value">21</span>|<span class="request-data-remarks">Multifamily5up</span>|
+|<span class="optional-attr-value">22</span>|<span class="request-data-remarks">Apartment</span>|
+|<span class="optional-attr-value">23</span>|<span class="request-data-remarks">Highrise</span>|
+
 
 <blockquote><div class='highlight json' style="display: block">
 <span class='data-example-label'><span class='entity-name'>Listing</span> <span class='action-name'>Index</span> Response Payload Example

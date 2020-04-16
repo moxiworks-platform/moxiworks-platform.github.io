@@ -1,0 +1,152 @@
+#### <span class='entity-name'>ActionLog</span> <span class='action-name'>Delete</span>
+
+<div class='highlight ruby'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-ruby/MoxiworksPlatform/ActionLog.html#Delete-class_method'>Ruby <span class='action-name'>Delete</span> Docs</a></span></blockquote></div>
+
+<div class='highlight php'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-php/classes/MoxiworksPlatform.ActionLog.html#method_delete'>PHP <span class='action-name'>Delete</span> Docs</a></span></blockquote></div>
+
+<div class='highlight csharp'><blockquote><span class='data-example-label'><a href='https://moxiworks-platform.github.io/moxiworks-dotnet/class_moxi_works_1_1_platform_1_1_action_log_service.html#aacf0242063ee7000877c44d02134bd39'>.Net <span class='action-name'>ActionLogService.DeleteActionLogAsync</span> Docs</a></span></blockquote></div>
+
+> <span class="data-example-label"><span class='entity-name'>ActionLog </span><span class='action-name'>Delete</span> (using <span class='attribute-name'>agent_uuid</span>) Request Example</span>
+
+
+```json
+{
+  "moxi_works_action_log_id":"12345678-1234-1234-1234-1234567890ab",
+}
+
+```
+
+```http
+POST /api/action_logs HTTP/1.1
+Host: api.moxiworks.com
+Accept: application/vnd.moxi-platform+json;version=1
+Authorization: Basic XNNeXAAAUZaQlF0dA==
+Content-Type: application/x-www-form-urlencoded
+
+
+moxi_works_action_log_id=12345678-1234-1234-1234-1234567890ab
+
+```
+
+```csharp
+
+/* set up prerequisites once */
+ConfigurationManager.AppSettings["Secret"] = "secret";
+ConfigurationManager.AppSettings["Identifier"] = "abc123";
+
+
+var actionLog = new ActionLog();
+actionLog.MoxiWorksActionLogId = "12345678-1234-1234-1234-1234567890ab";
+
+var service = new ActionLogService(new MoxiWorksClient());
+var result = service.DeleteActionLogAsync(actionLog).Result;
+
+```
+
+```ruby
+###### set up prerequisites once
+require 'moxiworks_platform'
+
+platform_identifier = 'abc123'
+
+platform_secret = 'secret'
+
+MoxiworksPlatform::Credentials.new(platform_identifier, platform_secret)
+##### end prerequisites
+
+moxi_works_action_log = MoxiworksPlatform::ActionLog.delete(
+    moxi_works_action_log_id: "12345678-1234-1234-1234-1234567890ab"      )
+
+```
+
+```php
+<?php
+$platform_identifier = 'abc123'; // platorm_identifier provided by MoxiWorks Platform Rep
+$platform_secret = 'secret'; //platform_secret provided by MoxiWorks Platform Rep
+
+$credentials = new MoxiworksPlatform\Credentials($platform_identifier, $platform_secret);
+
+$moxi_works_action_log = MoxiworksPlatform\ActionLog::delete([
+        'moxi_works_action_log_id' => '12345678-1234-1234-1234-1234567890ab']);
+?>
+
+```
+
+
+<aside class="note">Send a <b>DELETE</b> request to https://api.moxiworks.com/api/action_logs</aside>
+
+When deleting an <span class='entity-name'>ActionLog</span> using the MoxiWorks platform API, format your request using the following parameters.
+
+
+##### <span class='entity-name'>ActionLog</span> <span class='action-name'>Delete</span> Request Attributes
+
+Attribute | Type | Length Limit |
+-----|-----|-----|-----|
+|<span class="required-data">moxi_works_action_log_id</span>|<span class="required-data"><span class="data-type">String</span></span>|<span class="required-data">255</span> |
+
+
+<span class="required-data">**Required Parameters Are In Red**</span>
+
+
+<span class="request-data-head">moxi_works_action_log_id</span>
+<span class="request-data-remarks">This is the MoxiWorks Platform ID of the  <span class='entity-name'>ActionLog</span> entry to be deleted. This will be an [RFC 4122](https://tools.ietf.org/html/rfc4122) compliant UUID. </span>
+
+##### <span class='entity-name'>ActionLog</span> <span class='action-name'>Delete</span> Response Payload
+The following attributes make up the payload of the <span class='entity-name'>ActionLog</span> response for a <span class='action-name'>Delete</span> request.
+
+<blockquote><div class='highlight json' style="display: block">
+<span class='data-example-label'><span class='entity-name'>ActionLog</span> <span class='action-name'>Delete</span> Response Payload Example
+</span></div></blockquote>
+
+```json
+
+  {
+  "moxi_works_action_log_id": "12345678-1234-1234-1234-1234567890ab",
+  "type": "log_entry_type",
+  "timestamp": 1462234227,
+  "title": "Contact Called",
+  "body": "this contact called you"
+}
+```
+
+
+<blockquote><div class='highlight json' style="display: block">
+<span class="data-example-label"><span class='entity-name'>ActionLog</span> <span class='action-name'>Delete</span> Failure Response</span>
+</div> See <a href='#error-handling'>Error Handling</a> for details about individual error codes.</blockquote>
+
+```json
+{
+  "status":"fail",
+  "errorCode": xxx,
+  "messages": ["messages"]
+}
+
+```
+
+###### <span class='action-name'>Delete</span> Response Attributes
+
+Attribute | Type|
+-----|-----|-----|-----|
+|<span class="response-data">moxi_works_action_log_id</span>|<span class="data-type">String</span>| |
+|<span class="response-data">type</span>|<span class="data-type">String</span>| |
+|<span class="response-data">timestamp</span>|<span class="data-type">Integer</span>| |
+|<span class="response-data">title</span>|<span class="data-type">String</span>| |
+|<span class="response-data">body</span>|<span class="data-type">String</span>| |
+
+
+
+<span class="response-data-head">moxi_works_action_log_id</span>
+<span class="response-data-remarks">This is the MoxiWorks Platform ID of the <span class='entity-name'>ActionLog</span> entry to be deleted. This will be an [RFC 4122](https://tools.ietf.org/html/rfc4122) compliant UUID.</span>
+
+<span class="response-data-head">type</span>
+<span class="response-data-remarks">This is the MoxiWorks Platform identifier of the class of<span class='entity-name'>ActionLog</span> entry that was deleted.</span>
+
+<span class="response-data-head">timestamp</span>
+<span class="response-data-remarks">This is the Unix timestamp for the creation time of the <span class='entity-name'>ActionLog</span> entry that was deleted.</span>
+
+<span class="response-data-head">title</span>
+<span class="response-data-remarks">The title of the deleted <span class='entity-name'>ActionLog</span> entry. </span>
+
+<span class="response-data-head">body</span>
+<span class="response-data-remarks">This is the body of the deleted <span class='entity-name'>ActionLog</span> entry. </span>
+

@@ -241,7 +241,9 @@ Attribute | Type | Length Limit |
     {
       "Date":"2018-01-06",
       "StartTime":"13:00:00",
-      "EndTime":"15:00:00"
+      "EndTime":"15:00:00",
+      "VirtualOpenHouseYN":false,
+      "VirtualOpenHouseURL":null
     }
   ],
   "ListingImages":[
@@ -608,6 +610,8 @@ Attribute | Type |
 |<span class="response-data">Date</span>|<span class="response-data"><span class="data-type">String</span>
 |<span class="response-data">StartTime</span>|<span class="response-data"><span class="data-type">String</span>
 |<span class="response-data">EndTime</span>|<span class="response-data"><span class="data-type">String</span>
+|<span class="response-data">VirtualOpenHouseYN</span>|<span class="response-data"><span class="data-type">Boolean</span>
+|<span class="response-data">VirtualOpenHouseURL</span>|<span class="response-data"><span class="data-type">String</span>
 
 <span class="response-data-head">Date</span>
 <span class="response-data-remarks">YYYY-MM-DD formatted string representing the date of the open house</span>
@@ -617,6 +621,14 @@ Attribute | Type |
 
 <span class="response-data-head">EndTime</span>
 <span class="response-data-remarks">HH:MM:SS formatted string representing the time when the open house ends. This is expressed in the local time where the listing is located.</span>
+
+<span class="response-data-head">VirtualOpenHouseYN</span>
+<span class="response-data-remarks">Whether the Open House is a Virtual Open House.</span>
+
+<span class="response-data-head">VirtualOpenHouseURL</span>
+<span class="response-data-remarks">If the Open House is a Virtual Open House, the URL that the Virtual Open House is available.</span>
+
+
 
 
 ###### <span class='attribute-name'>ListingImages</span> Objects

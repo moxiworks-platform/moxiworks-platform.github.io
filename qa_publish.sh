@@ -12,7 +12,7 @@ git checkout gh-pages
 git reset --hard qa/gh-pages
 git checkout develop
 git merge qa/develop
-bundle exec middleman build --clean
+#bundle exec middleman build --clean
 git checkout gh-pages
 mkdir ${tmpdir}
 mv * ${tmpdir}

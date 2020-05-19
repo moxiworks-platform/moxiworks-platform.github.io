@@ -537,6 +537,7 @@ Attribute | Type | Length Limit |
 |<span class="optional-data">home_zip</span>|<span class="data-type">String</span>| 255 |
 |<span class="optional-data">home_country</span>|<span class="data-type">String</span>| 255 |
 |<span class="optional-data">is_not_lead</span>|<span class="data-type">Boolean</span>| 255 |
+|<span class="optional-data">skip_agent_notification</span>|<span class="data-type">Boolean</span>| 255 |
 |<span class="optional-data">job_title</span>|<span class="data-type">String</span>| 255 |
 |<span class="optional-data">occupation</span>|<span class="data-type">String</span>| 255 |
 |<span class="optional-data">property_url</span>|<span class="data-type">String</span>| 255 |
@@ -636,6 +637,8 @@ Attribute | Type | Length Limit |
 <span class="request-data-head">is_not_lead</span>
 <span class="request-data-remarks">If the created <span class='entity-name'>Contact</span> record *is not for a lead* set this to `true`. By default this is `false`.</span>
 
+<span class="request-data-head">skip_agent_notification</span>
+<span class="request-data-remarks">If the created <span class='entity-name'>Contact</span> record *should be treated as a lead* but it is not desired that the agent should receive an email or text that they have received a lead.</span>
 
 <span class="request-data-head">job_title</span>
 <span class="request-data-remarks">The contact's professional job title. </span>

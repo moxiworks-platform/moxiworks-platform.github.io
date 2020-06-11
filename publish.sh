@@ -3,7 +3,7 @@
 git commit -a -m "doc updates"
 git fetch origin
 git merge origin/develop
-bundle exec middleman build --clean
+EXECJS_RUNTIME=Node bundle exec middleman build --clean
 git checkout gh-pages
 git merge origin/gh-pages
 mkdir old

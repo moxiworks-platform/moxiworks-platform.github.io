@@ -144,6 +144,16 @@
 <td><span class="required-data">255<span></td>
 </tr>
 <tr>
+<td><span class="optional-data">moxi_works_agent_id †</span></td>
+<td><span class="optional-data"><span class="data-type">String</span></span></td>
+<td><span class="optional-data">255</span></td>
+</tr>
+<tr>
+<td><span class="optional-data">agent_uuid †</span></td>
+<td><span class="optional-data"><span class="data-type">String</span></span></td>
+<td><span class="optional-data">255</span></td>
+</tr>
+<tr>
 <td><span class="optional-data">created_after</span></td>
 <td><span class="data-type">Integer</span></td>
 <td>255</td>
@@ -169,14 +179,9 @@
 <td>255</td>
 </tr>
 <tr>
-<td><span class="optional-data">moxi_works_agent_id †</span></td>
-<td><span class="optional-data"><span class="data-type">String</span></span></td>
-<td><span class="optional-data">255</span></td>
-</tr>
-<tr>
-<td><span class="optional-data">agent_uuid †</span></td>
-<td><span class="optional-data"><span class="data-type">String</span></span></td>
-<td><span class="optional-data">255</span></td>
+<td><span class="optional-data">include_times</span></td>
+<td><span class="data-type">Boolean</span></td>
+<td>255</td>
 </tr>
 </tbody></table>
 
@@ -189,13 +194,13 @@
 
 <aside class="note">Use <a href='#company'>Company Endpoint</a> to determine the moxi_works_company_id to send.</aside>
 
-<p><span class="request-data-head">moxi_works_office_id</span>
-<span class="request-data-remarks">A valid MoxiWorks <span class='entity-name'>Office</span> ID. Use <a href="#office">Office Endpoint</a> to determine what <span class='attribute-name'>moxi_works_office_id</span> you can use.</span></p>
+<p><span class="request-data-head">agent_uuid</span>
+<span class="request-data-remarks">This is the MoxiWorks Platform ID of the <span class='entity-name'>Agent</span> which an <span class='entity-name'>PresentationLog</span> entry is associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID. <span class='attribute-name'>agent_uuid</span> is optional.</span></p>
 
-<aside class="note">Use <a href='#company'>Office Endpoint</a> to determine the moxi_works_office_id to send.</aside>
+<p><span class="request-data-head">moxi_works_agent_id</span>
+<span class="request-data-remarks">This is the MoxiWorks Platform ID of the agent which an <span class='entity-name'>PresentationLog</span> entry is associated with. This will be a string that may take the form of an email address, or a unique identification string. This data is optional.</span></p>
 
-<p><span class="request-data-head">page_number</span>
-<span class="request-data-remarks">For queries with multi-page responses, use the <span class='attribute-name'>page_number</span> parameter to return data for specific pages. Data for page 1 is returned if this parameter is not included. Use this parameter if <strong>total_pages</strong> indicates that there is more than one page of data available.</span></p>
+<aside class="note">Use <a href='#agent'>Agent Endpoint</a> to determine the moxi_works_agent_id to send.</aside>
 
 <aside class="note">When searching, you may search using <span class='attribute-name'>created_before</span> and <span class='attribute-name'>created_after</span> or <span class='attribute-name'>updated_before</span> and <span class='attribute-name'>updated_after</span>.</aside>
 
@@ -213,11 +218,13 @@
 
 <aside class="note">The maximum time range for a single search is one week. If you need to span a greater length of time, break your search up into week-long segments.</aside>
 
-<p><span class="request-data-head">agent_uuid</span>
-<span class="request-data-remarks">This is the MoxiWorks Platform ID of the <span class='entity-name'>Agent</span> which an <span class='entity-name'>PresentationLog</span> entry is associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID. <span class='attribute-name'>agent_uuid</span> is optional.</span></p>
+<p><span class="request-data-head">page_number</span>
+<span class="request-data-remarks">For queries with multi-page responses, use the <span class='attribute-name'>page_number</span> parameter to return data for specific pages. Data for page 1 is returned if this parameter is not included. Use this parameter if <strong>total_pages</strong> indicates that there is more than one page of data available.</span></p>
 
-<p><span class="request-data-head">moxi_works_agent_id</span>
-<span class="request-data-remarks">This is the MoxiWorks Platform ID of the agent which an <span class='entity-name'>PresentationLog</span> entry is associated with. This will be a string that may take the form of an email address, or a unique identification string. This data is optional.</span></p>
+<p><span class="request-data-head">include_times</span>
+<span class="request-data-remarks">Pass <em>true</em> for the value of the <span class='attribute-name'>include_times</span> parameter to return delivered and requested times for the presentations included in the response.</span></p>
+
+<aside class="note">At this time, the attribute <span class='attribute-name'>include_times</span> is only an available query options for agent scoped requests (requests including an agent identifier)</aside>
 
 <blockquote><div class='highlight json' style="display: block">
 <span class="data-example-label">PresentationLog Index: Success Response</span>
@@ -337,6 +344,22 @@
 <td><span class="data-type">Integer</span></td>
 </tr>
 <tr>
+<td><span class="response-data">pdf_requested_times</span></td>
+<td><span class="data-type">Array</span></td>
+</tr>
+<tr>
+<td><span class="response-data">pdf_delivered_times</span></td>
+<td><span class="data-type">Array</span></td>
+</tr>
+<tr>
+<td><span class="response-data">pres_requested_times</span></td>
+<td><span class="data-type">Array</span></td>
+</tr>
+<tr>
+<td><span class="response-data">pres_delivered_times</span></td>
+<td><span class="data-type">Array</span></td>
+</tr>
+<tr>
 <td><span class="response-data">external_identifier</span></td>
 <td><span class="data-type">String or null</span></td>
 </tr>
@@ -382,6 +405,20 @@
 
 <p><span class="response-data-head">pres_requested</span>
 <span class="response-data-remarks">The number of Online presentations requested.</span></p>
+
+<p><span class="response-data-head">pdf_requested_times</span>
+<span class="response-data-remarks">An array of Unix timestamps representing the times when a pdf of the presentation has been requested via web link. Will be <em>null</em> if <span class='attribute-name'>include_times</span> attribute is not included.</span></p>
+
+<p><span class="response-data-head">pdf_delivered_times</span>
+<span class="response-data-remarks">An array of Unix timestamps representing the times when a pdf of the presentation has been shared (emailed) by the agent(s). Will be <em>null</em> if <span class='attribute-name'>include_times</span> attribute is not included.</span></p>
+
+<p><span class="response-data-head">pres_requested_times</span>
+<span class="response-data-remarks">An array of Unix timestamps representing the times when the presentation slide show has been requested via web link. Will be <em>null</em> if <span class='attribute-name'>include_times</span> attribute is not included.</span></p>
+
+<p><span class="response-data-head">pres_delivered_times</span>
+<span class="response-data-remarks">An array of Unix timestamps representing the times when the presentation slide show has been shared (emailed) by the agent(s). Will be <em>null</em> if <span class='attribute-name'>include_times</span> attribute is not included.</span></p>
+
+<aside class="note">At this time, the attributes <span class='attribute-name'>pdf_requested_times</span>, <span class='attribute-name'>pdf_delivered_times</span>, <span class='attribute-name'>pres_requested_times</span>, and <span class='attribute-name'>pres_delivered_times</span> will be <em>null</em> if the request query is not scoped to an agent (an agent identifier is not included).</aside>
 
 <p><span class="response-data-head">external_identifier</span>
 <span class="response-data-remarks">This is the  ID of the <span class='entity-name'>Agent</span> utilized by their company.</span></p>

@@ -100,12 +100,12 @@ The following attributes make up the payload of the <span class='entity-name'>Ac
 
 ```json
 
-  {
-  "moxi_works_action_log_id": "12345678-1234-1234-1234-1234567890ab",
-  "type": "log_entry_type",
-  "timestamp": 1462234227,
-  "title": "Contact Called",
-  "body": "this contact called you"
+{
+    "status": "success",
+    "deleted": true,
+    "messages": [
+        "ActionLog entry a0be9654-06df-44f0-af8c-057967cf579a deleted"
+    ]
 }
 ```
 
@@ -127,26 +127,18 @@ The following attributes make up the payload of the <span class='entity-name'>Ac
 
 Attribute | Type|
 -----|-----|-----|-----|
-|<span class="response-data">moxi_works_action_log_id</span>|<span class="data-type">String</span>| |
-|<span class="response-data">type</span>|<span class="data-type">String</span>| |
-|<span class="response-data">timestamp</span>|<span class="data-type">Integer</span>| |
-|<span class="response-data">title</span>|<span class="data-type">String</span>| |
-|<span class="response-data">body</span>|<span class="data-type">String</span>| |
+|<span class="response-data">status</span>|<span class="data-type">String</span>| |
+|<span class="response-data">deleted</span>|<span class="data-type">Boolean</span>| |
+|<span class="response-data">messages</span>|<span class="data-type">Array</span>| |
 
 
 
-<span class="response-data-head">moxi_works_action_log_id</span>
-<span class="response-data-remarks">This is the MoxiWorks Platform ID of the <span class='entity-name'>ActionLog</span> entry to be deleted. This will be an [RFC 4122](https://tools.ietf.org/html/rfc4122) compliant UUID.</span>
 
-<span class="response-data-head">type</span>
-<span class="response-data-remarks">This is the MoxiWorks Platform identifier of the class of<span class='entity-name'>ActionLog</span> entry that was deleted.</span>
+<span class="response-data-head">status</span>
+<span class="response-data-remarks">This will indicate what the status of the request is.</span>
 
-<span class="response-data-head">timestamp</span>
-<span class="response-data-remarks">This is the Unix timestamp for the creation time of the <span class='entity-name'>ActionLog</span> entry that was deleted.</span>
+<span class="response-data-head">deleted</span>
+<span class="response-data-remarks">This will indicate whether the delete request was successful or not.</span>
 
-<span class="response-data-head">title</span>
-<span class="response-data-remarks">The title of the deleted <span class='entity-name'>ActionLog</span> entry. </span>
-
-<span class="response-data-head">body</span>
-<span class="response-data-remarks">This is the body of the deleted <span class='entity-name'>ActionLog</span> entry. </span>
-
+<span class="response-data-head">messages</span>
+<span class="response-data-remarks">This is an arrray of strings. Any messages associated with the delete request status will be contained in this array. </span>

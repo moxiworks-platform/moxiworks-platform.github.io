@@ -174,6 +174,7 @@ Attribute | Type | Length Limit |
 |<span class="optional-data">shared_partner_data_updated_since</span>|<span class="data-type">Integer</span>| 255 |
 |<span class="optional-data">market_status</span>|<span class="data-type">String</span>| 255 |
 |<span class="optional-data">property_types</span>|<span class="data-type">String</span>| 255 |
+|<span class="optional-data">only_agent_created</span>|<span class="data-type">Boolean</span>| 255 |
 
 <span class="required-data">**Required Parameters Are In Red**</span>
 
@@ -246,6 +247,9 @@ Number | Property Type |
 |<span class="optional-attr-value">21</span>|<span class="request-data-remarks">Multifamily5up</span>|
 |<span class="optional-attr-value">22</span>|<span class="request-data-remarks">Apartment</span>|
 |<span class="optional-attr-value">23</span>|<span class="request-data-remarks">Highrise</span>|
+
+<span class="request-data-head">only_agent_created</span>
+<span class="request-data-remarks">When this filter parameter is passed as true, the response will be restricted to listings created by agents (non-mls listings).</span>
 
 
 <blockquote><div class='highlight json' style="display: block">

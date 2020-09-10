@@ -11827,6 +11827,11 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 <td><span class="data-type">Integer</span></td>
 <td>255</td>
 </tr>
+<tr>
+<td><span class="optional-data">only_business_contacts</span></td>
+<td><span class="data-type">Boolean</span></td>
+<td></td>
+</tr>
 </tbody></table>
 
 <p><span class="multi-option-required-data">* <strong>Either <span class='attribute-name'>moxi_works_agent_id</span> or <span class='attribute-name'>agent_uuid</span> must be supplied. For guidance on which Agent identifier better fits your use-case, see <a href="#agent-identifiers">Agent Identifiers</a></strong></span></p>
@@ -11855,6 +11860,10 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 
 <p><span class="request-data-head">page_number</span>
 <span class="request-data-remarks">Page of <span class='entity-name'>Contact</span> records to return. Use if <code class="prettyprint">total_pages</code> indicates that there is more than one page of data available.</span></p>
+
+<p><span class="request-data-head">only_business_contacts</span>
+<span class="request-data-remarks">Whether to only include <span class='entity-name'>Contact</span> records for contacts that are neither considered personal contacts nor work collaborators in the payload response.</span>
+<aside class="note">By default all <span class='entity-name'>Contact</span> records will be returned. Use the <code class="prettyprint">personal_contact</code> and <code class="prettyprint">collaborator</code> response attributes to determine the status of any given contact.</aside></p>
 
 <blockquote><div class='highlight json' style="display: block">
 <span class='data-example-label'><span class='entity-name'>Contact</span> <span class='action-name'>Index</span> (using <span class='attribute-name'>agent_uuid</span>) Response Payload Example

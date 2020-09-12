@@ -401,6 +401,84 @@ Number | Property Type |
 ```
 
 <blockquote><div class='highlight json' style="display: block">
+  <span class='data-example-label'><span class='entity-name'>Listing</span> <span class='action-name'>Index</span> Off-Market Response Example
+</div> In order to conform to MLS rules, off-market listings have all fields set to null except for  ID fields, status, status-change dates and the associated MLS. Use the <span class='attribute-name'>market_status</span> parameter to include off-market <span class='entity-name'>Listing</span> objects in the response payload.</blockquote>
+
+```json
+
+{
+  "LotSizeAcres": null,
+  "BathroomsFull": null,
+  "BathroomsHalf": null,
+  "BathroomsOneQuarter": null,
+  "BathroomsPartial": null,
+  "BathroomsThreeQuarter": null,
+  "BathroomsTotalInteger": null,
+  "BathroomsTotal": null,
+  "BedroomsTotal": null,
+  "PublicTitle": null,
+  "PublicRemarks": null,
+  "ModificationTimestamp": "2020-09-08T15:51:27.047-07:00",
+  "StatusChangeDate": "2020-09-08T00:00:00.000-07:00",
+  "InternetAddressDisplayYN": null,
+  "DaysOnMarket": 0,
+  "ListingContractDate": null,
+  "CreatedDate": null,
+  "ElementarySchool": null,
+  "GarageSpaces": null,
+  "WaterfrontYN": null,
+  "HighSchool": null,
+  "AssociationFee": null,
+  "ListOfficeName": null,
+  "ListPrice": null,
+  "ListingID": "1234124",
+  "ListAgentFullName": null,
+  "ListAgentUUID": null,
+  "ListAgentOfficeID": null,
+  "ListAgentMoxiWorksOfficeID": null,
+  "SecondaryListAgentFullName": null,
+  "SecondaryListAgentUUID": null,
+  "SchoolDistrict": null,
+  "Address": null,
+  "Address2": null,
+  "City": null,
+  "CountyOrParish": null,
+  "Latitude": null,
+  "Longitude": null,
+  "StateOrProvince": null,
+  "PostalCode": null,
+  "Community": null,
+  "LotSizeSquareFeet": null,
+  "InternetEntireListingDisplayYN": null,
+  "MiddleOrJuniorSchool": null,
+  "ListOfficeAOR": "Mutural Southern MLS",
+  "ListOfficeAORArea": null,
+  "PoolYN": null,
+  "PropertyType": null,
+  "TaxAnnualAmount": null,
+  "TaxYear": null,
+  "SingleStory": null,
+  "LivingArea": null,
+  "ViewYN": null,
+  "YearBuilt": null,
+  "OnMarket": false,
+  "Status": "Sold",
+  "MoxiWorksListingId": "5ce0e9a5-6015-fec5-aadf-a328b4e01324",
+  "ShortMoxiWorksListingId": 12342323,
+  "AgentCreatedListing": null,
+  "VirtualTourURL": null,
+  "SharedPartnerData": null,
+  "ListingURL": null,
+  "CompanyListingAttributes": [],
+  "PropertyFeatures": [],
+  "OpenHouse": [],
+  "ImagesLastModified": null,
+  "ListingImages": []
+}
+```
+
+
+<blockquote><div class='highlight json' style="display: block">
   <span class='data-example-label'><span class='entity-name'>Listing</span> <span class='action-name'>Index</span> Failure Response Example
 </div> See <a href='#error-handling'>Error Handling</a> for details about individual error codes.</blockquote>
 

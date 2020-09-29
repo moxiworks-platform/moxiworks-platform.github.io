@@ -154,8 +154,6 @@ Attribute | Type | Length Limit |
 <span class="multi-option-required-data"> † Either <span class='attribute-name'>moxi_works_office_id</span> or <span class='attribute-name'>office_id</span> can be used when querying by office ID.</span>
 
 
-
-
 <span class="required-data">**Required Parameters Are In Red**</span>
 
 <span class="request-data-head">moxi_works_company_id</span>
@@ -181,10 +179,10 @@ Use <a href='#company'>Agent Endpoint</a> to determine the <span class='attribut
 </aside>
 
 <span class="request-data-head">moxi_works_office_id</span>
-<span class="response-data-remarks">This is the MoxiWorks Platform ID of the <span class='entity-name'>Office</span> for the <span class='entity-name'>Brand</span>. This will be an [RFC 4122](https://tools.ietf.org/html/rfc4122) compliant UUID.</span>
+<span class="request-data-remarks">This is the MoxiWorks Platform ID of the <span class='entity-name'>Office</span> for the <span class='entity-name'>Brand</span>.  Use [Office Endpoint](#office) to determine what <span class='attribute-name'>moxi_works_office_id</span> you can use (see <span class='attribute-name'>moxi_works_office_id</span>).</span>
 
 <span class="request-data-head">office_id</span>
-<span class="response-data-remarks">This is the short Platform ID of the <span class='entity-name'>Office</span> for the <span class='entity-name'>Brand</span>. This will be a numeric value.</span>
+<span class="request-data-remarks">This is the short Platform ID of the <span class='entity-name'>Office</span> for the <span class='entity-name'>Brand</span>. Use [Office Endpoint](#office) to determine what <span class='attribute-name'>office_id</span> you can use (see <span class='attribute-name'>id</span>).</span>
 
 <aside class="note">
 Either <span class='attribute-name'>moxi_works_office_id</span> or <span class='attribute-name'>office_id</span> can be used when getting brands for an <span class='entity-name'>Office</span>.

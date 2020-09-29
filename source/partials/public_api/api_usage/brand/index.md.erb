@@ -6,7 +6,7 @@
 
 <div class='highlight csharp'><blockquote><span class='data-example-label'><a href='https://moxiworks-platform.github.io/moxiworks-dotnet/class_moxi_works_1_1_platform_1_1_brand_service.html#ad2a8c676ce1eae4d6ff80dd911d26cef'>.Net <span class='action-name'>Brand.GetBrandsAsync</span> Docs</a></span></blockquote></div>
 
-> <span class="data-example-label"><span class='entity-name'>Brand</span> <span class='action-name'>Index</span> Example</span>
+> <span class="data-example-label"><span class='entity-name'>Brand</span> <span class='action-name'>Index</span>  (using <span class='attribute-name'>moxi_works_agent_id</span>) Request Example</span>
 
 
 ```http
@@ -70,6 +70,70 @@ $moxi_works_brand= MoxiworksPlatform\Brand::search([
 ```
 
 
+> <span class="data-example-label"><span class='entity-name'>Brand</span> <span class='action-name'>Index</span>  (using <span class='attribute-name'>moxi_works_office_id</span>) Request Example</span>
+
+
+```http
+GET /api/brands?moxi_works_office_id=abc123 HTTP/1.1
+Host: api.moxiworks.com
+Accept: application/vnd.moxi-platform+json;version=1
+Authorization: Basic XNNeXAAAUZaQlF0dA==
+Content-Type: application/x-www-form-urlencoded
+
+```
+
+```json
+{
+  "moxi_works_office_id":"pdq867",
+  "moxi_works_company_id":"abc123"
+}
+
+```
+
+
+```csharp
+
+/* set up prerequisites once */
+ConfigurationManager.AppSettings["Secret"] = "secret";
+ConfigurationManager.AppSettings["Identifier"] = "abc123";
+
+var service = new BrandService(new MoxiWorksClient());
+var results = service.GetBrandsAsync("moxi_works_office_id", "pdq867").Result;
+
+```
+
+
+```ruby
+##### set up prerequisites once
+require 'moxiworks_platform'
+
+platform_identifier = 'abc123'
+
+platform_secret = 'secret'
+
+MoxiworksPlatform::Credentials.new(platform_identifier, platform_secret)
+##### end prerequisites
+
+moxi_works_brand = MoxiworksPlatform::Brand.search(
+        moxi_works_office_id: "pdq867", 
+        moxi_works_company_id: "abc123")
+
+```
+
+```php
+<?php
+$platform_identifier = 'abc123'; // platorm_identifier provided by MoxiWorks Platform Rep
+$platform_secret = 'secret'; //platform_secret provided by MoxiWorks Platform Rep
+
+$credentials = new MoxiworksPlatform\Credentials($platform_identifier, $platform_secret);
+
+$moxi_works_brand= MoxiworksPlatform\Brand::search([
+        'moxi_works_office_id' => 'pdq867',
+        'moxi_works_company_id' => 'abc123']);
+?>
+```
+
+
 ##### <span class='entity-name'>Brand</span> <span class='action-name'>Index</span> Request Attributes
 
 <aside class="note">Send a <b>GET</b> request to https://api.moxiworks.com/api/brands</aside>
@@ -81,11 +145,23 @@ Attribute | Type | Length Limit |
 |<span class="required-data">moxi_works_company_id</span>|<span class="required-data"><span class="data-type">String</span></span>|<span class="required-data">255<span> |
 |<span class="multi-option-optional-data">agent_uuid*</span>|<span class="multi-option-optional-data"><span class="data-type">String</span></span>| <span class="multi-option-optional-data">255</span>
 |<span class="multi-option-optional-data">moxi_works_agent_id*</span>|<span class="multi-option-optional-data"><span class="data-type">String</span></span>| <span class="multi-option-optional-data">255</span>
+|<span class="multi-option-optional-data">moxi_works_office_id†</span>|<span class="multi-option-optional-data"><span class="data-type">String</span></span>| <span class="multi-option-optional-data">255</span>
+|<span class="multi-option-optional-data">office_id†</span>|<span class="multi-option-optional-data"><span class="data-type">String</span></span>| <span class="multi-option-optional-data">255</span>
+
+
+<span class="multi-option-required-data"> * Either <span class='attribute-name'>moxi_works_agent_id</span> or <span class='attribute-name'>agent_uuid</span> can be used when querying by agent ID. For guidance on which Agent identifier better fits your use-case, see [Agent Identifiers](#agent-identifiers)</span>
+
+<span class="multi-option-required-data"> † Either <span class='attribute-name'>moxi_works_office_id</span> or <span class='attribute-name'>office_id</span> can be used when querying by office ID.</span>
+
+
+
 
 <span class="required-data">**Required Parameters Are In Red**</span>
 
 <span class="request-data-head">moxi_works_company_id</span>
 <span class="request-data-remarks">A valid MoxiWorks <span class='entity-name'>Company</span> ID. Use [Company Endpoint](#company) to determine what <span class='attribute-name'>moxi_works_company_id</span> you can use.</span>
+
+<aside class="note">Use <a href='#company'>Company Endpoint</a> to determine the moxi_works_company_id to send.</aside>
 
 <span class="request-data-head">agent_uuid</span>
 <span class="request-data-remarks">This is the MoxiWorks Platform ID of the agent. This will be an [RFC 4122](https://tools.ietf.org/html/rfc4122) compliant UUID. <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> can be used and should reference a valid MoxiWorks Agent ID for your <span class='entity-name'>Brand</span> request to be accepted.</span>
@@ -98,11 +174,23 @@ Attribute | Type | Length Limit |
 <span class="request-data-head">agent_uuid</span>
 <span class="request-data-remarks">A valid MoxiWorks <span class='entity-name'>Agent</span> ID. Use [Agent Endpoint](#agent) to determine what <span class='attribute-name'>moxi_works_agent_id</span> you can use.</span>
 
+<aside class="note">
+Either <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> can be used when getting brands for an <span class='entity-name'>Agent</span>.
+<br>
+Use <a href='#company'>Agent Endpoint</a> to determine the <span class='attribute-name'>moxi_works_agent_id</span>  or <span class='attribute-name'>agent_uuid</span> to send.
+</aside>
 
-<aside class="note">Use <a href='#company'>Company Endpoint</a> to determine the moxi_works_company_id to send.</aside>
+<span class="request-data-head">moxi_works_office_id</span>
+<span class="response-data-remarks">This is the MoxiWorks Platform ID of the <span class='entity-name'>Office</span> for the <span class='entity-name'>Brand</span>. This will be an [RFC 4122](https://tools.ietf.org/html/rfc4122) compliant UUID.</span>
 
-<aside class="note">Use <a href='#company'>Agent Endpoint</a> to determine the moxi_works_agent_id to send.</aside>
+<span class="request-data-head">office_id</span>
+<span class="response-data-remarks">This is the short Platform ID of the <span class='entity-name'>Office</span> for the <span class='entity-name'>Brand</span>. This will be a numeric value.</span>
 
+<aside class="note">
+Either <span class='attribute-name'>moxi_works_office_id</span> or <span class='attribute-name'>office_id</span> can be used when getting brands for an <span class='entity-name'>Office</span>.
+<br>
+Use <a href='#office'>Office Endpoint</a> to determine the <span class='attribute-name'>moxi_works_office_id</span> or <span class='attribute-name'>office_id</span>  to send.
+</aside>
 
 
 ##### <span class='entity-name'>Brand</span> <span class='action-name'>Index</span> Response Payload

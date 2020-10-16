@@ -49,7 +49,7 @@ configure :build do
 end
 
 # for QA, use prefix
-set :http_prefix, "/moxiworks-platform.github.io"
+# set :http_prefix, "/moxiworks-platform.github.io"
 
 [:public_api].each do |name|
   proxy "/#{name}.html", "/index.html", :locals => { section: name }

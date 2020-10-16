@@ -1,7 +1,7 @@
 #!/bin/sh
 
 
-set -e
+#set -e
 
 
 tmpdir=/tmp/qadocbuild-`date +%s`

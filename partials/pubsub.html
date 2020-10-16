@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>API Documentation</title>
 
-    <link href="../stylesheets/screen.css" rel="stylesheet" type="text/css" media="screen" />
-    <link href="../stylesheets/print.css" rel="stylesheet" type="text/css" media="print" />
+    <link href="../moxiworks-platform.github.io/stylesheets/screen.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="../moxiworks-platform.github.io/stylesheets/print.css" rel="stylesheet" type="text/css" media="print" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-      <script src="../javascripts/all_nosearch.js" type="text/javascript"></script>
+      <script src="../moxiworks-platform.github.io/javascripts/all_nosearch.js" type="text/javascript"></script>
 
   </head>
 
@@ -17,11 +17,11 @@
     <a href="#" id="nav-button">
       <span>
         NAV
-        <img src="../images/navbar.png" alt="Navbar" />
+        <img src="../moxiworks-platform.github.io/images/navbar.png" alt="Navbar" />
       </span>
     </a>
     <div class="tocify-wrapper">
-      <img src="../images/logo.png" alt="Logo" />
+      <img src="../moxiworks-platform.github.io/images/logo.png" alt="Logo" />
       <div id="toc">
       </div>
     </div>
@@ -106,28 +106,28 @@ By piping your SNS feed to SQS or to your own internal queueing mechanism allows
 
 <p><span style="margin-left: -12px;">2) On the <strong>Amazon SNS Topics</strong> dashboard, click the <strong>Create topic</strong> button.</span></p>
 
-<p><img alt="AWS Create Topic Button" src="../images/create_topic_button.png" />
+<p><img alt="AWS Create Topic Button" src="../moxiworks-platform.github.io/images/create_topic_button.png" />
 <div style="margin:60px">&nbsp;</div></p>
 
 <p><span style="margin-left: -12px;">3) From the <strong>Details</strong> section of the <strong>Create topic</strong> interface, set the name of the topic. 
 We recommend you utilize something that makes it clear that this is your <strong>MoxiWorks Platform Realtime Stream</strong>.</span></p>
 
-<p><img alt="AWS Console Create Topic Button" src="../images/set_topic_name.png" />
+<p><img alt="AWS Console Create Topic Button" src="../moxiworks-platform.github.io/images/set_topic_name.png" />
 <div style="margin:60px">&nbsp;</div></p>
 
 <p><span style="margin-left: -12px;">4) Click on the disclosure triangle to open the <strong>Access Policy</strong> section of the <strong>Create topic</strong> interface.</span></p>
 
-<p><img alt="AWS Console Create topic Access Policy Section" src="../images/access_policy.png" />
+<p><img alt="AWS Console Create topic Access Policy Section" src="../moxiworks-platform.github.io/images/access_policy.png" />
 <div style="margin:60px">&nbsp;</div></p>
 
 <p><span style="margin-left: -12px;">5) Ensure <strong>Basic</strong> method is selected.</span></p>
 
-<p><img alt="AWS Console Create topic Access Policy Choices" src="../images/choose_method.png" />
+<p><img alt="AWS Console Create topic Access Policy Choices" src="../moxiworks-platform.github.io/images/choose_method.png" />
 <div style="margin:60px">&nbsp;</div></p>
 
 <p><span style="margin-top: 45px;margin-bottom:8px;margin-left: -12px;">6) Under the <strong>Define who can publish messages to the topic</strong> section, click the <strong>Only the specified AWS accounts</strong> radio button.</span></p>
 
-<p><img alt="AWS Console SNS Define Who Can Publish Choices" src="../images/define_who_can_publish.png" />
+<p><img alt="AWS Console SNS Define Who Can Publish Choices" src="../moxiworks-platform.github.io/images/define_who_can_publish.png" />
 <div style="margin:60px">&nbsp;</div></p>
 
 <blockquote>
@@ -137,44 +137,44 @@ We recommend you utilize something that makes it clear that this is your <strong
 <p><span style="margin-left: -12px;">7) In the text area that appears, paste the MoxiWorks Platform Realtime Stream AWS Account ID: 
 <strong>619293852110</strong></span></p>
 
-<p><img alt="AWS Console SNS Define Who Can Publish Only Specified Account" src="../images/only_specified_aws_accounts.png" />
+<p><img alt="AWS Console SNS Define Who Can Publish Only Specified Account" src="../moxiworks-platform.github.io/images/only_specified_aws_accounts.png" />
 <div style="margin:60px">&nbsp;</div></p>
 
 <p><span style="margin-left: -12px;">8) Click the <strong>Create topic</strong> button to set up the topic. </span></p>
 
-<p><img alt="AWS Console Create topic Button" src="../images/create_topic.png" />
+<p><img alt="AWS Console Create topic Button" src="../moxiworks-platform.github.io/images/create_topic.png" />
 <div style="margin:60px">&nbsp;</div></p>
 
 <aside class="note">Each environment for the MoxiWorks Platform Realtime Stream has its own dedicated AWS IAM user. The rest of the procedure will be updating the topic we just created to allow access to the specific per-environment user. Since the basic UI doesn&rsquo;t allow us the ability to grant specific users access, we going to need to refine the user access which is done via the JSON editor. </aside>
 
 <p><span style="margin-left: -12px;">9) In the details view for the SNS topic we just created in steps 1-8, click the <strong>Edit</strong> button.</span></p>
 
-<p><img alt="AWS Console SNS Topic Details" src="../images/edit_config.png" />
+<p><img alt="AWS Console SNS Topic Details" src="../moxiworks-platform.github.io/images/edit_config.png" />
 <div style="margin:60px">&nbsp;</div></p>
 
 <p><span style="margin-left: -12px;">10) Click on the disclosure triangle to open the <strong>Access Policy</strong> section of the <strong>Create topic</strong> interface.</span></p>
 
-<p><img alt="AWS Console Edit topic Access Policy Section" src="../images/access_policy.png" />
+<p><img alt="AWS Console Edit topic Access Policy Section" src="../moxiworks-platform.github.io/images/access_policy.png" />
 <div style="margin:60px">&nbsp;</div></p>
 
 <p><span style="margin-left: -12px;">11) Locate the line that gives permission to <strong>arn:aws:iam::619293852110:root</strong></span></p>
 
-<p><img alt="AWS Console Edit topic Access Policy JSON Editor" src="../images/access_policy_with_root_user.png" />
+<p><img alt="AWS Console Edit topic Access Policy JSON Editor" src="../moxiworks-platform.github.io/images/access_policy_with_root_user.png" />
 <div style="margin:60px">&nbsp;</div></p>
 
 <p><span style="margin-left: -12px;">12) Change <strike>!arn:aws:iam::619293852110:root</strike> to <strong>arn:aws:iam::619293852110:user/pubsub-pr</strong></p>
 
-<p><img alt="AWS Console Edit topic Access Policy JSON Editor" src="../images/access_policy_updated.png" />
+<p><img alt="AWS Console Edit topic Access Policy JSON Editor" src="../moxiworks-platform.github.io/images/access_policy_updated.png" />
 <div style="margin:60px">&nbsp;</div></p>
 
 <p><span style="margin-left: -12px;">13) Click the Save changes button</span></p>
 
-<p><img alt="AWS Console Edit topic Save Changes Button" src="../images/save_changes_button.png" />
+<p><img alt="AWS Console Edit topic Save Changes Button" src="../moxiworks-platform.github.io/images/save_changes_button.png" />
 <div style="margin:60px">&nbsp;</div></p>
 
 <p><span style="margin-left: -12px;">14) <strong>Let your MoxiWorks Platform partner know what your SNS topic ARN is.</strong></span></p>
 
-<p><img alt="AWS Console ARN Example Location" src="../images/ARN_example.png" /></p>
+<p><img alt="AWS Console ARN Example Location" src="../moxiworks-platform.github.io/images/ARN_example.png" /></p>
 
 <div style="margin:30px">&nbsp;</div>
 
@@ -212,12 +212,12 @@ We recommend you utilize something that makes it clear that this is your <strong
 
 <p><span style="margin-left: -12px;">2) On the <strong>Amazon SNS Topics</strong> dashboard, click the SNS topic that is set up to receive messages.</span></p>
 
-<p><img alt="AWS Console Edit topic" src="../images/select_topic.png" />
+<p><img alt="AWS Console Edit topic" src="../moxiworks-platform.github.io/images/select_topic.png" />
 <div style="margin:60px">&nbsp;</div></p>
 
 <p><span style="margin-left: -12px;">3) From the SNS Topic&rsquo;s details page, click the <strong>Create subscription</strong> button.</span></p>
 
-<p><img alt="AWS Console SNS Topic Details" src="../images/create_subscription.png" />
+<p><img alt="AWS Console SNS Topic Details" src="../moxiworks-platform.github.io/images/create_subscription.png" />
 <div style="margin:10px">&nbsp;</div></p>
 
 <p><span>This will open the <strong>Create subscription</strong> interface.</span></p>
@@ -226,22 +226,22 @@ We recommend you utilize something that makes it clear that this is your <strong
 
 <p><span style="margin-left: -12px;">4) From the <strong>Details section</strong>, click the <strong>Protocol</strong> dropdown menu.</span></p>
 
-<p><img alt="AWS Console SNS Topic Subscription Protocol Dropwdown" src="../images/subscription_protocol_dropdown.png" />
+<p><img alt="AWS Console SNS Topic Subscription Protocol Dropwdown" src="../moxiworks-platform.github.io/images/subscription_protocol_dropdown.png" />
 <div style="margin:60px">&nbsp;</div></p>
 
 <p><span style="margin-left: -12px;">5) Select the appropriate protocol for your incoming SNS messages.</span></p>
 
-<p><img alt="AWS Console SNS Topic Subscription Protocol Dropwdown Selections" src="../images/protocol_selections.png" />
+<p><img alt="AWS Console SNS Topic Subscription Protocol Dropwdown Selections" src="../moxiworks-platform.github.io/images/protocol_selections.png" />
 <div style="margin:60px">&nbsp;</div></p>
 
 <p><span style="margin-left: -12px;">6) If using <strong>HTTP</strong> or <strong>HTTPS</strong> as your protocol, set the URL of the endpoint which you expect to receive messages.</span></p>
 
-<p><img alt="AWS Console SNS Topic Subscription Endpoint Textfield" src="../images/http_endpoint_textfield.png" />
+<p><img alt="AWS Console SNS Topic Subscription Endpoint Textfield" src="../moxiworks-platform.github.io/images/http_endpoint_textfield.png" />
 <div style="margin:60px">&nbsp;</div></p>
 
 <p><span style="margin-left: -12px;">7) Click the <strong>Create subscription</strong> button to create the subscription. </span></p>
 
-<p><img alt="AWS Console SNS Topic Subscription Create Button" src="../images/create_subscription_button.png" />
+<p><img alt="AWS Console SNS Topic Subscription Create Button" src="../moxiworks-platform.github.io/images/create_subscription_button.png" />
 <div style="margin:60px">&nbsp;</div></p>
 
 <h2 id="update-handling">Update Handling</h2>

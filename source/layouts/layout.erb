@@ -67,15 +67,15 @@ under the License.
         <ul class="search-results"></ul>
       <% end %>
       <% if current_page.data.toc_previous %>
-      <ul class="toc">
+      <ul class="toc-footer" style="font-size: 18px">
         <% current_page.data.toc_previous.each do |link| %>
           <li><%= link %></li>
         <% end %>
       </ul>
     <% end %>
       <% if current_page.data.toc_current %>
-      <ul class="toc">
-      <% current_page.data.toc_current.each do |link| %>  
+      <ul class="toc-footer" style="font-size: 18px; background-color: #494949">
+      <% current_page.data.toc_current.each do |link| %>
         <li><%= link %></li>
       <% end %>
     </ul>
@@ -83,7 +83,7 @@ under the License.
       <div id="toc">
       </div>
       <% if current_page.data.toc_after %>
-      <ul class="toc">
+      <ul class="toc-footer" style="font-size: 18px">
         <% current_page.data.toc_after.each do |link| %>
           <li><%= link %></li>
         <% end %>

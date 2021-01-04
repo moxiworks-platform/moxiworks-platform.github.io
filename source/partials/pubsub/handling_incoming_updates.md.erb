@@ -1,0 +1,66 @@
+## Update Handling
+
+<span>The MoxiWorks Platform Realtime Stream is designed to allow you to use the same parsing logic for both Realtime Stream Updates as well as MoxiCloud API calls. 
+Except where noted below, data pushed via Realtime Updates should have have almost exactly shape as objects pulled via MoxiCloud API. Exceptions are noted in the `Data Shape` 
+sections below.</span>
+
+#### Payload Metadata
+Each message sent to your system by the MoxiWorks Platform Realtime Stream will have metadata associated with the object payload in the root level of the payload. In this section
+we'll take a look at the metadata provided in the root level of the response.
+
+<blockquote><div class='highlight json' style="display: block">
+<span class='data-example-label'><span class='entity-name'>Realtime Stream Update</span> Payload Metadata Example
+</span></div></blockquote>
+
+```json
+{ 
+	"timestamp": 1563912491,
+	"type":"/[agent|contact|listing|office]/",
+	"action":"/[create|update|upsert|delete]/",
+	"data":{
+		...
+	}
+}
+```
+
+
+
+##### <span class='entity-name'>Realtime Stream Update</span> Payload Metadata
+<span>As previously noted, the payload of the data sent will (as close as possible) match the MoxiCloud API object shape. For example,  each Agent object will match the shape of the 
+Agent that is provided via the MoxiCloud; however, the payload itself is wrapped in an outer scope that provides metadata about the update that would normally be implicitly scoped in a 
+request to the MoxiCloud API. In orderto ensure that incoming updates are routed to the correct parsing logic, you'll need to inspect the metadata in the payload to determine the kind of 
+update being sent and then route it to the correct logic for parsing and processing. </span>
+
+Attribute | Type |  Notes |
+-----|-----|-----|-----|
+|<span class="required-data">timestamp</span>|<span class="required-data"><span class="data-type">Integer</span></span>|Unix timestamp in full seconds|
+|<span class="required-data">type</span>|<span class="required-data"><span class="data-type">String</span></span>|Enumerated set includes agent, contact, listing, office|
+|<span class="required-data">action</span>|<span class="required-data"><span class="data-type">String</span></span>|Enumerated set includes create, update, upsert, delete|
+|<span class="required-data">data</span>|<span class="required-data"><span class="data-type">Object</span></span>|Update Payload|
+
+
+
+<span class="request-data-head">timestamp</span>
+<span class="response-data-remarks">This is the Unix timestamp representing the date/time that this <span class='entity-name'>Realtime Stream Update</span> was generated. You can utilize the timestamp to ensure that no out-of-order updates occur.</span>
+
+<aside class="note">Please note that although we will transmit every update in the order in which they occur on our systems, they may not arrive at your systems in the same order due to the architectural design of Amazon SNS.</aside>
+
+<span class="request-data-head">type</span>
+<span class="request-data-remarks">The type of entity update is in the payload of the message. this will be one of <span class='entity-name'>agent</span>, <span class='entity-name'>contact</span>, <span class='entity-name'>listing</span>  or <span class='entity-name'>office</span>.   </span>
+
+<span class="request-data-head">action</span>
+<span class="request-data-remarks">The action associated with the update. this will be one of <span class='entity-name'>create</span>, <span class='entity-name'>update</span>, <span class='entity-name'>upsert</span>  or <span class='entity-name'>delete</span>.   </span>
+
+<span class="request-data-head">data</span>
+<span class="request-data-remarks">A JSON object representing the entity in the MoxiCloud.</span>
+
+
+
+
+
+
+
+
+
+
+

@@ -47,3 +47,10 @@ configure :build do
   # activate :asset_hash
   # activate :gzip
 end
+
+# for QA, use prefix
+# set :http_prefix, "/moxiworks-platform.github.io"
+
+[:public_api].each do |name|
+  proxy "/#{name}.html", "/index.html", :locals => { section: name }
+end

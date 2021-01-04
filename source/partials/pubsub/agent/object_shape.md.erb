@@ -1,0 +1,484 @@
+### <span class='entity-name'>Agent</span>
+
+#### <span class='entity-name'>Agent</span> Update Data
+The following attributes make up the payload of the <span class='entity-name'>Agent</span> type for a MoxiWorks Platform Realtime Agent Update.
+
+<blockquote><div class='highlight json' style="display: block">
+<span class='data-example-label'><span class='entity-name'>Agent</span> Realtime Update Payload Example
+</span></div></blockquote>
+
+```json
+{
+"agent_info": {
+    "uuid": "8675309e9-1234-dead-beef-deadbeefdead",
+    "short_id": "abc123",
+    "email_address": "agentemail@agent.email"
+},
+"client_agent_id":"abc123",
+  "mls_agent_id":"MLS_ID",
+  "license":"abc123lic",
+  "mls_name":"Bob's Better MLS",
+  "mls_abbreviation":"BBM",
+  "moxi_works_office_id":"8c3f446c-aab9-11e6-9a0f-d0e1408e8026",
+  "office_id":"1234",
+  "client_office_id":"987123",
+  "company_id":"2345",
+  "client_company_id":"abc392",
+  "agent_id":"67890",
+  "office_address_street": "3456 Office Ln.",
+  "office_address_street2":"Suite 1234",
+  "office_address_city": "Officeville",
+  "office_address_state": "AG",
+  "office_address_zip": "12345",
+  "name": "Buckminster Fuller",
+  "first_name": "Buckminster",
+  "last_name": "Fuller",
+  "main_phone_number": "555) 9101112",
+  "mobile_phone_number": "555 333 4567",
+  "alt_phone_number": "(555) 567-8910",
+  "fax_phone_number": "5557891011",
+  "office_phone_number": "(234)456-7890",
+  "primary_email_address": "the_agent@agentdomain.com",
+  "secondary_email_address": "the_agent_alt@otherdomain.com",
+  "email_addresses": {
+    "primary": "primary@email.com",
+    "display": "display@email.com",
+    "alternate": null,
+    "moxi_sync": "moxi@email.com",
+    "lead_routing": "lead@email.com",
+    "zillow": null
+  },
+  "lead_routing_email_address":"leadrouter@thisdomain.com",
+  "title": "Broker",
+  "uuid":"8675309e9-1234-dead-beef-deadbeefdead",
+  "has_engage_access":true,
+  "website_base_url": "mymoxi@website.com",
+  "twitter": "https://twitter.com/agentguy",
+  "google_plus": "https://plus.google.com/1234567891011121314/posts",
+  "facebook": "https://www.facebook.com/moxiworks/",
+  "home_page": "foo.com",
+  "profile_image_url": "http://picturererer.com/pics37/ImageStore.dll?id=852087C5D3A533DD&w=200",
+  "profile_thumb_url": "http://picturererer.com/pics37/ImageStore.dll?id=852087C5D3A533DD&w=75",
+  "service_area_zip_codes": [
+    "98117",
+    "98105"
+  ],
+  "company_programs": [
+    "Deluxe Listings agent",
+    "Very Cool Program Manager"
+  ],
+  "alternate_offices": [
+  {
+    "moxi_works_office_id": "abc123",
+    "office_id": 1234,
+    "office_address_street": "2636 NW Office Street",
+    "office_address_street2": null,
+    "office_address_city": "Altville",
+    "office_address_state": "IN",
+    "office_address_zip": "23232",
+    "office_phone_number": "813.555.1221"
+    },
+      {
+    "moxi_works_office_id": "xyz789",
+    "office_id": 5678,
+    "office_address_street": "700 123rd Ave",
+    "office_address_street2": "Suite 1234",
+    "office_address_city": "Nextus",
+    "office_address_state": "AL",
+    "office_address_zip": "99899",
+    "office_phone_number": "66655544444"
+    }
+  ]
+}
+```
+
+###### <span class='entity-name'>Agent</span> Attributes
+
+Attribute | Type |
+-----|-----|-----|-----|
+|<span class="response-data">agent_info</span>|<span class="data-type">Object</span>|
+|<span class="response-data">client_agent_id</span>|<span class="data-type">String</span>|
+|<span class="response-data">mls_agent_id</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">license</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">mls_name</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">mls_abbreviation</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">agent_id</span>|<span class="data-type">String</span>|
+|<span class="response-data">moxi_works_office_id</span>|<span class="data-type">String</span>|
+|<span class="response-data">office_id</span>|<span class="data-type">String</span>|
+|<span class="response-data">client_office_id</span>|<span class="data-type">String</span>|
+|<span class="response-data">company_id</span>|<span class="data-type">String</span>|
+|<span class="response-data">client_company_id</span>|<span class="data-type">String</span>|
+|<span class="response-data">office_address_street</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">office_address_street2</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">office_address_city</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">office_address_state</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">office_address_zip</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">name</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">first_name</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">last_name</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">nickname</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">main_phone_number</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">mobile_phone_number</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">alt_phone_number</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">fax_phone_number</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">office_phone_number</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">primary_email_address</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">secondary_email_address</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">email_addresses</span>|<span class="data-type">Hash</span>|
+|<span class="response-data">lead_routing_email_address</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">title</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">uuid</span>|<span class="data-type">String</span>|
+|<span class="response-data">has_product_access</span>|<span class="data-type">Boolean</span>|
+|<span class="response-data">has_engage_access</span>|<span class="data-type">Boolean</span>|
+|<span class="response-data">access_level</span>|<span class="data-type">String</span>|
+|<span class="response-data">website_base_url</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">twitter</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">google_plus</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">facebook</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">home_page</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">profile_image_url</span>|<span class="data-type">String</span>|
+|<span class="response-data">profile_thumb_url</span>|<span class="data-type">String</span>|
+|<span class="response-data">region</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">gci_goal</span>|<span class="data-type">Integer</span>|
+|<span class="response-data">buyer_commission_rate</span>|<span class="data-type">Float</span>|
+|<span class="response-data">seller_commission_rate</span>|<span class="data-type">Float</span>|
+|<span class="response-data">service_area_zip_codes</span>|<span class="data-type">Array</span>|
+|<span class="response-data">alternate_offices</span>|<span class="data-type">Array</span>|
+|<span class="response-data">available_mls</span>|<span class="data-type">Array</span>|
+|<span class="response-data">partners</span>|<span class="data-type">Array</span>|
+|<span class="response-data">company_programs</span>|<span class="data-type">Array</span>|
+|<span class="response-data">created_timestamp</span>|<span class="data-type">Integer</span>|
+|<span class="response-data">deactivated_timestamp</span>|<span class="data-type">Integer or null</span>|
+
+
+
+
+Attribute | Type |
+-----|-----|-----|-----|
+<span class="response-data-head">client_agent_id</span>
+<span class="response-data-remarks">This is the  ID of the <span class='entity-name'>Agent</span> utilized by their company.</span>
+
+<span class="response-data-head">mls_agent_id</span>
+<span class="response-data-remarks">This is the  ID of the <span class='entity-name'>Agent</span> utilized by their primary MLS.</span>
+
+<span class="response-data-head">license</span>
+<span class="response-data-remarks">This is the number of the license granted to the agent.</span>
+
+<span class="response-data-head">mls_name</span>
+<span class="response-data-remarks">This is the  name of the primary MLS for the agent.</span>
+
+<span class="response-data-head">mls_abbreviation</span>
+<span class="response-data-remarks">This is the standard abbreviation of the primary MLS utilized by the agent.</span>
+
+<span class="response-data-head">agent_id</span>
+<span class="response-data-remarks">This is the ID of this <span class='entity-name'>Agent</span>. This will be an integer.</span>
+
+<span class="response-data-head">moxi_works_office_id</span>
+<span class="response-data-remarks">This is the MoxiWorks Platform ID of the office for this <span class='entity-name'>Agent</span>. This will be an [RFC 4122](https://tools.ietf.org/html/rfc4122) compliant UUID.</span>
+
+<span class="response-data-head">office_id</span>
+<span class="response-data-remarks">This is the ID of the office for this <span class='entity-name'>Agent</span>. This will be an integer.</span>
+
+<span class="response-data-head">client_office_id</span>
+<span class="response-data-remarks">This is the  ID of the office for this <span class='entity-name'>Agent</span> utilized by their company.</span>
+
+<span class="response-data-head">company_id</span>
+<span class="response-data-remarks">This is the ID of the company for this <span class='entity-name'>Agent</span>. This will be an integer.</span>
+
+<span class="response-data-head">client_company_id</span>
+<span class="response-data-remarks">This is the ID of the <span class='entity-name'>Company</span> utilized by their company.</span>
+
+<span class="response-data-head">office_address_street</span>
+<span class="response-data-remarks">The street address of the agent's office. This can be null if there is no data for this attribute.</span>
+
+<span class="response-data-head">office_address_street2</span>
+<span class="response-data-remarks">The suite or office number of the agent's office. This can be null if there is no data for this attribute.</span>
+
+<span class="response-data-head">office_address_city</span>
+<span class="response-data-remarks">The city the agent's office is in. This can be null if there is no data for this attribute.</span>
+
+<span class="response-data-head">office_address_state</span>
+<span class="response-data-remarks">The state or provice the agent's office is in. This can be null if there is no data for this attribute.</span>
+
+<span class="response-data-head">office_address_zip</span>
+<span class="response-data-remarks">The postal code the agent's office is in. This can be null if there is no data for this attribute.</span>
+
+<span class="response-data-head">name</span>
+<span class="response-data-remarks">The full name of the agent. This can be null if there is no data for this attribute.</span>
+
+<span class="response-data-head">first_name</span>
+<span class="response-data-remarks">The first name of the agent. This can be null if there is no data for this attribute.</span>
+
+<span class="response-data-head">last_name</span>
+<span class="response-data-remarks">The last name of the agent. This can be null if there is no data for this attribute.</span>
+
+<span class="response-data-head">nickname</span>
+<span class="response-data-remarks">The nickname of the agent. This can be null if there is no data for this attribute.</span>
+
+<span class="response-data-head">mobile_phone_number</span>
+<span class="response-data-remarks">Mobile phone number of the agent. <span class='attribute-name'>main_phone_number</span> should be considered higher priority, if not the same. This can be null if there is no data for this attribute.</span>
+
+<span class="response-data-head">alt_phone_number</span>
+<span class="response-data-remarks">Alternate phone number for the agent. This should be considered second in priority to <span class='attribute-name'>main_phone_number</span>.  This can be null if there is no data for this attribute.</span>
+
+<span class="response-data-head">fax_phone_number</span>
+<span class="response-data-remarks">This is the agent's fax phone number.  This can be null if there is no data for this attribute.</span>
+
+<span class="response-data-head">main_phone_number</span>
+<span class="response-data-remarks">This is the agent's main phone number.  This number should be considered the number the agent would like to be contacted by. This can be null if there is no data for this attribute.</span>
+
+<span class="response-data-head">fax_phone_number</span>
+<span class="response-data-remarks">This is the agent's fax phone number.  This can be null if there is no data for this attribute.</span>
+
+<span class="response-data-head">office_phone_number</span>
+<span class="response-data-remarks">This is the agent's office phone number.  This can be null if there is no data for this attribute.</span>
+
+<span class="response-data-head">primary_email_address</span>
+<span class="response-data-remarks">This is the agent's main email address. This email address should be considered the email address the agent would prefer to be contacted by.  This can be null if there is no data for this attribute.</span>
+
+<span class="response-data-head">secondary_email_address</span>
+<span class="response-data-remarks">This is the agent's alternate email address. This email address should be considered the email address the agent would want to be contacted by only if the address in <span class='attribute-name'>primary_email_address</span> is not functional.  This can be null if there is no data for this attribute.</span>
+
+<span class="response-data-head">lead_routing_email_address</span>
+<span class="response-data-remarks">This is the agent's lead routing email address.  This can be null if there is no data for this attribute.</span>
+
+<span class="response-data-head">title</span>
+<span class="response-data-remarks">This is the business title of the agent.  This can be null if there is no data for this attribute.</span>
+
+<span class="response-data-head">has_product_access</span>
+<span class="response-data-remarks">Indicates whether the agent has access to MoxiWorks Products.</span>
+
+<span class="response-data-head">has_engage_access</span>
+<span class="response-data-remarks">Indicates whether the agent has access to MoxiWorks Engage.</span>
+
+<span class="response-data-head">access_level</span>
+<span class="response-data-remarks">The access level of the agent.</span>
+
+<span class="response-data-head">website_base_url</span>
+<span class="response-data-remarks">The base url of the agent's MoxiWorks agent website.</span>
+
+<span class="response-data-head">twitter</span>
+<span class="response-data-remarks">Agent's Twitter URL. This can be null if there is no data available for this attribute.</span>
+
+<span class="response-data-head">google_plus</span>
+<span class="response-data-remarks">Agent's Google Plus URL.  This can be null if there is no data for this attribute.</span>
+
+
+<span class="response-data-head">facebook</span>
+<span class="response-data-remarks">Agent's Facebook page url.  This can be null if there is no data for this attribute.</span>
+
+
+<span class="response-data-head">home_page</span>
+<span class="response-data-remarks">Agent's website domain. This will be returned without the HTTP(S) prefix. You'll need to prefix the domain with protocol if using this attribute for an href.  This can be null if there is no data for this attribute.</span>
+
+
+<span class="response-data-head">profile_image_url</span>
+<span class="response-data-remarks">This is a valid URL for a larger size image for the agent.  If no agent image has been uploaded for this agent a default image url will be provided.</span>
+
+<span class="response-data-head">profile_thumb_url</span>
+<span class="response-data-remarks">This is a valid URL for a thumbnail size image for the agent.  If no agent image has been uploaded for this agent a default image url will be provided.</span>
+
+<span class="response-data-head">region</span>
+<span class="response-data-remarks">The region the agent's office is in. This can be null if there is no data for this attribute.</span>
+
+<span class="response-data-head">gci_goal</span>
+<span class="response-data-remarks">The agent's  stated gross commission income goal.</span>
+
+<span class="response-data-head">buyer_commission_rate</span>
+<span class="response-data-remarks">Percentage commission rate for the agent when acting as a buyer's agent.</span>
+
+<span class="response-data-head">seller_commission_rate</span>
+<span class="response-data-remarks">Percentage commission rate for the agent when acting as a seller's agent.</span>
+
+<span class="response-data-head">service_area_zip_codes</span>
+<span class="response-data-remarks">A list of the lead service area zip codes covered by the agent.</span>
+
+<span class="response-data-head">company_programs</span>
+<span class="response-data-remarks">A list of the company specific program names in which the agent participates or is a member.</span>
+
+<span class="response-data-head">created_timestamp</span>
+<span class="response-data-remarks">This is the Unix timestamp representing the date that this <span class='entity-name'>Agent</span> was created in the MoxiWorks system.</span>
+
+<span class="response-data-head">deactivated_timestamp</span>
+<span class="response-data-remarks">This is the Unix timestamp representing the date that this <span class='entity-name'>Agent</span> was deactivated in the MoxiWorks system. This will be returned null if the agent is still active.</span>
+
+###### <span class='attribute-name'>agent_info</span> Object
+The <span class='attribute-name'>agent_info</span> object contains the IDs that may be used for <span class='entity-name'>Agent</span> associations in the MoxiWorks platform based on your use-case. 
+
+|<span class="response-data">uuid</span>|<span class="data-type">String</span>|
+|<span class="response-data">short_id</span>|<span class="data-type">Integer</span>|
+|<span class="response-data">email_address</span>|<span class="data-type">String</span>|
+
+<span class="response-data-head">uuid</span>
+<span class="response-data-remarks">This is  an [RFC 4122](https://tools.ietf.org/html/rfc4122) compliant UUID associated with the agent. </span>
+
+<span class="response-data-head">short_id</span>
+<span class="response-data-remarks">This will be a four or five character unique alphanumeric identification string.</span>
+
+<span class="response-data-head">email_address</span>
+<span class="response-data-remarks">This is the email address of the agent. </span>
+
+###### <span class='attribute-name'>alternate_offices</span> Object
+
+The <span class='attribute-name'>alternate_offices</span> array contains Dictionary objects representing <span class='entity-name'>AlternateOffice</span> entries. The structure of each <span class='entity-name'>AlternateOffice</span> entry is shown below.
+
+Attribute | Type |
+-----|-----|-----|-----|
+|<span class="response-data">moxi_works_office_id</span>|<span class="data-type">String</span>|
+|<span class="response-data">office_id</span>|<span class="data-type">Integer</span>|
+|<span class="response-data">office_address_street</span>|<span class="data-type">String</span>|
+|<span class="response-data">office_address_street2</span>|<span class="data-type">String</span>|
+|<span class="response-data">office_address_city</span>|<span class="data-type">String</span>|
+|<span class="response-data">office_address_state</span>|<span class="data-type">String</span>|
+|<span class="response-data">office_address_zip</span>|<span class="data-type">String</span>|
+|<span class="response-data">office_phone_number</span>|<span class="data-type">String</span>|
+
+
+<span class="response-data-head">moxi_works_office_id</span>
+<span class="response-data-remarks">This is the unique identifier for the MoxiWorks Platform <span class='entity-name'>AlternateOffice</span> entry.</span>
+
+
+<span class="response-data-head">office_id</span>
+<span class="response-data-remarks">This is an integer identifier for the MoxiWorks Platform <span class='entity-name'>AlternateOffice</span> entry. If you are using MoxiWorks SSO, this will be the ID corresponding to the ID provided there.</span>
+
+
+<span class="response-data-head">office_address_street</span>
+<span class="response-data-remarks">The street address of the office represented by this <span class='entity-name'>AlternateOffice</span> entry.</span>
+
+
+<span class="response-data-head">office_address_street2</span>
+<span class="response-data-remarks">The second line of the street address (if required) of the office represented by this <span class='entity-name'>AlternateOffice</span> entry.</span>
+
+
+<span class="response-data-head">office_address_city</span>
+<span class="response-data-remarks">The city portion of the address of the office represented by this <span class='entity-name'>AlternateOffice</span> entry.</span>
+
+
+<span class="response-data-head">office_address_state</span>
+<span class="response-data-remarks">The state portion of the address of the office represented by this <span class='entity-name'>AlternateOffice</span> entry.</span>
+
+
+<span class="response-data-head">office_address_zip</span>
+<span class="response-data-remarks">The postal code portion of the address of the office represented by this <span class='entity-name'>AlternateOffice</span> entry.</span>
+
+
+<span class="response-data-head">office_phone_number</span>
+<span class="response-data-remarks">The phone number of the office represented by this <span class='entity-name'>AlternateOffice</span> entry.</span>
+
+###### <span class='attribute-name'>available_mls</span> Object
+
+The <span class='attribute-name'>available_mls</span> Array contains Dictionary objects representing <span class='entity-name'>MLS</span> entries. The structure of each <span class='entity-name'>MLS</span> entry is shown below.
+
+Attribute | Type |
+-----|-----|-----|-----|
+|<span class="response-data">name</span>|<span class="data-type">String</span>|
+|<span class="response-data">display_name</span>|<span class="data-type">String</span>|
+|<span class="response-data">mls_abbreviation</span>|<span class="data-type">String</span>|
+|<span class="response-data">agent_id</span>|<span class="data-type">String</span>|
+
+<span class="response-data-head">name</span>
+<span class="response-data-remarks">The MoxiWorks internal unique name for the MLS.</span>
+
+<span class="response-data-head">display_name</span>
+<span class="response-data-remarks">The name of the MLS as it is to be displayed to users.</span>
+
+<span class="response-data-head">mls_abbreviation</span>
+<span class="response-data-remarks">The abbreviation of the MLS.</span>
+
+<span class="response-data-head">agent_id</span>
+<span class="response-data-remarks">The agent's MLS id.</span>
+
+
+###### <span class='attribute-name'>partners</span> Objects
+
+Exstence of objects in the `partners` data structure is dependent upon external relationships existing between the agent represented by this <span class='entity-name'>Agent</span> and the affiliate.
+
+<aside class="note">Documented entities in the `partners` data structure may or may not be returned based on agent relationship. Your logic should be engineered to handle cases where the entity you are interested in is returned and where an empty data structure is returned.</aside>
+
+
+###### <span class='attribute-name'>leading_re</span> partner Objects
+
+Attribute | Type |
+-----|-----|-----|-----|
+|<span class="response-data">salesforce_id</span>|<span class="response-data"><span class="data-type">String or null</span>
+|<span class="response-data">luxury_portfolio</span>|<span class="response-data"><span class="data-type">Boolean</span>
+
+<span class="response-data-head">salesforce_id</span>
+<span class="response-data-remarks">This is the unique salesforce ID of the company in the LeadingRE system.</span>
+
+<span class="response-data-head">luxury_portfolio</span>
+<span class="response-data-remarks">Indicates whether or not this agent has luxury portfolio association in the LeadingRE system.</span>
+
+###### <span class='attribute-name'>email_addresses</span> Object
+
+The <span class='attribute-name'>email_addresses</span> Hash is a Dictionary object holding the email addresses associated with the <span class='entity-name'>Agent</span> record. The structure of the object is shown below.
+
+Attribute | Type |
+-----|-----|-----|-----|
+|<span class="response-data">primary</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">display</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">alternate</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">moxi_sync</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">lead_routing</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">zillow</span>|<span class="data-type">String or null</span>|
+
+<span class="response-data-head">primary</span>
+<span class="response-data-remarks">The primary email address associated with the <span class='entity-name'>Agent</span> record.</span>
+
+<span class="response-data-head">display</span>
+<span class="response-data-remarks">The display email address associated with the <span class='entity-name'>Agent</span> record.</span>
+
+<span class="response-data-head">alternate</span>
+<span class="response-data-remarks">The alternate email address associated with the <span class='entity-name'>Agent</span> record.</span>
+
+<span class="response-data-head">moxi_sync</span>
+<span class="response-data-remarks">The moxi_sync email address associated with the <span class='entity-name'>Agent</span> record.</span>
+
+<span class="response-data-head">lead_routing</span>
+<span class="response-data-remarks">The lead_routing email address associated with the <span class='entity-name'>Agent</span> record.</span>
+
+<span class="response-data-head">zillow</span>
+<span class="response-data-remarks">The zillow email address associated with the <span class='entity-name'>Agent</span> record.</span>
+
+<div style="margin:30px">&nbsp;</div>
+#### Differences From API Response
+The payload of the <span class='entity-name'>Agent</span> update matches the response provided via the MoxiWorks Platform API with the following exceptions:
+
+##### Attributes Removed
+Attribute | Use Instead |
+-----|-----|-----|-----|
+|<span class="response-data">moxi_works_agent_id</span>|use attribute in the <span class="response-data">agent_info</span> object matching the ID you use in your system to determine the Agent's ID.|
+|<span class="response-data">mls_name</span>| use the <span class="response-data">available_mls</span> array to determine the MLSs the agent is a member of. |
+|<span class="response-data">mls_abbreviation</span>| use the <span class="response-data">available_mls</span> array to determine the MLSs the agent is a member of. |
+
+
+##### Attributes Added
+Attribute | Type |
+-----|-----|-----|-----|
+|<span class="response-data">agent_info</span>| Object|
+
+<blockquote><div class='highlight json' style="display: block">
+<span class='data-example-label'><span class='entity-name'>agent_info</span> Payload Example
+</span></div></blockquote>
+
+```json
+"agent_info":{
+    "uuid":"8675309e9-1234-dead-beef-deadbeefdead",
+    "short_id":"abc123",
+    "email_address":"agentemail@agent.email"
+}
+```
+
+
+###### <span class='attribute-name'>agent_info</span> Object
+The <span class='attribute-name'>agent_info</span> object contains the IDs that may be used for <span class='entity-name'>Agent</span> associations in the MoxiWorks platform based on your use-case. 
+
+Attribute | Type |
+-----|-----|-----|-----|
+|<span class="response-data">uuid</span>|<span class="data-type">String</span>|
+|<span class="response-data">short_id</span>|<span class="data-type">Integer</span>|
+|<span class="response-data">email_address</span>|<span class="data-type">String</span>|
+
+
+The  agent_info object contains the various IDs that can be utilized to identify an agent via the moxi_works_agent_id attribute when sending requests to the MoxiWorks Platform API. Determine which Agent ID your system uses to identify Agents in the MoxiWorks Platform API and map your logic to the appropriate ID contained in the agent_info object.
+

@@ -322,6 +322,13 @@
   </span><span class="nt">"has_product_access"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
   </span><span class="nt">"has_engage_access"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
   </span><span class="nt">"access_level"</span><span class="p">:</span><span class="s2">"user"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"teams"</span><span class="p">:[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"Major League Broker Team"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"uuid"</span><span class="p">:</span><span class="s2">"ff083909-4acd-4c20-82f5-c993380c5717"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"member_category"</span><span class="p">:</span><span class="s2">"LEAD"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
   </span><span class="nt">"website_base_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mymoxi@website.com"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"twitter"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://twitter.com/agentguy"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"google_plus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://plus.google.com/1234567891011121314/posts"</span><span class="p">,</span><span class="w">
@@ -547,6 +554,10 @@
 <tr>
 <td><span class="response-data">access_level</span></td>
 <td><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">teams</span></td>
+<td><span class="data-type">Array</span></td>
 </tr>
 <tr>
 <td><span class="response-data">website_base_url</span></td>
@@ -858,6 +869,39 @@
 
 <p><span class="response-data-head">agent_id</span>
 <span class="response-data-remarks">The agent&rsquo;s MLS id.</span></p>
+
+<h6 id="teams-object"><span class='attribute-name'>teams</span> Object</h6>
+
+<p>The <span class='attribute-name'>teams</span> array contains Dictionary objects representing <span class='entity-name'>Team</span> entries. The structure of each <span class='entity-name'>Team</span> entry is shown below.</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span class="response-data">name</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">uuid</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">member_category</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
+</tbody></table>
+
+<p><span class="response-data-head">name</span>
+<span class="response-data-remarks">This is the human readable name identifying the <span class='entity-name'>Team</span> entry.</span></p>
+
+<p><span class="response-data-head">uuid</span>
+<span class="request-data-remarks">This is the MoxiWorks Platform ID of the Team. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID.</span></p>
+
+<p><span class="response-data-head">member_category</span>
+<span class="response-data-remarks">This is the role of the agent in the team.</span></p>
 
 <h6 id="partners-objects"><span class='attribute-name'>partners</span> Objects</h6>
 

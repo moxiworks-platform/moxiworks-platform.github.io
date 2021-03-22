@@ -311,6 +311,13 @@ The following attributes make up the payload of the <span class='entity-name'>Ag
   "uuid":"8675309e9-1234-dead-beef-deadbeefdead",
   "has_engage_access":true,
   "access_level":"user",
+  "teams":[
+    {
+      "name":"Major League Broker Team",
+      "uuid":"ff083909-4acd-4c20-82f5-c993380c5717",
+      "member_category":"LEAD"
+    }
+  ],
   "has_product_access":true,
   "website_base_url": "mymoxi@website.com",
   "twitter": "https://twitter.com/agentguy",
@@ -408,6 +415,7 @@ Attribute | Type |
 |<span class="response-data">has_product_access</span>|<span class="data-type">Boolean</span>|
 |<span class="response-data">has_engage_access</span>|<span class="data-type">Boolean</span>|
 |<span class="response-data">access_level</span>|<span class="data-type">String</span>|
+|<span class="response-data">teams</span>|<span class="data-type">Array</span>|
 |<span class="response-data">website_base_url</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">twitter</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">google_plus</span>|<span class="data-type">String or null</span>|
@@ -649,6 +657,26 @@ Attribute | Type |
 
 <span class="response-data-head">agent_id</span>
 <span class="response-data-remarks">The agent's MLS id.</span>
+
+###### <span class='attribute-name'>teams</span> Object
+
+The <span class='attribute-name'>teams</span> array contains Dictionary objects representing <span class='entity-name'>Team</span> entries. The structure of each <span class='entity-name'>Team</span> entry is shown below.
+
+Attribute | Type |
+-----|-----|-----|-----|
+|<span class="response-data">name</span>|<span class="data-type">String</span>|
+|<span class="response-data">uuid</span>|<span class="data-type">String</span>|
+|<span class="response-data">member_category</span>|<span class="data-type">String</span>|
+
+
+<span class="response-data-head">name</span>
+<span class="response-data-remarks">This is the human readable name identifying the <span class='entity-name'>Team</span> entry.</span>
+
+<span class="response-data-head">uuid</span>
+<span class="request-data-remarks">This is the MoxiWorks Platform ID of the Team. This will be an [RFC 4122](https://tools.ietf.org/html/rfc4122) compliant UUID.</span>
+
+<span class="response-data-head">member_category</span>
+<span class="response-data-remarks">This is the role of the agent in the team.</span>
 
 
 ###### <span class='attribute-name'>partners</span> Objects

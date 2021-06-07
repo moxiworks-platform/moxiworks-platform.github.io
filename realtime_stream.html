@@ -100,11 +100,15 @@ By piping your SNS feed to SQS or to your own internal queueing mechanism allows
 
 <h5 id="creating-an-sns-topic-for-realtime-stream-updates">Creating an SNS Topic for Realtime Stream Updates</h5>
 
+<aside class="warning">Your SNS topic must be created in the us-west-2 region.</aside>
+
 <h5 id="overview">Overview</h5>
 
 <p>To receive MoxiWorks Platform Realtime Stream Updates via SNS, first you&rsquo;ll need to create an SNS topic in your AWS Console and give permissions to MoxiWorks to publish to that SNS topic. This section goes over setting up your SNS Topic. Later, we&rsquo;ll go into getting data from your SNS Topic to your server.</p>
 
 <blockquote>
+<p><strong>Topic Region</strong>: us-west-2</p>
+
 <p><strong>Production MoxiWorks AWS User</strong>:  arn:aws:iam::619293852110:user/pubsub-pr</p>
 
 <p><strong>QA MoxiWorks AWS User</strong>:  arn:aws:iam::619293852110:user/pubsub-qa</p>

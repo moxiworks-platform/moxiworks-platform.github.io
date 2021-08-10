@@ -22036,8 +22036,9 @@ The following attributes make up the payload of each <span class='entity-name'>L
       </span><span class="nt">"pres_requested"</span><span class="p">:</span><span class="w"> </span><span class="mi">34</span><span class="p">,</span><span class="w">
       </span><span class="nt">"external_identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"external_office_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"678910"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"moxi_works_presentation_id"</span><span class="p">:</span><span class="s2">"8675309e9-dead-beef-1234-deadbeefabad"</span><span class="w">
-      </span><span class="p">}</span><span class="w">
+      </span><span class="nt">"moxi_works_presentation_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8675309e9-dead-beef-1234-deadbeefabad"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"subject_property_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234 Seller St., Houston, TX 77062"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -22158,6 +22159,10 @@ The following attributes make up the payload of each <span class='entity-name'>L
 <td><span class="response-data">moxi_works_presentation_id</span></td>
 <td><span class="data-type">String or null</span></td>
 </tr>
+<tr>
+<td><span class="response-data">subject_property_address</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
 </tbody></table>
 
 <p><span class="response-data-head">agent_uuid</span>
@@ -22215,6 +22220,9 @@ The following attributes make up the payload of each <span class='entity-name'>L
 
 <p><span class="response-data-head">moxi_works_presentation_id</span>
 <span class="response-data-remarks">The unique UUID of the presentation. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID.</span></p>
+
+<p><span class="response-data-head">subject_property_address</span>
+<span class="response-data-remarks">The subject property address of the presentation. This will be null if there is no data for this attribute. Otherwise, this will be a string with the address, unit number (if any), city, state/province, and postal code.</span></p>
 
 
 <h3 id="sellertransaction"><span class='entity-name'>SellerTransaction</span></h3>

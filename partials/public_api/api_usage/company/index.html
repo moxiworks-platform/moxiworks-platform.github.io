@@ -94,11 +94,13 @@ The following attributes make up the payload of each <span class='entity-name'>C
 </span><span class="p">[</span><span class="w">
 </span><span class="p">{</span><span class="w">
   </span><span class="nt">"moxi_works_company_id"</span><span class="p">:</span><span class="s2">"bobs_brokerage"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"Bob's Brokerage"</span><span class="w">
+  </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"Bob's Brokerage"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"client_company_id"</span><span class="p">:</span><span class="s2">"some_external_identifier"</span><span class="w">
 </span><span class="p">},</span><span class="w">
 </span><span class="p">{</span><span class="w">
   </span><span class="nt">"moxi_works_company_id"</span><span class="p">:</span><span class="s2">"real_estate_two_bajillion"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"Real Estate Two-Bajillion"</span><span class="w">
+  </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"Real Estate Two-Bajillion"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"client_company_id"</span><span class="p">:</span><span class="s2">"someOtherExternalIdentifier"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
@@ -131,6 +133,10 @@ The following attributes make up the payload of each <span class='entity-name'>C
 <td><span class="response-data">name</span></td>
 <td><span class="data-type">String</span></td>
 </tr>
+<tr>
+<td><span class="response-data">client_company_id</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
 </tbody></table>
 
 <p><span class="response-data-head">moxi_works_company_id</span>
@@ -138,6 +144,9 @@ The following attributes make up the payload of each <span class='entity-name'>C
 
 <p><span class="response-data-head">name</span>
 <span class="response-data-remarks">This is a human readable name of the company which this <span class='entity-name'>Company</span> object represents.</span></p>
+
+<p><span class="response-data-head">client_company_id</span>
+<span class="response-data-remarks">This is a client-specified identifier of the company which this <span class='entity-name'>Company</span> object represents, or null if absent.</span></p>
 
       </div>
       <div class="dark-box">

@@ -120,7 +120,8 @@
 <pre class="highlight json"><code><span class="w">
 </span><span class="p">{</span><span class="w">
     </span><span class="nt">"moxi_works_company_id"</span><span class="p">:</span><span class="s2">"bobs_brokerage"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"Bob's Brokerage"</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"Bob's Brokerage"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"client_company_id"</span><span class="p">:</span><span class="s2">"some_external_identifier"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -157,6 +158,10 @@
 <td><span class="data-type">String</span></td>
 </tr>
 <tr>
+<td><span class="response-data">client_company_id</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
+<tr>
 <td><span class="response-data">partners</span></td>
 <td><span class="data-type">Array</span></td>
 </tr>
@@ -167,6 +172,9 @@
 
 <p><span class="response-data-head">name</span>
 <span class="response-data-remarks">This is a human readable name of the company which this <span class='entity-name'>Company</span> object represents.</span></p>
+
+<p><span class="response-data-head">client_company_id</span>
+<span class="response-data-remarks">This is a client-specified identifier of the company which this <span class='entity-name'>Company</span> object represents, or null if absent.</span></p>
 
 <p><span class="response-data-head">partners</span>
 <span class="response-data-remarks">Partner data associated with this company</span></p>

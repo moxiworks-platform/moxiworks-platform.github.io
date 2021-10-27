@@ -13,7 +13,7 @@
 "agent_uuid":"12345678-1234-1234-1234-1234567890ab",
 "partner_contact_id":"booyuh",
 "moxi_works_lead_source_id": "some_lead_source_id",
-"moxi_works_origin_lead_source_id": "some_other_lead_source_id",
+"original_lead_source": "Some Lead Source String",
 "contact_name":"Firstname Middlenyme Larstnam",
 "gender":"m",
 "label_name":"Mr. and Mrs. Oo-De-Lally Golly What a Day",
@@ -256,7 +256,7 @@ $moxi_works_contact = MoxiworksPlatform\Contact::create([
 "moxi_works_agent_id":"1234abcd",
 "partner_contact_id":"booyuh",
 "moxi_works_lead_source_id": "some_lead_source_id",
-"moxi_works_origin_lead_source_id": "some_other_lead_source_id",
+"original_lead_source": "Some Lead Source String",
 "contact_name":"Firstname Middlenyme Larstnam",
 "gender":"m",
 "label_name":"Mr. and Mrs. Oo-De-Lally Golly What a Day",
@@ -528,7 +528,7 @@ Attribute | Type | Length Limit |
 |<span class="multi-option-required-data">primary_phone_number †</span>|<span class="multi-option-required-data"><span class="data-type">String</span></span>| <span class="multi-option-required-data">255</span>
 |<span class="multi-option-required-data">secondary_phone_number †</span>|<span class="multi-option-required-data"><span class="data-type">String</span></span>| <span class="multi-option-required-data">255</span>
 |<span class="optional-data">moxi_works_lead_source_id</span>|<span class="data-type">String</span>| 255 |
-|<span class="optional-data">moxi_works_origin_lead_source_id</span>|<span class="data-type">String</span>| 255 |
+|<span class="optional-data">original_lead_source</span>|<span class="data-type">String</span>| 255 |
 |<span class="optional-data">gender</span>|<span class="data-type">String</span>| 255 |
 |<span class="optional-data">label_name</span>|<span class="data-type">String</span>| 255 |
 |<span class="optional-data">home_street_address</span>|<span class="data-type">String</span>| 255 |
@@ -596,8 +596,8 @@ Attribute | Type | Length Limit |
 <span class="request-data-head">moxi_works_lead_source_id</span>
 <span class="request-data-remarks">The <span class='entity-name'>Contact</span> will be created in MoxiEngage as a lead sourced from the <span class='entity-name'>LeadSource</span> associated with this <span class='attribute-name'>moxi_works_lead_source_id</span>. Send a <span class='entity-name'>LeadSource</span> <span class='action-name'>index</span> request to determine which lead sources your organization has permission to impersonate during lead generation.</span>
 
-<span class="request-data-head">moxi_works_origin_lead_source_id</span>
-<span class="request-data-remarks">This is used to keep track of the original lead source for this <span class='entity-name'>Contact</span> record. This field will not be displayed in MoxiEngage, and is for the parter's own tracking purposes. This key must be associated with valid <span class='attribute-name'>moxi_works_lead_source_id</span>. Send a <span class='entity-name'>LeadSource</span> <span class='action-name'>index</span> request for a full list of applicable lead sources and their ids.</span>
+<span class="request-data-head">original_lead_source</span>
+<span class="request-data-remarks">This is used to keep track of the original lead source for this <span class='entity-name'>Contact</span> record, if different than the lead source associated with the <span class='attribute-name'>moxi_works_lead_source_id</span>.</span>
 
 <span class="request-data-head">gender</span>
 <span class="request-data-remarks">The gender of the contact. This can be `male`, `female`, `m` or `f`. No matter what is provided in the request, the response payload will return `m` or `f`. </span>
@@ -758,7 +758,7 @@ The following attributes make up the payload of the <span class='entity-name'>Co
   "partner_contact_id": "booyuh",
   "moxi_works_contact_id":"deadbeef-feed-face-2bad4daddead",
   "moxi_works_lead_source_id": "some_lead_source_id",
-  "moxi_works_origin_lead_source_id": "some_other_lead_source_id",
+  "original_lead_source": "Some Lead Source String",
   "is_deleted": false,
   "contact_name":"Firstname Middlenyme Larstnam",
   "first_name":"Firstname",
@@ -894,7 +894,7 @@ The following attributes make up the payload of the <span class='entity-name'>Co
   "partner_contact_id": "booyuh",
   "moxi_works_contact_id":"deadbeef-feed-face-2bad4daddead",
   "moxi_works_lead_source_id": "some_lead_source_id",
-  "moxi_works_origin_lead_source_id": "some_other_lead_source_id",
+  "original_lead_source": "Some Lead Source String",
   "is_deleted": false,
   "contact_name":"Firstname Middlenyme Larstnam",
   "first_name":"Firstname",
@@ -1017,7 +1017,7 @@ Attribute | Type |
 |<span class="multi-option-response-data">agent_uuid*</span>|<span class="data-type">String</span>| |
 |<span class="multi-option-response-data">moxi_works_agent_id*</span>|<span class="data-type">String</span>| |
 |<span class="response-data">moxi_works_lead_source_id</span>|<span class="data-type">String</span>|
-|<span class="response-data">moxi_works_origin_lead_source_id</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">original_lead_source</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">is_deleted</span>|<span class="data-type">Boolean</span>|
 |<span class="response-data">partner_contact_id</span>|<span class="data-type">String</span>|
 |<span class="response-data">moxi_works_contact_id</span>|<span class="data-type">String</span>|
@@ -1096,8 +1096,8 @@ Attribute | Type |
 <span class="response-data-head">moxi_works_lead_source_id</span>
 <span class="response-data-remarks">This is the unique MoxiWorks Platform ID of the <span class='entity-name'>LeadSource</span> that generated this <span class='entity-name'>Contact</span>.</span>
 
-<span class="request-data-head">moxi_works_origin_lead_source_id</span>
-<span class="request-data-remarks">This is used to keep track of the original lead source for this <span class='entity-name'>Contact</span> record. This field will not be displayed in MoxiEngage, and is for the parter's own tracking purposes. This key will be associated with valid <span class='attribute-name'>moxi_works_lead_source_id</span>. Send a <span class='entity-name'>LeadSource</span> <span class='action-name'>index</span> request for a full list of applicable lead sources and their ids.</span>
+<span class="response-data-head">original_lead_source</span>
+<span class="response-data-remarks">This is used to keep track of the original lead source for this <span class='entity-name'>Contact</span> record, if different than the lead source associated with the <span class='attribute-name'>moxi_works_lead_source_id</span>.</span>
 
 <span class="response-data-head">is_deleted</span>
 <span class="response-data-remarks">Will be true if this <span class='entity-name'>Contact</span> has been deleted from the <span class='entity-name'>Agent</span>s contacts.</span>

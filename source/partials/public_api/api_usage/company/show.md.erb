@@ -95,7 +95,8 @@ Attribute | Type | Length Limit |
 
 {
     "moxi_works_company_id":"bobs_brokerage",
-    "name":"Bob's Brokerage"
+    "name":"Bob's Brokerage",
+    "client_company_id":"some_external_identifier"
 }
 ```
 
@@ -124,6 +125,7 @@ Attribute | Type |
 -----|-----|-----|-----|
 |<span class="response-data">moxi_works_company_id</span>|<span class="data-type">String</span>|
 |<span class="response-data">name</span>|<span class="data-type">String</span>|
+|<span class="response-data">client_company_id</span>|<span class="data-type">String</span>|
 |<span class="response-data">partners</span>|<span class="data-type">Array</span>|
 
 <span class="response-data-head">moxi_works_company_id</span>
@@ -131,6 +133,9 @@ Attribute | Type |
 
 <span class="response-data-head">name</span>
 <span class="response-data-remarks">This is a human readable name of the company which this <span class='entity-name'>Company</span> object represents.</span>
+
+<span class="response-data-head">client_company_id</span>
+<span class="response-data-remarks">This is a client-specified identifier of the company which this <span class='entity-name'>Company</span> object represents, or null if absent.</span>
 
 <span class="response-data-head">partners</span>
 <span class="response-data-remarks">Partner data associated with this company</span>

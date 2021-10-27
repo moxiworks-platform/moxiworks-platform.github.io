@@ -9,9 +9,13 @@ In this section getting your Realtime Stream set up using SNS is covered. Use th
 
 ##### Creating an SNS Topic for Realtime Stream Updates
 
+<aside class="warning">Your SNS topic must be created in the us-west-2 region.</aside>
+
+
 ##### Overview
 To receive MoxiWorks Platform Realtime Stream Updates via SNS, first you'll need to create an SNS topic in your AWS Console and give permissions to MoxiWorks to publish to that SNS topic. This section goes over setting up your SNS Topic. Later, we'll go into getting data from your SNS Topic to your server.
 
+> **Topic Region**: us-west-2
 
 > **Production MoxiWorks AWS User**:  arn:aws:iam::619293852110:user/pubsub-pr
 
@@ -39,6 +43,8 @@ To set up MoxiWorks Platform Realtime Stream SNS Topic using the AWS SNS Console
 
 <span style="margin-left: -12px;">1) From your web browser, go to the Amazon SNS console at [console.aws.amazon.com](https://console.aws.amazon.com/sns/v3/home#/topics), to open the **Amazon SNS Topics** dashboard.</span>
 <div style="margin:60px">&nbsp;</div>
+
+<aside class="warning">Your SNS topic must be created in the us-west-2 region.</aside>
 
 <span style="margin-left: -12px;">2) On the **Amazon SNS Topics** dashboard, click the **Create topic** button.</span>
 

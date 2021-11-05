@@ -322,6 +322,18 @@ Attribute | Type  | Length Limit |
     "office_address_zip": "99899",
     "office_phone_number": "66655544444"
     }
+  ],
+  "source_metadata": [
+    {
+      "identifier_source": "moxi",
+      "identifier_type": "external_identifier",
+      "identifier_key": "abc12345"
+    },
+    {
+      "identifier_source": "moxi",
+      "identifier_type": "external_identifier_alt",
+      "identifier_key": "xyz99999"
+    }
   ]
 }
 ]
@@ -404,6 +416,7 @@ Attribute | Type |
 |<span class="response-data">available_mls</span>|<span class="data-type">Array</span>|
 |<span class="response-data">partners</span>|<span class="data-type">Array</span>|
 |<span class="response-data">company_programs</span>|<span class="data-type">Array</span>|
+|<span class="response-data">source_metadata</span>|<span class="data-type">Array</span>|
 |<span class="response-data">created_timestamp</span>|<span class="data-type">Integer</span>|
 |<span class="response-data">deactivated_timestamp</span>|<span class="data-type">Integer or null</span>|
 
@@ -547,6 +560,9 @@ Attribute | Type |
 
 <span class="response-data-head">company_programs</span>
 <span class="response-data-remarks">A list of the company specific program names in which the agent participates or is a member.</span>
+
+<span class="response-data-head">source_metadata</span>
+<span class="response-data-remarks">A list of the source-specific user identifiers.</span>
 
 <span class="response-data-head">created_timestamp</span>
 <span class="response-data-remarks">This is the Unix timestamp representing the date that this <span class='entity-name'>Agent</span> was created in the MoxiWorks system.</span>

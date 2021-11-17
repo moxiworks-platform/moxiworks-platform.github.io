@@ -294,6 +294,18 @@
     </span><span class="nt">"office_address_zip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"99899"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"office_phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"66655544444"</span><span class="w">
     </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"source_metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"identifier_source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"moxi"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"identifier_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"external_identifier"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"identifier_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc12345"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"identifier_source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"moxi"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"identifier_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"external_identifier_alt"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"identifier_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xyz99999"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -386,6 +398,18 @@
     </span><span class="nt">"office_address_state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AL"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"office_address_zip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"99899"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"office_phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"66655544444"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"source_metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"identifier_source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"moxi"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"identifier_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"external_identifier"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"identifier_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc12345"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"identifier_source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"moxi"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"identifier_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"external_identifier_alt"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"identifier_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xyz99999"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">
   </span><span class="err">gci_goal</span><span class="p">:</span><span class="w"> </span><span class="mi">122131</span><span class="p">,</span><span class="w">
@@ -623,6 +647,10 @@
 <td><span class="data-type">Array</span></td>
 </tr>
 <tr>
+<td><span class="response-data">source_metadata</span></td>
+<td><span class="data-type">Array</span></td>
+</tr>
+<tr>
 <td><span class="response-data">created_timestamp</span></td>
 <td><span class="data-type">Integer</span></td>
 </tr>
@@ -775,6 +803,9 @@
 
 <p><span class="response-data-head">company_programs</span>
 <span class="response-data-remarks">A list of the company specific program names in which the agent participates or is a member.</span></p>
+
+<p><span class="response-data-head">source_metadata</span>
+<span class="response-data-remarks">A list of the source-specific user identifiers.</span></p>
 
 <p><span class="response-data-head">created_timestamp</span>
 <span class="response-data-remarks">This is the Unix timestamp representing the date that this <span class='entity-name'>Agent</span> was created in the MoxiWorks system.</span></p>

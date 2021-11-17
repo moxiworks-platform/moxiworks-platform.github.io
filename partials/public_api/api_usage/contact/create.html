@@ -43,7 +43,7 @@
 </span><span class="nt">"agent_uuid"</span><span class="p">:</span><span class="s2">"12345678-1234-1234-1234-1234567890ab"</span><span class="p">,</span><span class="w">
 </span><span class="nt">"partner_contact_id"</span><span class="p">:</span><span class="s2">"booyuh"</span><span class="p">,</span><span class="w">
 </span><span class="nt">"moxi_works_lead_source_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"some_lead_source_id"</span><span class="p">,</span><span class="w">
-</span><span class="nt">"moxi_works_origin_lead_source_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"some_other_lead_source_id"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"original_lead_source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Some Lead Source String"</span><span class="p">,</span><span class="w">
 </span><span class="nt">"contact_name"</span><span class="p">:</span><span class="s2">"Firstname Middlenyme Larstnam"</span><span class="p">,</span><span class="w">
 </span><span class="nt">"gender"</span><span class="p">:</span><span class="s2">"m"</span><span class="p">,</span><span class="w">
 </span><span class="nt">"label_name"</span><span class="p">:</span><span class="s2">"Mr. and Mrs. Oo-De-Lally Golly What a Day"</span><span class="p">,</span><span class="w">
@@ -278,7 +278,7 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;partner_contact_id=abc982cdf
 </span><span class="nt">"moxi_works_agent_id"</span><span class="p">:</span><span class="s2">"1234abcd"</span><span class="p">,</span><span class="w">
 </span><span class="nt">"partner_contact_id"</span><span class="p">:</span><span class="s2">"booyuh"</span><span class="p">,</span><span class="w">
 </span><span class="nt">"moxi_works_lead_source_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"some_lead_source_id"</span><span class="p">,</span><span class="w">
-</span><span class="nt">"moxi_works_origin_lead_source_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"some_other_lead_source_id"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"original_lead_source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Some Lead Source String"</span><span class="p">,</span><span class="w">
 </span><span class="nt">"contact_name"</span><span class="p">:</span><span class="s2">"Firstname Middlenyme Larstnam"</span><span class="p">,</span><span class="w">
 </span><span class="nt">"gender"</span><span class="p">:</span><span class="s2">"m"</span><span class="p">,</span><span class="w">
 </span><span class="nt">"label_name"</span><span class="p">:</span><span class="s2">"Mr. and Mrs. Oo-De-Lally Golly What a Day"</span><span class="p">,</span><span class="w">
@@ -577,7 +577,7 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 <td>255</td>
 </tr>
 <tr>
-<td><span class="optional-data">moxi_works_origin_lead_source_id</span></td>
+<td><span class="optional-data">original_lead_source</span></td>
 <td><span class="data-type">String</span></td>
 <td>255</td>
 </tr>
@@ -821,8 +821,8 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 <p><span class="request-data-head">moxi_works_lead_source_id</span>
 <span class="request-data-remarks">The <span class='entity-name'>Contact</span> will be created in MoxiEngage as a lead sourced from the <span class='entity-name'>LeadSource</span> associated with this <span class='attribute-name'>moxi_works_lead_source_id</span>. Send a <span class='entity-name'>LeadSource</span> <span class='action-name'>index</span> request to determine which lead sources your organization has permission to impersonate during lead generation.</span></p>
 
-<p><span class="request-data-head">moxi_works_origin_lead_source_id</span>
-<span class="request-data-remarks">This is used to keep track of the original lead source for this <span class='entity-name'>Contact</span> record. This field will not be displayed in MoxiEngage, and is for the parter&rsquo;s own tracking purposes. This key must be associated with valid <span class='attribute-name'>moxi_works_lead_source_id</span>. Send a <span class='entity-name'>LeadSource</span> <span class='action-name'>index</span> request for a full list of applicable lead sources and their ids.</span></p>
+<p><span class="request-data-head">original_lead_source</span>
+<span class="request-data-remarks">This is used to keep track of the original lead source for this <span class='entity-name'>Contact</span> record, if different than the lead source associated with the <span class='attribute-name'>moxi_works_lead_source_id</span>.</span></p>
 
 <p><span class="request-data-head">gender</span>
 <span class="request-data-remarks">The gender of the contact. This can be <code class="prettyprint">male</code>, <code class="prettyprint">female</code>, <code class="prettyprint">m</code> or <code class="prettyprint">f</code>. No matter what is provided in the request, the response payload will return <code class="prettyprint">m</code> or <code class="prettyprint">f</code>. </span></p>
@@ -945,7 +945,7 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 <span class="request-data-remarks">This is an arbitrary string giving the agent more details about the contact which would not otherwise fit into the <span class='entity-name'>Contact</span> record. Any HTML formatting included will be stripped from the <span class='attribute-name'>note</span> attribute&rsquo;s data.</span></p>
 
 <p><span class="request-data-head">websites</span>
-<span class="request-data-remarks">Websites should be submitted as a json array of objects. Each object should include website prioritized &lsquo;rank&rsquo; and &#39;value&rsquo;. The number of website fields available for update for a given <span class='entity-name'>Contact</span> record depends on the agent email client type.</span></p>
+<span class="request-data-remarks">Websites should be submitted as a json array of objects. Each object should include website prioritized &lsquo;rank&rsquo; and &lsquo;value&rsquo;. The number of website fields available for update for a given <span class='entity-name'>Contact</span> record depends on the agent email client type.</span></p>
 
 <p><span class="request-data-head">birthday</span>
 <span class="request-data-remarks">A unix timestamps representing the birthday for the <span class='entity-name'>Contact</span> record.</span></p>
@@ -974,7 +974,7 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
   </span><span class="nt">"partner_contact_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"booyuh"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"moxi_works_contact_id"</span><span class="p">:</span><span class="s2">"deadbeef-feed-face-2bad4daddead"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"moxi_works_lead_source_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"some_lead_source_id"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"moxi_works_origin_lead_source_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"some_other_lead_source_id"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"original_lead_source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Some Lead Source String"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"is_deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="nt">"contact_name"</span><span class="p">:</span><span class="s2">"Firstname Middlenyme Larstnam"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"first_name"</span><span class="p">:</span><span class="s2">"Firstname"</span><span class="p">,</span><span class="w">
@@ -1105,7 +1105,7 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
   </span><span class="nt">"partner_contact_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"booyuh"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"moxi_works_contact_id"</span><span class="p">:</span><span class="s2">"deadbeef-feed-face-2bad4daddead"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"moxi_works_lead_source_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"some_lead_source_id"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"moxi_works_origin_lead_source_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"some_other_lead_source_id"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"original_lead_source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Some Lead Source String"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"is_deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="nt">"contact_name"</span><span class="p">:</span><span class="s2">"Firstname Middlenyme Larstnam"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"first_name"</span><span class="p">:</span><span class="s2">"Firstname"</span><span class="p">,</span><span class="w">
@@ -1241,7 +1241,7 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 <td><span class="data-type">String</span></td>
 </tr>
 <tr>
-<td><span class="response-data">moxi_works_origin_lead_source_id</span></td>
+<td><span class="response-data">original_lead_source</span></td>
 <td><span class="data-type">String or null</span></td>
 </tr>
 <tr>
@@ -1499,8 +1499,8 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 <p><span class="response-data-head">moxi_works_lead_source_id</span>
 <span class="response-data-remarks">This is the unique MoxiWorks Platform ID of the <span class='entity-name'>LeadSource</span> that generated this <span class='entity-name'>Contact</span>.</span></p>
 
-<p><span class="request-data-head">moxi_works_origin_lead_source_id</span>
-<span class="request-data-remarks">This is used to keep track of the original lead source for this <span class='entity-name'>Contact</span> record. This field will not be displayed in MoxiEngage, and is for the parter&rsquo;s own tracking purposes. This key will be associated with valid <span class='attribute-name'>moxi_works_lead_source_id</span>. Send a <span class='entity-name'>LeadSource</span> <span class='action-name'>index</span> request for a full list of applicable lead sources and their ids.</span></p>
+<p><span class="response-data-head">original_lead_source</span>
+<span class="response-data-remarks">This is used to keep track of the original lead source for this <span class='entity-name'>Contact</span> record, if different than the lead source associated with the <span class='attribute-name'>moxi_works_lead_source_id</span>.</span></p>
 
 <p><span class="response-data-head">is_deleted</span>
 <span class="response-data-remarks">Will be true if this <span class='entity-name'>Contact</span> has been deleted from the <span class='entity-name'>Agent</span>s contacts.</span></p>
@@ -1703,7 +1703,7 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 </tbody></table>
 
 <p><span class="response-data-head">key</span>
-<span class="response-data-remarks">The key identifier of the social media url. Defined keys are &#39;facebook,&rsquo; &#39;linkedin,&rsquo; &#39;twitter,&rsquo; and &#39;googleplus&rsquo;</span></p>
+<span class="response-data-remarks">The key identifier of the social media url. Defined keys are &lsquo;facebook,&rsquo; &lsquo;linkedin,&rsquo; &lsquo;twitter,&rsquo; and &lsquo;googleplus&rsquo;</span></p>
 
 <p><span class="response-data-head">property_url</span>
 <span class="response-data-remarks">This will be a valid URL for a property of interest in your system that can be viewed by the agent. This value will be null if no data is available for this attribute. </span></p>

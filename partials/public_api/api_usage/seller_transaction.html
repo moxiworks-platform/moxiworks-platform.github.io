@@ -82,8 +82,8 @@
 <aside class="note">
   Additional transaction guidelines:
   <ul>
-    <li> The <span class='attribute-name'>address</span>, <span class='attribute-name'>city</span>, <span class='attribute-name'>state</span>, and <span class='attribute-name'>zip_code</span> attributes must be included in order to move a transaction into stages 4 or 5: &lsquo;pending&rsquo; or 'complete&rsquo;.</li>
-    <li> The <span class='attribute-name'>closing_price</span> and <span class='attribute-name'>closing_timestamp</span> attributes must be included in order to move a transaction into stage 5: 'complete&rsquo;. They may not be present when moving a transaction to any other stage.</li>
+    <li> The <span class='attribute-name'>address</span>, <span class='attribute-name'>city</span>, <span class='attribute-name'>state</span>, and <span class='attribute-name'>zip_code</span> attributes must be included in order to move a transaction into stages 4 or 5: &lsquo;pending&rsquo; or &lsquo;complete&rsquo;.</li>
+    <li> The <span class='attribute-name'>closing_price</span> and <span class='attribute-name'>closing_timestamp</span> attributes must be included in order to move a transaction into stage 5: &lsquo;complete&rsquo;. They may not be present when moving a transaction to any other stage.</li>
     <li> The <span class='attribute-name'>mls_number</span> attribute must be included for transactions for which the <span class='attribute-name'>is_mls_transaction</span> attribute is set to true.</li>
     <li> <span class='attribute-name'>stage</span> `1` (`initialized`)  Transaction records may be promoted to either <span class='entity-name'>BuyerTransaction</span> records or <span class='entity-name'>SellerTransaction</span> records when they are promoted to <span class='attribute-name'>stage</span> `2` (`configured`) . </aside>
   </ul>

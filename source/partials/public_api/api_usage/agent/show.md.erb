@@ -272,7 +272,8 @@ The following attributes make up the payload of the <span class='entity-name'>Ag
       "identifier_type": "external_identifier_alt",
       "identifier_key": "xyz99999"
     }
-  ]
+  ],
+  "profile_visible_online": true
 }
 ```
 
@@ -383,7 +384,8 @@ The following attributes make up the payload of the <span class='entity-name'>Ag
   ],
   gci_goal: 122131,
   buyer_commission_rate: 1.25,
-  seller_commission_rate: 1.25
+  seller_commission_rate: 1.25,
+  "profile_visible_online": true
 }
 ```
 
@@ -459,6 +461,7 @@ Attribute | Type |
 |<span class="response-data">source_metadata</span>|<span class="data-type">Array</span>|
 |<span class="response-data">created_timestamp</span>|<span class="data-type">Integer</span>|
 |<span class="response-data">deactivated_timestamp</span>|<span class="data-type">Integer or null</span>|
+|<span class="response-data">profile_visible_online</span>|<span class="data-type">Boolean</span>|
 
 <span class="response-data-head">moxi_works_agent_id</span>
 <span class="response-data-remarks">This is the MoxiWorks Platform ID of the <span class='entity-name'>Agent</span>. This will be a string that may take the form of an email address, or a unique alphanumeric identification string.</span>
@@ -615,6 +618,9 @@ Attribute | Type |
 
 <span class="response-data-head">deactivated_timestamp</span>
 <span class="response-data-remarks">This is the Unix timestamp representing the date that this <span class='entity-name'>Agent</span> was deactivated in the MoxiWorks system. This will be returned null if the agent is still active.</span>
+
+<span class="response-data-head">profile_visible_online</span>
+<span class="response-data-remarks">Indicates the &quot;Profile Visible Online&quot; value in Roster for this <span class='entity-name'>Agent</span>. True corresponds to Yes (visible online); false corresponds to No (not visible online).</span>
 
 ###### <span class='attribute-name'>alternate_offices</span> Object
 

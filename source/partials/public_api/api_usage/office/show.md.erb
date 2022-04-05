@@ -122,7 +122,12 @@ Attribute | Type  | Length Limit |
     "timezone":"Pacific Time (US & Canada)",
     "twitter":null,
     "office_website":"http://the.office.website",
-    "region":"WESTERN WASHINGTON"
+    "region":"WESTERN WASHINGTON",
+    "mailing_address":"120 Mailing Avenue",
+    "mailing_address2":"Box 10",
+    "mailing_city":"Mailtown",
+    "mailing_zip":"12123",
+    "mailing_state":"UM"
   }
 
 ```
@@ -164,6 +169,11 @@ Attribute | Type |
 |<span class="response-data">twitter</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">office_website</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">region</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">mailing_address</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">mailing_address2</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">mailing_city</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">mailing_zip</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">mailing_state</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">created_timestamp</span>|<span class="data-type">Integer</span>|
 |<span class="response-data">deactivated_timestamp</span>|<span class="data-type">Integer or null</span>|
 
@@ -235,6 +245,22 @@ Attribute | Type |
 
 <span class="response-data-head">region</span>
 <span class="response-data-remarks">The region the agent's office is in. This can be null if there is no data for this attribute.</span>
+
+<span class="response-data-head">mailing_address</span>
+<span class="response-data-remarks">The street address where the office accepts mail. This can be null if there is no data for this attribute.</span>
+
+<span class="response-data-head">mailing_address2</span>
+<span class="response-data-remarks">The suite or office number of the office's mailing address. This can be null if there is no data for this attribute.</span>
+
+<span class="response-data-head">mailing_city</span>
+<span class="response-data-remarks">The city the office mailing address is in. This can be null if there is no data for this attribute.</span>
+
+<span class="response-data-head">mailing_zip</span>
+<span class="response-data-remarks">The postal code the office mailing addressis in. This can be null if there is no data for this attribute.</span>
+
+<span class="response-data-head">mailing_state</span>
+<span class="response-data-remarks">The state or provice the office mailing address is in. This can be null if there is no data for this attribute.</span>
+
 
 <span class="response-data-head">created_timestamp</span>
 <span class="response-data-remarks">This is the Unix timestamp representing the date that this <span class='entity-name'>Office</span> was created in the MoxiWorks system.</span>

@@ -149,7 +149,12 @@
     </span><span class="nt">"timezone"</span><span class="p">:</span><span class="s2">"Pacific Time (US &amp; Canada)"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"twitter"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="nt">"office_website"</span><span class="p">:</span><span class="s2">"http://the.office.website"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"region"</span><span class="p">:</span><span class="s2">"WESTERN WASHINGTON"</span><span class="w">
+    </span><span class="nt">"region"</span><span class="p">:</span><span class="s2">"WESTERN WASHINGTON"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"mailing_address"</span><span class="p">:</span><span class="s2">"120 Mailing Avenue"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"mailing_address2"</span><span class="p">:</span><span class="s2">"Box 10"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"mailing_city"</span><span class="p">:</span><span class="s2">"Mailtown"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"mailing_zip"</span><span class="p">:</span><span class="s2">"12123"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"mailing_state"</span><span class="p">:</span><span class="s2">"UM"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 
 </span></code></pre>
@@ -256,6 +261,26 @@
 <td><span class="data-type">String or null</span></td>
 </tr>
 <tr>
+<td><span class="response-data">mailing_address</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">mailing_address2</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">mailing_city</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">mailing_zip</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">mailing_state</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
 <td><span class="response-data">created_timestamp</span></td>
 <td><span class="data-type">Integer</span></td>
 </tr>
@@ -327,6 +352,21 @@
 
 <p><span class="response-data-head">region</span>
 <span class="response-data-remarks">The region the agent&rsquo;s office is in. This can be null if there is no data for this attribute.</span></p>
+
+<p><span class="response-data-head">mailing_address</span>
+<span class="response-data-remarks">The street address where the office accepts mail. This can be null if there is no data for this attribute.</span></p>
+
+<p><span class="response-data-head">mailing_address2</span>
+<span class="response-data-remarks">The suite or office number of the office&rsquo;s mailing address. This can be null if there is no data for this attribute.</span></p>
+
+<p><span class="response-data-head">mailing_city</span>
+<span class="response-data-remarks">The city the office mailing address is in. This can be null if there is no data for this attribute.</span></p>
+
+<p><span class="response-data-head">mailing_zip</span>
+<span class="response-data-remarks">The postal code the office mailing addressis in. This can be null if there is no data for this attribute.</span></p>
+
+<p><span class="response-data-head">mailing_state</span>
+<span class="response-data-remarks">The state or provice the office mailing address is in. This can be null if there is no data for this attribute.</span></p>
 
 <p><span class="response-data-head">created_timestamp</span>
 <span class="response-data-remarks">This is the Unix timestamp representing the date that this <span class='entity-name'>Office</span> was created in the MoxiWorks system.</span></p>

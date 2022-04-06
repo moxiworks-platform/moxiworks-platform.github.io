@@ -236,6 +236,11 @@
   </span><span class="nt">"office_address_city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Officeville"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"office_address_state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AG"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"office_address_zip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"office_mailing_address_street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1236 Mailbox Ave."</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"office_mailing_address_street2"</span><span class="p">:</span><span class="s2">"Box 43"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"office_mailing_address_city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mailtown"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"office_mailing_address_state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AG"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"office_mailing_address_zip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12348"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Buckminster Fuller"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Buckminster"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fuller"</span><span class="p">,</span><span class="w">
@@ -332,6 +337,11 @@
   </span><span class="nt">"office_address_city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Officeville"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"office_address_state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AG"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"office_address_zip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"office_mailing_address_street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3453 Mailbox Ave."</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"office_mailing_address_street2"</span><span class="p">:</span><span class="s2">"Box 11"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"office_mailing_address_city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mailtown"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"office_mailing_address_state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AG"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"office_mailing_address_zip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12342"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Buckminster Fuller"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Buckminster"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fuller"</span><span class="p">,</span><span class="w">
@@ -506,6 +516,26 @@
 </tr>
 <tr>
 <td><span class="response-data">office_address_zip</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">office_mailing_address_street</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">office_mailing_address_street2</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">office_mailing_address_city</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">office_mailing_address_state</span></td>
+<td><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">office_mailing_address_zip</span></td>
 <td><span class="data-type">String or null</span></td>
 </tr>
 <tr>
@@ -716,6 +746,21 @@
 
 <p><span class="response-data-head">office_address_zip</span>
 <span class="response-data-remarks">The postal code the agent&rsquo;s office is in. This can be null if there is no data for this attribute.</span></p>
+
+<p><span class="response-data-head">office_mailing_address_street</span>
+<span class="response-data-remarks">The street address of the agent&rsquo;s office&rsquo;s mailing address. This can be null if there is no data for this attribute.</span></p>
+
+<p><span class="response-data-head">office_mailing_address_street2</span>
+<span class="response-data-remarks">The suite or office number of the agent&rsquo;s office&rsquo;s mailing address. This can be null if there is no data for this attribute.</span></p>
+
+<p><span class="response-data-head">office_mailing_address_city</span>
+<span class="response-data-remarks">The city the agent&rsquo;s office&rsquo;s mailing address is in. This can be null if there is no data for this attribute.</span></p>
+
+<p><span class="response-data-head">office_mailing_address_state</span>
+<span class="response-data-remarks">The state or provice the agent&rsquo;s office&rsquo;s mailing address is in. This can be null if there is no data for this attribute.</span></p>
+
+<p><span class="response-data-head">office_mailing_address_zip</span>
+<span class="response-data-remarks">The postal code the agent&rsquo;s office&rsquo;s mailing address is in. This can be null if there is no data for this attribute.</span></p>
 
 <p><span class="response-data-head">name</span>
 <span class="response-data-remarks">The full name of the agent. This can be null if there is no data for this attribute.</span></p>

@@ -227,6 +227,7 @@ The following attributes make up the payload of the <span class='entity-name'>Ag
   },
   "lead_routing_email_address":"leadrouter@thisdomain.com",
   "title": "Broker",
+  "designations": "Realtor, CRS, SRES",
   "uuid":"8675309e9-1234-dead-beef-deadbeefdead",
   "has_engage_access":true,
   "website_base_url": "mymoxi@website.com",
@@ -331,6 +332,7 @@ The following attributes make up the payload of the <span class='entity-name'>Ag
   },
   "lead_routing_email_address":"leadrouter@thisdomain.com",
   "title": "Broker",
+  "designations": "Realtor, CRS, SRES",
   "uuid":"8675309e9-1234-dead-beef-deadbeefdead",
   "has_engage_access":true,
   "access_level":"user",
@@ -452,6 +454,7 @@ Attribute | Type |
 |<span class="response-data">email_addresses</span>|<span class="data-type">Hash</span>|
 |<span class="response-data">lead_routing_email_address</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">title</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">designations</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">uuid</span>|<span class="data-type">String</span>|
 |<span class="response-data">has_product_access</span>|<span class="data-type">Boolean</span>|
 |<span class="response-data">has_engage_access</span>|<span class="data-type">Boolean</span>|
@@ -585,6 +588,9 @@ Attribute | Type |
 
 <span class="response-data-head">title</span>
 <span class="response-data-remarks">This is the business title of the agent.  This can be null if there is no data for this attribute.</span>
+
+<span class="response-data-head">designations</span>
+<span class="response-data-remarks">This is a string that contains the agent's designation(s), if any.  This can be null if there is no data for this attribute.</span>
 
 <span class="response-data-head">uuid</span>
 <span class="response-data-remarks">This is  an [RFC 4122](https://tools.ietf.org/html/rfc4122) compliant UUID associated with the agent. This UUID can be used as a unique identifier in determining associations between  <span class='entity-name'>Agent</span> objects and  <span class='entity-name'>Listing</span> objects.</span>

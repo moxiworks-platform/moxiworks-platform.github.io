@@ -13659,7 +13659,7 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 <span class="request-data-remarks">This is used to keep track of the original lead source for this <span class='entity-name'>Contact</span> record. This field will not be displayed in MoxiEngage, and is for the parter&rsquo;s own tracking purposes. This key will be associated with valid <span class='attribute-name'>moxi_works_lead_source_id</span>. Send a <span class='entity-name'>LeadSource</span> <span class='action-name'>index</span> request for a full list of applicable lead sources and their ids.</span></p>
 
 <p><span class="response-data-head">is_deleted</span>
-<span class="response-data-remarks">Will be true if this <span class='entity-name'>Contact</span> has been deleted from the <span class='entity-name'>Agent</span>s contacts.</span></p>
+<span class="response-data-remarks">Will be true if this <span class='entity-name'>Contact</span> has been deleted from the <span class='entity-name'>Agent</span>s contacts. (Note: deleted contacts are currently not returned using this method.)</span></p>
 
 <p><span class="response-data-head">contact_name</span>
 <span class="response-data-remarks">This is the full name of the contact you are creating a <span class='entity-name'>Contact</span> record for. You should format this information as <i>first middle last</i>. This value will be null if no data is available for this attribute. </span></p>

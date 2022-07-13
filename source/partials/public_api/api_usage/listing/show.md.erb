@@ -85,18 +85,22 @@ Attribute | Type | Length Limit |
 -----|-----|-----|-----|
 |<span class="required-data">moxi_works_listing_id</span>|<span class="required-data"><span class="data-type">String</span></span>|<span class="required-data">255</span> |
 |<span class="required-data">moxi_works_company_id</span>|<span class="required-data"><span class="data-type">String</span></span>| <span class="required-data">255<span> |
+|<span class="optional-data">parent_company_id</span>|<span class="data-type">String</span>| 255 |
+|<span class="optional-data">underscore_response</span>|<span class="data-type">Boolean</span>| 255 |
 
 <span class="required-data">**Required Parameters Are In Red**</span>
-
-
-<span class="request-data-head">moxi_works_listing_id</span>
-<span class="request-data-remarks">This is the MoxiWorks Platform ID of the <span class='entity-name'>Listing</span> which you are requesting to <span class='action-name'>Show</span>. This data is required and must reference a valid MoxiWorks <span class='entity-name'>Listing</span> ID for your <span class='action-name'>Show</span>  request to be accepted.</span>
-
 
 <span class="request-data-head">moxi_works_company_id</span>
 <span class="request-data-remarks">A valid MoxiWorks <span class='entity-name'>Company</span> ID. Use [Company Endpoint](#company) to determine what <span class='attribute-name'>moxi_works_company_id</span> you can use.</span>
 
-<aside class="note">Use <a href='#company'>Company Endpoint</a> to determine the moxi_works_company_id to send.</aside>
+<span class="request-data-head">parent_company_id</span>
+<span class="request-data-remarks">This is the <span class='attribute-name'>numeric_id</span> or <span class='attribute-name'>moxi_works_company_id</span> of a company that is considered to be a parent company in the MoxiWorks Platform. This request attribute has two functions:<br><br>	**1.** It provides for a broad scope by which partners may be afforded permissions to perform MoxiWorks Platform actions, in scenarios where a partner does business with a parent company in the MoxiWorks System.<br>	**2.** It provides broad scope under which agents may be looked up using the <span class='attribute-name'>source_agent_id</span> request attribute in many scenarios across different MoxiWorks Platform endpoints and actions.<br><br>	**Please note** that this attribute cannot be used as a replacement for the <span class='attribute-name'>moxi_works_company_id</span> request attribute in scenarios where the <span class='attribute-name'>moxi_works_company_id</span> request attribute is required by the action.<br><br>	**Please note** that this attribute cannot be used to broaden scope of any request where the scope of the request is defined by the <span class='attribute-name'>moxi_works_company_id</span> request attribute.<br><br>	**Please note** that when passed in conjunction with the <span class='attribute-name'>moxi_works_company_id</span> request attribute, the value of <span class='attribute-name'>moxi_works_company_id</span> request attribute must be the numeric id form.<br><br>	Any use of this request attribute must be coordinated with MoxiWorks Platform Partner services. Please reach out to partner services for more information.</span>
+
+<span class="request-data-head">moxi_works_listing_id</span>
+<span class="request-data-remarks">This is the MoxiWorks Platform ID of the <span class='entity-name'>Listing</span> which you are requesting to <span class='action-name'>Show</span>. This data is required and must reference a valid MoxiWorks <span class='entity-name'>Listing</span> ID for your <span class='action-name'>Show</span>  request to be accepted.</span>
+
+<span class="request-data-head">underscore_response</span>
+<span class="request-data-remarks">When this attribute is passed as true, the json keys of the response will be underscored. The default json key format for listing responses is camel casing.</span>
 
 
 

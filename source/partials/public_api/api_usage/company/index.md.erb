@@ -73,11 +73,13 @@ The following attributes make up the payload of each <span class='entity-name'>C
 {
   "moxi_works_company_id":"bobs_brokerage",
   "name":"Bob's Brokerage",
+  "numeric_id": "1234567",
   "client_company_id":"some_external_identifier"
 },
 {
   "moxi_works_company_id":"real_estate_two_bajillion",
   "name":"Real Estate Two-Bajillion",
+  "numeric_id": "12345678",
   "client_company_id":"someOtherExternalIdentifier"
 }
 ]
@@ -105,10 +107,14 @@ Attribute | Type |
 -----|-----|-----|-----|
 |<span class="response-data">moxi_works_company_id</span>|<span class="data-type">String</span>|
 |<span class="response-data">name</span>|<span class="data-type">String</span>|
+|<span class="response-data">numeric_id</span>|<span class="data-type">String</span>|
 |<span class="response-data">client_company_id</span>|<span class="data-type">String</span>|
 
 <span class="response-data-head">moxi_works_company_id</span>
 <span class="response-data-remarks">This is the MoxiWorks Platform ID of the <span class='entity-name'>Company</span>. This will be an alphanumeric identification string which will be similar to the company name.</span>
+
+<span class="response-data-head">numeric_id</span>
+<span class="response-data-remarks">This is the numeric company id that is interchangeable with the <span class='attribute-name'>moxi_works_agent_id</span> in all request scenarios</span>
 
 <span class="response-data-head">name</span>
 <span class="response-data-remarks">This is a human readable name of the company which this <span class='entity-name'>Company</span> object represents.</span>

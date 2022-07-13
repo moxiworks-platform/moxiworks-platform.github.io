@@ -80,12 +80,8 @@ Attribute | Type | Length Limit |
 
 <span class="required-data">**Required Parameters Are In Red**</span>
 
-
 <span class="request-data-head">moxi_works_company_id</span>
-<span class="request-data-remarks">A valid MoxiWorks <span class='entity-name'>Company</span> ID. Use [Company Endpoint](#company) to determine what <span class='attribute-name'>moxi_works_company_id</span> you can use.</span>
-
-
-<aside class="note">Use <a href='#company'>Company Endpoint</a> to determine the moxi_works_company_id to send.</aside>
+<span class="request-data-remarks">A valid MoxiWorks <span class='entity-name'>Company</span> ID. You can pass either the alphanumeric key (similar to the company name in most cases) or the numeric identifier (numeric_id in the company response).</span>
 
 <blockquote><div class='highlight json' style="display: block">
 <span class='data-example-label'><span class='entity-name'>Company</span> <span class='action-name'>Show</span> Response Payload Example
@@ -96,6 +92,7 @@ Attribute | Type | Length Limit |
 {
     "moxi_works_company_id":"bobs_brokerage",
     "name":"Bob's Brokerage",
+    "numeric_id": "1234567",
     "client_company_id":"some_external_identifier"
 }
 ```
@@ -125,6 +122,7 @@ Attribute | Type |
 -----|-----|-----|-----|
 |<span class="response-data">moxi_works_company_id</span>|<span class="data-type">String</span>|
 |<span class="response-data">name</span>|<span class="data-type">String</span>|
+|<span class="response-data">numeric_id</span>|<span class="data-type">String</span>|
 |<span class="response-data">client_company_id</span>|<span class="data-type">String</span>|
 |<span class="response-data">partners</span>|<span class="data-type">Array</span>|
 
@@ -133,6 +131,9 @@ Attribute | Type |
 
 <span class="response-data-head">name</span>
 <span class="response-data-remarks">This is a human readable name of the company which this <span class='entity-name'>Company</span> object represents.</span>
+
+<span class="response-data-head">numeric_id</span>
+<span class="response-data-remarks">This is the numeric company id that is interchangeable with the <span class='attribute-name'>moxi_works_agent_id</span> in all request scenarios</span>
 
 <span class="response-data-head">client_company_id</span>
 <span class="response-data-remarks">This is a client-specified identifier of the company which this <span class='entity-name'>Company</span> object represents, or null if absent.</span>

@@ -144,6 +144,11 @@
 <td><span class="required-data">255<span></td>
 </tr>
 <tr>
+<td><span class="optional-data">parent_company_id</span></td>
+<td><span class="data-type">String</span></td>
+<td>255</td>
+</tr>
+<tr>
 <td><span class="optional-data">moxi_works_agent_id †</span></td>
 <td><span class="optional-data"><span class="data-type">String</span></span></td>
 <td><span class="optional-data">255</span></td>
@@ -152,6 +157,11 @@
 <td><span class="optional-data">agent_uuid †</span></td>
 <td><span class="optional-data"><span class="data-type">String</span></span></td>
 <td><span class="optional-data">255</span></td>
+</tr>
+<tr>
+<td><span class="optional-data">source_agent_id †</span></td>
+<td><span class="data-type">String</span></td>
+<td>255</td>
 </tr>
 <tr>
 <td><span class="optional-data">created_after</span></td>
@@ -187,20 +197,14 @@
 
 <p><span class="required-data"><strong>Required Parameters Are In Red</strong></span></p>
 
-<p><span class="multi-option-required-data"> † Either <span class='attribute-name'>moxi_works_agent_id</span> or <span class='attribute-name'>agent_uuiid</span> may be supplied, but not both.</span></p>
+<p><span class="request-data-head"><span class='attribute-name'>moxi_works_agent_id</span> or <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>source_agent_id</span></span>
+<span class="request-data-remarks"><strong>One of these parameters may be supplied</strong> Please reference <a href="#agent-identifiers">Agent Identifiers</a> for information about how to construct your agent identifier request params.</span></p>
 
 <p><span class="request-data-head">moxi_works_company_id</span>
 <span class="request-data-remarks">A valid MoxiWorks <span class='entity-name'>Company</span> ID. Use <a href="#company">Company Endpoint</a> to determine what <span class='attribute-name'>moxi_works_company_id</span> you can use.</span></p>
 
-<aside class="note">Use <a href='#company'>Company Endpoint</a> to determine the moxi_works_company_id to send.</aside>
-
-<p><span class="request-data-head">agent_uuid</span>
-<span class="request-data-remarks">This is the MoxiWorks Platform ID of the <span class='entity-name'>Agent</span> which an <span class='entity-name'>PresentationLog</span> entry is associated with. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID. <span class='attribute-name'>agent_uuid</span> is optional.</span></p>
-
-<p><span class="request-data-head">moxi_works_agent_id</span>
-<span class="request-data-remarks">This is the MoxiWorks Platform ID of the agent which an <span class='entity-name'>PresentationLog</span> entry is associated with. This will be a string that may take the form of an email address, or a unique identification string. This data is optional.</span></p>
-
-<aside class="note">Use <a href='#agent'>Agent Endpoint</a> to determine the moxi_works_agent_id to send.</aside>
+<p><span class="request-data-head">parent_company_id</span>
+<span class="request-data-remarks">This is the <span class='attribute-name'>numeric_id</span> or <span class='attribute-name'>moxi_works_company_id</span> of a company that is considered to be a parent company in the MoxiWorks Platform. This request attribute has two functions:<br><br>  <strong>1.</strong> It provides for a broad scope by which partners may be afforded permissions to perform MoxiWorks Platform actions, in scenarios where a partner does business with a parent company in the MoxiWorks System.<br> <strong>2.</strong> It provides broad scope under which agents may be looked up using the <span class='attribute-name'>source_agent_id</span> request attribute in many scenarios across different MoxiWorks Platform endpoints and actions.<br><br> <strong>Please note</strong> that this attribute cannot be used as a replacement for the <span class='attribute-name'>moxi_works_company_id</span> request attribute in scenarios where the <span class='attribute-name'>moxi_works_company_id</span> request attribute is required by the action.<br><br>   <strong>Please note</strong> that this attribute cannot be used to broaden scope of any request where the scope of the request is defined by the <span class='attribute-name'>moxi_works_company_id</span> request attribute.<br><br>    <strong>Please note</strong> that when passed in conjunction with the <span class='attribute-name'>moxi_works_company_id</span> request attribute, the value of <span class='attribute-name'>moxi_works_company_id</span> request attribute must be the numeric id form.<br><br> Any use of this request attribute must be coordinated with MoxiWorks Platform Partner services. Please reach out to partner services for more information.</span></p>
 
 <aside class="note">When searching, you may search using <span class='attribute-name'>created_before</span> and <span class='attribute-name'>created_after</span> or <span class='attribute-name'>updated_before</span> and <span class='attribute-name'>updated_after</span>.</aside>
 

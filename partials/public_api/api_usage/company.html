@@ -119,9 +119,7 @@
 <p><span class="required-data"><strong>Required Parameters Are In Red</strong></span></p>
 
 <p><span class="request-data-head">moxi_works_company_id</span>
-<span class="request-data-remarks">A valid MoxiWorks <span class='entity-name'>Company</span> ID. Use <a href="#company">Company Endpoint</a> to determine what <span class='attribute-name'>moxi_works_company_id</span> you can use.</span></p>
-
-<aside class="note">Use <a href='#company'>Company Endpoint</a> to determine the moxi_works_company_id to send.</aside>
+<span class="request-data-remarks">A valid MoxiWorks <span class='entity-name'>Company</span> ID. You can pass either the alphanumeric key (similar to the company name in most cases) or the numeric identifier (numeric_id in the company response).</span></p>
 
 <blockquote><div class='highlight json' style="display: block">
 <span class='data-example-label'><span class='entity-name'>Company</span> <span class='action-name'>Show</span> Response Payload Example
@@ -130,6 +128,7 @@
 </span><span class="p">{</span><span class="w">
     </span><span class="nt">"moxi_works_company_id"</span><span class="p">:</span><span class="s2">"bobs_brokerage"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"Bob's Brokerage"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"numeric_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234567"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"client_company_id"</span><span class="p">:</span><span class="s2">"some_external_identifier"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -167,6 +166,10 @@
 <td><span class="data-type">String</span></td>
 </tr>
 <tr>
+<td><span class="response-data">numeric_id</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
+<tr>
 <td><span class="response-data">client_company_id</span></td>
 <td><span class="data-type">String</span></td>
 </tr>
@@ -181,6 +184,9 @@
 
 <p><span class="response-data-head">name</span>
 <span class="response-data-remarks">This is a human readable name of the company which this <span class='entity-name'>Company</span> object represents.</span></p>
+
+<p><span class="response-data-head">numeric_id</span>
+<span class="response-data-remarks">This is the numeric company id that is interchangeable with the <span class='attribute-name'>moxi_works_agent_id</span> in all request scenarios</span></p>
 
 <p><span class="response-data-head">client_company_id</span>
 <span class="response-data-remarks">This is a client-specified identifier of the company which this <span class='entity-name'>Company</span> object represents, or null if absent.</span></p>
@@ -292,11 +298,13 @@ The following attributes make up the payload of each <span class='entity-name'>C
 </span><span class="p">{</span><span class="w">
   </span><span class="nt">"moxi_works_company_id"</span><span class="p">:</span><span class="s2">"bobs_brokerage"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"Bob's Brokerage"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"numeric_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234567"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"client_company_id"</span><span class="p">:</span><span class="s2">"some_external_identifier"</span><span class="w">
 </span><span class="p">},</span><span class="w">
 </span><span class="p">{</span><span class="w">
   </span><span class="nt">"moxi_works_company_id"</span><span class="p">:</span><span class="s2">"real_estate_two_bajillion"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"Real Estate Two-Bajillion"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"numeric_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345678"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"client_company_id"</span><span class="p">:</span><span class="s2">"someOtherExternalIdentifier"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
@@ -332,6 +340,10 @@ The following attributes make up the payload of each <span class='entity-name'>C
 <td><span class="data-type">String</span></td>
 </tr>
 <tr>
+<td><span class="response-data">numeric_id</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
+<tr>
 <td><span class="response-data">client_company_id</span></td>
 <td><span class="data-type">String</span></td>
 </tr>
@@ -339,6 +351,9 @@ The following attributes make up the payload of each <span class='entity-name'>C
 
 <p><span class="response-data-head">moxi_works_company_id</span>
 <span class="response-data-remarks">This is the MoxiWorks Platform ID of the <span class='entity-name'>Company</span>. This will be an alphanumeric identification string which will be similar to the company name.</span></p>
+
+<p><span class="response-data-head">numeric_id</span>
+<span class="response-data-remarks">This is the numeric company id that is interchangeable with the <span class='attribute-name'>moxi_works_agent_id</span> in all request scenarios</span></p>
 
 <p><span class="response-data-head">name</span>
 <span class="response-data-remarks">This is a human readable name of the company which this <span class='entity-name'>Company</span> object represents.</span></p>

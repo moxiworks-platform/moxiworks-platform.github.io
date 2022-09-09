@@ -253,6 +253,7 @@
       </span><span class="nt">"EndTime"</span><span class="p">:</span><span class="s2">"15:00:00"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"ImagesLastModified"</span><span class="p">:</span><span class="s2">"01/22/2018"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"ListingImages"</span><span class="p">:[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"FullURL"</span><span class="p">:</span><span class="s2">"http://images.moxiworks.com/static/images/br/imagoo/default_property_image_wre-326x250.png"</span><span class="p">,</span><span class="w">
@@ -551,7 +552,11 @@
 <td><span class="response-data"><span class="data-type">Array</span></td>
 </tr>
 <tr>
-<td><span class="response-data">LisingImages</span></td>
+<td><span class="response-data">ImagesLastModified</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">ListingImages</span></td>
 <td><span class="response-data"><span class="data-type">Array</span></td>
 </tr>
 <tr>
@@ -757,6 +762,9 @@
 
 <p><span class="response-data-head">PropertyFeatures</span>
 <span class="response-data-remarks">Any defined features about the property.</span></p>
+
+<p><span class="response-data-head">ImagesLastModified</span>
+<span class="response-data-remarks">The date when the images of the property were last modified, or <code class="prettyprint">null</code> if the property has no images.</span></p>
 
 <p><span class="response-data-head">ListingImages</span>
 <span class="response-data-remarks">Any images of the property.</span></p>

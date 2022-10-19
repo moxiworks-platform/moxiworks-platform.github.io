@@ -1,0 +1,186 @@
+#### <span class='entity-name'>Company</span> <span class='action-name'>Search</span>
+
+<div class='highlight ruby'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-ruby/MoxiworksPlatform/Company.html#search-class_method'>Ruby Search Docs</a></span></blockquote></div>
+
+<div class='highlight php'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-php/classes/MoxiworksPlatform.Company.html#method_search'>PHP Search Docs</a></span></blockquote></div>
+
+<div class='highlight csharp'><blockquote><span class='data-example-label'><a href='https://moxiworks-platform.github.io/moxiworks-dotnet/class_moxi_works_1_1_platform_1_1_company_service.html'>.Net <span class='action-name'>CompanyService.GetCompaniesAsync</span> Docs</a></span></blockquote></div>
+
+<aside class="note">Send a <b>GET</b> request to https://api.moxiworks.com/api/companies</aside>
+
+The <span class='entity-name'>Company</span> <span class='action-name'>Search</span> endpoint will return <span class='entity-name'>Company</span> entities matching the provided search parameters and that your organization is associated with.
+
+
+```http
+GET /api/companies/search?per_page=10&page_number=1&parent_company_id=1 HTTP/1.1
+Host: api.moxiworks.com
+Accept: application/vnd.moxi-platform+json;version=1
+Authorization: Basic XNNeXAAAUZaQlF0dA==
+Content-Type: application/x-www-form-urlencoded
+
+```
+
+```json
+{
+  "per_page":10,
+  "page_number":1,
+  "parent_company_id":1,
+  "show_paging_totals":false,
+}
+
+```
+
+```csharp
+
+/* set up prerequisites once */
+ConfigurationManager.AppSettings["Secret"] = "secret";
+ConfigurationManager.AppSettings["Identifier"] = "abc123";
+
+
+var companyId = "company_id";
+
+var service = new CompanyService(new MoxiWorksClient());
+var results = service.GetCompanyAsync(companyId).Result;
+
+```
+
+
+```ruby
+##### set up prerequisites once
+require 'moxiworks_platform'
+
+platform_identifier = 'abc123'
+
+platform_secret = 'secret'
+
+MoxiworksPlatform::Credentials.new(platform_identifier, platform_secret)
+##### end prerequisites
+
+moxi_works_companies = MoxiworksPlatform::Company.search(parent_company_id: "1234abcd")
+
+```
+
+```php
+<?php
+$platform_identifier = 'abc123'; // platorm_identifier provided by MoxiWorks Platform Rep
+$platform_secret = 'secret'; //platform_secret provided by MoxiWorks Platform Rep
+
+$credentials = new MoxiworksPlatform\Credentials($platform_identifier, $platform_secret);
+
+$moxi_works_company = MoxiworksPlatform\Company::search([
+        'parent_company_id' => '1234abcd']);
+?>
+```
+
+##### <span class='entity-name'>Company</span> <span class='action-name'>Search</span> Request Attributes
+
+When searching <span class='entity-name'>Company</span> using the MoxiWorks platform API, format your request using the following parameters.
+
+
+Attribute | Type | Length Limit |
+-----|-----|-----|-----|
+|<span>per_page</span>|<span><span class="data-type">Integer</span></span> | <span>255</span>
+|<span>page_number</span>|<span><span class="data-type">Integer</span></span> | <span>255</span>
+|<span>parent_company_id</span>|<span><span class="data-type">String</span></span> | <span>255</span>
+|<span>show_paging_totals</span>|<span><span class="data-type">Boolean</span></span> | <span>255</span>
+
+<span class="required-data">**Required Parameters Are In Red**</span>
+
+<span class="request-data-head">per_page</span>
+<span class="request-data-remarks">Number of companies records to return per page.</span>
+
+<span class="request-data-head">page_number</span>
+<span class="request-data-remarks">Page of companies records to return.</span>
+
+<span class="request-data-head">parent_company_id</span>
+<span class="request-data-remarks">This is the <span class='attribute-name'>numeric_id</span> or <span class='attribute-name'>moxi_works_company_id</span> of a company that is considered to be a parent company in the MoxiWorks Platform. This request attribute has two functions:<br><br>	**1.** It provides for a broad scope by which partners may be afforded permissions to perform MoxiWorks Platform actions, in scenarios where a partner does business with a parent company in the MoxiWorks System.<br>	**2.** It provides broad scope under which agents may be looked up using the <span class='attribute-name'>source_agent_id</span> request attribute in many scenarios across different MoxiWorks Platform endpoints and actions.<br><br>	**Please note** that this attribute cannot be used as a replacement for the <span class='attribute-name'>moxi_works_company_id</span> request attribute in scenarios where the <span class='attribute-name'>moxi_works_company_id</span> request attribute is required by the action.<br><br>	**Please note** that this attribute cannot be used to broaden scope of any request where the scope of the request is defined by the <span class='attribute-name'>moxi_works_company_id</span> request attribute.<br><br>	**Please note** that when passed in conjunction with the <span class='attribute-name'>moxi_works_company_id</span> request attribute, the value of <span class='attribute-name'>moxi_works_company_id</span> request attribute must be the numeric id form.<br><br>	Any use of this request attribute must be coordinated with MoxiWorks Platform Partner services. Please reach out to partner services for more information.</span>
+
+<span class="request-data-head">show_paging_totals</span>
+<span class="request-data-remarks">Displays two additional attributes on response payload. Use for troubleshooting purposes only. Paging should be performed again the provided <span class="attribute-name">paging_complete</span> attribute.</span>
+
+
+<blockquote><div class='highlight json' style="display: block">
+<span class='data-example-label'><span class='entity-name'>Company</span> <span class='action-name'>Search</span> Response Payload Example
+</span></div></blockquote>
+
+```json
+
+{
+    "name":"Bob's Brokerage",
+    "numeric_id": "1234567",
+    "client_company_id":"some_external_identifier"
+}
+```
+
+<blockquote><div class='highlight json' style="display: block">
+  <span class='data-example-label'><span class='entity-name'>Company</span> <span class='action-name'>Search</span> Failure Response
+</div> See <a href='#error-handling'>Error Handling</a> for details about individual error codes.</blockquote>
+
+```json
+
+{
+  "status":"fail",
+  "errorCode": xxx,
+  "messages": ["messages"]
+}
+
+```
+
+##### <span class='entity-name'>Company</span> <span class='action-name'>Search</span> Response Payload
+
+<span class='entity-name'>Company</span> <span class='action-name'>Search</span> returns an array of objects matching the request attributes representing companies that your organization has access to.
+The following attributes make up the payload of each <span class='entity-name'>Company</span> object returned in an <span class='action-name'>Search</span> request.
+
+<blockquote><div class='highlight json' style="display: block">
+<span class='data-example-label'><span class='entity-name'>Company</span> <span class='action-name'>Search</span> Response Payload Example
+</span></div></blockquote>
+
+
+```json
+
+[
+{
+  "name":"Bob's Brokerage",
+  "numeric_id": "1234567",
+  "client_company_id":"some_external_identifier"
+},
+{
+  "name":"Real Estate Two-Bajillion",
+  "numeric_id": "12345678",
+  "client_company_id":"someOtherExternalIdentifier"
+}
+]
+```
+
+
+<blockquote><div class='highlight json' style="display: block">
+<span class="data-example-label"><span class='entity-name'>Company</span> <span class='action-name'>Search</span> Failure Response</span>
+</div> See <a href='#error-handling'>Error Handling</a> for details about individual error codes.</blockquote>
+
+```json
+
+{
+  "status":"fail",
+  "errorCode": xxx,
+  "messages": ["messages"]
+}
+
+```
+
+
+###### <span class='action-name'>Search</span> Response Attributes
+
+Attribute | Type |
+-----|-----|-----|-----|
+|<span class="response-data">name</span>|<span class="data-type">String</span>|
+|<span class="response-data">numeric_id</span>|<span class="data-type">String</span>|
+|<span class="response-data">client_company_id</span>|<span class="data-type">String</span>|
+
+<span class="response-data-head">numeric_id</span>
+<span class="response-data-remarks">This is the numeric company id that is interchangeable with the <span class='attribute-name'>moxi_works_agent_id</span> in all request scenarios</span>
+
+<span class="response-data-head">name</span>
+<span class="response-data-remarks">This is a human readable name of the company which this <span class='entity-name'>Company</span> object represents.</span>
+
+<span class="response-data-head">client_company_id</span>
+<span class="response-data-remarks">This is a client-specified identifier of the company which this <span class='entity-name'>Company</span> object represents, or null if absent.</span>

@@ -286,6 +286,7 @@ Number | Property Type |
   "PublicTitle":"Amazingly Remarkable!",
   "PublicRemarks":"Publicalistically Remarkabalistically! REMARKABLE!!",
   "ModificationTimestamp":"2018-03-20T11:04:55.659-07:00",
+  "StatusChangeDate": "2020-09-08T00:00:00.000-07:00",
   "InternetAddressDisplayYN":true,
   "DaysOnMarket":0,
   "ListingContractDate":"07/27/2016",
@@ -319,6 +320,7 @@ Number | Property Type |
   "MiddleOrJuniorSchool":"*The* Junior High" ,
   "ListOfficeAOR":"WHATEVERS MLS",
   "ListOfficeAORArea":"Area 51",
+  "NewConstructionYN":false,
   "PoolYN":false,
   "PropertyType":"Residential",
   "TaxAnnualAmount":13652,
@@ -465,6 +467,7 @@ Number | Property Type |
   "MiddleOrJuniorSchool": null,
   "ListOfficeAOR": "Mutural Southern MLS",
   "ListOfficeAORArea": null,
+  "NewConstructionYN":null,
   "PoolYN": null,
   "PropertyType": null,
   "TaxAnnualAmount": null,
@@ -538,6 +541,7 @@ Attribute | Type |
 |<span class="response-data">PublicTitle</span>|<span class="response-data"><span class="data-type">String or null</span>
 |<span class="response-data">PublicRemarks</span>|<span class="response-data"><span class="data-type">String or null</span>
 |<span class="response-data">ModificationTimestamp</span>|<span class="response-data"><span class="data-type">String</span>
+|<span class="response-data">StatusChangeDate</span>|<span class="response-data"><span class="data-type">String</span>
 |<span class="response-data">InternetAddressDisplayYN</span>|<span class="response-data"><span class="data-type">Boolean or null</span>
 |<span class="response-data">DaysOnMarket</span>|<span class="response-data"><span class="data-type">Integer</span>
 |<span class="response-data">ListingContractDate</span>|<span class="response-data"><span class="data-type">String</span>
@@ -571,6 +575,7 @@ Attribute | Type |
 |<span class="response-data">MiddleOrJuniorSchool</span>|<span class="response-data"><span class="data-type">String or null</span>
 |<span class="response-data">ListOfficeAOR</span>|<span class="response-data"><span class="data-type">String or null</span>
 |<span class="response-data">ListOfficeAORArea</span>|<span class="response-data"><span class="data-type">String or null</span>
+|<span class="response-data">NewConstructionYN</span>|<span class="response-data"><span class="data-type">Boolean</span>
 |<span class="response-data">PoolYN</span>|<span class="response-data"><span class="data-type">Boolean or null</span>
 |<span class="response-data">PropertyType</span>|<span class="response-data"><span class="data-type">String or null</span>
 |<span class="response-data">TaxAnnualAmount</span>|<span class="response-data"><span class="data-type">Integer or null</span>
@@ -630,6 +635,10 @@ Attribute | Type |
 
 <span class="response-data-head">ModificationTimestamp</span>
 <span class="response-data-remarks">This is a string representing a date on which the listing data was last updated in ISO 8601 format.  If no data is available for this attribute, it will be `null`.</span>
+
+
+<span class="response-data-head">StatusChangeDate</span>
+<span class="response-data-remarks">Date the listing status changed to its current value.</span>
 
 
 <span class="response-data-head">InternetAddressDisplayYN</span>
@@ -750,6 +759,9 @@ Attribute | Type |
 
 <span class="response-data-head">ListOfficeAORArea</span>
 <span class="response-data-remarks">The MLS Area which this listing is in.</span>
+
+<span class="response-data-head">NewConstructionYN</span>
+<span class="response-data-remarks">Whether the property is newly constructed.</span>
 
 <span class="response-data-head">PoolYN</span>
 <span class="response-data-remarks">Whether the property has a pool.</span>

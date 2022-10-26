@@ -181,7 +181,10 @@ Attribute | Type  | Length Limit |
       "external_identifier": "123456",
       "external_office_id": "678910",
       "moxi_works_presentation_id": "8675309e9-dead-beef-1234-deadbeefabad",
-      "subject_property_address": "1234 Seller St., Houston, TX 77062"
+      "subject_property_address": "1234 Seller St., Houston, TX 77062",
+      "estimated_market_value": 789880.0,
+      "price_range_min": 100.0,
+      "price_range_max": 1000000.0
     }
   ]
 }
@@ -234,6 +237,9 @@ Attribute | Type |
 |<span class="response-data">external_office_id</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">moxi_works_presentation_id</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">subject_property_address</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">estimated_market_value</span>|<span class="data-type">Float or null</span>|
+|<span class="response-data">price_range_min</span>|<span class="data-type">Float or null</span>|
+|<span class="response-data">price_range_max</span>|<span class="data-type">Float or null</span>|
 
 <span class="response-data-head">agent_uuid</span>
 <span class="response-data-remarks">This is the MoxiWorks Platform ID of the agent which an <span class='entity-name'>ActionLog</span> entry is associated with. This will be an [RFC 4122](https://tools.ietf.org/html/rfc4122) compliant UUID.</span>
@@ -294,4 +300,11 @@ Attribute | Type |
 <span class="response-data-head">subject_property_address</span>
 <span class="response-data-remarks">The subject property address of the presentation. This will be null if there is no data for this attribute. Otherwise, this will be a string with the address, unit number (if any), city, state/province, and postal code.</span>
 
+<span class="response-data-head">estimated_market_value</span>
+<span class="response-data-remarks">The estimated market value of the presentation. This will be null if both a <span class="attribute-name">price_range_min</span> and <span class="attribute-name">price_range_max</span> exist.</span>
 
+<span class="response-data-head">price_range_min</span>
+<span class="response-data-remarks">The price range minimum of the presentation.</span>
+
+<span class="response-data-head">price_range_max</span>
+<span class="response-data-remarks">The price range maximum of the presentation.</span>

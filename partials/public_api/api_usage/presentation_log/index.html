@@ -240,7 +240,10 @@
       </span><span class="nt">"external_identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"external_office_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"678910"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"moxi_works_presentation_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8675309e9-dead-beef-1234-deadbeefabad"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"subject_property_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234 Seller St., Houston, TX 77062"</span><span class="w">
+      </span><span class="nt">"subject_property_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234 Seller St., Houston, TX 77062"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"estimated_market_value"</span><span class="p">:</span><span class="w"> </span><span class="mf">789880.0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"price_range_min"</span><span class="p">:</span><span class="w"> </span><span class="mf">100.0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"price_range_max"</span><span class="p">:</span><span class="w"> </span><span class="mf">1000000.0</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -365,6 +368,18 @@
 <td><span class="response-data">subject_property_address</span></td>
 <td><span class="data-type">String or null</span></td>
 </tr>
+<tr>
+<td><span class="response-data">estimated_market_value</span></td>
+<td><span class="data-type">Float or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">price_range_min</span></td>
+<td><span class="data-type">Float or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">price_range_max</span></td>
+<td><span class="data-type">Float or null</span></td>
+</tr>
 </tbody></table>
 
 <p><span class="response-data-head">agent_uuid</span>
@@ -425,6 +440,15 @@
 
 <p><span class="response-data-head">subject_property_address</span>
 <span class="response-data-remarks">The subject property address of the presentation. This will be null if there is no data for this attribute. Otherwise, this will be a string with the address, unit number (if any), city, state/province, and postal code.</span></p>
+
+<p><span class="response-data-head">estimated_market_value</span>
+<span class="response-data-remarks">The estimated market value of the presentation. This will be null if both a <span class="attribute-name">price_range_min</span> and <span class="attribute-name">price_range_max</span> exist.</span></p>
+
+<p><span class="response-data-head">price_range_min</span>
+<span class="response-data-remarks">The price range minimum of the presentation.</span></p>
+
+<p><span class="response-data-head">price_range_max</span>
+<span class="response-data-remarks">The price range maximum of the presentation.</span></p>
 
       </div>
       <div class="dark-box">

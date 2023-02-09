@@ -296,6 +296,7 @@ Attribute | Type | Length Limit |
   "MoxiWorksListingId":"abc123",
   "AgentCreatedListing":false,
   "VirtualTourURL":"http://the.virtual.tour.url",
+  "TaxParcelId": "9831200160",
   "ListingURL":"http://the.listing.url",
   "CompanyListingAttributes": [
     {
@@ -470,6 +471,7 @@ Attribute | Type |
 |<span class="response-data">MoxiWorksListingId</span>|<span class="response-data"><span class="data-type">String</span>
 |<span class="response-data">AgentCreatedListing</span>|<span class="response-data"><span class="data-type">Boolean</span>
 |<span class="response-data">VirtualTourURL</span>|<span class="response-data"><span class="data-type">String or null</span>
+|<span class="response-data">TaxParcelId</span>|<span class="response-data"><span class="data-type">String or null</span>
 |<span class="response-data">ListingURL</span>|<span class="response-data"><span class="data-type">String</span>
 |<span class="response-data">CompanyListingAttributes</span>|<span class="response-data"><span class="data-type">Array</span>
 |<span class="response-data">PropertyFeatures</span>|<span class="response-data"><span class="data-type">Array</span>
@@ -688,6 +690,9 @@ Attribute | Type |
 
 <span class="response-data-head">VirtualTourURL</span>
 <span class="response-data-remarks">Virtual tour URL for this listing.</span>
+
+<span class="response-data-head">TaxParcelId</span>
+<span class="response-data-remarks">The Tax ID / Parcel ID for the property. If no data is available for this attribute, it will be `null`.</span>
 
 <span class="response-data-head">ListingURL</span>
 <span class="response-data-remarks">Details URL for this listing.</span>

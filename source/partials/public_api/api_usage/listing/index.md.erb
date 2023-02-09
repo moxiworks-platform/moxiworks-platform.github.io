@@ -338,6 +338,7 @@ Number | Property Type |
      "attribute_1": "value_1",
      "attribute_2": "value_2"
   },
+  "TaxParcelId": "9831200160",
   "ListingURL":"http://the.listing.url",
   "PropertyFeatures":[
     {
@@ -590,6 +591,7 @@ Attribute | Type |
 |<span class="response-data">AgentCreatedListing</span>|<span class="response-data"><span class="data-type">Boolean</span>
 |<span class="response-data">VirtualTourURL</span>|<span class="response-data"><span class="data-type">String or null</span>
 |<span class="response-data">SharedPartnerData</span>|<span class="response-data"><span class="data-type">Hash</span>
+|<span class="response-data">TaxParcelId</span>|<span class="response-data"><span class="data-type">String or null</span>
 |<span class="response-data">ListingURL</span>|<span class="response-data"><span class="data-type">String or null</span>
 |<span class="response-data">PropertyFeatures</span>|<span class="response-data"><span class="data-type">Array</span>
 |<span class="response-data">CompanyListingAttributes</span>|<span class="response-data"><span class="data-type">Array</span>
@@ -812,6 +814,9 @@ Attribute | Type |
 
 <span class="response-data-head">SharedPartnerData</span>
 <span class="response-data-remarks">A hash containing data shared between MoxiWorks affiliates.</span>
+
+<span class="response-data-head">TaxParcelId</span>
+<span class="response-data-remarks">The Tax ID / Parcel ID for the property. If no data is available for this attribute, it will be `null`.</span>
 
 <span class="response-data-head">ListingURL</span>
 <span class="response-data-remarks">Details URL for this listing.</span>

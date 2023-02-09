@@ -19874,6 +19874,7 @@ The following attributes make up the payload of each <span class='entity-name'>L
      </span><span class="nt">"attribute_1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"value_1"</span><span class="p">,</span><span class="w">
      </span><span class="nt">"attribute_2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"value_2"</span><span class="w">
   </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"TaxParcelId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9831200160"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"ListingURL"</span><span class="p">:</span><span class="s2">"http://the.listing.url"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"PropertyFeatures"</span><span class="p">:[</span><span class="w">
     </span><span class="p">{</span><span class="w">
@@ -19944,8 +19945,8 @@ The following attributes make up the payload of each <span class='entity-name'>L
       </span><span class="nt">"Height"</span><span class="p">:</span><span class="mi">768</span><span class="p">,</span><span class="w">
       </span><span class="nt">"MimeType"</span><span class="p">:</span><span class="s2">"image/jpeg"</span><span class="w">
       </span><span class="p">}</span><span class="w">
-  </span><span class="p">],</span><span class="w">
-</span><span class="err">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre>
 
 <blockquote><div class='highlight json' style="display: block">
@@ -20212,6 +20213,10 @@ The following attributes make up the payload of each <span class='entity-name'>L
 <td><span class="response-data"><span class="data-type">Hash</span></td>
 </tr>
 <tr>
+<td><span class="response-data">TaxParcelId</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+<tr>
 <td><span class="response-data">ListingURL</span></td>
 <td><span class="response-data"><span class="data-type">String or null</span></td>
 </tr>
@@ -20407,6 +20412,9 @@ The following attributes make up the payload of each <span class='entity-name'>L
 
 <p><span class="response-data-head">SharedPartnerData</span>
 <span class="response-data-remarks">A hash containing data shared between MoxiWorks affiliates.</span></p>
+
+<p><span class="response-data-head">TaxParcelId</span>
+<span class="response-data-remarks">The Tax ID / Parcel ID for the property. If no data is available for this attribute, it will be <code class="prettyprint">null</code>.</span></p>
 
 <p><span class="response-data-head">ListingURL</span>
 <span class="response-data-remarks">Details URL for this listing.</span></p>
@@ -21111,6 +21119,7 @@ The following attributes make up the payload of each <span class='entity-name'>L
      </span><span class="nt">"attribute_1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"value_1"</span><span class="p">,</span><span class="w">
      </span><span class="nt">"attribute_2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"value_2"</span><span class="w">
   </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"TaxParcelId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9831200160"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"ListingURL"</span><span class="p">:</span><span class="s2">"http://the.listing.url"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"PropertyFeatures"</span><span class="p">:[</span><span class="w">
     </span><span class="p">{</span><span class="w">
@@ -21558,6 +21567,10 @@ The following attributes make up the payload of each <span class='entity-name'>L
 <td><span class="response-data"><span class="data-type">Hash</span></td>
 </tr>
 <tr>
+<td><span class="response-data">TaxParcelId</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+<tr>
 <td><span class="response-data">ListingURL</span></td>
 <td><span class="response-data"><span class="data-type">String or null</span></td>
 </tr>
@@ -21756,6 +21769,9 @@ The following attributes make up the payload of each <span class='entity-name'>L
 
 <p><span class="response-data-head">SharedPartnerData</span>
 <span class="response-data-remarks">A hash containing data shared between MoxiWorks affiliates.</span></p>
+
+<p><span class="response-data-head">TaxParcelId</span>
+<span class="response-data-remarks">The Tax ID / Parcel ID for the property. If no data is available for this attribute, it will be <code class="prettyprint">null</code>.</span></p>
 
 <p><span class="response-data-head">ListingURL</span>
 <span class="response-data-remarks">Details URL for this listing.</span></p>
@@ -26370,6 +26386,7 @@ moxi_works_agent_id=abc123
   </span><span class="nt">"MoxiWorksListingId"</span><span class="p">:</span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"AgentCreatedListing"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="nt">"VirtualTourURL"</span><span class="p">:</span><span class="s2">"http://the.virtual.tour.url"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"TaxParcelId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9831200160"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"CompanyListingAttributes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"AttributeId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"the collection"</span><span class="p">,</span><span class="w">
@@ -26703,6 +26720,10 @@ moxi_works_agent_id=abc123
 <td><span class="response-data"><span class="data-type">String or null</span></td>
 </tr>
 <tr>
+<td><span class="response-data">TaxParcelId</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+<tr>
 <td><span class="response-data">ListingURL</span></td>
 <td><span class="response-data"><span class="data-type">String</span></td>
 </tr>
@@ -26920,6 +26941,9 @@ moxi_works_agent_id=abc123
 
 <p><span class="response-data-head">VirtualTourURL</span>
 <span class="response-data-remarks">Virtual tour URL for this listing.</span></p>
+
+<p><span class="response-data-head">TaxParcelId</span>
+<span class="response-data-remarks">The Tax ID / Parcel ID for the property. If no data is available for this attribute, it will be <code class="prettyprint">null</code>.</span></p>
 
 <p><span class="response-data-head">ListingURL</span>
 <span class="response-data-remarks">Details URL for this listing.</span></p>
@@ -27473,6 +27497,7 @@ moxi_works_agent_id=abc123
   </span><span class="nt">"MoxiWorksListingId"</span><span class="p">:</span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"AgentCreatedListing"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="nt">"VirtualTourURL"</span><span class="p">:</span><span class="s2">"http://the.virtual.tour.url"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"TaxParcelId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9831200160"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"ListingURL"</span><span class="p">:</span><span class="s2">"http://the.listing.url"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"CompanyListingAttributes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
@@ -27835,6 +27860,10 @@ moxi_works_agent_id=abc123
 <td><span class="response-data"><span class="data-type">String or null</span></td>
 </tr>
 <tr>
+<td><span class="response-data">TaxParcelId</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+<tr>
 <td><span class="response-data">ListingURL</span></td>
 <td><span class="response-data"><span class="data-type">String</span></td>
 </tr>
@@ -28052,6 +28081,9 @@ moxi_works_agent_id=abc123
 
 <p><span class="response-data-head">VirtualTourURL</span>
 <span class="response-data-remarks">Virtual tour URL for this listing.</span></p>
+
+<p><span class="response-data-head">TaxParcelId</span>
+<span class="response-data-remarks">The Tax ID / Parcel ID for the property. If no data is available for this attribute, it will be <code class="prettyprint">null</code>.</span></p>
 
 <p><span class="response-data-head">ListingURL</span>
 <span class="response-data-remarks">Details URL for this listing.</span></p>

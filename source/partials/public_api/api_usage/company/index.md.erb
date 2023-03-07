@@ -74,13 +74,19 @@ The following attributes make up the payload of each <span class='entity-name'>C
   "moxi_works_company_id":"bobs_brokerage",
   "name":"Bob's Brokerage",
   "numeric_id": "1234567",
-  "client_company_id":"some_external_identifier"
+  "client_company_id":"some_external_identifier",
+  "public_partner_attrs": {
+    "is_nrt": false
+  }
 },
 {
   "moxi_works_company_id":"real_estate_two_bajillion",
   "name":"Real Estate Two-Bajillion",
   "numeric_id": "12345678",
-  "client_company_id":"someOtherExternalIdentifier"
+  "client_company_id":"someOtherExternalIdentifier",
+  "public_partner_attrs": {
+    "is_nrt": true
+  }
 }
 ]
 ```
@@ -109,6 +115,7 @@ Attribute | Type |
 |<span class="response-data">name</span>|<span class="data-type">String</span>|
 |<span class="response-data">numeric_id</span>|<span class="data-type">String</span>|
 |<span class="response-data">client_company_id</span>|<span class="data-type">String</span>|
+|<span class="response-data">public_partner_attrs</span>|<span class="data-type">Hash or null</span>|
 
 <span class="response-data-head">moxi_works_company_id</span>
 <span class="response-data-remarks">This is the MoxiWorks Platform ID of the <span class='entity-name'>Company</span>. This will be an alphanumeric identification string which will be similar to the company name.</span>
@@ -121,3 +128,6 @@ Attribute | Type |
 
 <span class="response-data-head">client_company_id</span>
 <span class="response-data-remarks">This is a client-specified identifier of the company which this <span class='entity-name'>Company</span> object represents, or null if absent.</span>
+
+<span class="response-data-head">public_partner_attrs</span>
+<span class="response-data-remarks">Exposed company attributes</span>

@@ -144,7 +144,10 @@
 </span><span class="p">{</span><span class="w">
     </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"Bob's Brokerage"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"numeric_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234567"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"client_company_id"</span><span class="p">:</span><span class="s2">"some_external_identifier"</span><span class="w">
+    </span><span class="nt">"client_company_id"</span><span class="p">:</span><span class="s2">"some_external_identifier"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"public_partner_attrs"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"is_nrt"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -173,12 +176,18 @@ The following attributes make up the payload of each <span class='entity-name'>C
 </span><span class="p">{</span><span class="w">
   </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"Bob's Brokerage"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"numeric_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234567"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"client_company_id"</span><span class="p">:</span><span class="s2">"some_external_identifier"</span><span class="w">
+  </span><span class="nt">"client_company_id"</span><span class="p">:</span><span class="s2">"some_external_identifier"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"public_partner_attrs"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"is_nrt"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+  </span><span class="p">}</span><span class="w">
 </span><span class="p">},</span><span class="w">
 </span><span class="p">{</span><span class="w">
   </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"Real Estate Two-Bajillion"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"numeric_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345678"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"client_company_id"</span><span class="p">:</span><span class="s2">"someOtherExternalIdentifier"</span><span class="w">
+  </span><span class="nt">"client_company_id"</span><span class="p">:</span><span class="s2">"someOtherExternalIdentifier"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"public_partner_attrs"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"is_nrt"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+  </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
@@ -215,6 +224,10 @@ The following attributes make up the payload of each <span class='entity-name'>C
 <td><span class="response-data">client_company_id</span></td>
 <td><span class="data-type">String</span></td>
 </tr>
+<tr>
+<td><span class="response-data">public_partner_attrs</span></td>
+<td><span class="data-type">Hash or null</span></td>
+</tr>
 </tbody></table>
 
 <p><span class="response-data-head">numeric_id</span>
@@ -225,6 +238,9 @@ The following attributes make up the payload of each <span class='entity-name'>C
 
 <p><span class="response-data-head">client_company_id</span>
 <span class="response-data-remarks">This is a client-specified identifier of the company which this <span class='entity-name'>Company</span> object represents, or null if absent.</span></p>
+
+<p><span class="response-data-head">public_partner_attrs</span>
+<span class="response-data-remarks">Exposed company attributes</span></p>
 
       </div>
       <div class="dark-box">

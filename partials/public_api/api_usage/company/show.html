@@ -120,7 +120,10 @@
     </span><span class="nt">"moxi_works_company_id"</span><span class="p">:</span><span class="s2">"bobs_brokerage"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"Bob's Brokerage"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"numeric_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234567"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"client_company_id"</span><span class="p">:</span><span class="s2">"some_external_identifier"</span><span class="w">
+    </span><span class="nt">"client_company_id"</span><span class="p">:</span><span class="s2">"some_external_identifier"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"public_partner_attrs"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"is_nrt"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -168,6 +171,10 @@
 <td><span class="response-data">partners</span></td>
 <td><span class="data-type">Array</span></td>
 </tr>
+<tr>
+<td><span class="response-data">public_partner_attrs</span></td>
+<td><span class="data-type">Hash or null</span></td>
+</tr>
 </tbody></table>
 
 <p><span class="response-data-head">moxi_works_company_id</span>
@@ -184,6 +191,9 @@
 
 <p><span class="response-data-head">partners</span>
 <span class="response-data-remarks">Partner data associated with this company</span></p>
+
+<p><span class="response-data-head">public_partner_attrs</span>
+<span class="response-data-remarks">Exposed company attributes</span></p>
 
 <h6 id="partners-objects"><span class='attribute-name'>partners</span> Objects</h6>
 

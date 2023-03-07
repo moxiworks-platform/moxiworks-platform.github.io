@@ -8120,7 +8120,10 @@ moxi_works_agent_id=abc123
     </span><span class="nt">"moxi_works_company_id"</span><span class="p">:</span><span class="s2">"bobs_brokerage"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"Bob's Brokerage"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"numeric_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234567"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"client_company_id"</span><span class="p">:</span><span class="s2">"some_external_identifier"</span><span class="w">
+    </span><span class="nt">"client_company_id"</span><span class="p">:</span><span class="s2">"some_external_identifier"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"public_partner_attrs"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"is_nrt"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -8168,6 +8171,10 @@ moxi_works_agent_id=abc123
 <td><span class="response-data">partners</span></td>
 <td><span class="data-type">Array</span></td>
 </tr>
+<tr>
+<td><span class="response-data">public_partner_attrs</span></td>
+<td><span class="data-type">Hash or null</span></td>
+</tr>
 </tbody></table>
 
 <p><span class="response-data-head">moxi_works_company_id</span>
@@ -8184,6 +8191,9 @@ moxi_works_agent_id=abc123
 
 <p><span class="response-data-head">partners</span>
 <span class="response-data-remarks">Partner data associated with this company</span></p>
+
+<p><span class="response-data-head">public_partner_attrs</span>
+<span class="response-data-remarks">Exposed company attributes</span></p>
 
 <h6 id="partners-objects"><span class='attribute-name'>partners</span> Objects</h6>
 
@@ -8290,13 +8300,19 @@ The following attributes make up the payload of each <span class='entity-name'>C
   </span><span class="nt">"moxi_works_company_id"</span><span class="p">:</span><span class="s2">"bobs_brokerage"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"Bob's Brokerage"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"numeric_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234567"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"client_company_id"</span><span class="p">:</span><span class="s2">"some_external_identifier"</span><span class="w">
+  </span><span class="nt">"client_company_id"</span><span class="p">:</span><span class="s2">"some_external_identifier"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"public_partner_attrs"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"is_nrt"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+  </span><span class="p">}</span><span class="w">
 </span><span class="p">},</span><span class="w">
 </span><span class="p">{</span><span class="w">
   </span><span class="nt">"moxi_works_company_id"</span><span class="p">:</span><span class="s2">"real_estate_two_bajillion"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"Real Estate Two-Bajillion"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"numeric_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345678"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"client_company_id"</span><span class="p">:</span><span class="s2">"someOtherExternalIdentifier"</span><span class="w">
+  </span><span class="nt">"client_company_id"</span><span class="p">:</span><span class="s2">"someOtherExternalIdentifier"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"public_partner_attrs"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"is_nrt"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+  </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
@@ -8338,6 +8354,10 @@ The following attributes make up the payload of each <span class='entity-name'>C
 <td><span class="response-data">client_company_id</span></td>
 <td><span class="data-type">String</span></td>
 </tr>
+<tr>
+<td><span class="response-data">public_partner_attrs</span></td>
+<td><span class="data-type">Hash or null</span></td>
+</tr>
 </tbody></table>
 
 <p><span class="response-data-head">moxi_works_company_id</span>
@@ -8351,6 +8371,9 @@ The following attributes make up the payload of each <span class='entity-name'>C
 
 <p><span class="response-data-head">client_company_id</span>
 <span class="response-data-remarks">This is a client-specified identifier of the company which this <span class='entity-name'>Company</span> object represents, or null if absent.</span></p>
+
+<p><span class="response-data-head">public_partner_attrs</span>
+<span class="response-data-remarks">Exposed company attributes</span></p>
 
 <h4 id="company-search"><span class='entity-name'>Company</span> <span class='action-name'>Search</span></h4>
 
@@ -8474,7 +8497,10 @@ The following attributes make up the payload of each <span class='entity-name'>C
 </span><span class="p">{</span><span class="w">
     </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"Bob's Brokerage"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"numeric_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234567"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"client_company_id"</span><span class="p">:</span><span class="s2">"some_external_identifier"</span><span class="w">
+    </span><span class="nt">"client_company_id"</span><span class="p">:</span><span class="s2">"some_external_identifier"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"public_partner_attrs"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"is_nrt"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -8505,12 +8531,18 @@ The following attributes make up the payload of each <span class='entity-name'>C
 </span><span class="p">{</span><span class="w">
   </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"Bob's Brokerage"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"numeric_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234567"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"client_company_id"</span><span class="p">:</span><span class="s2">"some_external_identifier"</span><span class="w">
+  </span><span class="nt">"client_company_id"</span><span class="p">:</span><span class="s2">"some_external_identifier"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"public_partner_attrs"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"is_nrt"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+  </span><span class="p">}</span><span class="w">
 </span><span class="p">},</span><span class="w">
 </span><span class="p">{</span><span class="w">
   </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"Real Estate Two-Bajillion"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"numeric_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345678"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"client_company_id"</span><span class="p">:</span><span class="s2">"someOtherExternalIdentifier"</span><span class="w">
+  </span><span class="nt">"client_company_id"</span><span class="p">:</span><span class="s2">"someOtherExternalIdentifier"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"public_partner_attrs"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"is_nrt"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+  </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
@@ -8548,6 +8580,10 @@ The following attributes make up the payload of each <span class='entity-name'>C
 <td><span class="response-data">client_company_id</span></td>
 <td><span class="data-type">String</span></td>
 </tr>
+<tr>
+<td><span class="response-data">public_partner_attrs</span></td>
+<td><span class="data-type">Hash or null</span></td>
+</tr>
 </tbody></table>
 
 <p><span class="response-data-head">numeric_id</span>
@@ -8558,6 +8594,9 @@ The following attributes make up the payload of each <span class='entity-name'>C
 
 <p><span class="response-data-head">client_company_id</span>
 <span class="response-data-remarks">This is a client-specified identifier of the company which this <span class='entity-name'>Company</span> object represents, or null if absent.</span></p>
+
+<p><span class="response-data-head">public_partner_attrs</span>
+<span class="response-data-remarks">Exposed company attributes</span></p>
 
 
 <h3 id="contact"><span class='entity-name'>Contact</span></h3>

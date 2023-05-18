@@ -181,6 +181,7 @@ Attribute | Type  | Length Limit |
 |<span class="optional-data">include_company_programs</span>|<span class="data-type">Boolean</span>| 255 |
 |<span class="optional-data">include_website</span>|<span class="data-type">Boolean</span>| 255 |
 |<span class="optional-data">has_company_programs</span>|<span class="data-type">Boolean</span>| 255 |
+|<span class="optional-data">include_reviews</span>|<span class="data-type">Boolean</span>| 255 |
 
 <span class="required-data">**Required Parameters Are In Red**</span>
 
@@ -226,6 +227,9 @@ Attribute | Type  | Length Limit |
 
 <span class="request-data-head">has_company_programs</span>
 <span class="request-data-remarks">To include only <span class='entity-name'>Agent</span> objects associated with company specific programs pass `true`.</span>
+
+<span class="request-data-head">include_reviews</span>
+<span class="request-data-remarks">To include ratings and reviews associated with the agent in the response, pass `true`.</span>
 
 <blockquote><div class='highlight json' style="display: block">
 <span class="data-example-label">Agent Index: Success Response</span>
@@ -346,7 +350,14 @@ Attribute | Type  | Length Limit |
       "identifier_key": "xyz99999"
     }
   ],
-  "profile_visible_online": true
+  "profile_visible_online": true,
+  "user_reviews": [
+    {
+      "source_name": "zillow",
+      "agg_rating": 5,
+      "reviews_count": 10
+    }
+  ]
 }
 ]
 }
@@ -439,6 +450,7 @@ Attribute | Type |
 |<span class="response-data">created_timestamp</span>|<span class="data-type">Integer</span>|
 |<span class="response-data">deactivated_timestamp</span>|<span class="data-type">Integer or null</span>|
 |<span class="response-data">profile_visible_online</span>|<span class="data-type">Boolean</span>|
+|<span class="response-data">user_reviews</span>|<span class="data-type">Array</span>|
 
 <span class="response-data-head">moxi_works_agent_id</span>
 <span class="response-data-remarks">This is the MoxiWorks Platform ID of the <span class='entity-name'>Agent</span>. This will be a string that may take the form of an email address, or a unique alphanumeric identification string.</span>
@@ -713,7 +725,7 @@ Attribute | Type |
 
 ###### <span class='attribute-name'>partners</span> Objects
 
-Exstence of objects in the `partners` data structure is dependent upon external relationships existing between the agent represented by this <span class='entity-name'>Agent</span> and the affiliate.
+Existence of objects in the `partners` data structure is dependent upon external relationships existing between the agent represented by this <span class='entity-name'>Agent</span> and the affiliate.
 
 <aside class="note">Documented entities in the `partners` data structure may or may not be returned based on agent relationship. Your logic should be engineered to handle cases where the entity you are interested in is returned and where an empty data structure is returned.</aside>
 
@@ -761,3 +773,28 @@ Attribute | Type |
 
 <span class="response-data-head">zillow</span>
 <span class="response-data-remarks">The zillow email address associated with the <span class='entity-name'>Agent</span> record.</span>
+
+
+###### <span class='attribute-name'>user_reviews</span> Object
+
+Existence of objects in the `user_reviews` data structure is dependent upon external sources, i.e. Zillow, Testimonial Tree.
+
+<aside class="note">Documented entities in the `user_reviews` data structure may or may not be returned when `include_reviews=true` is passed. Your logic should be engineered to handle cases where the entity you are interested in is returned and where an empty data structure is returned.</aside>
+
+
+###### <span class='attribute-name'>user_reviews</span> user_reviews Object
+
+Attribute | Type |
+-----|-----|-----|-----|
+|<span class="response-data">source_name</span>|<span class="response-data"><span class="data-type">String</span>
+|<span class="response-data">agg_rating</span>|<span class="response-data"><span class="data-type">Float or null</span>
+|<span class="response-data">reviews_count</span>|<span class="response-data"><span class="data-type">Integer</span>
+
+<span class="response-data-head">source_name</span>
+<span class="response-data-remarks">This is the name of the external source, i.e. `zillow`, `testimonial_tree`</span>
+
+<span class="response-data-head">agg_rating</span>
+<span class="response-data-remarks">The aggregate rating to one decimal point. If reviews_count is 0 then this will be `null`</span>
+
+<span class="response-data-head">reviews_count</span>
+<span class="response-data-remarks">This is the number of reviews found on the agent from the source</span>

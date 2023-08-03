@@ -49,6 +49,7 @@ If you just want to push to QA without a PR (not much need for PR in this projec
 
 `./qa_publish.sh`
 
+Ensure that you have middleman installed before running the `./qa_publish.sh` script.
 
 
 #### Publishing Using a Pull Request

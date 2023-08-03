@@ -234,6 +234,11 @@
 <td><span class="data-type">Boolean</span></td>
 <td>255</td>
 </tr>
+<tr>
+<td><span class="optional-data">include_reviews</span></td>
+<td><span class="data-type">Boolean</span></td>
+<td>255</td>
+</tr>
 </tbody></table>
 
 <p><span class="required-data"><strong>Required Parameters Are In Red</strong></span></p>
@@ -277,6 +282,9 @@
 
 <p><span class="request-data-head">has_company_programs</span>
 <span class="request-data-remarks">To include only <span class='entity-name'>Agent</span> objects associated with company specific programs pass <code class="prettyprint">true</code>.</span></p>
+
+<p><span class="request-data-head">include_reviews</span>
+<span class="request-data-remarks">To include ratings and reviews associated with the agent in the response, pass <code class="prettyprint">true</code>.</span></p>
 
 <blockquote><div class='highlight json' style="display: block">
 <span class="data-example-label">Agent Index: Success Response</span>
@@ -395,7 +403,14 @@
       </span><span class="nt">"identifier_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xyz99999"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">
-  </span><span class="nt">"profile_visible_online"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+  </span><span class="nt">"profile_visible_online"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"user_reviews"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"source_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"zillow"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"agg_rating"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"reviews_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -683,6 +698,10 @@
 <tr>
 <td><span class="response-data">profile_visible_online</span></td>
 <td><span class="data-type">Boolean</span></td>
+</tr>
+<tr>
+<td><span class="response-data">user_reviews</span></td>
+<td><span class="data-type">Array</span></td>
 </tr>
 </tbody></table>
 
@@ -997,7 +1016,7 @@
 
 <h6 id="partners-objects"><span class='attribute-name'>partners</span> Objects</h6>
 
-<p>Exstence of objects in the <code class="prettyprint">partners</code> data structure is dependent upon external relationships existing between the agent represented by this <span class='entity-name'>Agent</span> and the affiliate.</p>
+<p>Existence of objects in the <code class="prettyprint">partners</code> data structure is dependent upon external relationships existing between the agent represented by this <span class='entity-name'>Agent</span> and the affiliate.</p>
 
 <aside class="note">Documented entities in the `partners` data structure may or may not be returned based on agent relationship. Your logic should be engineered to handle cases where the entity you are interested in is returned and where an empty data structure is returned.</aside>
 
@@ -1078,6 +1097,43 @@
 
 <p><span class="response-data-head">zillow</span>
 <span class="response-data-remarks">The zillow email address associated with the <span class='entity-name'>Agent</span> record.</span></p>
+
+<h6 id="user_reviews-object"><span class='attribute-name'>user_reviews</span> Object</h6>
+
+<p>Existence of objects in the <code class="prettyprint">user_reviews</code> data structure is dependent upon external sources, i.e. Zillow, Testimonial Tree.</p>
+
+<aside class="note">Documented entities in the `user_reviews` data structure may or may not be returned when `include_reviews=true` is passed. Your logic should be engineered to handle cases where the entity you are interested in is returned and where an empty data structure is returned.</aside>
+
+<h6 id="user_reviews-user_reviews-object"><span class='attribute-name'>user_reviews</span> user_reviews Object</h6>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span class="response-data">source_name</span></td>
+<td><span class="response-data"><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">agg_rating</span></td>
+<td><span class="response-data"><span class="data-type">Float or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">reviews_count</span></td>
+<td><span class="response-data"><span class="data-type">Integer</span></td>
+</tr>
+</tbody></table>
+
+<p><span class="response-data-head">source_name</span>
+<span class="response-data-remarks">This is the name of the external source, i.e. <code class="prettyprint">zillow</code>, <code class="prettyprint">testimonial_tree</code></span></p>
+
+<p><span class="response-data-head">agg_rating</span>
+<span class="response-data-remarks">The aggregate rating to one decimal point. If reviews_count is 0 then this will be <code class="prettyprint">null</code></span></p>
+
+<p><span class="response-data-head">reviews_count</span>
+<span class="response-data-remarks">This is the number of reviews found on the agent from the source</span></p>
 
       </div>
       <div class="dark-box">

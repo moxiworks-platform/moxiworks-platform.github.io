@@ -113,6 +113,7 @@ Attribute | Type  | Length Limit |
 |<span class="optional-data">deactivated</span>|<span class="data-type">Boolean</span>| 255 |
 |<span class="optional-data">page_number</span>|<span class="data-type">Integer</span>| 255 |
 |<span class="optional-data">deactivated_since</span>|<span class="data-type">Integer</span>| 255 |
+|<span class="optional-data">timestamps_only</span>|<span class="data-type">Boolean</span>| 255 |
 
 <span class="required-data">**Required Parameters Are In Red**</span>
 
@@ -133,6 +134,9 @@ Attribute | Type  | Length Limit |
 
 <span class="request-data-head">deactivated_since</span>
 <span class="request-data-remarks">any <span class='entity-name'>Office</span> objects deactivated after this Unix timestamp will be returned in the response. **If no <span class='attribute-name'>deactivated_since</span> parameter is included in the request, only <span class='entity-name'>Office</span> objects deactivated in the last seven days will be returned.**</span>
+
+<span class="request-data-head">timestamps_only</span>
+<span class="request-data-remarks">If supplied then the results will exclude all data except primary identifiers and a unix timestamp (last_updated) & iso8601 timestamp (modification_timestamp) of the last time this record was updated.</span>
 
 <aside class="note">By default only <span class='entity-name'>Office</span> objects deactivated in the last seven days will be returned.</aside>
 

@@ -1479,6 +1479,16 @@ moxi_works_action_log_id=12345678-1234-1234-1234-1234567890ab
   </span><span class="p">},</span><span class="w">
   </span><span class="nt">"lead_routing_email_address"</span><span class="p">:</span><span class="s2">"leadrouter@thisdomain.com"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Broker"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"bio"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example1 example1 example1"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"header"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example1"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example2 example2 example2"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"header"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example2"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
   </span><span class="nt">"designations"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Realtor, CRS, SRES"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"uuid"</span><span class="p">:</span><span class="s2">"8675309e9-1234-dead-beef-deadbeefdead"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"has_engage_access"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
@@ -1724,6 +1734,10 @@ moxi_works_action_log_id=12345678-1234-1234-1234-1234567890ab
 <td><span class="data-type">String or null</span></td>
 </tr>
 <tr>
+<td><span class="response-data">bio</span></td>
+<td><span class="data-type">Array</span></td>
+</tr>
+<tr>
 <td><span class="response-data">designations</span></td>
 <td><span class="data-type">String or null</span></td>
 </tr>
@@ -1944,6 +1958,9 @@ moxi_works_action_log_id=12345678-1234-1234-1234-1234567890ab
 
 <p><span class="response-data-head">title</span>
 <span class="response-data-remarks">This is the business title of the agent.  This can be null if there is no data for this attribute.</span></p>
+
+<p><span class="response-data-head">bio</span>
+<span class="response-data-remarks">This is the bio of the agent.  Array of key/value pairs. Each has a body and header, both strings, which can be null or blank.</span></p>
 
 <p><span class="response-data-head">designations</span>
 <span class="response-data-remarks">This is a string that contains the agent&rsquo;s designation(s), if any.  This can be null if there is no data for this attribute.</span></p>
@@ -2610,6 +2627,16 @@ moxi_works_action_log_id=12345678-1234-1234-1234-1234567890ab
   </span><span class="p">},</span><span class="w">
   </span><span class="nt">"lead_routing_email_address"</span><span class="p">:</span><span class="s2">"leadrouter@thisdomain.com"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Broker"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"bio"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example1 example1 example1"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"header"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example1"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example2 example2 example2"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"header"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example2"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
   </span><span class="nt">"designations"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Realtor, CRS, SRES"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"uuid"</span><span class="p">:</span><span class="s2">"8675309e9-1234-dead-beef-deadbeefdead"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"has_product_access"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
@@ -2878,6 +2905,10 @@ moxi_works_action_log_id=12345678-1234-1234-1234-1234567890ab
 <td><span class="data-type">String or null</span></td>
 </tr>
 <tr>
+<td><span class="response-data">bio</span></td>
+<td><span class="data-type">Array</span></td>
+</tr>
+<tr>
 <td><span class="response-data">designations</span></td>
 <td><span class="data-type">String or null</span></td>
 </tr>
@@ -3086,6 +3117,9 @@ moxi_works_action_log_id=12345678-1234-1234-1234-1234567890ab
 
 <p><span class="response-data-head">title</span>
 <span class="response-data-remarks">This is the business title of the agent.  This can be null if there is no data for this attribute.</span></p>
+
+<p><span class="response-data-head">bio</span>
+<span class="response-data-remarks">This is the bio of the agent.  Array of key/value pairs. Each has a body and header, both strings, which can be null or blank.</span></p>
 
 <p><span class="response-data-head">designations</span>
 <span class="response-data-remarks">This is a string that contains the agent&rsquo;s designation(s), if any.  This can be null if there is no data for this attribute.</span></p>

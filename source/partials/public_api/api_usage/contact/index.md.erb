@@ -155,6 +155,7 @@ Attribute | Type | Length Limit |
 |<span class="optional-data">updated_since</span>|<span class="data-type">Integer</span>| 255 |
 |<span class="optional-data">page_number</span>|<span class="data-type">Integer</span>| 255 |
 |<span class="optional-data">only_business_contacts</span>|<span class="data-type">Boolean</span>|  |
+|<span class="optional-data">timestamps_only</span>|<span class="data-type">Boolean</span>| 255 |
 
 <span class="required-data">**Required Parameters Are In Red**</span>
 
@@ -190,6 +191,9 @@ Attribute | Type | Length Limit |
 <span class="request-data-head">only_business_contacts</span>
 <span class="request-data-remarks">Whether to only include <span class='entity-name'>Contact</span> records for contacts that are neither considered personal contacts nor work collaborators in the payload response.</span>
 <aside class="note">By default all <span class='entity-name'>Contact</span> records will be returned. Use the `personal_contact` and `collaborator` response attributes to determine the status of any given contact.</aside>
+
+<span class="request-data-head">timestamps_only</span>
+<span class="request-data-remarks">If supplied then the results will exclude all data except primary identifiers and a unix timestamp (last_updated) & iso8601 timestamp (modification_timestamp) of the last time this record was updated.</span>
 
 
 <blockquote><div class='highlight json' style="display: block">

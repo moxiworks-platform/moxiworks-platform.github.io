@@ -2,6 +2,10 @@
 
 MoxiWorks Plaform <span class='entity-name'>Company</span> entities are your entry-point for determining the established relationships for your organization to companies on the MoxiWorks Platform and for accessing data about those companies. Many requests require a <span class='attribute-name'>moxi_works_company_id</span>, which you'll need to derive from the <span class='entity-name'>Company</span> <span class='action-name'>Index</span> endpoint.
 
+The company response attribute <span class='attribute-name'>numeric_id</span> can be used anywhere that <span class='attribute-name'>moxi_works_company_id</span> is used.
+
+<aside class="note">Use of the non-numeric <span class='attribute-name'>moxi_works_company_id</span> is deprecated, and is no longer supported.</aside>
+
 <%= partial "partials/public_api/api_usage/company/show.md.erb" %>
 
 <%= partial "partials/public_api/api_usage/company/index.md.erb" %>

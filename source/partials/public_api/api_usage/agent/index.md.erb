@@ -288,6 +288,16 @@ Attribute | Type  | Length Limit |
   },
   "lead_routing_email_address":"leadrouter@thisdomain.com",
   "title": "Broker",
+  "bio": [
+    {
+      "body": "example1 example1 example1",
+      "header": "example1"
+    },
+    {
+      "body": "example2 example2 example2",
+      "header": "example2"
+    }
+  ],
   "designations": "Realtor, CRS, SRES",
   "uuid":"8675309e9-1234-dead-beef-deadbeefdead",
   "has_product_access":true,
@@ -430,6 +440,7 @@ Attribute | Type |
 |<span class="response-data">email_addresses</span>|<span class="data-type">Hash</span>|
 |<span class="response-data">lead_routing_email_address</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">title</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">bio</span>|<span class="data-type">Array</span>|
 |<span class="response-data">designations</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">uuid</span>|<span class="data-type">String</span>|
 |<span class="response-data">has_product_access</span>|<span class="data-type">Boolean</span>|
@@ -565,6 +576,9 @@ Attribute | Type |
 
 <span class="response-data-head">title</span>
 <span class="response-data-remarks">This is the business title of the agent.  This can be null if there is no data for this attribute.</span>
+
+<span class="response-data-head">bio</span>
+<span class="response-data-remarks">This is the bio of the agent.  Array of key/value pairs. Each has a body and header, both strings, which can be null or blank.</span>
 
 <span class="response-data-head">designations</span>
 <span class="response-data-remarks">This is a string that contains the agent's designation(s), if any.  This can be null if there is no data for this attribute.</span>

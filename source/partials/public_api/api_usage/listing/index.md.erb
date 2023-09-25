@@ -179,6 +179,7 @@ Attribute | Type | Length Limit |
 |<span class="optional-data">only_agent_created</span>|<span class="data-type">Boolean</span>| 255 |
 |<span class="optional-data">coming_soon</span>|<span class="data-type">Boolean</span>| 255 |
 |<span class="optional-data">underscore_response</span>|<span class="data-type">Boolean</span>| 255 |
+|<span class="optional-data">timestamps_only</span>|<span class="data-type">Boolean</span>| 255 |
 
 <span class="required-data">**Required Parameters Are In Red**</span>
 
@@ -262,6 +263,9 @@ Number | Property Type |
 
 <span class="request-data-head">underscore_response</span>
 <span class="request-data-remarks">When this attribute is passed as true, the json keys of the response will be underscored. The default json key format for listing responses is camel casing.</span>
+
+<span class="request-data-head">timestamps_only</span>
+<span class="request-data-remarks">If supplied then the results will exclude all data except primary identifiers and a unix timestamp (last_updated) & iso8601 timestamp (modification_timestamp) of the last time this record was updated.</span>
 
 <blockquote><div class='highlight json' style="display: block">
 <span class='data-example-label'><span class='entity-name'>Listing</span> <span class='action-name'>Index</span> Response Payload Example

@@ -39,6 +39,8 @@
 <aside class="note">Send a <b>GET</b> request to https://api.moxiworks.com/api/companies/search</aside>
 
 <p>The <span class='entity-name'>Company</span> <span class='action-name'>Search</span> endpoint will return <span class='entity-name'>Company</span> entities matching the provided search parameters and that your organization is associated with.</p>
+
+<p>Global permission or parent company permissions are required to use this endpoint.</p>
 <pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/companies/search?per_page=10&amp;page_number=1&amp;parent_company_id=1</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">api.moxiworks.com</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.moxi-platform+json;version=1</span>

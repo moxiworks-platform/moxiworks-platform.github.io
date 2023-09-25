@@ -1424,6 +1424,11 @@
 <td><span class="data-type">Boolean</span></td>
 <td>255</td>
 </tr>
+<tr>
+<td><span class="optional-data">timestamps_only</span></td>
+<td><span class="data-type">Boolean</span></td>
+<td>255</td>
+</tr>
 </tbody></table>
 
 <p><span class="required-data"><strong>Required Parameters Are In Red</strong></span></p>
@@ -1470,6 +1475,9 @@
 
 <p><span class="request-data-head">include_reviews</span>
 <span class="request-data-remarks">To include ratings and reviews associated with the agent in the response, pass <code class="prettyprint">true</code>.</span></p>
+
+<p><span class="request-data-head">timestamps_only</span>
+<span class="request-data-remarks">If supplied then the results will exclude all data except primary identifiers and a unix timestamp (last_updated) &amp; iso8601 timestamp (modification_timestamp) of the last time this record was updated.</span></p>
 
 <blockquote><div class='highlight json' style="display: block">
 <span class="data-example-label">Agent Index: Success Response</span>

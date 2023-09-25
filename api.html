@@ -719,7 +719,7 @@ to view, use the following:
 <span class="request-data-remarks">If you have already existing agent data, agent accounts <strong>and your own user interface that agents can use to integrate your account with their MoxiWorks Platform account</strong> then you should use the <span class='attribute-name'>moxi_works_agent_id</span> request attribute. This identifier is guaranteed to be unique, but may be either an alphanumeric string or an email address. It is intended for use cases where integration is managed by end-user interaction..</span></p>
 
 <p><span class="request-data-head">source_agent_id</span>
-<span class="request-data-remarks">If you have access to agent data from the same company source that MoxiWorks uses as an upstream data source then you should use the <span class='attribute-name'>source_agent_id</span> request attribute. This identifier will be unique only within the scope of a given company or parent_company, and must be used in conjunction with the <span class='attribute-name'>moxi_works_company_id</span> or <span class='attribute-name'>parent_company_id</span> request attributes. Please work with a MoxiWorks Partner Services representative for clarification about this request attribute.</span></p>
+<span class="request-data-remarks">If you have access to agent data from the same company source that MoxiWorks uses as an upstream data source then you should use the <span class='attribute-name'>source_agent_id</span> request attribute. This identifier will be unique only within the scope of a given company or parent_company, and must be used in conjunction with the <span class='attribute-name'>moxi_works_company_id</span> or <span class='attribute-name'>parent_company_id</span> request attributes. Please email <a href="mailto:partners@moxiworks.com">partners@moxiworks.com</a> for clarification about this request attribute.</span></p>
 
 <aside class="note">DEPRECATED (this feature has been made obsolete by the <span class='attribute-name'>source_agent_id</span>)<br><br>A company&rsquo;s internal agent id may be used to construct the agent&rsquo;s unique identification string. To do so, the value passed via the moxi_works_agent_id should be a single concatenated string, of the form:</br>[moxi_works_company_id]:[internal_agent_id]</br>Use <a href='#company'>Company Endpoint</a> to determine which moxi_works_company_id to use.</aside>
 
@@ -3200,6 +3200,11 @@ moxi_works_action_log_id=12345678-1234-1234-1234-1234567890ab
 <td><span class="data-type">Boolean</span></td>
 <td>255</td>
 </tr>
+<tr>
+<td><span class="optional-data">timestamps_only</span></td>
+<td><span class="data-type">Boolean</span></td>
+<td>255</td>
+</tr>
 </tbody></table>
 
 <p><span class="required-data"><strong>Required Parameters Are In Red</strong></span></p>
@@ -3246,6 +3251,9 @@ moxi_works_action_log_id=12345678-1234-1234-1234-1234567890ab
 
 <p><span class="request-data-head">include_reviews</span>
 <span class="request-data-remarks">To include ratings and reviews associated with the agent in the response, pass <code class="prettyprint">true</code>.</span></p>
+
+<p><span class="request-data-head">timestamps_only</span>
+<span class="request-data-remarks">If supplied then the results will exclude all data except primary identifiers and a unix timestamp (last_updated) &amp; iso8601 timestamp (modification_timestamp) of the last time this record was updated.</span></p>
 
 <blockquote><div class='highlight json' style="display: block">
 <span class="data-example-label">Agent Index: Success Response</span>
@@ -7735,6 +7743,11 @@ moxi_works_agent_id=abc123
 <td><span class="data-type">Integer</span></td>
 <td>255</td>
 </tr>
+<tr>
+<td><span class="optional-data">timestamps_only</span></td>
+<td><span class="data-type">Boolean</span></td>
+<td>255</td>
+</tr>
 </tbody></table>
 
 <p><span class="required-data"><strong>Required Parameters Are In Red</strong></span></p>
@@ -7758,6 +7771,9 @@ moxi_works_agent_id=abc123
 
 <p><span class="request-data-head">page_number</span>
 <span class="request-data-remarks">Page of <span class='entity-name'>BuyerTransaction</span> records to return. Use if <code class="prettyprint">total_pages</code> indicates that there is more than one page of data available.</span></p>
+
+<p><span class="request-data-head">timestamps_only</span>
+<span class="request-data-remarks">If supplied then the results will exclude all data except primary identifiers and a unix timestamp (last_updated) &amp; iso8601 timestamp (modification_timestamp) of the last time this record was updated.</span></p>
 
 <blockquote><div class='highlight json' style="display: block">
 <span class='data-example-label'><span class='entity-name'>BuyerTransaction</span> <span class='action-name'>Index</span> (using <span class='attribute-name'>agent_uuid</span>) Response Payload Example
@@ -8142,6 +8158,10 @@ moxi_works_agent_id=abc123
 
 <p>MoxiWorks Plaform <span class='entity-name'>Company</span> entities are your entry-point for determining the established relationships for your organization to companies on the MoxiWorks Platform and for accessing data about those companies. Many requests require a <span class='attribute-name'>moxi_works_company_id</span>, which you&rsquo;ll need to derive from the <span class='entity-name'>Company</span> <span class='action-name'>Index</span> endpoint.</p>
 
+<p>The company response attribute <span class='attribute-name'>numeric_id</span> can be used anywhere that <span class='attribute-name'>moxi_works_company_id</span> is used.</p>
+
+<aside class="note">Use of the non-numeric <span class='attribute-name'>moxi_works_company_id</span> is deprecated, and is no longer supported.</aside>
+
 <h4 id="company-show"><span class='entity-name'>Company</span> <span class='action-name'>Show</span></h4>
 
 <div class='highlight ruby'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-ruby/MoxiworksPlatform/Company.html#find-class_method'>Ruby Find Docs</a></span></blockquote></div>
@@ -8505,6 +8525,8 @@ The following attributes make up the payload of each <span class='entity-name'>C
 <aside class="note">Send a <b>GET</b> request to https://api.moxiworks.com/api/companies/search</aside>
 
 <p>The <span class='entity-name'>Company</span> <span class='action-name'>Search</span> endpoint will return <span class='entity-name'>Company</span> entities matching the provided search parameters and that your organization is associated with.</p>
+
+<p>Global permission or parent company permissions are required to use this endpoint.</p>
 
 <pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/companies/search?per_page=10&amp;page_number=1&amp;parent_company_id=1</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">api.moxiworks.com</span>
@@ -13482,6 +13504,11 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 <td><span class="data-type">Boolean</span></td>
 <td></td>
 </tr>
+<tr>
+<td><span class="optional-data">timestamps_only</span></td>
+<td><span class="data-type">Boolean</span></td>
+<td>255</td>
+</tr>
 </tbody></table>
 
 <p><span class="required-data"><strong>Required Parameters Are In Red</strong></span></p>
@@ -13513,6 +13540,9 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 <p><span class="request-data-head">only_business_contacts</span>
 <span class="request-data-remarks">Whether to only include <span class='entity-name'>Contact</span> records for contacts that are neither considered personal contacts nor work collaborators in the payload response.</span>
 <aside class="note">By default all <span class='entity-name'>Contact</span> records will be returned. Use the <code class="prettyprint">personal_contact</code> and <code class="prettyprint">collaborator</code> response attributes to determine the status of any given contact.</aside></p>
+
+<p><span class="request-data-head">timestamps_only</span>
+<span class="request-data-remarks">If supplied then the results will exclude all data except primary identifiers and a unix timestamp (last_updated) &amp; iso8601 timestamp (modification_timestamp) of the last time this record was updated.</span></p>
 
 <blockquote><div class='highlight json' style="display: block">
 <span class='data-example-label'><span class='entity-name'>Contact</span> <span class='action-name'>Index</span> (using <span class='attribute-name'>agent_uuid</span>) Response Payload Example
@@ -15714,7 +15744,7 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 <span class="response-data-remarks">This is the MoxiWorks Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>BuyerTransaction</span> is associated with. This will be a string that may take the form of an email address, or a unique alphanumeric identification string.</span></p>
 
 <p><span class="request-data-head">subscription_type</span>
-<span class="request-data-remarks">A string representing the type of <span class='entity-name'>EmailSubscription</span> is associated with the <span class='entity-name'>Contact</span> for the  supplied <span class='attribute-name'>partner_contact_id</span>. This is a unique, internally defined string per <span class='entity-name'>EmailSubscription</span> type.  Documentation of available <span class='attribute-name'>subscription_type</span> responses is outside the scope of this documentation. If you need help determining available types, contact your MoxiWorks Platform representative.</span></p>
+<span class="request-data-remarks">A string representing the type of <span class='entity-name'>EmailSubscription</span> is associated with the <span class='entity-name'>Contact</span> for the  supplied <span class='attribute-name'>partner_contact_id</span>. This is a unique, internally defined string per <span class='entity-name'>EmailSubscription</span> type.  Documentation of available <span class='attribute-name'>subscription_type</span> responses is outside the scope of this documentation. If you need help determining available types, please email <a href="mailto:partners@moxiworks.com">partners@moxiworks.com</a>.</span></p>
 
 <p><span class="request-data-head">email_address</span>
 <span class="request-data-remarks">The email address for the <span class='entity-name'>EmailSubscription</span>.</span></p>
@@ -21725,6 +21755,11 @@ The following attributes make up the payload of each <span class='entity-name'>L
 <td><span class="data-type">Boolean</span></td>
 <td>255</td>
 </tr>
+<tr>
+<td><span class="optional-data">timestamps_only</span></td>
+<td><span class="data-type">Boolean</span></td>
+<td>255</td>
+</tr>
 </tbody></table>
 
 <p><span class="required-data"><strong>Required Parameters Are In Red</strong></span></p>
@@ -21900,6 +21935,9 @@ The following attributes make up the payload of each <span class='entity-name'>L
 
 <p><span class="request-data-head">underscore_response</span>
 <span class="request-data-remarks">When this attribute is passed as true, the json keys of the response will be underscored. The default json key format for listing responses is camel casing.</span></p>
+
+<p><span class="request-data-head">timestamps_only</span>
+<span class="request-data-remarks">If supplied then the results will exclude all data except primary identifiers and a unix timestamp (last_updated) &amp; iso8601 timestamp (modification_timestamp) of the last time this record was updated.</span></p>
 
 <blockquote><div class='highlight json' style="display: block">
 <span class='data-example-label'><span class='entity-name'>Listing</span> <span class='action-name'>Index</span> Response Payload Example
@@ -23351,6 +23389,11 @@ The following attributes make up the payload of each <span class='entity-name'>L
 <td><span class="data-type">Integer</span></td>
 <td>255</td>
 </tr>
+<tr>
+<td><span class="optional-data">timestamps_only</span></td>
+<td><span class="data-type">Boolean</span></td>
+<td>255</td>
+</tr>
 </tbody></table>
 
 <p><span class="required-data"><strong>Required Parameters Are In Red</strong></span></p>
@@ -23369,6 +23412,9 @@ The following attributes make up the payload of each <span class='entity-name'>L
 
 <p><span class="request-data-head">deactivated_since</span>
 <span class="request-data-remarks">any <span class='entity-name'>Office</span> objects deactivated after this Unix timestamp will be returned in the response. <strong>If no <span class='attribute-name'>deactivated_since</span> parameter is included in the request, only <span class='entity-name'>Office</span> objects deactivated in the last seven days will be returned.</strong></span></p>
+
+<p><span class="request-data-head">timestamps_only</span>
+<span class="request-data-remarks">If supplied then the results will exclude all data except primary identifiers and a unix timestamp (last_updated) &amp; iso8601 timestamp (modification_timestamp) of the last time this record was updated.</span></p>
 
 <aside class="note">By default only <span class='entity-name'>Office</span> objects deactivated in the last seven days will be returned.</aside>
 
@@ -26688,6 +26734,11 @@ moxi_works_agent_id=abc123
 <td><span class="data-type">Integer</span></td>
 <td>255</td>
 </tr>
+<tr>
+<td><span class="optional-data">timestamps_only</span></td>
+<td><span class="data-type">Boolean</span></td>
+<td>255</td>
+</tr>
 </tbody></table>
 
 <p><span class="required-data"><strong>Required Parameters Are In Red</strong></span></p>
@@ -26711,6 +26762,9 @@ moxi_works_agent_id=abc123
 
 <p><span class="request-data-head">page_number</span>
 <span class="request-data-remarks">Page of <span class='entity-name'>SellerTransaction</span> records to return. Use if <code class="prettyprint">total_pages</code> indicates that there is more than one page of data available.</span></p>
+
+<p><span class="request-data-head">timestamps_only</span>
+<span class="request-data-remarks">If supplied then the results will exclude all data except primary identifiers and a unix timestamp (last_updated) &amp; iso8601 timestamp (modification_timestamp) of the last time this record was updated.</span></p>
 
 <blockquote><div class='highlight json' style="display: block">
 <span class='data-example-label'><span class='entity-name'>SellerTransaction</span> <span class='action-name'>Index</span> (using <span class='attribute-name'>agent_uuid</span>) Response Payload Example
@@ -28280,7 +28334,7 @@ moxi_works_agent_id=abc123
 <p><span class="request-data-head">include_buyer_listings</span>
 <span class="request-data-remarks">Only listing data for buyer agents will be returned when this parameter is <code class="prettyprint">true</code>.</span></p>
 
-<aside class="note">`include_buyer_listings` is only available by special arrangement with MoxiWorks. If you require access to buyer agent data, talk to your Platform representative.</aside>
+<aside class="note">`include_buyer_listings` is only available by special arrangement with MoxiWorks. If you require access to buyer agent data, please email <a href="mailto:partners@moxiworks.com">partners@moxiworks.com</a> and let us know.</aside>
 
 <p><span class="request-data-head">underscore_response</span>
 <span class="request-data-remarks">When this attribute is passed as true, the json keys of the response will be underscored. The default json key format for listing responses is camel casing.</span></p>

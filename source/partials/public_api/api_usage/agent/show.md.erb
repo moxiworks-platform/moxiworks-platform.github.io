@@ -488,6 +488,7 @@ Attribute | Type |
 |<span class="response-data">has_product_access</span>|<span class="data-type">Boolean</span>|
 |<span class="response-data">has_engage_access</span>|<span class="data-type">Boolean</span>|
 |<span class="response-data">access_level</span>|<span class="data-type">String</span>|
+|<span class="response-data">view_level</span>|<span class="data-type">String</span>|
 |<span class="response-data">teams</span>|<span class="data-type">Array</span>|
 |<span class="response-data">website_base_url</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">twitter</span>|<span class="data-type">String or null</span>|
@@ -637,6 +638,9 @@ Attribute | Type |
 
 <span class="response-data-head">access_level</span>
 <span class="response-data-remarks">The access level of the agent. If <span class="attribute-name">include_access_level</span> was passed as <span class="attribute-value">true</span>, this can return one of the possible access levels: `company-admin`, `manager`, `office-admin`, `office-owner`, `region-admin`, `user`.</span>
+
+<span class="response-data-head">view_level</span>
+<span class="response-data-remarks">The view level of the agent. This will return one of the possible view levels: `COMPANY_ADMIN`, `OFFICE_ADMIN`, `USER`.</span>
 
 <span class="response-data-head">website_base_url</span>
 <span class="response-data-remarks">The base url of the agent's MoxiWorks agent website.</span>

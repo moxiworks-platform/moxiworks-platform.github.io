@@ -1758,6 +1758,10 @@ moxi_works_action_log_id=12345678-1234-1234-1234-1234567890ab
 <td><span class="data-type">String</span></td>
 </tr>
 <tr>
+<td><span class="response-data">view_level</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
+<tr>
 <td><span class="response-data">teams</span></td>
 <td><span class="data-type">Array</span></td>
 </tr>
@@ -1976,6 +1980,9 @@ moxi_works_action_log_id=12345678-1234-1234-1234-1234567890ab
 
 <p><span class="response-data-head">access_level</span>
 <span class="response-data-remarks">The access level of the agent. If <span class="attribute-name">include_access_level</span> was passed as <span class="attribute-value">true</span>, this can return one of the possible access levels: <code class="prettyprint">company-admin</code>, <code class="prettyprint">manager</code>, <code class="prettyprint">office-admin</code>, <code class="prettyprint">office-owner</code>, <code class="prettyprint">region-admin</code>, <code class="prettyprint">user</code>.</span></p>
+
+<p><span class="response-data-head">view_level</span>
+<span class="response-data-remarks">The view level of the agent. This will return one of the possible view levels: <code class="prettyprint">COMPANY_ADMIN</code>, <code class="prettyprint">OFFICE_ADMIN</code>, <code class="prettyprint">USER</code>.</span></p>
 
 <p><span class="response-data-head">website_base_url</span>
 <span class="response-data-remarks">The base url of the agent&rsquo;s MoxiWorks agent website.</span></p>
@@ -2642,6 +2649,7 @@ moxi_works_action_log_id=12345678-1234-1234-1234-1234567890ab
   </span><span class="nt">"has_product_access"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
   </span><span class="nt">"has_engage_access"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
   </span><span class="nt">"access_level"</span><span class="p">:</span><span class="s2">"user"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"view_level"</span><span class="p">:</span><span class="w"> </span><span class="s2">"COMPANY_ADMIN"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"teams"</span><span class="p">:[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"Major League Broker Team"</span><span class="p">,</span><span class="w">
@@ -2929,6 +2937,10 @@ moxi_works_action_log_id=12345678-1234-1234-1234-1234567890ab
 <td><span class="data-type">String</span></td>
 </tr>
 <tr>
+<td><span class="response-data">view_level</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
+<tr>
 <td><span class="response-data">teams</span></td>
 <td><span class="data-type">Array</span></td>
 </tr>
@@ -3135,6 +3147,9 @@ moxi_works_action_log_id=12345678-1234-1234-1234-1234567890ab
 
 <p><span class="response-data-head">access_level</span>
 <span class="response-data-remarks">The access level of the agent. If <span class="attribute-name">include_access_level</span> was passed as <span class="attribute-value">true</span>, this can return one of the possible access levels: <code class="prettyprint">company-admin</code>, <code class="prettyprint">manager</code>, <code class="prettyprint">office-admin</code>, <code class="prettyprint">office-owner</code>, <code class="prettyprint">region-admin</code>, <code class="prettyprint">user</code>.</span></p>
+
+<p><span class="response-data-head">view_level</span>
+<span class="response-data-remarks">The view level of the agent. This will return one of the possible view levels: <code class="prettyprint">COMPANY_ADMIN</code>, <code class="prettyprint">OFFICE_ADMIN</code>, <code class="prettyprint">USER</code>.</span></p>
 
 <p><span class="response-data-head">website_base_url</span>
 <span class="response-data-remarks">The base url of the agent&rsquo;s MoxiWorks agent website.</span></p>

@@ -330,6 +330,70 @@
 <td><span class="response-data">next_scheduled</span></td>
 <td><span class="data-type">Integer</span></td>
 </tr>
+<tr>
+<td><span class="response-data">created_at</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">unsubscribed_at</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">unsubscribed_by</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">home_update</span></td>
+<td><span class="data-type">Boolean</span></td>
+</tr>
+<tr>
+<td><span class="response-data">listed</span></td>
+<td><span class="data-type">Boolean</span></td>
+</tr>
+<tr>
+<td><span class="response-data">sold</span></td>
+<td><span class="data-type">Boolean</span></td>
+</tr>
+<tr>
+<td><span class="response-data">zipcode</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">nn_subscription_type</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">nn_min_price</span></td>
+<td><span class="data-type">Integer</span></td>
+</tr>
+<tr>
+<td><span class="response-data">nn_max_price</span></td>
+<td><span class="data-type">Integer</span></td>
+</tr>
+<tr>
+<td><span class="response-data">nn_min_beds</span></td>
+<td><span class="data-type">Integer</span></td>
+</tr>
+<tr>
+<td><span class="response-data">nn_max_beds</span></td>
+<td><span class="data-type">Integer</span></td>
+</tr>
+<tr>
+<td><span class="response-data">nn_min_baths</span></td>
+<td><span class="data-type">Integer</span></td>
+</tr>
+<tr>
+<td><span class="response-data">nn_min_sqft</span></td>
+<td><span class="data-type">Integer</span></td>
+</tr>
+<tr>
+<td><span class="response-data">nn_max_sqft</span></td>
+<td><span class="data-type">Integer</span></td>
+</tr>
+<tr>
+<td><span class="response-data">nn_property_type</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
 </tbody></table>
 
 <p><span class='multi-option-response-data'>* Either <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> will be returned depending on whether it is used in the request. The response payload object&rsquo;s agent identifier key will match the passed parameter.</span></p>
@@ -341,7 +405,7 @@
 <span class="response-data-remarks">This is the MoxiWorks Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>BuyerTransaction</span> is associated with. This will be a string that may take the form of an email address, or a unique alphanumeric identification string.</span></p>
 
 <p><span class="request-data-head">subscription_type</span>
-<span class="request-data-remarks">A string representing the type of <span class='entity-name'>EmailSubscription</span> is associated with the <span class='entity-name'>Contact</span> for the  supplied <span class='attribute-name'>partner_contact_id</span>. This is a unique, internally defined string per <span class='entity-name'>EmailSubscription</span> type.  Documentation of available <span class='attribute-name'>subscription_type</span> responses is outside the scope of this documentation. If you need help determining available types, please email <a href="mailto:partners@moxiworks.com">partners@moxiworks.com</a>.</span></p>
+<span class="response-data-remarks">A string representing the type of <span class='entity-name'>EmailSubscription</span> is associated with the Contact for the supplied partner_contact_id. This is a unique, internally defined string per <span class='entity-name'>EmailSubscription</span> type. Documentation of available <span class='attribute-name'>subscription_type</span> responses is outside the scope of this documentation. If you need help determining available types, please email partners@moxiworks.com.</span></p>
 
 <p><span class="request-data-head">email_address</span>
 <span class="request-data-remarks">The email address for the <span class='entity-name'>EmailSubscription</span>.</span></p>
@@ -360,6 +424,51 @@
 
 <p><span class="request-data-head">next_scheduled</span>
 <span class="request-data-remarks">This is a Unix timestamp representing the point in time that the next <span class='entity-name'>EmailSubscription</span> message will be sent.</span></p>
+
+<p><span class="request-data-head">created_at</span>
+<span class="request-data-remarks">Unix timestamp representing when the EmailSubscription was created.</span></p>
+
+<p><span class="request-data-head">unsubscribed_at</span>
+<span class="request-data-remarks">Unix timestamp representing when the <span class='entity-name'>EmailSubscription</span> that is associated with the <span class='entity-name'>Contact</span> for the supplied partner_contact_id was unsubscribed.</span></p>
+
+<p><span class="request-data-head">home_update</span>
+<span class="request-data-remarks">boolean representing whether email subscription is a home update</span></p>
+
+<p><span class="request-data-head">listed</span>
+<span class="request-data-remarks">boolean representing whether email subscription is a listing announcement for listed homes</span></p>
+
+<p><span class="request-data-head">sold</span>
+<span class="request-data-remarks">boolean representing whether email subscription is a listing announcement for sold homes</span></p>
+
+<p><span class="request-data-head">nn_subscription_type</span>
+<span class="request-data-remarks">type of neighborhood email subscription. This can either be  “quick” or “custom”</span></p>
+
+<p><span class="request-data-head">nn_min_price</span>
+<span class="request-data-remarks">for &ldquo;custom&rdquo; neighborhood email subscription , search filter with min price</span></p>
+
+<p><span class="request-data-head">nn_max_price</span>
+<span class="request-data-remarks">for “custom” neighborhood email subscription , search filter with max price</span></p>
+
+<p><span class="request-data-head">nn_min_beds</span>
+<span class="request-data-remarks">for “custom” neighborhood email subscription , search filter with min number of bedrooms</span></p>
+
+<p><span class="request-data-head">nn_max_beds</span>
+<span class="request-data-remarks">for “custom” neighborhood email subscription , search filter with max number of bedrooms</span></p>
+
+<p><span class="request-data-head">nn_min_baths</span>
+<span class="request-data-remarks">or “custom” neighborhood email subscription , search filter with min  number of bathrooms</span></p>
+
+<p><span class="request-data-head">nn_max_baths</span>
+<span class="request-data-remarks">for “custom” neighborhood email subscription , search filter with max  number of bathrooms</span></p>
+
+<p><span class="request-data-head">nn_min_sqft</span>
+<span class="request-data-remarks">for “custom” neighborhood email subscription , search filter with min square feet</span></p>
+
+<p><span class="request-data-head">nn_max_sqft</span>
+<span class="request-data-remarks">for “custom” neighborhood email subscription , search filter with max square feet</span></p>
+
+<p><span class="request-data-head">property_type</span>
+<span class="request-data-remarks">for “custom” neighborhood email subscription, property_tye selected in the search filter. This value can be either <span class='attribute-name'>Residential</span>, <span class='attribute-name'>Condominium</span>, <span class='attribute-name'>Manufactured Homes</span>, <span class='attribute-name'>Multi-family</span>, <span class='attribute-name'>Townhouse</span></span></p>
 
       </div>
       <div class="dark-box">

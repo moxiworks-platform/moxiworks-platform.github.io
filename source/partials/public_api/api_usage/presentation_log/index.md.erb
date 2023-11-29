@@ -119,6 +119,7 @@ Attribute | Type  | Length Limit |
 |<span class="optional-data">updated_before</span>|<span class="data-type">Integer</span>| 255 |
 |<span class="optional-data">page_number</span>|<span class="data-type">Integer</span>| 255 |
 |<span class="optional-data">include_times</span>|<span class="data-type">Boolean</span>| 255 |
+|<span class="optional-data">type</span>|<span class="data-type">String</span>| 255 |
 
 <span class="required-data">**Required Parameters Are In Red**</span>
 
@@ -154,6 +155,9 @@ Attribute | Type  | Length Limit |
 <span class="request-data-remarks">Pass <em>true</em> for the value of the <span class='attribute-name'>include_times</span> parameter to return delivered and requested times for the presentations included in the response.</span>
 
 <aside class="note">At this time, the attribute <span class='attribute-name'>include_times</span> is only an available query options for agent scoped requests (requests including an agent identifier)</aside>
+
+<span class="request-data-head">type</span>
+<span class="request-data-remarks">When filtering by presentation type, use one of the below attributes `buyer`, `seller`, `buyer_tour`, `annual`.</span>
 
 
 <blockquote><div class='highlight json' style="display: block">

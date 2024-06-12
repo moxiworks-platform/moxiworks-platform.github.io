@@ -125,7 +125,10 @@ Attribute | Type  | Length Limit |
     "mailing_address2":"Box 10",
     "mailing_city":"Mailtown",
     "mailing_zip":"12123",
-    "mailing_state":"UM"
+    "mailing_state":"UM",
+    "company_programs": [
+        "Equestrian Equestrian Advisor"
+      ]
   }
 
 ```
@@ -174,6 +177,7 @@ Attribute | Type |
 |<span class="response-data">mailing_state</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">created_timestamp</span>|<span class="data-type">Integer</span>|
 |<span class="response-data">deactivated_timestamp</span>|<span class="data-type">Integer or null</span>|
+|<span class="response-data">company_programs</span>|<span class="data-type">Array</span>|
 
 <span class="response-data-head">moxi_works_office_id</span>
 <span class="response-data-remarks">This is the MoxiWorks Platform ID of the office for this <span class='entity-name'>Office</span>. This will be an [RFC 4122](https://tools.ietf.org/html/rfc4122) compliant UUID.</span>
@@ -265,3 +269,6 @@ Attribute | Type |
 
 <span class="response-data-head">deactivated_timestamp</span>
 <span class="response-data-remarks">This is the Unix timestamp representing the date that this <span class='entity-name'>Office</span> was deactivated in the MoxiWorks system. This will be returned null if the office is still active.</span>
+
+<span class="response-data-head">company_programs</span>
+<span class="response-data-remarks">A list of the company specific program names in which the agent's office participates or is a member.</span>

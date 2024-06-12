@@ -700,9 +700,7 @@ Attribute | Type | Length Limit |
 <span class="request-data-remarks">Use this if you have data about listing searches that this contact has performed; this should be the property types used in the listing search criteria. This can be any arbitrary human readable string, but using recognized property types such as `Condo`, `Single-Family`, `Townhouse`, `Land`, `Multifamily` will provide more value to the agent. </span>
 
 <span class="request-data-head">note</span>
-<span class="request-data-remarks">This is an arbitrary string giving the agent more details about the contact which would not otherwise fit into the <span class='entity-name'>Contact</span> record. Any Notes added here will be displayed to the agent in an Activity Log record. Any HTML formatting included will be stripped from the <span class='attribute-name'>note</span> attribute's data. </span>
-
-<aside class="note">Partner generated notes will be returned as a concatenated string following agent generated notes. The agent and partner notes will be separated by this delimiter: " == "</aside>
+<span class="response-data-remarks">This is a string which reflects the partner created notes. Agent created notes are not reflected in this attribute.  Any Notes added here will be displayed to the agent in an Activity Log record. Any HTML formatting included will be stripped from the <span class='attribute-name'>note</span> attribute’s data. This value will be null if no data is available for this attribute. This text field is limited to 3k. </span>
 
 <span class="request-data-head">websites</span>
 <span class="request-data-remarks">Websites should be submitted as a json array of objects. Each object should include website prioritized 'rank' and 'value'. The number of website fields available for update for a given <span class='entity-name'>Contact</span> record depends on the agent email client type.</span>
@@ -1317,6 +1315,4 @@ Attribute | Type |
 <span class="response-data-remarks">This will be the property types used in the listing search criteria. This can be any arbitrary human readable string, but using recognized property types such as `Condo`, `Single-Family`, `Townhouse`, `Land`, `Multifamily` will provide more value to the agent.  This value will be null if no data is available for this attribute. </span>
 
 <span class="response-data-head">note</span>
-<span class="response-data-remarks">This is an arbitrary string giving the agent more details about the contact which would not otherwise fit into the <span class='entity-name'>Contact</span> record. Any HTML formatting included will be stripped from the <span class='attribute-name'>note</span> attribute's data.  This value will be null if no data is available for this attribute. </span>
-
-<aside class="note">Partner generated notes will be returned as a concatenated string following agent generated notes. The agent and partner notes will be separated by this delimiter: " == "</aside>
+<span class="response-data-remarks">This is a string which reflects the partner created notes. Agent created notes are not reflected in this attribute.  Any Notes added here will be displayed to the agent in an Activity Log record. Any HTML formatting included will be stripped from the <span class='attribute-name'>note</span> attribute’s data. This value will be null if no data is available for this attribute. This text field is limited to 3k. </span>

@@ -301,7 +301,9 @@
       </span><span class="nt">"Height"</span><span class="p">:</span><span class="mi">768</span><span class="p">,</span><span class="w">
       </span><span class="nt">"MimeType"</span><span class="p">:</span><span class="s2">"image/jpeg"</span><span class="w">
       </span><span class="p">}</span><span class="w">
-  </span><span class="p">]</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"BuyerCommissionType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"percent"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"BuyerCommissionValue"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.5"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -588,6 +590,14 @@
 <td><span class="response-data">ListingImages</span></td>
 <td><span class="response-data"><span class="data-type">Array</span></td>
 </tr>
+<tr>
+<td><span class="response-data">BuyerCommissionType</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">BuyerCommissionValue</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
 </tbody></table>
 
 <p><span class="response-data-head">LotSizeAcres</span>
@@ -699,7 +709,7 @@
 <span class="response-data-remarks">The zip code or postal code the property is located in.</span></p>
 
 <p><span class="response-data-head">Community</span>
-<span class="response-data-remarks">The communitythe property is located in.</span></p>
+<span class="response-data-remarks">The community the property is located in.</span></p>
 
 <p><span class="response-data-head">LotSizeSquareFeet</span>
 <span class="response-data-remarks">Total area of the lot.</span></p>
@@ -775,6 +785,12 @@
 
 <p><span class="response-data-head">ListingImages</span>
 <span class="response-data-remarks">Any images of the property.</span></p>
+
+<p><span class="response-data-head">BuyerCommissionType</span>
+<span class="response-data-remarks">The type of buyer broker compensation value set for the listing. The two types of broker compensation values are <code class="prettyprint">percent</code> or <code class="prettyprint">flat_rate</code>.</span></p>
+
+<p><span class="response-data-head">BuyerCommissionValue</span>
+<span class="response-data-remarks">Buyer broker compensation value for the listing.</span></p>
 
 <h6 id="propertyfeature-objects"><span class='attribute-name'>PropertyFeature</span> Objects</h6>
 

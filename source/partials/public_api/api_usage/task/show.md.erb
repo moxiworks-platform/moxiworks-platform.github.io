@@ -12,7 +12,7 @@
 
 {
   "partner_task_id":"mySystemsTaskID",
-  "partner_contact_id": "abc123",
+  "moxi_works_contact_id": "abc123",
   "agent_uuid":"12345678-1234-1234-1234-1234567890ab"
 }
 
@@ -37,10 +37,10 @@ ConfigurationManager.AppSettings["Identifier"] = "abc123";
 
 var agentUuid = "12345678-1234-1234-1234-1234567890ab";
 var partnerTaskId = "babebead-feed-face-dead-beefbad4babe";
-var partnerContactId = "booyuh";
+var moxiWorksContactId = "booyuh";
 
 var service = new TaskService(new MoxiWorksClient());
-var results = service.GetTaskAsync( agentUuid,  AgentIdType.AgentUuid,  partnerContactId, partnerTaskId).Result;
+var results = service.GetTaskAsync( agentUuid,  AgentIdType.AgentUuid,  moxiWorksContactId, partnerTaskId).Result;
 
 ```
 
@@ -59,7 +59,7 @@ MoxiworksPlatform::Credentials.new(platform_identifier, platform_secret)
 
 moxi_works_task = MoxiworksPlatform::Task.find(
         agent_uuid: "12345678-1234-1234-1234-1234567890ab",
-        partner_contact_id: "abc123",
+        moxi_works_contact_id: "abc123",
         partner_task_id: "booyuh")
 
 ```
@@ -73,7 +73,7 @@ $credentials = new MoxiworksPlatform\Credentials($platform_identifier, $platform
 
 $moxi_works_task = MoxiworksPlatform\Task::find([
         'agent_uuid' => '12345678-1234-1234-1234-1234567890ab',
-        'partner_contact_id' => 'abc123',
+        'moxi_works_contact_id' => 'abc123',
         'partner_task_id' => 'booyuh']);
 ?>
 ```
@@ -85,7 +85,7 @@ $moxi_works_task = MoxiworksPlatform\Task::find([
 
 {
   "partner_task_id":"mySystemsTaskID",
-  "partner_contact_id": "abc123",
+  "moxi_works_contact_id": "abc123",
   "moxi_works_agent_id":"abc123"
 }
 
@@ -109,10 +109,10 @@ ConfigurationManager.AppSettings["Identifier"] = "abc123";
 
 var moxiWorksAgentId = "abc123"";
 var partnerTaskId = "babebead-feed-face-dead-beefbad4babe";
-var partnerContactId = "booyuh";
+var moxiWorksContactId = "booyuh";
 
 var service = new TaskService(new MoxiWorksClient());
-var results = service.GetTaskAsync( moxiWorksAgentId,  AgentIdType.MoxiWorksAgentId,  partnerContactId, partnerTaskId).Result;
+var results = service.GetTaskAsync( moxiWorksAgentId,  AgentIdType.MoxiWorksAgentId,  moxiWorksContactId, partnerTaskId).Result;
 
 ```
 
@@ -130,7 +130,7 @@ MoxiworksPlatform::Credentials.new(platform_identifier, platform_secret)
 
 moxi_works_task = MoxiworksPlatform::Task.find(
         moxi_works_agent_id: "1234abcd",
-        partner_contact_id: "abc123",
+        moxi_works_contact_id: "abc123",
         partner_task_id: "booyuh")
 
 ```
@@ -144,7 +144,7 @@ $credentials = new MoxiworksPlatform\Credentials($platform_identifier, $platform
 
 $moxi_works_task = MoxiworksPlatform\Task::find([
         'moxi_works_agent_id' => '1234abcd',
-        'partner_contact_id' => 'abc123',
+        'moxi_works_contact_id' => 'abc123',
         'partner_task_id' => 'booyuh']);
 ?>
 ```
@@ -164,14 +164,19 @@ Attribute | Type | Length Limit |
 |<span class="multi-option-required-data">moxi_works_agent_id*</span>|<span class="multi-option-required-data"><span class="data-type">String</span></span>| <span class="multi-option-required-data">255</span>
 |<span class="multi-option-required-data">source_agent_id*</span>|<span class="multi-option-required-data"><span class="data-type">String</span></span>| <span class="multi-option-required-data">255</span>
 |<span class="required-data">partner_task_id</span>|<span class="required-data"><span class="data-type">String</span></span>| <span class="required-data">255</span>
-|<span class="required-data">partner_contact_id</span>|<span class="required-data"><span class="data-type">String</span></span>| <span class="required-data">255</span>
+|<span class="required-data">moxi_works_contact_id</span>|<span class="required-data"><span class="data-type">String</span></span>| <span class="required-data">255</span>
 |<span class="optional-data">moxi_works_company_id</span>|<span class="data-type">String</span>|  |
 |<span class="optional-data">parent_company_id</span>|<span class="data-type">String</span>| 255 |
+|<span class="optional-data">partner_contact_id</span>|<span class="data-type">String</span></span>| 255 |</span>
+
 
 <span class="required-data">**Required Parameters Are In Red**</span>
 
 <span class="request-data-head multi-option-required-data"><span class='attribute-name'>moxi_works_agent_id</span> or <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>source_agent_id</span></span>
 <span class="request-data-remarks">**One of these parameters must be supplied** Please reference [Agent Identifiers](#agent-identifiers) for information about how to construct your agent identifier request params.</span>
+
+<span class="request-data-head">moxi_works_contact_id</span>
+<span class="request-data-remarks">This is the unique moxi platform's contact identifer you use in your system that has been associated with the <span class='entity-name'>Contact</span> that this <span class='entity-name'>Task</span> is for.</span>
 
 <span class="request-data-head">moxi_works_company_id</span>
 <span class="request-data-remarks">A valid MoxiWorks <span class='entity-name'>Company</span> ID. Use [Company Endpoint](#company) to determine what <span class='attribute-name'>moxi_works_company_id</span> you can use.</span>
@@ -196,6 +201,7 @@ Attribute | Type | Length Limit |
 {
   "agent_uuid": "12345678-1234-1234-1234-1234567890ab",
   "partner_contact_id": "abc123",
+  "moxi_works_contact_id": "abc123",
   "partner_task_id": "booyuh",
   "name": "pick up keys for home",
   "description": "pick up keys for 1234 Wherever Ave. from 1181 Brokerage Place",
@@ -216,6 +222,7 @@ Attribute | Type | Length Limit |
 {
   "moxi_works_agent_id": "1234abcd",
   "partner_contact_id": "abc123",
+  "moxi_works_contact_id": "abc123",
   "partner_task_id": "booyuh",
   "name": "pick up keys for home",
   "description": "pick up keys for 1234 Wherever Ave. from 1181 Brokerage Place",
@@ -249,6 +256,7 @@ Attribute | Type |
 |<span class="multi-option-response-data">agent_uuid*</span>|<span class="data-type">String</span>| |
 |<span class="multi-option-response-data">moxi_works_agent_id*</span>|<span class="data-type">String</span>| |
 |<span class="response-data">partner_contact_id</span>|<span class="response-data"><span class="data-type">String</span>
+|<span class="response-data">moxi_works_contact_id</span>|<span class="response-data"><span class="data-type">String</span>
 |<span class="response-data">partner_task_id</span>|<span class="response-data"><span class="data-type">String</span>
 |<span class="response-data">name</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">description</span>|<span class="data-type">String or null</span>|
@@ -271,6 +279,8 @@ Attribute | Type |
 <span class="response-data-head">partner_contact_id</span>
 <span class="request-data-remarks">This is the unique identifer you use in your system that has been associated with the <span class='entity-name'>Contact</span> that this <span class='entity-name'>Task</span> is for.</span>
 
+<span class="response-data-head">moxi_works_contact_id</span>
+<span class="request-data-remarks">This is the unique moxi platform's contact identifer you use in your system that has been associated with the <span class='entity-name'>Contact</span> that this <span class='entity-name'>Task</span> is for.</span>
 
 <span class="response-data-head">partner_task_id</span>
 <span class="response-data-remarks">This is the unique identifer you use in your system that has been associated with the <span class='entity-name'>Task</span>.</span>

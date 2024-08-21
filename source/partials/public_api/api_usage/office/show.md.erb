@@ -128,7 +128,8 @@ Attribute | Type  | Length Limit |
     "mailing_state":"UM",
     "company_programs": [
         "Equestrian Equestrian Advisor"
-      ]
+      ],
+    "logo_url": "http://the.office.logo/image.png"
   }
 
 ```
@@ -178,6 +179,7 @@ Attribute | Type |
 |<span class="response-data">created_timestamp</span>|<span class="data-type">Integer</span>|
 |<span class="response-data">deactivated_timestamp</span>|<span class="data-type">Integer or null</span>|
 |<span class="response-data">company_programs</span>|<span class="data-type">Array</span>|
+|<span class="response-data">logo_url</span>|<span class="data-type">String</span>|
 
 <span class="response-data-head">moxi_works_office_id</span>
 <span class="response-data-remarks">This is the MoxiWorks Platform ID of the office for this <span class='entity-name'>Office</span>. This will be an [RFC 4122](https://tools.ietf.org/html/rfc4122) compliant UUID.</span>
@@ -272,3 +274,6 @@ Attribute | Type |
 
 <span class="response-data-head">company_programs</span>
 <span class="response-data-remarks">A list of the company specific program names in which the agent's office participates or is a member.</span>
+
+<span class="response-data-head">logo_url</span>
+<span class="response-data-remarks">URL of the office logo image. This can be null if there is no data for this attribute.</span>

@@ -109,7 +109,23 @@
   </span><span class="nt">"partner_contact_id"</span><span class="p">:</span><span class="s2">"mySystemIDForContact"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/tasks?moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemIDForContact</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<pre class="highlight json"><code><span class="err">or</span><span class="w">
+</span></code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"moxi_works_agent_id"</span><span class="p">:</span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"moxi_works_contact_id"</span><span class="p">:</span><span class="s2">"myMoxiPlatformIDForContact"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/tasks?moxi_works_agent_id=abc123&amp;parter_contact_id=mySystemIDForContact</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">api.moxiworks.com</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.moxi-platform+json;version=1</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Basic XNNeXAAAUZaQlF0dA==</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/x-www-form-urlencoded</span>
+
+</code></pre>
+<pre class="highlight http"><code><span class="err">or
+</span></code></pre>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/tasks?moxi_works_agent_id=abc123&amp;moxi_works_contact_id=myMoxiPlatformIDForContact</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">api.moxiworks.com</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.moxi-platform+json;version=1</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">Basic XNNeXAAAUZaQlF0dA==</span>
@@ -130,10 +146,25 @@
         <span class="ss">partner_contact_id: </span><span class="s2">"mySystemIDForContact"</span><span class="p">)</span>
 
 </code></pre>
+<pre class="highlight ruby"><code><span class="n">or</span>
+</code></pre>
+<pre class="highlight ruby"><code><span class="n">agent_moxi_works_tasks_for_contact</span> <span class="o">=</span> <span class="no">MoxiworksPlatform</span><span class="o">::</span><span class="no">Task</span><span class="p">.</span><span class="nf">search</span><span class="p">(</span>
+        <span class="ss">moxi_works_agent_id: </span><span class="s2">"abc123"</span><span class="p">,</span>
+        <span class="ss">moxi_works_contact_id: </span><span class="s2">"myMoxiPlatformIDForContact"</span><span class="p">)</span>
+
+</code></pre>
 <pre class="highlight php"><code><span class="cp">&lt;?php</span>
 <span class="nv">$agent_moxi_works_tasks_for_contact</span> <span class="o">=</span> <span class="nx">MoxiworksPlatform\Task</span><span class="o">::</span><span class="na">search</span><span class="p">([</span>
         <span class="s1">'moxi_works_agent_id'</span> <span class="o">=&gt;</span> <span class="s1">'abc123'</span><span class="p">,</span>
         <span class="s1">'partner_contact_id'</span> <span class="o">=&gt;</span> <span class="s1">'mySystemIDForContact'</span><span class="p">]);</span>
+<span class="cp">?&gt;</span>
+</code></pre>
+<pre class="highlight php"><code>or
+</code></pre>
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+<span class="nv">$agent_moxi_works_tasks_for_contact</span> <span class="o">=</span> <span class="nx">MoxiworksPlatform\Task</span><span class="o">::</span><span class="na">search</span><span class="p">([</span>
+        <span class="s1">'moxi_works_agent_id'</span> <span class="o">=&gt;</span> <span class="s1">'abc123'</span><span class="p">,</span>
+        <span class="s1">'moxi_works_contact_id'</span> <span class="o">=&gt;</span> <span class="s1">'myMoxiPlatformIDForContact'</span><span class="p">]);</span>
 <span class="cp">?&gt;</span>
 </code></pre>
 
@@ -187,7 +218,24 @@
   </span><span class="nt">"partner_contact_id"</span><span class="p">:</span><span class="s2">"mySystemIDForContact"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+<pre class="highlight json"><code><span class="err">or</span><span class="w">
+</span></code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"moxi_works_agent_id"</span><span class="p">:</span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"date_due_start"</span><span class="p">:</span><span class="mi">1461108284</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"date_due_end"</span><span class="p">:</span><span class="mi">1462317907</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"moxi_works_contact_id"</span><span class="p">:</span><span class="s2">"myMoxiPlatformIDForContact"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 <pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/tasks?moxi_works_agent_id=abc123&amp;date_due_start=1461108284&amp;date_due_end=1462317907&amp;partner_contact_id=mySystemIDForContact</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">api.moxiworks.com</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.moxi-platform+json;version=1</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Basic XNNeXAAAUZaQlF0dA==</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/x-www-form-urlencoded</span>
+</code></pre>
+<pre class="highlight http"><code><span class="err">or
+</span></code></pre>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/tasks?moxi_works_agent_id=abc123&amp;date_due_start=1461108284&amp;date_due_end=1462317907&amp;moxi_works_contact_id=myMoxiPlatformIDForContact</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">api.moxiworks.com</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.moxi-platform+json;version=1</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">Basic XNNeXAAAUZaQlF0dA==</span>
@@ -209,11 +257,31 @@
         <span class="ss">due_date_start: </span><span class="no">Time</span><span class="p">.</span><span class="nf">now</span><span class="p">.</span><span class="nf">to_i</span> <span class="o">-</span> <span class="mi">86400</span><span class="p">,</span>
         <span class="ss">due_date_end: </span><span class="no">Time</span><span class="p">.</span><span class="nf">now</span><span class="p">.</span><span class="nf">to_i</span><span class="p">)</span>
 </code></pre>
+<pre class="highlight ruby"><code><span class="n">or</span>
+</code></pre>
+<pre class="highlight ruby"><code><span class="n">agent_moxi_works_tasks_for_contact_due_between_dates</span> <span class="o">=</span> <span class="no">MoxiworksPlatform</span><span class="o">::</span><span class="no">Task</span><span class="p">.</span><span class="nf">search</span><span class="p">(</span>
+        <span class="ss">moxi_works_agent_id: </span><span class="s2">"abc123"</span><span class="p">,</span>
+        <span class="ss">moxi_works_contact_id: </span><span class="s2">"myMoxiPlatformIDForContact"</span><span class="p">,</span>
+        <span class="ss">due_date_start: </span><span class="no">Time</span><span class="p">.</span><span class="nf">now</span><span class="p">.</span><span class="nf">to_i</span> <span class="o">-</span> <span class="mi">86400</span><span class="p">,</span>
+        <span class="ss">due_date_end: </span><span class="no">Time</span><span class="p">.</span><span class="nf">now</span><span class="p">.</span><span class="nf">to_i</span><span class="p">)</span>
+</code></pre>
 <pre class="highlight php"><code><span class="cp">&lt;?php</span>
 
 <span class="nv">$agent_moxi_works_tasks_for_contact_due_between_dates</span><span class="o">=</span> <span class="nx">MoxiworksPlatform\Task</span><span class="o">::</span><span class="na">search</span><span class="p">([</span>
         <span class="s1">'moxi_works_agent_id'</span> <span class="o">=&gt;</span> <span class="s1">'abc123'</span><span class="p">,</span>
         <span class="s1">'partner_contact_id'</span> <span class="o">=&gt;</span> <span class="s1">'mySystemIDForContact'</span><span class="p">,</span>
+        <span class="s1">'due_date_start'</span> <span class="o">=&gt;</span> <span class="mi">1461108284</span><span class="p">,</span>
+        <span class="s1">'due_date_end'</span> <span class="o">=&gt;</span> <span class="mi">1462317907</span><span class="p">]);</span>
+
+<span class="cp">?&gt;</span>
+</code></pre>
+<pre class="highlight php"><code>or
+</code></pre>
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+
+<span class="nv">$agent_moxi_works_tasks_for_contact_due_between_dates</span><span class="o">=</span> <span class="nx">MoxiworksPlatform\Task</span><span class="o">::</span><span class="na">search</span><span class="p">([</span>
+        <span class="s1">'moxi_works_agent_id'</span> <span class="o">=&gt;</span> <span class="s1">'abc123'</span><span class="p">,</span>
+        <span class="s1">'moxi_works_contact_id'</span> <span class="o">=&gt;</span> <span class="s1">'myMoxiPlatformIDForContact'</span><span class="p">,</span>
         <span class="s1">'due_date_start'</span> <span class="o">=&gt;</span> <span class="mi">1461108284</span><span class="p">,</span>
         <span class="s1">'due_date_end'</span> <span class="o">=&gt;</span> <span class="mi">1462317907</span><span class="p">]);</span>
 
@@ -274,6 +342,11 @@
 <td>255</td>
 </tr>
 <tr>
+<td><span class="optional-data">moxi_works_contact_id</span></td>
+<td><span class="data-type">String</span></td>
+<td>255</td>
+</tr>
+<tr>
 <td><span class="optional-data">page_number</span></td>
 <td><span class="data-type">Integer</span></td>
 <td>255</td>
@@ -302,6 +375,9 @@
 <p><span class="request-data-head">partner_contact_id</span>
 <span class="request-data-remarks">This is the unique identifer you use in your system that has been associated with the <span class='entity-name'>Contact</span> that this <span class='entity-name'>Task</span> regards.</span></p>
 
+<p><span class="request-data-head">moxi_works_contact_id</span>
+<span class="request-data-remarks">This is the unique moxi platform&rsquo;s contact identifer you use in your system that has been associated with the <span class='entity-name'>Contact</span> that this <span class='entity-name'>Task</span> regards.</span></p>
+
 <p><span class="request-data-head">page_number</span>
 <span class="request-data-remarks">Page of <span class='entity-name'>Task</span> objects to return. Use if <code class="prettyprint">total_pages</code> indicates that there is more than one page of data available.</span></p>
 
@@ -315,6 +391,7 @@
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"agent_uuid"</span><span class="p">:</span><span class="s2">"12345678-1234-1234-1234-1234567890ab"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"partner_contact_id"</span><span class="p">:</span><span class="s2">"mySystemIDForContact"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"moxi_works_contact_id"</span><span class="p">:</span><span class="s2">"myMoxiPlatformIDForContact"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"Reach Out to this person!"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"description"</span><span class="p">:</span><span class="s2">"Call"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"due_at"</span><span class="p">:</span><span class="s2">"1465858693"</span><span class="p">,</span><span class="w">
@@ -338,6 +415,7 @@
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"moxi_works_agent_id"</span><span class="p">:</span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"partner_contact_id"</span><span class="p">:</span><span class="s2">"mySystemIDForContact"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"moxi_works_contact_id"</span><span class="p">:</span><span class="s2">"myMoxiPlatformIDForContact"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"Reach Out to this person!"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"description"</span><span class="p">:</span><span class="s2">"Call"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"due_at"</span><span class="p">:</span><span class="s2">"1465858693"</span><span class="p">,</span><span class="w">
@@ -409,6 +487,10 @@
 <td><span class="response-data"><span class="data-type">String</span></td>
 </tr>
 <tr>
+<td><span class="response-data">moxi_works_contact_id</span></td>
+<td><span class="response-data"><span class="data-type">String</span></td>
+</tr>
+<tr>
 <td><span class="response-data">name</span></td>
 <td><span class="data-type">String or null</span></td>
 </tr>
@@ -448,6 +530,9 @@
 
 <p><span class="response-data-head">partner_contact_id</span>
 <span class="response-data-remarks">This is the unique identifer you use in your system that has been associated with the <span class='entity-name'>Contact</span> that you are creating this <span class='entity-name'>Task</span> for.</span></p>
+
+<p><span class="response-data-head">moxi_works_contact_id</span>
+<span class="response-data-remarks">This is the unique moxi platform&rsquo;s contact identifer you use in your system that has been associated with the <span class='entity-name'>Contact</span> that you are creating this <span class='entity-name'>Task</span> for.</span></p>
 
 <p><span class="response-data-head">name</span>
 <span class="response-data-remarks">A brief, human readable title that will be shown to the agent as the subject of the <span class='entity-name'>Task</span>.</span></p>

@@ -16,7 +16,7 @@
   "due_at":1466208866,
   "duration":10,
   "name":"Do This Please",
-  "partner_contact_id":"mySystemsContactID",
+  "moxi_works_contact_id":"myMoxiPlatformContactID",
   "partner_task_id":"mySystemsTaskID"
 }
 
@@ -31,7 +31,7 @@ Accept: application/vnd.moxi-platform+json;version=1
 Authorization: Basic XNNeXAAAUZaQlF0dA==
 Content-Type: application/x-www-form-urlencoded
 
-agent_uuid=12345678-1234-1234-1234-1234567890ab&description=talk+to+private+kane,%2C+e-one-thousand%2C+about+stuff&due_at=1466208866&duration=10&name=Do+This+Please&partner_contact_id=mySystemContactId&partner_task_id=mySystemTaskId&status=completed
+agent_uuid=12345678-1234-1234-1234-1234567890ab&description=talk+to+private+kane,%2C+e-one-thousand%2C+about+stuff&due_at=1466208866&duration=10&name=Do+This+Please&moxi_works_contact_id=mySystemContactId&partner_task_id=mySystemTaskId&status=completed
 
 ```
 
@@ -45,9 +45,10 @@ ConfigurationManager.AppSettings["Identifier"] = "abc123";
 var agentUuid = "12345678-1234-1234-1234-1234567890ab";
 var partnerTaskId = "babebead-feed-face-dead-beefbad4babe";
 var partnerContactId = "booyuh";
+var moxiWorksContactId = "booyuh";
 
 var service = new TaskService(new MoxiWorksClient());
-var task = service.GetTaskAsync( agentUuid,  AgentIdType.AgentUuid,  partnerContactId,  partnerTaskId: partnerTaskId).Result;
+var task = service.GetTaskAsync( agentUuid,  AgentIdType.AgentUuid, partnerContactId,  moxiWorksContactId,  partnerTaskId: partnerTaskId).Result;
 task.description = "talk to private kane, e-one-thousand about stuff";
 task.dueAt = 1466208866;
 task.duration = 10;
@@ -70,7 +71,7 @@ MoxiworksPlatform::Credentials.new(platform_identifier, platform_secret)
 moxi_works_task = MoxiworksPlatform::Task.update(
         agent_uuid: "12345678-1234-1234-1234-1234567890ab",
         partner_task_id: "mySystemTaskId",
-        partner_contact_id: 'mySystemContactId',
+        moxi_works_contact_id: 'myMoxiPlatformContactId',
         name: "Meet And Greet",
         description: "Set up a meeting to talk to this contact about their new home",
         due_at: 1466208866,
@@ -90,7 +91,7 @@ $credentials = new MoxiworksPlatform\Credentials($platform_identifier, $platform
 $moxi_works_task = MoxiworksPlatform\Task::update([
         'agent_uuid' => '12345678-1234-1234-1234-1234567890ab',
         'partner_task_id' => 'mySystemTaskId',
-        'partner_contact_id' => 'mySystemContactId',
+        'moxi_works_contact_id' => 'myMoxiPlatformContactId',
         'name' => 'Meet And Greet',
         'description' => 'Set up a meeting to talk to this contact about their new home',
         'due_at' => 1466208866,
@@ -111,7 +112,7 @@ $moxi_works_task = MoxiworksPlatform\Task::update([
   "due_at":1466208866,
   "duration":10,
   "name":"Do This Please",
-  "partner_contact_id":"mySystemsContactID",
+  "moxi_works_contact_id":"myMoxiPlatformContactID",
   "partner_task_id":"mySystemsTaskID"
 }
 
@@ -126,7 +127,7 @@ Accept: application/vnd.moxi-platform+json;version=1
 Authorization: Basic XNNeXAAAUZaQlF0dA==
 Content-Type: application/x-www-form-urlencoded
 
-moxi_works_agent_id=abc123&description=talk+to+private+kane,%2C+e-one-thousand%2C+about+stuff&due_at=1466208866&duration=10&name=Do+This+Please&partner_contact_id=mySystemContactId&partner_task_id=mySystemTaskId&status=completed
+moxi_works_agent_id=abc123&description=talk+to+private+kane,%2C+e-one-thousand%2C+about+stuff&due_at=1466208866&duration=10&name=Do+This+Please&moxi_works_contact_id=myMoxiPlatformContactId&partner_task_id=mySystemTaskId&status=completed
 
 ```
 
@@ -141,9 +142,10 @@ ConfigurationManager.AppSettings["Identifier"] = "abc123";
 var moxiWorksAgentId = "abc123";
 var partnerTaskId = "babebead-feed-face-dead-beefbad4babe";
 var partnerContactId = "booyuh";
+var moxiWorksContactId = "booyuh";
 
 var service = new TaskService(new MoxiWorksClient());
-var task = service.GetTaskAsync( moxiWorksAgentId,  AgentIdType.MoxiWorksAgentId,  partnerContactId,  partnerTaskId: partnerTaskId).Result;
+var task = service.GetTaskAsync( moxiWorksAgentId,  AgentIdType.MoxiWorksAgentId,  partnerContactId, moxiWorksContactId,  partnerTaskId: partnerTaskId).Result;
 task.description = "talk to private kane, e-one-thousand about stuff";
 task.dueAt = 1466208866;
 task.duration = 10;
@@ -166,7 +168,7 @@ MoxiworksPlatform::Credentials.new(platform_identifier, platform_secret)
 moxi_works_task = MoxiworksPlatform::Task.update(
         moxi_works_agent_id: "1234abcd",
         partner_task_id: "mySystemTaskId",
-        partner_contact_id: 'mySystemContactId',
+        moxi_works_contact_id: 'myMoxiPlatformContactId',
         name: "Meet And Greet",
         description: "Set up a meeting to talk to this contact about their new home",
         due_at: 1466208866,
@@ -186,7 +188,7 @@ $credentials = new MoxiworksPlatform\Credentials($platform_identifier, $platform
 $moxi_works_task = MoxiworksPlatform\Task::update([
         'moxi_works_agent_id' => '1234abcd',
         'partner_task_id' => 'mySystemTaskId',
-        'partner_contact_id' => 'mySystemContactId',
+        'moxi_works_contact_id' => 'myMoxiPlatformContactId',
         'name' => 'Meet And Greet',
         'description' => 'Set up a meeting to talk to this contact about their new home',
         'due_at' => 1466208866,
@@ -216,10 +218,11 @@ Attribute | Type | Length Limit |
 |<span class="multi-option-required-data">moxi_works_agent_id*</span>|<span class="multi-option-required-data"><span class="data-type">String</span></span>| <span class="multi-option-required-data">255</span>
 |<span class="multi-option-required-data">source_agent_id*</span>|<span class="multi-option-required-data"><span class="data-type">String</span></span>| <span class="multi-option-required-data">255</span>
 |<span class="required-data">partner_task_id</span>|<span class="required-data"><span class="data-type">String</span></span>|<span class="required-data">255</span>
-|<span class="required-data">partner_contact_id</span>|<span class="required-data"><span class="data-type">String</span></span>|<span class="required-data">255</span> |
+|<span class="required-data">moxi_works_contact_id</span>|<span class="required-data"><span class="data-type">String</span></span>|<span class="required-data">255</span> |
 |<span class="required-data">name</span>|<span class="required-data"><span class="data-type">String</span></span>|<span class="required-data">255</span> |
 |<span class="required-data">due_at</span>|<span class="required-data"><span class="data-type">Integer</span></span>|<span class="required-data">255</span> |
 |<span class="optional-data">moxi_works_company_id</span>|<span class="data-type">String</span>|  |
+|<span class="optional-data">partner_contact_id</span>|<span class="data-type">String</span>| 255 |
 |<span class="optional-data">parent_company_id</span>|<span class="data-type">String</span>| 255 |
 |<span class="optional-data">duration</span>|<span class="optional-data"><span class="data-type">Integer</span></span>| <span class="optional-data">255</span> |
 |<span class="optional-data">description</span>|<span class="data-type">String</span>| 255 |
@@ -238,6 +241,8 @@ Attribute | Type | Length Limit |
 <span class="request-data-head">partner_task_id</span>
 <span class="request-data-remarks">This is the unique identifer you use in your system that is associated with the <span class='entity-name'>Task</span> that you are updating. This data is required and must be a unique ID for your <span class='entity-name'>Task</span> <span class='action-name'>Create</span>  request to be accepted.</span>
 
+<span class="request-data-head">moxi_works_contact_id</span>
+<span class="request-data-remarks">This is the unique moxi platform's contact identifer you use in your system that has been associated with the <span class='entity-name'>Contact</span> that this <span class='entity-name'>Task</span> regards.</span>
 
 <span class="request-data-head">partner_contact_id</span>
 <span class="request-data-remarks">This is the unique identifer you use in your system that has been associated with the <span class='entity-name'>Contact</span> that this <span class='entity-name'>Task</span> regards.</span>
@@ -270,6 +275,7 @@ Attribute | Type | Length Limit |
 {
   "agent_uuid":"12345678-1234-1234-1234-1234567890ab",
   "partner_contact_id":"mySystemContactId",
+  "moxi_works_contact_id":"myMoxiPlatformContactId",
   "name":"Meet And Greet",
   "description":"Set up a meeting to talk to this contact about their new home",
   "due_at":1466208866,
@@ -292,6 +298,7 @@ Attribute | Type | Length Limit |
 {
   "moxi_works_agent_id":"1234abcd",
   "partner_contact_id":"mySystemContactId",
+  "moxi_works_contact_id":"myMoxiPlatformContactId",
   "name":"Meet And Greet",
   "description":"Set up a meeting to talk to this contact about their new home",
   "due_at":1466208866,
@@ -327,7 +334,8 @@ Attribute | Type |
 -----|-----|-----|-----|
 |<span class="multi-option-response-data">agent_uuid*</span>|<span class="data-type">String</span>| |
 |<span class="multi-option-response-data">moxi_works_agent_id*</span>|<span class="data-type">String</span>| |
-|<span class="response-data">partner_contact_id</span>|<span class="response-data"><span class="data-type">String</span>
+|<span class="response-data">moxi_works_contact_id</span>|<span class="response-data"><span class="data-type">String</span>
+|<span class="response-data">partner_contact_id</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">name</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">description</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">due_at</span>|<span class="data-type">Integer</span>|
@@ -345,6 +353,9 @@ Attribute | Type |
 
 <span class="response-data-head">moxi_works_agent_id</span>
 <span class="response-data-remarks">This is the MoxiWorks Platform ID of the <span class='entity-name'>Agent</span>. This will be a string that may take the form of an email address, or a unique alphanumeric identification string.</span>
+
+<span class="response-data-head">moxi_works_contact_id</span>
+<span class="response-data-remarks">This is the unique moxi platform's contact identifer you use in your system that has been associated with the <span class='entity-name'>Contact</span> that you are updating this <span class='entity-name'>Task</span> for.</span>
 
 <span class="response-data-head">partner_contact_id</span>
 <span class="response-data-remarks">This is the unique identifer you use in your system that has been associated with the <span class='entity-name'>Contact</span> that you are updating this <span class='entity-name'>Task</span> for.</span>

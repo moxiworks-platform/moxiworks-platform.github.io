@@ -97,14 +97,39 @@ $agent_moxi_works_tasks = MoxiworksPlatform\Task::search(['moxi_works_agent_id' 
 }
 ```
 
+```json
+or
+```
+
+```json
+{
+  "moxi_works_agent_id":"abc123",
+  "moxi_works_contact_id":"myMoxiPlatformIDForContact"
+}
+```
+
 ```http
-GET /api/tasks?moxi_works_agent_id=abc123&partner_contact_id=mySystemIDForContact HTTP/1.1
+GET /api/tasks?moxi_works_agent_id=abc123&parter_contact_id=mySystemIDForContact HTTP/1.1
 Host: api.moxiworks.com
 Accept: application/vnd.moxi-platform+json;version=1
 Authorization: Basic XNNeXAAAUZaQlF0dA==
 Content-Type: application/x-www-form-urlencoded
 
 ```
+
+```http
+or
+```
+
+```http
+GET /api/tasks?moxi_works_agent_id=abc123&moxi_works_contact_id=myMoxiPlatformIDForContact HTTP/1.1
+Host: api.moxiworks.com
+Accept: application/vnd.moxi-platform+json;version=1
+Authorization: Basic XNNeXAAAUZaQlF0dA==
+Content-Type: application/x-www-form-urlencoded
+
+```
+
 ```csharp
 /* set up prerequisites once */
 ConfigurationManager.AppSettings["Secret"] = "secret";
@@ -123,11 +148,34 @@ agent_moxi_works_tasks_for_contact = MoxiworksPlatform::Task.search(
 
 ```
 
+```ruby
+or
+```
+
+```ruby
+agent_moxi_works_tasks_for_contact = MoxiworksPlatform::Task.search(
+        moxi_works_agent_id: "abc123",
+        moxi_works_contact_id: "myMoxiPlatformIDForContact")
+
+```
+
 ```php
 <?php
 $agent_moxi_works_tasks_for_contact = MoxiworksPlatform\Task::search([
         'moxi_works_agent_id' => 'abc123',
         'partner_contact_id' => 'mySystemIDForContact']);
+?>
+```
+
+```php
+or
+```
+
+```php
+<?php
+$agent_moxi_works_tasks_for_contact = MoxiworksPlatform\Task::search([
+        'moxi_works_agent_id' => 'abc123',
+        'moxi_works_contact_id' => 'myMoxiPlatformIDForContact']);
 ?>
 ```
 
@@ -191,8 +239,33 @@ $agent_moxi_works_tasks_for_contact_due_between_dates= MoxiworksPlatform\Task::s
 }
 ```
 
+```json
+or
+```
+
+```json
+{
+  "moxi_works_agent_id":"abc123",
+  "date_due_start":1461108284,
+  "date_due_end":1462317907,
+  "moxi_works_contact_id":"myMoxiPlatformIDForContact"
+}
+```
+
 ```http
 GET /api/tasks?moxi_works_agent_id=abc123&date_due_start=1461108284&date_due_end=1462317907&partner_contact_id=mySystemIDForContact HTTP/1.1
+Host: api.moxiworks.com
+Accept: application/vnd.moxi-platform+json;version=1
+Authorization: Basic XNNeXAAAUZaQlF0dA==
+Content-Type: application/x-www-form-urlencoded
+```
+
+```http
+or
+```
+
+```http
+GET /api/tasks?moxi_works_agent_id=abc123&date_due_start=1461108284&date_due_end=1462317907&moxi_works_contact_id=myMoxiPlatformIDForContact HTTP/1.1
 Host: api.moxiworks.com
 Accept: application/vnd.moxi-platform+json;version=1
 Authorization: Basic XNNeXAAAUZaQlF0dA==
@@ -218,12 +291,40 @@ agent_moxi_works_tasks_for_contact_due_between_dates = MoxiworksPlatform::Task.s
         due_date_end: Time.now.to_i)
 ```
 
+```ruby
+or
+```
+
+```ruby
+agent_moxi_works_tasks_for_contact_due_between_dates = MoxiworksPlatform::Task.search(
+        moxi_works_agent_id: "abc123",
+        moxi_works_contact_id: "myMoxiPlatformIDForContact",
+        due_date_start: Time.now.to_i - 86400,
+        due_date_end: Time.now.to_i)
+```
+
 ```php
 <?php
 
 $agent_moxi_works_tasks_for_contact_due_between_dates= MoxiworksPlatform\Task::search([
         'moxi_works_agent_id' => 'abc123',
         'partner_contact_id' => 'mySystemIDForContact',
+        'due_date_start' => 1461108284,
+        'due_date_end' => 1462317907]);
+
+?>
+```
+
+```php
+or
+```
+
+```php
+<?php
+
+$agent_moxi_works_tasks_for_contact_due_between_dates= MoxiworksPlatform\Task::search([
+        'moxi_works_agent_id' => 'abc123',
+        'moxi_works_contact_id' => 'myMoxiPlatformIDForContact',
         'due_date_start' => 1461108284,
         'due_date_end' => 1462317907]);
 
@@ -249,6 +350,7 @@ Attribute | Type | Length Limit |
 |<span class="optional-data">due_date_start</span>|<span class="data-type">Integer</span>| 255 |
 |<span class="optional-data">due_date_end</span>|<span class="data-type">Integer</span>| 255 |
 |<span class="optional-data">partner_contact_id</span>|<span class="data-type">String</span>| 255 |
+|<span class="optional-data">moxi_works_contact_id</span>|<span class="data-type">String</span>| 255 |
 |<span class="optional-data">page_number</span>|<span class="data-type">Integer</span>| 255 |
 
 
@@ -276,6 +378,9 @@ Attribute | Type | Length Limit |
 <span class="request-data-head">partner_contact_id</span>
 <span class="request-data-remarks">This is the unique identifer you use in your system that has been associated with the <span class='entity-name'>Contact</span> that this <span class='entity-name'>Task</span> regards.</span>
 
+<span class="request-data-head">moxi_works_contact_id</span>
+<span class="request-data-remarks">This is the unique moxi platform's contact identifer you use in your system that has been associated with the <span class='entity-name'>Contact</span> that this <span class='entity-name'>Task</span> regards.</span>
+
 
 <span class="request-data-head">page_number</span>
 <span class="request-data-remarks">Page of <span class='entity-name'>Task</span> objects to return. Use if `total_pages` indicates that there is more than one page of data available.</span>
@@ -295,6 +400,7 @@ Attribute | Type | Length Limit |
     {
       "agent_uuid":"12345678-1234-1234-1234-1234567890ab",
       "partner_contact_id":"mySystemIDForContact",
+      "moxi_works_contact_id":"myMoxiPlatformIDForContact",
       "name":"Reach Out to this person!",
       "description":"Call",
       "due_at":"1465858693",
@@ -323,6 +429,7 @@ Attribute | Type | Length Limit |
     {
       "moxi_works_agent_id":"abc123",
       "partner_contact_id":"mySystemIDForContact",
+      "moxi_works_contact_id":"myMoxiPlatformIDForContact",
       "name":"Reach Out to this person!",
       "description":"Call",
       "due_at":"1465858693",
@@ -370,6 +477,7 @@ Attribute | Type |
 |<span class="multi-option-response-data">agent_uuid*</span>|<span class="data-type">String</span>| |
 |<span class="multi-option-response-data">moxi_works_agent_id*</span>|<span class="data-type">String</span>| |
 |<span class="response-data">partner_contact_id</span>|<span class="response-data"><span class="data-type">String</span>
+|<span class="response-data">moxi_works_contact_id</span>|<span class="response-data"><span class="data-type">String</span>
 |<span class="response-data">name</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">description</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">due_at</span>|<span class="data-type">Integer</span>|
@@ -389,6 +497,9 @@ Attribute | Type |
 
 <span class="response-data-head">partner_contact_id</span>
 <span class="response-data-remarks">This is the unique identifer you use in your system that has been associated with the <span class='entity-name'>Contact</span> that you are creating this <span class='entity-name'>Task</span> for.</span>
+
+<span class="response-data-head">moxi_works_contact_id</span>
+<span class="response-data-remarks">This is the unique moxi platform's contact identifer you use in your system that has been associated with the <span class='entity-name'>Contact</span> that you are creating this <span class='entity-name'>Task</span> for.</span>
 
 <span class="response-data-head">name</span>
 <span class="response-data-remarks">A brief, human readable title that will be shown to the agent as the subject of the <span class='entity-name'>Task</span>.</span>

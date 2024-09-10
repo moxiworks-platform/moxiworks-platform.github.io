@@ -1579,6 +1579,8 @@ moxi_works_action_log_id=12345678-1234-1234-1234-1234567890ab
 <p><span class="request-data-head">date_max</span>
 <span class="request-data-remarks">Only <span class='entity-name'>ActionLog</span> records created earlier than this Unix timestamp will be included in the query. Should be no higher than 90 days past the <span class='attribute-name'>date_min</span> attribute if it is provided.</span></p>
 
+<aside class="note">The maximum timeframe for data is 90 days. <span class='attribute-name'>date_min</span> and <span class='attribute-name'>date_max</span> should be set in 90 day increments to retrieve the data from a specific historical point</aside>
+
 <h5 id="actionlog-index-response-payload"><span class='entity-name'>ActionLog</span> <span class='action-name'>Index</span> Response Payload</h5>
 
 <p>The following attributes make up the payload of the <span class='entity-name'>ActionLog</span> response for a <span class='action-name'>Index</span> request.</p>

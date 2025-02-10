@@ -197,419 +197,82 @@ Attribute | Type | Length Limit |
 
 
 <blockquote><div class='highlight json' style="display: block">
-<span class='data-example-label'><span class='entity-name'>Contact</span> <span class='action-name'>Index</span> (using <span class='attribute-name'>agent_uuid</span>) Response Payload Example
+<span class='data-example-label'><span class='entity-name'>Contact</span> <span class='action-name'>Index</span>  Response Payload Example
 </span></div></blockquote>
 
 ```json
-
 {
-"page_number":6,
-"total_pages":6,
-"contacts":[{
-  "agent_uuid": "12345678-1234-1234-1234-1234567890ab",
-  "partner_contact_id": "booyuh",
-  "moxi_works_contact_id":"deadbeef-feed-face-2bad4daddead",
-  "moxi_works_lead_source_id": "some_lead_source_id",
-  "moxi_works_origin_lead_source_id": "some_other_lead_source_id",
-  "is_deleted": false,
-  "contact_name":"Firstname Middlenyme Larstnam",
-  "first_name":"Firstname",
-  "middle_name":"Middlenyme",
-  "last_name":"Larstnam",
-  "suffix":null,
-  "gender": "m",
-  "label_name": "Mr. and Mrs. Oo-De-Lally Golly What a Day",
-  "email_addresses": [
+  "totalCount": 1234,
+  "totalCountWithPhoneNumbers": 567,
+  "results": [
     {
-      "key": "email_address1",
-      "address": "this@one.com"
-    },
-    {
-      "key": "email_address2",
-      "address": "also@this.com"
+      "id": 1234,
+      "givenName": "John",
+      "surname": "Doe",
+      "companyName": "Mock Corp",
+      "personalContact": false,
+      "displayName": "John Doe",
+      "middleName": null,
+      "generation": null,
+      "collaborator": false,
+      "visibilityPlus": false,
+      "thumbnail": "https://example.com/avatar.png",
+      "isNew": true,
+      "source": "MockSource",
+      "sourceName": "MockSourceName",
+      "calculatedName": "John Doe",
+      "isOnFire": false,
+      "nameSeed": "1234",
+      "hidden": null,
+      "createdAt": "2023-01-01T00:00:00.000-00:00",
+      "lastViewedAt": null,
+      "updatedAt": "2023-01-01T00:00:00.000-00:00",
+      "systemCategories": [
+        "MockCategory"
+      ],
+      "pastBuyer": false,
+      "pastSeller": false,
+      "excludeFromStayInFlow": false,
+      "lastTouchedAt": null,
+      "categoryType": null,
+      "transactions": [],
+      "marketingRecords": [],
+      "contactCategories": [
+        {
+          "id": 1234,
+          "name": "Mock Contacts"
+        },
+        {
+          "id": 1234,
+          "name": "Core Group"
+        },
+        {
+          "id": 1234,
+          "name": "Sphere"
+        }
+      ],
+      "emailAddresses": [
+        {
+          "id": 1234,
+          "key": null,
+          "name": null,
+          "routingType": null,
+          "mailboxType": null,
+          "text": "john.doe@example.com",
+          "label": null,
+          "remoteKey": null,
+          "priority": 3,
+          "renamable": true,
+          "title": "custom"
+        }
+      ],
+      "phoneNumbers": [],
+      "physicalAddresses": []
     }
-  ],
-  "phone_numbers": [
-    {
-      "key": "mobile_phone",
-      "number": "3603603608"
-    },
-    {
-      "key": "home_phone",
-      "number": "3603603608"
-    }
-  ],
-  "primary_phone_number": "9995551212",
-  "secondary_phone_number": "(333) 555-1185",
-  "home_street_address": "1234 Sesame St.",
-  "home_city": "Cityville",
-  "home_state": "Stateland",
-  "home_zip": "12345-6789",
-  "home_country": "Ottoman Empire",
-  "job_title": "Junior Bacon Burner",
-  "occupation": "chef",
-  "is_new_contact": true,
-  "birthday": 1496310636,
-  "anniversary": 1495199540,
-  "home_purchase_anniversary": 1484088442,
-  "social_media_profiles": [
-    {
-  "key": "facebook",
-  "url": null
-  },
-    {
-  "key": "linkedin",
-  "url": null
-  },
-    {
-  "key": "twitter",
-  "url": null
-  },
-    {
-  "key": "googleplus",
-  "url": null
-  }
-  ],
-  "groups":[
-    "this group",
-    "that group",
-    "the other group"
-  ],
-  "property_url": "http://my.property.website.is/here",
-  "property_mls_id": "abc123",
-  "property_street_address": "2345 67th place",
-  "property_city": "Townland",
-  "property_state": "Statesville",
-  "property_zip": "98765-4321",
-  "property_beds": "18",
-  "property_baths": "12.5",
-  "property_list_price": "123456789",
-  "property_listing_status": "Active",
-  "property_photo_url": "http://property.photo.is/here.jpg",
-  "search_city": "Searchland",
-  "search_state": "Searchsylvania",
-  "search_zip": "12345-6789",
-  "search_min_beds": "2",
-  "search_min_baths": "3.25",
-  "search_min_price": "1234567",
-  "search_max_price": "1234569",
-  "search_min_sq_ft": "1234",
-  "search_max_sq_ft": "1235",
-  "search_min_lot_size": "3234",
-  "search_max_lot_size": "3235",
-  "search_min_year_built": "1388",
-  "search_max_year_built": "2044",
-  "search_property_types": "Condo, Single Family, Townhouse",
-  "note": "whatevers2009",
-  "websites": [
-      {
-        "rank": 1,
-        "key": "website_key_1",
-        "value": "https://blep.com"
-      },
-      {
-        "rank": 2,
-        "key": "website_key_2",
-        "value": "https://blep.com"
-      }
-    ],
-  "home_purchase_anniversaries": [
-      1484088442
-   ],
-  "company": "Blep Ltd.",
-  "spouse_or_partner": "Rick Sanchez",
-  "category_names": "blep1,blep2,blep3",
-  "groups":[
-    "blep1",
-    "blep2",
-    "blep3"
   ]
-},
-{
-  "agent_uuid": "12345678-1234-1234-1234-1234567890ab",
-  "partner_contact_id": "fooyuh",
-  "moxi_works_contact_id":"deadbeef-feed-face-2baddadbdead",
-  "moxi_works_lead_source_id": "some_lead_source_id",
-  "moxi_works_origin_lead_source_id": "some_other_lead_source_id",
-  "is_deleted": false,
-  "contact_name": "buckminster fuller",
-  "first_name":"buckminster",
-  "middle_name":null,
-  "last_name":"fuller",
-  "suffix":null,
-  "gender": "m",
-  "label_name": "Mr. and Mrs. Oo-De-Lally Golly What a Day",
-  "primary_email_address":"primary@email.com",
-  "secondary_email_address":"secondary@email.com",
-  "primary_phone_number":"3603603608",
-  "secondary_phone_number":"3603603609",
-  "email_addresses": [
-    {
-      "key": "email_address1",
-      "address": "primary@email.com"
-    },
-    {
-      "key": "email_address2",
-      "address": "secondary@email.com"
-    },
-    {
-      "key": "email_address3",
-      "address": "also@this.com"
-    }
-  ],
-  "phone_numbers": [
-    {
-      "key": "mobile_phone",
-      "number": "3603603608"
-    },
-    {
-      "key": "home_phone",
-      "number": "3603603609"
-    },
-    {
-      "key": "business_phone",
-      "number": "3603603610"
-    },
-  ],
-  "primary_phone_number": "202 123-4567",
-  "secondary_phone_number": "(444) 555-6666",
-  "home_street_address": "1234 Pecan Dr.",
-  "home_city": "Cityville",
-  "home_state": "Stateland",
-  "home_zip": "12345-6789",
-  "home_country": "Brovilee",
-  "job_title": "Junior Cheese Head",
-  "is_new_contact": true,
-  "birthday": 1496310636,
-  "anniversary": 1495199540,
-  "home_purchase_anniversary": 1484088442,
-  "social_media_profiles": [
-    {
-  "key": "facebook",
-  "url": null
-  },
-    {
-  "key": "linkedin",
-  "url": null
-  },
-    {
-  "key": "twitter",
-  "url": null
-  },
-    {
-  "key": "googleplus",
-  "url": null
-  }
-  ],
-  "groups":[
-    "this group",
-    "that group",
-    "the other group"
-  ],
-  "occupation": "football fan",
-  "property_url": "http://my.property.website.is/here",
-  "property_mls_id": "abc123",
-  "property_street_address": "2345 67th place",
-  "property_city": "Townland",
-  "property_state": "Statesville",
-  "property_zip": "98765-4321",
-  "property_beds": "18",
-  "property_baths": "12.5",
-  "property_list_price": "123456789",
-  "property_listing_status": "Active",
-  "property_photo_url": "http://property.photo.is/here.jpg",
-  "search_city": "Searchland",
-  "search_state": "Searchsylvania",
-  "search_zip": "12345-6789",
-  "search_min_beds": "2",
-  "search_min_baths": "3.25",
-  "search_min_price": "1234567",
-  "search_max_price": "1234569",
-  "search_min_sq_ft": "1234",
-  "search_max_sq_ft": "1235",
-  "search_min_lot_size": "3234",
-  "search_max_lot_size": "3235",
-  "search_min_year_built": "1388",
-  "search_max_year_built": "2044",
-  "search_property_types": "Condo, Single Family, Townhouse",
-  "note": "whatevers2009",
-  "websites": [],
-  "home_purchase_anniversaries": [],
-  "company": null,
-  "spouse_or_partner": null,
-  "category_names": "blep1,blep2,blep3",
-  "groups":[
-    "blep1",
-    "blep2",
-    "blep3"
-  ]
-}]
 }
 ```
 
-
-<blockquote><div class='highlight json' style="display: block">
-<span class='data-example-label'><span class='entity-name'>Contact</span> <span class='action-name'>Index</span> (using <span class='attribute-name'>moxi_works_agent_id</span>) Response Payload Example
-</span></div></blockquote>
-```json
-
-{
-"page_number":6,
-"total_pages":6,
-"contacts":[{
-  "moxi_works_agent_id": "1234abcd",
-  "partner_contact_id": "booyuh",
-  "moxi_works_contact_id":"deadbeef-feed-face-2bad4daddead",
-  "contact_name":"Firstname Middlenyme Larstnam",
-  "first_name":"Firstname",
-  "middle_name":"Middlenyme",
-  "last_name":"Larstnam",
-  "suffix":null,
-  "gender": "m",
-  "label_name": "Mr. and Mrs. Oo-De-Lally Golly What a Day",
-  "primary_email_address": "me@justabout.right.here",
-  "secondary_email_address": "me.too@justabout.right.here",
-  "primary_phone_number": "9995551212",
-  "secondary_phone_number": "(333) 555-1185",
-  "home_street_address": "1234 Sesame St.",
-  "home_city": "Cityville",
-  "home_state": "Stateland",
-  "home_zip": "12345-6789",
-  "home_country": "Ottoman Empire",
-  "job_title": "Junior Bacon Burner",
-  "occupation": "chef",
-  "is_new_contact": true,
-  "birthday": 1496310636,
-  "anniversary": 1495199540,
-  "home_purchase_anniversary": 1484088442,
-  "social_media_profiles": [
-    {
-  "key": "facebook",
-  "url": null
-  },
-    {
-  "key": "linkedin",
-  "url": null
-  },
-    {
-  "key": "twitter",
-  "url": null
-  },
-    {
-  "key": "googleplus",
-  "url": null
-  }
-  ],
-  "groups":[
-    "this group",
-    "that group",
-    "the other group"
-  ],
-  "property_url": "http://my.property.website.is/here",
-  "property_mls_id": "abc123",
-  "property_street_address": "2345 67th place",
-  "property_city": "Townland",
-  "property_state": "Statesville",
-  "property_zip": "98765-4321",
-  "property_beds": "18",
-  "property_baths": "12.5",
-  "property_list_price": "123456789",
-  "property_listing_status": "Active",
-  "property_photo_url": "http://property.photo.is/here.jpg",
-  "search_city": "Searchland",
-  "search_state": "Searchsylvania",
-  "search_zip": "12345-6789",
-  "search_min_beds": "2",
-  "search_min_baths": "3.25",
-  "search_min_price": "1234567",
-  "search_max_price": "1234569",
-  "search_min_sq_ft": "1234",
-  "search_max_sq_ft": "1235",
-  "search_min_lot_size": "3234",
-  "search_max_lot_size": "3235",
-  "search_min_year_built": "1388",
-  "search_max_year_built": "2044",
-  "search_property_types": "Condo, Single Family, Townhouse",
-  "note": "whatevers2009",
-},
-{
-  "moxi_works_agent_id": "1234abcd",
-  "partner_contact_id": "fooyuh",
-  "moxi_works_contact_id":"deadbeef-feed-face-2baddadbdead",
-  "contact_name": "buckminster fuller",
-  "first_name":"buckminster",
-  "middle_name":null,
-  "last_name":"fuller",
-  "suffix":null,
-  "gender": "m",
-  "label_name": "Mr. and Mrs. Oo-De-Lally Golly What a Day",
-  "primary_email_address": "whatever@whatevers.right.here",
-  "secondary_email_address": "me.2009@2009.whatevers.here",
-  "primary_phone_number": "202 123-4567",
-  "secondary_phone_number": "(444) 555-6666",
-  "home_street_address": "1234 Pecan Dr.",
-  "home_city": "Cityville",
-  "home_state": "Stateland",
-  "home_zip": "12345-6789",
-  "home_country": "Brovilee",
-  "job_title": "Junior Cheese Head",
-  "occupation": "football fan",
-  "is_new_contact": true,
-  "birthday": 1496310636,
-  "anniversary": 1495199540,
-  "home_purchase_anniversary": 1484088442,
-  "social_media_profiles": [
-    {
-  "key": "facebook",
-  "url": null
-  },
-    {
-  "key": "linkedin",
-  "url": null
-  },
-    {
-  "key": "twitter",
-  "url": null
-  },
-    {
-  "key": "googleplus",
-  "url": null
-  }
-  ],
-  "groups":[
-    "this group",
-    "that group",
-    "the other group"
-  ],
-  "property_url": "http://my.property.website.is/here",
-  "property_mls_id": "abc123",
-  "property_street_address": "2345 67th place",
-  "property_city": "Townland",
-  "property_state": "Statesville",
-  "property_zip": "98765-4321",
-  "property_beds": "18",
-  "property_baths": "12.5",
-  "property_list_price": "123456789",
-  "property_listing_status": "Active",
-  "property_photo_url": "http://property.photo.is/here.jpg",
-  "search_city": "Searchland",
-  "search_state": "Searchsylvania",
-  "search_zip": "12345-6789",
-  "search_min_beds": "2",
-  "search_min_baths": "3.25",
-  "search_min_price": "1234567",
-  "search_max_price": "1234569",
-  "search_min_sq_ft": "1234",
-  "search_max_sq_ft": "1235",
-  "search_min_lot_size": "3234",
-  "search_max_lot_size": "3235",
-  "search_min_year_built": "1388",
-  "search_max_year_built": "2044",
-  "search_property_types": "Condo, Single Family, Townhouse",
-  "note": "whatevers2009",
-}]
-}
-```
 
 <blockquote><div class='highlight json' style="display: block">
   <span class='data-example-label'><span class='entity-name'>Contact</span> <span class='action-name'>Index</span> Failure Response Example
@@ -631,349 +294,240 @@ The following attributes make up the payload of the <span class='entity-name'>Co
 
 Attribute | Type |
 -----|-----|-----|-----|
-|<span class="response-data">page_number</span>|<span class="response-data"><span class="data-type">Integer</span></span>|
-|<span class="response-data">total_pages</span>|<span class="response-data"><span class="data-type">Integer</span></span>|
-|<span class="response-data">contacts</span>|<span class="response-data"><span class="data-type">Array</span></span>|
+|<span class="response-data">totalCount</span>|<span class="response-data"><span class="data-type">Integer</span></span>|
+|<span class="response-data">totalCountWithPhoneNumbers</span>|<span class="response-data"><span class="data-type">Integer</span></span>|
+|<span class="response-data">results</span>|<span class="response-data"><span class="data-type">Array</span></span>|
 
+<span class="request-data-head">totalCount</span>
+<span class="request-data-remarks">The total number of <span class='entity-name'>Contact</span> objects available for the current query.</span>
 
-<span class="request-data-head">page_number</span>
-<span class="request-data-remarks">If there is more than one page of <span class='entity-name'>Contact</span> objects to return, <span class='attribute-name'>page_number</span> will denote which page of responses has been returned. If this is less than the value of <span class='attribute-name'>total_pages</span>, there are more pages that can be returned by including the <span class='attribute-name'>page_number</span> parameter in your API request.</span>
+<span class="request-data-head">totalCountWithPhoneNumbers</span>
+<span class="request-data-remarks">The total number of <span class='entity-name'>Contact</span> objects that have associated phone numbers.</span>
 
-<span class="request-data-head">total_pages</span>
-<span class="request-data-remarks">If there is more than one page of <span class='entity-name'>Contact</span> objects to return, <span class='attribute-name'>total_pages</span> will denote how many pages of <span class='entity-name'>Contact</span> objects there are to be returned fo the current query. Subsequent pages can be returned by including the <span class='attribute-name'>page_number</span> parameter in your API request.</span>
+<span class="request-data-head">results</span>
+<span class="request-data-remarks">This array contains the payload from the request query. Any found <span class='entity-name'>Contact</span> objects matching the query will be returned as <span class='entity-name'>Contact</span> objects in the response.</span>
 
-
-<span class="request-data-head">contacts</span>
-<span class="request-data-remarks">This array contains the payload from the request query. Any found <span class='entity-name'>Contact</span> objects matching the query will be returned as <span class='entity-name'>Contact</span> objects in the response. </span>
-
-###### <span class='attribute-name'>contacts</span> <span class='entity-name'>Contact</span>  Objects
-
-Attribute | Type |
------|-----|-----|-----|
-|<span class="multi-option-response-data">agent_uuid*</span>|<span class="data-type">String</span>| |
-|<span class="multi-option-response-data">moxi_works_agent_id*</span>|<span class="data-type">String</span>| |
-|<span class="response-data">partner_contact_id</span>|<span class="response-data"><span class="data-type">String</span>
-|<span class="response-data">moxi_works_contact_id</span>|<span class="data-type">String</span>|
-|<span class="response-data">moxi_works_lead_source_id</span>|<span class="data-type">String</span>|
-|<span class="response-data">moxi_works_origin_lead_source_id</span>|<span class="data-type">String</span>|
-|<span class="response-data">is_deleted</span>|<span class="data-type">Boolean</span>|
-|<span class="response-data">contact_name</span>|<span class="data-type">String or null</span>|
-|<span class="response-data">first_name</span>|<span class="data-type">String or null</span>|
-|<span class="response-data">middle_name</span>|<span class="data-type">String or null</span>|
-|<span class="response-data">last_name</span>|<span class="data-type">String or null</span>|
-|<span class="response-data">suffix</span>|<span class="data-type">String or null</span>|
-|<span class="response-data">gender</span>|<span class="data-type">String or null</span>|
-|<span class="response-data">label_name</span>|<span class="data-type">String or null</span>|
-|<span class="response-data">primary_email_address</span>|<span class="data-type">String or null</span>|
-|<span class="response-data">secondary_email_address</span>|<span class="data-type">String or null</span>|
-|<span class="response-data">email_addresses</span>|<span class="data-type">Array</span>|
-|<span class="response-data">primary_phone_number</span>|<span class="data-type">String or null</span>|
-|<span class="response-data">secondary_phone_number</span>|<span class="data-type">String or null</span>|
-|<span class="response-data">phone_numbers</span>|<span class="data-type">Array</span>|
-|<span class="response-data">home_street_address</span>|<span class="data-type">String or null</span>|
-|<span class="response-data">home_city</span>|<span class="data-type">String or null</span>|
-|<span class="response-data">home_state</span>|<span class="data-type">String or null</span>|
-|<span class="response-data">home_zip</span>|<span class="data-type">String or null</span>|
-|<span class="response-data">home_country</span>|<span class="data-type">String or null</span>|
-|<span class="response-data">job_title</span>|<span class="data-type">String or null</span>|
-|<span class="response-data">occupation</span>|<span class="data-type">String or null</span>|
-|<span class="response-data">is_new_contact</span>|<span class="data-type">Boolean</span>|
-|<span class="response-data">birthday</span>|<span class="data-type">Integer or null</span>|
-|<span class="response-data">anniversary</span>|<span class="data-type">Integer or null</span>|
-|<span class="response-data">home_purchase_anniversary</span>|<span class="data-type">Integer or null</span>|
-|<span class="response-data">social_media_profiles</span>|<span class="data-type">Array</span>|
-|<span class="response-data">groups</span>|<span class="data-type">Array</span>|
-|<span class="response-data">property_url</span>|<span class="data-type">String or null</span>|
-|<span class="response-data">property_mls_id</span>|<span class="data-type">String or null</span>|
-|<span class="response-data">property_street_address</span>|<span class="data-type">String or null</span>|
-|<span class="response-data">property_city</span>|<span class="data-type">String or null</span>|
-|<span class="response-data">property_state</span>|<span class="data-type">String or null</span>|
-|<span class="response-data">property_zip</span>|<span class="data-type">String or null</span>|
-|<span class="response-data">property_beds</span>|<span class="data-type">String or null</span>|
-|<span class="response-data">property_baths</span>|<span class="data-type">String or null</span>|
-|<span class="response-data">property_list_price</span>|<span class="data-type">String or null</span>|
-|<span class="response-data">property_listing_status</span>|<span class="data-type">String or null</span>|
-|<span class="response-data">property_photo_url</span>|<span class="data-type">String or null</span>|
-|<span class="response-data">search_city</span>|<span class="data-type">String or null</span>|
-|<span class="response-data">search_state</span>|<span class="data-type">String or null</span>|
-|<span class="response-data">search_zip</span>|<span class="data-type">String or null</span>|
-|<span class="response-data">search_min_baths</span>|<span class="data-type">String or null</span>|
-|<span class="response-data">search_min_beds</span>|<span class="data-type">String or null</span>|
-|<span class="response-data">search_min_price</span>|<span class="data-type">String or null</span>|
-|<span class="response-data">search_max_price</span>|<span class="data-type">String or null</span>|
-|<span class="response-data">search_min_sq_ft</span>|<span class="data-type">String or null</span>|
-|<span class="response-data">search_max_sq_ft</span>|<span class="data-type">String or null</span>|
-|<span class="response-data">search_min_lot_size</span>|<span class="data-type">String or null</span>|
-|<span class="response-data">search_max_lot_size</span>|<span class="data-type">String or null</span>|
-|<span class="response-data">search_min_year_built</span>|<span class="data-type">String or null</span>|
-|<span class="response-data">search_max_year_built</span>|<span class="data-type">String or null</span>|
-|<span class="response-data">search_property_types</span>|<span class="data-type">String or null</span>|
-|<span class="response-data">note</span>|<span class="data-type">String or null</span>|  |
-|<span class="response-data">websites</span>|<span class="data-type">Array</span>|  |
-|<span class="response-data">home_purchase_anniversaries</span>|<span class="data-type">Array</span>|  |
-|<span class="response-data">company</span>|<span class="data-type">String or null</span>|  |
-|<span class="response-data">spouse_or_partner</span>|<span class="data-type">String or null</span>|  |
-|<span class="response-data">category_names</span>|<span class="data-type">String or null</span>|  |
-|<span class="response-data">groups</span>|<span class="data-type">Array</span>|  |
-
-<span class='multi-option-response-data'>* Either <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> will be returned depending on whether it is used in the request. The response payload object's agent identifier key will match the passed parameter.</span>
-
-<span class="response-data-head">agent_uuid</span>
-<span class="response-data-remarks">This is the MoxiWorks Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>Contact</span>  is associated with. This will be an [RFC 4122](https://tools.ietf.org/html/rfc4122) compliant UUID.</span>
-
-
-<span class="response-data-head">moxi_works_agent_id</span>
-<span class="response-data-remarks">This is the MoxiWorks Platform ID of the <span class='entity-name'>Agent</span>. This will be a string that may take the form of an email address, or a unique alphanumeric identification string.</span>
-
-<span class="response-data-head">partner_contact_id</span>
-<span class="response-data-remarks">This is the unique identifer you use in your system that has been associated with the <span class='entity-name'>Contact</span> that you are creating.</span>
-
-<span class="response-data-head">moxi_works_contact_id</span>
-<span class="response-data-remarks">This is the MoxiWorks Platform ID of this <span class='entity-name'>Contact</span>. This will be an [RFC 4122](https://tools.ietf.org/html/rfc4122) compliant UUID.</span>
-
-<span class="response-data-head">moxi_works_lead_source_id</span>
-<span class="response-data-remarks">This is the unique MoxiWorks Platform ID of the <span class='entity-name'>LeadSource</span> that generated this <span class='entity-name'>Contact</span>.</span>
-
-<span class="request-data-head">moxi_works_origin_lead_source_id</span>
-<span class="request-data-remarks">This is used to keep track of the original lead source for this <span class='entity-name'>Contact</span> record. This field will not be displayed in MoxiEngage, and is for the parter's own tracking purposes. This key will be associated with valid <span class='attribute-name'>moxi_works_lead_source_id</span>. Send a <span class='entity-name'>LeadSource</span> <span class='action-name'>index</span> request for a full list of applicable lead sources and their ids.</span>
-
-<span class="response-data-head">is_deleted</span>
-<span class="response-data-remarks">Will be true if this <span class='entity-name'>Contact</span> has been deleted from the <span class='entity-name'>Agent</span>s contacts. (Note: deleted contacts are currently not returned using this method.)</span>
-
-
-<span class="response-data-head">contact_name</span>
-<span class="response-data-remarks">This is the full name of the contact you are creating a <span class='entity-name'>Contact</span> record for. You should format this information as <i>first middle last</i>. This value will be null if no data is available for this attribute. </span>
-
-
-<span class="response-data-head">first_name</span>
-<span class="response-data-remarks">This is the first name of the contact associated with this <span class='entity-name'>Contact</span> record. This value will be null if no data is available for this attribute. </span>
-
-<span class="response-data-head">middle_name</span>
-<span class="response-data-remarks">This is the middle name of the contact associated with this <span class='entity-name'>Contact</span> record. This value will be null if no data is available for this attribute. </span>
-
-
-<span class="response-data-head">last_name</span>
-<span class="response-data-remarks">This is the last name of the contact associated with this <span class='entity-name'>Contact</span> record. This value will be null if no data is available for this attribute. </span>
-
-<span class="response-data-head">suffix</span>
-<span class="response-data-remarks">This is the generational suffix of the name of the contact associated with this <span class='entity-name'>Contact</span> record. This value will be null if no data is available for this attribute. Supported suffixes are `II` `III` `IV` `JR` `JR.`. </span>
-
-<span class="response-data-head">gender</span>
-<span class="response-data-remarks">The gender of the contact. This can be `male`, `female`, `m` or `f`. No matter what is provided in the request, the response payload will return `m` or `f`.  This value will be null if no data is available for this attribute. </span>
-
-<span class="response-data-head">label_name</span>
-<span class="response-data-remarks">This is the name used to address the contact when creating mailing labels for the contact associated with this <span class='entity-name'>Contact</span> record. This value will be null if no data is available for this attribute. </span>
-
-<span class="response-data-head">primary_email_address</span>
-<span class="response-data-remarks">This is the email address that should be used first. If provided, the address must conform to [RFC 3696](https://tools.ietf.org/html/rfc3696#section-3). This value will be null if no data is available for this attribute. This attribute should not be used in conjunction with the <span class='attribute-name'>email_addresses</span> attribute.</span>
-
-<span class="response-data-head">secondary_email_address</span>
-<span class="response-data-remarks">This is the email address that should be used as an alternate. If provided, the address must conform to [RFC 3696](https://tools.ietf.org/html/rfc3696#section-3). This value will be null if no data is available for this attribute. This attribute should not be used in conjunction with the <span class='attribute-name'>email_addresses</span> attribute. </span>
-
-###### <span class='attribute-name'>email_addresses</span> Objects
-
-These email addresses correspond to agent created <span class='entity-name'>Contact</span> entities. Only phone fields present in this <span class='entity-name'>Contact</span> record will be returned.
-
-Each object in the <span class='attribute-name'>email_addresses</span> array will have the following structure:
+###### <span class='attribute-name'>Contact</span> Object
+Each object in the <span class='attribute-name'>results</span> array will have the following structure:
 
 Attribute | Type |
 -----|-----|-----|-----|
-|<span class="response-data">key</span>|<span class="response-data"><span class="data-type">String</span>
-|<span class="response-data">address</span>|<span class="response-data"><span class="data-type">String</span>
+|<span class="response-data">id</span>|<span class="response-data"><span class="data-type">Integer</span></span>|
+|<span class="response-data">givenName</span>|<span class="response-data"><span class="data-type">String</span></span>|
+|<span class="response-data">surname</span>|<span class="response-data"><span class="data-type">String</span></span>|
+|<span class="response-data">companyName</span>|<span class="response-data"><span class="data-type">String</span></span>|
+|<span class="response-data">personalContact</span>|<span class="response-data"><span class="data-type">Boolean</span></span>|
+|<span class="response-data">displayName</span>|<span class="response-data"><span class="data-type">String</span></span>|
+|<span class="response-data">middleName</span>|<span class="response-data"><span class="data-type">String</span></span>|
+|<span class="response-data">generation</span>|<span class="response-data"><span class="data-type">String</span></span>|
+|<span class="response-data">collaborator</span>|<span class="response-data"><span class="data-type">Boolean</span></span>|
+|<span class="response-data">visibilityPlus</span>|<span class="response-data"><span class="data-type">Boolean</span></span>|
+|<span class="response-data">thumbnail</span>|<span class="response-data"><span class="data-type">String</span></span>|
+|<span class="response-data">isNew</span>|<span class="response-data"><span class="data-type">Boolean</span></span>|
+|<span class="response-data">source</span>|<span class="response-data"><span class="data-type">String</span></span>|
+|<span class="response-data">sourceName</span>|<span class="response-data"><span class="data-type">String</span></span>|
+|<span class="response-data">calculatedName</span>|<span class="response-data"><span class="data-type">String</span></span>|
+|<span class="response-data">isOnFire</span>|<span class="response-data"><span class="data-type">Boolean</span></span>|
+|<span class="response-data">nameSeed</span>|<span class="response-data"><span class="data-type">String</span></span>|
+|<span class="response-data">hidden</span>|<span class="response-data"><span class="data-type">Boolean</span></span>|
+|<span class="response-data">createdAt</span>|<span class="response-data"><span class="data-type">DateTime</span></span>|
+|<span class="response-data">lastViewedAt</span>|<span class="response-data"><span class="data-type">DateTime</span></span>|
+|<span class="response-data">updatedAt</span>|<span class="response-data"><span class="data-type">DateTime</span></span>|
+|<span class="response-data">systemCategories</span>|<span class="response-data"><span class="data-type">Array</span></span>|
+|<span class="response-data">pastBuyer</span>|<span class="response-data"><span class="data-type">Boolean</span></span>|
+|<span class="response-data">pastSeller</span>|<span class="response-data"><span class="data-type">Boolean</span></span>|
+|<span class="response-data">excludeFromStayInFlow</span>|<span class="response-data"><span class="data-type">Boolean</span></span>|
+|<span class="response-data">lastTouchedAt</span>|<span class="response-data"><span class="data-type">DateTime</span></span>|
+|<span class="response-data">categoryType</span>|<span class="response-data"><span class="data-type">String</span></span>|
+|<span class="response-data">transactions</span>|<span class="response-data"><span class="data-type">Array</span></span>|
+|<span class="response-data">marketingRecords</span>|<span class="response-data"><span class="data-type">Array</span></span>|
+|<span class="response-data">contactCategories</span>|<span class="response-data"><span class="data-type">Array</span></span>|
+|<span class="response-data">emailAddresses</span>|<span class="response-data"><span class="data-type">Array</span></span>|
+|<span class="response-data">phoneNumbers</span>|<span class="response-data"><span class="data-type">Array</span></span>|
+|<span class="response-data">physicalAddresses</span>|<span class="response-data"><span class="data-type">Array</span></span>|
 
-<span class="response-data-head">key</span>
-<span class="response-data-remarks">The key identifier of the email field. The appropriate email keys are determined by the email server type associated with the <span class='entity-name'>Agent</span>. </span>
-<span class="response-data-remarks">The key identifiers for <span class='entity-name'>Agent</span> entities synced to MoxiEngage via a Microsoft Exchange account are: <span class='attribute-name'>email_address1</span>, <span class='attribute-name'>email_address2</span>, <span class='attribute-name'>email_address3</span>. </span>
-<span class="response-data-remarks">The key identifiers for <span class='entity-name'>Agent</span> entities synced to MoxiEngage via a Google account are: <span class='attribute-name'>home</span>, <span class='attribute-name'>work</span>, <span class='attribute-name'>other</span>. </span>
+###### <span class='attribute-name'>emailAddresses</span> Objects
 
-<span class="response-data-head">address</span>
-<span class="response-data-remarks">The email address field value.</span>
+These email addresses correspond to agent created <span class='entity-name'>Contact</span> entities. Only email fields present in this <span class='entity-name'>Contact</span> record will be returned.
+Each object in the <span class='attribute-name'>emailAddresses</span> array will have the following structure:
 
-<span class="response-data-head">primary_phone_number</span>
-<span class="response-data-remarks">This is the phone number that should be used first. It should be a 10 digit phone number. This attribute should not be used in conjunction with the <span class='attribute-name'>phone_numbers</span> attribute.</span>
+Attribute | Type |
+-----|-----|
+|<span class="response-data">id</span>|<span class="response-data"><span class="data-type">Integer</span>|
+|<span class="response-data">key</span>|<span class="response-data"><span class="data-type">String</span>|
+|<span class="response-data">name</span>|<span class="response-data"><span class="data-type">String</span>|
+|<span class="response-data">routingType</span>|<span class="response-data"><span class="data-type">String</span>|
+|<span class="response-data">mailBoxType</span>|<span class="response-data"><span class="data-type">String</span>|
+|<span class="response-data">text</span>|<span class="response-data"><span class="data-type">String</span>|
+|<span class="response-data">label</span>|<span class="response-data"><span class="data-type">String</span>|
+|<span class="response-data">remoteKey</span>|<span class="response-data"><span class="data-type">String</span>|
+|<span class="response-data">priority</span>|<span class="response-data"><span class="data-type">Integer</span>|
+|<span class="response-data">renamable</span>|<span class="response-data"><span class="data-type">Boolean</span>|
+|<span class="response-data">title</span>|<span class="response-data"><span class="data-type">String</span>|
 
-<span class="response-data-head">secondary_phone_number</span>
-<span class="response-data-remarks">This is the phone number that should be used as an alternate. It should be a 10 digit phone number. This attribute should not be used in conjunction with the <span class='attribute-name'>phone_numbers</span> attribute.</span>
+Example:
+```json
+  [
+    {
+      "id": 391378528,
+      "key": "home",
+      "name": null,
+      "routingType": null,
+      "mailboxType": null,
+      "text": "kimpoynor@ebby.com",
+      "label": null,
+      "remoteKey": "home",
+      "priority": 1,
+      "renamable": false,
+      "title": "home"
+    },
+  ]
+```
 
-###### <span class='attribute-name'>phone_numbers</span> Objects
+###### <span class='attribute-name'>phoneNumbers</span> Objects
 
 These phone numbers correspond to agent created <span class='entity-name'>Contact</span> entities. Only phone fields present in this <span class='entity-name'>Contact</span> record will be returned.
 
-Each object in the <span class='attribute-name'>phone_numbers</span> array will have the following structure:
+Each object in the <span class='attribute-name'>phoneNumbers</span> array will have the following structure:
 
 Attribute | Type |
------|-----|-----|-----|
-|<span class="response-data">key</span>|<span class="response-data"><span class="data-type">String</span>
-|<span class="response-data">number</span>|<span class="response-data"><span class="data-type">String</span>
+-----|-----|
+|<span class="response-data">id</span>|<span class="response-data"><span class="data-type">Integer</span>|
+|<span class="response-data">key</span>|<span class="response-data"><span class="data-type">String</span>|
+|<span class="response-data">text</span>|<span class="response-data"><span class="data-type">String</span>|
+|<span class="response-data">label</span>|<span class="response-data"><span class="data-type">String</span>|
+|<span class="response-data">remoteKey</span>|<span class="response-data"><span class="data-type">String</span>|
+|<span class="response-data">priority</span>|<span class="response-data"><span class="data-type">Integer</span>|
+|<span class="response-data">renamable</span>|<span class="response-data"><span class="data-type">Boolean</span>|
+|<span class="response-data">title</span>|<span class="response-data"><span class="data-type">String</span>|
 
-<span class="response-data-head">key</span>
-<span class="response-data-remarks">The key identifier of the phone field. The appropriate phone keys are determined by the email server type associated with the <span class='entity-name'>Agent</span>.</span>
-<span class="response-data-remarks">The key identifiers for <span class='entity-name'>Agent</span> entities synced to MoxiEngage via a Microsoft Exchange account are: <span class='attribute-name'>mobile_phone</span>, <span class='attribute-name'>home_phone</span>, <span class='attribute-name'>home_phone2</span>, <span class='attribute-name'>business_phone</span>, <span class='attribute-name'>business_phone2</span>, <span class='attribute-name'>assistant_phone</span>, <span class='attribute-name'>home_fax</span>, <span class='attribute-name'>business_fax</span>, <span class='attribute-name'>car_phone</span>, <span class='attribute-name'>company_main_phone</span>, <span class='attribute-name'>other_fax</span>, <span class='attribute-name'>other_telephone</span>, <span class='attribute-name'>callback</span>, <span class='attribute-name'>isdn</span>, <span class='attribute-name'>pager</span>. </span>
-<span class="response-data-remarks">The key identifiers for <span class='entity-name'>Agent</span> entities synced to MoxiEngage via a Google account are: <span class='attribute-name'>mobile</span>, <span class='attribute-name'>home</span>, <span class='attribute-name'>work</span>, <span class='attribute-name'>assistant</span>, <span class='attribute-name'>home_fax</span>, <span class='attribute-name'>tty_tdd</span>, <span class='attribute-name'>radio</span>, <span class='attribute-name'>main</span>, <span class='attribute-name'>work_fax</span>, <span class='attribute-name'>car</span>, <span class='attribute-name'>other</span>, <span class='attribute-name'>pager</span>, <span class='attribute-name'>isdn</span>, <span class='attribute-name'>callback</span>, <span class='attribute-name'>telex</span>. </span>
+Example:
+```json
+[
+  {
+    "id": 458987576,
+    "key": "work",
+    "text": "972-893-3130",
+    "label": null,
+    "remoteKey": "work",
+    "priority": 4,
+    "renamable": false,
+    "title": "work"
+  },
+],
+```
 
-<span class="response-data-head">number</span>
-<span class="response-data-remarks">The phone number field value.</span>
-
-<span class="response-data-head">home_street_address</span>
-<span class="response-data-remarks">The contact's home address street, including number and any suite / apartment number information.  This value will be null if no data is available for this attribute. </span>
-
-<span class="response-data-head">home_city</span>
-<span class="response-data-remarks">The city of the contact's home address. This value will be null if no data is available for this attribute.  This value will be null if no data is available for this attribute. </span>
-
-<span class="response-data-head">home_state</span>
-<span class="response-data-remarks">The state of the contact's home address.  This value will be null if no data is available for this attribute. </span>
-
-<span class="response-data-head">home_zip</span>
-<span class="response-data-remarks">The zip code of the contact’s home address.  This value will be null if no data is available for this attribute. </span>
-
-<span class="response-data-head">home_country</span>
-<span class="response-data-remarks">The country of the contact's home address.  This value will be null if no data is available for this attribute. </span>
-
-<span class="response-data-head">job_title</span>
-<span class="response-data-remarks">The contact's professional job title.  This value will be null if no data is available for this attribute. </span>
-
-
-<span class="response-data-head">occupation</span>
-<span class="response-data-remarks">The contact's profession.  This value will be null if no data is available for this attribute. </span>
-
-
-<span class="response-data-head">is_new_contact</span>
-<span class="response-data-remarks">Whether the contact was recently added to the Agent's database. </span>
-
-
-<span class="response-data-head">birthday</span>
-<span class="response-data-remarks">Birthday of the contact represented as a Unix Timestamp. </span>
-
-
-<span class="response-data-head">anniversary</span>
-<span class="response-data-remarks">Wedding anniversary of the contact represented as a Unix Timestamp. </span>
-
-
-<span class="response-data-head">home_purchase_anniversary</span>
-<span class="response-data-remarks">Anniversary of the contact's home purchase represented as a Unix Timestamp. </span>
-
-<span class="response-data-head">home_purchase_anniversaries</span>
-<span class="response-data-remarks">A list of Unix Timestamps representing the contact's home purchase anniversaries.</span>
-
-<span class="response-data-head">company</span>
-<span class="response-data-remarks">The name of the company associated with the contact.</span>
-
-<span class="response-data-head">spouse_or_partner</span>
-<span class="response-data-remarks">The spouse or partner of the contact.</span>
-
-<span class="response-data-head">category_names</span>
-<span class="response-data-remarks">A comma separated list of the agent's mail server groups / categories to which this contact belongs.</span>
-
-<span class="response-data-head">groups</span>
-<span class="response-data-remarks">An array of the agent's mail server groups / categories to which this contact belongs.</span>
-
-
-###### <span class='attribute-name'>websites</span> Objects
-
-Each object in the <span class='attribute-name'>websites</span> array will have the following structure.
+###### <span class='attribute-name'>physicalAddresses</span> Objects
+Each object in the <span class='attribute-name'>physicalAddresses</span> array will have the following structure:
 
 Attribute | Type |
------|-----|-----|-----|
-|<span class="response-data">rank</span>|<span class="response-data"><span class="data-type">Integer</span>
-|<span class="response-data">key</span>|<span class="response-data"><span class="data-type">String</span>
-|<span class="response-data">value</span>|<span class="response-data"><span class="data-type">String</span>
+-----|-----|
+|<span class="response-data">id</span>|<span class="response-data"><span class="data-type">Integer</span>|
+|<span class="response-data">key</span>|<span class="response-data"><span class="data-type">String</span>|
+|<span class="response-data">street</span>|<span class="response-data"><span class="data-type">String</span>|
+|<span class="response-data">city</span>|<span class="response-data"><span class="data-type">String</span>|
+|<span class="response-data">state</span>|<span class="response-data"><span class="data-type">String</span>|
+|<span class="response-data">countryOrRegion</span>|<span class="response-data"><span class="data-type">String</span>|
+|<span class="response-data">postalCode</span>|<span class="response-data"><span class="data-type">String</span>|
+|<span class="response-data">neighborhood</span>|<span class="response-data"><span class="data-type">String</span>|
+|<span class="response-data">priority</span>|<span class="response-data"><span class="data-type">Integer</span>|
+|<span class="response-data">title</span>|<span class="response-data"><span class="data-type">String</span>|
 
-<span class="response-data-head">rank</span>
-<span class="response-data-remarks">The website's priority in the contact record.</span>
+Example:
+```json
+  "physicalAddresses": [
+    {
+      "id": 1234,
+      "key": "home",
+      "street": "123 Main St",
+      "city": "Anytown",
+      "state": "NY",
+      "countryOrRegion": "USA",
+      "postalCode": "12345",
+      "label": null,
+      "remoteKey": "home",
+      "poBox": null,
+      "neighborhood": "Downtown",
+      "priority": 1,
+      "renamable": false,
+      "title": "home"
+    }
+  ],
+```
 
-<span class="response-data-head">key</span>
-<span class="response-data-remarks">The key identifier of the website for use in digesting websites added to the contact record via MoxiEngage</span>
+###### <span class='attribute-name'>contactCategories</span> Objects
 
-<span class="response-data-head">key</span>
-<span class="response-data-remarks">The url of the website.</span>
-
-###### <span class='attribute-name'>social_media_profiles</span> Objects
-
-Each object in the <span class='attribute-name'>social_media_profiles</span> array will have the following structure.
+<span class="response-data-head">contactCategories</span>
+<span class="response-data-remarks">Array of categories assigned to this contact. Each category object contains the following structure:</span>
 
 Attribute | Type |
------|-----|-----|-----|
-|<span class="response-data">key</span>|<span class="response-data"><span class="data-type">String</span>
-|<span class="response-data">url</span>|<span class="response-data"><span class="data-type">String</span>
+-----|-----|
+|<span class="response-data">id</span>|<span class="response-data"><span class="data-type">Integer</span>|
+|<span class="response-data">name</span>|<span class="response-data"><span class="data-type">String</span>|
 
+Example:
+```json
+"contactCategories": [
+    {
+        "id": 643221709,
+        "name": "Prosper Mentors"
+    },
+    {
+        "id": 643221715,
+        "name": "AAA PROSPER"
+    },
+    {
+        "id": 643221716,
+        "name": "My Contacts"
+    }
+]
+```
 
-<span class="response-data-head">key</span>
-<span class="response-data-remarks">The key identifier of the social media url. Defined keys are 'facebook,' 'linkedin,' 'twitter,' and 'googleplus'</span>
+#### <span class='attribute-name'>contact</span> Object
+<span class="response-data-head">collaborator</span>
+<span class="response-data-remarks">Boolean indicating if this contact is a collaborator.</span>
 
-<span class="response-data-head">property_url</span>
-<span class="response-data-remarks">This will be a valid URL for a property of interest in your system that can be viewed by the agent. This value will be null if no data is available for this attribute. </span>
+<span class="response-data-head">visibilityPlus</span>
+<span class="response-data-remarks">Boolean indicating enhanced visibility settings for this contact.</span>
 
-<span class="response-data-head">groups</span>
-<span class="response-data-remarks">Any Agent groups which the contact by name.</span>
+<span class="response-data-head">source</span>
+<span class="response-data-remarks">The source of the contact record. This value will be null if no data is available for this attribute.</span>
 
-<span class="response-data-head">property_mls_id</span>
-<span class="response-data-remarks">This will be the MLS ID of the property of interest. This value will be null if no data is available for this attribute.  </span>
+<span class="response-data-head">sourceName</span>
+<span class="response-data-remarks">The name of the source from which the contact record was imported. This value will be null if no data is available for this attribute.</span>
 
-<span class="response-data-head">property_street_address</span>
-<span class="response-data-remarks">This will be the street address of the property of interest, including number and suite/apartment number information.  This value will be null if no data is available for this attribute. </span>
+<span class="response-data-head">calculatedName</span>
+<span class="response-data-remarks">The computed full name of the contact.</span>
 
-<span class="response-data-head">property_city</span>
-<span class="response-data-remarks">This will be the city in which the property of interest exists.  This value will be null if no data is available for this attribute. </span>
+<span class="response-data-head">isOnFire</span>
+<span class="response-data-remarks">Boolean indicating if this contact is marked as high priority.</span>
 
-<span class="response-data-head">property_state</span>
-<span class="response-data-remarks">This will be the state or province in which the property of interest exists.  This value will be null if no data is available for this attribute. </span>
+<span class="response-data-head">categoryType</span>
+<span class="response-data-remarks">The type of category assigned to this contact. This value will be null if no data is available for this attribute.</span>
 
-<span class="response-data-head">property_zip</span>
-<span class="response-data-remarks">This will be the postal code in which the property of interest exists.  This value will be null if no data is available for this attribute. </span>
+<span class="response-data-head">nameSeed</span>
+<span class="response-data-remarks">A unique identifier generated from the contact&apos;s name.</span>
 
-<span class="response-data-head">property_beds</span>
-<span class="response-data-remarks">This will be the number of bedrooms in the property of interest.  This value will be null if no data is available for this attribute. </span>
+<span class="response-data-head">hidden</span>
+<span class="response-data-remarks">Indicates if the contact is hidden. This value will be null if no data is available for this attribute.</span>
 
-<span class="response-data-head">property_baths</span>
-<span class="response-data-remarks">This will be the number of bathrooms in the property of interest.  This value will be null if no data is available for this attribute. </span>
+<span class="response-data-head">pastBuyer</span>
+<span class="response-data-remarks">Boolean indicating if this contact is a past buyer.</span>
 
-<span class="response-data-head">property_list_price</span>
-<span class="response-data-remarks">This will be the list price of the property of interest. This value will be null if no data is available for this attribute.  </span>
+<span class="response-data-head">pastSeller</span>
+<span class="response-data-remarks">Boolean indicating if this contact is a past seller.</span>
 
-<span class="response-data-head">property_listing_status</span>
-<span class="response-data-remarks">This will be the listing status of the property of interest. This can be any arbitrary string, but for best results, this should be a state like `Active`, `Pending`, `Sold`, `Cancelled` or any other human readable state that would be useful when presented to the agent. This value will be null if no data is available for this attribute. </span>
+<span class="response-data-head">excludeFromStayInFlow</span>
+<span class="response-data-remarks">Boolean indicating if this contact should be excluded from stay-in-flow communications.</span>
 
-<span class="response-data-head">property_photo_url</span>
-<span class="response-data-remarks">This will be a valid URL to an image of the property of interest.  This value will be null if no data is available for this attribute. </span>
+<span class="response-data-head">lastTouchedAt</span>
+<span class="response-data-remarks">Timestamp of the last interaction with this contact. This value will be null if no data is available for this attribute.</span>
 
-<span class="response-data-head">search_city</span>
-<span class="response-data-remarks">This will be the city / locale used in the listing search criteria.  This value will be null if no data is available for this attribute. </span>
+<span class="response-data-head">systemCategories</span>
+<span class="response-data-remarks">Array of system-defined categories assigned to this contact.</span>
 
-<span class="response-data-head">search_state</span>
-<span class="response-data-remarks">This will be the state / region used in the listing search criteria.  This value will be null if no data is available for this attribute. </span>
+<span class="response-data-head">transactions</span>
+<span class="response-data-remarks">Array of transactions associated with this contact.</span>
 
-<span class="response-data-head">search_zip</span>
-<span class="response-data-remarks">This will be the zip / postal code used in the listing search criteria.  This value will be null if no data is available for this attribute. </span>
-
-<span class="response-data-head">search_min_baths</span>
-<span class="response-data-remarks">This will be the minimum bathrooms used in the listing search criteria.  This value will be null if no data is available for this attribute. </span>
-
-<span class="response-data-head">search_min beds</span>
-<span class="response-data-remarks">This will be the minimum bedrooms used in the listing search criteria.  This value will be null if no data is available for this attribute. </span>
-
-<span class="response-data-head">search_min_price</span>
-<span class="response-data-remarks">This will be the minimum price used in the listing search criteria.  This value will be null if no data is available for this attribute. </span>
-
-<span class="response-data-head">search_max_price</span>
-<span class="response-data-remarks">This will be the maximum price used in the listing search criteria.  This value will be null if no data is available for this attribute. </span>
-
-<span class="response-data-head">search_min_sq_ft</span>
-<span class="response-data-remarks">This will be the minimum square feet of the total living area used in the listing search criteria.  This value will be null if no data is available for this attribute. </span>
-
-<span class="response-data-head">search_max_sq_ft</span>
-<span class="response-data-remarks">This will be the maximum square feet of the total living area used in the listing search criteria.  This value will be null if no data is available for this attribute. </span>
-
-<span class="response-data-head">search_min_lot_size</span>
-<span class="response-data-remarks">This will be the minimum lot size used in the listing search criteria.  This value will be null if no data is available for this attribute. </span>
-
-<span class="response-data-head">search_max_lot_size</span>
-<span class="response-data-remarks">This will be the maximum lot size used in the listing search criteria.  This value will be null if no data is available for this attribute. </span>
-
-<span class="response-data-head">search_min_year_built</span>
-<span class="response-data-remarks">This will be the minimum allowable year built used in the listing search criteria.  This value will be null if no data is available for this attribute. </span>
-
-<span class="response-data-head">search_property_types</span>
-<span class="response-data-remarks">This will be the property types used in the listing search criteria. This can be any arbitrary human readable string, but using recognized property types such as `Condo`, `Single-Family`, `Townhouse`, `Land`, `Multifamily` will provide more value to the agent.  This value will be null if no data is available for this attribute. </span>
-
-<span class="response-data-head">note</span>
-<span class="response-data-remarks">This is a string which reflects the partner created notes. Agent created notes are not reflected in this attribute.  Any Notes added here will be displayed to the agent in an Activity Log record. Any HTML formatting included will be stripped from the <span class='attribute-name'>note</span> attribute’s data. This value will be null if no data is available for this attribute. This text field is limited to 3k. </span>
+<span class="response-data-head">marketingRecords</span>
+<span class="response-data-remarks">Array of marketing records associated with this contact.</span>

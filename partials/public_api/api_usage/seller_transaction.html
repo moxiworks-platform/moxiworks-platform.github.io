@@ -2622,6 +2622,11 @@ moxi_works_agent_id=abc123
 <td><span class="data-type">Integer</span></td>
 <td>255</td>
 </tr>
+<tr>
+<td><span class="optional-data">timestamps_only</span></td>
+<td><span class="data-type">Boolean</span></td>
+<td>255</td>
+</tr>
 </tbody></table>
 
 <p><span class="required-data"><strong>Required Parameters Are In Red</strong></span></p>
@@ -2645,6 +2650,9 @@ moxi_works_agent_id=abc123
 
 <p><span class="request-data-head">page_number</span>
 <span class="request-data-remarks">Page of <span class='entity-name'>SellerTransaction</span> records to return. Use if <code class="prettyprint">total_pages</code> indicates that there is more than one page of data available.</span></p>
+
+<p><span class="request-data-head">timestamps_only</span>
+<span class="request-data-remarks">If supplied then the results will exclude all data except primary identifiers and a unix timestamp (last_updated) &amp; iso8601 timestamp (modification_timestamp) of the last time this record was updated.</span></p>
 
 <blockquote><div class='highlight json' style="display: block">
 <span class='data-example-label'><span class='entity-name'>SellerTransaction</span> <span class='action-name'>Index</span> (using <span class='attribute-name'>agent_uuid</span>) Response Payload Example

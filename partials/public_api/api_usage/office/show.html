@@ -160,7 +160,11 @@
     </span><span class="nt">"mailing_address2"</span><span class="p">:</span><span class="s2">"Box 10"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"mailing_city"</span><span class="p">:</span><span class="s2">"Mailtown"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"mailing_zip"</span><span class="p">:</span><span class="s2">"12123"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"mailing_state"</span><span class="p">:</span><span class="s2">"UM"</span><span class="w">
+    </span><span class="nt">"mailing_state"</span><span class="p">:</span><span class="s2">"UM"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"company_programs"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"Equestrian Equestrian Advisor"</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"logo_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://the.office.logo/image.png"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 
 </span></code></pre>
@@ -294,6 +298,14 @@
 <td><span class="response-data">deactivated_timestamp</span></td>
 <td><span class="data-type">Integer or null</span></td>
 </tr>
+<tr>
+<td><span class="response-data">company_programs</span></td>
+<td><span class="data-type">Array</span></td>
+</tr>
+<tr>
+<td><span class="response-data">logo_url</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
 </tbody></table>
 
 <p><span class="response-data-head">moxi_works_office_id</span>
@@ -379,6 +391,12 @@
 
 <p><span class="response-data-head">deactivated_timestamp</span>
 <span class="response-data-remarks">This is the Unix timestamp representing the date that this <span class='entity-name'>Office</span> was deactivated in the MoxiWorks system. This will be returned null if the office is still active.</span></p>
+
+<p><span class="response-data-head">company_programs</span>
+<span class="response-data-remarks">A list of the company specific program names in which the agent&rsquo;s office participates or is a member.</span></p>
+
+<p><span class="response-data-head">logo_url</span>
+<span class="response-data-remarks">URL of the office logo image. This can be null if there is no data for this attribute.</span></p>
 
       </div>
       <div class="dark-box">

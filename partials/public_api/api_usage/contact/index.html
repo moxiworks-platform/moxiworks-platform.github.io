@@ -212,6 +212,11 @@
 <td><span class="data-type">Boolean</span></td>
 <td></td>
 </tr>
+<tr>
+<td><span class="optional-data">timestamps_only</span></td>
+<td><span class="data-type">Boolean</span></td>
+<td>255</td>
+</tr>
 </tbody></table>
 
 <p><span class="required-data"><strong>Required Parameters Are In Red</strong></span></p>
@@ -243,6 +248,9 @@
 <p><span class="request-data-head">only_business_contacts</span>
 <span class="request-data-remarks">Whether to only include <span class='entity-name'>Contact</span> records for contacts that are neither considered personal contacts nor work collaborators in the payload response.</span>
 <aside class="note">By default all <span class='entity-name'>Contact</span> records will be returned. Use the <code class="prettyprint">personal_contact</code> and <code class="prettyprint">collaborator</code> response attributes to determine the status of any given contact.</aside></p>
+
+<p><span class="request-data-head">timestamps_only</span>
+<span class="request-data-remarks">If supplied then the results will exclude all data except primary identifiers and a unix timestamp (last_updated) &amp; iso8601 timestamp (modification_timestamp) of the last time this record was updated.</span></p>
 
 <blockquote><div class='highlight json' style="display: block">
 <span class='data-example-label'><span class='entity-name'>Contact</span> <span class='action-name'>Index</span> (using <span class='attribute-name'>agent_uuid</span>) Response Payload Example
@@ -346,6 +354,7 @@
   </span><span class="nt">"search_min_year_built"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1388"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"search_max_year_built"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2044"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"search_property_types"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Condo, Single Family, Townhouse"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"note"</span><span class="p">:</span><span class="w"> </span><span class="s2">"whatevers2009"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"websites"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
       </span><span class="p">{</span><span class="w">
         </span><span class="nt">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
@@ -477,6 +486,7 @@
   </span><span class="nt">"search_min_year_built"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1388"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"search_max_year_built"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2044"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"search_property_types"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Condo, Single Family, Townhouse"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"note"</span><span class="p">:</span><span class="w"> </span><span class="s2">"whatevers2009"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"websites"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
   </span><span class="nt">"home_purchase_anniversaries"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
   </span><span class="nt">"company"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -571,8 +581,9 @@
   </span><span class="nt">"search_max_lot_size"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3235"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"search_min_year_built"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1388"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"search_max_year_built"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2044"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"search_property_types"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Condo, Single Family, Townhouse"</span><span class="w">
-</span><span class="p">},</span><span class="w">
+  </span><span class="nt">"search_property_types"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Condo, Single Family, Townhouse"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"note"</span><span class="p">:</span><span class="w"> </span><span class="s2">"whatevers2009"</span><span class="p">,</span><span class="w">
+</span><span class="err">}</span><span class="p">,</span><span class="w">
 </span><span class="p">{</span><span class="w">
   </span><span class="nt">"moxi_works_agent_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234abcd"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"partner_contact_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fooyuh"</span><span class="p">,</span><span class="w">
@@ -646,8 +657,9 @@
   </span><span class="nt">"search_max_lot_size"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3235"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"search_min_year_built"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1388"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"search_max_year_built"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2044"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"search_property_types"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Condo, Single Family, Townhouse"</span><span class="w">
-</span><span class="p">}]</span><span class="w">
+  </span><span class="nt">"search_property_types"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Condo, Single Family, Townhouse"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"note"</span><span class="p">:</span><span class="w"> </span><span class="s2">"whatevers2009"</span><span class="p">,</span><span class="w">
+</span><span class="err">}</span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -1262,9 +1274,7 @@
 <span class="response-data-remarks">This will be the property types used in the listing search criteria. This can be any arbitrary human readable string, but using recognized property types such as <code class="prettyprint">Condo</code>, <code class="prettyprint">Single-Family</code>, <code class="prettyprint">Townhouse</code>, <code class="prettyprint">Land</code>, <code class="prettyprint">Multifamily</code> will provide more value to the agent.  This value will be null if no data is available for this attribute. </span></p>
 
 <p><span class="response-data-head">note</span>
-<span class="response-data-remarks">This is an arbitrary string giving the agent more details about the contact which would not otherwise fit into the <span class='entity-name'>Contact</span> record.  Any Notes added here will be displayed to the agent in an Activity Log record. Any HTML formatting included will be stripped from the <span class='attribute-name'>note</span> attribute&rsquo;s data.  This value will be null if no data is available for this attribute. </span></p>
-
-<aside class="note">Partner generated notes will be returned as a concatenated string following agent generated notes. The agent and partner notes will be separated by this delimiter: &ldquo; == &rdquo;</aside>
+<span class="response-data-remarks">This is a string which reflects the partner created notes. Agent created notes are not reflected in this attribute.  Any Notes added here will be displayed to the agent in an Activity Log record. Any HTML formatting included will be stripped from the <span class='attribute-name'>note</span> attribute’s data. This value will be null if no data is available for this attribute. This text field is limited to 3k. </span></p>
 
       </div>
       <div class="dark-box">

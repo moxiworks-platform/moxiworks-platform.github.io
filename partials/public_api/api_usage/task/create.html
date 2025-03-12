@@ -45,7 +45,7 @@
   </span><span class="nt">"due_at"</span><span class="p">:</span><span class="mi">1466208866</span><span class="p">,</span><span class="w">
   </span><span class="nt">"duration"</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span><span class="w">
   </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"Do This Please"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"partner_contact_id"</span><span class="p">:</span><span class="s2">"mySystemsContactID"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"moxi_works_contact_id"</span><span class="p">:</span><span class="s2">"myMoxiPlatformContactID"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"partner_task_id"</span><span class="p">:</span><span class="s2">"mySystemsTaskID"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
@@ -56,7 +56,7 @@
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">Basic XNNeXAAAUZaQlF0dA==</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/x-www-form-urlencoded</span>
 
-agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;description=talk+to+private+kane,%2C+e-one-thousand%2C+about+stuff&amp;due_at=1466208866&amp;duration=10&amp;name=Do+This+Please&amp;partner_contact_id=mySystemContactId&amp;partner_task_id=mySystemTaskId
+agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;description=talk+to+private+kane,%2C+e-one-thousand%2C+about+stuff&amp;due_at=1466208866&amp;duration=10&amp;name=Do+This+Please&amp;moxi_works_contact_id=myMoxiPlatformContactId&amp;partner_task_id=mySystemTaskId
 
 </code></pre>
 <pre class="highlight csharp"><code>
@@ -72,6 +72,7 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;description=talk+to+private+
 <span class="n">task</span><span class="p">.</span><span class="n">duration</span> <span class="p">=</span> <span class="m">10</span><span class="p">;</span>
 <span class="n">task</span><span class="p">.</span><span class="n">name</span> <span class="p">=</span> <span class="s">"Do This Please"</span><span class="p">;</span>
 <span class="n">task</span><span class="p">.</span><span class="n">partnerContactId</span> <span class="p">=</span> <span class="s">"mySystemsContactID"</span><span class="p">;</span>
+<span class="n">task</span><span class="p">.</span><span class="n">moxiWorksContactId</span> <span class="p">=</span> <span class="s">"myMoxiPlatformContactID"</span><span class="p">;</span>
 <span class="n">task</span><span class="p">.</span><span class="n">partnerTaskId</span> <span class="p">=</span> <span class="n">mySystemsTaskID</span><span class="s">";
 </span>
 
@@ -92,7 +93,7 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;description=talk+to+private+
 <span class="n">moxi_works_task</span> <span class="o">=</span> <span class="no">MoxiworksPlatform</span><span class="o">::</span><span class="no">Task</span><span class="p">.</span><span class="nf">create</span><span class="p">(</span>
         <span class="ss">agent_uuid: </span><span class="s2">"12345678-1234-1234-1234-1234567890ab"</span><span class="p">,</span>
         <span class="ss">partner_task_id: </span><span class="s2">"mySystemTaskId"</span><span class="p">,</span>
-        <span class="ss">partner_contact_id: </span><span class="s1">'mySystemContactId'</span><span class="p">,</span>
+        <span class="ss">moxi_works_contact_id: </span><span class="s1">'myMoxiPlatformContactId'</span><span class="p">,</span>
         <span class="ss">name: </span><span class="s2">"Meet And Greet"</span><span class="p">,</span>
         <span class="ss">description: </span><span class="s2">"Set up a meeting to talk to this contact about their new home"</span><span class="p">,</span>
         <span class="ss">due_at: </span><span class="mi">1466208866</span><span class="p">,</span>
@@ -109,7 +110,7 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;description=talk+to+private+
 <span class="nv">$moxi_works_task</span> <span class="o">=</span> <span class="nx">MoxiworksPlatform\Task</span><span class="o">::</span><span class="na">create</span><span class="p">([</span>
         <span class="s1">'agent_uuid'</span> <span class="o">=&gt;</span> <span class="s1">'12345678-1234-1234-1234-1234567890ab'</span><span class="p">,</span>
         <span class="s1">'partner_task_id'</span> <span class="o">=&gt;</span> <span class="s1">'mySystemTaskId'</span><span class="p">,</span>
-        <span class="s1">'partner_contact_id'</span> <span class="o">=&gt;</span> <span class="s1">'mySystemContactId'</span><span class="p">,</span>
+        <span class="s1">'moxi_works_contact_id'</span> <span class="o">=&gt;</span> <span class="s1">'myMoxiPlatformContactId'</span><span class="p">,</span>
         <span class="s1">'name'</span> <span class="o">=&gt;</span> <span class="s1">'Meet And Greet'</span><span class="p">,</span>
         <span class="s1">'description'</span> <span class="o">=&gt;</span> <span class="s1">'Set up a meeting to talk to this contact about their new home'</span><span class="p">,</span>
         <span class="s1">'due_at'</span> <span class="o">=&gt;</span> <span class="mi">1466208866</span><span class="p">,</span>
@@ -127,7 +128,7 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;description=talk+to+private+
   </span><span class="nt">"due_at"</span><span class="p">:</span><span class="mi">1466208866</span><span class="p">,</span><span class="w">
   </span><span class="nt">"duration"</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span><span class="w">
   </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"Do This Please"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"partner_contact_id"</span><span class="p">:</span><span class="s2">"mySystemsContactID"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"moxi_works_contact_id"</span><span class="p">:</span><span class="s2">"myMoxiPlatformContactID"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"partner_task_id"</span><span class="p">:</span><span class="s2">"mySystemsTaskID"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
@@ -138,7 +139,7 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;description=talk+to+private+
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">Basic XNNeXAAAUZaQlF0dA==</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/x-www-form-urlencoded</span>
 
-moxi_works_agent_id=abc123&amp;description=talk+to+private+kane,%2C+e-one-thousand%2C+about+stuff&amp;due_at=1466208866&amp;duration=10&amp;name=Do+This+Please&amp;partner_contact_id=mySystemContactId&amp;partner_task_id=mySystemTaskId
+moxi_works_agent_id=abc123&amp;description=talk+to+private+kane,%2C+e-one-thousand%2C+about+stuff&amp;due_at=1466208866&amp;duration=10&amp;name=Do+This+Please&amp;moxi_works_contact_id=myMoxiPlatformContactId&amp;partner_task_id=mySystemTaskId
 
 </code></pre>
 <pre class="highlight csharp"><code>
@@ -154,6 +155,7 @@ moxi_works_agent_id=abc123&amp;description=talk+to+private+kane,%2C+e-one-thousa
 <span class="n">task</span><span class="p">.</span><span class="n">duration</span> <span class="p">=</span> <span class="m">10</span><span class="p">;</span>
 <span class="n">task</span><span class="p">.</span><span class="n">name</span> <span class="p">=</span> <span class="s">"Do This Please"</span><span class="p">;</span>
 <span class="n">task</span><span class="p">.</span><span class="n">partnerContactId</span> <span class="p">=</span> <span class="s">"mySystemsContactID"</span><span class="p">;</span>
+<span class="n">task</span><span class="p">.</span><span class="n">moxiWorksContactId</span> <span class="p">=</span> <span class="s">"myMoxiPlatformContactID"</span><span class="p">;</span>
 <span class="n">task</span><span class="p">.</span><span class="n">partnerTaskId</span> <span class="p">=</span> <span class="n">mySystemsTaskID</span><span class="s">";
 </span>
 
@@ -175,6 +177,7 @@ moxi_works_agent_id=abc123&amp;description=talk+to+private+kane,%2C+e-one-thousa
         <span class="ss">moxi_works_agent_id: </span><span class="s2">"1234abcd"</span><span class="p">,</span>
         <span class="ss">partner_task_id: </span><span class="s2">"mySystemTaskId"</span><span class="p">,</span>
         <span class="ss">partner_contact_id: </span><span class="s1">'mySystemContactId'</span><span class="p">,</span>
+        <span class="ss">moxi_works_contact_id: </span><span class="s1">'myMoxiPlatformContactId'</span><span class="p">,</span>
         <span class="ss">name: </span><span class="s2">"Meet And Greet"</span><span class="p">,</span>
         <span class="ss">description: </span><span class="s2">"Set up a meeting to talk to this contact about their new home"</span><span class="p">,</span>
         <span class="ss">due_at: </span><span class="mi">1466208866</span><span class="p">,</span>
@@ -192,6 +195,7 @@ moxi_works_agent_id=abc123&amp;description=talk+to+private+kane,%2C+e-one-thousa
         <span class="s1">'moxi_works_agent_id'</span> <span class="o">=&gt;</span> <span class="s1">'1234abcd'</span><span class="p">,</span>
         <span class="s1">'partner_task_id'</span> <span class="o">=&gt;</span> <span class="s1">'mySystemTaskId'</span><span class="p">,</span>
         <span class="s1">'partner_contact_id'</span> <span class="o">=&gt;</span> <span class="s1">'mySystemContactId'</span><span class="p">,</span>
+        <span class="s1">'moxi_works_contact_id'</span> <span class="o">=&gt;</span> <span class="s1">'myMoxiPlatformContactId'</span><span class="p">,</span>
         <span class="s1">'name'</span> <span class="o">=&gt;</span> <span class="s1">'Meet And Greet'</span><span class="p">,</span>
         <span class="s1">'description'</span> <span class="o">=&gt;</span> <span class="s1">'Set up a meeting to talk to this contact about their new home'</span><span class="p">,</span>
         <span class="s1">'due_at'</span> <span class="o">=&gt;</span> <span class="mi">1466208866</span><span class="p">,</span>
@@ -234,7 +238,7 @@ moxi_works_agent_id=abc123&amp;description=talk+to+private+kane,%2C+e-one-thousa
 <td><span class="required-data">255</span></td>
 </tr>
 <tr>
-<td><span class="required-data">partner_contact_id</span></td>
+<td><span class="required-data">moxi_works_contact_id</span></td>
 <td><span class="required-data"><span class="data-type">String</span></span></td>
 <td><span class="required-data">255</span></td>
 </tr>
@@ -250,6 +254,11 @@ moxi_works_agent_id=abc123&amp;description=talk+to+private+kane,%2C+e-one-thousa
 </tr>
 <tr>
 <td><span class="optional-data">moxi_works_company_id</span></td>
+<td><span class="data-type">String</span></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="optional-data">partner_contact_id</span></td>
 <td><span class="data-type">String</span></td>
 <td></td>
 </tr>
@@ -284,6 +293,9 @@ moxi_works_agent_id=abc123&amp;description=talk+to+private+kane,%2C+e-one-thousa
 <p><span class="request-data-head">partner_task_id</span>
 <span class="request-data-remarks">This is the unique identifer you use in your system that will be associated with the <span class='entity-name'>Task</span> that you are creating. This data is required and must be a unique ID for your <span class='entity-name'>Task</span> <span class='action-name'>Create</span>  request to be accepted.</span></p>
 
+<p><span class="request-data-head">moxi_works_contact_id</span>
+<span class="request-data-remarks">This is the unique moxi platform&rsquo;s contact identifer you use in your system that has been associated with the <span class='entity-name'>Contact</span> that this <span class='entity-name'>Task</span> regards.</span></p>
+
 <p><span class="request-data-head">partner_contact_id</span>
 <span class="request-data-remarks">This is the unique identifer you use in your system that has been associated with the <span class='entity-name'>Contact</span> that this <span class='entity-name'>Task</span> regards.</span></p>
 
@@ -305,6 +317,7 @@ moxi_works_agent_id=abc123&amp;description=talk+to+private+kane,%2C+e-one-thousa
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"agent_uuid"</span><span class="p">:</span><span class="s2">"12345678-1234-1234-1234-1234567890ab"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"partner_contact_id"</span><span class="p">:</span><span class="s2">"mySystemContactId"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"moxi_works_contact_id"</span><span class="p">:</span><span class="s2">"myMoxiPlatformContactId"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"Meet And Greet"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"description"</span><span class="p">:</span><span class="s2">"Set up a meeting to talk to this contact about their new home"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"due_at"</span><span class="p">:</span><span class="mi">1466208866</span><span class="p">,</span><span class="w">
@@ -321,6 +334,7 @@ moxi_works_agent_id=abc123&amp;description=talk+to+private+kane,%2C+e-one-thousa
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"moxi_works_agent_id"</span><span class="p">:</span><span class="s2">"1234abcd"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"partner_contact_id"</span><span class="p">:</span><span class="s2">"mySystemContactId"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"moxi_works_contact_id"</span><span class="p">:</span><span class="s2">"myMoxiPlatformContactId"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"Meet And Greet"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"description"</span><span class="p">:</span><span class="s2">"Set up a meeting to talk to this contact about their new home"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"due_at"</span><span class="p">:</span><span class="mi">1466208866</span><span class="p">,</span><span class="w">
@@ -365,6 +379,10 @@ moxi_works_agent_id=abc123&amp;description=talk+to+private+kane,%2C+e-one-thousa
 <td><span class="response-data"><span class="data-type">String</span></td>
 </tr>
 <tr>
+<td><span class="response-data">moxi_works_contact_id</span></td>
+<td><span class="response-data"><span class="data-type">String</span></td>
+</tr>
+<tr>
 <td><span class="response-data">name</span></td>
 <td><span class="data-type">String or null</span></td>
 </tr>
@@ -404,6 +422,9 @@ moxi_works_agent_id=abc123&amp;description=talk+to+private+kane,%2C+e-one-thousa
 
 <p><span class="response-data-head">partner_contact_id</span>
 <span class="response-data-remarks">This is the unique identifer you use in your system that has been associated with the <span class='entity-name'>Contact</span> that you are creating this <span class='entity-name'>Task</span> for.</span></p>
+
+<p><span class="response-data-head">moxi_works_contact_id</span>
+<span class="response-data-remarks">This is the unique moxi platform&rsquo;s contact identifer you use in your system that has been associated with the <span class='entity-name'>Contact</span> that you are creating this <span class='entity-name'>Task</span> for.</span></p>
 
 <p><span class="response-data-head">name</span>
 <span class="response-data-remarks">A brief, human readable title that will be shown to the agent as the subject of the <span class='entity-name'>Task</span>.</span></p>

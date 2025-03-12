@@ -882,6 +882,8 @@ moxi_works_action_log_id=12345678-1234-1234-1234-1234567890ab
 <p><span class="request-data-head">date_max</span>
 <span class="request-data-remarks">Only <span class='entity-name'>ActionLog</span> records created earlier than this Unix timestamp will be included in the query. Should be no higher than 90 days past the <span class='attribute-name'>date_min</span> attribute if it is provided.</span></p>
 
+<aside class="note">The maximum timeframe for data is 90 days. <span class='attribute-name'>date_min</span> and <span class='attribute-name'>date_max</span> should be set in 90 day increments to retrieve the data from a specific historical point</aside>
+
 <h5 id="actionlog-index-response-payload"><span class='entity-name'>ActionLog</span> <span class='action-name'>Index</span> Response Payload</h5>
 
 <p>The following attributes make up the payload of the <span class='entity-name'>ActionLog</span> response for a <span class='action-name'>Index</span> request.</p>
@@ -1479,6 +1481,16 @@ moxi_works_action_log_id=12345678-1234-1234-1234-1234567890ab
   </span><span class="p">},</span><span class="w">
   </span><span class="nt">"lead_routing_email_address"</span><span class="p">:</span><span class="s2">"leadrouter@thisdomain.com"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Broker"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"bio"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example1 example1 example1"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"header"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example1"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example2 example2 example2"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"header"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example2"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
   </span><span class="nt">"designations"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Realtor, CRS, SRES"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"uuid"</span><span class="p">:</span><span class="s2">"8675309e9-1234-dead-beef-deadbeefdead"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"has_engage_access"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
@@ -1724,6 +1736,10 @@ moxi_works_action_log_id=12345678-1234-1234-1234-1234567890ab
 <td><span class="data-type">String or null</span></td>
 </tr>
 <tr>
+<td><span class="response-data">bio</span></td>
+<td><span class="data-type">Array</span></td>
+</tr>
+<tr>
 <td><span class="response-data">designations</span></td>
 <td><span class="data-type">String or null</span></td>
 </tr>
@@ -1741,6 +1757,10 @@ moxi_works_action_log_id=12345678-1234-1234-1234-1234567890ab
 </tr>
 <tr>
 <td><span class="response-data">access_level</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">view_level</span></td>
 <td><span class="data-type">String</span></td>
 </tr>
 <tr>
@@ -1945,6 +1965,9 @@ moxi_works_action_log_id=12345678-1234-1234-1234-1234567890ab
 <p><span class="response-data-head">title</span>
 <span class="response-data-remarks">This is the business title of the agent.  This can be null if there is no data for this attribute.</span></p>
 
+<p><span class="response-data-head">bio</span>
+<span class="response-data-remarks">This is the bio of the agent.  Array of key/value pairs. Each has a body and header, both strings, which can be null or blank.</span></p>
+
 <p><span class="response-data-head">designations</span>
 <span class="response-data-remarks">This is a string that contains the agent&rsquo;s designation(s), if any.  This can be null if there is no data for this attribute.</span></p>
 
@@ -1959,6 +1982,9 @@ moxi_works_action_log_id=12345678-1234-1234-1234-1234567890ab
 
 <p><span class="response-data-head">access_level</span>
 <span class="response-data-remarks">The access level of the agent. If <span class="attribute-name">include_access_level</span> was passed as <span class="attribute-value">true</span>, this can return one of the possible access levels: <code class="prettyprint">company-admin</code>, <code class="prettyprint">manager</code>, <code class="prettyprint">office-admin</code>, <code class="prettyprint">office-owner</code>, <code class="prettyprint">region-admin</code>, <code class="prettyprint">user</code>.</span></p>
+
+<p><span class="response-data-head">view_level</span>
+<span class="response-data-remarks">The view level of the agent. This will return one of the possible view levels: <code class="prettyprint">COMPANY_ADMIN</code>, <code class="prettyprint">OFFICE_ADMIN</code>, <code class="prettyprint">USER</code>.</span></p>
 
 <p><span class="response-data-head">website_base_url</span>
 <span class="response-data-remarks">The base url of the agent&rsquo;s MoxiWorks agent website.</span></p>
@@ -2503,6 +2529,16 @@ moxi_works_action_log_id=12345678-1234-1234-1234-1234567890ab
 <td><span class="data-type">Boolean</span></td>
 <td>255</td>
 </tr>
+<tr>
+<td><span class="optional-data">timestamps_only</span></td>
+<td><span class="data-type">Boolean</span></td>
+<td>255</td>
+</tr>
+<tr>
+<td><span class="optional-data">include_bio</span></td>
+<td><span class="data-type">Boolean</span></td>
+<td>255</td>
+</tr>
 </tbody></table>
 
 <p><span class="required-data"><strong>Required Parameters Are In Red</strong></span></p>
@@ -2549,6 +2585,12 @@ moxi_works_action_log_id=12345678-1234-1234-1234-1234567890ab
 
 <p><span class="request-data-head">include_reviews</span>
 <span class="request-data-remarks">To include ratings and reviews associated with the agent in the response, pass <code class="prettyprint">true</code>.</span></p>
+
+<p><span class="request-data-head">timestamps_only</span>
+<span class="request-data-remarks">If supplied then the results will exclude all data except primary identifiers and a unix timestamp (last_updated) &amp; iso8601 timestamp (modification_timestamp) of the last time this record was updated.</span></p>
+
+<p><span class="request-data-head">include_bio</span>
+<span class="request-data-remarks">To include bio  associated with the agent in the response, pass <code class="prettyprint">true</code>.</span></p>
 
 <blockquote><div class='highlight json' style="display: block">
 <span class="data-example-label">Agent Index: Success Response</span>
@@ -2602,11 +2644,22 @@ moxi_works_action_log_id=12345678-1234-1234-1234-1234567890ab
   </span><span class="p">},</span><span class="w">
   </span><span class="nt">"lead_routing_email_address"</span><span class="p">:</span><span class="s2">"leadrouter@thisdomain.com"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Broker"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"bio"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example1 example1 example1"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"header"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example1"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example2 example2 example2"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"header"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example2"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
   </span><span class="nt">"designations"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Realtor, CRS, SRES"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"uuid"</span><span class="p">:</span><span class="s2">"8675309e9-1234-dead-beef-deadbeefdead"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"has_product_access"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
   </span><span class="nt">"has_engage_access"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
   </span><span class="nt">"access_level"</span><span class="p">:</span><span class="s2">"user"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"view_level"</span><span class="p">:</span><span class="w"> </span><span class="s2">"COMPANY_ADMIN"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"teams"</span><span class="p">:[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"Major League Broker Team"</span><span class="p">,</span><span class="w">
@@ -2870,6 +2923,10 @@ moxi_works_action_log_id=12345678-1234-1234-1234-1234567890ab
 <td><span class="data-type">String or null</span></td>
 </tr>
 <tr>
+<td><span class="response-data">bio</span></td>
+<td><span class="data-type">Array</span></td>
+</tr>
+<tr>
 <td><span class="response-data">designations</span></td>
 <td><span class="data-type">String or null</span></td>
 </tr>
@@ -2887,6 +2944,10 @@ moxi_works_action_log_id=12345678-1234-1234-1234-1234567890ab
 </tr>
 <tr>
 <td><span class="response-data">access_level</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">view_level</span></td>
 <td><span class="data-type">String</span></td>
 </tr>
 <tr>
@@ -3079,6 +3140,9 @@ moxi_works_action_log_id=12345678-1234-1234-1234-1234567890ab
 <p><span class="response-data-head">title</span>
 <span class="response-data-remarks">This is the business title of the agent.  This can be null if there is no data for this attribute.</span></p>
 
+<p><span class="response-data-head">bio</span>
+<span class="response-data-remarks">This is the bio of the agent.  Array of key/value pairs. Each has a body and header, both strings, which can be null or blank.</span></p>
+
 <p><span class="response-data-head">designations</span>
 <span class="response-data-remarks">This is a string that contains the agent&rsquo;s designation(s), if any.  This can be null if there is no data for this attribute.</span></p>
 
@@ -3093,6 +3157,9 @@ moxi_works_action_log_id=12345678-1234-1234-1234-1234567890ab
 
 <p><span class="response-data-head">access_level</span>
 <span class="response-data-remarks">The access level of the agent. If <span class="attribute-name">include_access_level</span> was passed as <span class="attribute-value">true</span>, this can return one of the possible access levels: <code class="prettyprint">company-admin</code>, <code class="prettyprint">manager</code>, <code class="prettyprint">office-admin</code>, <code class="prettyprint">office-owner</code>, <code class="prettyprint">region-admin</code>, <code class="prettyprint">user</code>.</span></p>
+
+<p><span class="response-data-head">view_level</span>
+<span class="response-data-remarks">The view level of the agent. This will return one of the possible view levels: <code class="prettyprint">COMPANY_ADMIN</code>, <code class="prettyprint">OFFICE_ADMIN</code>, <code class="prettyprint">USER</code>.</span></p>
 
 <p><span class="response-data-head">website_base_url</span>
 <span class="response-data-remarks">The base url of the agent&rsquo;s MoxiWorks agent website.</span></p>
@@ -7038,6 +7105,11 @@ moxi_works_agent_id=abc123
 <td><span class="data-type">Integer</span></td>
 <td>255</td>
 </tr>
+<tr>
+<td><span class="optional-data">timestamps_only</span></td>
+<td><span class="data-type">Boolean</span></td>
+<td>255</td>
+</tr>
 </tbody></table>
 
 <p><span class="required-data"><strong>Required Parameters Are In Red</strong></span></p>
@@ -7061,6 +7133,9 @@ moxi_works_agent_id=abc123
 
 <p><span class="request-data-head">page_number</span>
 <span class="request-data-remarks">Page of <span class='entity-name'>BuyerTransaction</span> records to return. Use if <code class="prettyprint">total_pages</code> indicates that there is more than one page of data available.</span></p>
+
+<p><span class="request-data-head">timestamps_only</span>
+<span class="request-data-remarks">If supplied then the results will exclude all data except primary identifiers and a unix timestamp (last_updated) &amp; iso8601 timestamp (modification_timestamp) of the last time this record was updated.</span></p>
 
 <blockquote><div class='highlight json' style="display: block">
 <span class='data-example-label'><span class='entity-name'>BuyerTransaction</span> <span class='action-name'>Index</span> (using <span class='attribute-name'>agent_uuid</span>) Response Payload Example
@@ -7445,6 +7520,10 @@ moxi_works_agent_id=abc123
 
 <p>MoxiWorks Plaform <span class='entity-name'>Company</span> entities are your entry-point for determining the established relationships for your organization to companies on the MoxiWorks Platform and for accessing data about those companies. Many requests require a <span class='attribute-name'>moxi_works_company_id</span>, which you&rsquo;ll need to derive from the <span class='entity-name'>Company</span> <span class='action-name'>Index</span> endpoint.</p>
 
+<p>The company response attribute <span class='attribute-name'>numeric_id</span> can be used anywhere that <span class='attribute-name'>moxi_works_company_id</span> is used.</p>
+
+<aside class="note">Use of the non-numeric <span class='attribute-name'>moxi_works_company_id</span> is deprecated, and is no longer supported.</aside>
+
 <h4 id="company-show"><span class='entity-name'>Company</span> <span class='action-name'>Show</span></h4>
 
 <div class='highlight ruby'><blockquote><span class='data-example-label'><a href='http://moxiworks-platform.github.io/moxiworks-ruby/MoxiworksPlatform/Company.html#find-class_method'>Ruby Find Docs</a></span></blockquote></div>
@@ -7808,6 +7887,8 @@ The following attributes make up the payload of each <span class='entity-name'>C
 <aside class="note">Send a <b>GET</b> request to https://api.moxiworks.com/api/companies/search</aside>
 
 <p>The <span class='entity-name'>Company</span> <span class='action-name'>Search</span> endpoint will return <span class='entity-name'>Company</span> entities matching the provided search parameters and that your organization is associated with.</p>
+
+<p>Global permission or parent company permissions are required to use this endpoint.</p>
 
 <pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/companies/search?per_page=10&amp;page_number=1&amp;parent_company_id=1</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">api.moxiworks.com</span>
@@ -8963,7 +9044,7 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 <span class="request-data-remarks">Use this if you have data about listing searches that this contact has performed; this should be the property types used in the listing search criteria. This can be any arbitrary human readable string, but using recognized property types such as <code class="prettyprint">Condo</code>, <code class="prettyprint">Single-Family</code>, <code class="prettyprint">Townhouse</code>, <code class="prettyprint">Land</code>, <code class="prettyprint">Multifamily</code> will provide more value to the agent. </span></p>
 
 <p><span class="request-data-head">note</span>
-<span class="request-data-remarks">This is an arbitrary string giving the agent more details about the contact which would not otherwise fit into the <span class='entity-name'>Contact</span> record. Any HTML formatting included will be stripped from the <span class='attribute-name'>note</span> attribute&rsquo;s data.</span></p>
+<span class="response-data-remarks">This is a string which reflects the partner created notes. Agent created notes are not reflected in this attribute.  Any Notes added here will be displayed to the agent in an Activity Log record. Any HTML formatting included will be stripped from the <span class='attribute-name'>note</span> attribute’s data. This value will be null if no data is available for this attribute. This text field is limited to 3k. </span></p>
 
 <p><span class="request-data-head">websites</span>
 <span class="request-data-remarks">Websites should be submitted as a json array of objects. Each object should include website prioritized &lsquo;rank&rsquo; and &lsquo;value&rsquo;. The number of website fields available for update for a given <span class='entity-name'>Contact</span> record depends on the agent email client type.</span></p>
@@ -9799,9 +9880,7 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 <span class="response-data-remarks">This will be the property types used in the listing search criteria. This can be any arbitrary human readable string, but using recognized property types such as <code class="prettyprint">Condo</code>, <code class="prettyprint">Single-Family</code>, <code class="prettyprint">Townhouse</code>, <code class="prettyprint">Land</code>, <code class="prettyprint">Multifamily</code> will provide more value to the agent.  This value will be null if no data is available for this attribute. </span></p>
 
 <p><span class="response-data-head">note</span>
-<span class="response-data-remarks">This is an arbitrary string giving the agent more details about the contact which would not otherwise fit into the <span class='entity-name'>Contact</span> record. Any Notes added here will be displayed to the agent in an Activity Log record. Any HTML formatting included will be stripped from the <span class='attribute-name'>note</span> attribute&rsquo;s data.  This value will be null if no data is available for this attribute. </span></p>
-
-<aside class="note">Partner generated notes will be returned as a concatenated string following agent generated notes. The agent and partner notes will be separated by this delimiter: &ldquo; == &rdquo;</aside>
+<span class="response-data-remarks">This is a string which reflects the partner created notes. Agent created notes are not reflected in this attribute.  Any Notes added here will be displayed to the agent in an Activity Log record. Any HTML formatting included will be stripped from the <span class='attribute-name'>note</span> attribute’s data. This value will be null if no data is available for this attribute. This text field is limited to 3k. </span></p>
 
 
 <h4 id="contact-update"><span class='entity-name'>Contact</span> <span class='action-name'>Update</span></h4>
@@ -10705,9 +10784,7 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 <span class="request-data-remarks">Use this if you have data about listing searches that this contact has performed; this should be the property types used in the listing search criteria. This can be any arbitrary human readable string, but using recognized property types such as <code class="prettyprint">Condo</code>, <code class="prettyprint">Single-Family</code>, <code class="prettyprint">Townhouse</code>, <code class="prettyprint">Land</code>, <code class="prettyprint">Multifamily</code> will provide more value to the agent. </span></p>
 
 <p><span class="request-data-head">note</span>
-<span class="request-data-remarks">This is an arbitrary string giving the agent more details about the contact which would not otherwise fit into the <span class='entity-name'>Contact</span> record. Any Notes added here will be displayed to the agent in an Activity Log record. Any HTML formatting included will be stripped from the <span class='attribute-name'>note</span> attribute&rsquo;s data. </span></p>
-
-<aside class="note">Partner generated notes will be returned as a concatenated string following agent generated notes. The agent and partner notes will be separated by this delimiter: &ldquo; == &rdquo;</aside>
+<span class="response-data-remarks">This is a string which reflects the partner created notes. Agent created notes are not reflected in this attribute.  Any Notes added here will be displayed to the agent in an Activity Log record. Any HTML formatting included will be stripped from the <span class='attribute-name'>note</span> attribute’s data. This value will be null if no data is available for this attribute. This text field is limited to 3k. </span></p>
 
 <p><span class="request-data-head">websites</span>
 <span class="request-data-remarks">Websites should be submitted as a json array of objects. Each object should include website prioritized &lsquo;rank&rsquo; and &lsquo;value&rsquo;. The number of website fields available for update for a given <span class='entity-name'>Contact</span> record depends on the agent email client type.</span></p>
@@ -11548,9 +11625,7 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 <span class="response-data-remarks">This will be the property types used in the listing search criteria. This can be any arbitrary human readable string, but using recognized property types such as <code class="prettyprint">Condo</code>, <code class="prettyprint">Single-Family</code>, <code class="prettyprint">Townhouse</code>, <code class="prettyprint">Land</code>, <code class="prettyprint">Multifamily</code> will provide more value to the agent.  This value will be null if no data is available for this attribute. </span></p>
 
 <p><span class="response-data-head">note</span>
-<span class="response-data-remarks">This is an arbitrary string giving the agent more details about the contact which would not otherwise fit into the <span class='entity-name'>Contact</span> record. Any HTML formatting included will be stripped from the <span class='attribute-name'>note</span> attribute&rsquo;s data.  This value will be null if no data is available for this attribute. </span></p>
-
-<aside class="note">Partner generated notes will be returned as a concatenated string following agent generated notes. The agent and partner notes will be separated by this delimiter: &ldquo; == &rdquo;</aside>
+<span class="response-data-remarks">This is a string which reflects the partner created notes. Agent created notes are not reflected in this attribute.  Any Notes added here will be displayed to the agent in an Activity Log record. Any HTML formatting included will be stripped from the <span class='attribute-name'>note</span> attribute’s data. This value will be null if no data is available for this attribute. This text field is limited to 3k. </span></p>
 
 
 <h4 id="contact-show"><span class='entity-name'>Contact</span> <span class='action-name'>Show  </span></h4>
@@ -11856,6 +11931,7 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
   </span><span class="nt">"search_min_year_built"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1388"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"search_max_year_built"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2044"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"search_property_types"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Condo, Single Family, Townhouse"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"note"</span><span class="p">:</span><span class="w"> </span><span class="s2">"whatevers2009"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"websites"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
       </span><span class="p">{</span><span class="w">
         </span><span class="nt">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
@@ -11984,6 +12060,7 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
   </span><span class="nt">"search_min_year_built"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1388"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"search_max_year_built"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2044"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"search_property_types"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Condo, Single Family, Townhouse"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"note"</span><span class="p">:</span><span class="w"> </span><span class="s2">"whatevers2009"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"websites"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
   </span><span class="nt">"home_purchase_anniversaries"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
   </span><span class="nt">"company"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -12586,9 +12663,7 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 <span class="response-data-remarks">This will be the property types used in the listing search criteria. This can be any arbitrary human readable string, but using recognized property types such as <code class="prettyprint">Condo</code>, <code class="prettyprint">Single-Family</code>, <code class="prettyprint">Townhouse</code>, <code class="prettyprint">Land</code>, <code class="prettyprint">Multifamily</code> will provide more value to the agent.  This value will be null if no data is available for this attribute. </span></p>
 
 <p><span class="response-data-head">note</span>
-<span class="response-data-remarks">This is an arbitrary string giving the agent more details about the contact which would not otherwise fit into the <span class='entity-name'>Contact</span> record. Any Notes added here will be displayed to the agent in an Activity Log record. Any HTML formatting included will be stripped from the <span class='attribute-name'>note</span> attribute&rsquo;s data.  This value will be null if no data is available for this attribute. </span></p>
-
-<aside class="note">Partner generated notes will be returned as a concatenated string following agent generated notes. The agent and partner notes will be separated by this delimiter: &ldquo; == &rdquo;</aside>
+<span class="response-data-remarks">This is a string which reflects the partner created notes. Agent created notes are not reflected in this attribute.  Any Notes added here will be displayed to the agent in an Activity Log record. Any HTML formatting included will be stripped from the <span class='attribute-name'>note</span> attribute’s data. This value will be null if no data is available for this attribute. This text field is limited to 3k. </span></p>
 
 
 <h4 id="contact-index"><span class='entity-name'>Contact</span> <span class='action-name'>Index</span></h4>
@@ -12785,6 +12860,11 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 <td><span class="data-type">Boolean</span></td>
 <td></td>
 </tr>
+<tr>
+<td><span class="optional-data">timestamps_only</span></td>
+<td><span class="data-type">Boolean</span></td>
+<td>255</td>
+</tr>
 </tbody></table>
 
 <p><span class="required-data"><strong>Required Parameters Are In Red</strong></span></p>
@@ -12816,6 +12896,9 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 <p><span class="request-data-head">only_business_contacts</span>
 <span class="request-data-remarks">Whether to only include <span class='entity-name'>Contact</span> records for contacts that are neither considered personal contacts nor work collaborators in the payload response.</span>
 <aside class="note">By default all <span class='entity-name'>Contact</span> records will be returned. Use the <code class="prettyprint">personal_contact</code> and <code class="prettyprint">collaborator</code> response attributes to determine the status of any given contact.</aside></p>
+
+<p><span class="request-data-head">timestamps_only</span>
+<span class="request-data-remarks">If supplied then the results will exclude all data except primary identifiers and a unix timestamp (last_updated) &amp; iso8601 timestamp (modification_timestamp) of the last time this record was updated.</span></p>
 
 <blockquote><div class='highlight json' style="display: block">
 <span class='data-example-label'><span class='entity-name'>Contact</span> <span class='action-name'>Index</span> (using <span class='attribute-name'>agent_uuid</span>) Response Payload Example
@@ -12919,6 +13002,7 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
   </span><span class="nt">"search_min_year_built"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1388"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"search_max_year_built"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2044"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"search_property_types"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Condo, Single Family, Townhouse"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"note"</span><span class="p">:</span><span class="w"> </span><span class="s2">"whatevers2009"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"websites"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
       </span><span class="p">{</span><span class="w">
         </span><span class="nt">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
@@ -13050,6 +13134,7 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
   </span><span class="nt">"search_min_year_built"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1388"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"search_max_year_built"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2044"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"search_property_types"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Condo, Single Family, Townhouse"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"note"</span><span class="p">:</span><span class="w"> </span><span class="s2">"whatevers2009"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"websites"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
   </span><span class="nt">"home_purchase_anniversaries"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
   </span><span class="nt">"company"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -13144,8 +13229,9 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
   </span><span class="nt">"search_max_lot_size"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3235"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"search_min_year_built"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1388"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"search_max_year_built"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2044"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"search_property_types"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Condo, Single Family, Townhouse"</span><span class="w">
-</span><span class="p">},</span><span class="w">
+  </span><span class="nt">"search_property_types"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Condo, Single Family, Townhouse"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"note"</span><span class="p">:</span><span class="w"> </span><span class="s2">"whatevers2009"</span><span class="p">,</span><span class="w">
+</span><span class="err">}</span><span class="p">,</span><span class="w">
 </span><span class="p">{</span><span class="w">
   </span><span class="nt">"moxi_works_agent_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234abcd"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"partner_contact_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fooyuh"</span><span class="p">,</span><span class="w">
@@ -13219,8 +13305,9 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
   </span><span class="nt">"search_max_lot_size"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3235"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"search_min_year_built"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1388"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"search_max_year_built"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2044"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"search_property_types"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Condo, Single Family, Townhouse"</span><span class="w">
-</span><span class="p">}]</span><span class="w">
+  </span><span class="nt">"search_property_types"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Condo, Single Family, Townhouse"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"note"</span><span class="p">:</span><span class="w"> </span><span class="s2">"whatevers2009"</span><span class="p">,</span><span class="w">
+</span><span class="err">}</span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -13835,9 +13922,7 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 <span class="response-data-remarks">This will be the property types used in the listing search criteria. This can be any arbitrary human readable string, but using recognized property types such as <code class="prettyprint">Condo</code>, <code class="prettyprint">Single-Family</code>, <code class="prettyprint">Townhouse</code>, <code class="prettyprint">Land</code>, <code class="prettyprint">Multifamily</code> will provide more value to the agent.  This value will be null if no data is available for this attribute. </span></p>
 
 <p><span class="response-data-head">note</span>
-<span class="response-data-remarks">This is an arbitrary string giving the agent more details about the contact which would not otherwise fit into the <span class='entity-name'>Contact</span> record.  Any Notes added here will be displayed to the agent in an Activity Log record. Any HTML formatting included will be stripped from the <span class='attribute-name'>note</span> attribute&rsquo;s data.  This value will be null if no data is available for this attribute. </span></p>
-
-<aside class="note">Partner generated notes will be returned as a concatenated string following agent generated notes. The agent and partner notes will be separated by this delimiter: &ldquo; == &rdquo;</aside>
+<span class="response-data-remarks">This is a string which reflects the partner created notes. Agent created notes are not reflected in this attribute.  Any Notes added here will be displayed to the agent in an Activity Log record. Any HTML formatting included will be stripped from the <span class='attribute-name'>note</span> attribute’s data. This value will be null if no data is available for this attribute. This text field is limited to 3k. </span></p>
 
 
 <h4 id="contact-delete"><span class='entity-name'>Contact</span> <span class='action-name'>Delete</span></h4>
@@ -14685,7 +14770,7 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 <span class="response-data-remarks">This will be the property types used in the listing search criteria. This can be any arbitrary human readable string, but using recognized property types such as <code class="prettyprint">Condo</code>, <code class="prettyprint">Single-Family</code>, <code class="prettyprint">Townhouse</code>, <code class="prettyprint">Land</code>, <code class="prettyprint">Multifamily</code> will provide more value to the agent.  This value will be null if no data is available for this attribute. </span></p>
 
 <p><span class="response-data-head">note</span>
-<span class="response-data-remarks">This is an arbitrary string giving the agent more details about the contact which would not otherwise fit into the <span class='entity-name'>Contact</span> record. Any Notes added here will be displayed to the agent in an Activity Log record. Any HTML formatting included will be stripped from the <span class='attribute-name'>note</span> attribute&rsquo;s data.  This value will be null if no data is available for this attribute. </span></p>
+<span class="response-data-remarks">This is a string which reflects the partner created notes. Agent created notes are not reflected in this attribute.  Any Notes added here will be displayed to the agent in an Activity Log record. Any HTML formatting included will be stripped from the <span class='attribute-name'>note</span> attribute’s data. This value will be null if no data is available for this attribute. This text field is limited to 3k. </span></p>
 
 
 <h3 id="emailcampaign"><span class='entity-name'>EmailCampaign</span></h3>
@@ -15006,6 +15091,66 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 <td><span class="response-data">next_scheduled</span></td>
 <td><span class="data-type">Integer</span></td>
 </tr>
+<tr>
+<td><span class="response-data">created_at</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">unsubscribed_at</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">unsubscribed_by</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">listed</span></td>
+<td><span class="data-type">Boolean</span></td>
+</tr>
+<tr>
+<td><span class="response-data">sold</span></td>
+<td><span class="data-type">Boolean</span></td>
+</tr>
+<tr>
+<td><span class="response-data">zipcode</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">nn_subscription_type</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">nn_min_price</span></td>
+<td><span class="data-type">Integer</span></td>
+</tr>
+<tr>
+<td><span class="response-data">nn_max_price</span></td>
+<td><span class="data-type">Integer</span></td>
+</tr>
+<tr>
+<td><span class="response-data">nn_min_beds</span></td>
+<td><span class="data-type">Integer</span></td>
+</tr>
+<tr>
+<td><span class="response-data">nn_max_beds</span></td>
+<td><span class="data-type">Integer</span></td>
+</tr>
+<tr>
+<td><span class="response-data">nn_min_baths</span></td>
+<td><span class="data-type">Integer</span></td>
+</tr>
+<tr>
+<td><span class="response-data">nn_min_sqft</span></td>
+<td><span class="data-type">Integer</span></td>
+</tr>
+<tr>
+<td><span class="response-data">nn_max_sqft</span></td>
+<td><span class="data-type">Integer</span></td>
+</tr>
+<tr>
+<td><span class="response-data">nn_property_type</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
 </tbody></table>
 
 <p><span class='multi-option-response-data'>* Either <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>moxi_works_agent_id</span> will be returned depending on whether it is used in the request. The response payload object&rsquo;s agent identifier key will match the passed parameter.</span></p>
@@ -15017,7 +15162,7 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 <span class="response-data-remarks">This is the MoxiWorks Platform ID of the <span class='entity-name'>Agent</span> which this <span class='entity-name'>BuyerTransaction</span> is associated with. This will be a string that may take the form of an email address, or a unique alphanumeric identification string.</span></p>
 
 <p><span class="request-data-head">subscription_type</span>
-<span class="request-data-remarks">A string representing the type of <span class='entity-name'>EmailSubscription</span> is associated with the <span class='entity-name'>Contact</span> for the  supplied <span class='attribute-name'>partner_contact_id</span>. This is a unique, internally defined string per <span class='entity-name'>EmailSubscription</span> type.  Documentation of available <span class='attribute-name'>subscription_type</span> responses is outside the scope of this documentation. If you need help determining available types, contact your MoxiWorks Platform representative.</span></p>
+<span class="response-data-remarks">A string representing the type of <span class='entity-name'>EmailSubscription</span> is associated with the Contact for the supplied partner_contact_id. This is a unique, internally defined string per <span class='entity-name'>EmailSubscription</span> type. Documentation of available <span class='attribute-name'>subscription_type</span> responses is outside the scope of this documentation. If you need help determining available types, please email partners@moxiworks.com.</span></p>
 
 <p><span class="request-data-head">email_address</span>
 <span class="request-data-remarks">The email address for the <span class='entity-name'>EmailSubscription</span>.</span></p>
@@ -15036,6 +15181,48 @@ moxi_works_agent_id=abc123&amp;partner_contact_id=abc982cdf345&amp;contact_name=
 
 <p><span class="request-data-head">next_scheduled</span>
 <span class="request-data-remarks">This is a Unix timestamp representing the point in time that the next <span class='entity-name'>EmailSubscription</span> message will be sent.</span></p>
+
+<p><span class="request-data-head">created_at</span>
+<span class="request-data-remarks">Unix timestamp representing when the EmailSubscription was created.</span></p>
+
+<p><span class="request-data-head">unsubscribed_at</span>
+<span class="request-data-remarks">Unix timestamp representing when the <span class='entity-name'>EmailSubscription</span> that is associated with the <span class='entity-name'>Contact</span> for the supplied partner_contact_id was unsubscribed.</span></p>
+
+<p><span class="request-data-head">listed</span>
+<span class="request-data-remarks">boolean representing whether email subscription is a listing announcement for listed homes</span></p>
+
+<p><span class="request-data-head">sold</span>
+<span class="request-data-remarks">boolean representing whether email subscription is a listing announcement for sold homes</span></p>
+
+<p><span class="request-data-head">nn_subscription_type</span>
+<span class="request-data-remarks">type of neighborhood email subscription. This can either be  “quick” or “custom”</span></p>
+
+<p><span class="request-data-head">nn_min_price</span>
+<span class="request-data-remarks">for &ldquo;custom&rdquo; neighborhood email subscription , search filter with min price</span></p>
+
+<p><span class="request-data-head">nn_max_price</span>
+<span class="request-data-remarks">for “custom” neighborhood email subscription , search filter with max price</span></p>
+
+<p><span class="request-data-head">nn_min_beds</span>
+<span class="request-data-remarks">for “custom” neighborhood email subscription , search filter with min number of bedrooms</span></p>
+
+<p><span class="request-data-head">nn_max_beds</span>
+<span class="request-data-remarks">for “custom” neighborhood email subscription , search filter with max number of bedrooms</span></p>
+
+<p><span class="request-data-head">nn_min_baths</span>
+<span class="request-data-remarks">or “custom” neighborhood email subscription , search filter with min  number of bathrooms</span></p>
+
+<p><span class="request-data-head">nn_max_baths</span>
+<span class="request-data-remarks">for “custom” neighborhood email subscription , search filter with max  number of bathrooms</span></p>
+
+<p><span class="request-data-head">nn_min_sqft</span>
+<span class="request-data-remarks">for “custom” neighborhood email subscription , search filter with min square feet</span></p>
+
+<p><span class="request-data-head">nn_max_sqft</span>
+<span class="request-data-remarks">for “custom” neighborhood email subscription , search filter with max square feet</span></p>
+
+<p><span class="request-data-head">property_type</span>
+<span class="request-data-remarks">for “custom” neighborhood email subscription, property_tye selected in the search filter. This value can be either <span class='attribute-name'>Residential</span>, <span class='attribute-name'>Condominium</span>, <span class='attribute-name'>Manufactured Homes</span>, <span class='attribute-name'>Multi-family</span>, <span class='attribute-name'>Townhouse</span></span></p>
 
 
 <h3 id="event"><span class='entity-name'>Event</span></h3>
@@ -19162,7 +19349,9 @@ The following attributes make up the payload of each <span class='entity-name'>L
       </span><span class="nt">"Height"</span><span class="p">:</span><span class="mi">768</span><span class="p">,</span><span class="w">
       </span><span class="nt">"MimeType"</span><span class="p">:</span><span class="s2">"image/jpeg"</span><span class="w">
       </span><span class="p">}</span><span class="w">
-  </span><span class="p">]</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"BuyerCommissionType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"percent"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"BuyerCommissionValue"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.5"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -19449,6 +19638,14 @@ The following attributes make up the payload of each <span class='entity-name'>L
 <td><span class="response-data">ListingImages</span></td>
 <td><span class="response-data"><span class="data-type">Array</span></td>
 </tr>
+<tr>
+<td><span class="response-data">BuyerCommissionType</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">BuyerCommissionValue</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
 </tbody></table>
 
 <p><span class="response-data-head">LotSizeAcres</span>
@@ -19560,7 +19757,7 @@ The following attributes make up the payload of each <span class='entity-name'>L
 <span class="response-data-remarks">The zip code or postal code the property is located in.</span></p>
 
 <p><span class="response-data-head">Community</span>
-<span class="response-data-remarks">The communitythe property is located in.</span></p>
+<span class="response-data-remarks">The community the property is located in.</span></p>
 
 <p><span class="response-data-head">LotSizeSquareFeet</span>
 <span class="response-data-remarks">Total area of the lot.</span></p>
@@ -19636,6 +19833,12 @@ The following attributes make up the payload of each <span class='entity-name'>L
 
 <p><span class="response-data-head">ListingImages</span>
 <span class="response-data-remarks">Any images of the property.</span></p>
+
+<p><span class="response-data-head">BuyerCommissionType</span>
+<span class="response-data-remarks">The type of buyer broker compensation value set for the listing. The two types of broker compensation values are <code class="prettyprint">percent</code> or <code class="prettyprint">flat_rate</code>.</span></p>
+
+<p><span class="response-data-head">BuyerCommissionValue</span>
+<span class="response-data-remarks">Buyer broker compensation value for the listing.</span></p>
 
 <h6 id="propertyfeature-objects"><span class='attribute-name'>PropertyFeature</span> Objects</h6>
 
@@ -20103,7 +20306,10 @@ The following attributes make up the payload of each <span class='entity-name'>L
       </span><span class="nt">"Height"</span><span class="p">:</span><span class="mi">768</span><span class="p">,</span><span class="w">
       </span><span class="nt">"MimeType"</span><span class="p">:</span><span class="s2">"image/jpeg"</span><span class="w">
       </span><span class="p">}</span><span class="w">
-  </span><span class="p">]</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"BuyerCommissionType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"percent"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"BuyerCommissionValue"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.5"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"VendorModificationTimestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-20T11:04:55.659-07:00"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -20398,6 +20604,18 @@ The following attributes make up the payload of each <span class='entity-name'>L
 <td><span class="response-data">ListingImages</span></td>
 <td><span class="response-data"><span class="data-type">Array</span></td>
 </tr>
+<tr>
+<td><span class="response-data">BuyerCommissionType</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">BuyerCommissionValue</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">VendorModificationTimestamp</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
 </tbody></table>
 
 <p><span class="response-data-head">LotSizeAcres</span>
@@ -20512,7 +20730,7 @@ The following attributes make up the payload of each <span class='entity-name'>L
 <span class="response-data-remarks">The zip code or postal code the property is located in.</span></p>
 
 <p><span class="response-data-head">Community</span>
-<span class="response-data-remarks">The communitythe property is located in.</span></p>
+<span class="response-data-remarks">The community the property is located in.</span></p>
 
 <p><span class="response-data-head">LotSizeSquareFeet</span>
 <span class="response-data-remarks">Total area of the lot.</span></p>
@@ -20591,6 +20809,15 @@ The following attributes make up the payload of each <span class='entity-name'>L
 
 <p><span class="response-data-head">ListingImages</span>
 <span class="response-data-remarks">Any images of the property.</span></p>
+
+<p><span class="response-data-head">BuyerCommissionType</span>
+<span class="response-data-remarks">The type of buyer broker compensation value set for the listing. The two types of broker compensation values are <code class="prettyprint">percent</code> or <code class="prettyprint">flat_rate</code>.</span></p>
+
+<p><span class="response-data-head">BuyerCommissionValue</span>
+<span class="response-data-remarks">Buyer broker compensation value for the listing.</span></p>
+
+<p><span class="response-data-head">VendorModificationTimestamp</span>
+<span class="response-data-remarks">The date when a listing was last modified by the vendor.</span></p>
 
 <h6 id="propertyfeature-objects"><span class='attribute-name'>PropertyFeature</span> Objects</h6>
 
@@ -20882,7 +21109,8 @@ The following attributes make up the payload of each <span class='entity-name'>L
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"moxi_works_company_id"</span><span class="p">:</span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"updated_since"</span><span class="p">:</span><span class="s2">"1461108284"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"last_moxi_works_listing_id"</span><span class="p">:</span><span class="s2">"abc12345"</span><span class="w">
+  </span><span class="nt">"last_moxi_works_listing_id"</span><span class="p">:</span><span class="s2">"abc12345"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"vendor_modification_timestamp"</span><span class="p">:</span><span class="s2">"2018-03-20T11:04:55.659-07:00"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
 </span></code></pre>
@@ -21025,6 +21253,11 @@ The following attributes make up the payload of each <span class='entity-name'>L
 </tr>
 <tr>
 <td><span class="optional-data">underscore_response</span></td>
+<td><span class="data-type">Boolean</span></td>
+<td>255</td>
+</tr>
+<tr>
+<td><span class="optional-data">timestamps_only</span></td>
 <td><span class="data-type">Boolean</span></td>
 <td>255</td>
 </tr>
@@ -21204,6 +21437,9 @@ The following attributes make up the payload of each <span class='entity-name'>L
 <p><span class="request-data-head">underscore_response</span>
 <span class="request-data-remarks">When this attribute is passed as true, the json keys of the response will be underscored. The default json key format for listing responses is camel casing.</span></p>
 
+<p><span class="request-data-head">timestamps_only</span>
+<span class="request-data-remarks">If supplied then the results will exclude all data except primary identifiers and a unix timestamp (last_updated) &amp; iso8601 timestamp (modification_timestamp) of the last time this record was updated.</span></p>
+
 <blockquote><div class='highlight json' style="display: block">
 <span class='data-example-label'><span class='entity-name'>Listing</span> <span class='action-name'>Index</span> Response Payload Example
 </span></div></blockquote>
@@ -21348,7 +21584,10 @@ The following attributes make up the payload of each <span class='entity-name'>L
       </span><span class="nt">"Height"</span><span class="p">:</span><span class="mi">768</span><span class="p">,</span><span class="w">
       </span><span class="nt">"MimeType"</span><span class="p">:</span><span class="s2">"image/jpeg"</span><span class="w">
     </span><span class="p">}</span><span class="w">
-  </span><span class="p">]</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"BuyerCommissionType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"percent"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"BuyerCommissionValue"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.5"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"VendorModificationTimestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-20T11:04:55.659-07:00"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -21427,7 +21666,10 @@ The following attributes make up the payload of each <span class='entity-name'>L
   </span><span class="nt">"PropertyFeatures"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
   </span><span class="nt">"OpenHouse"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
   </span><span class="nt">"ImagesLastModified"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"ListingImages"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+  </span><span class="nt">"ListingImages"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+  </span><span class="nt">"BuyerCommissionType"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"BuyerCommissionValue"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"VendorModificationTimestamp"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -21752,6 +21994,18 @@ The following attributes make up the payload of each <span class='entity-name'>L
 <td><span class="response-data">ListingImages</span></td>
 <td><span class="response-data"><span class="data-type">Array</span></td>
 </tr>
+<tr>
+<td><span class="response-data">BuyerCommissionType</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">BuyerCommissionValue</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">VendorModificationTimestamp</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
 </tbody></table>
 
 <p><span class="response-data-head">LotSizeAcres</span>
@@ -21866,7 +22120,7 @@ The following attributes make up the payload of each <span class='entity-name'>L
 <span class="response-data-remarks">The zip code or postal code the property is located in.</span></p>
 
 <p><span class="response-data-head">Community</span>
-<span class="response-data-remarks">The communitythe property is located in.</span></p>
+<span class="response-data-remarks">The community the property is located in.</span></p>
 
 <p><span class="response-data-head">LotSizeSquareFeet</span>
 <span class="response-data-remarks">Total area of the lot.</span></p>
@@ -21948,6 +22202,15 @@ The following attributes make up the payload of each <span class='entity-name'>L
 
 <p><span class="response-data-head">ListingImages</span>
 <span class="response-data-remarks">Any images of the property.</span></p>
+
+<p><span class="response-data-head">BuyerCommissionType</span>
+<span class="response-data-remarks">The type of buyer broker compensation value set for the listing. The two types of broker compensation values are <code class="prettyprint">percent</code> or <code class="prettyprint">flat_rate</code>.</span></p>
+
+<p><span class="response-data-head">BuyerCommissionValue</span>
+<span class="response-data-remarks">Buyer broker compensation value for the listing.</span></p>
+
+<p><span class="response-data-head">VendorModificationTimestamp</span>
+<span class="response-data-remarks">The date when a listing was last modified by the vendor.</span></p>
 
 <h6 id="propertyfeature-objects"><span class='attribute-name'>PropertyFeature</span> Objects</h6>
 
@@ -22300,7 +22563,11 @@ The following attributes make up the payload of each <span class='entity-name'>L
     </span><span class="nt">"mailing_address2"</span><span class="p">:</span><span class="s2">"Box 10"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"mailing_city"</span><span class="p">:</span><span class="s2">"Mailtown"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"mailing_zip"</span><span class="p">:</span><span class="s2">"12123"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"mailing_state"</span><span class="p">:</span><span class="s2">"UM"</span><span class="w">
+    </span><span class="nt">"mailing_state"</span><span class="p">:</span><span class="s2">"UM"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"company_programs"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"Equestrian Equestrian Advisor"</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"logo_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://the.office.logo/image.png"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 
 </span></code></pre>
@@ -22434,6 +22701,14 @@ The following attributes make up the payload of each <span class='entity-name'>L
 <td><span class="response-data">deactivated_timestamp</span></td>
 <td><span class="data-type">Integer or null</span></td>
 </tr>
+<tr>
+<td><span class="response-data">company_programs</span></td>
+<td><span class="data-type">Array</span></td>
+</tr>
+<tr>
+<td><span class="response-data">logo_url</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
 </tbody></table>
 
 <p><span class="response-data-head">moxi_works_office_id</span>
@@ -22519,6 +22794,12 @@ The following attributes make up the payload of each <span class='entity-name'>L
 
 <p><span class="response-data-head">deactivated_timestamp</span>
 <span class="response-data-remarks">This is the Unix timestamp representing the date that this <span class='entity-name'>Office</span> was deactivated in the MoxiWorks system. This will be returned null if the office is still active.</span></p>
+
+<p><span class="response-data-head">company_programs</span>
+<span class="response-data-remarks">A list of the company specific program names in which the agent&rsquo;s office participates or is a member.</span></p>
+
+<p><span class="response-data-head">logo_url</span>
+<span class="response-data-remarks">URL of the office logo image. This can be null if there is no data for this attribute.</span></p>
 
 
 <h4 id="office-index"><span class='entity-name'>Office</span> <span class='action-name'>Index</span></h4>
@@ -22654,6 +22935,11 @@ The following attributes make up the payload of each <span class='entity-name'>L
 <td><span class="data-type">Integer</span></td>
 <td>255</td>
 </tr>
+<tr>
+<td><span class="optional-data">timestamps_only</span></td>
+<td><span class="data-type">Boolean</span></td>
+<td>255</td>
+</tr>
 </tbody></table>
 
 <p><span class="required-data"><strong>Required Parameters Are In Red</strong></span></p>
@@ -22672,6 +22958,9 @@ The following attributes make up the payload of each <span class='entity-name'>L
 
 <p><span class="request-data-head">deactivated_since</span>
 <span class="request-data-remarks">any <span class='entity-name'>Office</span> objects deactivated after this Unix timestamp will be returned in the response. <strong>If no <span class='attribute-name'>deactivated_since</span> parameter is included in the request, only <span class='entity-name'>Office</span> objects deactivated in the last seven days will be returned.</strong></span></p>
+
+<p><span class="request-data-head">timestamps_only</span>
+<span class="request-data-remarks">If supplied then the results will exclude all data except primary identifiers and a unix timestamp (last_updated) &amp; iso8601 timestamp (modification_timestamp) of the last time this record was updated.</span></p>
 
 <aside class="note">By default only <span class='entity-name'>Office</span> objects deactivated in the last seven days will be returned.</aside>
 
@@ -22710,7 +22999,11 @@ The following attributes make up the payload of each <span class='entity-name'>L
     </span><span class="nt">"mailing_address2"</span><span class="p">:</span><span class="s2">"Box 10"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"mailing_city"</span><span class="p">:</span><span class="s2">"Mailtown"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"mailing_zip"</span><span class="p">:</span><span class="s2">"12123"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"mailing_state"</span><span class="p">:</span><span class="s2">"UM"</span><span class="w">
+    </span><span class="nt">"mailing_state"</span><span class="p">:</span><span class="s2">"UM"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"company_programs"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"Equestrian Equestrian Advisor"</span><span class="w">
+     </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"logo_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://the.office.logo/image.png"</span><span class="w">
   </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -22872,6 +23165,14 @@ The following attributes make up the payload of each <span class='entity-name'>L
 <td><span class="response-data">deactivated_timestamp</span></td>
 <td><span class="data-type">Integer or null</span></td>
 </tr>
+<tr>
+<td><span class="response-data">company_programs</span></td>
+<td><span class="data-type">Array</span></td>
+</tr>
+<tr>
+<td><span class="response-data">logo_url</span></td>
+<td><span class="data-type">String</span></td>
+</tr>
 </tbody></table>
 
 <p><span class="response-data-head">moxi_works_office_id</span>
@@ -22957,6 +23258,12 @@ The following attributes make up the payload of each <span class='entity-name'>L
 
 <p><span class="response-data-head">deactivated_timestamp</span>
 <span class="response-data-remarks">This is the Unix timestamp representing the date that this <span class='entity-name'>Office</span> was deactivated in the MoxiWorks system. This will be returned null if the office is still active.</span></p>
+
+<p><span class="response-data-head">company_programs</span>
+<span class="response-data-remarks">A list of the company specific program names in which the agent&rsquo;s office participates or is a member.</span></p>
+
+<p><span class="response-data-head">logo_url</span>
+<span class="response-data-remarks">URL of the office logo image. This can be null if there is no data for this attribute.</span></p>
 
 
 <h3 id="presentationlog"><span class='entity-name'>PresentationLog</span></h3>
@@ -23124,6 +23431,11 @@ The following attributes make up the payload of each <span class='entity-name'>L
 <td><span class="data-type">Boolean</span></td>
 <td>255</td>
 </tr>
+<tr>
+<td><span class="optional-data">type</span></td>
+<td><span class="data-type">String</span></td>
+<td>255</td>
+</tr>
 </tbody></table>
 
 <p><span class="required-data"><strong>Required Parameters Are In Red</strong></span></p>
@@ -23160,6 +23472,9 @@ The following attributes make up the payload of each <span class='entity-name'>L
 <span class="request-data-remarks">Pass <em>true</em> for the value of the <span class='attribute-name'>include_times</span> parameter to return delivered and requested times for the presentations included in the response.</span></p>
 
 <aside class="note">At this time, the attribute <span class='attribute-name'>include_times</span> is only an available query options for agent scoped requests (requests including an agent identifier)</aside>
+
+<p><span class="request-data-head">type</span>
+<span class="request-data-remarks">When filtering by presentation type, use one of the below attributes <code class="prettyprint">buyer</code>, <code class="prettyprint">seller</code>, <code class="prettyprint">buyer_tour</code>, <code class="prettyprint">annual</code>.</span></p>
 
 <blockquote><div class='highlight json' style="display: block">
 <span class="data-example-label">PresentationLog Index: Success Response</span>
@@ -23326,6 +23641,10 @@ The following attributes make up the payload of each <span class='entity-name'>L
 <td><span class="response-data">price_range_max</span></td>
 <td><span class="data-type">Float or null</span></td>
 </tr>
+<tr>
+<td><span class="response-data">contact_ids</span></td>
+<td><span class="data-type">Array</span></td>
+</tr>
 </tbody></table>
 
 <p><span class="response-data-head">agent_uuid</span>
@@ -23350,7 +23669,7 @@ The following attributes make up the payload of each <span class='entity-name'>L
 <span class="response-data-remarks">This is the ID of the office for the <span class='entity-name'>Agent</span> associated with the presentation. This will be an integer.</span></p>
 
 <p><span class="response-data-head">type</span>
-<span class="response-data-remarks">Whether the presentation is for a buyer or seller.</span></p>
+<span class="response-data-remarks">Whether the presentation is for a <code class="prettyprint">buyer</code>, <code class="prettyprint">seller</code>, <code class="prettyprint">buyer_tour</code>, <code class="prettyprint">annual</code></span></p>
 
 <p><span class="response-data-head">sent_by_agent</span>
 <span class="response-data-remarks">The UUID of the agent that sent the presentation to the client. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID.</span></p>
@@ -23395,6 +23714,9 @@ The following attributes make up the payload of each <span class='entity-name'>L
 
 <p><span class="response-data-head">price_range_max</span>
 <span class="response-data-remarks">The price range maximum of the presentation.</span></p>
+
+<p><span class="response-data-head">contact_ids</span>
+<span class="response-data-remarks"><span class="attribute-name">moxi_works_contact_id</span> of the contacts associated with the presentation.</span></p>
 
 
 <h3 id="sellertransaction"><span class='entity-name'>SellerTransaction</span></h3>
@@ -25991,6 +26313,11 @@ moxi_works_agent_id=abc123
 <td><span class="data-type">Integer</span></td>
 <td>255</td>
 </tr>
+<tr>
+<td><span class="optional-data">timestamps_only</span></td>
+<td><span class="data-type">Boolean</span></td>
+<td>255</td>
+</tr>
 </tbody></table>
 
 <p><span class="required-data"><strong>Required Parameters Are In Red</strong></span></p>
@@ -26014,6 +26341,9 @@ moxi_works_agent_id=abc123
 
 <p><span class="request-data-head">page_number</span>
 <span class="request-data-remarks">Page of <span class='entity-name'>SellerTransaction</span> records to return. Use if <code class="prettyprint">total_pages</code> indicates that there is more than one page of data available.</span></p>
+
+<p><span class="request-data-head">timestamps_only</span>
+<span class="request-data-remarks">If supplied then the results will exclude all data except primary identifiers and a unix timestamp (last_updated) &amp; iso8601 timestamp (modification_timestamp) of the last time this record was updated.</span></p>
 
 <blockquote><div class='highlight json' style="display: block">
 <span class='data-example-label'><span class='entity-name'>SellerTransaction</span> <span class='action-name'>Index</span> (using <span class='attribute-name'>agent_uuid</span>) Response Payload Example
@@ -27583,7 +27913,7 @@ moxi_works_agent_id=abc123
 <p><span class="request-data-head">include_buyer_listings</span>
 <span class="request-data-remarks">Only listing data for buyer agents will be returned when this parameter is <code class="prettyprint">true</code>.</span></p>
 
-<aside class="note">`include_buyer_listings` is only available by special arrangement with MoxiWorks. If you require access to buyer agent data, talk to your Platform representative.</aside>
+<aside class="note">`include_buyer_listings` is only available by special arrangement with MoxiWorks. If you require access to buyer agent data, please email <a href="mailto:partners@moxiworks.com">partners@moxiworks.com</a> and let us know.</aside>
 
 <p><span class="request-data-head">underscore_response</span>
 <span class="request-data-remarks">When this attribute is passed as true, the json keys of the response will be underscored. The default json key format for listing responses is camel casing.</span></p>
@@ -28490,7 +28820,7 @@ moxi_works_agent_id=abc123
   </span><span class="nt">"due_at"</span><span class="p">:</span><span class="mi">1466208866</span><span class="p">,</span><span class="w">
   </span><span class="nt">"duration"</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span><span class="w">
   </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"Do This Please"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"partner_contact_id"</span><span class="p">:</span><span class="s2">"mySystemsContactID"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"moxi_works_contact_id"</span><span class="p">:</span><span class="s2">"myMoxiPlatformContactID"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"partner_task_id"</span><span class="p">:</span><span class="s2">"mySystemsTaskID"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
@@ -28502,7 +28832,7 @@ moxi_works_agent_id=abc123
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">Basic XNNeXAAAUZaQlF0dA==</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/x-www-form-urlencoded</span>
 
-agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;description=talk+to+private+kane,%2C+e-one-thousand%2C+about+stuff&amp;due_at=1466208866&amp;duration=10&amp;name=Do+This+Please&amp;partner_contact_id=mySystemContactId&amp;partner_task_id=mySystemTaskId
+agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;description=talk+to+private+kane,%2C+e-one-thousand%2C+about+stuff&amp;due_at=1466208866&amp;duration=10&amp;name=Do+This+Please&amp;moxi_works_contact_id=myMoxiPlatformContactId&amp;partner_task_id=mySystemTaskId
 
 </code></pre>
 
@@ -28519,6 +28849,7 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;description=talk+to+private+
 <span class="n">task</span><span class="p">.</span><span class="n">duration</span> <span class="p">=</span> <span class="m">10</span><span class="p">;</span>
 <span class="n">task</span><span class="p">.</span><span class="n">name</span> <span class="p">=</span> <span class="s">"Do This Please"</span><span class="p">;</span>
 <span class="n">task</span><span class="p">.</span><span class="n">partnerContactId</span> <span class="p">=</span> <span class="s">"mySystemsContactID"</span><span class="p">;</span>
+<span class="n">task</span><span class="p">.</span><span class="n">moxiWorksContactId</span> <span class="p">=</span> <span class="s">"myMoxiPlatformContactID"</span><span class="p">;</span>
 <span class="n">task</span><span class="p">.</span><span class="n">partnerTaskId</span> <span class="p">=</span> <span class="n">mySystemsTaskID</span><span class="s">";
 </span>
 
@@ -28540,7 +28871,7 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;description=talk+to+private+
 <span class="n">moxi_works_task</span> <span class="o">=</span> <span class="no">MoxiworksPlatform</span><span class="o">::</span><span class="no">Task</span><span class="p">.</span><span class="nf">create</span><span class="p">(</span>
         <span class="ss">agent_uuid: </span><span class="s2">"12345678-1234-1234-1234-1234567890ab"</span><span class="p">,</span>
         <span class="ss">partner_task_id: </span><span class="s2">"mySystemTaskId"</span><span class="p">,</span>
-        <span class="ss">partner_contact_id: </span><span class="s1">'mySystemContactId'</span><span class="p">,</span>
+        <span class="ss">moxi_works_contact_id: </span><span class="s1">'myMoxiPlatformContactId'</span><span class="p">,</span>
         <span class="ss">name: </span><span class="s2">"Meet And Greet"</span><span class="p">,</span>
         <span class="ss">description: </span><span class="s2">"Set up a meeting to talk to this contact about their new home"</span><span class="p">,</span>
         <span class="ss">due_at: </span><span class="mi">1466208866</span><span class="p">,</span>
@@ -28558,7 +28889,7 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;description=talk+to+private+
 <span class="nv">$moxi_works_task</span> <span class="o">=</span> <span class="nx">MoxiworksPlatform\Task</span><span class="o">::</span><span class="na">create</span><span class="p">([</span>
         <span class="s1">'agent_uuid'</span> <span class="o">=&gt;</span> <span class="s1">'12345678-1234-1234-1234-1234567890ab'</span><span class="p">,</span>
         <span class="s1">'partner_task_id'</span> <span class="o">=&gt;</span> <span class="s1">'mySystemTaskId'</span><span class="p">,</span>
-        <span class="s1">'partner_contact_id'</span> <span class="o">=&gt;</span> <span class="s1">'mySystemContactId'</span><span class="p">,</span>
+        <span class="s1">'moxi_works_contact_id'</span> <span class="o">=&gt;</span> <span class="s1">'myMoxiPlatformContactId'</span><span class="p">,</span>
         <span class="s1">'name'</span> <span class="o">=&gt;</span> <span class="s1">'Meet And Greet'</span><span class="p">,</span>
         <span class="s1">'description'</span> <span class="o">=&gt;</span> <span class="s1">'Set up a meeting to talk to this contact about their new home'</span><span class="p">,</span>
         <span class="s1">'due_at'</span> <span class="o">=&gt;</span> <span class="mi">1466208866</span><span class="p">,</span>
@@ -28577,7 +28908,7 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;description=talk+to+private+
   </span><span class="nt">"due_at"</span><span class="p">:</span><span class="mi">1466208866</span><span class="p">,</span><span class="w">
   </span><span class="nt">"duration"</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span><span class="w">
   </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"Do This Please"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"partner_contact_id"</span><span class="p">:</span><span class="s2">"mySystemsContactID"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"moxi_works_contact_id"</span><span class="p">:</span><span class="s2">"myMoxiPlatformContactID"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"partner_task_id"</span><span class="p">:</span><span class="s2">"mySystemsTaskID"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
@@ -28589,7 +28920,7 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;description=talk+to+private+
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">Basic XNNeXAAAUZaQlF0dA==</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/x-www-form-urlencoded</span>
 
-moxi_works_agent_id=abc123&amp;description=talk+to+private+kane,%2C+e-one-thousand%2C+about+stuff&amp;due_at=1466208866&amp;duration=10&amp;name=Do+This+Please&amp;partner_contact_id=mySystemContactId&amp;partner_task_id=mySystemTaskId
+moxi_works_agent_id=abc123&amp;description=talk+to+private+kane,%2C+e-one-thousand%2C+about+stuff&amp;due_at=1466208866&amp;duration=10&amp;name=Do+This+Please&amp;moxi_works_contact_id=myMoxiPlatformContactId&amp;partner_task_id=mySystemTaskId
 
 </code></pre>
 
@@ -28606,6 +28937,7 @@ moxi_works_agent_id=abc123&amp;description=talk+to+private+kane,%2C+e-one-thousa
 <span class="n">task</span><span class="p">.</span><span class="n">duration</span> <span class="p">=</span> <span class="m">10</span><span class="p">;</span>
 <span class="n">task</span><span class="p">.</span><span class="n">name</span> <span class="p">=</span> <span class="s">"Do This Please"</span><span class="p">;</span>
 <span class="n">task</span><span class="p">.</span><span class="n">partnerContactId</span> <span class="p">=</span> <span class="s">"mySystemsContactID"</span><span class="p">;</span>
+<span class="n">task</span><span class="p">.</span><span class="n">moxiWorksContactId</span> <span class="p">=</span> <span class="s">"myMoxiPlatformContactID"</span><span class="p">;</span>
 <span class="n">task</span><span class="p">.</span><span class="n">partnerTaskId</span> <span class="p">=</span> <span class="n">mySystemsTaskID</span><span class="s">";
 </span>
 
@@ -28628,6 +28960,7 @@ moxi_works_agent_id=abc123&amp;description=talk+to+private+kane,%2C+e-one-thousa
         <span class="ss">moxi_works_agent_id: </span><span class="s2">"1234abcd"</span><span class="p">,</span>
         <span class="ss">partner_task_id: </span><span class="s2">"mySystemTaskId"</span><span class="p">,</span>
         <span class="ss">partner_contact_id: </span><span class="s1">'mySystemContactId'</span><span class="p">,</span>
+        <span class="ss">moxi_works_contact_id: </span><span class="s1">'myMoxiPlatformContactId'</span><span class="p">,</span>
         <span class="ss">name: </span><span class="s2">"Meet And Greet"</span><span class="p">,</span>
         <span class="ss">description: </span><span class="s2">"Set up a meeting to talk to this contact about their new home"</span><span class="p">,</span>
         <span class="ss">due_at: </span><span class="mi">1466208866</span><span class="p">,</span>
@@ -28646,6 +28979,7 @@ moxi_works_agent_id=abc123&amp;description=talk+to+private+kane,%2C+e-one-thousa
         <span class="s1">'moxi_works_agent_id'</span> <span class="o">=&gt;</span> <span class="s1">'1234abcd'</span><span class="p">,</span>
         <span class="s1">'partner_task_id'</span> <span class="o">=&gt;</span> <span class="s1">'mySystemTaskId'</span><span class="p">,</span>
         <span class="s1">'partner_contact_id'</span> <span class="o">=&gt;</span> <span class="s1">'mySystemContactId'</span><span class="p">,</span>
+        <span class="s1">'moxi_works_contact_id'</span> <span class="o">=&gt;</span> <span class="s1">'myMoxiPlatformContactId'</span><span class="p">,</span>
         <span class="s1">'name'</span> <span class="o">=&gt;</span> <span class="s1">'Meet And Greet'</span><span class="p">,</span>
         <span class="s1">'description'</span> <span class="o">=&gt;</span> <span class="s1">'Set up a meeting to talk to this contact about their new home'</span><span class="p">,</span>
         <span class="s1">'due_at'</span> <span class="o">=&gt;</span> <span class="mi">1466208866</span><span class="p">,</span>
@@ -28688,7 +29022,7 @@ moxi_works_agent_id=abc123&amp;description=talk+to+private+kane,%2C+e-one-thousa
 <td><span class="required-data">255</span></td>
 </tr>
 <tr>
-<td><span class="required-data">partner_contact_id</span></td>
+<td><span class="required-data">moxi_works_contact_id</span></td>
 <td><span class="required-data"><span class="data-type">String</span></span></td>
 <td><span class="required-data">255</span></td>
 </tr>
@@ -28704,6 +29038,11 @@ moxi_works_agent_id=abc123&amp;description=talk+to+private+kane,%2C+e-one-thousa
 </tr>
 <tr>
 <td><span class="optional-data">moxi_works_company_id</span></td>
+<td><span class="data-type">String</span></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="optional-data">partner_contact_id</span></td>
 <td><span class="data-type">String</span></td>
 <td></td>
 </tr>
@@ -28738,6 +29077,9 @@ moxi_works_agent_id=abc123&amp;description=talk+to+private+kane,%2C+e-one-thousa
 <p><span class="request-data-head">partner_task_id</span>
 <span class="request-data-remarks">This is the unique identifer you use in your system that will be associated with the <span class='entity-name'>Task</span> that you are creating. This data is required and must be a unique ID for your <span class='entity-name'>Task</span> <span class='action-name'>Create</span>  request to be accepted.</span></p>
 
+<p><span class="request-data-head">moxi_works_contact_id</span>
+<span class="request-data-remarks">This is the unique moxi platform&rsquo;s contact identifer you use in your system that has been associated with the <span class='entity-name'>Contact</span> that this <span class='entity-name'>Task</span> regards.</span></p>
+
 <p><span class="request-data-head">partner_contact_id</span>
 <span class="request-data-remarks">This is the unique identifer you use in your system that has been associated with the <span class='entity-name'>Contact</span> that this <span class='entity-name'>Task</span> regards.</span></p>
 
@@ -28759,6 +29101,7 @@ moxi_works_agent_id=abc123&amp;description=talk+to+private+kane,%2C+e-one-thousa
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"agent_uuid"</span><span class="p">:</span><span class="s2">"12345678-1234-1234-1234-1234567890ab"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"partner_contact_id"</span><span class="p">:</span><span class="s2">"mySystemContactId"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"moxi_works_contact_id"</span><span class="p">:</span><span class="s2">"myMoxiPlatformContactId"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"Meet And Greet"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"description"</span><span class="p">:</span><span class="s2">"Set up a meeting to talk to this contact about their new home"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"due_at"</span><span class="p">:</span><span class="mi">1466208866</span><span class="p">,</span><span class="w">
@@ -28775,6 +29118,7 @@ moxi_works_agent_id=abc123&amp;description=talk+to+private+kane,%2C+e-one-thousa
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"moxi_works_agent_id"</span><span class="p">:</span><span class="s2">"1234abcd"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"partner_contact_id"</span><span class="p">:</span><span class="s2">"mySystemContactId"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"moxi_works_contact_id"</span><span class="p">:</span><span class="s2">"myMoxiPlatformContactId"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"Meet And Greet"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"description"</span><span class="p">:</span><span class="s2">"Set up a meeting to talk to this contact about their new home"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"due_at"</span><span class="p">:</span><span class="mi">1466208866</span><span class="p">,</span><span class="w">
@@ -28819,6 +29163,10 @@ moxi_works_agent_id=abc123&amp;description=talk+to+private+kane,%2C+e-one-thousa
 <td><span class="response-data"><span class="data-type">String</span></td>
 </tr>
 <tr>
+<td><span class="response-data">moxi_works_contact_id</span></td>
+<td><span class="response-data"><span class="data-type">String</span></td>
+</tr>
+<tr>
 <td><span class="response-data">name</span></td>
 <td><span class="data-type">String or null</span></td>
 </tr>
@@ -28859,6 +29207,9 @@ moxi_works_agent_id=abc123&amp;description=talk+to+private+kane,%2C+e-one-thousa
 <p><span class="response-data-head">partner_contact_id</span>
 <span class="response-data-remarks">This is the unique identifer you use in your system that has been associated with the <span class='entity-name'>Contact</span> that you are creating this <span class='entity-name'>Task</span> for.</span></p>
 
+<p><span class="response-data-head">moxi_works_contact_id</span>
+<span class="response-data-remarks">This is the unique moxi platform&rsquo;s contact identifer you use in your system that has been associated with the <span class='entity-name'>Contact</span> that you are creating this <span class='entity-name'>Task</span> for.</span></p>
+
 <p><span class="response-data-head">name</span>
 <span class="response-data-remarks">A brief, human readable title that will be shown to the agent as the subject of the <span class='entity-name'>Task</span>.</span></p>
 
@@ -28897,7 +29248,7 @@ moxi_works_agent_id=abc123&amp;description=talk+to+private+kane,%2C+e-one-thousa
   </span><span class="nt">"due_at"</span><span class="p">:</span><span class="mi">1466208866</span><span class="p">,</span><span class="w">
   </span><span class="nt">"duration"</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span><span class="w">
   </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"Do This Please"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"partner_contact_id"</span><span class="p">:</span><span class="s2">"mySystemsContactID"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"moxi_works_contact_id"</span><span class="p">:</span><span class="s2">"myMoxiPlatformContactID"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"partner_task_id"</span><span class="p">:</span><span class="s2">"mySystemsTaskID"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
@@ -28910,7 +29261,7 @@ moxi_works_agent_id=abc123&amp;description=talk+to+private+kane,%2C+e-one-thousa
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">Basic XNNeXAAAUZaQlF0dA==</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/x-www-form-urlencoded</span>
 
-agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;description=talk+to+private+kane,%2C+e-one-thousand%2C+about+stuff&amp;due_at=1466208866&amp;duration=10&amp;name=Do+This+Please&amp;partner_contact_id=mySystemContactId&amp;partner_task_id=mySystemTaskId&amp;status=completed
+agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;description=talk+to+private+kane,%2C+e-one-thousand%2C+about+stuff&amp;due_at=1466208866&amp;duration=10&amp;name=Do+This+Please&amp;moxi_works_contact_id=mySystemContactId&amp;partner_task_id=mySystemTaskId&amp;status=completed
 
 </code></pre>
 
@@ -28922,9 +29273,10 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;description=talk+to+private+
 <span class="n">var</span> <span class="n">agentUuid</span> <span class="p">=</span> <span class="s">"12345678-1234-1234-1234-1234567890ab"</span><span class="p">;</span>
 <span class="n">var</span> <span class="n">partnerTaskId</span> <span class="p">=</span> <span class="s">"babebead-feed-face-dead-beefbad4babe"</span><span class="p">;</span>
 <span class="n">var</span> <span class="n">partnerContactId</span> <span class="p">=</span> <span class="s">"booyuh"</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">moxiWorksContactId</span> <span class="p">=</span> <span class="s">"booyuh"</span><span class="p">;</span>
 
 <span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">TaskService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
-<span class="n">var</span> <span class="n">task</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetTaskAsync</span><span class="p">(</span> <span class="n">agentUuid</span><span class="p">,</span>  <span class="n">AgentIdType</span><span class="p">.</span><span class="n">AgentUuid</span><span class="p">,</span>  <span class="n">partnerContactId</span><span class="p">,</span>  <span class="n">partnerTaskId</span><span class="p">:</span> <span class="n">partnerTaskId</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">task</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetTaskAsync</span><span class="p">(</span> <span class="n">agentUuid</span><span class="p">,</span>  <span class="n">AgentIdType</span><span class="p">.</span><span class="n">AgentUuid</span><span class="p">,</span> <span class="n">partnerContactId</span><span class="p">,</span>  <span class="n">moxiWorksContactId</span><span class="p">,</span>  <span class="n">partnerTaskId</span><span class="p">:</span> <span class="n">partnerTaskId</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 <span class="n">task</span><span class="p">.</span><span class="n">description</span> <span class="p">=</span> <span class="s">"talk to private kane, e-one-thousand about stuff"</span><span class="p">;</span>
 <span class="n">task</span><span class="p">.</span><span class="n">dueAt</span> <span class="p">=</span> <span class="m">1466208866</span><span class="p">;</span>
 <span class="n">task</span><span class="p">.</span><span class="n">duration</span> <span class="p">=</span> <span class="m">10</span><span class="p">;</span>
@@ -28946,7 +29298,7 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;description=talk+to+private+
 <span class="n">moxi_works_task</span> <span class="o">=</span> <span class="no">MoxiworksPlatform</span><span class="o">::</span><span class="no">Task</span><span class="p">.</span><span class="nf">update</span><span class="p">(</span>
         <span class="ss">agent_uuid: </span><span class="s2">"12345678-1234-1234-1234-1234567890ab"</span><span class="p">,</span>
         <span class="ss">partner_task_id: </span><span class="s2">"mySystemTaskId"</span><span class="p">,</span>
-        <span class="ss">partner_contact_id: </span><span class="s1">'mySystemContactId'</span><span class="p">,</span>
+        <span class="ss">moxi_works_contact_id: </span><span class="s1">'myMoxiPlatformContactId'</span><span class="p">,</span>
         <span class="ss">name: </span><span class="s2">"Meet And Greet"</span><span class="p">,</span>
         <span class="ss">description: </span><span class="s2">"Set up a meeting to talk to this contact about their new home"</span><span class="p">,</span>
         <span class="ss">due_at: </span><span class="mi">1466208866</span><span class="p">,</span>
@@ -28965,7 +29317,7 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;description=talk+to+private+
 <span class="nv">$moxi_works_task</span> <span class="o">=</span> <span class="nx">MoxiworksPlatform\Task</span><span class="o">::</span><span class="na">update</span><span class="p">([</span>
         <span class="s1">'agent_uuid'</span> <span class="o">=&gt;</span> <span class="s1">'12345678-1234-1234-1234-1234567890ab'</span><span class="p">,</span>
         <span class="s1">'partner_task_id'</span> <span class="o">=&gt;</span> <span class="s1">'mySystemTaskId'</span><span class="p">,</span>
-        <span class="s1">'partner_contact_id'</span> <span class="o">=&gt;</span> <span class="s1">'mySystemContactId'</span><span class="p">,</span>
+        <span class="s1">'moxi_works_contact_id'</span> <span class="o">=&gt;</span> <span class="s1">'myMoxiPlatformContactId'</span><span class="p">,</span>
         <span class="s1">'name'</span> <span class="o">=&gt;</span> <span class="s1">'Meet And Greet'</span><span class="p">,</span>
         <span class="s1">'description'</span> <span class="o">=&gt;</span> <span class="s1">'Set up a meeting to talk to this contact about their new home'</span><span class="p">,</span>
         <span class="s1">'due_at'</span> <span class="o">=&gt;</span> <span class="mi">1466208866</span><span class="p">,</span>
@@ -28986,7 +29338,7 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;description=talk+to+private+
   </span><span class="nt">"due_at"</span><span class="p">:</span><span class="mi">1466208866</span><span class="p">,</span><span class="w">
   </span><span class="nt">"duration"</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span><span class="w">
   </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"Do This Please"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"partner_contact_id"</span><span class="p">:</span><span class="s2">"mySystemsContactID"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"moxi_works_contact_id"</span><span class="p">:</span><span class="s2">"myMoxiPlatformContactID"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"partner_task_id"</span><span class="p">:</span><span class="s2">"mySystemsTaskID"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
@@ -28999,7 +29351,7 @@ agent_uuid=12345678-1234-1234-1234-1234567890ab&amp;description=talk+to+private+
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">Basic XNNeXAAAUZaQlF0dA==</span>
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/x-www-form-urlencoded</span>
 
-moxi_works_agent_id=abc123&amp;description=talk+to+private+kane,%2C+e-one-thousand%2C+about+stuff&amp;due_at=1466208866&amp;duration=10&amp;name=Do+This+Please&amp;partner_contact_id=mySystemContactId&amp;partner_task_id=mySystemTaskId&amp;status=completed
+moxi_works_agent_id=abc123&amp;description=talk+to+private+kane,%2C+e-one-thousand%2C+about+stuff&amp;due_at=1466208866&amp;duration=10&amp;name=Do+This+Please&amp;moxi_works_contact_id=myMoxiPlatformContactId&amp;partner_task_id=mySystemTaskId&amp;status=completed
 
 </code></pre>
 
@@ -29011,9 +29363,10 @@ moxi_works_agent_id=abc123&amp;description=talk+to+private+kane,%2C+e-one-thousa
 <span class="n">var</span> <span class="n">moxiWorksAgentId</span> <span class="p">=</span> <span class="s">"abc123"</span><span class="p">;</span>
 <span class="n">var</span> <span class="n">partnerTaskId</span> <span class="p">=</span> <span class="s">"babebead-feed-face-dead-beefbad4babe"</span><span class="p">;</span>
 <span class="n">var</span> <span class="n">partnerContactId</span> <span class="p">=</span> <span class="s">"booyuh"</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">moxiWorksContactId</span> <span class="p">=</span> <span class="s">"booyuh"</span><span class="p">;</span>
 
 <span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">TaskService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
-<span class="n">var</span> <span class="n">task</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetTaskAsync</span><span class="p">(</span> <span class="n">moxiWorksAgentId</span><span class="p">,</span>  <span class="n">AgentIdType</span><span class="p">.</span><span class="n">MoxiWorksAgentId</span><span class="p">,</span>  <span class="n">partnerContactId</span><span class="p">,</span>  <span class="n">partnerTaskId</span><span class="p">:</span> <span class="n">partnerTaskId</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">task</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetTaskAsync</span><span class="p">(</span> <span class="n">moxiWorksAgentId</span><span class="p">,</span>  <span class="n">AgentIdType</span><span class="p">.</span><span class="n">MoxiWorksAgentId</span><span class="p">,</span>  <span class="n">partnerContactId</span><span class="p">,</span> <span class="n">moxiWorksContactId</span><span class="p">,</span>  <span class="n">partnerTaskId</span><span class="p">:</span> <span class="n">partnerTaskId</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 <span class="n">task</span><span class="p">.</span><span class="n">description</span> <span class="p">=</span> <span class="s">"talk to private kane, e-one-thousand about stuff"</span><span class="p">;</span>
 <span class="n">task</span><span class="p">.</span><span class="n">dueAt</span> <span class="p">=</span> <span class="m">1466208866</span><span class="p">;</span>
 <span class="n">task</span><span class="p">.</span><span class="n">duration</span> <span class="p">=</span> <span class="m">10</span><span class="p">;</span>
@@ -29035,7 +29388,7 @@ moxi_works_agent_id=abc123&amp;description=talk+to+private+kane,%2C+e-one-thousa
 <span class="n">moxi_works_task</span> <span class="o">=</span> <span class="no">MoxiworksPlatform</span><span class="o">::</span><span class="no">Task</span><span class="p">.</span><span class="nf">update</span><span class="p">(</span>
         <span class="ss">moxi_works_agent_id: </span><span class="s2">"1234abcd"</span><span class="p">,</span>
         <span class="ss">partner_task_id: </span><span class="s2">"mySystemTaskId"</span><span class="p">,</span>
-        <span class="ss">partner_contact_id: </span><span class="s1">'mySystemContactId'</span><span class="p">,</span>
+        <span class="ss">moxi_works_contact_id: </span><span class="s1">'myMoxiPlatformContactId'</span><span class="p">,</span>
         <span class="ss">name: </span><span class="s2">"Meet And Greet"</span><span class="p">,</span>
         <span class="ss">description: </span><span class="s2">"Set up a meeting to talk to this contact about their new home"</span><span class="p">,</span>
         <span class="ss">due_at: </span><span class="mi">1466208866</span><span class="p">,</span>
@@ -29054,7 +29407,7 @@ moxi_works_agent_id=abc123&amp;description=talk+to+private+kane,%2C+e-one-thousa
 <span class="nv">$moxi_works_task</span> <span class="o">=</span> <span class="nx">MoxiworksPlatform\Task</span><span class="o">::</span><span class="na">update</span><span class="p">([</span>
         <span class="s1">'moxi_works_agent_id'</span> <span class="o">=&gt;</span> <span class="s1">'1234abcd'</span><span class="p">,</span>
         <span class="s1">'partner_task_id'</span> <span class="o">=&gt;</span> <span class="s1">'mySystemTaskId'</span><span class="p">,</span>
-        <span class="s1">'partner_contact_id'</span> <span class="o">=&gt;</span> <span class="s1">'mySystemContactId'</span><span class="p">,</span>
+        <span class="s1">'moxi_works_contact_id'</span> <span class="o">=&gt;</span> <span class="s1">'myMoxiPlatformContactId'</span><span class="p">,</span>
         <span class="s1">'name'</span> <span class="o">=&gt;</span> <span class="s1">'Meet And Greet'</span><span class="p">,</span>
         <span class="s1">'description'</span> <span class="o">=&gt;</span> <span class="s1">'Set up a meeting to talk to this contact about their new home'</span><span class="p">,</span>
         <span class="s1">'due_at'</span> <span class="o">=&gt;</span> <span class="mi">1466208866</span><span class="p">,</span>
@@ -29100,7 +29453,7 @@ moxi_works_agent_id=abc123&amp;description=talk+to+private+kane,%2C+e-one-thousa
 <td><span class="required-data">255</span></td>
 </tr>
 <tr>
-<td><span class="required-data">partner_contact_id</span></td>
+<td><span class="required-data">moxi_works_contact_id</span></td>
 <td><span class="required-data"><span class="data-type">String</span></span></td>
 <td><span class="required-data">255</span></td>
 </tr>
@@ -29118,6 +29471,11 @@ moxi_works_agent_id=abc123&amp;description=talk+to+private+kane,%2C+e-one-thousa
 <td><span class="optional-data">moxi_works_company_id</span></td>
 <td><span class="data-type">String</span></td>
 <td></td>
+</tr>
+<tr>
+<td><span class="optional-data">partner_contact_id</span></td>
+<td><span class="data-type">String</span></td>
+<td>255</td>
 </tr>
 <tr>
 <td><span class="optional-data">parent_company_id</span></td>
@@ -29150,6 +29508,9 @@ moxi_works_agent_id=abc123&amp;description=talk+to+private+kane,%2C+e-one-thousa
 <p><span class="request-data-head">partner_task_id</span>
 <span class="request-data-remarks">This is the unique identifer you use in your system that is associated with the <span class='entity-name'>Task</span> that you are updating. This data is required and must be a unique ID for your <span class='entity-name'>Task</span> <span class='action-name'>Create</span>  request to be accepted.</span></p>
 
+<p><span class="request-data-head">moxi_works_contact_id</span>
+<span class="request-data-remarks">This is the unique moxi platform&rsquo;s contact identifer you use in your system that has been associated with the <span class='entity-name'>Contact</span> that this <span class='entity-name'>Task</span> regards.</span></p>
+
 <p><span class="request-data-head">partner_contact_id</span>
 <span class="request-data-remarks">This is the unique identifer you use in your system that has been associated with the <span class='entity-name'>Contact</span> that this <span class='entity-name'>Task</span> regards.</span></p>
 
@@ -29172,6 +29533,7 @@ moxi_works_agent_id=abc123&amp;description=talk+to+private+kane,%2C+e-one-thousa
 </span><span class="p">{</span><span class="w">
   </span><span class="nt">"agent_uuid"</span><span class="p">:</span><span class="s2">"12345678-1234-1234-1234-1234567890ab"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"partner_contact_id"</span><span class="p">:</span><span class="s2">"mySystemContactId"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"moxi_works_contact_id"</span><span class="p">:</span><span class="s2">"myMoxiPlatformContactId"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"Meet And Greet"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"description"</span><span class="p">:</span><span class="s2">"Set up a meeting to talk to this contact about their new home"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"due_at"</span><span class="p">:</span><span class="mi">1466208866</span><span class="p">,</span><span class="w">
@@ -29189,6 +29551,7 @@ moxi_works_agent_id=abc123&amp;description=talk+to+private+kane,%2C+e-one-thousa
 </span><span class="p">{</span><span class="w">
   </span><span class="nt">"moxi_works_agent_id"</span><span class="p">:</span><span class="s2">"1234abcd"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"partner_contact_id"</span><span class="p">:</span><span class="s2">"mySystemContactId"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"moxi_works_contact_id"</span><span class="p">:</span><span class="s2">"myMoxiPlatformContactId"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"Meet And Greet"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"description"</span><span class="p">:</span><span class="s2">"Set up a meeting to talk to this contact about their new home"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"due_at"</span><span class="p">:</span><span class="mi">1466208866</span><span class="p">,</span><span class="w">
@@ -29230,8 +29593,12 @@ moxi_works_agent_id=abc123&amp;description=talk+to+private+kane,%2C+e-one-thousa
 <td><span class="data-type">String</span></td>
 </tr>
 <tr>
-<td><span class="response-data">partner_contact_id</span></td>
+<td><span class="response-data">moxi_works_contact_id</span></td>
 <td><span class="response-data"><span class="data-type">String</span></td>
+</tr>
+<tr>
+<td><span class="response-data">partner_contact_id</span></td>
+<td><span class="data-type">String or null</span></td>
 </tr>
 <tr>
 <td><span class="response-data">name</span></td>
@@ -29271,6 +29638,9 @@ moxi_works_agent_id=abc123&amp;description=talk+to+private+kane,%2C+e-one-thousa
 <p><span class="response-data-head">moxi_works_agent_id</span>
 <span class="response-data-remarks">This is the MoxiWorks Platform ID of the <span class='entity-name'>Agent</span>. This will be a string that may take the form of an email address, or a unique alphanumeric identification string.</span></p>
 
+<p><span class="response-data-head">moxi_works_contact_id</span>
+<span class="response-data-remarks">This is the unique moxi platform&rsquo;s contact identifer you use in your system that has been associated with the <span class='entity-name'>Contact</span> that you are updating this <span class='entity-name'>Task</span> for.</span></p>
+
 <p><span class="response-data-head">partner_contact_id</span>
 <span class="response-data-remarks">This is the unique identifer you use in your system that has been associated with the <span class='entity-name'>Contact</span> that you are updating this <span class='entity-name'>Task</span> for.</span></p>
 
@@ -29308,7 +29678,7 @@ moxi_works_agent_id=abc123&amp;description=talk+to+private+kane,%2C+e-one-thousa
 <pre class="highlight json"><code><span class="w">
 </span><span class="p">{</span><span class="w">
   </span><span class="nt">"partner_task_id"</span><span class="p">:</span><span class="s2">"mySystemsTaskID"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"partner_contact_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"moxi_works_contact_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"agent_uuid"</span><span class="p">:</span><span class="s2">"12345678-1234-1234-1234-1234567890ab"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
@@ -29330,10 +29700,10 @@ moxi_works_agent_id=abc123&amp;description=talk+to+private+kane,%2C+e-one-thousa
 
 <span class="n">var</span> <span class="n">agentUuid</span> <span class="p">=</span> <span class="s">"12345678-1234-1234-1234-1234567890ab"</span><span class="p">;</span>
 <span class="n">var</span> <span class="n">partnerTaskId</span> <span class="p">=</span> <span class="s">"babebead-feed-face-dead-beefbad4babe"</span><span class="p">;</span>
-<span class="n">var</span> <span class="n">partnerContactId</span> <span class="p">=</span> <span class="s">"booyuh"</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">moxiWorksContactId</span> <span class="p">=</span> <span class="s">"booyuh"</span><span class="p">;</span>
 
 <span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">TaskService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
-<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetTaskAsync</span><span class="p">(</span> <span class="n">agentUuid</span><span class="p">,</span>  <span class="n">AgentIdType</span><span class="p">.</span><span class="n">AgentUuid</span><span class="p">,</span>  <span class="n">partnerContactId</span><span class="p">,</span> <span class="n">partnerTaskId</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetTaskAsync</span><span class="p">(</span> <span class="n">agentUuid</span><span class="p">,</span>  <span class="n">AgentIdType</span><span class="p">.</span><span class="n">AgentUuid</span><span class="p">,</span>  <span class="n">moxiWorksContactId</span><span class="p">,</span> <span class="n">partnerTaskId</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 
@@ -29349,7 +29719,7 @@ moxi_works_agent_id=abc123&amp;description=talk+to+private+kane,%2C+e-one-thousa
 
 <span class="n">moxi_works_task</span> <span class="o">=</span> <span class="no">MoxiworksPlatform</span><span class="o">::</span><span class="no">Task</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span>
         <span class="ss">agent_uuid: </span><span class="s2">"12345678-1234-1234-1234-1234567890ab"</span><span class="p">,</span>
-        <span class="ss">partner_contact_id: </span><span class="s2">"abc123"</span><span class="p">,</span>
+        <span class="ss">moxi_works_contact_id: </span><span class="s2">"abc123"</span><span class="p">,</span>
         <span class="ss">partner_task_id: </span><span class="s2">"booyuh"</span><span class="p">)</span>
 
 </code></pre>
@@ -29362,7 +29732,7 @@ moxi_works_agent_id=abc123&amp;description=talk+to+private+kane,%2C+e-one-thousa
 
 <span class="nv">$moxi_works_task</span> <span class="o">=</span> <span class="nx">MoxiworksPlatform\Task</span><span class="o">::</span><span class="na">find</span><span class="p">([</span>
         <span class="s1">'agent_uuid'</span> <span class="o">=&gt;</span> <span class="s1">'12345678-1234-1234-1234-1234567890ab'</span><span class="p">,</span>
-        <span class="s1">'partner_contact_id'</span> <span class="o">=&gt;</span> <span class="s1">'abc123'</span><span class="p">,</span>
+        <span class="s1">'moxi_works_contact_id'</span> <span class="o">=&gt;</span> <span class="s1">'abc123'</span><span class="p">,</span>
         <span class="s1">'partner_task_id'</span> <span class="o">=&gt;</span> <span class="s1">'booyuh'</span><span class="p">]);</span>
 <span class="cp">?&gt;</span>
 </code></pre>
@@ -29374,7 +29744,7 @@ moxi_works_agent_id=abc123&amp;description=talk+to+private+kane,%2C+e-one-thousa
 <pre class="highlight json"><code><span class="w">
 </span><span class="p">{</span><span class="w">
   </span><span class="nt">"partner_task_id"</span><span class="p">:</span><span class="s2">"mySystemsTaskID"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"partner_contact_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"moxi_works_contact_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"moxi_works_agent_id"</span><span class="p">:</span><span class="s2">"abc123"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
@@ -29396,10 +29766,10 @@ moxi_works_agent_id=abc123&amp;description=talk+to+private+kane,%2C+e-one-thousa
 
 <span class="n">var</span> <span class="n">moxiWorksAgentId</span> <span class="p">=</span> <span class="s">"abc123"";
 </span><span class="n">var</span> <span class="n">partnerTaskId</span> <span class="p">=</span> <span class="s">"babebead-feed-face-dead-beefbad4babe"</span><span class="p">;</span>
-<span class="n">var</span> <span class="n">partnerContactId</span> <span class="p">=</span> <span class="s">"booyuh"</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">moxiWorksContactId</span> <span class="p">=</span> <span class="s">"booyuh"</span><span class="p">;</span>
 
 <span class="n">var</span> <span class="n">service</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">TaskService</span><span class="p">(</span><span class="k">new</span> <span class="nf">MoxiWorksClient</span><span class="p">());</span>
-<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetTaskAsync</span><span class="p">(</span> <span class="n">moxiWorksAgentId</span><span class="p">,</span>  <span class="n">AgentIdType</span><span class="p">.</span><span class="n">MoxiWorksAgentId</span><span class="p">,</span>  <span class="n">partnerContactId</span><span class="p">,</span> <span class="n">partnerTaskId</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">results</span> <span class="p">=</span> <span class="n">service</span><span class="p">.</span><span class="nf">GetTaskAsync</span><span class="p">(</span> <span class="n">moxiWorksAgentId</span><span class="p">,</span>  <span class="n">AgentIdType</span><span class="p">.</span><span class="n">MoxiWorksAgentId</span><span class="p">,</span>  <span class="n">moxiWorksContactId</span><span class="p">,</span> <span class="n">partnerTaskId</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
 
 </code></pre>
 
@@ -29415,7 +29785,7 @@ moxi_works_agent_id=abc123&amp;description=talk+to+private+kane,%2C+e-one-thousa
 
 <span class="n">moxi_works_task</span> <span class="o">=</span> <span class="no">MoxiworksPlatform</span><span class="o">::</span><span class="no">Task</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span>
         <span class="ss">moxi_works_agent_id: </span><span class="s2">"1234abcd"</span><span class="p">,</span>
-        <span class="ss">partner_contact_id: </span><span class="s2">"abc123"</span><span class="p">,</span>
+        <span class="ss">moxi_works_contact_id: </span><span class="s2">"abc123"</span><span class="p">,</span>
         <span class="ss">partner_task_id: </span><span class="s2">"booyuh"</span><span class="p">)</span>
 
 </code></pre>
@@ -29428,7 +29798,7 @@ moxi_works_agent_id=abc123&amp;description=talk+to+private+kane,%2C+e-one-thousa
 
 <span class="nv">$moxi_works_task</span> <span class="o">=</span> <span class="nx">MoxiworksPlatform\Task</span><span class="o">::</span><span class="na">find</span><span class="p">([</span>
         <span class="s1">'moxi_works_agent_id'</span> <span class="o">=&gt;</span> <span class="s1">'1234abcd'</span><span class="p">,</span>
-        <span class="s1">'partner_contact_id'</span> <span class="o">=&gt;</span> <span class="s1">'abc123'</span><span class="p">,</span>
+        <span class="s1">'moxi_works_contact_id'</span> <span class="o">=&gt;</span> <span class="s1">'abc123'</span><span class="p">,</span>
         <span class="s1">'partner_task_id'</span> <span class="o">=&gt;</span> <span class="s1">'booyuh'</span><span class="p">]);</span>
 <span class="cp">?&gt;</span>
 </code></pre>
@@ -29467,7 +29837,7 @@ moxi_works_agent_id=abc123&amp;description=talk+to+private+kane,%2C+e-one-thousa
 <td><span class="required-data">255</span></td>
 </tr>
 <tr>
-<td><span class="required-data">partner_contact_id</span></td>
+<td><span class="required-data">moxi_works_contact_id</span></td>
 <td><span class="required-data"><span class="data-type">String</span></span></td>
 <td><span class="required-data">255</span></td>
 </tr>
@@ -29481,12 +29851,20 @@ moxi_works_agent_id=abc123&amp;description=talk+to+private+kane,%2C+e-one-thousa
 <td><span class="data-type">String</span></td>
 <td>255</td>
 </tr>
+<tr>
+<td><span class="optional-data">partner_contact_id</span></td>
+<td><span class="data-type">String</span></span></td>
+<td>255</td>
+</tr>
 </tbody></table>
 
 <p><span class="required-data"><strong>Required Parameters Are In Red</strong></span></p>
 
 <p><span class="request-data-head multi-option-required-data"><span class='attribute-name'>moxi_works_agent_id</span> or <span class='attribute-name'>agent_uuid</span> or <span class='attribute-name'>source_agent_id</span></span>
 <span class="request-data-remarks"><strong>One of these parameters must be supplied</strong> Please reference <a href="#agent-identifiers">Agent Identifiers</a> for information about how to construct your agent identifier request params.</span></p>
+
+<p><span class="request-data-head">moxi_works_contact_id</span>
+<span class="request-data-remarks">This is the unique moxi platform&rsquo;s contact identifer you use in your system that has been associated with the <span class='entity-name'>Contact</span> that this <span class='entity-name'>Task</span> is for.</span></p>
 
 <p><span class="request-data-head">moxi_works_company_id</span>
 <span class="request-data-remarks">A valid MoxiWorks <span class='entity-name'>Company</span> ID. Use <a href="#company">Company Endpoint</a> to determine what <span class='attribute-name'>moxi_works_company_id</span> you can use.</span></p>
@@ -29506,6 +29884,7 @@ moxi_works_agent_id=abc123&amp;description=talk+to+private+kane,%2C+e-one-thousa
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"agent_uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345678-1234-1234-1234-1234567890ab"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"partner_contact_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"moxi_works_contact_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"partner_task_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"booyuh"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pick up keys for home"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pick up keys for 1234 Wherever Ave. from 1181 Brokerage Place"</span><span class="p">,</span><span class="w">
@@ -29523,6 +29902,7 @@ moxi_works_agent_id=abc123&amp;description=talk+to+private+kane,%2C+e-one-thousa
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"moxi_works_agent_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234abcd"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"partner_contact_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"moxi_works_contact_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"partner_task_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"booyuh"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pick up keys for home"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pick up keys for 1234 Wherever Ave. from 1181 Brokerage Place"</span><span class="p">,</span><span class="w">
@@ -29569,6 +29949,10 @@ moxi_works_agent_id=abc123&amp;description=talk+to+private+kane,%2C+e-one-thousa
 <td><span class="response-data"><span class="data-type">String</span></td>
 </tr>
 <tr>
+<td><span class="response-data">moxi_works_contact_id</span></td>
+<td><span class="response-data"><span class="data-type">String</span></td>
+</tr>
+<tr>
 <td><span class="response-data">partner_task_id</span></td>
 <td><span class="response-data"><span class="data-type">String</span></td>
 </tr>
@@ -29612,6 +29996,9 @@ moxi_works_agent_id=abc123&amp;description=talk+to+private+kane,%2C+e-one-thousa
 
 <p><span class="response-data-head">partner_contact_id</span>
 <span class="request-data-remarks">This is the unique identifer you use in your system that has been associated with the <span class='entity-name'>Contact</span> that this <span class='entity-name'>Task</span> is for.</span></p>
+
+<p><span class="response-data-head">moxi_works_contact_id</span>
+<span class="request-data-remarks">This is the unique moxi platform&rsquo;s contact identifer you use in your system that has been associated with the <span class='entity-name'>Contact</span> that this <span class='entity-name'>Task</span> is for.</span></p>
 
 <p><span class="response-data-head">partner_task_id</span>
 <span class="response-data-remarks">This is the unique identifer you use in your system that has been associated with the <span class='entity-name'>Task</span>.</span></p>
@@ -29728,7 +30115,27 @@ moxi_works_agent_id=abc123&amp;description=talk+to+private+kane,%2C+e-one-thousa
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/tasks?moxi_works_agent_id=abc123&amp;partner_contact_id=mySystemIDForContact</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<pre class="highlight json"><code><span class="err">or</span><span class="w">
+</span></code></pre>
+
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"moxi_works_agent_id"</span><span class="p">:</span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"moxi_works_contact_id"</span><span class="p">:</span><span class="s2">"myMoxiPlatformIDForContact"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/tasks?moxi_works_agent_id=abc123&amp;parter_contact_id=mySystemIDForContact</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">api.moxiworks.com</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.moxi-platform+json;version=1</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Basic XNNeXAAAUZaQlF0dA==</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/x-www-form-urlencoded</span>
+
+</code></pre>
+
+<pre class="highlight http"><code><span class="err">or
+</span></code></pre>
+
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/tasks?moxi_works_agent_id=abc123&amp;moxi_works_contact_id=myMoxiPlatformIDForContact</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">api.moxiworks.com</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.moxi-platform+json;version=1</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">Basic XNNeXAAAUZaQlF0dA==</span>
@@ -29752,10 +30159,29 @@ moxi_works_agent_id=abc123&amp;description=talk+to+private+kane,%2C+e-one-thousa
 
 </code></pre>
 
+<pre class="highlight ruby"><code><span class="n">or</span>
+</code></pre>
+
+<pre class="highlight ruby"><code><span class="n">agent_moxi_works_tasks_for_contact</span> <span class="o">=</span> <span class="no">MoxiworksPlatform</span><span class="o">::</span><span class="no">Task</span><span class="p">.</span><span class="nf">search</span><span class="p">(</span>
+        <span class="ss">moxi_works_agent_id: </span><span class="s2">"abc123"</span><span class="p">,</span>
+        <span class="ss">moxi_works_contact_id: </span><span class="s2">"myMoxiPlatformIDForContact"</span><span class="p">)</span>
+
+</code></pre>
+
 <pre class="highlight php"><code><span class="cp">&lt;?php</span>
 <span class="nv">$agent_moxi_works_tasks_for_contact</span> <span class="o">=</span> <span class="nx">MoxiworksPlatform\Task</span><span class="o">::</span><span class="na">search</span><span class="p">([</span>
         <span class="s1">'moxi_works_agent_id'</span> <span class="o">=&gt;</span> <span class="s1">'abc123'</span><span class="p">,</span>
         <span class="s1">'partner_contact_id'</span> <span class="o">=&gt;</span> <span class="s1">'mySystemIDForContact'</span><span class="p">]);</span>
+<span class="cp">?&gt;</span>
+</code></pre>
+
+<pre class="highlight php"><code>or
+</code></pre>
+
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+<span class="nv">$agent_moxi_works_tasks_for_contact</span> <span class="o">=</span> <span class="nx">MoxiworksPlatform\Task</span><span class="o">::</span><span class="na">search</span><span class="p">([</span>
+        <span class="s1">'moxi_works_agent_id'</span> <span class="o">=&gt;</span> <span class="s1">'abc123'</span><span class="p">,</span>
+        <span class="s1">'moxi_works_contact_id'</span> <span class="o">=&gt;</span> <span class="s1">'myMoxiPlatformIDForContact'</span><span class="p">]);</span>
 <span class="cp">?&gt;</span>
 </code></pre>
 
@@ -29816,7 +30242,28 @@ moxi_works_agent_id=abc123&amp;description=talk+to+private+kane,%2C+e-one-thousa
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
+<pre class="highlight json"><code><span class="err">or</span><span class="w">
+</span></code></pre>
+
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"moxi_works_agent_id"</span><span class="p">:</span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"date_due_start"</span><span class="p">:</span><span class="mi">1461108284</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"date_due_end"</span><span class="p">:</span><span class="mi">1462317907</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"moxi_works_contact_id"</span><span class="p">:</span><span class="s2">"myMoxiPlatformIDForContact"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
 <pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/tasks?moxi_works_agent_id=abc123&amp;date_due_start=1461108284&amp;date_due_end=1462317907&amp;partner_contact_id=mySystemIDForContact</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">api.moxiworks.com</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.moxi-platform+json;version=1</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Basic XNNeXAAAUZaQlF0dA==</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/x-www-form-urlencoded</span>
+</code></pre>
+
+<pre class="highlight http"><code><span class="err">or
+</span></code></pre>
+
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/api/tasks?moxi_works_agent_id=abc123&amp;date_due_start=1461108284&amp;date_due_end=1462317907&amp;moxi_works_contact_id=myMoxiPlatformIDForContact</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">api.moxiworks.com</span>
 <span class="na">Accept</span><span class="p">:</span> <span class="s">application/vnd.moxi-platform+json;version=1</span>
 <span class="na">Authorization</span><span class="p">:</span> <span class="s">Basic XNNeXAAAUZaQlF0dA==</span>
@@ -29841,11 +30288,35 @@ moxi_works_agent_id=abc123&amp;description=talk+to+private+kane,%2C+e-one-thousa
         <span class="ss">due_date_end: </span><span class="no">Time</span><span class="p">.</span><span class="nf">now</span><span class="p">.</span><span class="nf">to_i</span><span class="p">)</span>
 </code></pre>
 
+<pre class="highlight ruby"><code><span class="n">or</span>
+</code></pre>
+
+<pre class="highlight ruby"><code><span class="n">agent_moxi_works_tasks_for_contact_due_between_dates</span> <span class="o">=</span> <span class="no">MoxiworksPlatform</span><span class="o">::</span><span class="no">Task</span><span class="p">.</span><span class="nf">search</span><span class="p">(</span>
+        <span class="ss">moxi_works_agent_id: </span><span class="s2">"abc123"</span><span class="p">,</span>
+        <span class="ss">moxi_works_contact_id: </span><span class="s2">"myMoxiPlatformIDForContact"</span><span class="p">,</span>
+        <span class="ss">due_date_start: </span><span class="no">Time</span><span class="p">.</span><span class="nf">now</span><span class="p">.</span><span class="nf">to_i</span> <span class="o">-</span> <span class="mi">86400</span><span class="p">,</span>
+        <span class="ss">due_date_end: </span><span class="no">Time</span><span class="p">.</span><span class="nf">now</span><span class="p">.</span><span class="nf">to_i</span><span class="p">)</span>
+</code></pre>
+
 <pre class="highlight php"><code><span class="cp">&lt;?php</span>
 
 <span class="nv">$agent_moxi_works_tasks_for_contact_due_between_dates</span><span class="o">=</span> <span class="nx">MoxiworksPlatform\Task</span><span class="o">::</span><span class="na">search</span><span class="p">([</span>
         <span class="s1">'moxi_works_agent_id'</span> <span class="o">=&gt;</span> <span class="s1">'abc123'</span><span class="p">,</span>
         <span class="s1">'partner_contact_id'</span> <span class="o">=&gt;</span> <span class="s1">'mySystemIDForContact'</span><span class="p">,</span>
+        <span class="s1">'due_date_start'</span> <span class="o">=&gt;</span> <span class="mi">1461108284</span><span class="p">,</span>
+        <span class="s1">'due_date_end'</span> <span class="o">=&gt;</span> <span class="mi">1462317907</span><span class="p">]);</span>
+
+<span class="cp">?&gt;</span>
+</code></pre>
+
+<pre class="highlight php"><code>or
+</code></pre>
+
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+
+<span class="nv">$agent_moxi_works_tasks_for_contact_due_between_dates</span><span class="o">=</span> <span class="nx">MoxiworksPlatform\Task</span><span class="o">::</span><span class="na">search</span><span class="p">([</span>
+        <span class="s1">'moxi_works_agent_id'</span> <span class="o">=&gt;</span> <span class="s1">'abc123'</span><span class="p">,</span>
+        <span class="s1">'moxi_works_contact_id'</span> <span class="o">=&gt;</span> <span class="s1">'myMoxiPlatformIDForContact'</span><span class="p">,</span>
         <span class="s1">'due_date_start'</span> <span class="o">=&gt;</span> <span class="mi">1461108284</span><span class="p">,</span>
         <span class="s1">'due_date_end'</span> <span class="o">=&gt;</span> <span class="mi">1462317907</span><span class="p">]);</span>
 
@@ -29906,6 +30377,11 @@ moxi_works_agent_id=abc123&amp;description=talk+to+private+kane,%2C+e-one-thousa
 <td>255</td>
 </tr>
 <tr>
+<td><span class="optional-data">moxi_works_contact_id</span></td>
+<td><span class="data-type">String</span></td>
+<td>255</td>
+</tr>
+<tr>
 <td><span class="optional-data">page_number</span></td>
 <td><span class="data-type">Integer</span></td>
 <td>255</td>
@@ -29934,6 +30410,9 @@ moxi_works_agent_id=abc123&amp;description=talk+to+private+kane,%2C+e-one-thousa
 <p><span class="request-data-head">partner_contact_id</span>
 <span class="request-data-remarks">This is the unique identifer you use in your system that has been associated with the <span class='entity-name'>Contact</span> that this <span class='entity-name'>Task</span> regards.</span></p>
 
+<p><span class="request-data-head">moxi_works_contact_id</span>
+<span class="request-data-remarks">This is the unique moxi platform&rsquo;s contact identifer you use in your system that has been associated with the <span class='entity-name'>Contact</span> that this <span class='entity-name'>Task</span> regards.</span></p>
+
 <p><span class="request-data-head">page_number</span>
 <span class="request-data-remarks">Page of <span class='entity-name'>Task</span> objects to return. Use if <code class="prettyprint">total_pages</code> indicates that there is more than one page of data available.</span></p>
 
@@ -29948,6 +30427,7 @@ moxi_works_agent_id=abc123&amp;description=talk+to+private+kane,%2C+e-one-thousa
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"agent_uuid"</span><span class="p">:</span><span class="s2">"12345678-1234-1234-1234-1234567890ab"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"partner_contact_id"</span><span class="p">:</span><span class="s2">"mySystemIDForContact"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"moxi_works_contact_id"</span><span class="p">:</span><span class="s2">"myMoxiPlatformIDForContact"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"Reach Out to this person!"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"description"</span><span class="p">:</span><span class="s2">"Call"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"due_at"</span><span class="p">:</span><span class="s2">"1465858693"</span><span class="p">,</span><span class="w">
@@ -29972,6 +30452,7 @@ moxi_works_agent_id=abc123&amp;description=talk+to+private+kane,%2C+e-one-thousa
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"moxi_works_agent_id"</span><span class="p">:</span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"partner_contact_id"</span><span class="p">:</span><span class="s2">"mySystemIDForContact"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"moxi_works_contact_id"</span><span class="p">:</span><span class="s2">"myMoxiPlatformIDForContact"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"Reach Out to this person!"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"description"</span><span class="p">:</span><span class="s2">"Call"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"due_at"</span><span class="p">:</span><span class="s2">"1465858693"</span><span class="p">,</span><span class="w">
@@ -30044,6 +30525,10 @@ moxi_works_agent_id=abc123&amp;description=talk+to+private+kane,%2C+e-one-thousa
 <td><span class="response-data"><span class="data-type">String</span></td>
 </tr>
 <tr>
+<td><span class="response-data">moxi_works_contact_id</span></td>
+<td><span class="response-data"><span class="data-type">String</span></td>
+</tr>
+<tr>
 <td><span class="response-data">name</span></td>
 <td><span class="data-type">String or null</span></td>
 </tr>
@@ -30083,6 +30568,9 @@ moxi_works_agent_id=abc123&amp;description=talk+to+private+kane,%2C+e-one-thousa
 
 <p><span class="response-data-head">partner_contact_id</span>
 <span class="response-data-remarks">This is the unique identifer you use in your system that has been associated with the <span class='entity-name'>Contact</span> that you are creating this <span class='entity-name'>Task</span> for.</span></p>
+
+<p><span class="response-data-head">moxi_works_contact_id</span>
+<span class="response-data-remarks">This is the unique moxi platform&rsquo;s contact identifer you use in your system that has been associated with the <span class='entity-name'>Contact</span> that you are creating this <span class='entity-name'>Task</span> for.</span></p>
 
 <p><span class="response-data-head">name</span>
 <span class="response-data-remarks">A brief, human readable title that will be shown to the agent as the subject of the <span class='entity-name'>Task</span>.</span></p>

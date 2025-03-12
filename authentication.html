@@ -322,7 +322,17 @@ When a client wishes to do this they can use the refresh token to get a new acce
 <tr>
 <td><span class="required-data">email</span></td>
 <td><span class="data-type">String</span></td>
-<td><span class="data-remarks">The end user&rsquo;s email address</span></td>
+<td><span class="data-remarks">Deprecated - this might be the value from either email_primary or email_display. Use one of those fields for better control over what data is being used.</span></td>
+</tr>
+<tr>
+<td><span class="required-data">email_primary</span></td>
+<td><span class="data-type">String</span></td>
+<td><span class="data-remarks">The end user&rsquo;s primary email address, used for messaging from MoxiWorks</span></td>
+</tr>
+<tr>
+<td><span class="required-data">email_display</span></td>
+<td><span class="data-type">String</span></td>
+<td><span class="data-remarks">The end user&rsquo;s display email address, advertised to customers</span></td>
 </tr>
 <tr>
 <td><span class="required-data">company_name</span></td>

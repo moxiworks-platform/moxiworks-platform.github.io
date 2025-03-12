@@ -102,7 +102,8 @@
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"moxi_works_company_id"</span><span class="p">:</span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"updated_since"</span><span class="p">:</span><span class="s2">"1461108284"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"last_moxi_works_listing_id"</span><span class="p">:</span><span class="s2">"abc12345"</span><span class="w">
+  </span><span class="nt">"last_moxi_works_listing_id"</span><span class="p">:</span><span class="s2">"abc12345"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"vendor_modification_timestamp"</span><span class="p">:</span><span class="s2">"2018-03-20T11:04:55.659-07:00"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
 </span></code></pre>
@@ -241,6 +242,11 @@
 </tr>
 <tr>
 <td><span class="optional-data">underscore_response</span></td>
+<td><span class="data-type">Boolean</span></td>
+<td>255</td>
+</tr>
+<tr>
+<td><span class="optional-data">timestamps_only</span></td>
 <td><span class="data-type">Boolean</span></td>
 <td>255</td>
 </tr>
@@ -420,6 +426,9 @@
 <p><span class="request-data-head">underscore_response</span>
 <span class="request-data-remarks">When this attribute is passed as true, the json keys of the response will be underscored. The default json key format for listing responses is camel casing.</span></p>
 
+<p><span class="request-data-head">timestamps_only</span>
+<span class="request-data-remarks">If supplied then the results will exclude all data except primary identifiers and a unix timestamp (last_updated) &amp; iso8601 timestamp (modification_timestamp) of the last time this record was updated.</span></p>
+
 <blockquote><div class='highlight json' style="display: block">
 <span class='data-example-label'><span class='entity-name'>Listing</span> <span class='action-name'>Index</span> Response Payload Example
 </span></div></blockquote>
@@ -563,7 +572,10 @@
       </span><span class="nt">"Height"</span><span class="p">:</span><span class="mi">768</span><span class="p">,</span><span class="w">
       </span><span class="nt">"MimeType"</span><span class="p">:</span><span class="s2">"image/jpeg"</span><span class="w">
     </span><span class="p">}</span><span class="w">
-  </span><span class="p">]</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"BuyerCommissionType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"percent"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"BuyerCommissionValue"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.5"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"VendorModificationTimestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-20T11:04:55.659-07:00"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -641,7 +653,10 @@
   </span><span class="nt">"PropertyFeatures"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
   </span><span class="nt">"OpenHouse"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
   </span><span class="nt">"ImagesLastModified"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"ListingImages"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+  </span><span class="nt">"ListingImages"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+  </span><span class="nt">"BuyerCommissionType"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"BuyerCommissionValue"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"VendorModificationTimestamp"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -965,6 +980,18 @@
 <td><span class="response-data">ListingImages</span></td>
 <td><span class="response-data"><span class="data-type">Array</span></td>
 </tr>
+<tr>
+<td><span class="response-data">BuyerCommissionType</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">BuyerCommissionValue</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">VendorModificationTimestamp</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
 </tbody></table>
 
 <p><span class="response-data-head">LotSizeAcres</span>
@@ -1079,7 +1106,7 @@
 <span class="response-data-remarks">The zip code or postal code the property is located in.</span></p>
 
 <p><span class="response-data-head">Community</span>
-<span class="response-data-remarks">The communitythe property is located in.</span></p>
+<span class="response-data-remarks">The community the property is located in.</span></p>
 
 <p><span class="response-data-head">LotSizeSquareFeet</span>
 <span class="response-data-remarks">Total area of the lot.</span></p>
@@ -1161,6 +1188,15 @@
 
 <p><span class="response-data-head">ListingImages</span>
 <span class="response-data-remarks">Any images of the property.</span></p>
+
+<p><span class="response-data-head">BuyerCommissionType</span>
+<span class="response-data-remarks">The type of buyer broker compensation value set for the listing. The two types of broker compensation values are <code class="prettyprint">percent</code> or <code class="prettyprint">flat_rate</code>.</span></p>
+
+<p><span class="response-data-head">BuyerCommissionValue</span>
+<span class="response-data-remarks">Buyer broker compensation value for the listing.</span></p>
+
+<p><span class="response-data-head">VendorModificationTimestamp</span>
+<span class="response-data-remarks">The date when a listing was last modified by the vendor.</span></p>
 
 <h6 id="propertyfeature-objects"><span class='attribute-name'>PropertyFeature</span> Objects</h6>
 

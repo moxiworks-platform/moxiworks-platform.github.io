@@ -180,6 +180,11 @@
 <td><span class="data-type">Boolean</span></td>
 <td>255</td>
 </tr>
+<tr>
+<td><span class="optional-data">type</span></td>
+<td><span class="data-type">String</span></td>
+<td>255</td>
+</tr>
 </tbody></table>
 
 <p><span class="required-data"><strong>Required Parameters Are In Red</strong></span></p>
@@ -216,6 +221,9 @@
 <span class="request-data-remarks">Pass <em>true</em> for the value of the <span class='attribute-name'>include_times</span> parameter to return delivered and requested times for the presentations included in the response.</span></p>
 
 <aside class="note">At this time, the attribute <span class='attribute-name'>include_times</span> is only an available query options for agent scoped requests (requests including an agent identifier)</aside>
+
+<p><span class="request-data-head">type</span>
+<span class="request-data-remarks">When filtering by presentation type, use one of the below attributes <code class="prettyprint">buyer</code>, <code class="prettyprint">seller</code>, <code class="prettyprint">buyer_tour</code>, <code class="prettyprint">annual</code>.</span></p>
 
 <blockquote><div class='highlight json' style="display: block">
 <span class="data-example-label">PresentationLog Index: Success Response</span>
@@ -380,6 +388,10 @@
 <td><span class="response-data">price_range_max</span></td>
 <td><span class="data-type">Float or null</span></td>
 </tr>
+<tr>
+<td><span class="response-data">contact_ids</span></td>
+<td><span class="data-type">Array</span></td>
+</tr>
 </tbody></table>
 
 <p><span class="response-data-head">agent_uuid</span>
@@ -404,7 +416,7 @@
 <span class="response-data-remarks">This is the ID of the office for the <span class='entity-name'>Agent</span> associated with the presentation. This will be an integer.</span></p>
 
 <p><span class="response-data-head">type</span>
-<span class="response-data-remarks">Whether the presentation is for a buyer or seller.</span></p>
+<span class="response-data-remarks">Whether the presentation is for a <code class="prettyprint">buyer</code>, <code class="prettyprint">seller</code>, <code class="prettyprint">buyer_tour</code>, <code class="prettyprint">annual</code></span></p>
 
 <p><span class="response-data-head">sent_by_agent</span>
 <span class="response-data-remarks">The UUID of the agent that sent the presentation to the client. This will be an <a href="https://tools.ietf.org/html/rfc4122">RFC 4122</a> compliant UUID.</span></p>
@@ -449,6 +461,9 @@
 
 <p><span class="response-data-head">price_range_max</span>
 <span class="response-data-remarks">The price range maximum of the presentation.</span></p>
+
+<p><span class="response-data-head">contact_ids</span>
+<span class="response-data-remarks"><span class="attribute-name">moxi_works_contact_id</span> of the contacts associated with the presentation.</span></p>
 
       </div>
       <div class="dark-box">

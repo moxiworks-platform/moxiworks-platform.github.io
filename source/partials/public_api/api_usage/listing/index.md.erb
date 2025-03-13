@@ -87,7 +87,8 @@ $company_listings = MoxiworksPlatform\Listing::search(['moxi_works_company_id' =
 {
   "moxi_works_company_id":"abc123",
   "updated_since":"1461108284",
-  "last_moxi_works_listing_id":"abc12345"
+  "last_moxi_works_listing_id":"abc12345",
+  "vendor_modification_timestamp":"2018-03-20T11:04:55.659-07:00"
 }
 
 ```
@@ -415,7 +416,8 @@ Number | Property Type |
     }
   ],
   "BuyerCommissionType": "percent",
-  "BuyerCommissionValue": "2.5"
+  "BuyerCommissionValue": "2.5",
+  "VendorModificationTimestamp": "2018-03-20T11:04:55.659-07:00"
 }
 ]
 }
@@ -497,7 +499,8 @@ Number | Property Type |
   "ImagesLastModified": null,
   "ListingImages": [],
   "BuyerCommissionType": null,
-  "BuyerCommissionValue": null
+  "BuyerCommissionValue": null,
+  "VendorModificationTimestamp": null
 }
 ```
 
@@ -608,6 +611,7 @@ Attribute | Type |
 |<span class="response-data">ListingImages</span>|<span class="response-data"><span class="data-type">Array</span>
 |<span class="response-data">BuyerCommissionType</span>|<span class="response-data"><span class="data-type">String or null</span>
 |<span class="response-data">BuyerCommissionValue</span>|<span class="response-data"><span class="data-type">String or null</span>
+|<span class="response-data">VendorModificationTimestamp</span>|<span class="response-data"><span class="data-type">String or null</span>
 
 <span class="response-data-head">LotSizeAcres</span>
 <span class="response-data-remarks">This is the property size of the listing land in acres. If no data is available for this attribute, it will be `null`.</span>
@@ -855,6 +859,9 @@ Attribute | Type |
 
 <span class="response-data-head">BuyerCommissionValue</span>
 <span class="response-data-remarks">Buyer broker compensation value for the listing.</span>
+
+<span class="response-data-head">VendorModificationTimestamp</span>
+<span class="response-data-remarks">The date when a listing was last modified by the vendor.</span>
 
 ###### <span class='attribute-name'>PropertyFeature</span> Objects
 

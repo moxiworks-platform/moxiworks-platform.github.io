@@ -344,7 +344,8 @@ Attribute | Type  | Length Limit |
     "office_address_city": "Altville",
     "office_address_state": "IN",
     "office_address_zip": "23232",
-    "office_phone_number": "813.555.1221"
+    "office_phone_number": "813.555.1221",
+    "office_visible_online": true
     },
       {
     "moxi_works_office_id": "xyz789",
@@ -354,7 +355,8 @@ Attribute | Type  | Length Limit |
     "office_address_city": "Nextus",
     "office_address_state": "AL",
     "office_address_zip": "99899",
-    "office_phone_number": "66655544444"
+    "office_phone_number": "66655544444",
+    "office_visible_online": true
     }
   ],
   "source_metadata": [
@@ -667,6 +669,7 @@ Attribute | Type |
 |<span class="response-data">office_address_state</span>|<span class="data-type">String</span>|
 |<span class="response-data">office_address_zip</span>|<span class="data-type">String</span>|
 |<span class="response-data">office_phone_number</span>|<span class="data-type">String</span>|
+|<span class="response-data">office_visible_online</span>|<span class="data-type">Boolean</span>|
 
 
 <span class="response-data-head">moxi_works_office_id</span>
@@ -699,6 +702,10 @@ Attribute | Type |
 
 <span class="response-data-head">office_phone_number</span>
 <span class="response-data-remarks">The phone number of the office represented by this <span class='entity-name'>AlternateOffice</span> entry.</span>
+
+<span class="response-data-head">office_visible_online</span>
+<span class="response-data-remarks">Indicates the &quot;Office Visible Online&quot; value in Roster for this <span class='entity-name'>AlternateOffice</span> entry.</span> True corresponds to Yes (visible online); false corresponds to No (not visible online).</span>
+
 
 
 ###### <span class='attribute-name'>available_mls</span> Object

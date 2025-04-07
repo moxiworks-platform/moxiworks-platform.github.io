@@ -282,6 +282,16 @@ The following attributes make up the payload of the <span class='entity-name'>Ag
     }
   ],
   "profile_visible_online": true,
+  "languages": [
+    {
+        "name": "Romanian",
+        "iso_639_2": "RUM"
+    },
+    {
+        "name": "Persian",
+        "iso_639_2": "PER"
+    }
+  ],
   "user_reviews": [
     {
       "source_name": "zillow",
@@ -423,6 +433,16 @@ The following attributes make up the payload of the <span class='entity-name'>Ag
   "buyer_commission_rate": 1.25,
   "seller_commission_rate": 1.25,
   "profile_visible_online": true,
+  "languages": [
+    {
+        "name": "Romanian",
+        "iso_639_2": "RUM"
+    },
+    {
+        "name": "Persian",
+        "iso_639_2": "PER"
+    }
+  ],
   "user_reviews": [
     {
       "source_name": "zillow",
@@ -515,6 +535,7 @@ Attribute | Type |
 |<span class="response-data">created_timestamp</span>|<span class="data-type">Integer</span>|
 |<span class="response-data">deactivated_timestamp</span>|<span class="data-type">Integer or null</span>|
 |<span class="response-data">profile_visible_online</span>|<span class="data-type">Boolean</span>|
+|<span class="response-data">languages</span>|<span class="data-type">Array</span>|
 |<span class="response-data">user_reviews</span>|<span class="data-type">Array</span>|
 
 <span class="response-data-head">moxi_works_agent_id</span>
@@ -702,6 +723,9 @@ Attribute | Type |
 
 <span class="response-data-head">profile_visible_online</span>
 <span class="response-data-remarks">Indicates the &quot;Profile Visible Online&quot; value in Roster for this <span class='entity-name'>Agent</span>. True corresponds to Yes (visible online); false corresponds to No (not visible online).</span>
+
+<span class="response-data-head">languages</span>
+<span class="response-data-remarks">A list of the languages spoken by the agent. Each entry in the array contains a name and an ISO 639-2 code.</span>
 
 ###### <span class='attribute-name'>alternate_offices</span> Object
 

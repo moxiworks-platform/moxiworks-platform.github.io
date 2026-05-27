@@ -275,9 +275,12 @@
   </span><span class="nt">"SoldPrice"</span><span class="p">:</span><span class="mi">192349</span><span class="p">,</span><span class="w">
   </span><span class="nt">"BuyerAgentFullName"</span><span class="p">:</span><span class="s2">"Fred Agentguy"</span><span class="p">,</span><span class="w"> 
   </span><span class="nt">"BuyerAgentUUID"</span><span class="p">:</span><span class="s2">"deadbeef-dead-beef-dead-beefdeadbeef"</span><span class="p">,</span><span class="w"> 
-  </span><span class="nt">"BuyerAgentOfficeName"</span><span class="p">:</span><span class="s2">"Super BuyerOffice"</span><span class="p">,</span><span class="w"> 
-  </span><span class="nt">"BuyerAgentOfficeID"</span><span class="p">:</span><span class="s2">"abc123"</span><span class="p">,</span><span class="w"> 
-  </span><span class="nt">"BuyerAgentMoxiWorksOfficeID"</span><span class="p">:</span><span class="s2">"deadbeef-dead-beef-deaddeaddead"</span><span class="w">
+  </span><span class="nt">"BuyerAgentOfficeName"</span><span class="p">:</span><span class="s2">"Super BuyerOffice"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"BuyerAgentOfficeID"</span><span class="p">:</span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"BuyerAgentMoxiWorksOfficeID"</span><span class="p">:</span><span class="s2">"deadbeef-dead-beef-deaddeaddead"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"client_office_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"alternate_office_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"def456"</span><span class="p">],</span><span class="w">
+  </span><span class="nt">"client_agent_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ghi789"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -592,6 +595,18 @@
 <td><span class="response-data">BuyerAgentMoxiWorksOfficeID</span></td>
 <td><span class="response-data"><span class="data-type">String</span></td>
 </tr>
+<tr>
+<td><span class="response-data">client_office_id</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">alternate_office_ids</span></td>
+<td><span class="response-data"><span class="data-type">Array</span></td>
+</tr>
+<tr>
+<td><span class="response-data">client_agent_id</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
 </tbody></table>
 
 <p><span class="response-data-head">LotSizeAcres</span>
@@ -797,6 +812,15 @@
 
 <p><span class="response-data-head">BuyerAgentMoxiWorksOfficeID</span>
 <span class="response-data-remarks">The MoxiWorks ID of the buyer agent&rsquo;s office.</span></p>
+
+<p><span class="response-data-head">client_office_id</span>
+<span class="response-data-remarks">The client-specific office identifier associated with this listing.</span></p>
+
+<p><span class="response-data-head">alternate_office_ids</span>
+<span class="response-data-remarks">An alternate office identifier associated with this listing.</span></p>
+
+<p><span class="response-data-head">client_agent_id</span>
+<span class="response-data-remarks">The client-specific agent identifier associated with this listing.</span></p>
 
 <h6 id="companylistingattributes-objects"><span class='attribute-name'>CompanyListingAttributes</span> Objects</h6>
 

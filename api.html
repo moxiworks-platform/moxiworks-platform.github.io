@@ -21070,7 +21070,10 @@ The following attributes make up the payload of each <span class='entity-name'>L
   </span><span class="p">],</span><span class="w">
   </span><span class="nt">"BuyerCommissionType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"percent"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"BuyerCommissionValue"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.5"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"VendorModificationTimestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-20T11:04:55.659-07:00"</span><span class="w">
+  </span><span class="nt">"VendorModificationTimestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-20T11:04:55.659-07:00"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"client_office_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"alternate_office_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"def456"</span><span class="p">],</span><span class="w">
+  </span><span class="nt">"client_agent_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ghi789"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -21377,6 +21380,18 @@ The following attributes make up the payload of each <span class='entity-name'>L
 <td><span class="response-data">VendorModificationTimestamp</span></td>
 <td><span class="response-data"><span class="data-type">String or null</span></td>
 </tr>
+<tr>
+<td><span class="response-data">client_office_id</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">alternate_office_ids</span></td>
+<td><span class="response-data"><span class="data-type">Array</span></td>
+</tr>
+<tr>
+<td><span class="response-data">client_agent_id</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
 </tbody></table>
 
 <p><span class="response-data-head">LotSizeAcres</span>
@@ -21579,6 +21594,15 @@ The following attributes make up the payload of each <span class='entity-name'>L
 
 <p><span class="response-data-head">VendorModificationTimestamp</span>
 <span class="response-data-remarks">The date when a listing was last modified by the vendor.</span></p>
+
+<p><span class="response-data-head">client_office_id</span>
+<span class="response-data-remarks">The client-specific office identifier associated with this listing.</span></p>
+
+<p><span class="response-data-head">alternate_office_ids</span>
+<span class="response-data-remarks">An alternate office identifier associated with this listing.</span></p>
+
+<p><span class="response-data-head">client_agent_id</span>
+<span class="response-data-remarks">The client-specific agent identifier associated with this listing.</span></p>
 
 <h6 id="propertyfeature-objects"><span class='attribute-name'>PropertyFeature</span> Objects</h6>
 
@@ -22348,7 +22372,10 @@ The following attributes make up the payload of each <span class='entity-name'>L
   </span><span class="p">],</span><span class="w">
   </span><span class="nt">"BuyerCommissionType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"percent"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"BuyerCommissionValue"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.5"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"VendorModificationTimestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-20T11:04:55.659-07:00"</span><span class="w">
+  </span><span class="nt">"VendorModificationTimestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-20T11:04:55.659-07:00"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"client_office_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"alternate_office_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"def456"</span><span class="p">],</span><span class="w">
+  </span><span class="nt">"client_agent_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ghi789"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -22430,7 +22457,10 @@ The following attributes make up the payload of each <span class='entity-name'>L
   </span><span class="nt">"ListingImages"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
   </span><span class="nt">"BuyerCommissionType"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"BuyerCommissionValue"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"VendorModificationTimestamp"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="nt">"VendorModificationTimestamp"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"client_office_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"alternate_office_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+  </span><span class="nt">"client_agent_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -22767,6 +22797,18 @@ The following attributes make up the payload of each <span class='entity-name'>L
 <td><span class="response-data">VendorModificationTimestamp</span></td>
 <td><span class="response-data"><span class="data-type">String or null</span></td>
 </tr>
+<tr>
+<td><span class="response-data">client_office_id</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">alternate_office_ids</span></td>
+<td><span class="response-data"><span class="data-type">Array</span></td>
+</tr>
+<tr>
+<td><span class="response-data">client_agent_id</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
 </tbody></table>
 
 <p><span class="response-data-head">LotSizeAcres</span>
@@ -22972,6 +23014,15 @@ The following attributes make up the payload of each <span class='entity-name'>L
 
 <p><span class="response-data-head">VendorModificationTimestamp</span>
 <span class="response-data-remarks">The date when a listing was last modified by the vendor.</span></p>
+
+<p><span class="response-data-head">client_office_id</span>
+<span class="response-data-remarks">The client-specific office identifier associated with this listing.</span></p>
+
+<p><span class="response-data-head">alternate_office_ids</span>
+<span class="response-data-remarks">An alternate office identifier associated with this listing.</span></p>
+
+<p><span class="response-data-head">client_agent_id</span>
+<span class="response-data-remarks">The client-specific agent identifier associated with this listing.</span></p>
 
 <h6 id="propertyfeature-objects"><span class='attribute-name'>PropertyFeature</span> Objects</h6>
 
@@ -27719,9 +27770,12 @@ moxi_works_agent_id=abc123
   </span><span class="nt">"SoldPrice"</span><span class="p">:</span><span class="mi">192349</span><span class="p">,</span><span class="w">
   </span><span class="nt">"BuyerAgentFullName"</span><span class="p">:</span><span class="s2">"Fred Agentguy"</span><span class="p">,</span><span class="w"> 
   </span><span class="nt">"BuyerAgentUUID"</span><span class="p">:</span><span class="s2">"deadbeef-dead-beef-dead-beefdeadbeef"</span><span class="p">,</span><span class="w"> 
-  </span><span class="nt">"BuyerAgentOfficeName"</span><span class="p">:</span><span class="s2">"Super BuyerOffice"</span><span class="p">,</span><span class="w"> 
-  </span><span class="nt">"BuyerAgentOfficeID"</span><span class="p">:</span><span class="s2">"abc123"</span><span class="p">,</span><span class="w"> 
-  </span><span class="nt">"BuyerAgentMoxiWorksOfficeID"</span><span class="p">:</span><span class="s2">"deadbeef-dead-beef-deaddeaddead"</span><span class="w">
+  </span><span class="nt">"BuyerAgentOfficeName"</span><span class="p">:</span><span class="s2">"Super BuyerOffice"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"BuyerAgentOfficeID"</span><span class="p">:</span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"BuyerAgentMoxiWorksOfficeID"</span><span class="p">:</span><span class="s2">"deadbeef-dead-beef-deaddeaddead"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"client_office_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"alternate_office_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"def456"</span><span class="p">],</span><span class="w">
+  </span><span class="nt">"client_agent_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ghi789"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -28036,6 +28090,18 @@ moxi_works_agent_id=abc123
 <td><span class="response-data">BuyerAgentMoxiWorksOfficeID</span></td>
 <td><span class="response-data"><span class="data-type">String</span></td>
 </tr>
+<tr>
+<td><span class="response-data">client_office_id</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">alternate_office_ids</span></td>
+<td><span class="response-data"><span class="data-type">Array</span></td>
+</tr>
+<tr>
+<td><span class="response-data">client_agent_id</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
 </tbody></table>
 
 <p><span class="response-data-head">LotSizeAcres</span>
@@ -28241,6 +28307,15 @@ moxi_works_agent_id=abc123
 
 <p><span class="response-data-head">BuyerAgentMoxiWorksOfficeID</span>
 <span class="response-data-remarks">The MoxiWorks ID of the buyer agent&rsquo;s office.</span></p>
+
+<p><span class="response-data-head">client_office_id</span>
+<span class="response-data-remarks">The client-specific office identifier associated with this listing.</span></p>
+
+<p><span class="response-data-head">alternate_office_ids</span>
+<span class="response-data-remarks">An alternate office identifier associated with this listing.</span></p>
+
+<p><span class="response-data-head">client_agent_id</span>
+<span class="response-data-remarks">The client-specific agent identifier associated with this listing.</span></p>
 
 <h6 id="companylistingattributes-objects"><span class='attribute-name'>CompanyListingAttributes</span> Objects</h6>
 
@@ -28831,9 +28906,12 @@ moxi_works_agent_id=abc123
   </span><span class="nt">"SoldPrice"</span><span class="p">:</span><span class="mi">192349</span><span class="p">,</span><span class="w">
   </span><span class="nt">"BuyerAgentFullName"</span><span class="p">:</span><span class="s2">"Fred Agentguy"</span><span class="p">,</span><span class="w"> 
   </span><span class="nt">"BuyerAgentUUID"</span><span class="p">:</span><span class="s2">"deadbeef-dead-beef-dead-beefdeadbeef"</span><span class="p">,</span><span class="w"> 
-  </span><span class="nt">"BuyerAgentOfficeName"</span><span class="p">:</span><span class="s2">"Super BuyerOffice"</span><span class="p">,</span><span class="w"> 
-  </span><span class="nt">"BuyerAgentOfficeID"</span><span class="p">:</span><span class="s2">"abc123"</span><span class="p">,</span><span class="w"> 
-  </span><span class="nt">"BuyerAgentMoxiWorksOfficeID"</span><span class="p">:</span><span class="s2">"deadbeef-dead-beef-deaddeaddead"</span><span class="w">
+  </span><span class="nt">"BuyerAgentOfficeName"</span><span class="p">:</span><span class="s2">"Super BuyerOffice"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"BuyerAgentOfficeID"</span><span class="p">:</span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"BuyerAgentMoxiWorksOfficeID"</span><span class="p">:</span><span class="s2">"deadbeef-dead-beef-deaddeaddead"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"client_office_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"alternate_office_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"def456"</span><span class="p">],</span><span class="w">
+  </span><span class="nt">"client_agent_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ghi789"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -29176,6 +29254,18 @@ moxi_works_agent_id=abc123
 <td><span class="response-data">BuyerAgentMoxiWorksOfficeID</span></td>
 <td><span class="response-data"><span class="data-type">String</span></td>
 </tr>
+<tr>
+<td><span class="response-data">client_office_id</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
+<tr>
+<td><span class="response-data">alternate_office_ids</span></td>
+<td><span class="response-data"><span class="data-type">Array</span></td>
+</tr>
+<tr>
+<td><span class="response-data">client_agent_id</span></td>
+<td><span class="response-data"><span class="data-type">String or null</span></td>
+</tr>
 </tbody></table>
 
 <p><span class="response-data-head">LotSizeAcres</span>
@@ -29381,6 +29471,15 @@ moxi_works_agent_id=abc123
 
 <p><span class="response-data-head">BuyerAgentMoxiWorksOfficeID</span>
 <span class="response-data-remarks">The MoxiWorks ID of the buyer agent&rsquo;s office.</span></p>
+
+<p><span class="response-data-head">client_office_id</span>
+<span class="response-data-remarks">The client-specific office identifier associated with this listing.</span></p>
+
+<p><span class="response-data-head">alternate_office_ids</span>
+<span class="response-data-remarks">An alternate office identifier associated with this listing.</span></p>
+
+<p><span class="response-data-head">client_agent_id</span>
+<span class="response-data-remarks">The client-specific agent identifier associated with this listing.</span></p>
 
 <h6 id="companylistingattributes-objects"><span class='attribute-name'>CompanyListingAttributes</span> Objects</h6>
 

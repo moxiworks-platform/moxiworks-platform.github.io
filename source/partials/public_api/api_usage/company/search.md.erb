@@ -111,6 +111,8 @@ Attribute | Type | Length Limit |
     "name":"Bob's Brokerage",
     "numeric_id": "1234567",
     "client_company_id":"some_external_identifier",
+    "country_code": "US",
+    "locale": "en-US",
     "public_partner_attrs": {
       "is_nrt": false
     }
@@ -148,6 +150,8 @@ The following attributes make up the payload of each <span class='entity-name'>C
   "name":"Bob's Brokerage",
   "numeric_id": "1234567",
   "client_company_id":"some_external_identifier",
+  "country_code": "US",
+  "locale": "en-US",
   "public_partner_attrs": {
     "is_nrt": false
   }
@@ -156,6 +160,8 @@ The following attributes make up the payload of each <span class='entity-name'>C
   "name":"Real Estate Two-Bajillion",
   "numeric_id": "12345678",
   "client_company_id":"someOtherExternalIdentifier",
+  "country_code": "US",
+  "locale": "en-US",
    "public_partner_attrs": {
     "is_nrt": true
   }
@@ -187,6 +193,8 @@ Attribute | Type |
 |<span class="response-data">numeric_id</span>|<span class="data-type">String</span>|
 |<span class="response-data">client_company_id</span>|<span class="data-type">String</span>|
 |<span class="response-data">public_partner_attrs</span>|<span class="data-type">Hash or null</span>|
+|<span class="response-data">country_code</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">locale</span>|<span class="data-type">String or null</span>|
 
 <span class="response-data-head">numeric_id</span>
 <span class="response-data-remarks">This is the numeric company id that is interchangeable with the <span class='attribute-name'>moxi_works_agent_id</span> in all request scenarios</span>
@@ -199,3 +207,9 @@ Attribute | Type |
 
 <span class="response-data-head">public_partner_attrs</span>
 <span class="response-data-remarks">Exposed company attributes</span>
+
+<span class="response-data-head">country_code</span>
+<span class="response-data-remarks">ISO 3166-1 alpha-2 code of the country the company operates in, for example US, CA, GB or AU. This can be null if the brokerage has not set a country.</span>
+
+<span class="response-data-head">locale</span>
+<span class="response-data-remarks">BCP 47 language tag of the language preference set for the company, for example en-US or en-AU. This can be null if the brokerage has not set a language preference.</span>

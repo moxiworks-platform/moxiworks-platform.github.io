@@ -94,6 +94,8 @@ Attribute | Type | Length Limit |
     "name":"Bob's Brokerage",
     "numeric_id": "1234567",
     "client_company_id":"some_external_identifier",
+    "country_code": "US",
+    "locale": "en-US",
     "public_partner_attrs": {
       "is_nrt": false
     }
@@ -129,6 +131,8 @@ Attribute | Type |
 |<span class="response-data">client_company_id</span>|<span class="data-type">String</span>|
 |<span class="response-data">partners</span>|<span class="data-type">Array</span>|
 |<span class="response-data">public_partner_attrs</span>|<span class="data-type">Hash or null</span>|
+|<span class="response-data">country_code</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">locale</span>|<span class="data-type">String or null</span>|
 
 <span class="response-data-head">moxi_works_company_id</span>
 <span class="response-data-remarks">This is the MoxiWorks Platform ID of the <span class='entity-name'>Company</span>. This will be an alphanumeric identification string which will be similar to the company name.</span>
@@ -147,6 +151,12 @@ Attribute | Type |
 
 <span class="response-data-head">public_partner_attrs</span>
 <span class="response-data-remarks">Exposed company attributes</span>
+
+<span class="response-data-head">country_code</span>
+<span class="response-data-remarks">ISO 3166-1 alpha-2 code of the country the company operates in, for example US, CA, GB or AU. This can be null if the brokerage has not set a country.</span>
+
+<span class="response-data-head">locale</span>
+<span class="response-data-remarks">BCP 47 language tag of the language preference set for the company, for example en-US or en-AU. This can be null if the brokerage has not set a language preference.</span>
 
 
 ###### <span class='attribute-name'>partners</span> Objects

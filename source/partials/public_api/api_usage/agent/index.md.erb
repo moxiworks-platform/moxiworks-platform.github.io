@@ -267,6 +267,8 @@ Attribute | Type  | Length Limit |
   "office_address_city": "Officeville",
   "office_address_state": "AG",
   "office_address_zip": "12345",
+  "office_country_code": "US",
+  "office_locale": "en-US",
   "office_mailing_address_street": "1236 Mailbox Ave.",
   "office_mailing_address_street2":"Box 43",
   "office_mailing_address_city": "Mailtown",
@@ -443,6 +445,8 @@ Attribute | Type |
 |<span class="response-data">office_mailing_address_city</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">office_mailing_address_state</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">office_mailing_address_zip</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">office_country_code</span>|<span class="data-type">String or null</span>|
+|<span class="response-data">office_locale</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">name</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">first_name</span>|<span class="data-type">String or null</span>|
 |<span class="response-data">last_name</span>|<span class="data-type">String or null</span>|
@@ -551,6 +555,12 @@ Attribute | Type |
 
 <span class="response-data-head">office_mailing_address_zip</span>
 <span class="response-data-remarks">The postal code the agent's office's mailing address is in. This can be null if there is no data for this attribute.</span>
+
+<span class="response-data-head">office_country_code</span>
+<span class="response-data-remarks">ISO 3166-1 alpha-2 code of the country the agent's office operates in, for example US, CA, GB or AU. This can be null if the brokerage has not set a country.</span>
+
+<span class="response-data-head">office_locale</span>
+<span class="response-data-remarks">BCP 47 language tag of the language preference set for the agent's office, for example en-US or en-AU. This can be null if the brokerage has not set a language preference.</span>
 
 <span class="response-data-head">name</span>
 <span class="response-data-remarks">The full name of the agent. This can be null if there is no data for this attribute.</span>
